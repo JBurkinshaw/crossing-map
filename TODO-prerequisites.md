@@ -8,3 +8,4 @@ Work does not wait for these. Each line names what is missing, what is stubbed u
 - [ ] **micromamba / QGIS.** `micromamba` fails with a missing `libnettle.8.dylib`. Try `brew reinstall micromamba`. Needed for the hachure treatments in stage 3.
 - [ ] **DRM-free EPUB.** Put it in `private/book/`. Needed for page anchors in stage 4.
 - [ ] **Inkscape and `potrace` or `vtracer`.** Needed for vignettes in stage 6.
+- [ ] **Cartographers' Guild login.** The forum is closed to logged-out visitors. In `tools/`, run `npm run guild-login`, log in (tick "Remember Me"), and close the window. Then `npm run guild-browse` saves screenshots to `private/inspiration/guild/` and titles to `docs/inspiration/guild.md`. Until then stage 2 styles from the Rumsey maps and the plan's own references.

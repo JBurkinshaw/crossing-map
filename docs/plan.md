@@ -200,7 +200,7 @@ The look is an endpaper map from a 1940s novel, drawn by a surveyor who also ske
 
 **Browsing the Cartographers' Guild (v5).** The site's `robots.txt` (read 11 November 2026) is `Disallow: /` for every agent except Googlebot and Bingbot, so Claude Code's fetch tool gets nothing. Your decision: browse it with an automated real browser that behaves as you would. The risk is yours and small: a forum may treat this as a breach of its rules and block the session or the account.
 
-1. `tools/guild-browse/` runs Playwright in headed mode with a persistent profile kept in `private/browser-profile/` (git-ignored). It uses an installed browser (Chrome Canary on this machine), so the user agent, cookies and any login are those of a normal visit. Log in once in that window if a thread needs it.
+1. `tools/guild-browse/` runs Playwright in headed mode with a persistent profile kept in `private/browser-profile/` (git-ignored). It uses an installed browser (Chrome Canary on this machine), so the user agent, cookies and any login are those of a normal visit. The forum shows nothing to logged-out visitors (checked 11 November 2026: `forum.php` returns a login page), so you log in once with `npm run guild-login` in `tools/`; the profile keeps the session.
 2. It opens one page at a time, waits 8–20 seconds between pages, scrolls as a reader does, and stops after a fixed page budget per run (40). No parallel tabs, no attachment downloads, no search endpoint.
 3. It saves a screenshot of each thread to `private/inspiration/guild/` and appends the thread title and URL to `docs/inspiration/guild.md`. The index is committed; the images are not.
 4. If the site shows a challenge or a block page, the run stops and reports it. It does not try to defeat it.

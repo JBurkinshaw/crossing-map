@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "review-packet": "node review-packet.mjs"
+    "review-packet": "node review-packet.mjs",
+    "guild-browse": "node guild-browse/browse.mjs",
+    "guild-login": "node guild-browse/login.mjs"
   },
   "dependencies": {
     "playwright": "1.65.0"
