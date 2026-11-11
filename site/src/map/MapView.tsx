@@ -1,6 +1,6 @@
 import { useMemo, useState, type Ref } from 'react'
 import * as maplibregl from 'maplibre-gl'
-import { Map, NavigationControl, Popup, type MapRef } from '@vis.gl/react-maplibre'
+import { Map, NavigationControl, Popup, ScaleControl, type MapRef } from '@vis.gl/react-maplibre'
 import { Protocol } from 'pmtiles'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
@@ -17,6 +17,7 @@ maplibregl.addProtocol('pmtiles', new Protocol().tile)
 
 // The pmtiles protocol needs an absolute URL to make range requests against.
 const tilesBase = new URL(`${import.meta.env.BASE_URL}tiles/`, window.location.origin).href
+const fontsBase = new URL(`${import.meta.env.BASE_URL}fonts/`, window.location.origin).href
 
 type Picked = { lon: number; lat: number; props: StoryProps }
 
@@ -29,7 +30,7 @@ type Props = {
 }
 
 export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props) {
-  const style = useMemo(() => literaryStyle(tilesBase), [])
+  const style = useMemo(() => literaryStyle(tilesBase, fontsBase), [])
   const [picked, setPicked] = useState<Picked | null>(null)
 
   return (
@@ -52,6 +53,8 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
       style={{ position: 'absolute', inset: 0 }}
     >
       <NavigationControl position="top-left" showCompass={false} />
+      {/* Miles, the book's own unit. */}
+      <ScaleControl position="bottom-left" unit="imperial" maxWidth={140} />
       {story && <StoryLayers story={story} stops={stops} stopIndex={stopIndex} onSelectStop={onSelectStop} />}
       {picked && (
         <Popup longitude={picked.lon} latitude={picked.lat} onClose={() => setPicked(null)} maxWidth="280px">
@@ -64,6 +67,16 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
         </Popup>
       )}
     </Map>
+    <div className="cartouche" aria-hidden="true">
+      <svg className="north" viewBox="0 0 24 48" width="14" height="28">
+        <path d="M12 2 L18 30 L12 24 L6 30 Z" fill="currentColor" />
+        <text x="12" y="45" textAnchor="middle" fontSize="12">N</text>
+      </svg>
+      <div>
+        <div className="cartouche-title">The Crossing</div>
+        <div className="cartouche-sub">Sonora, Chihuahua &amp; the New Mexico bootheel</div>
+      </div>
+    </div>
     </div>
   )
 }

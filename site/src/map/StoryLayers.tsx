@@ -2,7 +2,7 @@ import { Layer, Marker, Source } from '@vis.gl/react-maplibre'
 import type { ExpressionSpecification } from 'maplibre-gl'
 import type { Feature, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
-import { journeyInk, tokens } from './tokens'
+import { fonts, journeyInk, tokens } from './tokens'
 
 const inkByJourney: ExpressionSpecification = [
   'match', ['get', 'journey'], 'J1', journeyInk.J1, 'J2', journeyInk.J2, tokens.ink,
@@ -57,6 +57,21 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop }: Props) {
             'circle-stroke-color': tokens.ink,
             'circle-stroke-width': 1.2,
           }}
+        />
+        <Layer
+          id="places-label"
+          type="symbol"
+          layout={{
+            'text-field': ['get', 'name'],
+            // Ranges, valleys and streams in spaced italic, as on the survey sheets; settlements in roman.
+            'text-font': ['match', ['get', 'kind'], ['range', 'valley', 'stream', 'spring', 'plain'], ['literal', [fonts.italic]], ['literal', [fonts.roman]]],
+            'text-letter-spacing': ['match', ['get', 'kind'], ['range', 'valley'], 0.15, 0.02],
+            'text-size': ['match', ['get', 'kind'], ['range', 'valley'], 14, 12.5],
+            'text-anchor': 'top',
+            'text-offset': [0, 0.6],
+            'text-optional': true,
+          }}
+          paint={{ 'text-color': tokens.ink, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 }}
         />
       </Source>
       {stops.map((f, i) => (

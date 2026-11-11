@@ -156,3 +156,47 @@ select {
   background: var(--paper);
   font-family: inherit;
 }
+
+.cartouche {
+  position: absolute;
+  right: 12px;
+  bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  background: var(--paper);
+  pointer-events: none;
+}
+
+.cartouche-title {
+  font-size: 1.15rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cartouche-sub {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.north {
+  color: var(--ink);
+  font-family: inherit;
+}
+
+.maplibregl-ctrl-scale {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+  font-family: inherit;
+}
+
+@media (max-width: 720px) {
+  .cartouche {
+    display: none;
+  }
+}
