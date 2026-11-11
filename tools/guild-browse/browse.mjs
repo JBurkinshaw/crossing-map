@@ -22,8 +22,10 @@ const HOME = 'https://www.cartographersguild.com/forum.php'
 const budgetArg = process.argv.indexOf('--budget')
 const BUDGET = budgetArg > 0 ? Number(process.argv[budgetArg + 1]) : 40
 
-// Forums to open from the home page, matched on link text.
-const FORUMS = [/^tutorials$/i, /finished maps/i, /map challenge/i]
+// Forums to open from the forum index, matched on link text, most useful first.
+const FORUMS = [/^tutorials\/how-to$/i, /^pen and paper/i, /^mapping elements$/i, /^finished maps$/i, /^mapping challenge archive$/i]
+// Listing pages to read per forum; thread titles on later pages are older.
+const LISTING_PAGES = 3
 // Threads worth a screenshot, matched on thread title (plan, section 5.1).
 const TOPICS = [
   /gidde/i, /hand[- ]?drawn/i, /mountains?/i, /weathered|old paper|parchment/i, /saderan/i,
@@ -91,14 +93,20 @@ async function main() {
     const forums = [...new Map(forumLinks.map((l) => [l.href, l])).values()]
     console.log(`Forums matched: ${forums.map((f) => f.text).join(', ') || 'none'}`)
 
-    for (const forum of forums) {
-      await pause()
-      if (!(await visit(page, forum.href))) break
-      const threads = (await links(page, 'a[href*="showthread"], a[href*="/threads/"]'))
-        .map((l) => ({ ...l, href: l.href.split('#')[0] }))
-        .filter((l) => TOPICS.some((re) => re.test(l.text)) && !seen.has(l.href))
-      const unique = [...new Map(threads.map((l) => [l.href, l])).values()]
-      for (const thread of unique) {
+    for (const forum of FORUMS.map((re) => forums.find((f) => re.test(f.text))).filter(Boolean)) {
+      const unique = new Map()
+      for (let n = 1; n <= LISTING_PAGES; n++) {
+        await pause()
+        if (!(await visit(page, n === 1 ? forum.href : `${forum.href}&page=${n}`))) break
+        // vBulletin marks each thread's title link with class "title"; other links on the row go to pages or posts.
+        for (const l of await links(page, 'a.title[href*="showthread"]')) {
+          const id = new URL(l.href).searchParams.get('t')
+          const href = `https://www.cartographersguild.com/showthread.php?t=${id}`
+          if (id && TOPICS.some((re) => re.test(l.text)) && !seen.has(href)) unique.set(href, { text: l.text, href })
+        }
+      }
+      console.log(`${forum.text}: ${unique.size} matching threads`)
+      for (const thread of unique.values()) {
         await pause()
         if (!(await visit(page, thread.href))) break
         const slug = thread.text.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 60)
