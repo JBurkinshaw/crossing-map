@@ -11,17 +11,17 @@ J1,9,j1-skeleton-creek,skeleton-creek,"Skeleton Creek, south fork",,,,approximat
 J1,10,j1-starvation-canyon,starvation-canyon,Starvation Canyon,,,,approximate,1-04,"GNIS 11797, Cochise County, 6 km from Skeleton Canyon."
 J1,11,j1-hog-canyon-spring,hog-canyon-spring,Hog Canyon Springs,,,,approximate,1-04,"GNIS 5857, Cochise County, 9 km from Starvation Canyon."
 J1,12,j1-clanton-foster,,Between Clanton and Foster draws,31.52,-108.87,3,inferred,1-04,"The high country between Clanton Draw (GNIS 887634) and Foster Draw (GNIS 889164), which lie 3 km apart."
-J1,13,j1-cloverdale-creek,cloverdale-creek,Cloverdale Creek (the trap),,,,approximate,1-05,
-J2,1,j2-cloverdale,cloverdale,Cloverdale,,,,located,1-07,
-J2,2,j2-cloverdale-creek,cloverdale-creek,Cloverdale Creek road,,,,approximate,1-07,
-J2,3,j2-robertson-crossfence,,Robertson's crossfence,31.39,-108.96,4,inferred,1-07,Between the Cloverdale Creek road and the Guadalupe pass. No Robertson ranch is in GNIS; the circle covers the ground between the two.
-J2,4,j2-guadalupe-pass,guadalupe-mountains,Low pass in the easternmost Guadalupes,31.37,-108.96,,approximate,1-07,"The east flank of the Guadalupe Mountains (GNIS 920606), where a pass would lead south-west toward the boundary."
-J2,5,j2-volcanic-plain-ranch,,Ranch house on the volcanic plain,31.38,-109.15,8,inferred,1-07,"Past the Guadalupes and before the boundary. The San Bernardino volcanic field lies on that line, in Arizona; reading it as the book's volcanic plain is our inference."
-J2,6,j2-boundary-obelisk,,"The boundary, obelisk in sight",31.335,-109.2,6,inferred,1-08,"Boundary monuments stand along 31°20′ N here. The circle covers the stretch south of the volcanic plain and north of Cajón Bonito."
-J2,7,j2-cajon-bonito,cajon-bonito,Cajón Bonito trail south,,,,approximate,1-08,"GeoNames 4016262, the Cajón Bonito nearest the boundary; the other two are 89 km and 122 km away."
-J2,8,j2-sierra-de-la-cabellera,sierra-de-la-cabellera,Passes of the Sierra de la Cabellera,,,,approximate,1-08,
-J2,9,j2-colonia-oaxaca,colonia-oaxaca,River crossing at Colonia Oaxaca,,,,approximate,1-09,"GeoNames 4013341 (named Oaxaca), on the Bavispe 19 km from Colonia Morelos. Colonia Oaxaca (El Marquesote) in Chihuahua, 89 km east, is a different place."
+J1,13,j1-cloverdale-creek,cloverdale-creek,Cloverdale Creek (the trap),,,,approximate,1-08,
+J2,1,j2-cloverdale,cloverdale,Cloverdale,,,,located,1-08,
+J2,2,j2-cloverdale-creek,cloverdale-creek,Cloverdale Creek road,,,,approximate,1-08,
+J2,3,j2-robertson-crossfence,,Robertson's crossfence,31.39,-108.96,4,inferred,1-08,Between the Cloverdale Creek road and the Guadalupe pass. No Robertson ranch is in GNIS; the circle covers the ground between the two.
+J2,4,j2-guadalupe-pass,guadalupe-mountains,Low pass in the easternmost Guadalupes,31.37,-108.96,,approximate,1-08,"The east flank of the Guadalupe Mountains (GNIS 920606), where a pass would lead south-west toward the boundary."
+J2,5,j2-volcanic-plain-ranch,,Ranch house on the volcanic plain,31.38,-109.15,8,inferred,1-09,"Past the Guadalupes and before the boundary. The San Bernardino volcanic field lies on that line, in Arizona; reading it as the book's volcanic plain is our inference."
+J2,6,j2-boundary-monument,,"The boundary, a monument in sight",31.335,-109.2,6,inferred,1-09,Boundary monuments stand along 31°20′ N here. The circle covers the stretch south of the volcanic plain and north of the Cajon Bonita.
+J2,7,j2-cajon-bonito,cajon-bonito,Down the Cajon Bonita,,,,approximate,1-09,"The book spells it Cajon Bonita. GeoNames 4016262, the Cajón Bonito nearest the boundary; the other two are 89 km and 122 km away."
+J2,8,j2-sierra-de-la-cabellera,sierra-de-la-cabellera,Passes of the Sierra de la Cabellera,,,,approximate,1-09,
+J2,9,j2-colonia-oaxaca,colonia-oaxaca,The river crossing (the deputies),,,,approximate,1-09,"GeoNames 4013341 (named Oaxaca), on the Bavispe 19 km from Colonia Morelos. Colonia Oaxaca (El Marquesote) in Chihuahua, 89 km east, is a different place."
 J2,10,j2-mud-settlement,,The mud-house settlement,30.78,-109.14,6,inferred,1-09,Unnamed. Between the crossing at Colonia Oaxaca and Colonia Morelos.
 J2,11,j2-colonia-morelos,colonia-morelos,Colonia Morelos (the fair),,,,located,1-09,
-J2,12,j2-batepito-hacienda,,Hacienda on the Batepito plain,30.82,-109.22,5,inferred,1-10,"Unnamed. Centred on Batepito (GeoNames 4017288), on the plain beside the Bavispe."
+J2,12,j2-hacienda,,The hacienda,30.82,-109.22,10,inferred,1-10,"Unnamed in the book. It lies by a river within a day of Colonia Morelos and the Pilares Teras; the circle is centred near Morelos and sized to that reach. Earlier notes placed it on the Batepito plain, but the book does not name Batepito."
 J2,13,j2-pilares-de-teras,pilares-de-teras,Into the Pilares Teras,,,,approximate,1-10,"GeoNames 3981872, Sierra de Teras, which GeoNames also lists as Pilares de Teras."

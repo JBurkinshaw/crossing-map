@@ -49,7 +49,7 @@ The rule for moving anything from P2 to P1: it must make the reading experience 
 
 ## 2. The book, read for places
 
-The novel has four Parts and no chapter numbers. McCarthy marks scene breaks with small-capital openings; there are 40 of these "episodes" (10 + 8 + 14 + 8). They are the site's unit for chapters, spoiler progress and step-through. Pages are cited by the 1995 Vintage International paperback, the edition the Campbell translation guide uses.
+The novel has four Parts and no chapter numbers. McCarthy marks scene breaks with small-capital openings; there are 41 of these "episodes" (10 + 8 + 14 + 9; v5: counted from the text, which has a ninth Part IV opening, "Gray sky", that earlier versions missed). They are the site's unit for chapters, spoiler progress and step-through. Pages are cited by the 1995 Vintage International paperback, the edition the Campbell translation guide uses.
 
 ### 2.1 Episodes
 
@@ -58,7 +58,7 @@ The novel has four Parts and no chapter numbers. McCarthy marks scene breaks wit
 | I | When they came south · They rode · When Billy · The wolf · In the woods · When they ran · He left · Two days later · They crossed · The hacienda |
 | II | Doomed enterprises · When he had · He would cross · He was all day · When he got back · The sheriff looked · The house · He found Boyd |
 | III | It was all but dark · They made camp · In three days' riding · They rode on south · In the evening · Noon the following day · They sat · They left the road · It was near midnight · The doctor's mozo · When Boyd awoke · It was almost dark · The next day · Three days later |
-| IV | He crossed the border · He camped that night · He signed · He'd not got clear · None in that town · In the evening · Four days later · He woke |
+| IV | He crossed the border · He camped that night · He signed · He'd not got clear · None in that town · Gray sky · In the evening · Four days later · He woke |
 
 Spoiler-safe one-line summaries for `episodes.json` are written by you, not pulled from the text.
 
@@ -68,7 +68,7 @@ Each journey below is a route layer. Stops are in narrative order. "(area)" mark
 
 **J1. The she-wolf, north out of Sonora (Part I).** Sierra de la Madera (eastern slopes) → crosses the Bavispe → border at the 30th minute of the 108th meridian (the book gives this exactly) → old Nations road → Whitewater Creek → San Luis Mountains → Animas range → Animas Valley → Peloncillos: Foster Draw (the calf) → ranges west into Cochise County: south fork of Skeleton Creek, Starvation Canyon, Hog Canyon Springs → back to the high country between Clanton and Foster draws → trapped near the vaqueros' fire on Cloverdale Creek.
 
-**J2. Billy's first crossing, with the wolf (Part I).** Cloverdale → Cloverdale Creek road (vaqueros' fire) → Robertson's crossfence (area) → low pass in the easternmost Guadalupes → ranch house on the volcanic plain (area) → boundary, obelisk in sight → Cajón Bonito trail south → Sierra de la Cabellera passes → Bavispe valley; colonia lights at ten miles → river crossing where deputies take him (the hacendado names it: Colonia de Oaxaca) → unnamed mud-house settlement (area) → Colonia Morelos, the fair → hacienda on the Batepito plain (area) → the fight → carries the dead wolf into the Pilares Teras.
+**J2. Billy's first crossing, with the wolf (Part I).** Cloverdale → Cloverdale Creek road (vaqueros' fire) → Robertson's crossfence (area) → low pass in the easternmost Guadalupes → ranch house on the volcanic plain (area) → boundary, a monument in sight → the Cajon Bonita (the book's spelling) trail south → Sierra de la Cabellera passes → Bavispe valley; colonia lights at ten miles → river crossing where deputies take him (the hacendado names it: Colonia de Oaxaca) → unnamed mud-house settlement (area) → Colonia Morelos, the fair → the hacienda, unnamed, by the river (area; v5: the book does not name Batepito) → the fight → carries the dead wolf into the Pilares Teras.
 
 **J3. Billy alone in the Sierras, and home (Part II).** Bavispe seen "running backwards" from a promontory → deep into the Sierras among wild Indians (area, weeks) → looks east over the Bavispe barranca and the Carretas Plain → the Mormon-born heretic's house in Huisiachepic, ruined church, the tale of Caborca (tale places: Caborca on the Altar River, Bavispe, Batepito, the earthquake) → Tamichopa → Bacerac (old Santa María, founded 1642) → Bavispe → Colonia de Oaxaca → Morelos → road north toward Ojito → border crossing at Douglas, Arizona (John Gilchrist) → old Douglas–Cloverdale road, pass in the Guadalupes → Animas Plain → the Parham house (parents dead) → Animas → Lordsburg (sheriff) → the Websters' (Boyd).
 
@@ -82,7 +82,7 @@ Each journey below is a route layer. Stops are in narrative order. "(area)" mark
 
 ### 2.3 Places named only in passing or in tales
 
-Part I's list stands from the prototype (Albuquerque, Grant County, De Baca County, Texas, Pennsylvania, Agua Prieta, Casas Grandes, Ascensión, San Luis Pass, Black Point, Animas). The later Parts add, in passing: Lordsburg's bank, Utah, California, Texas, Guatemala and Trinidad (in the heretic's tale), Durango, Monclova, Monterrey (the opera company's jealousy), Parral, Rodeo on the Río Oro, Torreón, Chihuahua city and its alameda, Durango's cárcel (the blind man's story), Naco, La Quemada, Cuauhtémoc, Zacatecas, Ciudad Juárez, Roswell, Fort Bliss, the Little Colorado, Kwajalein Atoll (a soldier's fate), Waco (the plane), Bachíniva, Ignacio Zaragoza, Gallego, Sierra del Nido, Guzmán, Sabinal, Nuri, San Nicolás, Yécora, Mesa Tres Ríos, the Santa Rita mines, the Black Range.
+Part I's list stands from the prototype (Albuquerque, Grant County, Texas, Pennsylvania, Agua Prieta, Casas Grandes, San Luis Pass, Black Point, Animas). v5: De Baca County and Ascensión were on that list, but the text first names them in Part IV (episodes 4-07 and 4-03), so they belong to Part IV. The later Parts add, in passing: Lordsburg's bank, Utah, California, Texas, Guatemala and Trinidad (in the heretic's tale), Durango, Monclova, Monterrey (the opera company's jealousy), Parral, Rodeo on the Río Oro, Torreón, Chihuahua city and its alameda, Durango's cárcel (the blind man's story), Naco, La Quemada, Cuauhtémoc, Zacatecas, Ciudad Juárez, Roswell, Fort Bliss, the Little Colorado, Kwajalein Atoll (a soldier's fate), Waco (the plane), Bachíniva, Ignacio Zaragoza, Gallego, Sierra del Nido, Guzmán, Sabinal, Nuri, San Nicolás, Yécora, Mesa Tres Ríos, the Santa Rita mines, the Black Range.
 
 ### 2.4 Facts checked against sources
 
@@ -326,7 +326,7 @@ All story data lives in GeoJSON (WGS 84, RFC 7946) with one shared property sche
 | `conversations.geojson` | Point or Polygon | Where a Spanish exchange happens | Part, page, translation ids |
 | `vignettes.geojson` | Point | Anchor for a decorative illustration | first_seen, priority, zoom range |
 | `mountain_glyphs.geojson` | Point | Generated mountain or hill glyph (section 5.2) | prominence, range |
-| `episodes.json` | none | 40 episodes: Part, opening words, Vintage page range, spoiler-safe summary | n/a |
+| `episodes.json` | none | 41 episodes: Part, opening words, length in words, Vintage page range, spoiler-safe summary | n/a |
 | `translations.json` | none | Spanish line or exchange with its English | Part, page, source |
 
 **Shared properties** (on every story feature):
@@ -380,7 +380,7 @@ Eight steps (called steps here so that "stage" always means a build stage in sec
   GitHub Pages           licence, spoilers    / curve               viewsheds, slope
 ```
 
-1. **Extract mentions (private).** Parse your copy with `ebooklib`, which reads only DRM-free EPUB (v5: confirm the file you used for the v1 scan is still to hand); split into the 40 episodes by the small-capital openings (the regex in the v1 scan worked: an all-caps run of 4+ letters at a paragraph start followed by lower case). Find names with spaCy NER (`en_core_web_trf`) plus the seed list in section 2 and Spanish forms ("la colonia", "Sierra de la …", "Río …"). Output `mentions.csv`: name, Part, episode, Vintage page; no surrounding text.
+1. **Extract mentions (private).** Parse your copy with `ebooklib`, which reads only DRM-free EPUB (v5: done 11 November 2026 with `pipeline/src/crossing/extract.py` on a Picador EPUB, ISBN 9780330511247, which has no print pages; Vintage pages still come from the Campbell anchors in step 2); split into the 41 episodes by the small-capital openings (the regex in the v1 scan worked: an all-caps run of 4+ letters at a paragraph start followed by lower case). Find names with spaCy NER (`en_core_web_trf`) plus the seed list in section 2 and Spanish forms ("la colonia", "Sierra de la …", "Río …"). Output `mentions.csv`: name, Part, episode, Vintage page; no surrounding text.
 2. **Page anchors.** The ebook has no print pages. Each Campbell entry gives a page and a phrase; matching about 400 phrases gives about 400 anchors; interpolate between them. Sanity-check against the Part boundaries (Part Two starts about page 131, Three about 215, Four about 342, from the guide).
 3. **Resolve names**, in order, inside the story box (about 104°–113° W, 27°–36° N; widen for Durango, Parral, Torreón, Zacatecas, Albuquerque, El Paso): Wikidata SPARQL (P625, CC0) → USGS GNIS and INEGI localities and names → GeoNames dump (CC BY 4.0) → Nominatim (1 request/s, identifying User-Agent, cached, a one-off run) → manual digitising from historical maps.
 4. **Disambiguate and review.** Score candidates by feature class (peak for "Sierra", stream for "Draw"/"Creek", locality for "colonia"), by municipio or county when the text or context gives one (Boquilla y Anexas is in Guerrero municipio), and by distance to neighbouring stops. Ties go to `review/places.csv` with all candidates and a map link each.
@@ -460,7 +460,7 @@ The sea-monster idea, grounded. On old maps the empty quarters hold drawings tha
 | The boundary obelisk | the line near 108°30′ W | I |
 | Antelope on the Animas Plains | Animas Plains | I |
 | Bird, the horse (Billy's) | Cloverdale | I |
-| The hacienda gate and the dog pit | Batepito plain | I |
+| The hacienda gate and the dog pit | the hacienda near Colonia Morelos | I |
 | A brick Mormon storehouse | Colonia Morelos | I |
 | The ruined church | Huisiachepic | II |
 | La Purísima Concepción, half standing | Caborca (off-map arrow or inset) | II |

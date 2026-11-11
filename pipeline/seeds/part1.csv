@@ -1,31 +1,30 @@
-id,name,alt_names,kind,expect,region,journey,role,characters,first_seen,notes
-sierra-de-la-madera,Sierra de la Madera,Sierra La Madera,range,range,MX-SON,J1,stop,wolf,1-04,Eastern slopes; where the she-wolf starts north
-rio-bavispe,Río Bavispe,Bavispe River;Rio Bavispe,river,stream,MX-SON,J1;J2,stop,wolf;billy,1-04,
-san-luis-mountains,San Luis Mountains,Sierra San Luis;Sierra de San Luis,range,range,US-NM;MX-CHH;MX-SON,J1,stop,wolf,1-04,
-whitewater-creek,Whitewater Creek,,stream,stream,US-NM;US-AZ,J1,stop,wolf,1-04,Which Whitewater: pick the one between the border and the San Luis Mountains
-animas-mountains,Animas Mountains,Animas Range,range,range,US-NM,J1,stop,wolf,1-04,
-animas-valley,Animas Valley,,valley,valley,US-NM,J1,stop,wolf,1-04,
-peloncillo-mountains,Peloncillo Mountains,Peloncillos,range,range,US-NM;US-AZ,J1,stop,wolf,1-04,
-foster-draw,Foster Draw,,valley,valley,US-NM;US-AZ,J1,stop,wolf,1-04,The calf
-skeleton-creek,Skeleton Creek,Skeleton Canyon,stream,stream;valley,US-AZ;US-NM,J1,stop,wolf,1-04,South fork
-starvation-canyon,Starvation Canyon,,valley,valley,US-AZ;US-NM,J1,stop,wolf,1-04,
-hog-canyon-spring,Hog Canyon Spring,Hog Canyon Springs;Hog Canyon,spring,spring;valley,US-AZ;US-NM,J1,stop,wolf,1-04,
-clanton-draw,Clanton Draw,,valley,valley,US-NM;US-AZ,J1,stop,wolf,1-04,
-cloverdale-creek,Cloverdale Creek,,stream,stream,US-NM,J1;J2,stop,wolf;billy,1-05,The vaqueros' fire; where she is trapped
-cloverdale,Cloverdale,,locale,populated,US-NM,J2,stop,billy,1-01,The Parham family's home country
-guadalupe-mountains,Guadalupe Mountains,,range,range,US-NM;US-AZ,J2,stop,billy;wolf,1-07,The low pass in the easternmost Guadalupes
-cajon-bonito,Cajón Bonito,Cajon Bonito;Arroyo Cajón Bonito;Arroyo Cajon Bonito,stream,stream;valley,MX-SON;US-AZ,J2,stop,billy;wolf,1-08,Trail south from the boundary
-sierra-de-la-cabellera,Sierra de la Cabellera,Sierra La Cabellera;Sierra Cabellera,range,range,MX-SON;MX-CHH,J2,stop,billy;wolf,1-08,
-colonia-oaxaca,Colonia Oaxaca,Colonia de Oaxaca;Oaxaca,town,populated,MX-SON,J2,stop,billy;wolf,1-09,The river crossing where deputies take Billy
-colonia-morelos,Colonia Morelos,Morelos,town,populated,MX-SON,J2,stop,billy;wolf,1-09,The fair
-batepito,Batepito,Llano de Batepito;Llanos de Batepito,plain,populated;plain;stream,MX-SON,J2,stop,billy;wolf,1-10,The hacienda stands on the Batepito plain
-pilares-de-teras,Sierra de los Pilares de Teras,Pilares de Teras;Sierra Pilares de Teras;Sierra de Pilares de Teras,range,range,MX-SON,J2,stop,billy,1-10,Billy carries the dead wolf into these mountains
-albuquerque,Albuquerque,,city,populated,US-NM,,passing,,1-01,
-grant-county,Grant County,,county,admin,US-NM,,passing,,1-01,
-de-baca-county,De Baca County,,county,admin,US-NM,,passing,,1-01,
-agua-prieta,Agua Prieta,,city,populated,MX-SON,,passing,,1-01,
-casas-grandes,Casas Grandes,,town,populated,MX-CHH,,passing,,1-01,
-ascension,Ascensión,Ascension,town,populated,MX-CHH,,passing,,1-01,
-san-luis-pass,San Luis Pass,,pass,pass,US-NM,,passing,,1-01,
-black-point,Black Point,,summit,summit,US-NM;US-AZ,,passing,,1-01,
-animas,Animas,,town,populated,US-NM,,passing,,1-01,
+id,name,alt_names,text_names,kind,expect,region,journey,role,characters,first_seen,notes
+sierra-de-la-madera,Sierra de la Madera,Sierra La Madera,,range,range,MX-SON,J1,stop,wolf,1-04,Eastern slopes; where the she-wolf starts north
+rio-bavispe,Río Bavispe,Bavispe River;Rio Bavispe,,river,stream,MX-SON,J1;J2,stop,wolf;billy,1-04,
+san-luis-mountains,San Luis Mountains,Sierra San Luis;Sierra de San Luis,,range,range,US-NM;MX-CHH;MX-SON,J1,stop,wolf,1-04,
+whitewater-creek,Whitewater Creek,,,stream,stream,US-NM;US-AZ,J1,stop,wolf,1-04,Which Whitewater: pick the one between the border and the San Luis Mountains
+animas-mountains,Animas Mountains,Animas Range,,range,range,US-NM,J1,stop,wolf,1-01,
+animas-valley,Animas Valley,,,valley,valley,US-NM,J1,stop,wolf,1-03,
+peloncillo-mountains,Peloncillo Mountains,Peloncillos,,range,range,US-NM;US-AZ,J1,stop,wolf,1-01,
+foster-draw,Foster Draw,,,valley,valley,US-NM;US-AZ,J1,stop,wolf,1-01,The calf
+skeleton-creek,Skeleton Creek,Skeleton Canyon,,stream,stream;valley,US-AZ;US-NM,J1,stop,wolf,1-04,South fork
+starvation-canyon,Starvation Canyon,,,valley,valley,US-AZ;US-NM,J1,stop,wolf,1-04,
+hog-canyon-spring,Hog Canyon Spring,Hog Canyon Springs;Hog Canyon,,spring,spring;valley,US-AZ;US-NM,J1,stop,wolf,1-04,
+clanton-draw,Clanton Draw,,Clanton,valley,valley,US-NM;US-AZ,J1,stop,wolf,1-04,
+cloverdale-creek,Cloverdale Creek,,,stream,stream,US-NM,J1;J2,stop,wolf;billy,1-03,The vaqueros' fire; where she is trapped
+cloverdale,Cloverdale,,,locale,populated,US-NM,J2,stop,billy,1-05,The Parham family's home country
+guadalupe-mountains,Guadalupe Mountains,,Guadalupes,range,range,US-NM;US-AZ,J2,stop,billy;wolf,1-03,The low pass in the easternmost Guadalupes
+cajon-bonito,Cajón Bonito,Cajon Bonito;Arroyo Cajón Bonito;Arroyo Cajon Bonito,Cajon Bonita,stream,stream;valley,MX-SON;US-AZ,J2,stop,billy;wolf,1-09,Trail south from the boundary
+sierra-de-la-cabellera,Sierra de la Cabellera,Sierra La Cabellera;Sierra Cabellera,,range,range,MX-SON;MX-CHH,J2,stop,billy;wolf,1-09,
+colonia-oaxaca,Colonia Oaxaca,Colonia de Oaxaca;Oaxaca,,town,populated,MX-SON,J2,stop,billy;wolf,1-10,The river crossing where deputies take Billy
+colonia-morelos,Colonia Morelos,Morelos,,town,populated,MX-SON,J2,stop,billy;wolf,1-09,The fair
+pilares-de-teras,Sierra de los Pilares de Teras,Pilares de Teras;Sierra Pilares de Teras;Sierra de Pilares de Teras,Pilares Teras,range,range,MX-SON,J2,stop,billy,1-09,Billy carries the dead wolf into these mountains
+albuquerque,Albuquerque,,,city,populated,US-NM,,passing,,1-08,
+grant-county,Grant County,,,county,admin,US-NM,,passing,,1-01,
+de-baca-county,De Baca County,,,county,admin,US-NM,,passing,,4-07,
+agua-prieta,Agua Prieta,,,city,populated,MX-SON,,passing,,1-10,
+casas-grandes,Casas Grandes,,,town,populated,MX-CHH,,passing,,1-10,
+ascension,Ascensión,Ascension,,town,populated,MX-CHH,,passing,,4-03,
+san-luis-pass,San Luis Pass,,,pass,pass,US-NM,,passing,,1-01,
+black-point,Black Point,,,summit,summit,US-NM;US-AZ,,passing,,1-03,
+animas,Animas,,,town,populated,US-NM,,passing,,1-07,

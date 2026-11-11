@@ -51,6 +51,16 @@ def main() -> int:
         for e in errors:
             print(f"  {e}")
         failed = failed or bool(errors)
+    episodes = DATA / "episodes.json"
+    if episodes.exists():
+        schema = json.loads((DATA / "schema" / "episodes.schema.json").read_text(encoding="utf-8"))
+        errors = [f"{'/'.join(map(str, e.absolute_path)) or '(root)'}: {e.message}"
+                  for e in Draft202012Validator(schema).iter_errors(json.loads(episodes.read_text(encoding="utf-8")))]
+        print(f"episodes.json: {'ok' if not errors else f'{len(errors)} errors'}")
+        for e in errors:
+            print(f"  {e}")
+        failed = failed or bool(errors)
+        files.append(episodes)
     print(f"Checked {len(files)} files.")
     return 1 if failed else 0
 

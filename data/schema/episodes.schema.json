@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Episodes",
+  "description": "The novel's 41 scene-level episodes, the site's unit for chapters and spoiler progress. See docs/plan.md, section 2.1.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["episode", "part", "opening", "words", "pages", "summary"],
+    "additionalProperties": false,
+    "properties": {
+      "episode": { "type": "string", "pattern": "^[1-4]-(0[1-9]|1[0-4])$" },
+      "part": { "type": "integer", "minimum": 1, "maximum": 4 },
+      "opening": { "type": "string", "minLength": 1, "description": "The episode's opening words, which McCarthy sets in capitals." },
+      "words": { "type": "integer", "minimum": 1, "description": "Length in words, for weighting the progress slider." },
+      "pages": { "type": ["string", "null"], "description": "Vintage International page range, from the Campbell guide anchors." },
+      "summary": { "type": "string", "description": "A spoiler-safe one-line summary in our own words." }
+    }
+  }
+}

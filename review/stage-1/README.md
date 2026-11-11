@@ -5,6 +5,7 @@
 - **Gazetteer resolver** (`pipeline/src/crossing/gazetteer.py`). It matches the 30 Part I names in `pipeline/seeds/part1.csv` against USGS GNIS (New Mexico, Arizona), GeoNames (Mexico), and Wikidata, within the story box. It keeps candidates of the expected feature type in the expected state, then picks the one nearest the settled stops beside it on the same journey. Output: `places.csv`, with every candidate listed.
 - **Part I layers** in `data/`: 29 places, 26 stops on J1 and J2, 7 inferred areas, and 24 route segments, all valid against the schema.
 - **The app** shows them on the plain paper base: routes in each character's ink, numbered stops, a panel with the stop's evidence, and a Back/Next stepper that flies to each stop. Click a place dot or an area for its source.
+- **Dates from the book:** `pipeline/src/crossing/extract.py` read your EPUB privately. It found 41 episodes, not 40, and the first appearance of every Part I name. Every `first_seen` now comes from the text (decision 0010), and `data/episodes.json` lists the episodes with blank summaries for you to write.
 - **Measurements:** every distance quoted in the reasoning is computed in `pipeline/measure/distances.py` (pyproj, WGS 84).
 
 ## What to look at
@@ -19,7 +20,7 @@ This is the most important review in the project.
 
 1. **Which Sierra de la Madera?** I picked GeoNames 9028461 (29.94 N, 109.51 W). It is the only reading in which the wolf must cross the Bavispe before reaching 108°30′ W. The top name match, 30.33 N, 108.87 W, lies east of the river's upper course. Does the book say more, such as distance, direction, or days?
 2. **The volcanic plain.** I read the ranch house's plain as the San Bernardino volcanic field in Arizona, south-west of the Guadalupes. Right?
-3. **Episodes.** Every `first_seen` value is my guess from the plan's episode list, because I have no copy of the book. The spoiler filter in stage 5 depends on them. Please correct them in `pipeline/seeds/part1.csv` and `part1-stops.csv`, or add the EPUB to `private/book/`.
+3. **Episode summaries.** `data/episodes.json` has a blank `summary` for each of the 41 episodes. They are yours to write, spoiler-safe and in your own words.
 4. **Robertson's crossfence.** GNIS has no Robertson ranch. Do you know of a period ranch map that shows one?
 
 ## Network use
@@ -32,4 +33,5 @@ Approved batch: GNIS for New Mexico and Arizona (2.5 MB), GeoNames Mexico (15 MB
 - **Inferred areas are circles**, sized to the evidence. They are stand-ins until they are redrawn by hand in QGIS (decision 0008), and QGIS is blocked for now (see `TODO-prerequisites.md`).
 - **No satellite yet.** There is no MapTiler key, so you check against the linked imagery instead.
 - **The Bavispe has no point.** GeoNames puts its single point at the river's mouth, about 100 km south of the story. Crossings are stops instead.
-- **Part I is incomplete.** The places named in passing from section 2.3 are in, except Texas and Pennsylvania, which are off the map.
+- **The book corrected the plan.** It never names Batepito, so the hacienda is now an unnamed area near Colonia Morelos. It spells Cajon Bonita with an a. It first names De Baca County and Ascensión in Part IV, so they are dated 4-07 and 4-03.
+- **Places named in passing** from section 2.3 are in, except Texas and Pennsylvania, which are off the map.

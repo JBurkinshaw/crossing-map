@@ -93,7 +93,7 @@ def main() -> None:
             point(lat, lon),
             id=f"place-{sid}", name=seed["name"], kind=seed["kind"], role=seed["role"],
             characters=[c for c in seed["characters"].split(";") if c],
-            journey=journeys[0] if journeys else None, part=1, episode=seed["first_seen"], first_seen=seed["first_seen"],
+            journey=journeys[0] if journeys else None, part=int(seed["first_seen"][0]), episode=seed["first_seen"], first_seen=seed["first_seen"],
             certainty="located" if seed["kind"] in LOCATED_KINDS else "approximate",
             method="gazetteer", source=src["source"], source_id=src["source_id"],
             source_licence=LICENCE[src["source"]], note_safe="", reasoning=reasoning,
@@ -113,7 +113,7 @@ def main() -> None:
         props = dict(
             id=s["id"], name=s["name"], kind="stop", role="stop", characters=CHARACTERS[s["journey"]],
             journey=s["journey"], sequence=int(s["seq"]), place_ref=f"place-{place}" if place else None,
-            part=1, episode=s["first_seen"], first_seen=s["first_seen"], certainty=s["certainty"],
+            part=int(s["first_seen"][0]), episode=s["first_seen"], first_seen=s["first_seen"], certainty=s["certainty"],
             uncertainty_m=float(s["radius_km"]) * 1000 if s["radius_km"] else None,
             method=method, source=source, source_id=source_id, source_licence=LICENCE[source],
             note_safe="", reasoning=s["reasoning"] or None,
