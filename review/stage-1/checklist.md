@@ -5,8 +5,8 @@ Rows marked **check** are provisional picks among several candidates. Reasoning 
 
 | OK | # | Name | Certainty | Source | Look | |
 | --- | --- | --- | --- | --- | --- | --- |
-| [ ] | J1.1 | Sierra de la Madera (eastern slopes) | approximate | geonames 9028461 | [OSM](https://www.openstreetmap.org/?mlat=29.93737&mlon=-109.51313#map=13/29.93737/-109.51313) · [satellite](https://www.google.com/maps/@29.93737,-109.51313,13z/data=!3m1!1e3) | **check** |
-| [ ] | J1.2 | Crossing of the Bavispe | inferred | this-site | [OSM](https://www.openstreetmap.org/?mlat=30.45&mlon=-109.15#map=13/30.45/-109.15) · [satellite](https://www.google.com/maps/@30.45,-109.15,13z/data=!3m1!1e3) |  |
+| [ ] | J1.1 | Sierra de la Madera (eastern slopes) | approximate | geonames 9028461 | [OSM](https://www.openstreetmap.org/?mlat=29.93737&mlon=-109.51313#map=13/29.93737/-109.51313) · [satellite](https://www.google.com/maps/@29.93737,-109.51313,13z/data=!3m1!1e3) |  |
+| [ ] | J1.2 | Crossing of the Bavispe | inferred | this-site | [OSM](https://www.openstreetmap.org/?mlat=30.0119&mlon=-109.316#map=13/30.0119/-109.316) · [satellite](https://www.google.com/maps/@30.0119,-109.316,13z/data=!3m1!1e3) |  |
 | [ ] | J1.3 | The border at 108°30′ W | located | this-site | [OSM](https://www.openstreetmap.org/?mlat=31.33333&mlon=-108.5#map=13/31.33333/-108.5) · [satellite](https://www.google.com/maps/@31.33333,-108.5,13z/data=!3m1!1e3) |  |
 | [ ] | J1.4 | Whitewater Creek | approximate | gnis 896564 | [OSM](https://www.openstreetmap.org/?mlat=31.354&mlon=-108.65699#map=13/31.354/-108.65699) · [satellite](https://www.google.com/maps/@31.354,-108.65699,13z/data=!3m1!1e3) | **check** |
 | [ ] | J1.5 | San Luis Mountains | approximate | gnis 920694 | [OSM](https://www.openstreetmap.org/?mlat=31.34278&mlon=-108.75719#map=13/31.34278/-108.75719) · [satellite](https://www.google.com/maps/@31.34278,-108.75719,13z/data=!3m1!1e3) | **check** |

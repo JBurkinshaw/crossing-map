@@ -35,6 +35,12 @@ POINTS = {
     "morelos": (30.82701, -109.22383, "GeoNames 4013350, Colonia Morelos", ""),
     "animas_valley_gnis": (32.57228, -108.83603, "GNIS 900285, Animas Valley", ""),
     "animas_valley_stop": (31.6, -108.88, "Stop j1-animas-valley, our inference", ""),
+    "madera_pick": (29.93737, -109.51313, "GeoNames 9028461, Sierra La Madera", ""),
+    "cumpas": (29.9948, -109.7804, "GeoNames 4012143, Cumpas", ""),
+    "huasabas": (29.9083, -109.3010, "GeoNames 4004662, Huásabas", ""),
+    "granados": (29.8618, -109.3111, "GeoNames 4005715, Granados", ""),
+    "villa_hidalgo": (30.1620, -109.3209, "GeoNames 3971332, Villa Hidalgo", ""),
+    "bavispe_crossing": (30.0119, -109.316, "Stop j1-bavispe-crossing, midpoint of Granados to Villa Hidalgo", ""),
 }
 
 PAIRS = [
@@ -50,6 +56,10 @@ PAIRS = [
     ("oaxaca_son", "morelos", "Part I: Colonia Oaxaca to Colonia Morelos"),
     ("oaxaca_son", "oaxaca_chh", "Part I: the two Colonia Oaxacas"),
     ("animas_valley_gnis", "animas_valley_stop", "Part I: Animas Valley pin to the J1 stop"),
+    ("madera_pick", "cumpas", "Part I: Sierra La Madera pick to Cumpas (west)"),
+    ("madera_pick", "huasabas", "Part I: Sierra La Madera pick to Huásabas (east, on the Bavispe)"),
+    ("bavispe_crossing", "granados", "Part I: wolf crossing to Granados"),
+    ("bavispe_crossing", "villa_hidalgo", "Part I: wolf crossing to Villa Hidalgo"),
 ]
 
 # The story box from plan section 7, step 3: 104-113 W, 27-36 N.

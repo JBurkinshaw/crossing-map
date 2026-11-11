@@ -18,10 +18,16 @@ This is the most important review in the project.
 
 ## Questions for you
 
-1. **Which Sierra de la Madera?** I picked GeoNames 9028461 (29.94 N, 109.51 W). It is the only reading in which the wolf must cross the Bavispe before reaching 108°30′ W. The top name match, 30.33 N, 108.87 W, lies east of the river's upper course. Does the book say more, such as distance, direction, or days?
-2. **The volcanic plain.** I read the ranch house's plain as the San Bernardino volcanic field in Arizona, south-west of the Guadalupes. Right?
-3. **Episode summaries.** `data/episodes.json` has a blank `summary` for each of the 41 episodes. They are yours to write, spoiler-safe and in your own words.
-4. **Robertson's crossfence.** GNIS has no Robertson ranch. Do you know of a period ranch map that shows one?
+1. **Episode summaries.** `data/episodes.json` has a blank `summary` for each of the 41 episodes. They are yours to write, spoiler-safe and in your own words.
+2. **The 12 rows marked check** in `checklist.md`, on imagery.
+
+## Settled by research (11 November 2026)
+
+- **Sierra La Madera.** The USDA abstract on the range's mammals (Bermudez-Enriquez et al. 2013) puts it in the municipios of Cumpas, Granados, Huásabas, Moctezuma and Villa Hidalgo. The pick lies between Cumpas (27 km west) and Huásabas on the Bavispe (21 km east). That fits a wolf on its eastern slopes crossing the Bavispe. The crossing area moved to the Granados–Villa Hidalgo reach.
+- **The volcanic plain** is read as the Geronimo–San Bernardino volcanic field, south-west of the Guadalupe pass. It is supported, not proven.
+- **Robertson's crossfence.** The Robertson family ran the Cloverdale Ranch from the early 1900s (Range Magazine). The fence is likely theirs; the ranch's bounds are unknown.
+
+Open threads from these are on the private follow-up list, `private/follow-ups.md`.
 
 ## Network use
 

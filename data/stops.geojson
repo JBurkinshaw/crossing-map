@@ -31,7 +31,7 @@
     "source_id": "9028461",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Provisional. Several ranges in Sonora carry this name. The wolf crosses the Bavispe and then reaches the border at 108°30′ W, so her start must lie west of the river's lower course. GeoNames 9028461 fits; GeoNames 3996948 (30.333 N, 108.867 W), the top name match, sits east of the river's upper course and would need no crossing."
+    "reasoning": "Sierra La Madera is the Sky Island range in the municipios of Cumpas, Granados, Huásabas, Moctezuma and Villa Hidalgo (Bermudez-Enriquez et al. 2013, USDA RMRS-P-67). GeoNames 9028461 lies between those towns: 27 km east of Cumpas and 21 km west of Huásabas on the Bavispe (pipeline/measure/distances.py). The book puts the wolf on its eastern slopes, then across the Bavispe and north, which fits a range bounded on the east by the river. GeoNames 3996948, a closer name match, lies east of the river's upper course and would need no crossing."
    }
   },
   {
@@ -39,8 +39,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.15,
-     30.45
+     -109.316,
+     30.0119
     ]
    },
    "properties": {
@@ -58,13 +58,13 @@
     "episode": "1-04",
     "first_seen": "1-04",
     "certainty": "inferred",
-    "uncertainty_m": 15000.0,
+    "uncertainty_m": 17000.0,
     "method": "schematic",
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The book names no crossing point. The circle is centred where a straight line from the start to the border point meets the river's lower course, sized to cover the reach she could plausibly have used. Redraw on the river once river lines are in (stage 2)."
+    "reasoning": "The book names no crossing point. The Bavispe runs along the eastern foot of the Sierra La Madera past Granados, Huásabas and Villa Hidalgo, so a wolf leaving the eastern slopes crosses it there. The circle is centred on that reach and reaches Granados and Villa Hidalgo (16.6 km each way)."
    }
   },
   {
@@ -529,7 +529,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Between the Cloverdale Creek road and the Guadalupe pass. No Robertson ranch is in GNIS; the circle covers the ground between the two."
+    "reasoning": "Between the Cloverdale Creek road and the Guadalupe pass. The Robertson family ran the Cloverdale Ranch from the early 1900s (Range Magazine, winter 2000, rangemagazine.com/archives/stories/winter00/bootheel.htm), so the fence is likely theirs. GNIS has no Robertson ranch and the ranch's bounds are not known here; the circle covers the ground between the road and the pass."
    }
   },
   {
@@ -597,7 +597,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Past the Guadalupes and before the boundary. The San Bernardino volcanic field lies on that line, in Arizona; reading it as the book's volcanic plain is our inference."
+    "reasoning": "Past the Guadalupe pass and before the boundary. The book crosses a broad volcanic plain here. The Geronimo–San Bernardino volcanic field covers the northern San Bernardino Valley in basalt, from Cochise County into Hidalgo County and Sonora (New Mexico Geological Society guidebook; Arizona Geological Survey), which is the ground south-west of the pass. The ranch house itself is unnamed."
    }
   },
   {

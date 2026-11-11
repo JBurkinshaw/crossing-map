@@ -584,7 +584,7 @@ Inside a stage Claude Code works on its own; it stops early only for a blocking 
 - You check: the vignette placements and the photo picks (both from review CSVs), then the whole site end to end.
 - Done when: the acceptance criteria below are met. Soft launch, then Reddit.
 
-**Phase 2 backlog** (pick by demand, not in order): land-cover marks among the hachures (scrub stipple, tree marks) from a land-cover dataset; Cloudflare R2 for larger tiles; Blender or Eduard relief; least-cost routes and constraint-built areas; Rumsey overlays with the swipe; story mode; a Spanish interface; more vignettes by an illustrator; speaker-reviewed translations; a paid MapTiler month around a spike; privacy-friendly analytics (for example GoatCounter) to see what people use.
+**Phase 2 backlog** (pick by demand, not in order): land-cover marks among the hachures (scrub stipple, tree marks) from a land-cover dataset; Cloudflare R2 for larger tiles; Blender or Eduard relief; least-cost routes and constraint-built areas; Rumsey overlays with the swipe; story mode; a Spanish interface; more vignettes by an illustrator; speaker-reviewed translations; a paid MapTiler month around a spike; privacy-friendly analytics (for example GoatCounter) to see what people use; reader feedback on content (v5, revisit after launch): a way to report a wrong place, date, translation or note from the card it appears on, such as a prefilled GitHub issue form or a mail link that carries the feature id, with each accepted correction credited in the CHANGELOG.
 
 **Acceptance criteria**
 
