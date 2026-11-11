@@ -1,0 +1,10 @@
+The data and notes in this folder are licensed under the Creative Commons
+Attribution 4.0 International licence (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+Attribution: "The Crossing reading map, Joe Burkinshaw", with a link to
+https://github.com/JBurkinshaw/crossing-map
+
+Exceptions are listed per layer in data/README.md. Features derived from
+OpenStreetMap are under the ODbL; each feature's `source_licence` property
+states the licence of its source.

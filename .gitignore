@@ -1,0 +1,23 @@
+# Never committed: the book copy, extracted text, reference images, browser profile
+/private/
+# Built tiles are published as GitHub Release assets, not committed
+/tiles/out/
+*.pmtiles
+*.mbtiles
+# Node
+node_modules/
+dist/
+site/.env.local
+site/public/data/
+site/public/tiles/
+# Python
+.venv/
+__pycache__/
+*.pyc
+# Raster working files
+*.tif
+*.tif.aux.xml
+# Tool output
+playwright-report/
+test-results/
+.DS_Store
