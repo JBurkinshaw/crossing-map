@@ -1,6 +1,8 @@
 :root {
   --paper: #e6d9bd;
   --ink: #2b2118;
+  --ink-faint: rgba(43, 33, 24, 0.55);
+  --panel-width: 380px;
   font-family: 'IM Fell English', 'Iowan Old Style', Georgia, serif;
   color: var(--ink);
   background: var(--paper);
@@ -18,28 +20,139 @@ body,
   height: 100%;
 }
 
-.cartouche {
+button,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+.panel {
   position: absolute;
-  right: max(12px, env(safe-area-inset-right));
-  bottom: max(28px, env(safe-area-inset-bottom));
-  padding: 10px 16px;
-  border: 1px solid var(--ink);
-  outline: 1px solid var(--ink);
-  outline-offset: 3px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--panel-width);
+  box-sizing: border-box;
+  padding: 16px 18px max(16px, env(safe-area-inset-bottom));
+  overflow-y: auto;
   background: var(--paper);
-  text-align: center;
+  border-left: 1px solid var(--ink);
 }
 
-.cartouche h1 {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: normal;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+/* The map sits beside the panel on desktop and above it on phones. */
+.map-area {
+  position: absolute;
+  inset: 0 var(--panel-width) 0 0;
 }
 
-.cartouche p {
-  margin: 4px 0 0;
+@media (max-width: 720px) {
+  .panel {
+    top: auto;
+    left: 0;
+    width: auto;
+    height: 45%;
+    border-left: 0;
+    border-top: 1px solid var(--ink);
+  }
+  .map-area {
+    inset: 0 0 45% 0;
+  }
+}
+
+.journey-pick {
+  display: grid;
+  gap: 4px;
   font-size: 0.85rem;
   font-style: italic;
+}
+
+.journey-pick select {
+  padding: 6px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+}
+
+.stop h2 {
+  margin: 4px 0;
+  font-size: 1.35rem;
+  font-weight: normal;
+}
+
+.stop-count,
+.meta {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.stop p,
+.maplibregl-popup-content p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.stepper {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.stepper button {
+  flex: 1;
+  min-height: 44px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+
+.stepper button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.stop-list {
+  margin: 0;
+  padding-left: 1.6em;
+  font-size: 0.9rem;
+}
+
+.stop-list button {
+  padding: 3px 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.stop-list button[aria-current] {
+  text-decoration: underline;
+}
+
+.stop-marker {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1.5px solid;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.stop-marker.is-visited {
+  opacity: 0.55;
+}
+
+.stop-marker.is-current {
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.maplibregl-popup-content {
+  background: var(--paper);
+  font-family: inherit;
 }

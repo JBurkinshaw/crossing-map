@@ -1,0 +1,2297 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.51313,
+      29.93737
+     ],
+     [
+      -109.49738,
+      29.97309
+     ],
+     [
+      -109.48071,
+      30.00831
+     ],
+     [
+      -109.46311,
+      30.04305
+     ],
+     [
+      -109.44459,
+      30.0773
+     ],
+     [
+      -109.42514,
+      30.11105
+     ],
+     [
+      -109.40476,
+      30.14432
+     ],
+     [
+      -109.38345,
+      30.17709
+     ],
+     [
+      -109.36122,
+      30.20938
+     ],
+     [
+      -109.33806,
+      30.24117
+     ],
+     [
+      -109.31398,
+      30.27248
+     ],
+     [
+      -109.28896,
+      30.30329
+     ],
+     [
+      -109.26302,
+      30.33361
+     ],
+     [
+      -109.23616,
+      30.36344
+     ],
+     [
+      -109.20837,
+      30.39279
+     ],
+     [
+      -109.17965,
+      30.42164
+     ],
+     [
+      -109.15,
+      30.45
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-01",
+    "name": "Sierra de la Madera (eastern slopes) to Crossing of the Bavispe",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 1,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.15,
+      30.45
+     ],
+     [
+      -109.09731,
+      30.49867
+     ],
+     [
+      -109.04623,
+      30.54821
+     ],
+     [
+      -108.99676,
+      30.59863
+     ],
+     [
+      -108.9489,
+      30.64992
+     ],
+     [
+      -108.90264,
+      30.70207
+     ],
+     [
+      -108.858,
+      30.7551
+     ],
+     [
+      -108.81496,
+      30.809
+     ],
+     [
+      -108.77353,
+      30.86378
+     ],
+     [
+      -108.73371,
+      30.91942
+     ],
+     [
+      -108.6955,
+      30.97593
+     ],
+     [
+      -108.65889,
+      31.03332
+     ],
+     [
+      -108.6239,
+      31.09158
+     ],
+     [
+      -108.59051,
+      31.15071
+     ],
+     [
+      -108.55873,
+      31.21071
+     ],
+     [
+      -108.52856,
+      31.27159
+     ],
+     [
+      -108.5,
+      31.33333
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-02",
+    "name": "Crossing of the Bavispe to The border at 108°30′ W",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 2,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.5,
+      31.33333
+     ],
+     [
+      -108.5101,
+      31.33305
+     ],
+     [
+      -108.52015,
+      31.33298
+     ],
+     [
+      -108.53017,
+      31.33312
+     ],
+     [
+      -108.54016,
+      31.33347
+     ],
+     [
+      -108.5501,
+      31.33403
+     ],
+     [
+      -108.56001,
+      31.3348
+     ],
+     [
+      -108.56987,
+      31.33577
+     ],
+     [
+      -108.57971,
+      31.33696
+     ],
+     [
+      -108.5895,
+      31.33836
+     ],
+     [
+      -108.59925,
+      31.33996
+     ],
+     [
+      -108.60897,
+      31.34178
+     ],
+     [
+      -108.61865,
+      31.3438
+     ],
+     [
+      -108.62829,
+      31.34604
+     ],
+     [
+      -108.6379,
+      31.34848
+     ],
+     [
+      -108.64746,
+      31.35114
+     ],
+     [
+      -108.65699,
+      31.354
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-03",
+    "name": "The border at 108°30′ W to Whitewater Creek",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 3,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.65699,
+      31.354
+     ],
+     [
+      -108.66341,
+      31.3543
+     ],
+     [
+      -108.6698,
+      31.35447
+     ],
+     [
+      -108.67618,
+      31.3545
+     ],
+     [
+      -108.68253,
+      31.3544
+     ],
+     [
+      -108.68887,
+      31.35417
+     ],
+     [
+      -108.69518,
+      31.3538
+     ],
+     [
+      -108.70147,
+      31.3533
+     ],
+     [
+      -108.70775,
+      31.35267
+     ],
+     [
+      -108.714,
+      31.3519
+     ],
+     [
+      -108.72023,
+      31.351
+     ],
+     [
+      -108.72644,
+      31.34996
+     ],
+     [
+      -108.73263,
+      31.34879
+     ],
+     [
+      -108.7388,
+      31.34749
+     ],
+     [
+      -108.74495,
+      31.34605
+     ],
+     [
+      -108.75108,
+      31.34448
+     ],
+     [
+      -108.75719,
+      31.34278
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-04",
+    "name": "Whitewater Creek to San Luis Mountains",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 4,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.75719,
+      31.34278
+     ],
+     [
+      -108.76229,
+      31.35664
+     ],
+     [
+      -108.76697,
+      31.37055
+     ],
+     [
+      -108.77124,
+      31.3845
+     ],
+     [
+      -108.7751,
+      31.39848
+     ],
+     [
+      -108.77853,
+      31.41252
+     ],
+     [
+      -108.78156,
+      31.42659
+     ],
+     [
+      -108.78416,
+      31.44071
+     ],
+     [
+      -108.78635,
+      31.45487
+     ],
+     [
+      -108.78813,
+      31.46907
+     ],
+     [
+      -108.78949,
+      31.48331
+     ],
+     [
+      -108.79043,
+      31.4976
+     ],
+     [
+      -108.79096,
+      31.51192
+     ],
+     [
+      -108.79107,
+      31.5263
+     ],
+     [
+      -108.79077,
+      31.54071
+     ],
+     [
+      -108.79005,
+      31.55516
+     ],
+     [
+      -108.78892,
+      31.56966
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-05",
+    "name": "San Luis Mountains to Animas Mountains",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 5,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.78892,
+      31.56966
+     ],
+     [
+      -108.7942,
+      31.57247
+     ],
+     [
+      -108.79953,
+      31.57515
+     ],
+     [
+      -108.80491,
+      31.57771
+     ],
+     [
+      -108.81035,
+      31.58015
+     ],
+     [
+      -108.81585,
+      31.58248
+     ],
+     [
+      -108.82141,
+      31.58467
+     ],
+     [
+      -108.82701,
+      31.58675
+     ],
+     [
+      -108.83268,
+      31.58871
+     ],
+     [
+      -108.8384,
+      31.59055
+     ],
+     [
+      -108.84418,
+      31.59226
+     ],
+     [
+      -108.85001,
+      31.59385
+     ],
+     [
+      -108.85589,
+      31.59532
+     ],
+     [
+      -108.86184,
+      31.59668
+     ],
+     [
+      -108.86784,
+      31.5979
+     ],
+     [
+      -108.87389,
+      31.59901
+     ],
+     [
+      -108.88,
+      31.6
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-06",
+    "name": "Animas Mountains to Animas Valley",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 6,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.88,
+      31.6
+     ],
+     [
+      -108.87805,
+      31.59437
+     ],
+     [
+      -108.87626,
+      31.58872
+     ],
+     [
+      -108.87464,
+      31.58307
+     ],
+     [
+      -108.87319,
+      31.57739
+     ],
+     [
+      -108.87191,
+      31.5717
+     ],
+     [
+      -108.8708,
+      31.566
+     ],
+     [
+      -108.86986,
+      31.56028
+     ],
+     [
+      -108.86908,
+      31.55455
+     ],
+     [
+      -108.86847,
+      31.5488
+     ],
+     [
+      -108.86804,
+      31.54304
+     ],
+     [
+      -108.86776,
+      31.53726
+     ],
+     [
+      -108.86766,
+      31.53147
+     ],
+     [
+      -108.86773,
+      31.52566
+     ],
+     [
+      -108.86796,
+      31.51984
+     ],
+     [
+      -108.86837,
+      31.514
+     ],
+     [
+      -108.86894,
+      31.50815
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-07",
+    "name": "Animas Valley to Foster Draw (the calf)",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 7,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.86894,
+      31.50815
+     ],
+     [
+      -108.87983,
+      31.51522
+     ],
+     [
+      -108.89086,
+      31.52203
+     ],
+     [
+      -108.90205,
+      31.52859
+     ],
+     [
+      -108.91339,
+      31.5349
+     ],
+     [
+      -108.92488,
+      31.54094
+     ],
+     [
+      -108.93652,
+      31.54673
+     ],
+     [
+      -108.94831,
+      31.55227
+     ],
+     [
+      -108.96026,
+      31.55754
+     ],
+     [
+      -108.97235,
+      31.56257
+     ],
+     [
+      -108.9846,
+      31.56733
+     ],
+     [
+      -108.99699,
+      31.57184
+     ],
+     [
+      -109.00954,
+      31.5761
+     ],
+     [
+      -109.02224,
+      31.58009
+     ],
+     [
+      -109.03509,
+      31.58383
+     ],
+     [
+      -109.04809,
+      31.58732
+     ],
+     [
+      -109.06124,
+      31.59055
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-08",
+    "name": "Foster Draw (the calf) to Skeleton Creek, south fork",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 8,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.06124,
+      31.59055
+     ],
+     [
+      -109.0649,
+      31.58897
+     ],
+     [
+      -109.06859,
+      31.58747
+     ],
+     [
+      -109.07231,
+      31.58606
+     ],
+     [
+      -109.07606,
+      31.58473
+     ],
+     [
+      -109.07984,
+      31.58348
+     ],
+     [
+      -109.08364,
+      31.58231
+     ],
+     [
+      -109.08747,
+      31.58123
+     ],
+     [
+      -109.09133,
+      31.58023
+     ],
+     [
+      -109.09522,
+      31.57931
+     ],
+     [
+      -109.09914,
+      31.57847
+     ],
+     [
+      -109.10308,
+      31.57772
+     ],
+     [
+      -109.10706,
+      31.57705
+     ],
+     [
+      -109.11106,
+      31.57646
+     ],
+     [
+      -109.11509,
+      31.57595
+     ],
+     [
+      -109.11914,
+      31.57553
+     ],
+     [
+      -109.12323,
+      31.57519
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-09",
+    "name": "Skeleton Creek, south fork to Starvation Canyon",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 9,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.12323,
+      31.57519
+     ],
+     [
+      -109.12197,
+      31.57016
+     ],
+     [
+      -109.12058,
+      31.56519
+     ],
+     [
+      -109.11905,
+      31.56026
+     ],
+     [
+      -109.11739,
+      31.55538
+     ],
+     [
+      -109.11558,
+      31.55055
+     ],
+     [
+      -109.11364,
+      31.54577
+     ],
+     [
+      -109.11157,
+      31.54103
+     ],
+     [
+      -109.10935,
+      31.53635
+     ],
+     [
+      -109.10701,
+      31.53171
+     ],
+     [
+      -109.10452,
+      31.52713
+     ],
+     [
+      -109.1019,
+      31.52259
+     ],
+     [
+      -109.09914,
+      31.5181
+     ],
+     [
+      -109.09624,
+      31.51365
+     ],
+     [
+      -109.09321,
+      31.50926
+     ],
+     [
+      -109.09004,
+      31.50492
+     ],
+     [
+      -109.08673,
+      31.50062
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-10",
+    "name": "Starvation Canyon to Hog Canyon Springs",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 10,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.08673,
+      31.50062
+     ],
+     [
+      -109.07345,
+      31.504
+     ],
+     [
+      -109.06014,
+      31.50708
+     ],
+     [
+      -109.04679,
+      31.50988
+     ],
+     [
+      -109.0334,
+      31.51239
+     ],
+     [
+      -109.01998,
+      31.51462
+     ],
+     [
+      -109.00652,
+      31.51655
+     ],
+     [
+      -108.99303,
+      31.51819
+     ],
+     [
+      -108.9795,
+      31.51955
+     ],
+     [
+      -108.96594,
+      31.52062
+     ],
+     [
+      -108.95234,
+      31.52139
+     ],
+     [
+      -108.9387,
+      31.52188
+     ],
+     [
+      -108.92503,
+      31.52208
+     ],
+     [
+      -108.91133,
+      31.522
+     ],
+     [
+      -108.89759,
+      31.52162
+     ],
+     [
+      -108.88381,
+      31.52095
+     ],
+     [
+      -108.87,
+      31.52
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-11",
+    "name": "Hog Canyon Springs to Between Clanton and Foster draws",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 11,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.87,
+      31.52
+     ],
+     [
+      -108.87431,
+      31.51349
+     ],
+     [
+      -108.87842,
+      31.50692
+     ],
+     [
+      -108.88232,
+      31.50029
+     ],
+     [
+      -108.88602,
+      31.4936
+     ],
+     [
+      -108.88951,
+      31.48686
+     ],
+     [
+      -108.8928,
+      31.48005
+     ],
+     [
+      -108.89589,
+      31.47318
+     ],
+     [
+      -108.89877,
+      31.46626
+     ],
+     [
+      -108.90145,
+      31.45927
+     ],
+     [
+      -108.90393,
+      31.45223
+     ],
+     [
+      -108.9062,
+      31.44513
+     ],
+     [
+      -108.90827,
+      31.43796
+     ],
+     [
+      -108.91013,
+      31.43074
+     ],
+     [
+      -108.91179,
+      31.42346
+     ],
+     [
+      -108.91325,
+      31.41612
+     ],
+     [
+      -108.9145,
+      31.40872
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j1-seg-12",
+    "name": "Between Clanton and Foster draws to Cloverdale Creek (the trap)",
+    "kind": "route-segment",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 12,
+    "part": 1,
+    "episode": "1-05",
+    "first_seen": "1-05",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.92977,
+      31.41705
+     ],
+     [
+      -108.9287,
+      31.41668
+     ],
+     [
+      -108.92765,
+      31.41629
+     ],
+     [
+      -108.92661,
+      31.41589
+     ],
+     [
+      -108.92559,
+      31.41546
+     ],
+     [
+      -108.92458,
+      31.41501
+     ],
+     [
+      -108.92359,
+      31.41454
+     ],
+     [
+      -108.92261,
+      31.41405
+     ],
+     [
+      -108.92165,
+      31.41354
+     ],
+     [
+      -108.9207,
+      31.41301
+     ],
+     [
+      -108.91977,
+      31.41245
+     ],
+     [
+      -108.91885,
+      31.41188
+     ],
+     [
+      -108.91795,
+      31.41129
+     ],
+     [
+      -108.91707,
+      31.41068
+     ],
+     [
+      -108.9162,
+      31.41005
+     ],
+     [
+      -108.91534,
+      31.40939
+     ],
+     [
+      -108.9145,
+      31.40872
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-01",
+    "name": "Cloverdale to Cloverdale Creek road",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 1,
+    "part": 1,
+    "episode": "1-07",
+    "first_seen": "1-07",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.9145,
+      31.40872
+     ],
+     [
+      -108.9176,
+      31.40801
+     ],
+     [
+      -108.92067,
+      31.40723
+     ],
+     [
+      -108.9237,
+      31.40639
+     ],
+     [
+      -108.9267,
+      31.4055
+     ],
+     [
+      -108.92966,
+      31.40454
+     ],
+     [
+      -108.93259,
+      31.40352
+     ],
+     [
+      -108.93549,
+      31.40244
+     ],
+     [
+      -108.93835,
+      31.4013
+     ],
+     [
+      -108.94117,
+      31.4001
+     ],
+     [
+      -108.94397,
+      31.39884
+     ],
+     [
+      -108.94672,
+      31.39752
+     ],
+     [
+      -108.94945,
+      31.39614
+     ],
+     [
+      -108.95214,
+      31.39469
+     ],
+     [
+      -108.95479,
+      31.39319
+     ],
+     [
+      -108.95741,
+      31.39163
+     ],
+     [
+      -108.96,
+      31.39
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-02",
+    "name": "Cloverdale Creek road to Robertson's crossfence",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 2,
+    "part": 1,
+    "episode": "1-07",
+    "first_seen": "1-07",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.96,
+      31.39
+     ],
+     [
+      -108.95973,
+      31.38875
+     ],
+     [
+      -108.95949,
+      31.3875
+     ],
+     [
+      -108.95929,
+      31.38625
+     ],
+     [
+      -108.95912,
+      31.385
+     ],
+     [
+      -108.95899,
+      31.38375
+     ],
+     [
+      -108.9589,
+      31.3825
+     ],
+     [
+      -108.95885,
+      31.38125
+     ],
+     [
+      -108.95883,
+      31.38
+     ],
+     [
+      -108.95885,
+      31.37875
+     ],
+     [
+      -108.9589,
+      31.3775
+     ],
+     [
+      -108.95899,
+      31.37625
+     ],
+     [
+      -108.95912,
+      31.375
+     ],
+     [
+      -108.95929,
+      31.37375
+     ],
+     [
+      -108.95949,
+      31.3725
+     ],
+     [
+      -108.95973,
+      31.37125
+     ],
+     [
+      -108.96,
+      31.37
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-03",
+    "name": "Robertson's crossfence to Low pass in the easternmost Guadalupes",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 3,
+    "part": 1,
+    "episode": "1-07",
+    "first_seen": "1-07",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.96,
+      31.37
+     ],
+     [
+      -108.97174,
+      31.37253
+     ],
+     [
+      -108.98349,
+      31.3748
+     ],
+     [
+      -108.99527,
+      31.37682
+     ],
+     [
+      -109.00706,
+      31.37858
+     ],
+     [
+      -109.01887,
+      31.3801
+     ],
+     [
+      -109.0307,
+      31.38135
+     ],
+     [
+      -109.04255,
+      31.38236
+     ],
+     [
+      -109.05441,
+      31.38311
+     ],
+     [
+      -109.0663,
+      31.38361
+     ],
+     [
+      -109.0782,
+      31.38385
+     ],
+     [
+      -109.09012,
+      31.38385
+     ],
+     [
+      -109.10206,
+      31.38358
+     ],
+     [
+      -109.11402,
+      31.38307
+     ],
+     [
+      -109.12599,
+      31.3823
+     ],
+     [
+      -109.13799,
+      31.38128
+     ],
+     [
+      -109.15,
+      31.38
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-04",
+    "name": "Low pass in the easternmost Guadalupes to Ranch house on the volcanic plain",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 4,
+    "part": 1,
+    "episode": "1-07",
+    "first_seen": "1-07",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.15,
+      31.38
+     ],
+     [
+      -109.15251,
+      31.37669
+     ],
+     [
+      -109.1551,
+      31.37344
+     ],
+     [
+      -109.15777,
+      31.37026
+     ],
+     [
+      -109.16052,
+      31.36715
+     ],
+     [
+      -109.16336,
+      31.3641
+     ],
+     [
+      -109.16628,
+      31.36112
+     ],
+     [
+      -109.16928,
+      31.35821
+     ],
+     [
+      -109.17237,
+      31.35537
+     ],
+     [
+      -109.17553,
+      31.35259
+     ],
+     [
+      -109.17878,
+      31.34987
+     ],
+     [
+      -109.18211,
+      31.34723
+     ],
+     [
+      -109.18552,
+      31.34465
+     ],
+     [
+      -109.18902,
+      31.34214
+     ],
+     [
+      -109.1926,
+      31.33969
+     ],
+     [
+      -109.19626,
+      31.33731
+     ],
+     [
+      -109.2,
+      31.335
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-05",
+    "name": "Ranch house on the volcanic plain to The boundary, obelisk in sight",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 5,
+    "part": 1,
+    "episode": "1-08",
+    "first_seen": "1-08",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.2,
+      31.335
+     ],
+     [
+      -109.20857,
+      31.32291
+     ],
+     [
+      -109.21677,
+      31.31069
+     ],
+     [
+      -109.22458,
+      31.29835
+     ],
+     [
+      -109.23201,
+      31.28589
+     ],
+     [
+      -109.23906,
+      31.27331
+     ],
+     [
+      -109.24573,
+      31.26061
+     ],
+     [
+      -109.25203,
+      31.24778
+     ],
+     [
+      -109.25794,
+      31.23483
+     ],
+     [
+      -109.26347,
+      31.22176
+     ],
+     [
+      -109.26862,
+      31.20857
+     ],
+     [
+      -109.27339,
+      31.19525
+     ],
+     [
+      -109.27778,
+      31.18181
+     ],
+     [
+      -109.28179,
+      31.16825
+     ],
+     [
+      -109.28541,
+      31.15457
+     ],
+     [
+      -109.28866,
+      31.14077
+     ],
+     [
+      -109.29153,
+      31.12684
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-06",
+    "name": "The boundary, obelisk in sight to Cajón Bonito trail south",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 6,
+    "part": 1,
+    "episode": "1-08",
+    "first_seen": "1-08",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.29153,
+      31.12684
+     ],
+     [
+      -109.27291,
+      31.11668
+     ],
+     [
+      -109.25466,
+      31.10619
+     ],
+     [
+      -109.23678,
+      31.09535
+     ],
+     [
+      -109.21927,
+      31.08418
+     ],
+     [
+      -109.20213,
+      31.07266
+     ],
+     [
+      -109.18536,
+      31.06081
+     ],
+     [
+      -109.16896,
+      31.04862
+     ],
+     [
+      -109.15294,
+      31.03609
+     ],
+     [
+      -109.13728,
+      31.02321
+     ],
+     [
+      -109.12199,
+      31.01
+     ],
+     [
+      -109.10708,
+      30.99645
+     ],
+     [
+      -109.09253,
+      30.98256
+     ],
+     [
+      -109.07836,
+      30.96833
+     ],
+     [
+      -109.06456,
+      30.95377
+     ],
+     [
+      -109.05112,
+      30.93886
+     ],
+     [
+      -109.03806,
+      30.92361
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-07",
+    "name": "Cajón Bonito trail south to Passes of the Sierra de la Cabellera",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 7,
+    "part": 1,
+    "episode": "1-08",
+    "first_seen": "1-08",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.03806,
+      30.92361
+     ],
+     [
+      -109.04196,
+      30.91172
+     ],
+     [
+      -109.04551,
+      30.89981
+     ],
+     [
+      -109.0487,
+      30.88787
+     ],
+     [
+      -109.05155,
+      30.8759
+     ],
+     [
+      -109.05404,
+      30.8639
+     ],
+     [
+      -109.05618,
+      30.85188
+     ],
+     [
+      -109.05797,
+      30.83983
+     ],
+     [
+      -109.0594,
+      30.82775
+     ],
+     [
+      -109.06049,
+      30.81565
+     ],
+     [
+      -109.06122,
+      30.80352
+     ],
+     [
+      -109.0616,
+      30.79136
+     ],
+     [
+      -109.06163,
+      30.77917
+     ],
+     [
+      -109.0613,
+      30.76696
+     ],
+     [
+      -109.06063,
+      30.75472
+     ],
+     [
+      -109.0596,
+      30.74245
+     ],
+     [
+      -109.05822,
+      30.73016
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-08",
+    "name": "Passes of the Sierra de la Cabellera to River crossing at Colonia Oaxaca",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 8,
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.05822,
+      30.73016
+     ],
+     [
+      -109.06401,
+      30.73245
+     ],
+     [
+      -109.06971,
+      30.73485
+     ],
+     [
+      -109.07532,
+      30.73736
+     ],
+     [
+      -109.08084,
+      30.73998
+     ],
+     [
+      -109.08627,
+      30.74272
+     ],
+     [
+      -109.09161,
+      30.74556
+     ],
+     [
+      -109.09685,
+      30.74851
+     ],
+     [
+      -109.10201,
+      30.75157
+     ],
+     [
+      -109.10708,
+      30.75474
+     ],
+     [
+      -109.11205,
+      30.75802
+     ],
+     [
+      -109.11694,
+      30.76141
+     ],
+     [
+      -109.12173,
+      30.7649
+     ],
+     [
+      -109.12643,
+      30.76851
+     ],
+     [
+      -109.13105,
+      30.77223
+     ],
+     [
+      -109.13557,
+      30.77606
+     ],
+     [
+      -109.14,
+      30.78
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-09",
+    "name": "River crossing at Colonia Oaxaca to The mud-house settlement",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 9,
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.14,
+      30.78
+     ],
+     [
+      -109.1446,
+      30.78378
+     ],
+     [
+      -109.14928,
+      30.78745
+     ],
+     [
+      -109.15405,
+      30.79101
+     ],
+     [
+      -109.15891,
+      30.79445
+     ],
+     [
+      -109.16385,
+      30.79778
+     ],
+     [
+      -109.16887,
+      30.801
+     ],
+     [
+      -109.17398,
+      30.80411
+     ],
+     [
+      -109.17918,
+      30.80711
+     ],
+     [
+      -109.18446,
+      30.80999
+     ],
+     [
+      -109.18983,
+      30.81276
+     ],
+     [
+      -109.19528,
+      30.81541
+     ],
+     [
+      -109.20082,
+      30.81796
+     ],
+     [
+      -109.20644,
+      30.82039
+     ],
+     [
+      -109.21215,
+      30.82271
+     ],
+     [
+      -109.21795,
+      30.82492
+     ],
+     [
+      -109.22383,
+      30.82701
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-10",
+    "name": "The mud-house settlement to Colonia Morelos (the fair)",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 10,
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.22383,
+      30.82701
+     ],
+     [
+      -109.22349,
+      30.82661
+     ],
+     [
+      -109.22317,
+      30.82621
+     ],
+     [
+      -109.22286,
+      30.8258
+     ],
+     [
+      -109.22257,
+      30.82538
+     ],
+     [
+      -109.22228,
+      30.82496
+     ],
+     [
+      -109.22201,
+      30.82454
+     ],
+     [
+      -109.22175,
+      30.82411
+     ],
+     [
+      -109.22151,
+      30.82367
+     ],
+     [
+      -109.22127,
+      30.82323
+     ],
+     [
+      -109.22105,
+      30.82278
+     ],
+     [
+      -109.22085,
+      30.82233
+     ],
+     [
+      -109.22065,
+      30.82188
+     ],
+     [
+      -109.22047,
+      30.82141
+     ],
+     [
+      -109.2203,
+      30.82095
+     ],
+     [
+      -109.22014,
+      30.82048
+     ],
+     [
+      -109.22,
+      30.82
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-11",
+    "name": "Colonia Morelos (the fair) to Hacienda on the Batepito plain",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 11,
+    "part": 1,
+    "episode": "1-10",
+    "first_seen": "1-10",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.22,
+      30.82
+     ],
+     [
+      -109.21219,
+      30.81529
+     ],
+     [
+      -109.20427,
+      30.81077
+     ],
+     [
+      -109.19627,
+      30.80642
+     ],
+     [
+      -109.18816,
+      30.80226
+     ],
+     [
+      -109.17996,
+      30.79829
+     ],
+     [
+      -109.17166,
+      30.7945
+     ],
+     [
+      -109.16326,
+      30.79089
+     ],
+     [
+      -109.15477,
+      30.78746
+     ],
+     [
+      -109.14618,
+      30.78422
+     ],
+     [
+      -109.13749,
+      30.78117
+     ],
+     [
+      -109.12871,
+      30.77829
+     ],
+     [
+      -109.11983,
+      30.7756
+     ],
+     [
+      -109.11085,
+      30.77309
+     ],
+     [
+      -109.10177,
+      30.77077
+     ],
+     [
+      -109.0926,
+      30.76863
+     ],
+     [
+      -109.08333,
+      30.76667
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j2-seg-12",
+    "name": "Hacienda on the Batepito plain to Into the Pilares Teras",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 12,
+    "part": 1,
+    "episode": "1-10",
+    "first_seen": "1-10",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+   }
+  }
+ ]
+}

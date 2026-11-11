@@ -1,0 +1,876 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.51313,
+     29.93737
+    ]
+   },
+   "properties": {
+    "id": "j1-sierra-de-la-madera",
+    "name": "Sierra de la Madera (eastern slopes)",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 1,
+    "place_ref": "place-sierra-de-la-madera",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "9028461",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Provisional. Several ranges in Sonora carry this name. The wolf crosses the Bavispe and then reaches the border at 108°30′ W, so her start must lie west of the river's lower course. GeoNames 9028461 fits; GeoNames 3996948 (30.333 N, 108.867 W), the top name match, sits east of the river's upper course and would need no crossing."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.15,
+     30.45
+    ]
+   },
+   "properties": {
+    "id": "j1-bavispe-crossing",
+    "name": "Crossing of the Bavispe",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 2,
+    "place_ref": null,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "uncertainty_m": 15000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The book names no crossing point. The circle is centred where a straight line from the start to the border point meets the river's lower course, sized to cover the reach she could plausibly have used. Redraw on the river once river lines are in (stage 2)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.5,
+     31.33333
+    ]
+   },
+   "properties": {
+    "id": "j1-border-108-30",
+    "name": "The border at 108°30′ W",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 3,
+    "place_ref": null,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "computed",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The book gives this exactly. West of 108°12′ W the boundary follows the parallel 31°20′ N (Gadsden Purchase, 1853), so the point is 31.33333 N, 108.5 W."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.65699,
+     31.354
+    ]
+   },
+   "properties": {
+    "id": "j1-whitewater-creek",
+    "name": "Whitewater Creek",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 4,
+    "place_ref": "place-whitewater-creek",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "896564",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 896564: the only Whitewater Creek between the border point and the San Luis Mountains."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.75719,
+     31.34278
+    ]
+   },
+   "properties": {
+    "id": "j1-san-luis-mountains",
+    "name": "San Luis Mountains",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 5,
+    "place_ref": "place-san-luis-mountains",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920694",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.78892,
+     31.56966
+    ]
+   },
+   "properties": {
+    "id": "j1-animas-mountains",
+    "name": "Animas Mountains",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 6,
+    "place_ref": "place-animas-mountains",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "885762",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.88,
+     31.6
+    ]
+   },
+   "properties": {
+    "id": "j1-animas-valley",
+    "name": "Animas Valley",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 7,
+    "place_ref": "place-animas-valley",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The GNIS pin for the valley is 108 km north, at 32.57 N. The stop is where her route from the Animas Mountains to the Peloncillos crosses the valley floor."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.86894,
+     31.50815
+    ]
+   },
+   "properties": {
+    "id": "j1-foster-draw",
+    "name": "Foster Draw (the calf)",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 8,
+    "place_ref": "place-foster-draw",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "889164",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 889164 in Hidalgo County; the other two Foster Draws are 158 km and 284 km away."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.06124,
+     31.59055
+    ]
+   },
+   "properties": {
+    "id": "j1-skeleton-creek",
+    "name": "Skeleton Creek, south fork",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 9,
+    "place_ref": "place-skeleton-creek",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "11397",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS has no Skeleton Creek here; Skeleton Canyon (GNIS 11397) carries its south fork in Cochise County."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.12323,
+     31.57519
+    ]
+   },
+   "properties": {
+    "id": "j1-starvation-canyon",
+    "name": "Starvation Canyon",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 10,
+    "place_ref": "place-starvation-canyon",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "11797",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 11797, Cochise County, 6 km from Skeleton Canyon."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.08673,
+     31.50062
+    ]
+   },
+   "properties": {
+    "id": "j1-hog-canyon-spring",
+    "name": "Hog Canyon Springs",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 11,
+    "place_ref": "place-hog-canyon-spring",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "5857",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 5857, Cochise County, 9 km from Starvation Canyon."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.87,
+     31.52
+    ]
+   },
+   "properties": {
+    "id": "j1-clanton-foster",
+    "name": "Between Clanton and Foster draws",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 12,
+    "place_ref": null,
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "inferred",
+    "uncertainty_m": 3000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The high country between Clanton Draw (GNIS 887634) and Foster Draw (GNIS 889164), which lie 3 km apart."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9145,
+     31.40872
+    ]
+   },
+   "properties": {
+    "id": "j1-cloverdale-creek",
+    "name": "Cloverdale Creek (the trap)",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "sequence": 13,
+    "place_ref": "place-cloverdale-creek",
+    "part": 1,
+    "episode": "1-05",
+    "first_seen": "1-05",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "887693",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.92977,
+     31.41705
+    ]
+   },
+   "properties": {
+    "id": "j2-cloverdale",
+    "name": "Cloverdale",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 1,
+    "place_ref": "place-cloverdale",
+    "part": 1,
+    "episode": "1-07",
+    "first_seen": "1-07",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920578",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9145,
+     31.40872
+    ]
+   },
+   "properties": {
+    "id": "j2-cloverdale-creek",
+    "name": "Cloverdale Creek road",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 2,
+    "place_ref": "place-cloverdale-creek",
+    "part": 1,
+    "episode": "1-07",
+    "first_seen": "1-07",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "887693",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.96,
+     31.39
+    ]
+   },
+   "properties": {
+    "id": "j2-robertson-crossfence",
+    "name": "Robertson's crossfence",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 3,
+    "place_ref": null,
+    "part": 1,
+    "episode": "1-07",
+    "first_seen": "1-07",
+    "certainty": "inferred",
+    "uncertainty_m": 4000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Between the Cloverdale Creek road and the Guadalupe pass. No Robertson ranch is in GNIS; the circle covers the ground between the two."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.96,
+     31.37
+    ]
+   },
+   "properties": {
+    "id": "j2-guadalupe-pass",
+    "name": "Low pass in the easternmost Guadalupes",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 4,
+    "place_ref": "place-guadalupe-mountains",
+    "part": 1,
+    "episode": "1-07",
+    "first_seen": "1-07",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The east flank of the Guadalupe Mountains (GNIS 920606), where a pass would lead south-west toward the boundary."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.15,
+     31.38
+    ]
+   },
+   "properties": {
+    "id": "j2-volcanic-plain-ranch",
+    "name": "Ranch house on the volcanic plain",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 5,
+    "place_ref": null,
+    "part": 1,
+    "episode": "1-07",
+    "first_seen": "1-07",
+    "certainty": "inferred",
+    "uncertainty_m": 8000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Past the Guadalupes and before the boundary. The San Bernardino volcanic field lies on that line, in Arizona; reading it as the book's volcanic plain is our inference."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.2,
+     31.335
+    ]
+   },
+   "properties": {
+    "id": "j2-boundary-obelisk",
+    "name": "The boundary, obelisk in sight",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 6,
+    "place_ref": null,
+    "part": 1,
+    "episode": "1-08",
+    "first_seen": "1-08",
+    "certainty": "inferred",
+    "uncertainty_m": 6000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Boundary monuments stand along 31°20′ N here. The circle covers the stretch south of the volcanic plain and north of Cajón Bonito."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.29153,
+     31.12684
+    ]
+   },
+   "properties": {
+    "id": "j2-cajon-bonito",
+    "name": "Cajón Bonito trail south",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 7,
+    "place_ref": "place-cajon-bonito",
+    "part": 1,
+    "episode": "1-08",
+    "first_seen": "1-08",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4016262",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4016262, the Cajón Bonito nearest the boundary; the other two are 89 km and 122 km away."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.03806,
+     30.92361
+    ]
+   },
+   "properties": {
+    "id": "j2-sierra-de-la-cabellera",
+    "name": "Passes of the Sierra de la Cabellera",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 8,
+    "place_ref": "place-sierra-de-la-cabellera",
+    "part": 1,
+    "episode": "1-08",
+    "first_seen": "1-08",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4016437",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.05822,
+     30.73016
+    ]
+   },
+   "properties": {
+    "id": "j2-colonia-oaxaca",
+    "name": "River crossing at Colonia Oaxaca",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 9,
+    "place_ref": "place-colonia-oaxaca",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4013341",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4013341 (named Oaxaca), on the Bavispe 19 km from Colonia Morelos. Colonia Oaxaca (El Marquesote) in Chihuahua, 89 km east, is a different place."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.14,
+     30.78
+    ]
+   },
+   "properties": {
+    "id": "j2-mud-settlement",
+    "name": "The mud-house settlement",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 10,
+    "place_ref": null,
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "inferred",
+    "uncertainty_m": 6000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Unnamed. Between the crossing at Colonia Oaxaca and Colonia Morelos."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.22383,
+     30.82701
+    ]
+   },
+   "properties": {
+    "id": "j2-colonia-morelos",
+    "name": "Colonia Morelos (the fair)",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 11,
+    "place_ref": "place-colonia-morelos",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4013350",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.22,
+     30.82
+    ]
+   },
+   "properties": {
+    "id": "j2-batepito-hacienda",
+    "name": "Hacienda on the Batepito plain",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 12,
+    "place_ref": null,
+    "part": 1,
+    "episode": "1-10",
+    "first_seen": "1-10",
+    "certainty": "inferred",
+    "uncertainty_m": 5000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Unnamed. Centred on Batepito (GeoNames 4017288), on the plain beside the Bavispe."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.08333,
+     30.76667
+    ]
+   },
+   "properties": {
+    "id": "j2-pilares-de-teras",
+    "name": "Into the Pilares Teras",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "sequence": 13,
+    "place_ref": "place-pilares-de-teras",
+    "part": 1,
+    "episode": "1-10",
+    "first_seen": "1-10",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3981872",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3981872, Sierra de Teras, which GeoNames also lists as Pilares de Teras."
+   }
+  }
+ ]
+}

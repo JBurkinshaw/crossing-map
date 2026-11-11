@@ -1,0 +1,864 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.51313,
+     29.93737
+    ]
+   },
+   "properties": {
+    "id": "place-sierra-de-la-madera",
+    "name": "Sierra de la Madera",
+    "kind": "range",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "9028461",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Provisional, awaiting review. See stop j1-sierra-de-la-madera: the wolf must cross the Bavispe on her way to 108°30′ W, which rules out the top name match east of the river."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.75719,
+     31.34278
+    ]
+   },
+   "properties": {
+    "id": "place-san-luis-mountains",
+    "name": "San Luis Mountains",
+    "kind": "range",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920694",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.65699,
+     31.354
+    ]
+   },
+   "properties": {
+    "id": "place-whitewater-creek",
+    "name": "Whitewater Creek",
+    "kind": "stream",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "896564",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.78892,
+     31.56966
+    ]
+   },
+   "properties": {
+    "id": "place-animas-mountains",
+    "name": "Animas Mountains",
+    "kind": "range",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "885762",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.83603,
+     32.57228
+    ]
+   },
+   "properties": {
+    "id": "place-animas-valley",
+    "name": "Animas Valley",
+    "kind": "valley",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "900285",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.01258,
+     31.66703
+    ]
+   },
+   "properties": {
+    "id": "place-peloncillo-mountains",
+    "name": "Peloncillo Mountains",
+    "kind": "range",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "43100",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.86894,
+     31.50815
+    ]
+   },
+   "properties": {
+    "id": "place-foster-draw",
+    "name": "Foster Draw",
+    "kind": "valley",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "889164",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.06124,
+     31.59055
+    ]
+   },
+   "properties": {
+    "id": "place-skeleton-creek",
+    "name": "Skeleton Creek",
+    "kind": "stream",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "11397",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.12323,
+     31.57519
+    ]
+   },
+   "properties": {
+    "id": "place-starvation-canyon",
+    "name": "Starvation Canyon",
+    "kind": "valley",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "11797",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.08673,
+     31.50062
+    ]
+   },
+   "properties": {
+    "id": "place-hog-canyon-spring",
+    "name": "Hog Canyon Spring",
+    "kind": "spring",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "5857",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.87484,
+     31.53502
+    ]
+   },
+   "properties": {
+    "id": "place-clanton-draw",
+    "name": "Clanton Draw",
+    "kind": "valley",
+    "role": "stop",
+    "characters": [
+     "wolf"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "887634",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9145,
+     31.40872
+    ]
+   },
+   "properties": {
+    "id": "place-cloverdale-creek",
+    "name": "Cloverdale Creek",
+    "kind": "stream",
+    "role": "stop",
+    "characters": [
+     "wolf",
+     "billy"
+    ],
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-05",
+    "first_seen": "1-05",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "887693",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.92977,
+     31.41705
+    ]
+   },
+   "properties": {
+    "id": "place-cloverdale",
+    "name": "Cloverdale",
+    "kind": "locale",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920578",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.98811,
+     31.36455
+    ]
+   },
+   "properties": {
+    "id": "place-guadalupe-mountains",
+    "name": "Guadalupe Mountains",
+    "kind": "range",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-07",
+    "first_seen": "1-07",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920606",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.29153,
+     31.12684
+    ]
+   },
+   "properties": {
+    "id": "place-cajon-bonito",
+    "name": "Cajón Bonito",
+    "kind": "stream",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-08",
+    "first_seen": "1-08",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4016262",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.03806,
+     30.92361
+    ]
+   },
+   "properties": {
+    "id": "place-sierra-de-la-cabellera",
+    "name": "Sierra de la Cabellera",
+    "kind": "range",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-08",
+    "first_seen": "1-08",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4016437",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.05822,
+     30.73016
+    ]
+   },
+   "properties": {
+    "id": "place-colonia-oaxaca",
+    "name": "Colonia Oaxaca",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4013341",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.22383,
+     30.82701
+    ]
+   },
+   "properties": {
+    "id": "place-colonia-morelos",
+    "name": "Colonia Morelos",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4013350",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.23705,
+     30.81542
+    ]
+   },
+   "properties": {
+    "id": "place-batepito",
+    "name": "Batepito",
+    "kind": "plain",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "wolf"
+    ],
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-10",
+    "first_seen": "1-10",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4017287",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.08333,
+     30.76667
+    ]
+   },
+   "properties": {
+    "id": "place-pilares-de-teras",
+    "name": "Sierra de los Pilares de Teras",
+    "kind": "range",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-10",
+    "first_seen": "1-10",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3981872",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.65114,
+     35.08449
+    ]
+   },
+   "properties": {
+    "id": "place-albuquerque",
+    "name": "Albuquerque",
+    "kind": "city",
+    "role": "passing",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "928679",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.38246,
+     32.739
+    ]
+   },
+   "properties": {
+    "id": "place-grant-county",
+    "name": "Grant County",
+    "kind": "county",
+    "role": "passing",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "915980",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -104.41196,
+     34.34241
+    ]
+   },
+   "properties": {
+    "id": "place-de-baca-county",
+    "name": "De Baca County",
+    "kind": "county",
+    "role": "passing",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "933054",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.54251,
+     31.3224
+    ]
+   },
+   "properties": {
+    "id": "place-agua-prieta",
+    "name": "Agua Prieta",
+    "kind": "city",
+    "role": "passing",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4019260",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95202,
+     30.3775
+    ]
+   },
+   "properties": {
+    "id": "place-casas-grandes",
+    "name": "Casas Grandes",
+    "kind": "town",
+    "role": "passing",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4015076",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.99642,
+     31.09205
+    ]
+   },
+   "properties": {
+    "id": "place-ascension",
+    "name": "Ascensión",
+    "kind": "town",
+    "role": "passing",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4003582",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.74505,
+     31.39455
+    ]
+   },
+   "properties": {
+    "id": "place-san-luis-pass",
+    "name": "San Luis Pass",
+    "kind": "pass",
+    "role": "passing",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "894461",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9353,
+     31.45331
+    ]
+   },
+   "properties": {
+    "id": "place-black-point",
+    "name": "Black Point",
+    "kind": "summit",
+    "role": "passing",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "886444",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Provisional pick from several candidates, awaiting review."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.80728,
+     31.94898
+    ]
+   },
+   "properties": {
+    "id": "place-animas",
+    "name": "Animas",
+    "kind": "town",
+    "role": "passing",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "885759",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  }
+ ]
+}

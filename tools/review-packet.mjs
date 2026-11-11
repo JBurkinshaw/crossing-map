@@ -36,7 +36,10 @@ for (const [profileName, profile] of Object.entries(profiles)) {
   const page = await context.newPage()
   page.on('console', (m) => m.type() === 'error' && problems.push(`${profileName}: console: ${m.text()}`))
   page.on('pageerror', (e) => problems.push(`${profileName}: pageerror: ${e.message}`))
-  page.on('requestfailed', (r) => problems.push(`${profileName}: failed: ${r.url()} ${r.failure()?.errorText}`))
+  page.on('requestfailed', (r) => {
+    // MapLibre cancels tile requests the view no longer needs; that is not a failure.
+    if (r.failure()?.errorText !== 'net::ERR_ABORTED') problems.push(`${profileName}: failed: ${r.url()} ${r.failure()?.errorText}`)
+  })
   for (const [name, view] of Object.entries(views)) {
     const hash = view ? `#map=${view[2]}/${view[1]}/${view[0]}` : ''
     // A hash-only change does not reload the page, so navigate fresh each time.

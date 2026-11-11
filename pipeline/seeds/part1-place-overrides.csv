@@ -1,0 +1,3 @@
+id,action,source,source_id,lat,lon,reasoning
+sierra-de-la-madera,use,geonames,9028461,29.93737,-109.51313,"Provisional, awaiting review. See stop j1-sierra-de-la-madera: the wolf must cross the Bavispe on her way to 108°30′ W, which rules out the top name match east of the river."
+rio-bavispe,exclude,,,,,"GeoNames gives the river one point, at its mouth, about 100 km south of where the story crosses it. Rivers are drawn as lines from stage 2; crossings are stops."
