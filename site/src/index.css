@@ -1,0 +1,45 @@
+:root {
+  --paper: #e6d9bd;
+  --ink: #2b2118;
+  font-family: 'IM Fell English', 'Iowan Old Style', Georgia, serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.app {
+  position: relative;
+  height: 100%;
+}
+
+.cartouche {
+  position: absolute;
+  right: max(12px, env(safe-area-inset-right));
+  bottom: max(28px, env(safe-area-inset-bottom));
+  padding: 10px 16px;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  background: var(--paper);
+  text-align: center;
+}
+
+.cartouche h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cartouche p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+}

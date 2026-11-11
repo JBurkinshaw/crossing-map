@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Story layer",
+  "description": "A GeoJSON FeatureCollection of story features (places, areas, journeys, stops, conversations, vignettes). Every feature shares these properties. See docs/plan.md, section 6.",
+  "type": "object",
+  "required": ["type", "features"],
+  "properties": {
+    "type": { "const": "FeatureCollection" },
+    "features": { "type": "array", "items": { "$ref": "#/$defs/feature" } }
+  },
+  "$defs": {
+    "episode": {
+      "description": "Part and episode within the Part, for example 1-09.",
+      "type": "string",
+      "pattern": "^[1-4]-(0[1-9]|1[0-4])$"
+    },
+    "feature": {
+      "type": "object",
+      "required": ["type", "geometry", "properties"],
+      "properties": {
+        "type": { "const": "Feature" },
+        "geometry": {
+          "type": "object",
+          "required": ["type", "coordinates"],
+          "properties": {
+            "type": { "enum": ["Point", "LineString", "MultiLineString", "Polygon", "MultiPolygon"] }
+          }
+        },
+        "properties": { "$ref": "#/$defs/properties" }
+      }
+    },
+    "properties": {
+      "type": "object",
+      "required": ["id", "name", "kind", "part", "first_seen", "certainty", "method", "source", "source_licence", "note_safe"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "name_in_text": { "type": ["string", "null"] },
+        "kind": { "type": "string", "minLength": 1 },
+        "role": { "enum": ["stop", "passing", "tale", null] },
+        "characters": { "type": "array", "items": { "enum": ["billy", "boyd", "wolf", "girl"] } },
+        "journey": { "type": ["string", "null"], "pattern": "^J[1-7]$" },
+        "sequence": { "type": ["integer", "null"], "minimum": 1 },
+        "part": { "type": "integer", "minimum": 1, "maximum": 4 },
+        "episode": { "oneOf": [{ "$ref": "#/$defs/episode" }, { "type": "null" }] },
+        "first_seen": { "$ref": "#/$defs/episode" },
+        "pages": { "type": "array", "items": { "type": "string" } },
+        "certainty": { "enum": ["located", "approximate", "inferred", "reported"] },
+        "uncertainty_m": { "type": ["number", "null"], "minimum": 0 },
+        "method": { "enum": ["gazetteer", "hand-drawn", "narrated-path", "modeled", "schematic", "generated"] },
+        "source": { "type": "string", "minLength": 1 },
+        "source_id": { "type": ["string", "null"] },
+        "source_licence": { "type": "string", "minLength": 1 },
+        "note_safe": { "type": "string" },
+        "note_full": { "type": ["string", "null"] },
+        "reasoning": { "type": ["string", "null"] },
+        "photo_ids": { "type": "array", "items": { "type": "string" } },
+        "vignette": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

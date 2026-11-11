@@ -12,7 +12,7 @@ This repository is at an early stage. The build plan is in [`docs/plan.md`](docs
 | `data/` | Published GeoJSON and JSON, with schemas |
 | `pipeline/` | Python (uv) scripts that build the data |
 | `tiles/` | Tile build scripts. Built PMTiles are release assets, not committed |
-| `tools/` | Review-packet and browsing scripts |
+| `tools/` | Build and review-packet scripts |
 | `review/` | Review packets and CSVs for sign-off |
 | `docs/` | The plan, decision records, and link indexes |
 | `private/` | Git-ignored. The book copy and reference images stay on the author's machine |

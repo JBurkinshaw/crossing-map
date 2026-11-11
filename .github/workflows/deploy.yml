@@ -1,0 +1,86 @@
+# Checks the repo, then deploys one GitHub Pages site holding two builds:
+# `main` at the root, and the newest stage/* branch under /preview/.
+name: Check and deploy
+
+on:
+  push:
+    branches: [main, 'stage/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Nothing under private/ is tracked
+        run: |
+          if [ -n "$(git ls-files private)" ]; then
+            echo "::error::Files under private/ are tracked:"; git ls-files private; exit 1
+          fi
+      - uses: astral-sh/setup-uv@v10
+      - name: Validate data against schemas
+        run: uv run --project pipeline python -m crossing.validate
+
+  build:
+    needs: check
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Pick the preview branch
+        id: preview
+        run: |
+          if [[ "$GITHUB_REF_NAME" == stage/* ]]; then
+            branch="$GITHUB_REF_NAME"
+          else
+            branch=$(git for-each-ref --sort=-committerdate --count=1 \
+              --format='%(refname:lstrip=3)' 'refs/remotes/origin/stage/')
+          fi
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          echo "Preview branch: ${branch:-none}"
+      - name: Build main at the root
+        run: |
+          git worktree add ../main origin/main
+          if [ -f ../main/site/package.json ]; then
+            tools/build-site.sh ../main /crossing-map/ _site
+          else
+            # Before the first stage merges, main has no app to build.
+            mkdir -p _site
+            echo '<!doctype html><title>The Crossing</title><p>Not released yet. See <a href="preview/">the preview</a>.</p>' > _site/index.html
+          fi
+      - name: Build the preview
+        if: steps.preview.outputs.branch != ''
+        env:
+          # Passed through the environment: a branch name may contain shell syntax.
+          PREVIEW_BRANCH: ${{ steps.preview.outputs.branch }}
+        run: |
+          git worktree add ../preview "origin/$PREVIEW_BRANCH"
+          tools/build-site.sh ../preview /crossing-map/preview/ _site/preview
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,11 @@
+{
+  "name": "crossing-map-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "review-packet": "node review-packet.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.65.0"
+  }
+}
