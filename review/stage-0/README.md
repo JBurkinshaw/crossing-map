@@ -19,8 +19,7 @@
 
 ## Checks
 
-- Range request against the live test archive: see "Live checks" below.
-- Console errors and failed requests during the screenshot run: none (`screenshots/problems.txt`).
+- Console errors and failed requests during the screenshot run against the live preview: none (`screenshots/problems.txt`).
 - Data validation: 0 files, nothing published yet.
 - Bundle: 1.36 MB of JavaScript (380 kB gzipped), almost all MapLibre, plus a 520 kB worker.
 
@@ -33,6 +32,8 @@ None block stage 1. One for later: the bundle is large for a first load on a pho
 - The MapTiler key (see `TODO-prerequisites.md`). Stage 1 builds satellite with an "unavailable" state until the key exists.
 - Self-hosted IM Fell fonts arrive with the literary styling in stage 2. The title uses a fallback serif until then.
 
-## Live checks
+## Live checks (11 November 2026)
 
-Filled in after the first deploy.
+- GitHub Pages answers PMTiles range requests: `curl -r 0-99` on `preview/tiles/test.pmtiles` returns `206`, `content-range: bytes 0-99/15598`, and `access-control-allow-origin: *`. Decision 0003 stands.
+- The MapLibre worker (`assets/maplibre-gl-worker-*.mjs`) is served as `text/javascript`, so the module worker loads.
+- `main` serves a placeholder at the root until this stage merges.
