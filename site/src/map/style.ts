@@ -1,24 +1,21 @@
-import type { StyleSpecification } from 'maplibre-gl'
+import type { LayerSpecification, StyleSpecification } from 'maplibre-gl'
+import { reliefLayers, reliefSources, type Treatment } from './relief'
 import { fonts, tokens } from './tokens'
+
+// The literary base: everything drawn from base.pmtiles, the paper, and relief. Satellite mode hides these.
+export const BASE_LAYERS = [
+  'paper', 'mexico', 'lake', 'county-line', 'state-line', 'creek', 'river-minor', 'river',
+  'road', 'railroad', 'railroad-ties', 'creek-label', 'river-label',
+  'hillshade', 'hachure-coarse', 'hachure-fine', 'stipple', 'mountain-glyph',
+]
 
 // The literary basemap (docs/plan.md, section 5.1): ink on caliche paper, the
 // Mexico side a shade darker, rivers in blue-grey ink, and a dash-dot
 // international line as on the 1850s-1880s survey sheets.
-// The literary base: everything drawn from base.pmtiles plus the paper. Satellite mode hides these.
-export const BASE_LAYERS = [
-  'paper', 'mexico', 'lake', 'county-line', 'state-line', 'creek', 'river-minor', 'river',
-  'road', 'railroad', 'railroad-ties', 'creek-label', 'river-label',
-]
-
-export function literaryStyle(tilesBase: string, fontsBase: string): StyleSpecification {
+export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: string, relief: Treatment): StyleSpecification {
   const base = 'base'
-  return {
-    version: 8,
-    glyphs: `${fontsBase}{fontstack}/{range}.pbf`,
-    sources: {
-      [base]: { type: 'vector', url: `pmtiles://${tilesBase}base.pmtiles` },
-    },
-    layers: [
+  const r = reliefLayers(relief)
+  const layers: LayerSpecification[] = [
       { id: 'paper', type: 'background', paint: { 'background-color': tokens.paper } },
       {
         id: 'mexico',
@@ -148,6 +145,20 @@ export function literaryStyle(tilesBase: string, fontsBase: string): StyleSpecif
         },
         paint: { 'text-color': tokens.water, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },
-    ],
+    ]
+  // Hillshade sits on the paper; hachures under the water and lines; glyphs above the lines, below the labels.
+  const at = (id: string) => layers.findIndex((l) => l.id === id)
+  layers.splice(at('creek-label'), 0, ...r.glyphs)
+  layers.splice(at('county-line'), 0, ...r.hachures)
+  layers.splice(at('lake'), 0, ...r.hillshade)
+  return {
+    version: 8,
+    glyphs: `${fontsBase}{fontstack}/{range}.pbf`,
+    sprite: `${tilesBase.replace(/tiles\/$/, '')}sprites/glyphs`,
+    sources: {
+      [base]: { type: 'vector', url: `pmtiles://${tilesBase}base.pmtiles` },
+      ...reliefSources(relief, tilesBase, dataBase),
+    },
+    layers,
   }
 }

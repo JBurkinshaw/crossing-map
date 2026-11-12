@@ -1,0 +1,8530 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.59469,
+     28.25265
+    ]
+   },
+   "properties": {
+    "id": "peak-28253-107595",
+    "name": "Cerro Ojo la Yegua",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9892563",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 3079,
+    "prominence_m": null,
+    "size": "large",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 1.12,
+    "glyph_rotate": 2.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.29057,
+     31.84649
+    ]
+   },
+   "properties": {
+    "id": "peak-31846-109291",
+    "name": "Chiricahua Peak",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "2878",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2972,
+    "prominence_m": 1563,
+    "size": "large",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.04,
+    "glyph_rotate": 0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.59944,
+     29.05866
+    ]
+   },
+   "properties": {
+    "id": "peak-29059-109599",
+    "name": "Cerro el Cobre",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "13416977",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1885,
+    "prominence_m": 1399,
+    "size": "large",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.15,
+    "glyph_rotate": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.95598,
+     30.92984
+    ]
+   },
+   "properties": {
+    "id": "peak-30930-109956",
+    "name": "Cerro las Flores",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8700257",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2611,
+    "prominence_m": 1296,
+    "size": "large",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 1.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.39833,
+     31.63658
+    ]
+   },
+   "properties": {
+    "id": "peak-31637-108398",
+    "name": "Big Hatchet Peak",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "897312",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2527,
+    "prominence_m": 1110,
+    "size": "large",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -0.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.1512,
+     30.54555
+    ]
+   },
+   "properties": {
+    "id": "peak-30546-109151",
+    "name": "Cerro la Aguja",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8688641",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2438,
+    "prominence_m": 1069,
+    "size": "large",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.12,
+    "glyph_rotate": -1.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.52501,
+     29.9458
+    ]
+   },
+   "properties": {
+    "id": "peak-29946-109525",
+    "name": "Cerro San José",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9028459",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2335,
+    "prominence_m": 1028,
+    "size": "large",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.0,
+    "glyph_rotate": -0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.02762,
+     29.84546
+    ]
+   },
+   "properties": {
+    "id": "peak-29845-109028",
+    "name": "Cerro la Placa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "12449808",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2378,
+    "prominence_m": 1014,
+    "size": "large",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.04,
+    "glyph_rotate": -1.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.99019,
+     31.25853
+    ]
+   },
+   "properties": {
+    "id": "peak-31259-109990",
+    "name": "Cerro San José",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3986332",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2525,
+    "prominence_m": 975,
+    "size": "medium",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.94,
+    "glyph_rotate": -2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.00017,
+     29.88528
+    ]
+   },
+   "properties": {
+    "id": "peak-29885-110000",
+    "name": "Cerro el Bellotal",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9025175",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1908,
+    "prominence_m": 975,
+    "size": "medium",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 0.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.78994,
+     31.57
+    ]
+   },
+   "properties": {
+    "id": "peak-31570-108790",
+    "name": "Animas Peak",
+    "kind": "peak",
+    "role": null,
+    "part": 2,
+    "first_seen": "2-05",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "899504",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2594,
+    "prominence_m": 967,
+    "size": "medium",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 0.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.6658,
+     30.58992
+    ]
+   },
+   "properties": {
+    "id": "peak-30590-107666",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2479,
+    "prominence_m": 941,
+    "size": "medium",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.08,
+    "glyph_rotate": 2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.96407,
+     28.03087
+    ]
+   },
+   "properties": {
+    "id": "peak-28031-108964",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2147,
+    "prominence_m": 922,
+    "size": "medium",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -1.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.24255,
+     28.99173
+    ]
+   },
+   "properties": {
+    "id": "peak-28992-107243",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2962,
+    "prominence_m": 907,
+    "size": "medium",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 1.12,
+    "glyph_rotate": -2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.17866,
+     29.27378
+    ]
+   },
+   "properties": {
+    "id": "peak-29274-109179",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1703,
+    "prominence_m": 903,
+    "size": "medium",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.01,
+    "glyph_rotate": 2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.53726,
+     30.51978
+    ]
+   },
+   "properties": {
+    "id": "peak-30520-109537",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2269,
+    "prominence_m": 881,
+    "size": "medium",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 1.07,
+    "glyph_rotate": 2.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.98901,
+     31.95319
+    ]
+   },
+   "properties": {
+    "id": "peak-31953-109989",
+    "name": "Mount Glenn",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "5066",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2267,
+    "prominence_m": 881,
+    "size": "medium",
+    "glyph": 6,
+    "flip": true,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.54174,
+     29.24503
+    ]
+   },
+   "properties": {
+    "id": "peak-29245-107542",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 3021,
+    "prominence_m": 877,
+    "size": "medium",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -2.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.75155,
+     30.55089
+    ]
+   },
+   "properties": {
+    "id": "peak-30551-109752",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2455,
+    "prominence_m": 839,
+    "size": "medium",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.02,
+    "glyph_rotate": 2.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.36012,
+     29.12453
+    ]
+   },
+   "properties": {
+    "id": "peak-29125-109360",
+    "name": "Cerro Guadalupe",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8756019",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1339,
+    "prominence_m": 829,
+    "size": "medium",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 0.88,
+    "glyph_rotate": -2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.88334,
+     29.21113
+    ]
+   },
+   "properties": {
+    "id": "peak-29211-109883",
+    "name": "Cerro la Tinaja",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8768452",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1647,
+    "prominence_m": 825,
+    "size": "medium",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -2.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.81219,
+     31.24748
+    ]
+   },
+   "properties": {
+    "id": "peak-31247-108812",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2501,
+    "prominence_m": 818,
+    "size": "medium",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -2.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.53883,
+     30.98862
+    ]
+   },
+   "properties": {
+    "id": "peak-30989-106539",
+    "name": "Cerro las Higueras",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8628630",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2087,
+    "prominence_m": 811,
+    "size": "medium",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.9,
+    "glyph_rotate": 0.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.88022,
+     30.64065
+    ]
+   },
+   "properties": {
+    "id": "peak-30641-108880",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2483,
+    "prominence_m": 805,
+    "size": "medium",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.08,
+    "glyph_rotate": 0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.96084,
+     31.44415
+    ]
+   },
+   "properties": {
+    "id": "peak-31444-109961",
+    "name": "Mount Ballard",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "988",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2228,
+    "prominence_m": 798,
+    "size": "medium",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 1.0,
+    "glyph_rotate": 1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.31587,
+     29.84194
+    ]
+   },
+   "properties": {
+    "id": "peak-29842-106316",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2446,
+    "prominence_m": 795,
+    "size": "medium",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 1.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.78055,
+     30.83807
+    ]
+   },
+   "properties": {
+    "id": "peak-30838-107781",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2391,
+    "prominence_m": 782,
+    "size": "medium",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.00162,
+     31.64951
+    ]
+   },
+   "properties": {
+    "id": "peak-31650-108002",
+    "name": "Cerro Grande",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3970437",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2098,
+    "prominence_m": 782,
+    "size": "medium",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.12,
+    "glyph_rotate": 1.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.3448,
+     29.56469
+    ]
+   },
+   "properties": {
+    "id": "peak-29565-109345",
+    "name": "Cerro la Ranchería",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8758873",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1718,
+    "prominence_m": 770,
+    "size": "medium",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.0,
+    "glyph_rotate": -2.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.36613,
+     29.95803
+    ]
+   },
+   "properties": {
+    "id": "peak-29958-107366",
+    "name": "Cerro Grande",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4005661",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2524,
+    "prominence_m": 767,
+    "size": "medium",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -0.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.79287,
+     28.24659
+    ]
+   },
+   "properties": {
+    "id": "peak-28247-108793",
+    "name": "Cerro las Carboneras",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8765030",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2331,
+    "prominence_m": 761,
+    "size": "medium",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 0.9,
+    "glyph_rotate": -1.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.2568,
+     29.5583
+    ]
+   },
+   "properties": {
+    "id": "peak-29558-107257",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2881,
+    "prominence_m": 749,
+    "size": "medium",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.03,
+    "glyph_rotate": -1.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.11462,
+     30.65257
+    ]
+   },
+   "properties": {
+    "id": "peak-30653-106115",
+    "name": "Picachos la Alcaparra",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8639708",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2100,
+    "prominence_m": 739,
+    "size": "medium",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.77049,
+     29.69926
+    ]
+   },
+   "properties": {
+    "id": "peak-29699-109770",
+    "name": "Cerro la Cieneguita",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8758087",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1772,
+    "prominence_m": 715,
+    "size": "medium",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.1,
+    "glyph_rotate": -2.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.53889,
+     30.27078
+    ]
+   },
+   "properties": {
+    "id": "peak-30271-109539",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2175,
+    "prominence_m": 707,
+    "size": "medium",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.14655,
+     28.64823
+    ]
+   },
+   "properties": {
+    "id": "peak-28648-107147",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2867,
+    "prominence_m": 706,
+    "size": "medium",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.11,
+    "glyph_rotate": 0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.39479,
+     29.7963
+    ]
+   },
+   "properties": {
+    "id": "peak-29796-109395",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1824,
+    "prominence_m": 705,
+    "size": "medium",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.46272,
+     29.27374
+    ]
+   },
+   "properties": {
+    "id": "peak-29274-109463",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1674,
+    "prominence_m": 701,
+    "size": "medium",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 0.87,
+    "glyph_rotate": 2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.7455,
+     29.04205
+    ]
+   },
+   "properties": {
+    "id": "peak-29042-109745",
+    "name": "Cerro Agujerado",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3971028",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1447,
+    "prominence_m": 699,
+    "size": "medium",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.15,
+    "glyph_rotate": -2.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.73333,
+     29.50284
+    ]
+   },
+   "properties": {
+    "id": "peak-29503-106733",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2899,
+    "prominence_m": 698,
+    "size": "medium",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.15,
+    "glyph_rotate": -2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.37251,
+     29.38095
+    ]
+   },
+   "properties": {
+    "id": "peak-29381-109373",
+    "name": "Cerro los Picachos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8750503",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1675,
+    "prominence_m": 691,
+    "size": "medium",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.0,
+    "glyph_rotate": -1.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.99967,
+     29.51889
+    ]
+   },
+   "properties": {
+    "id": "peak-29519-110000",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1731,
+    "prominence_m": 690,
+    "size": "medium",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 1.0,
+    "glyph_rotate": 0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.69032,
+     30.6892
+    ]
+   },
+   "properties": {
+    "id": "peak-30689-106690",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1909,
+    "prominence_m": 684,
+    "size": "medium",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 0.88,
+    "glyph_rotate": 0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.43819,
+     28.33604
+    ]
+   },
+   "properties": {
+    "id": "peak-28336-108438",
+    "name": "Cerro Santa Brígida",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8761955",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2589,
+    "prominence_m": 679,
+    "size": "medium",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.9,
+    "glyph_rotate": -2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.49196,
+     29.6949
+    ]
+   },
+   "properties": {
+    "id": "peak-29695-106492",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2374,
+    "prominence_m": 675,
+    "size": "medium",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 0.9,
+    "glyph_rotate": 1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.56487,
+     31.06626
+    ]
+   },
+   "properties": {
+    "id": "peak-31066-108565",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2157,
+    "prominence_m": 670,
+    "size": "medium",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.07,
+    "glyph_rotate": 0.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.83913,
+     30.72493
+    ]
+   },
+   "properties": {
+    "id": "peak-30725-109839",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2306,
+    "prominence_m": 666,
+    "size": "medium",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.92,
+    "glyph_rotate": -2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.6652,
+     28.02612
+    ]
+   },
+   "properties": {
+    "id": "peak-28026-108665",
+    "name": "Cerro el Tigre",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8764322",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2167,
+    "prominence_m": 646,
+    "size": "medium",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -1.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.53268,
+     31.09714
+    ]
+   },
+   "properties": {
+    "id": "peak-31097-109533",
+    "name": "Cerro Cabullona",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4016361",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1853,
+    "prominence_m": 644,
+    "size": "medium",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.94,
+    "glyph_rotate": 1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.2993,
+     30.05856
+    ]
+   },
+   "properties": {
+    "id": "peak-30059-109299",
+    "name": "Cerro la Mora",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3995431",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1363,
+    "prominence_m": 644,
+    "size": "medium",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 1.1,
+    "glyph_rotate": -2.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.4517,
+     31.84327
+    ]
+   },
+   "properties": {
+    "id": "peak-31843-108452",
+    "name": "Hachita Peak",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "897379",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2007,
+    "prominence_m": 638,
+    "size": "medium",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 2.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.82869,
+     30.42511
+    ]
+   },
+   "properties": {
+    "id": "peak-30425-108829",
+    "name": "Cerro el Pinalito",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8678457",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2015,
+    "prominence_m": 634,
+    "size": "medium",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.04,
+    "glyph_rotate": -2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.61748,
+     30.54951
+    ]
+   },
+   "properties": {
+    "id": "peak-30550-108617",
+    "name": "Cerro San José",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8688213",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2697,
+    "prominence_m": 633,
+    "size": "medium",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": -1.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.54764,
+     28.63037
+    ]
+   },
+   "properties": {
+    "id": "peak-28630-108548",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2450,
+    "prominence_m": 633,
+    "size": "medium",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 0.98,
+    "glyph_rotate": 0.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.36358,
+     31.44829
+    ]
+   },
+   "properties": {
+    "id": "peak-31448-108364",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2068,
+    "prominence_m": 622,
+    "size": "medium",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.93,
+    "glyph_rotate": 2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.41349,
+     30.95139
+    ]
+   },
+   "properties": {
+    "id": "peak-30951-109413",
+    "name": "Cerro el Saucito",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8699799",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1904,
+    "prominence_m": 618,
+    "size": "medium",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -2.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.06968,
+     28.21149
+    ]
+   },
+   "properties": {
+    "id": "peak-28211-106070",
+    "name": "Picacho Cabeza la Silla",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "13659114",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2343,
+    "prominence_m": 611,
+    "size": "medium",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.07,
+    "glyph_rotate": 3.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.08286,
+     30.98647
+    ]
+   },
+   "properties": {
+    "id": "peak-30986-107083",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1809,
+    "prominence_m": 601,
+    "size": "medium",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.09,
+    "glyph_rotate": 2.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.67534,
+     29.22728
+    ]
+   },
+   "properties": {
+    "id": "peak-29227-109675",
+    "name": "Cerro Lista Blanca",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3998561",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1153,
+    "prominence_m": 600,
+    "size": "medium",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": 2.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.84751,
+     29.8832
+    ]
+   },
+   "properties": {
+    "id": "peak-29883-106848",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2141,
+    "prominence_m": 598,
+    "size": "small",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -2.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.57878,
+     28.96474
+    ]
+   },
+   "properties": {
+    "id": "peak-28965-108579",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2253,
+    "prominence_m": 596,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": -2.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.89405,
+     29.60161
+    ]
+   },
+   "properties": {
+    "id": "peak-29602-108894",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1856,
+    "prominence_m": 596,
+    "size": "small",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": 1.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.5363,
+     31.67636
+    ]
+   },
+   "properties": {
+    "id": "peak-31676-109536",
+    "name": "Swisshelm Mountain",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "12067",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2175,
+    "prominence_m": 594,
+    "size": "small",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.49457,
+     28.0177
+    ]
+   },
+   "properties": {
+    "id": "peak-28018-108495",
+    "name": "Cerro Carvo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8764518",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1531,
+    "prominence_m": 594,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.0299,
+     28.92889
+    ]
+   },
+   "properties": {
+    "id": "peak-28929-106030",
+    "name": "Cerro la Choreadora",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4014083",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2178,
+    "prominence_m": 587,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 0.98,
+    "glyph_rotate": -1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.86089,
+     28.71508
+    ]
+   },
+   "properties": {
+    "id": "peak-28715-108861",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2110,
+    "prominence_m": 583,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 0.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.21237,
+     29.31483
+    ]
+   },
+   "properties": {
+    "id": "peak-29315-108212",
+    "name": "Cerro el Diablo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8752505",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2811,
+    "prominence_m": 573,
+    "size": "small",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.88,
+    "glyph_rotate": -2.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.04425,
+     28.14571
+    ]
+   },
+   "properties": {
+    "id": "peak-28146-106044",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2312,
+    "prominence_m": 570,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 2.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.50704,
+     28.18213
+    ]
+   },
+   "properties": {
+    "id": "peak-28182-108507",
+    "name": "Cerro Sebastopol",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8764497",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1611,
+    "prominence_m": 561,
+    "size": "small",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.93,
+    "glyph_rotate": 1.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.72719,
+     30.33951
+    ]
+   },
+   "properties": {
+    "id": "peak-30340-109727",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1911,
+    "prominence_m": 555,
+    "size": "small",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.14,
+    "glyph_rotate": 2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.19852,
+     31.90655
+    ]
+   },
+   "properties": {
+    "id": "peak-31907-109199",
+    "name": "Silver Peak",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "11334",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2411,
+    "prominence_m": 553,
+    "size": "small",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 1.08,
+    "glyph_rotate": -1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.90666,
+     30.10292
+    ]
+   },
+   "properties": {
+    "id": "peak-30103-109907",
+    "name": "Cerro Blanco",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9027578",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1649,
+    "prominence_m": 551,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 2.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.67423,
+     30.06327
+    ]
+   },
+   "properties": {
+    "id": "peak-30063-106674",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2248,
+    "prominence_m": 549,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.40308,
+     28.79776
+    ]
+   },
+   "properties": {
+    "id": "peak-28798-107403",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2784,
+    "prominence_m": 549,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.98516,
+     30.10173
+    ]
+   },
+   "properties": {
+    "id": "peak-30102-107985",
+    "name": "Cerro Rajado",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3991080",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2511,
+    "prominence_m": 548,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -0.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.12559,
+     31.00707
+    ]
+   },
+   "properties": {
+    "id": "peak-31007-109126",
+    "name": "Cerro Pitaycachi",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3992409",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2277,
+    "prominence_m": 541,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 1.1,
+    "glyph_rotate": 1.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.62801,
+     28.99655
+    ]
+   },
+   "properties": {
+    "id": "peak-28997-107628",
+    "name": "Cerro el Manzano",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8764111",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2875,
+    "prominence_m": 539,
+    "size": "small",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.62803,
+     28.83073
+    ]
+   },
+   "properties": {
+    "id": "peak-28831-106628",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2792,
+    "prominence_m": 535,
+    "size": "small",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.12,
+    "glyph_rotate": -0.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.52863,
+     28.77761
+    ]
+   },
+   "properties": {
+    "id": "peak-28778-107529",
+    "name": "Cerro Grande",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4005664",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2771,
+    "prominence_m": 531,
+    "size": "small",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.9683,
+     29.70849
+    ]
+   },
+   "properties": {
+    "id": "peak-29708-106968",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2817,
+    "prominence_m": 530,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.03,
+    "glyph_rotate": -1.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.84095,
+     29.95982
+    ]
+   },
+   "properties": {
+    "id": "peak-29960-108841",
+    "name": "Cerro Pico Guacamayas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9030409",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2620,
+    "prominence_m": 530,
+    "size": "small",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.12,
+    "glyph_rotate": -0.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.43219,
+     29.49605
+    ]
+   },
+   "properties": {
+    "id": "peak-29496-108432",
+    "name": "Cerro el Mirador",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8752284",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2681,
+    "prominence_m": 528,
+    "size": "small",
+    "glyph": 6,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.93746,
+     29.19087
+    ]
+   },
+   "properties": {
+    "id": "peak-29191-108937",
+    "name": "Cerro las Gallinas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9807037",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1778,
+    "prominence_m": 522,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.98,
+    "glyph_rotate": -2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.43497,
+     29.74083
+    ]
+   },
+   "properties": {
+    "id": "peak-29741-109435",
+    "name": "Cerro la Cieneguita",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8758774",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1704,
+    "prominence_m": 522,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.89258,
+     30.24898
+    ]
+   },
+   "properties": {
+    "id": "peak-30249-109893",
+    "name": "Cerro el Nido",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9027584",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1700,
+    "prominence_m": 521,
+    "size": "small",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.1,
+    "glyph_rotate": 0.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.90094,
+     30.74382
+    ]
+   },
+   "properties": {
+    "id": "peak-30744-108901",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2441,
+    "prominence_m": 516,
+    "size": "small",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 1.04,
+    "glyph_rotate": 2.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.0964,
+     31.92221
+    ]
+   },
+   "properties": {
+    "id": "peak-31922-108096",
+    "name": "Flying W Mountain",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "889121",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1885,
+    "prominence_m": 515,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.67107,
+     29.42106
+    ]
+   },
+   "properties": {
+    "id": "peak-29421-108671",
+    "name": "Cerro el César",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8752104",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2268,
+    "prominence_m": 512,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.92,
+    "glyph_rotate": 1.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.39001,
+     30.48201
+    ]
+   },
+   "properties": {
+    "id": "peak-30482-108390",
+    "name": "Cerro Pelón",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8678028",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2640,
+    "prominence_m": 509,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.83088,
+     31.0605
+    ]
+   },
+   "properties": {
+    "id": "peak-31060-109831",
+    "name": "Cerro Magallanes",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3996919",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2190,
+    "prominence_m": 507,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 0.92,
+    "glyph_rotate": -2.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.16968,
+     30.96811
+    ]
+   },
+   "properties": {
+    "id": "peak-30968-106170",
+    "name": "Cerro el Sombreretillo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8635877",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1882,
+    "prominence_m": 502,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.11,
+    "glyph_rotate": 2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.34518,
+     28.00311
+    ]
+   },
+   "properties": {
+    "id": "peak-28003-106345",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2246,
+    "prominence_m": 500,
+    "size": "small",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -0.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.0793,
+     29.57715
+    ]
+   },
+   "properties": {
+    "id": "peak-29577-108079",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2766,
+    "prominence_m": 499,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.88,
+    "glyph_rotate": 2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.4219,
+     31.45488
+    ]
+   },
+   "properties": {
+    "id": "peak-31455-109422",
+    "name": "South College Peak",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "22234",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1919,
+    "prominence_m": 498,
+    "size": "small",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.94,
+    "glyph_rotate": -2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.01555,
+     29.19386
+    ]
+   },
+   "properties": {
+    "id": "peak-29194-109016",
+    "name": "Cerro los Pinos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8765824",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1638,
+    "prominence_m": 497,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.92431,
+     31.87531
+    ]
+   },
+   "properties": {
+    "id": "peak-31875-108924",
+    "name": "Grey Mountain",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "900944",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2098,
+    "prominence_m": 496,
+    "size": "small",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 1.09,
+    "glyph_rotate": -2.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.56717,
+     29.52882
+    ]
+   },
+   "properties": {
+    "id": "peak-29529-107567",
+    "name": "Cerro la Culebra",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8744830",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2968,
+    "prominence_m": 495,
+    "size": "small",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -2.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.71742,
+     29.48218
+    ]
+   },
+   "properties": {
+    "id": "peak-29482-109717",
+    "name": "Cerro las Placas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8751593",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1462,
+    "prominence_m": 494,
+    "size": "small",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.1873,
+     30.28443
+    ]
+   },
+   "properties": {
+    "id": "peak-30284-109187",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2130,
+    "prominence_m": 494,
+    "size": "small",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -1.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.94425,
+     28.13825
+    ]
+   },
+   "properties": {
+    "id": "peak-28138-107944",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2912,
+    "prominence_m": 493,
+    "size": "small",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.89798,
+     30.10508
+    ]
+   },
+   "properties": {
+    "id": "peak-30105-108898",
+    "name": "Cerro la Aguja del Aguajito",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9024319",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2420,
+    "prominence_m": 486,
+    "size": "small",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.85,
+    "glyph_rotate": 0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.1685,
+     29.38191
+    ]
+   },
+   "properties": {
+    "id": "peak-29382-109168",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1399,
+    "prominence_m": 484,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.22721,
+     29.91325
+    ]
+   },
+   "properties": {
+    "id": "peak-29913-109227",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1677,
+    "prominence_m": 482,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 2.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95676,
+     29.0495
+    ]
+   },
+   "properties": {
+    "id": "peak-29050-107957",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2648,
+    "prominence_m": 481,
+    "size": "small",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -2.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.44699,
+     28.7112
+    ]
+   },
+   "properties": {
+    "id": "peak-28711-106447",
+    "name": "Cerro el Perico",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3992914",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2658,
+    "prominence_m": 478,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.5235,
+     30.18759
+    ]
+   },
+   "properties": {
+    "id": "peak-30188-109524",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2041,
+    "prominence_m": 471,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": 1.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.43008,
+     30.8325
+    ]
+   },
+   "properties": {
+    "id": "peak-30833-109430",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1834,
+    "prominence_m": 470,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.78726,
+     31.02942
+    ]
+   },
+   "properties": {
+    "id": "peak-31029-109787",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2065,
+    "prominence_m": 470,
+    "size": "small",
+    "glyph": 6,
+    "flip": true,
+    "glyph_scale": 1.02,
+    "glyph_rotate": 0.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.69912,
+     28.71783
+    ]
+   },
+   "properties": {
+    "id": "peak-28718-108699",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2013,
+    "prominence_m": 469,
+    "size": "small",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 0.93,
+    "glyph_rotate": 2.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.68227,
+     31.6637
+    ]
+   },
+   "properties": {
+    "id": "peak-31664-108682",
+    "name": "Gillespie Mountain",
+    "kind": "peak",
+    "role": null,
+    "part": 4,
+    "first_seen": "4-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "920601",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2216,
+    "prominence_m": 465,
+    "size": "small",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.58852,
+     29.03852
+    ]
+   },
+   "properties": {
+    "id": "peak-29039-106589",
+    "name": "Cerro Santo Domingo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8747386",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2779,
+    "prominence_m": 464,
+    "size": "small",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.11,
+    "glyph_rotate": -2.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.19537,
+     28.02995
+    ]
+   },
+   "properties": {
+    "id": "peak-28030-108195",
+    "name": "Cerro el Tecolote",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8763802",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2691,
+    "prominence_m": 463,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 1.15,
+    "glyph_rotate": 0.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.03009,
+     30.59189
+    ]
+   },
+   "properties": {
+    "id": "peak-30592-107030",
+    "name": "Cerro el Chile",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4014295",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1807,
+    "prominence_m": 462,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.02,
+    "glyph_rotate": 1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.15952,
+     30.10179
+    ]
+   },
+   "properties": {
+    "id": "peak-30102-109160",
+    "name": "Cerro Huepari",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9019180",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1962,
+    "prominence_m": 461,
+    "size": "small",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.00737,
+     30.17838
+    ]
+   },
+   "properties": {
+    "id": "peak-30178-107007",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1924,
+    "prominence_m": 458,
+    "size": "small",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.0287,
+     29.26036
+    ]
+   },
+   "properties": {
+    "id": "peak-29260-108029",
+    "name": "Cerro la Cebolla",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8752490",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2723,
+    "prominence_m": 457,
+    "size": "small",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -0.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.93323,
+     28.88764
+    ]
+   },
+   "properties": {
+    "id": "peak-28888-108933",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1985,
+    "prominence_m": 457,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 0.92,
+    "glyph_rotate": 1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.86989,
+     29.12438
+    ]
+   },
+   "properties": {
+    "id": "peak-29124-109870",
+    "name": "Cerro Gordo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8768392",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1568,
+    "prominence_m": 456,
+    "size": "small",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 0.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.97988,
+     29.63967
+    ]
+   },
+   "properties": {
+    "id": "peak-29640-109980",
+    "name": "Cerro Chihuahuilla",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8758041",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1505,
+    "prominence_m": 456,
+    "size": "small",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 2.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.32557,
+     28.19133
+    ]
+   },
+   "properties": {
+    "id": "peak-28191-108326",
+    "name": "Cerro Capellina",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8764551",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2721,
+    "prominence_m": 447,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.09,
+    "glyph_rotate": -2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.11039,
+     28.43277
+    ]
+   },
+   "properties": {
+    "id": "peak-28433-106110",
+    "name": "Cerro el Ópate",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3970403",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2298,
+    "prominence_m": 444,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.01,
+    "glyph_rotate": -1.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.32496,
+     30.94853
+    ]
+   },
+   "properties": {
+    "id": "peak-30949-107325",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1672,
+    "prominence_m": 442,
+    "size": "small",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 1.07,
+    "glyph_rotate": 0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.00634,
+     30.903
+    ]
+   },
+   "properties": {
+    "id": "peak-30903-108006",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1859,
+    "prominence_m": 440,
+    "size": "small",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.76965,
+     28.66942
+    ]
+   },
+   "properties": {
+    "id": "peak-28669-106770",
+    "name": "Sierra de San Bernabé",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3987564",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2726,
+    "prominence_m": 440,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.88,
+    "glyph_rotate": -0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.05022,
+     30.4928
+    ]
+   },
+   "properties": {
+    "id": "peak-30493-108050",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2124,
+    "prominence_m": 440,
+    "size": "small",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.72731,
+     28.57695
+    ]
+   },
+   "properties": {
+    "id": "peak-28577-107727",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2731,
+    "prominence_m": 437,
+    "size": "small",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 0.97,
+    "glyph_rotate": -2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.47194,
+     29.06809
+    ]
+   },
+   "properties": {
+    "id": "peak-29068-109472",
+    "name": "Cerro Pinto",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8755989",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1149,
+    "prominence_m": 434,
+    "size": "small",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 2.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.25454,
+     29.52082
+    ]
+   },
+   "properties": {
+    "id": "peak-29521-106255",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2005,
+    "prominence_m": 434,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.08,
+    "glyph_rotate": -3.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.61695,
+     30.22838
+    ]
+   },
+   "properties": {
+    "id": "peak-30228-108617",
+    "name": "Cerro las Vacas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9022091",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2596,
+    "prominence_m": 428,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 1.09,
+    "glyph_rotate": -2.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.2987,
+     28.84754
+    ]
+   },
+   "properties": {
+    "id": "peak-28848-108299",
+    "name": "Cerro Torre Tres Ojitos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772091",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2779,
+    "prominence_m": 426,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.12,
+    "glyph_rotate": 0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.59152,
+     30.37061
+    ]
+   },
+   "properties": {
+    "id": "peak-30371-109592",
+    "name": "Cerro el Globo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8678868",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2021,
+    "prominence_m": 425,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.14,
+    "glyph_rotate": -2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9475,
+     31.9731
+    ]
+   },
+   "properties": {
+    "id": "peak-31973-108948",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1778,
+    "prominence_m": 422,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -1.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.4597,
+     29.65403
+    ]
+   },
+   "properties": {
+    "id": "peak-29654-107460",
+    "name": "Cerro los Venados",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8744905",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2402,
+    "prominence_m": 422,
+    "size": "small",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 0.87,
+    "glyph_rotate": -0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.38042,
+     28.96844
+    ]
+   },
+   "properties": {
+    "id": "peak-28968-106380",
+    "name": "Cerro la Ranchería",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3991029",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2426,
+    "prominence_m": 421,
+    "size": "small",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -1.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.09738,
+     28.09509
+    ]
+   },
+   "properties": {
+    "id": "peak-28095-107097",
+    "name": "Cerro San José",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3986334",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2764,
+    "prominence_m": 421,
+    "size": "small",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.9,
+    "glyph_rotate": -2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.42188,
+     31.20409
+    ]
+   },
+   "properties": {
+    "id": "peak-31204-109422",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1810,
+    "prominence_m": 420,
+    "size": "small",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.61965,
+     30.37455
+    ]
+   },
+   "properties": {
+    "id": "peak-30375-108620",
+    "name": "Cerro El Oso",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8678097",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2508,
+    "prominence_m": 419,
+    "size": "small",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.1,
+    "glyph_rotate": -0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.36989,
+     28.94999
+    ]
+   },
+   "properties": {
+    "id": "peak-28950-108370",
+    "name": "Cerro Jacales",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772267",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2467,
+    "prominence_m": 416,
+    "size": "small",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.07,
+    "glyph_rotate": -0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.6211,
+     29.47756
+    ]
+   },
+   "properties": {
+    "id": "peak-29478-106621",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2653,
+    "prominence_m": 414,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.8822,
+     29.31581
+    ]
+   },
+   "properties": {
+    "id": "peak-29316-109882",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1351,
+    "prominence_m": 412,
+    "size": "small",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -2.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.25155,
+     28.61386
+    ]
+   },
+   "properties": {
+    "id": "peak-28614-108252",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2764,
+    "prominence_m": 411,
+    "size": "small",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.0,
+    "glyph_rotate": -1.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.79538,
+     30.1333
+    ]
+   },
+   "properties": {
+    "id": "peak-30133-107795",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2302,
+    "prominence_m": 409,
+    "size": "small",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 1.01,
+    "glyph_rotate": 2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.8961,
+     30.03112
+    ]
+   },
+   "properties": {
+    "id": "peak-30031-107896",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2564,
+    "prominence_m": 408,
+    "size": "small",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 2.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.74362,
+     28.04343
+    ]
+   },
+   "properties": {
+    "id": "peak-28043-107744",
+    "name": "Picacho Calavera",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4016187",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2863,
+    "prominence_m": 406,
+    "size": "small",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.11,
+    "glyph_rotate": 2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.11924,
+     30.36466
+    ]
+   },
+   "properties": {
+    "id": "peak-30365-109119",
+    "name": "Cerro el Pinar",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8678624",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2257,
+    "prominence_m": 405,
+    "size": "small",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.11,
+    "glyph_rotate": -2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.98897,
+     29.2909
+    ]
+   },
+   "properties": {
+    "id": "peak-29291-108989",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1638,
+    "prominence_m": 405,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.87,
+    "glyph_rotate": -2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.66474,
+     28.43718
+    ]
+   },
+   "properties": {
+    "id": "peak-28437-106665",
+    "name": "Cerro Bustillos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4016476",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2452,
+    "prominence_m": 403,
+    "size": "small",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.14,
+    "glyph_rotate": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.31067,
+     30.84544
+    ]
+   },
+   "properties": {
+    "id": "peak-30845-109311",
+    "name": "Cerro la Tinaja",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8716860",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1514,
+    "prominence_m": 403,
+    "size": "small",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.12,
+    "glyph_rotate": -0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.71726,
+     29.16632
+    ]
+   },
+   "properties": {
+    "id": "peak-29166-109717",
+    "name": "Cerro el Gandareño",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9980010",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 785,
+    "prominence_m": 402,
+    "size": "small",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.1,
+    "glyph_rotate": 2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.27136,
+     28.29649
+    ]
+   },
+   "properties": {
+    "id": "peak-28296-107271",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2743,
+    "prominence_m": 401,
+    "size": "small",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": 2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.83382,
+     31.03498
+    ]
+   },
+   "properties": {
+    "id": "peak-31035-108834",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2377,
+    "prominence_m": 399,
+    "size": "small",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 1.11,
+    "glyph_rotate": 0.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.87999,
+     28.58003
+    ]
+   },
+   "properties": {
+    "id": "peak-28580-108880",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2015,
+    "prominence_m": 399,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.04,
+    "glyph_rotate": 1.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.15307,
+     30.66647
+    ]
+   },
+   "properties": {
+    "id": "peak-30666-109153",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2421,
+    "prominence_m": 398,
+    "size": "small",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.07,
+    "glyph_rotate": -0.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.58765,
+     30.97377
+    ]
+   },
+   "properties": {
+    "id": "peak-30974-107588",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1945,
+    "prominence_m": 396,
+    "size": "small",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -2.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.61299,
+     30.17594
+    ]
+   },
+   "properties": {
+    "id": "peak-30176-109613",
+    "name": "Cerro Caloso",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9024078",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1664,
+    "prominence_m": 396,
+    "size": "small",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 1.03,
+    "glyph_rotate": -2.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.67803,
+     29.74776
+    ]
+   },
+   "properties": {
+    "id": "peak-29748-108678",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2560,
+    "prominence_m": 395,
+    "size": "small",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": 0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.37144,
+     29.44771
+    ]
+   },
+   "properties": {
+    "id": "peak-29448-109371",
+    "name": "Cerro el Caloso",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8750527",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1455,
+    "prominence_m": 394,
+    "size": "small",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 0.96,
+    "glyph_rotate": -2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.73518,
+     28.15459
+    ]
+   },
+   "properties": {
+    "id": "peak-28155-106735",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2462,
+    "prominence_m": 394,
+    "size": "small",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.08,
+    "glyph_rotate": 0.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.41251,
+     29.98419
+    ]
+   },
+   "properties": {
+    "id": "peak-29984-109413",
+    "name": "Cerro el Varal",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9028557",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1229,
+    "prominence_m": 392,
+    "size": "small",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 1.14,
+    "glyph_rotate": 1.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.02176,
+     29.40508
+    ]
+   },
+   "properties": {
+    "id": "peak-29405-109022",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1145,
+    "prominence_m": 391,
+    "size": "small",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.86,
+    "glyph_rotate": -0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.6908,
+     30.72526
+    ]
+   },
+   "properties": {
+    "id": "peak-30725-106691",
+    "name": "Cerro Banco de Lucero",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4017575",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1844,
+    "prominence_m": 389,
+    "size": "small",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -2.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.71099,
+     30.65041
+    ]
+   },
+   "properties": {
+    "id": "peak-30650-108711",
+    "name": "Cerro la Aguja",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8688376",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2249,
+    "prominence_m": 388,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -2.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.61095,
+     28.44604
+    ]
+   },
+   "properties": {
+    "id": "peak-28446-107611",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2682,
+    "prominence_m": 387,
+    "size": "small",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.76047,
+     30.80145
+    ]
+   },
+   "properties": {
+    "id": "peak-30801-106760",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1668,
+    "prominence_m": 387,
+    "size": "small",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.88,
+    "glyph_rotate": -2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.99731,
+     30.31664
+    ]
+   },
+   "properties": {
+    "id": "peak-30317-107997",
+    "name": "Cerro Moctezuma",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3995639",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2011,
+    "prominence_m": 386,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.05665,
+     28.37339
+    ]
+   },
+   "properties": {
+    "id": "peak-28373-107057",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2690,
+    "prominence_m": 386,
+    "size": "small",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 1.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.38339,
+     30.57387
+    ]
+   },
+   "properties": {
+    "id": "peak-30574-108383",
+    "name": "Cerro el Carcay",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4015434",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2371,
+    "prominence_m": 384,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 0.87,
+    "glyph_rotate": 1.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.52037,
+     30.67117
+    ]
+   },
+   "properties": {
+    "id": "peak-30671-109520",
+    "name": "Picachos de Valtierra",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3980581",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1766,
+    "prominence_m": 384,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 2.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.6299,
+     28.15183
+    ]
+   },
+   "properties": {
+    "id": "peak-28152-108630",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2003,
+    "prominence_m": 382,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.01,
+    "glyph_rotate": 2.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.50349,
+     29.2015
+    ]
+   },
+   "properties": {
+    "id": "peak-29201-106503",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2657,
+    "prominence_m": 381,
+    "size": "small",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -0.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.58338,
+     29.03141
+    ]
+   },
+   "properties": {
+    "id": "peak-29031-109583",
+    "name": "Cerro la Mojonera",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8755899",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1691,
+    "prominence_m": 378,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.15,
+    "glyph_rotate": -0.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.30576,
+     30.5353
+    ]
+   },
+   "properties": {
+    "id": "peak-30535-106306",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1820,
+    "prominence_m": 378,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 0.94,
+    "glyph_rotate": -2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.78827,
+     29.43389
+    ]
+   },
+   "properties": {
+    "id": "peak-29434-108788",
+    "name": "Cerro los Pilares",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8751938",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1357,
+    "prominence_m": 375,
+    "size": "small",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.11,
+    "glyph_rotate": 2.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.88423,
+     28.26428
+    ]
+   },
+   "properties": {
+    "id": "peak-28264-108884",
+    "name": "Cerro la Mojonera",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8763222",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2148,
+    "prominence_m": 375,
+    "size": "small",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.10077,
+     29.47841
+    ]
+   },
+   "properties": {
+    "id": "peak-29478-109101",
+    "name": "Cerro la Morita",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8750705",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1240,
+    "prominence_m": 375,
+    "size": "small",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -2.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.17409,
+     28.29834
+    ]
+   },
+   "properties": {
+    "id": "peak-28298-108174",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2733,
+    "prominence_m": 374,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.01,
+    "glyph_rotate": 1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.51155,
+     28.25078
+    ]
+   },
+   "properties": {
+    "id": "peak-28251-108512",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1508,
+    "prominence_m": 373,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": 1.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.46742,
+     29.73668
+    ]
+   },
+   "properties": {
+    "id": "peak-29737-108467",
+    "name": "Cerro Alto",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9023536",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2587,
+    "prominence_m": 372,
+    "size": "small",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.14,
+    "glyph_rotate": -2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.1571,
+     31.86267
+    ]
+   },
+   "properties": {
+    "id": "peak-31863-109157",
+    "name": "Portal Peak",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9658",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2581,
+    "prominence_m": 369,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.34684,
+     28.15274
+    ]
+   },
+   "properties": {
+    "id": "peak-28153-106347",
+    "name": "Cerro Pinto",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3992457",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2116,
+    "prominence_m": 366,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.85,
+    "glyph_rotate": -1.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.83262,
+     28.36852
+    ]
+   },
+   "properties": {
+    "id": "peak-28369-106833",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2441,
+    "prominence_m": 364,
+    "size": "small",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 1.0,
+    "glyph_rotate": 0.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.80261,
+     29.81845
+    ]
+   },
+   "properties": {
+    "id": "peak-29818-108803",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2556,
+    "prominence_m": 364,
+    "size": "small",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.1877,
+     30.70867
+    ]
+   },
+   "properties": {
+    "id": "peak-30709-108188",
+    "name": "Cerro el Oro",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8687733",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1881,
+    "prominence_m": 362,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -1.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9994,
+     28.75149
+    ]
+   },
+   "properties": {
+    "id": "peak-28751-108999",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1742,
+    "prominence_m": 362,
+    "size": "small",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.10399,
+     28.47212
+    ]
+   },
+   "properties": {
+    "id": "peak-28472-107104",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2697,
+    "prominence_m": 362,
+    "size": "small",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.99,
+    "glyph_rotate": 0.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.76161,
+     31.22946
+    ]
+   },
+   "properties": {
+    "id": "peak-31229-109762",
+    "name": "Cerro la Negrita",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "10215158",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1858,
+    "prominence_m": 362,
+    "size": "small",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 1.01,
+    "glyph_rotate": -0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.23423,
+     29.44407
+    ]
+   },
+   "properties": {
+    "id": "peak-29444-107234",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2629,
+    "prominence_m": 362,
+    "size": "small",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.87,
+    "glyph_rotate": -2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.83227,
+     30.26279
+    ]
+   },
+   "properties": {
+    "id": "peak-30263-108832",
+    "name": "Cerro Tres Luces",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8678402",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1806,
+    "prominence_m": 359,
+    "size": "small",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 1.12,
+    "glyph_rotate": 1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.39469,
+     30.14838
+    ]
+   },
+   "properties": {
+    "id": "peak-30148-108395",
+    "name": "Cerro Escat",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3970427",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2548,
+    "prominence_m": 359,
+    "size": "small",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 1.01,
+    "glyph_rotate": -1.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.83022,
+     29.30286
+    ]
+   },
+   "properties": {
+    "id": "peak-29303-108830",
+    "name": "Cerro los Gringos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8752019",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1531,
+    "prominence_m": 358,
+    "size": "small",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 0.85,
+    "glyph_rotate": -1.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.62141,
+     28.80491
+    ]
+   },
+   "properties": {
+    "id": "peak-28805-108621",
+    "name": "Cerro el Pajarito",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "13417103",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2226,
+    "prominence_m": 358,
+    "size": "small",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 0.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.42178,
+     28.00115
+    ]
+   },
+   "properties": {
+    "id": "peak-28001-107422",
+    "name": "Cerro Rumurachi",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8996584",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2806,
+    "prominence_m": 358,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.1,
+    "glyph_rotate": -0.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.05695,
+     29.2883
+    ]
+   },
+   "properties": {
+    "id": "peak-29288-109057",
+    "name": "Cerro los Alisos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8750694",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1379,
+    "prominence_m": 357,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 1.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.50048,
+     29.41045
+    ]
+   },
+   "properties": {
+    "id": "peak-29410-106500",
+    "name": "Cumbre el Carrizalillo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4015222",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2567,
+    "prominence_m": 355,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": 2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.51152,
+     29.95942
+    ]
+   },
+   "properties": {
+    "id": "peak-29959-108512",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2607,
+    "prominence_m": 352,
+    "size": "small",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": -2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.07509,
+     31.22643
+    ]
+   },
+   "properties": {
+    "id": "peak-31226-109075",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1911,
+    "prominence_m": 351,
+    "size": "small",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.94,
+    "glyph_rotate": 2.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.34449,
+     31.66679
+    ]
+   },
+   "properties": {
+    "id": "peak-31667-109344",
+    "name": "Limestone Mountain",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "7018",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2179,
+    "prominence_m": 351,
+    "size": "small",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -1.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.7205,
+     28.00719
+    ]
+   },
+   "properties": {
+    "id": "peak-28007-108721",
+    "name": "Cerro la Ciénega",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8765258",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1532,
+    "prominence_m": 349,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 0.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.21872,
+     30.22944
+    ]
+   },
+   "properties": {
+    "id": "peak-30229-106219",
+    "name": "Cerro Grande",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3970430",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1820,
+    "prominence_m": 347,
+    "size": "small",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.03,
+    "glyph_rotate": -0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.59515,
+     29.7553
+    ]
+   },
+   "properties": {
+    "id": "peak-29755-108595",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2456,
+    "prominence_m": 347,
+    "size": "small",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.09,
+    "glyph_rotate": -1.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.72846,
+     30.33724
+    ]
+   },
+   "properties": {
+    "id": "peak-30337-107728",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1946,
+    "prominence_m": 347,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.88,
+    "glyph_rotate": 1.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.99917,
+     28.00251
+    ]
+   },
+   "properties": {
+    "id": "peak-28003-108999",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2126,
+    "prominence_m": 347,
+    "size": "small",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.87,
+    "glyph_rotate": -1.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.00433,
+     28.39108
+    ]
+   },
+   "properties": {
+    "id": "peak-28391-106004",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2247,
+    "prominence_m": 347,
+    "size": "small",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 0.96,
+    "glyph_rotate": -1.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.48507,
+     29.29384
+    ]
+   },
+   "properties": {
+    "id": "peak-29294-109485",
+    "name": "Cerro la Madera",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8750481",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1640,
+    "prominence_m": 344,
+    "size": "small",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.08,
+    "glyph_rotate": -0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.78772,
+     29.81312
+    ]
+   },
+   "properties": {
+    "id": "peak-29813-109788",
+    "name": "Cerro el Hornito",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3971189",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1463,
+    "prominence_m": 343,
+    "size": "small",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": -1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.92173,
+     29.4595
+    ]
+   },
+   "properties": {
+    "id": "peak-29459-108922",
+    "name": "Cerro la Gloria",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8751930",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1372,
+    "prominence_m": 343,
+    "size": "small",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 0.9,
+    "glyph_rotate": -0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.83498,
+     31.16849
+    ]
+   },
+   "properties": {
+    "id": "peak-31168-108835",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2469,
+    "prominence_m": 342,
+    "size": "small",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -0.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.96972,
+     28.02877
+    ]
+   },
+   "properties": {
+    "id": "peak-28029-107970",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2724,
+    "prominence_m": 342,
+    "size": "small",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -0.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.65653,
+     29.09173
+    ]
+   },
+   "properties": {
+    "id": "peak-29092-109657",
+    "name": "Cerro la Chancaca",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4014571",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1368,
+    "prominence_m": 342,
+    "size": "small",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -1.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.87069,
+     28.06861
+    ]
+   },
+   "properties": {
+    "id": "peak-28069-106871",
+    "name": "Cerro Milpillas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3970394",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2545,
+    "prominence_m": 340,
+    "size": "small",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.85,
+    "glyph_rotate": 0.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.03985,
+     29.23373
+    ]
+   },
+   "properties": {
+    "id": "peak-29234-106040",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1910,
+    "prominence_m": 339,
+    "size": "small",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -1.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.3128,
+     29.00122
+    ]
+   },
+   "properties": {
+    "id": "peak-29001-109313",
+    "name": "Cerro el Carrizo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772666",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1190,
+    "prominence_m": 339,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 1.1,
+    "glyph_rotate": -0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.06634,
+     29.66198
+    ]
+   },
+   "properties": {
+    "id": "peak-29662-109066",
+    "name": "Cerro Colorado",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8762719",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1439,
+    "prominence_m": 338,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": 2.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.75517,
+     28.31745
+    ]
+   },
+   "properties": {
+    "id": "peak-28317-106755",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2404,
+    "prominence_m": 338,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": 2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.05399,
+     28.59288
+    ]
+   },
+   "properties": {
+    "id": "peak-28593-106054",
+    "name": "Cerro Grande",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "4005666",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1896,
+    "prominence_m": 338,
+    "size": "small",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -0.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.43566,
+     31.38649
+    ]
+   },
+   "properties": {
+    "id": "peak-31386-109436",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1777,
+    "prominence_m": 337,
+    "size": "small",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 0.92,
+    "glyph_rotate": -1.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.03181,
+     30.98403
+    ]
+   },
+   "properties": {
+    "id": "peak-30984-109032",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2301,
+    "prominence_m": 337,
+    "size": "small",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 0.98,
+    "glyph_rotate": -0.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.2709,
+     28.39881
+    ]
+   },
+   "properties": {
+    "id": "peak-28399-106271",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2222,
+    "prominence_m": 336,
+    "size": "small",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.03,
+    "glyph_rotate": -0.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.09095,
+     28.50053
+    ]
+   },
+   "properties": {
+    "id": "peak-28501-106091",
+    "name": "Cerro Batopilillas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3970404",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2242,
+    "prominence_m": 336,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.94,
+    "glyph_rotate": 0.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.15731,
+     29.95766
+    ]
+   },
+   "properties": {
+    "id": "peak-29958-108157",
+    "name": "Cerro el Lobo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3998444",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2696,
+    "prominence_m": 336,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -0.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.43175,
+     28.09413
+    ]
+   },
+   "properties": {
+    "id": "peak-28094-108432",
+    "name": "Cerro la Gloria",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8764531",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1672,
+    "prominence_m": 336,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.0,
+    "glyph_rotate": -2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.20475,
+     30.7262
+    ]
+   },
+   "properties": {
+    "id": "peak-30726-106205",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1718,
+    "prominence_m": 335,
+    "size": "small",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -2.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.68776,
+     30.18086
+    ]
+   },
+   "properties": {
+    "id": "peak-30181-106688",
+    "name": "Cerro La Vinata",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8738474",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1871,
+    "prominence_m": 335,
+    "size": "small",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.14,
+    "glyph_rotate": 0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.9557,
+     29.37958
+    ]
+   },
+   "properties": {
+    "id": "peak-29380-109956",
+    "name": "Cerro el Sotolar",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8751372",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1167,
+    "prominence_m": 334,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.14,
+    "glyph_rotate": -0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.59006,
+     28.743
+    ]
+   },
+   "properties": {
+    "id": "peak-28743-108590",
+    "name": "Cerro Jabalí",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8766253",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2360,
+    "prominence_m": 334,
+    "size": "small",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 2.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.84977,
+     28.75821
+    ]
+   },
+   "properties": {
+    "id": "peak-28758-108850",
+    "name": "Cerro el Aguaje del Pino",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772468",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2081,
+    "prominence_m": 333,
+    "size": "small",
+    "glyph": 6,
+    "flip": true,
+    "glyph_scale": 1.09,
+    "glyph_rotate": 0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.63824,
+     29.38754
+    ]
+   },
+   "properties": {
+    "id": "peak-29388-109638",
+    "name": "Cerro Pelón",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8750353",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 991,
+    "prominence_m": 332,
+    "size": "small",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.07683,
+     29.54484
+    ]
+   },
+   "properties": {
+    "id": "peak-29545-109077",
+    "name": "Cerro los Pañales",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8762732",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1290,
+    "prominence_m": 331,
+    "size": "small",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": 1.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.9087,
+     30.29423
+    ]
+   },
+   "properties": {
+    "id": "peak-30294-109909",
+    "name": "Cerro Pelón",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8689595",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1590,
+    "prominence_m": 330,
+    "size": "small",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.0,
+    "glyph_rotate": 2.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.41586,
+     28.90838
+    ]
+   },
+   "properties": {
+    "id": "peak-28908-106416",
+    "name": "Cerro el Panal",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8746981",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2253,
+    "prominence_m": 329,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 1.01,
+    "glyph_rotate": 1.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.51871,
+     29.24549
+    ]
+   },
+   "properties": {
+    "id": "peak-29245-109519",
+    "name": "Cerro el Rodadero",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8755955",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1531,
+    "prominence_m": 329,
+    "size": "small",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.03,
+    "glyph_rotate": -0.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.93532,
+     31.83728
+    ]
+   },
+   "properties": {
+    "id": "peak-31837-109935",
+    "name": "Black Diamond Peak",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "1506",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2158,
+    "prominence_m": 329,
+    "size": "small",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.86,
+    "glyph_rotate": -1.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.27986,
+     30.4607
+    ]
+   },
+   "properties": {
+    "id": "peak-30461-109280",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2038,
+    "prominence_m": 329,
+    "size": "small",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.40434,
+     30.36304
+    ]
+   },
+   "properties": {
+    "id": "peak-30363-109404",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1378,
+    "prominence_m": 325,
+    "size": "small",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 1.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.38962,
+     29.20971
+    ]
+   },
+   "properties": {
+    "id": "peak-29210-109390",
+    "name": "Cerro la Zapatería",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8756032",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1286,
+    "prominence_m": 325,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.37466,
+     29.77976
+    ]
+   },
+   "properties": {
+    "id": "peak-29780-107375",
+    "name": "Cerro el Alto",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8744419",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2164,
+    "prominence_m": 325,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -2.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.80208,
+     28.88376
+    ]
+   },
+   "properties": {
+    "id": "peak-28884-108802",
+    "name": "Cerro los Puertos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772525",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1603,
+    "prominence_m": 324,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.01,
+    "glyph_rotate": 0.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.64742,
+     30.08787
+    ]
+   },
+   "properties": {
+    "id": "peak-30088-109647",
+    "name": "Cerro Rocha",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9024095",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1801,
+    "prominence_m": 324,
+    "size": "small",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 2.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.16666,
+     30.83085
+    ]
+   },
+   "properties": {
+    "id": "peak-30831-109167",
+    "name": "Cerro Molino Quemado",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8716865",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1370,
+    "prominence_m": 322,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.9,
+    "glyph_rotate": 0.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.96113,
+     31.73881
+    ]
+   },
+   "properties": {
+    "id": "peak-31739-108961",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2015,
+    "prominence_m": 321,
+    "size": "small",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.64854,
+     28.41562
+    ]
+   },
+   "properties": {
+    "id": "peak-28416-108649",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1977,
+    "prominence_m": 321,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": -1.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.96893,
+     28.94954
+    ]
+   },
+   "properties": {
+    "id": "peak-28950-108969",
+    "name": "Cerro la Botella",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772341",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1915,
+    "prominence_m": 319,
+    "size": "small",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.85,
+    "glyph_rotate": 1.8
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.06699,
+     28.18964
+    ]
+   },
+   "properties": {
+    "id": "peak-28190-108067",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2842,
+    "prominence_m": 318,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.12,
+    "glyph_rotate": 0.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.45033,
+     28.85312
+    ]
+   },
+   "properties": {
+    "id": "peak-28853-107450",
+    "name": "Cerro Grande",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "13417029",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2469,
+    "prominence_m": 318,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 0.85,
+    "glyph_rotate": -2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.71861,
+     28.19304
+    ]
+   },
+   "properties": {
+    "id": "peak-28193-108719",
+    "name": "Cerro la Polvosa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8765254",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2202,
+    "prominence_m": 318,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.1,
+    "glyph_rotate": 1.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.05149,
+     31.55622
+    ]
+   },
+   "properties": {
+    "id": "peak-31556-109051",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1969,
+    "prominence_m": 317,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.99,
+    "glyph_rotate": 1.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.10629,
+     28.25605
+    ]
+   },
+   "properties": {
+    "id": "peak-28256-106106",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2088,
+    "prominence_m": 317,
+    "size": "small",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.09,
+    "glyph_rotate": -2.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.65648,
+     30.18542
+    ]
+   },
+   "properties": {
+    "id": "peak-30185-109656",
+    "name": "Cerro los Potrillos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9024074",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1652,
+    "prominence_m": 312,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.0,
+    "glyph_rotate": 2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.79841,
+     31.20756
+    ]
+   },
+   "properties": {
+    "id": "peak-31208-108798",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2491,
+    "prominence_m": 312,
+    "size": "small",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 0.94,
+    "glyph_rotate": -0.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.72473,
+     30.59833
+    ]
+   },
+   "properties": {
+    "id": "peak-30598-108725",
+    "name": "Cerro el Perdido",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8688405",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2125,
+    "prominence_m": 311,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -0.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.7964,
+     29.43238
+    ]
+   },
+   "properties": {
+    "id": "peak-29432-109796",
+    "name": "Cerro el Moho",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8751498",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1133,
+    "prominence_m": 310,
+    "size": "small",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -2.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.05263,
+     30.04973
+    ]
+   },
+   "properties": {
+    "id": "peak-30050-109053",
+    "name": "Cerro la Esquina",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9019271",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1826,
+    "prominence_m": 310,
+    "size": "small",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.1,
+    "glyph_rotate": 1.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.25698,
+     29.74944
+    ]
+   },
+   "properties": {
+    "id": "peak-29749-109257",
+    "name": "Cerro Jiquiri",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8762601",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1063,
+    "prominence_m": 310,
+    "size": "small",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.40905,
+     30.39219
+    ]
+   },
+   "properties": {
+    "id": "peak-30392-108409",
+    "name": "Cerro Altamirano",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8678042",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2567,
+    "prominence_m": 309,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.11,
+    "glyph_rotate": 2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.28695,
+     31.84166
+    ]
+   },
+   "properties": {
+    "id": "peak-31842-108287",
+    "name": "Apache Peak",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "901114",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1733,
+    "prominence_m": 309,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -0.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.05816,
+     29.19477
+    ]
+   },
+   "properties": {
+    "id": "peak-29195-106058",
+    "name": "Cerro el Toro",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3981308",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1914,
+    "prominence_m": 309,
+    "size": "small",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 0.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.59603,
+     29.19419
+    ]
+   },
+   "properties": {
+    "id": "peak-29194-108596",
+    "name": "Cerro el Barco",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8750076",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1566,
+    "prominence_m": 308,
+    "size": "small",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.0,
+    "glyph_rotate": 0.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.34614,
+     29.09909
+    ]
+   },
+   "properties": {
+    "id": "peak-29099-109346",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1262,
+    "prominence_m": 308,
+    "size": "small",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": -1.7
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.04799,
+     28.28458
+    ]
+   },
+   "properties": {
+    "id": "peak-28285-106048",
+    "name": "Cerro Manzanillozo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3970402",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2203,
+    "prominence_m": 307,
+    "size": "small",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -0.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.58519,
+     29.23714
+    ]
+   },
+   "properties": {
+    "id": "peak-29237-107585",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 3019,
+    "prominence_m": 307,
+    "size": "small",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.94,
+    "glyph_rotate": -1.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.88421,
+     28.05854
+    ]
+   },
+   "properties": {
+    "id": "peak-28059-108884",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1925,
+    "prominence_m": 307,
+    "size": "small",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.08,
+    "glyph_rotate": 2.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.92972,
+     28.23069
+    ]
+   },
+   "properties": {
+    "id": "peak-28231-108930",
+    "name": "Cerro Cueva Blanca",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8765112",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1848,
+    "prominence_m": 306,
+    "size": "small",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 1.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.59403,
+     30.33995
+    ]
+   },
+   "properties": {
+    "id": "peak-30340-109594",
+    "name": "Cerro el Panteón",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8678925",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1916,
+    "prominence_m": 306,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.88,
+    "glyph_rotate": -1.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.50256,
+     30.74314
+    ]
+   },
+   "properties": {
+    "id": "peak-30743-109503",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1682,
+    "prominence_m": 305,
+    "size": "small",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 1.08,
+    "glyph_rotate": 1.4
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.99947,
+     28.09637
+    ]
+   },
+   "properties": {
+    "id": "peak-28096-108999",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1748,
+    "prominence_m": 305,
+    "size": "small",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.1,
+    "glyph_rotate": -3.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.51165,
+     29.1642
+    ]
+   },
+   "properties": {
+    "id": "peak-29164-109512",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1128,
+    "prominence_m": 303,
+    "size": "small",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.04,
+    "glyph_rotate": -1.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.89426,
+     29.91151
+    ]
+   },
+   "properties": {
+    "id": "peak-29912-109894",
+    "name": "Cerro la Nariz",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3995074",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1364,
+    "prominence_m": 303,
+    "size": "small",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 1.14,
+    "glyph_rotate": -2.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.31956,
+     31.58986
+    ]
+   },
+   "properties": {
+    "id": "peak-31590-108320",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1917,
+    "prominence_m": 303,
+    "size": "small",
+    "glyph": 6,
+    "flip": true,
+    "glyph_scale": 0.85,
+    "glyph_rotate": -1.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.01419,
+     30.82319
+    ]
+   },
+   "properties": {
+    "id": "peak-30823-109014",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1788,
+    "prominence_m": 302,
+    "size": "small",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": 1.0
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.68818,
+     29.35014
+    ]
+   },
+   "properties": {
+    "id": "peak-29350-109688",
+    "name": "Cerro de la Majada",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3971035",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1047,
+    "prominence_m": 302,
+    "size": "small",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -2.9
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.84994,
+     28.23745
+    ]
+   },
+   "properties": {
+    "id": "peak-28237-106850",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2439,
+    "prominence_m": 302,
+    "size": "small",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -2.3
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.424,
+     31.07601
+    ]
+   },
+   "properties": {
+    "id": "peak-31076-109424",
+    "name": "Cerro Prieto",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3991716",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1459,
+    "prominence_m": 301,
+    "size": "small",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 2.1
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.06633,
+     29.99858
+    ]
+   },
+   "properties": {
+    "id": "peak-29999-106066",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1751,
+    "prominence_m": 301,
+    "size": "small",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": 2.6
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.72111,
+     31.88626
+    ]
+   },
+   "properties": {
+    "id": "peak-31886-108721",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1820,
+    "prominence_m": 300,
+    "size": "small",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 1.11,
+    "glyph_rotate": -1.2
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9353,
+     31.45331
+    ]
+   },
+   "properties": {
+    "id": "peak-31453-108935",
+    "name": "Black Point",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-03",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "886444",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1953,
+    "prominence_m": 0,
+    "size": "small",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 1.7
+   }
+  }
+ ]
+}

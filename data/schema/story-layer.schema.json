@@ -57,7 +57,14 @@
         "note_full": { "type": ["string", "null"] },
         "reasoning": { "type": ["string", "null"] },
         "photo_ids": { "type": "array", "items": { "type": "string" } },
-        "vignette": { "type": ["string", "null"] }
+        "vignette": { "type": ["string", "null"] },
+        "elevation_m": { "type": "number", "description": "Mountain glyphs: summit elevation." },
+        "prominence_m": { "type": ["number", "null"], "description": "Mountain glyphs: topographic prominence; null where the key col lies outside the DEM." },
+        "size": { "enum": ["small", "medium", "large"], "description": "Mountain glyphs: size class from prominence." },
+        "glyph": { "type": "integer", "minimum": 1, "description": "Mountain glyphs: which drawn shape." },
+        "flip": { "type": "boolean" },
+        "glyph_scale": { "type": "number" },
+        "glyph_rotate": { "type": "number" }
       }
     }
   }

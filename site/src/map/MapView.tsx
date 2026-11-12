@@ -7,6 +7,7 @@ import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import type { Feature, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
 import { StoryLayers } from './StoryLayers'
+import { treatmentFromUrl } from './relief'
 import { BASE_LAYERS, literaryStyle } from './style'
 import { storyBounds } from './tokens'
 
@@ -21,6 +22,7 @@ const SatelliteMap = lazy(() => import('./SatelliteMap'))
 // The pmtiles protocol needs an absolute URL to make range requests against.
 const tilesBase = new URL(`${import.meta.env.BASE_URL}tiles/`, window.location.origin).href
 const fontsBase = new URL(`${import.meta.env.BASE_URL}fonts/`, window.location.origin).href
+const dataBase = new URL(`${import.meta.env.BASE_URL}data/`, window.location.origin).href
 
 type Picked = { lon: number; lat: number; props: StoryProps }
 type Basemap = 'literary' | 'satellite' | 'compare'
@@ -34,7 +36,7 @@ type Props = {
 }
 
 export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props) {
-  const style = useMemo(() => literaryStyle(tilesBase, fontsBase), [])
+  const style = useMemo(() => literaryStyle(tilesBase, fontsBase, dataBase, treatmentFromUrl()), [])
   const [picked, setPicked] = useState<Picked | null>(null)
   const [basemap, setBasemap] = useState<Basemap>('literary')
   const [unavailable, setUnavailable] = useState(false)
