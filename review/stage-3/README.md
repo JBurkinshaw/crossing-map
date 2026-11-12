@@ -50,6 +50,16 @@ Two candidates, and the choice is about taste more than accuracy:
 
 Either can be refined later by hand for key ranges (plan Phase 2).
 
+## Production relief
+
+- **Vendored generator.** `pipeline/relief/hachures/` holds an adapted copy of Huffman's script under GPL-3.0, with absolute slope limits in degrees and an absolute contour interval in metres, so tiles match at their seams (decision 0015). Its README lists every change from upstream.
+- **The run.** `crossing.hachures` runs it on a fixed UTM 12N tile grid:
+  - fine: 30 m DEM, 20 tiles of 40 km over a corridor 20 km either side of the Part I journeys (15,900 km²).
+  - coarse: 90 m DEM, 59 tiles of 60 km wherever the Copernicus tiles cover (139,000 km²).
+- **The tiles.** `tiles/build_relief.py` packs the lines into `relief.pmtiles` (8.2 MB): 44,532 fine lines and 34,262 coarse ones. Inside the corridor, coarse lines show to zoom 9 and fine ones from zoom 10. Outside it, the coarse lines carry on to the last zoom, as the plan asks. The coarse lines fade in from zoom 6 to 8, so the Sierra Madre does not read as speckle.
+- **On the map.** The soft treatment is now the site's default.
+- **Small glyphs** wait until zoom 10, and the generated glyph families stay until hand-drawn ones replace them.
+
 ## Landforms
 
 Each glyph now belongs to one of six families: peak, dome, mesa, butte, cone or ridge. `landforms/glyphs.png` shows all 144 shapes, 12 per family plus their mirrored twins. The map views in `landforms/` are centred on the densest clusters of mesas, domes and ridges, at zoom 9.5 with the soft relief. Rebuild them with `tools/landform-sheet.mjs`.
@@ -70,11 +80,11 @@ Each glyph now belongs to one of six families: peak, dome, mesa, butte, cone or 
 ## Questions for you
 
 1. ~~Which treatment?~~ Answered: Swiss, full, soft.
-2. **Glyph density.** Small peaks appear from zoom 9, and at that zoom the map gets busy. Should they wait until zoom 10?
-3. **Glyph drawings.** Keep the generated families, or will you draw or trace some of them?
+2. ~~Glyph density.~~ Small glyphs now start at zoom 10.
+3. ~~Glyph drawings.~~ The generated families stay.
 4. **Landform weights.** Do the mesas and ridges on the views land where you expect? The weights are yours to tune in `pipeline/seeds/landforms.toml`.
 
 ## Not done in this stage
 
-- Production relief tiles: these wait for your pick.
+- Fine hachures for Parts II–IV: the corridor follows the journeys, so it grows when their routes are drawn in stage 4. The fixed tile grid adds tiles without redoing these.
 - The lamplight (dark) theme's glyph sprite.

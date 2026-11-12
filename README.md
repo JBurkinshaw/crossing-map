@@ -21,6 +21,6 @@ This repository is at an early stage. The build plan is in [`docs/plan.md`](docs
 
 - Code: MIT (`LICENSE`).
 - Data and notes in `data/`: CC BY 4.0 (`data/LICENSE`), with per-layer exceptions listed in `data/README.md`.
-- `pipeline/vendor/hachures/`, when added: GPL-3.0, an adapted copy of Daniel Huffman's Hachures script.
+- `pipeline/relief/hachures/`: GPL-3.0, an adapted copy of Daniel Huffman's Hachures script (decision 0015). The hachure lines it generates are map data, under the data licence.
 
 The site republishes no text from the novel.

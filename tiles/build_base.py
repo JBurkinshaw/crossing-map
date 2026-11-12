@@ -7,6 +7,7 @@ private/cache/basemap/, and USGS NHD flowlines from private/cache/hydro/nhd/
 box, and tiles them with tippecanoe at zoom 4-11. NHD streams appear from zoom 9.
 """
 
+import shutil
 import subprocess
 import tempfile
 from pathlib import Path
@@ -51,7 +52,7 @@ def main() -> None:
                  str(dst), str(SRC / name / f"{name}.shp")],
                 check=True,
             )
-            args += ["-L", f"{layer}:{dst}"]
+            args += ["-L", f"{layer}:{dst.name}"]
         # NHD natural streams (ftype 460), one file per HU8 watershed, merged into one "creek" layer.
         for i, shp in enumerate(sorted(NHD.glob("*/Shape/NHDFlowline.shp"))):
             dst = Path(tmp) / f"creek-{i}.geojson"
@@ -61,13 +62,17 @@ def main() -> None:
                  "-sql", "SELECT gnis_name AS name, fcode FROM NHDFlowline WHERE ftype = 460", str(dst), str(shp)],
                 check=True,
             )
-            args += ["-L", f"creek:{dst}"]
+            args += ["-L", f"creek:{dst.name}"]
+        # Run inside the temporary folder with relative names: tippecanoe records its command line
+        # in the archive's metadata, and the archive is published.
         subprocess.run(
-            ["tippecanoe", "-q", "-f", "-o", str(OUT), "-Z4", "-z11", "--no-tile-size-limit",
+            ["tippecanoe", "-q", "-f", "-o", "base.pmtiles", "-Z4", "-z11", "--no-tile-size-limit",
+             "-n", "The Crossing: base", "-N", "Natural Earth, Census and NHD layers for the literary map",
              "-j", '{"creek": [">=", "$zoom", 9]}',
              "--detect-shared-borders", "--simplification=4", *args],
-            check=True,
+            check=True, cwd=tmp,
         )
+        shutil.move(Path(tmp) / "base.pmtiles", OUT)
     print(f"Wrote {OUT} ({OUT.stat().st_size / 1e6:.1f} MB)")
 
 

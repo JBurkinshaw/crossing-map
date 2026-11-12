@@ -1,11 +1,11 @@
 import type { LayerSpecification, SourceSpecification } from 'maplibre-gl'
 import { fonts, tokens } from './tokens'
 
-// Relief (docs/plan.md, section 5.2). Until the relief experiment picks a
-// treatment, the site shows mountain glyphs only. The comparison sheet
-// (tools/relief-sheet.mjs) chooses a treatment with ?relief=<name>; hachures
-// come from tiles/out/relief-test.pmtiles, which exists only on the machine
-// that builds the sheet, so the deployed site never requests it.
+// Relief (docs/plan.md, section 5.2). The map uses "Swiss, full, soft" (decision 0014):
+// pale, thin hachures from relief.pmtiles over a sepia hillshade, with mountain glyphs.
+// The comparison sheet (tools/relief-sheet.mjs) picks the experiment's other treatments
+// with ?relief=<name>; their hachures come from tiles/out/relief-test.pmtiles, which
+// exists only on the machine that builds the sheet.
 export type Treatment =
   | 'glyphs' | 'survey' | 'survey-lines' | 'survey-noglyphs' | 'sierra'
   | 'swiss' | 'swiss-dense' | 'swiss-full' | 'swiss-light' | 'swiss-thin' | 'swiss-soft' | 'control'
@@ -19,7 +19,7 @@ const hasHillshade = (t: Treatment) => isSwiss(t) || t === 'control'
 
 export function treatmentFromUrl(): Treatment {
   const asked = new URLSearchParams(window.location.search).get('relief') as Treatment | null
-  return asked && TREATMENTS.includes(asked) ? asked : 'glyphs'
+  return asked && TREATMENTS.includes(asked) ? asked : 'swiss-soft'
 }
 
 export function reliefSources(t: Treatment, tilesBase: string, dataBase: string): Record<string, SourceSpecification> {
@@ -30,7 +30,8 @@ export function reliefSources(t: Treatment, tilesBase: string, dataBase: string)
     sources.terrain = { type: 'raster-dem', url: `pmtiles://${tilesBase}terrain.pmtiles`, encoding: 'terrarium', tileSize: 256 }
   }
   if (t !== 'glyphs' && t !== 'control') {
-    sources.relief = { type: 'vector', url: `pmtiles://${tilesBase}relief-test.pmtiles` }
+    const archive = t === 'swiss-soft' ? 'relief' : 'relief-test'
+    sources.relief = { type: 'vector', url: `pmtiles://${tilesBase}${archive}.pmtiles` }
   }
   return sources
 }
@@ -39,21 +40,27 @@ export function reliefSources(t: Treatment, tilesBase: string, dataBase: string)
 // (median 11-16 degrees against 18-22 at 30 m) and get their own range and steep threshold.
 const SCALES = {
   // steep: the Swiss threshold (about the steepest 10-30% of lines); dense: Swiss dense (about half).
-  coarse: { layer: 'hachure_coarse', zooms: [6, 9.5], slope: [5, 25], steep: 18, dense: 12 },
-  fine: { layer: 'hachure_fine', zooms: [9.5, 14], slope: [10, 40], steep: 25, dense: 18 },
-  lines: { layer: 'hachure_lines', zooms: [9.5, 14], slope: [10, 40], steep: 25, dense: 18 },
+  coarse: { id: 'hachure-coarse', layer: 'hachure_coarse', zooms: [6, 9.5], slope: [5, 25], steep: 18, dense: 12 },
+  fine: { id: 'hachure-fine', layer: 'hachure_fine', zooms: [9.5, 14], slope: [10, 40], steep: 25, dense: 18 },
+  lines: { id: 'hachure-fine', layer: 'hachure_lines', zooms: [9.5, 14], slope: [10, 40], steep: 25, dense: 18 },
+  // relief.pmtiles, built by tiles/build_relief.py: whole lines with their mean slope. Its coarse lines
+  // stop at zoom 9 inside the journeys corridor, where the fine lines start at 10, and carry on outside it.
+  productionCoarse: { id: 'hachure-coarse', layer: 'coarse', zooms: [6, 14], slope: [5, 25], steep: 18, dense: 12 },
+  productionFine: { id: 'hachure-fine', layer: 'fine', zooms: [10, 14], slope: [10, 40], steep: 25, dense: 18 },
 } as const
 
 function hachures(t: Treatment): LayerSpecification[] {
   if (t === 'glyphs' || t === 'control') return []
   // Fine detail from the script's short split pieces, or from its whole lines with a mean slope.
-  const fine = t === 'survey-lines' || isSwiss(t) ? SCALES.lines : SCALES.fine
+  const [coarse, fine] =
+    t === 'swiss-soft' ? [SCALES.productionCoarse, SCALES.productionFine]
+    : [SCALES.coarse, t === 'survey-lines' || isSwiss(t) ? SCALES.lines : SCALES.fine]
   // Swiss full, light, thin and soft keep every line. Light draws them in pale sepia, thin at half
   // the stroke, and soft does both.
   const color = t === 'swiss-light' || t === 'swiss-soft' ? 'rgba(90, 66, 44, 0.55)' : tokens.ink
   const weight = t === 'sierra' ? 1.3 : t === 'swiss-thin' || t === 'swiss-soft' ? 0.5 : 1
   const make = (s: (typeof SCALES)[keyof typeof SCALES]): LayerSpecification => ({
-    id: s === SCALES.coarse ? 'hachure-coarse' : 'hachure-fine',
+    id: s.id,
     type: 'line',
     source: 'relief',
     'source-layer': s.layer,
@@ -65,12 +72,13 @@ function hachures(t: Treatment): LayerSpecification[] {
     layout: { 'line-cap': 'round' },
     paint: {
       'line-color': color,
-      'line-opacity': 0.75,
+      // The production coarse lines fade in, so the Sierra Madre does not read as speckle at zoom 6.
+      'line-opacity': s === SCALES.productionCoarse ? ['interpolate', ['linear'], ['zoom'], 6, 0.35, 8, 0.75] : 0.75,
       'line-width': ['interpolate', ['linear'], ['get', 'Slope'], s.slope[0], 0.25 * weight, s.slope[1], 1.3 * weight],
       ...(t === 'sierra' ? { 'line-dasharray': [1.2, 1] } : {}),
     },
   })
-  const layers = [make(SCALES.coarse), make(fine)]
+  const layers = [make(coarse), make(fine)]
   if (t === 'sierra') {
     layers.push({
       id: 'stipple',
@@ -109,12 +117,12 @@ function glyphs(t: Treatment): LayerSpecification[] {
       id: 'mountain-glyph',
       type: 'symbol',
       source: 'glyphs',
-      // Large peaks from zoom 6, medium from 7.5, small from 9.
+      // Large glyphs from zoom 6, medium from 7.5, small from 10.
       filter: [
         'any',
         ['==', ['get', 'size'], 'large'],
         ['all', ['==', ['get', 'size'], 'medium'], ['>=', ['zoom'], 7.5]],
-        ['>=', ['zoom'], 9],
+        ['>=', ['zoom'], 10],
       ],
       layout: {
         // <landform>-<nn>[-flip], from art/glyphs/make_glyphs.py.
