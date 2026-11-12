@@ -26,10 +26,13 @@
     "elevation_m": 3079,
     "prominence_m": null,
     "size": "large",
+    "name_code": "MT",
     "glyph": 4,
     "flip": false,
     "glyph_scale": 1.12,
-    "glyph_rotate": 2.8
+    "glyph_rotate": 2.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -57,10 +60,13 @@
     "elevation_m": 2972,
     "prominence_m": 1563,
     "size": "large",
+    "name_code": "gnis:Summit",
     "glyph": 10,
     "flip": true,
     "glyph_scale": 1.04,
-    "glyph_rotate": 0.6
+    "glyph_rotate": 0.6,
+    "landform": "peak",
+    "landform_source": "name"
    }
   },
   {
@@ -88,10 +94,13 @@
     "elevation_m": 1885,
     "prominence_m": 1399,
     "size": "large",
+    "name_code": "MT",
     "glyph": 3,
     "flip": false,
     "glyph_scale": 1.15,
-    "glyph_rotate": 0.5
+    "glyph_rotate": 0.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -119,10 +128,13 @@
     "elevation_m": 2611,
     "prominence_m": 1296,
     "size": "large",
+    "name_code": "MT",
     "glyph": 7,
     "flip": true,
     "glyph_scale": 1.06,
-    "glyph_rotate": 1.4
+    "glyph_rotate": 1.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -150,10 +162,13 @@
     "elevation_m": 2527,
     "prominence_m": 1110,
     "size": "large",
+    "name_code": "gnis:Summit",
     "glyph": 3,
     "flip": true,
     "glyph_scale": 0.91,
-    "glyph_rotate": -0.4
+    "glyph_rotate": -0.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -181,10 +196,13 @@
     "elevation_m": 2438,
     "prominence_m": 1069,
     "size": "large",
+    "name_code": "MT",
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.12,
-    "glyph_rotate": -1.3
+    "glyph_rotate": -1.3,
+    "landform": "peak",
+    "landform_source": "name"
    }
   },
   {
@@ -212,10 +230,13 @@
     "elevation_m": 2335,
     "prominence_m": 1028,
     "size": "large",
+    "name_code": "MT",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 1.0,
-    "glyph_rotate": -0.9
+    "glyph_rotate": -0.9,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -243,10 +264,13 @@
     "elevation_m": 2378,
     "prominence_m": 1014,
     "size": "large",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 1.04,
-    "glyph_rotate": -1.2
+    "glyph_rotate": -1.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -274,10 +298,13 @@
     "elevation_m": 2525,
     "prominence_m": 975,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 7,
     "flip": true,
     "glyph_scale": 0.94,
-    "glyph_rotate": -2.3
+    "glyph_rotate": -2.3,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -305,10 +332,13 @@
     "elevation_m": 1908,
     "prominence_m": 975,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 1.13,
-    "glyph_rotate": 0.8
+    "glyph_rotate": 0.8,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -336,10 +366,13 @@
     "elevation_m": 2594,
     "prominence_m": 967,
     "size": "medium",
+    "name_code": "gnis:Summit",
     "glyph": 9,
     "flip": false,
     "glyph_scale": 1.13,
-    "glyph_rotate": 0.7
+    "glyph_rotate": 0.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -367,10 +400,13 @@
     "elevation_m": 2479,
     "prominence_m": 941,
     "size": "medium",
+    "name_code": null,
     "glyph": 4,
     "flip": true,
     "glyph_scale": 1.08,
-    "glyph_rotate": 2.3
+    "glyph_rotate": 2.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -384,7 +420,7 @@
    },
    "properties": {
     "id": "peak-28031-108964",
-    "name": "Unnamed summit",
+    "name": "Mesa Atravesada",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -392,16 +428,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8765086",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2147,
     "prominence_m": 922,
     "size": "medium",
+    "name_code": "MESA",
     "glyph": 7,
     "flip": false,
     "glyph_scale": 1.06,
-    "glyph_rotate": -1.1
+    "glyph_rotate": -1.1,
+    "landform": "mesa",
+    "landform_source": "name"
    }
   },
   {
@@ -429,10 +468,13 @@
     "elevation_m": 2962,
     "prominence_m": 907,
     "size": "medium",
+    "name_code": null,
     "glyph": 11,
     "flip": false,
     "glyph_scale": 1.12,
-    "glyph_rotate": -2.3
+    "glyph_rotate": -2.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -460,10 +502,13 @@
     "elevation_m": 1703,
     "prominence_m": 903,
     "size": "medium",
+    "name_code": null,
     "glyph": 7,
     "flip": true,
     "glyph_scale": 1.01,
-    "glyph_rotate": 2.1
+    "glyph_rotate": 2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -491,10 +536,13 @@
     "elevation_m": 2269,
     "prominence_m": 881,
     "size": "medium",
+    "name_code": null,
     "glyph": 4,
     "flip": false,
     "glyph_scale": 1.07,
-    "glyph_rotate": 2.9
+    "glyph_rotate": 2.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -522,10 +570,13 @@
     "elevation_m": 2267,
     "prominence_m": 881,
     "size": "medium",
+    "name_code": "gnis:Summit",
     "glyph": 6,
     "flip": true,
     "glyph_scale": 0.99,
-    "glyph_rotate": -1.0
+    "glyph_rotate": -1.0,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -539,7 +590,7 @@
    },
    "properties": {
     "id": "peak-29245-107542",
-    "name": "Unnamed summit",
+    "name": "Mesa la Sierra",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -547,16 +598,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8747736",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 3021,
     "prominence_m": 877,
     "size": "medium",
+    "name_code": "MESA",
     "glyph": 7,
     "flip": false,
     "glyph_scale": 1.02,
-    "glyph_rotate": -2.0
+    "glyph_rotate": -2.0,
+    "landform": "mesa",
+    "landform_source": "name"
    }
   },
   {
@@ -584,10 +638,13 @@
     "elevation_m": 2455,
     "prominence_m": 839,
     "size": "medium",
+    "name_code": null,
     "glyph": 10,
     "flip": true,
     "glyph_scale": 1.02,
-    "glyph_rotate": 2.2
+    "glyph_rotate": 2.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -615,10 +672,13 @@
     "elevation_m": 1339,
     "prominence_m": 829,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 0.88,
-    "glyph_rotate": -2.6
+    "glyph_rotate": -2.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -646,10 +706,13 @@
     "elevation_m": 1647,
     "prominence_m": 825,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 0.91,
-    "glyph_rotate": -2.2
+    "glyph_rotate": -2.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -677,10 +740,13 @@
     "elevation_m": 2501,
     "prominence_m": 818,
     "size": "medium",
+    "name_code": null,
     "glyph": 12,
     "flip": false,
     "glyph_scale": 1.02,
-    "glyph_rotate": -2.7
+    "glyph_rotate": -2.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -708,10 +774,13 @@
     "elevation_m": 2087,
     "prominence_m": 811,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 0.9,
-    "glyph_rotate": 0.1
+    "glyph_rotate": 0.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -739,10 +808,13 @@
     "elevation_m": 2483,
     "prominence_m": 805,
     "size": "medium",
+    "name_code": null,
     "glyph": 7,
     "flip": true,
     "glyph_scale": 1.08,
-    "glyph_rotate": 0.9
+    "glyph_rotate": 0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -770,10 +842,13 @@
     "elevation_m": 2228,
     "prominence_m": 798,
     "size": "medium",
+    "name_code": "gnis:Summit",
     "glyph": 5,
     "flip": false,
     "glyph_scale": 1.0,
-    "glyph_rotate": 1.0
+    "glyph_rotate": 1.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -801,10 +876,13 @@
     "elevation_m": 2446,
     "prominence_m": 795,
     "size": "medium",
+    "name_code": null,
     "glyph": 12,
     "flip": true,
     "glyph_scale": 0.96,
-    "glyph_rotate": 1.3
+    "glyph_rotate": 1.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -832,10 +910,13 @@
     "elevation_m": 2391,
     "prominence_m": 782,
     "size": "medium",
+    "name_code": null,
     "glyph": 9,
     "flip": false,
     "glyph_scale": 0.89,
-    "glyph_rotate": 2.6
+    "glyph_rotate": 2.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -863,10 +944,13 @@
     "elevation_m": 2098,
     "prominence_m": 782,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 5,
     "flip": true,
     "glyph_scale": 1.12,
-    "glyph_rotate": 1.8
+    "glyph_rotate": 1.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -894,10 +978,13 @@
     "elevation_m": 1718,
     "prominence_m": 770,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 1.0,
-    "glyph_rotate": -2.0
+    "glyph_rotate": -2.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -925,10 +1012,13 @@
     "elevation_m": 2524,
     "prominence_m": 767,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 10,
     "flip": true,
     "glyph_scale": 1.05,
-    "glyph_rotate": -0.8
+    "glyph_rotate": -0.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -956,10 +1046,13 @@
     "elevation_m": 2331,
     "prominence_m": 761,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 6,
     "flip": false,
     "glyph_scale": 0.9,
-    "glyph_rotate": -1.9
+    "glyph_rotate": -1.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -987,10 +1080,13 @@
     "elevation_m": 2881,
     "prominence_m": 749,
     "size": "medium",
+    "name_code": null,
     "glyph": 1,
     "flip": false,
     "glyph_scale": 1.03,
-    "glyph_rotate": -1.1
+    "glyph_rotate": -1.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1018,10 +1114,13 @@
     "elevation_m": 2100,
     "prominence_m": 739,
     "size": "medium",
+    "name_code": "PK",
     "glyph": 4,
     "flip": false,
     "glyph_scale": 0.97,
-    "glyph_rotate": 0.9
+    "glyph_rotate": 0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1049,10 +1148,13 @@
     "elevation_m": 1772,
     "prominence_m": 715,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 5,
     "flip": true,
     "glyph_scale": 1.1,
-    "glyph_rotate": -2.2
+    "glyph_rotate": -2.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1080,10 +1182,13 @@
     "elevation_m": 2175,
     "prominence_m": 707,
     "size": "medium",
+    "name_code": null,
     "glyph": 5,
     "flip": true,
     "glyph_scale": 1.03,
-    "glyph_rotate": 0.2
+    "glyph_rotate": 0.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1111,10 +1216,13 @@
     "elevation_m": 2867,
     "prominence_m": 706,
     "size": "medium",
+    "name_code": null,
     "glyph": 7,
     "flip": false,
     "glyph_scale": 1.11,
-    "glyph_rotate": 0.6
+    "glyph_rotate": 0.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1142,10 +1250,13 @@
     "elevation_m": 1824,
     "prominence_m": 705,
     "size": "medium",
+    "name_code": null,
     "glyph": 8,
     "flip": true,
     "glyph_scale": 1.03,
-    "glyph_rotate": 0.9
+    "glyph_rotate": 0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1173,10 +1284,13 @@
     "elevation_m": 1674,
     "prominence_m": 701,
     "size": "medium",
+    "name_code": null,
     "glyph": 12,
     "flip": true,
     "glyph_scale": 0.87,
-    "glyph_rotate": 2.5
+    "glyph_rotate": 2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1204,10 +1318,13 @@
     "elevation_m": 1447,
     "prominence_m": 699,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.15,
-    "glyph_rotate": -2.8
+    "glyph_rotate": -2.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1235,10 +1352,13 @@
     "elevation_m": 2899,
     "prominence_m": 698,
     "size": "medium",
+    "name_code": null,
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.15,
-    "glyph_rotate": -2.5
+    "glyph_rotate": -2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1266,10 +1386,13 @@
     "elevation_m": 1675,
     "prominence_m": 691,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 7,
     "flip": true,
     "glyph_scale": 1.0,
-    "glyph_rotate": -1.1
+    "glyph_rotate": -1.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1297,10 +1420,13 @@
     "elevation_m": 1731,
     "prominence_m": 690,
     "size": "medium",
+    "name_code": null,
     "glyph": 8,
     "flip": false,
     "glyph_scale": 1.0,
-    "glyph_rotate": 0.2
+    "glyph_rotate": 0.2,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -1328,10 +1454,13 @@
     "elevation_m": 1909,
     "prominence_m": 684,
     "size": "medium",
+    "name_code": null,
     "glyph": 10,
     "flip": false,
     "glyph_scale": 0.88,
-    "glyph_rotate": 0.9
+    "glyph_rotate": 0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1359,10 +1488,13 @@
     "elevation_m": 2589,
     "prominence_m": 679,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 0.9,
-    "glyph_rotate": -2.3
+    "glyph_rotate": -2.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1390,10 +1522,13 @@
     "elevation_m": 2374,
     "prominence_m": 675,
     "size": "medium",
+    "name_code": null,
     "glyph": 12,
     "flip": true,
     "glyph_scale": 0.9,
-    "glyph_rotate": 1.0
+    "glyph_rotate": 1.0,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -1421,10 +1556,13 @@
     "elevation_m": 2157,
     "prominence_m": 670,
     "size": "medium",
+    "name_code": null,
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.07,
-    "glyph_rotate": 0.3
+    "glyph_rotate": 0.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1452,10 +1590,13 @@
     "elevation_m": 2306,
     "prominence_m": 666,
     "size": "medium",
+    "name_code": null,
     "glyph": 8,
     "flip": true,
     "glyph_scale": 0.92,
-    "glyph_rotate": -2.1
+    "glyph_rotate": -2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1483,10 +1624,13 @@
     "elevation_m": 2167,
     "prominence_m": 646,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 0.95,
-    "glyph_rotate": -1.2
+    "glyph_rotate": -1.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1514,10 +1658,13 @@
     "elevation_m": 1853,
     "prominence_m": 644,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 2,
     "flip": true,
     "glyph_scale": 0.94,
-    "glyph_rotate": 1.0
+    "glyph_rotate": 1.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1545,10 +1692,13 @@
     "elevation_m": 1363,
     "prominence_m": 644,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 4,
     "flip": false,
     "glyph_scale": 1.1,
-    "glyph_rotate": -2.9
+    "glyph_rotate": -2.9,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -1576,10 +1726,13 @@
     "elevation_m": 2007,
     "prominence_m": 638,
     "size": "medium",
+    "name_code": "gnis:Summit",
     "glyph": 3,
     "flip": false,
     "glyph_scale": 0.95,
-    "glyph_rotate": 2.4
+    "glyph_rotate": 2.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1607,10 +1760,13 @@
     "elevation_m": 2015,
     "prominence_m": 634,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 10,
     "flip": true,
     "glyph_scale": 1.04,
-    "glyph_rotate": -2.1
+    "glyph_rotate": -2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1638,10 +1794,13 @@
     "elevation_m": 2697,
     "prominence_m": 633,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 0.86,
-    "glyph_rotate": -1.2
+    "glyph_rotate": -1.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1669,10 +1828,13 @@
     "elevation_m": 2450,
     "prominence_m": 633,
     "size": "medium",
+    "name_code": null,
     "glyph": 11,
     "flip": true,
     "glyph_scale": 0.98,
-    "glyph_rotate": 0.3
+    "glyph_rotate": 0.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1700,10 +1862,13 @@
     "elevation_m": 2068,
     "prominence_m": 622,
     "size": "medium",
+    "name_code": null,
     "glyph": 3,
     "flip": false,
     "glyph_scale": 0.93,
-    "glyph_rotate": 2.6
+    "glyph_rotate": 2.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1731,10 +1896,13 @@
     "elevation_m": 1904,
     "prominence_m": 618,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 2,
     "flip": true,
     "glyph_scale": 1.05,
-    "glyph_rotate": -2.2
+    "glyph_rotate": -2.2,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -1762,10 +1930,13 @@
     "elevation_m": 2343,
     "prominence_m": 611,
     "size": "medium",
+    "name_code": "PK",
     "glyph": 3,
     "flip": true,
     "glyph_scale": 1.07,
-    "glyph_rotate": 3.0
+    "glyph_rotate": 3.0,
+    "landform": "peak",
+    "landform_source": "name"
    }
   },
   {
@@ -1793,10 +1964,13 @@
     "elevation_m": 1809,
     "prominence_m": 601,
     "size": "medium",
+    "name_code": null,
     "glyph": 12,
     "flip": true,
     "glyph_scale": 1.09,
-    "glyph_rotate": 2.8
+    "glyph_rotate": 2.8,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -1824,10 +1998,13 @@
     "elevation_m": 1153,
     "prominence_m": 600,
     "size": "medium",
+    "name_code": "MT",
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.05,
-    "glyph_rotate": 2.7
+    "glyph_rotate": 2.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1855,10 +2032,13 @@
     "elevation_m": 2141,
     "prominence_m": 598,
     "size": "small",
+    "name_code": null,
     "glyph": 7,
     "flip": false,
     "glyph_scale": 1.06,
-    "glyph_rotate": -2.7
+    "glyph_rotate": -2.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1886,10 +2066,13 @@
     "elevation_m": 2253,
     "prominence_m": 596,
     "size": "small",
+    "name_code": null,
     "glyph": 9,
     "flip": true,
     "glyph_scale": 0.96,
-    "glyph_rotate": -2.9
+    "glyph_rotate": -2.9,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -1903,7 +2086,7 @@
    },
    "properties": {
     "id": "peak-29602-108894",
-    "name": "Unnamed summit",
+    "name": "Cerro Toro Muerto",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -1911,16 +2094,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "9025703",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 1856,
     "prominence_m": 596,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.05,
-    "glyph_rotate": 1.1
+    "glyph_rotate": 1.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1948,10 +2134,13 @@
     "elevation_m": 2175,
     "prominence_m": 594,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 2,
     "flip": true,
     "glyph_scale": 0.97,
-    "glyph_rotate": 0.6
+    "glyph_rotate": 0.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -1979,10 +2168,13 @@
     "elevation_m": 1531,
     "prominence_m": 594,
     "size": "small",
+    "name_code": "MT",
     "glyph": 9,
     "flip": true,
     "glyph_scale": 0.89,
-    "glyph_rotate": -2.1
+    "glyph_rotate": -2.1,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -2010,10 +2202,13 @@
     "elevation_m": 2178,
     "prominence_m": 587,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 0.98,
-    "glyph_rotate": -1.5
+    "glyph_rotate": -1.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2027,7 +2222,7 @@
    },
    "properties": {
     "id": "peak-28715-108861",
-    "name": "Unnamed summit",
+    "name": "Cerro el Realito",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -2035,16 +2230,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8766744",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2110,
     "prominence_m": 583,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 4,
     "flip": true,
     "glyph_scale": 0.96,
-    "glyph_rotate": 0.1
+    "glyph_rotate": 0.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2072,10 +2270,13 @@
     "elevation_m": 2811,
     "prominence_m": 573,
     "size": "small",
+    "name_code": "MT",
     "glyph": 10,
     "flip": true,
     "glyph_scale": 0.88,
-    "glyph_rotate": -2.8
+    "glyph_rotate": -2.8,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -2103,10 +2304,13 @@
     "elevation_m": 2312,
     "prominence_m": 570,
     "size": "small",
+    "name_code": null,
     "glyph": 2,
     "flip": false,
     "glyph_scale": 0.95,
-    "glyph_rotate": 2.9
+    "glyph_rotate": 2.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2134,10 +2338,13 @@
     "elevation_m": 1611,
     "prominence_m": 561,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": false,
     "glyph_scale": 0.93,
-    "glyph_rotate": 1.8
+    "glyph_rotate": 1.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2165,10 +2372,13 @@
     "elevation_m": 1911,
     "prominence_m": 555,
     "size": "small",
+    "name_code": null,
     "glyph": 7,
     "flip": true,
     "glyph_scale": 1.14,
-    "glyph_rotate": 2.5
+    "glyph_rotate": 2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2196,10 +2406,13 @@
     "elevation_m": 2411,
     "prominence_m": 553,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 9,
     "flip": false,
     "glyph_scale": 1.08,
-    "glyph_rotate": -1.5
+    "glyph_rotate": -1.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2227,10 +2440,13 @@
     "elevation_m": 1649,
     "prominence_m": 551,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 1.06,
-    "glyph_rotate": 2.0
+    "glyph_rotate": 2.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2244,7 +2460,7 @@
    },
    "properties": {
     "id": "peak-30063-106674",
-    "name": "Unnamed summit",
+    "name": "Cerro el Crinolino",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -2252,16 +2468,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8738493",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2248,
     "prominence_m": 549,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 0.86,
-    "glyph_rotate": 0.6
+    "glyph_rotate": 0.6,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -2275,7 +2494,7 @@
    },
    "properties": {
     "id": "peak-28798-107403",
-    "name": "Unnamed summit",
+    "name": "Cerro la Placa",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -2283,16 +2502,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8764161",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2784,
     "prominence_m": 549,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 0.95,
-    "glyph_rotate": 2.6
+    "glyph_rotate": 2.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2320,10 +2542,13 @@
     "elevation_m": 2511,
     "prominence_m": 548,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": true,
     "glyph_scale": 0.95,
-    "glyph_rotate": -0.3
+    "glyph_rotate": -0.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2351,10 +2576,13 @@
     "elevation_m": 2277,
     "prominence_m": 541,
     "size": "small",
+    "name_code": "MT",
     "glyph": 9,
     "flip": true,
     "glyph_scale": 1.1,
-    "glyph_rotate": 1.8
+    "glyph_rotate": 1.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2382,10 +2610,13 @@
     "elevation_m": 2875,
     "prominence_m": 539,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": true,
     "glyph_scale": 1.03,
-    "glyph_rotate": 1.5
+    "glyph_rotate": 1.5,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -2413,10 +2644,13 @@
     "elevation_m": 2792,
     "prominence_m": 535,
     "size": "small",
+    "name_code": null,
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.12,
-    "glyph_rotate": -0.7
+    "glyph_rotate": -0.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2444,10 +2678,13 @@
     "elevation_m": 2771,
     "prominence_m": 531,
     "size": "small",
+    "name_code": "MT",
     "glyph": 10,
     "flip": false,
     "glyph_scale": 1.13,
-    "glyph_rotate": -2.3
+    "glyph_rotate": -2.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2475,10 +2712,13 @@
     "elevation_m": 2817,
     "prominence_m": 530,
     "size": "small",
+    "name_code": null,
     "glyph": 1,
     "flip": false,
     "glyph_scale": 1.03,
-    "glyph_rotate": -1.2
+    "glyph_rotate": -1.2,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -2506,10 +2746,13 @@
     "elevation_m": 2620,
     "prominence_m": 530,
     "size": "small",
+    "name_code": "MT",
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.12,
-    "glyph_rotate": -0.3
+    "glyph_rotate": -0.3,
+    "landform": "peak",
+    "landform_source": "name"
    }
   },
   {
@@ -2537,10 +2780,13 @@
     "elevation_m": 2681,
     "prominence_m": 528,
     "size": "small",
+    "name_code": "MT",
     "glyph": 6,
     "flip": true,
     "glyph_scale": 0.91,
-    "glyph_rotate": -1.5
+    "glyph_rotate": -1.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2568,10 +2814,13 @@
     "elevation_m": 1778,
     "prominence_m": 522,
     "size": "small",
+    "name_code": "MT",
     "glyph": 9,
     "flip": true,
     "glyph_scale": 0.98,
-    "glyph_rotate": -2.1
+    "glyph_rotate": -2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2599,10 +2848,13 @@
     "elevation_m": 1704,
     "prominence_m": 522,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 0.89,
-    "glyph_rotate": 0.6
+    "glyph_rotate": 0.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2630,10 +2882,13 @@
     "elevation_m": 1700,
     "prominence_m": 521,
     "size": "small",
+    "name_code": "MT",
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.1,
-    "glyph_rotate": 0.4
+    "glyph_rotate": 0.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2661,10 +2916,13 @@
     "elevation_m": 2441,
     "prominence_m": 516,
     "size": "small",
+    "name_code": null,
     "glyph": 5,
     "flip": false,
     "glyph_scale": 1.04,
-    "glyph_rotate": 2.2
+    "glyph_rotate": 2.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2692,10 +2950,13 @@
     "elevation_m": 1885,
     "prominence_m": 515,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 1.02,
-    "glyph_rotate": -0.5
+    "glyph_rotate": -0.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2723,10 +2984,13 @@
     "elevation_m": 2268,
     "prominence_m": 512,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 0.92,
-    "glyph_rotate": 1.8
+    "glyph_rotate": 1.8,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -2754,10 +3018,13 @@
     "elevation_m": 2640,
     "prominence_m": 509,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": true,
     "glyph_scale": 1.06,
-    "glyph_rotate": -1.0
+    "glyph_rotate": -1.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2785,10 +3052,13 @@
     "elevation_m": 2190,
     "prominence_m": 507,
     "size": "small",
+    "name_code": "MT",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 0.92,
-    "glyph_rotate": -2.4
+    "glyph_rotate": -2.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2816,10 +3086,13 @@
     "elevation_m": 1882,
     "prominence_m": 502,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 1.11,
-    "glyph_rotate": 2.5
+    "glyph_rotate": 2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2847,10 +3120,13 @@
     "elevation_m": 2246,
     "prominence_m": 500,
     "size": "small",
+    "name_code": null,
     "glyph": 5,
     "flip": false,
     "glyph_scale": 0.93,
-    "glyph_rotate": -0.4
+    "glyph_rotate": -0.4,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -2864,7 +3140,7 @@
    },
    "properties": {
     "id": "peak-29577-108079",
-    "name": "Unnamed summit",
+    "name": "Cerro Tres Fierros",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -2872,16 +3148,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "9026321",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2766,
     "prominence_m": 499,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 0.88,
-    "glyph_rotate": 2.3
+    "glyph_rotate": 2.3,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -2909,10 +3188,13 @@
     "elevation_m": 1919,
     "prominence_m": 498,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 3,
     "flip": false,
     "glyph_scale": 0.94,
-    "glyph_rotate": -2.6
+    "glyph_rotate": -2.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2940,10 +3222,13 @@
     "elevation_m": 1638,
     "prominence_m": 497,
     "size": "small",
+    "name_code": "MT",
     "glyph": 9,
     "flip": true,
     "glyph_scale": 0.93,
-    "glyph_rotate": -2.3
+    "glyph_rotate": -2.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -2971,10 +3256,13 @@
     "elevation_m": 2098,
     "prominence_m": 496,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 2,
     "flip": true,
     "glyph_scale": 1.09,
-    "glyph_rotate": -2.7
+    "glyph_rotate": -2.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3002,10 +3290,13 @@
     "elevation_m": 2968,
     "prominence_m": 495,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": false,
     "glyph_scale": 1.05,
-    "glyph_rotate": -2.4
+    "glyph_rotate": -2.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3033,10 +3324,13 @@
     "elevation_m": 1462,
     "prominence_m": 494,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": false,
     "glyph_scale": 1.13,
-    "glyph_rotate": 1.0
+    "glyph_rotate": 1.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3064,10 +3358,13 @@
     "elevation_m": 2130,
     "prominence_m": 494,
     "size": "small",
+    "name_code": null,
     "glyph": 5,
     "flip": true,
     "glyph_scale": 0.95,
-    "glyph_rotate": -1.9
+    "glyph_rotate": -1.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3081,7 +3378,7 @@
    },
    "properties": {
     "id": "peak-28138-107944",
-    "name": "Unnamed summit",
+    "name": "Cerro Machuhueachi",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -3089,16 +3386,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13659954",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2912,
     "prominence_m": 493,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 5,
     "flip": false,
     "glyph_scale": 0.93,
-    "glyph_rotate": -0.2
+    "glyph_rotate": -0.2,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -3126,10 +3426,13 @@
     "elevation_m": 2420,
     "prominence_m": 486,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": true,
     "glyph_scale": 0.85,
-    "glyph_rotate": 0.2
+    "glyph_rotate": 0.2,
+    "landform": "peak",
+    "landform_source": "name"
    }
   },
   {
@@ -3143,7 +3446,7 @@
    },
    "properties": {
     "id": "peak-29382-109168",
-    "name": "Unnamed summit",
+    "name": "Cordón Zetasora",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -3151,16 +3454,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8750749",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 1399,
     "prominence_m": 484,
     "size": "small",
+    "name_code": "RDGE",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 0.93,
-    "glyph_rotate": -0.6
+    "glyph_rotate": -0.6,
+    "landform": "ridge",
+    "landform_source": "name"
    }
   },
   {
@@ -3174,7 +3480,7 @@
    },
    "properties": {
     "id": "peak-29913-109227",
-    "name": "Unnamed summit",
+    "name": "Cerro el Lobo",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -3182,16 +3488,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "12449673",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 1677,
     "prominence_m": 482,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 4,
     "flip": true,
     "glyph_scale": 0.95,
-    "glyph_rotate": 2.8
+    "glyph_rotate": 2.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3219,10 +3528,13 @@
     "elevation_m": 2648,
     "prominence_m": 481,
     "size": "small",
+    "name_code": null,
     "glyph": 4,
     "flip": false,
     "glyph_scale": 0.89,
-    "glyph_rotate": -2.0
+    "glyph_rotate": -2.0,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -3250,10 +3562,13 @@
     "elevation_m": 2658,
     "prominence_m": 478,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 1.13,
-    "glyph_rotate": -2.5
+    "glyph_rotate": -2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3281,10 +3596,13 @@
     "elevation_m": 2041,
     "prominence_m": 471,
     "size": "small",
+    "name_code": null,
     "glyph": 1,
     "flip": true,
     "glyph_scale": 0.91,
-    "glyph_rotate": 1.4
+    "glyph_rotate": 1.4,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -3312,10 +3630,13 @@
     "elevation_m": 1834,
     "prominence_m": 470,
     "size": "small",
+    "name_code": null,
     "glyph": 4,
     "flip": true,
     "glyph_scale": 0.96,
-    "glyph_rotate": 1.5
+    "glyph_rotate": 1.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3343,10 +3664,13 @@
     "elevation_m": 2065,
     "prominence_m": 470,
     "size": "small",
+    "name_code": null,
     "glyph": 6,
     "flip": true,
     "glyph_scale": 1.02,
-    "glyph_rotate": 0.4
+    "glyph_rotate": 0.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3374,10 +3698,13 @@
     "elevation_m": 2013,
     "prominence_m": 469,
     "size": "small",
+    "name_code": null,
     "glyph": 10,
     "flip": false,
     "glyph_scale": 0.93,
-    "glyph_rotate": 2.4
+    "glyph_rotate": 2.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3405,10 +3732,13 @@
     "elevation_m": 2216,
     "prominence_m": 465,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 10,
     "flip": true,
     "glyph_scale": 1.06,
-    "glyph_rotate": -2.5
+    "glyph_rotate": -2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3436,10 +3766,13 @@
     "elevation_m": 2779,
     "prominence_m": 464,
     "size": "small",
+    "name_code": "MT",
     "glyph": 7,
     "flip": false,
     "glyph_scale": 1.11,
-    "glyph_rotate": -2.2
+    "glyph_rotate": -2.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3467,10 +3800,13 @@
     "elevation_m": 2691,
     "prominence_m": 463,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 1.15,
-    "glyph_rotate": 0.7
+    "glyph_rotate": 0.7,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -3498,10 +3834,13 @@
     "elevation_m": 1807,
     "prominence_m": 462,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": true,
     "glyph_scale": 1.02,
-    "glyph_rotate": 1.0
+    "glyph_rotate": 1.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3529,10 +3868,13 @@
     "elevation_m": 1962,
     "prominence_m": 461,
     "size": "small",
+    "name_code": "MT",
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.13,
-    "glyph_rotate": -0.5
+    "glyph_rotate": -0.5,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -3560,10 +3902,13 @@
     "elevation_m": 1924,
     "prominence_m": 458,
     "size": "small",
+    "name_code": null,
     "glyph": 12,
     "flip": true,
     "glyph_scale": 0.97,
-    "glyph_rotate": 1.5
+    "glyph_rotate": 1.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3591,10 +3936,13 @@
     "elevation_m": 2723,
     "prominence_m": 457,
     "size": "small",
+    "name_code": "MT",
     "glyph": 10,
     "flip": false,
     "glyph_scale": 1.05,
-    "glyph_rotate": -0.0
+    "glyph_rotate": -0.0,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -3622,10 +3970,13 @@
     "elevation_m": 1985,
     "prominence_m": 457,
     "size": "small",
+    "name_code": null,
     "glyph": 2,
     "flip": false,
     "glyph_scale": 0.92,
-    "glyph_rotate": 1.5
+    "glyph_rotate": 1.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3653,10 +4004,13 @@
     "elevation_m": 1568,
     "prominence_m": 456,
     "size": "small",
+    "name_code": "MT",
     "glyph": 7,
     "flip": false,
     "glyph_scale": 1.13,
-    "glyph_rotate": 0.7
+    "glyph_rotate": 0.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3684,10 +4038,13 @@
     "elevation_m": 1505,
     "prominence_m": 456,
     "size": "small",
+    "name_code": "MT",
     "glyph": 7,
     "flip": true,
     "glyph_scale": 1.06,
-    "glyph_rotate": 2.9
+    "glyph_rotate": 2.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3715,10 +4072,13 @@
     "elevation_m": 2721,
     "prominence_m": 447,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": true,
     "glyph_scale": 1.09,
-    "glyph_rotate": -2.3
+    "glyph_rotate": -2.3,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -3746,10 +4106,13 @@
     "elevation_m": 2298,
     "prominence_m": 444,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 1.01,
-    "glyph_rotate": -1.9
+    "glyph_rotate": -1.9,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -3777,10 +4140,13 @@
     "elevation_m": 1672,
     "prominence_m": 442,
     "size": "small",
+    "name_code": null,
     "glyph": 8,
     "flip": false,
     "glyph_scale": 1.07,
-    "glyph_rotate": 0.9
+    "glyph_rotate": 0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3808,10 +4174,13 @@
     "elevation_m": 1859,
     "prominence_m": 440,
     "size": "small",
+    "name_code": null,
     "glyph": 10,
     "flip": true,
     "glyph_scale": 0.96,
-    "glyph_rotate": 1.0
+    "glyph_rotate": 1.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3839,10 +4208,13 @@
     "elevation_m": 2726,
     "prominence_m": 440,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 0.88,
-    "glyph_rotate": -0.2
+    "glyph_rotate": -0.2,
+    "landform": "butte",
+    "landform_source": "dem"
    }
   },
   {
@@ -3870,10 +4242,13 @@
     "elevation_m": 2124,
     "prominence_m": 440,
     "size": "small",
+    "name_code": null,
     "glyph": 5,
     "flip": true,
     "glyph_scale": 0.89,
-    "glyph_rotate": -2.6
+    "glyph_rotate": -2.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3887,7 +4262,7 @@
    },
    "properties": {
     "id": "peak-28577-107727",
-    "name": "Unnamed summit",
+    "name": "Cerro Sayahui",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -3895,16 +4270,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13660534",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2731,
     "prominence_m": 437,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 9,
     "flip": false,
     "glyph_scale": 0.97,
-    "glyph_rotate": -2.5
+    "glyph_rotate": -2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3932,10 +4310,13 @@
     "elevation_m": 1149,
     "prominence_m": 434,
     "size": "small",
+    "name_code": "MT",
     "glyph": 6,
     "flip": false,
     "glyph_scale": 1.03,
-    "glyph_rotate": 2.4
+    "glyph_rotate": 2.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -3963,10 +4344,13 @@
     "elevation_m": 2005,
     "prominence_m": 434,
     "size": "small",
+    "name_code": null,
     "glyph": 12,
     "flip": false,
     "glyph_scale": 1.08,
-    "glyph_rotate": -3.0
+    "glyph_rotate": -3.0,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -3994,10 +4378,13 @@
     "elevation_m": 2596,
     "prominence_m": 428,
     "size": "small",
+    "name_code": "MT",
     "glyph": 9,
     "flip": true,
     "glyph_scale": 1.09,
-    "glyph_rotate": -2.7
+    "glyph_rotate": -2.7,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -4025,10 +4412,13 @@
     "elevation_m": 2779,
     "prominence_m": 426,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 1.12,
-    "glyph_rotate": 0.2
+    "glyph_rotate": 0.2,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -4056,10 +4446,13 @@
     "elevation_m": 2021,
     "prominence_m": 425,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 1.14,
-    "glyph_rotate": -2.1
+    "glyph_rotate": -2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4087,10 +4480,13 @@
     "elevation_m": 1778,
     "prominence_m": 422,
     "size": "small",
+    "name_code": null,
     "glyph": 8,
     "flip": true,
     "glyph_scale": 0.95,
-    "glyph_rotate": -1.1
+    "glyph_rotate": -1.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4118,10 +4514,13 @@
     "elevation_m": 2402,
     "prominence_m": 422,
     "size": "small",
+    "name_code": "MT",
     "glyph": 7,
     "flip": false,
     "glyph_scale": 0.87,
-    "glyph_rotate": -0.9
+    "glyph_rotate": -0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4149,10 +4548,13 @@
     "elevation_m": 2426,
     "prominence_m": 421,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": false,
     "glyph_scale": 0.99,
-    "glyph_rotate": -1.8
+    "glyph_rotate": -1.8,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -4180,10 +4582,13 @@
     "elevation_m": 2764,
     "prominence_m": 421,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": false,
     "glyph_scale": 0.9,
-    "glyph_rotate": -2.1
+    "glyph_rotate": -2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4211,10 +4616,13 @@
     "elevation_m": 1810,
     "prominence_m": 420,
     "size": "small",
+    "name_code": null,
     "glyph": 10,
     "flip": false,
     "glyph_scale": 1.02,
-    "glyph_rotate": -2.1
+    "glyph_rotate": -2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4242,10 +4650,13 @@
     "elevation_m": 2508,
     "prominence_m": 419,
     "size": "small",
+    "name_code": "MT",
     "glyph": 10,
     "flip": false,
     "glyph_scale": 1.1,
-    "glyph_rotate": -0.9
+    "glyph_rotate": -0.9,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -4273,10 +4684,13 @@
     "elevation_m": 2467,
     "prominence_m": 416,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": false,
     "glyph_scale": 1.07,
-    "glyph_rotate": -0.2
+    "glyph_rotate": -0.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4304,10 +4718,13 @@
     "elevation_m": 2653,
     "prominence_m": 414,
     "size": "small",
+    "name_code": null,
     "glyph": 4,
     "flip": true,
     "glyph_scale": 1.13,
-    "glyph_rotate": 1.5
+    "glyph_rotate": 1.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4335,10 +4752,13 @@
     "elevation_m": 1351,
     "prominence_m": 412,
     "size": "small",
+    "name_code": null,
     "glyph": 7,
     "flip": false,
     "glyph_scale": 1.02,
-    "glyph_rotate": -2.9
+    "glyph_rotate": -2.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4366,10 +4786,13 @@
     "elevation_m": 2764,
     "prominence_m": 411,
     "size": "small",
+    "name_code": null,
     "glyph": 3,
     "flip": false,
     "glyph_scale": 1.0,
-    "glyph_rotate": -1.4
+    "glyph_rotate": -1.4,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -4397,10 +4820,13 @@
     "elevation_m": 2302,
     "prominence_m": 409,
     "size": "small",
+    "name_code": null,
     "glyph": 9,
     "flip": false,
     "glyph_scale": 1.01,
-    "glyph_rotate": 2.1
+    "glyph_rotate": 2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4428,10 +4854,13 @@
     "elevation_m": 2564,
     "prominence_m": 408,
     "size": "small",
+    "name_code": null,
     "glyph": 5,
     "flip": false,
     "glyph_scale": 1.13,
-    "glyph_rotate": 2.8
+    "glyph_rotate": 2.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4459,10 +4888,13 @@
     "elevation_m": 2863,
     "prominence_m": 406,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": true,
     "glyph_scale": 1.11,
-    "glyph_rotate": 2.3
+    "glyph_rotate": 2.3,
+    "landform": "peak",
+    "landform_source": "name"
    }
   },
   {
@@ -4490,10 +4922,13 @@
     "elevation_m": 2257,
     "prominence_m": 405,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": false,
     "glyph_scale": 1.11,
-    "glyph_rotate": -2.1
+    "glyph_rotate": -2.1,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -4521,10 +4956,13 @@
     "elevation_m": 1638,
     "prominence_m": 405,
     "size": "small",
+    "name_code": null,
     "glyph": 9,
     "flip": true,
     "glyph_scale": 0.87,
-    "glyph_rotate": -2.5
+    "glyph_rotate": -2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4552,10 +4990,13 @@
     "elevation_m": 2452,
     "prominence_m": 403,
     "size": "small",
+    "name_code": "MT",
     "glyph": 6,
     "flip": false,
     "glyph_scale": 1.14,
-    "glyph_rotate": 0.5
+    "glyph_rotate": 0.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4583,10 +5024,13 @@
     "elevation_m": 1514,
     "prominence_m": 403,
     "size": "small",
+    "name_code": "MT",
     "glyph": 12,
     "flip": true,
     "glyph_scale": 1.12,
-    "glyph_rotate": -0.2
+    "glyph_rotate": -0.2,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -4614,10 +5058,13 @@
     "elevation_m": 785,
     "prominence_m": 402,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": true,
     "glyph_scale": 1.1,
-    "glyph_rotate": 2.1
+    "glyph_rotate": 2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4631,7 +5078,7 @@
    },
    "properties": {
     "id": "peak-28296-107271",
-    "name": "Unnamed summit",
+    "name": "Cerro los Acacaos",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -4639,16 +5086,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13659140",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2743,
     "prominence_m": 401,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 7,
     "flip": true,
     "glyph_scale": 0.93,
-    "glyph_rotate": 2.1
+    "glyph_rotate": 2.1,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -4676,10 +5126,13 @@
     "elevation_m": 2377,
     "prominence_m": 399,
     "size": "small",
+    "name_code": null,
     "glyph": 8,
     "flip": false,
     "glyph_scale": 1.11,
-    "glyph_rotate": 0.4
+    "glyph_rotate": 0.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4693,7 +5146,7 @@
    },
    "properties": {
     "id": "peak-28580-108880",
-    "name": "Unnamed summit",
+    "name": "Cerro el Pinal",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -4701,16 +5154,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8766579",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2015,
     "prominence_m": 399,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 1.04,
-    "glyph_rotate": 1.7
+    "glyph_rotate": 1.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4738,10 +5194,13 @@
     "elevation_m": 2421,
     "prominence_m": 398,
     "size": "small",
+    "name_code": null,
     "glyph": 10,
     "flip": true,
     "glyph_scale": 1.07,
-    "glyph_rotate": -0.3
+    "glyph_rotate": -0.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4769,10 +5228,13 @@
     "elevation_m": 1945,
     "prominence_m": 396,
     "size": "small",
+    "name_code": null,
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.06,
-    "glyph_rotate": -2.8
+    "glyph_rotate": -2.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4800,10 +5262,13 @@
     "elevation_m": 1664,
     "prominence_m": 396,
     "size": "small",
+    "name_code": "MT",
     "glyph": 9,
     "flip": false,
     "glyph_scale": 1.03,
-    "glyph_rotate": -2.0
+    "glyph_rotate": -2.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4817,7 +5282,7 @@
    },
    "properties": {
     "id": "peak-29748-108678",
-    "name": "Unnamed summit",
+    "name": "Cerro la India",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -4825,16 +5290,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "4004381",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2560,
     "prominence_m": 395,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 3,
     "flip": true,
     "glyph_scale": 0.93,
-    "glyph_rotate": 0.2
+    "glyph_rotate": 0.2,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -4862,10 +5330,13 @@
     "elevation_m": 1455,
     "prominence_m": 394,
     "size": "small",
+    "name_code": "MT",
     "glyph": 10,
     "flip": false,
     "glyph_scale": 0.96,
-    "glyph_rotate": -2.5
+    "glyph_rotate": -2.5,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -4879,7 +5350,7 @@
    },
    "properties": {
     "id": "peak-28155-106735",
-    "name": "Unnamed summit",
+    "name": "Cerro la Luz",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -4887,16 +5358,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13659607",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2462,
     "prominence_m": 394,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 10,
     "flip": false,
     "glyph_scale": 1.08,
-    "glyph_rotate": 0.0
+    "glyph_rotate": 0.0,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -4924,10 +5398,13 @@
     "elevation_m": 1229,
     "prominence_m": 392,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": false,
     "glyph_scale": 1.14,
-    "glyph_rotate": 1.3
+    "glyph_rotate": 1.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -4955,10 +5432,13 @@
     "elevation_m": 1145,
     "prominence_m": 391,
     "size": "small",
+    "name_code": null,
     "glyph": 10,
     "flip": true,
     "glyph_scale": 0.86,
-    "glyph_rotate": -0.6
+    "glyph_rotate": -0.6,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -4986,10 +5466,13 @@
     "elevation_m": 1844,
     "prominence_m": 389,
     "size": "small",
+    "name_code": "MT",
     "glyph": 7,
     "flip": false,
     "glyph_scale": 0.89,
-    "glyph_rotate": -2.8
+    "glyph_rotate": -2.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5017,10 +5500,13 @@
     "elevation_m": 2249,
     "prominence_m": 388,
     "size": "small",
+    "name_code": "MT",
     "glyph": 9,
     "flip": true,
     "glyph_scale": 1.13,
-    "glyph_rotate": -2.8
+    "glyph_rotate": -2.8,
+    "landform": "peak",
+    "landform_source": "name"
    }
   },
   {
@@ -5034,7 +5520,7 @@
    },
    "properties": {
     "id": "peak-28446-107611",
-    "name": "Unnamed summit",
+    "name": "Cerro el Picacho",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -5042,16 +5528,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13659979",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2682,
     "prominence_m": 387,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 11,
     "flip": false,
     "glyph_scale": 0.99,
-    "glyph_rotate": -0.5
+    "glyph_rotate": -0.5,
+    "landform": "peak",
+    "landform_source": "name"
    }
   },
   {
@@ -5079,10 +5568,13 @@
     "elevation_m": 1668,
     "prominence_m": 387,
     "size": "small",
+    "name_code": null,
     "glyph": 4,
     "flip": false,
     "glyph_scale": 0.88,
-    "glyph_rotate": -2.1
+    "glyph_rotate": -2.1,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -5110,10 +5602,13 @@
     "elevation_m": 2011,
     "prominence_m": 386,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 0.86,
-    "glyph_rotate": 2.5
+    "glyph_rotate": 2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5127,7 +5622,7 @@
    },
    "properties": {
     "id": "peak-28373-107057",
-    "name": "Unnamed summit",
+    "name": "Cerro Cebollín",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -5135,16 +5630,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13659712",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2690,
     "prominence_m": 386,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 12,
     "flip": true,
     "glyph_scale": 0.89,
-    "glyph_rotate": 1.6
+    "glyph_rotate": 1.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5172,10 +5670,13 @@
     "elevation_m": 2371,
     "prominence_m": 384,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 0.87,
-    "glyph_rotate": 1.4
+    "glyph_rotate": 1.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5203,10 +5704,13 @@
     "elevation_m": 1766,
     "prominence_m": 384,
     "size": "small",
+    "name_code": "PK",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 0.86,
-    "glyph_rotate": 2.2
+    "glyph_rotate": 2.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5234,10 +5738,13 @@
     "elevation_m": 2003,
     "prominence_m": 382,
     "size": "small",
+    "name_code": null,
     "glyph": 4,
     "flip": true,
     "glyph_scale": 1.01,
-    "glyph_rotate": 2.0
+    "glyph_rotate": 2.0,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -5265,10 +5772,13 @@
     "elevation_m": 2657,
     "prominence_m": 381,
     "size": "small",
+    "name_code": null,
     "glyph": 4,
     "flip": false,
     "glyph_scale": 0.99,
-    "glyph_rotate": -0.0
+    "glyph_rotate": -0.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5296,10 +5806,13 @@
     "elevation_m": 1691,
     "prominence_m": 378,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": true,
     "glyph_scale": 1.15,
-    "glyph_rotate": -0.1
+    "glyph_rotate": -0.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5327,10 +5840,13 @@
     "elevation_m": 1820,
     "prominence_m": 378,
     "size": "small",
+    "name_code": null,
     "glyph": 12,
     "flip": false,
     "glyph_scale": 0.94,
-    "glyph_rotate": -2.3
+    "glyph_rotate": -2.3,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -5358,10 +5874,13 @@
     "elevation_m": 1357,
     "prominence_m": 375,
     "size": "small",
+    "name_code": "MT",
     "glyph": 10,
     "flip": true,
     "glyph_scale": 1.11,
-    "glyph_rotate": 2.7
+    "glyph_rotate": 2.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5389,10 +5908,13 @@
     "elevation_m": 2148,
     "prominence_m": 375,
     "size": "small",
+    "name_code": "MT",
     "glyph": 11,
     "flip": true,
     "glyph_scale": 0.96,
-    "glyph_rotate": 2.1
+    "glyph_rotate": 2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5420,10 +5942,13 @@
     "elevation_m": 1240,
     "prominence_m": 375,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": false,
     "glyph_scale": 1.06,
-    "glyph_rotate": -2.9
+    "glyph_rotate": -2.9,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -5451,10 +5976,13 @@
     "elevation_m": 2733,
     "prominence_m": 374,
     "size": "small",
+    "name_code": null,
     "glyph": 1,
     "flip": true,
     "glyph_scale": 1.01,
-    "glyph_rotate": 1.0
+    "glyph_rotate": 1.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5482,10 +6010,13 @@
     "elevation_m": 1508,
     "prominence_m": 373,
     "size": "small",
+    "name_code": null,
     "glyph": 9,
     "flip": true,
     "glyph_scale": 0.91,
-    "glyph_rotate": 1.4
+    "glyph_rotate": 1.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5513,10 +6044,13 @@
     "elevation_m": 2587,
     "prominence_m": 372,
     "size": "small",
+    "name_code": "MT",
     "glyph": 12,
     "flip": true,
     "glyph_scale": 1.14,
-    "glyph_rotate": -2.5
+    "glyph_rotate": -2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5544,10 +6078,13 @@
     "elevation_m": 2581,
     "prominence_m": 369,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 1.03,
-    "glyph_rotate": 0.2
+    "glyph_rotate": 0.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5575,10 +6112,13 @@
     "elevation_m": 2116,
     "prominence_m": 366,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 0.85,
-    "glyph_rotate": -1.3
+    "glyph_rotate": -1.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5592,7 +6132,7 @@
    },
    "properties": {
     "id": "peak-28369-106833",
-    "name": "Unnamed summit",
+    "name": "Cerro el Chiquihuite",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -5600,16 +6140,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13660648",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2441,
     "prominence_m": 364,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 2,
     "flip": true,
     "glyph_scale": 1.0,
-    "glyph_rotate": 0.3
+    "glyph_rotate": 0.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5637,10 +6180,13 @@
     "elevation_m": 2556,
     "prominence_m": 364,
     "size": "small",
+    "name_code": null,
     "glyph": 7,
     "flip": true,
     "glyph_scale": 0.99,
-    "glyph_rotate": -1.5
+    "glyph_rotate": -1.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5668,10 +6214,13 @@
     "elevation_m": 1881,
     "prominence_m": 362,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": true,
     "glyph_scale": 1.13,
-    "glyph_rotate": -1.6
+    "glyph_rotate": -1.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5699,10 +6248,13 @@
     "elevation_m": 1742,
     "prominence_m": 362,
     "size": "small",
+    "name_code": null,
     "glyph": 12,
     "flip": true,
     "glyph_scale": 1.03,
-    "glyph_rotate": 1.5
+    "glyph_rotate": 1.5,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -5716,7 +6268,7 @@
    },
    "properties": {
     "id": "peak-28472-107104",
-    "name": "Unnamed summit",
+    "name": "Cerro los Apaches",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -5724,16 +6276,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13659641",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2697,
     "prominence_m": 362,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 5,
     "flip": true,
     "glyph_scale": 0.99,
-    "glyph_rotate": 0.4
+    "glyph_rotate": 0.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5761,10 +6316,13 @@
     "elevation_m": 1858,
     "prominence_m": 362,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": true,
     "glyph_scale": 1.01,
-    "glyph_rotate": -0.6
+    "glyph_rotate": -0.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5792,10 +6350,13 @@
     "elevation_m": 2629,
     "prominence_m": 362,
     "size": "small",
+    "name_code": null,
     "glyph": 2,
     "flip": true,
     "glyph_scale": 0.87,
-    "glyph_rotate": -2.1
+    "glyph_rotate": -2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5823,10 +6384,13 @@
     "elevation_m": 1806,
     "prominence_m": 359,
     "size": "small",
+    "name_code": "MT",
     "glyph": 5,
     "flip": false,
     "glyph_scale": 1.12,
-    "glyph_rotate": 1.0
+    "glyph_rotate": 1.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5854,10 +6418,13 @@
     "elevation_m": 2548,
     "prominence_m": 359,
     "size": "small",
+    "name_code": "MT",
     "glyph": 11,
     "flip": false,
     "glyph_scale": 1.01,
-    "glyph_rotate": -1.4
+    "glyph_rotate": -1.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5885,10 +6452,13 @@
     "elevation_m": 1531,
     "prominence_m": 358,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": true,
     "glyph_scale": 0.85,
-    "glyph_rotate": -1.6
+    "glyph_rotate": -1.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5916,10 +6486,13 @@
     "elevation_m": 2226,
     "prominence_m": 358,
     "size": "small",
+    "name_code": "MT",
     "glyph": 9,
     "flip": false,
     "glyph_scale": 0.95,
-    "glyph_rotate": 0.7
+    "glyph_rotate": 0.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -5947,10 +6520,13 @@
     "elevation_m": 2806,
     "prominence_m": 358,
     "size": "small",
+    "name_code": "MT",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 1.1,
-    "glyph_rotate": -0.4
+    "glyph_rotate": -0.4,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -5978,10 +6554,13 @@
     "elevation_m": 1379,
     "prominence_m": 357,
     "size": "small",
+    "name_code": "MT",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 1.03,
-    "glyph_rotate": 1.7
+    "glyph_rotate": 1.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6009,10 +6588,13 @@
     "elevation_m": 2567,
     "prominence_m": 355,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 1.05,
-    "glyph_rotate": 2.5
+    "glyph_rotate": 2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6040,10 +6622,13 @@
     "elevation_m": 2607,
     "prominence_m": 352,
     "size": "small",
+    "name_code": null,
     "glyph": 9,
     "flip": false,
     "glyph_scale": 0.86,
-    "glyph_rotate": -2.6
+    "glyph_rotate": -2.6,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -6071,10 +6656,13 @@
     "elevation_m": 1911,
     "prominence_m": 351,
     "size": "small",
+    "name_code": null,
     "glyph": 10,
     "flip": true,
     "glyph_scale": 0.94,
-    "glyph_rotate": 2.7
+    "glyph_rotate": 2.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6102,10 +6690,13 @@
     "elevation_m": 2179,
     "prominence_m": 351,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 3,
     "flip": false,
     "glyph_scale": 1.02,
-    "glyph_rotate": -1.6
+    "glyph_rotate": -1.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6133,10 +6724,13 @@
     "elevation_m": 1532,
     "prominence_m": 349,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 0.97,
-    "glyph_rotate": 0.3
+    "glyph_rotate": 0.3,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -6164,10 +6758,13 @@
     "elevation_m": 1820,
     "prominence_m": 347,
     "size": "small",
+    "name_code": "MT",
     "glyph": 10,
     "flip": false,
     "glyph_scale": 1.03,
-    "glyph_rotate": -0.9
+    "glyph_rotate": -0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6195,10 +6792,13 @@
     "elevation_m": 2456,
     "prominence_m": 347,
     "size": "small",
+    "name_code": null,
     "glyph": 10,
     "flip": true,
     "glyph_scale": 1.09,
-    "glyph_rotate": -1.2
+    "glyph_rotate": -1.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6212,7 +6812,7 @@
    },
    "properties": {
     "id": "peak-30337-107728",
-    "name": "Unnamed summit",
+    "name": "Cerro el Gregorio",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -6220,16 +6820,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13660110",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 1946,
     "prominence_m": 347,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 0.88,
-    "glyph_rotate": 1.7
+    "glyph_rotate": 1.7,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -6243,7 +6846,7 @@
    },
    "properties": {
     "id": "peak-28003-108999",
-    "name": "Unnamed summit",
+    "name": "Mesa el Oso",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -6251,16 +6854,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8765046",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2126,
     "prominence_m": 347,
     "size": "small",
+    "name_code": "MESA",
     "glyph": 4,
     "flip": false,
     "glyph_scale": 0.87,
-    "glyph_rotate": -1.1
+    "glyph_rotate": -1.1,
+    "landform": "mesa",
+    "landform_source": "name"
    }
   },
   {
@@ -6288,10 +6894,13 @@
     "elevation_m": 2247,
     "prominence_m": 347,
     "size": "small",
+    "name_code": null,
     "glyph": 8,
     "flip": false,
     "glyph_scale": 0.96,
-    "glyph_rotate": -1.2
+    "glyph_rotate": -1.2,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -6319,10 +6928,13 @@
     "elevation_m": 1640,
     "prominence_m": 344,
     "size": "small",
+    "name_code": "MT",
     "glyph": 11,
     "flip": true,
     "glyph_scale": 1.08,
-    "glyph_rotate": -0.9
+    "glyph_rotate": -0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6350,10 +6962,13 @@
     "elevation_m": 1463,
     "prominence_m": 343,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": true,
     "glyph_scale": 0.96,
-    "glyph_rotate": -1.0
+    "glyph_rotate": -1.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6381,10 +6996,13 @@
     "elevation_m": 1372,
     "prominence_m": 343,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": false,
     "glyph_scale": 0.9,
-    "glyph_rotate": -0.6
+    "glyph_rotate": -0.6,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -6412,10 +7030,13 @@
     "elevation_m": 2469,
     "prominence_m": 342,
     "size": "small",
+    "name_code": null,
     "glyph": 3,
     "flip": true,
     "glyph_scale": 1.05,
-    "glyph_rotate": -0.8
+    "glyph_rotate": -0.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6429,7 +7050,7 @@
    },
    "properties": {
     "id": "peak-28029-107970",
-    "name": "Unnamed summit",
+    "name": "Cordón Choguita",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -6437,16 +7058,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13660370",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2724,
     "prominence_m": 342,
     "size": "small",
+    "name_code": "RDGE",
     "glyph": 8,
     "flip": false,
     "glyph_scale": 0.91,
-    "glyph_rotate": -0.7
+    "glyph_rotate": -0.7,
+    "landform": "ridge",
+    "landform_source": "name"
    }
   },
   {
@@ -6474,10 +7098,13 @@
     "elevation_m": 1368,
     "prominence_m": 342,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": true,
     "glyph_scale": 0.93,
-    "glyph_rotate": -1.4
+    "glyph_rotate": -1.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6505,10 +7132,13 @@
     "elevation_m": 2545,
     "prominence_m": 340,
     "size": "small",
+    "name_code": "MT",
     "glyph": 10,
     "flip": true,
     "glyph_scale": 0.85,
-    "glyph_rotate": 0.1
+    "glyph_rotate": 0.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6536,10 +7166,13 @@
     "elevation_m": 1910,
     "prominence_m": 339,
     "size": "small",
+    "name_code": null,
     "glyph": 11,
     "flip": false,
     "glyph_scale": 1.02,
-    "glyph_rotate": -1.3
+    "glyph_rotate": -1.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6567,10 +7200,13 @@
     "elevation_m": 1190,
     "prominence_m": 339,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 1.1,
-    "glyph_rotate": -0.6
+    "glyph_rotate": -0.6,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -6598,10 +7234,13 @@
     "elevation_m": 1439,
     "prominence_m": 338,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 0.93,
-    "glyph_rotate": 2.4
+    "glyph_rotate": 2.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6615,7 +7254,7 @@
    },
    "properties": {
     "id": "peak-28317-106755",
-    "name": "Unnamed summit",
+    "name": "Cerro Chato",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -6623,16 +7262,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13660748",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2404,
     "prominence_m": 338,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 1.05,
-    "glyph_rotate": 2.6
+    "glyph_rotate": 2.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6660,10 +7302,13 @@
     "elevation_m": 1896,
     "prominence_m": 338,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": false,
     "glyph_scale": 1.05,
-    "glyph_rotate": -0.4
+    "glyph_rotate": -0.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6691,10 +7336,13 @@
     "elevation_m": 1777,
     "prominence_m": 337,
     "size": "small",
+    "name_code": null,
     "glyph": 6,
     "flip": false,
     "glyph_scale": 0.92,
-    "glyph_rotate": -1.4
+    "glyph_rotate": -1.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6722,10 +7370,13 @@
     "elevation_m": 2301,
     "prominence_m": 337,
     "size": "small",
+    "name_code": null,
     "glyph": 5,
     "flip": false,
     "glyph_scale": 0.98,
-    "glyph_rotate": -0.1
+    "glyph_rotate": -0.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6739,7 +7390,7 @@
    },
    "properties": {
     "id": "peak-28399-106271",
-    "name": "Unnamed summit",
+    "name": "Cerro el Cañón",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -6747,16 +7398,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13659704",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2222,
     "prominence_m": 336,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 12,
     "flip": true,
     "glyph_scale": 1.03,
-    "glyph_rotate": -0.1
+    "glyph_rotate": -0.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6784,10 +7438,13 @@
     "elevation_m": 2242,
     "prominence_m": 336,
     "size": "small",
+    "name_code": "MT",
     "glyph": 9,
     "flip": true,
     "glyph_scale": 0.94,
-    "glyph_rotate": 0.8
+    "glyph_rotate": 0.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6815,10 +7472,13 @@
     "elevation_m": 2696,
     "prominence_m": 336,
     "size": "small",
+    "name_code": "MT",
     "glyph": 9,
     "flip": true,
     "glyph_scale": 0.93,
-    "glyph_rotate": -0.0
+    "glyph_rotate": -0.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6846,10 +7506,13 @@
     "elevation_m": 1672,
     "prominence_m": 336,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 1.0,
-    "glyph_rotate": -2.3
+    "glyph_rotate": -2.3,
+    "landform": "peak",
+    "landform_source": "default"
    }
   },
   {
@@ -6877,10 +7540,13 @@
     "elevation_m": 1718,
     "prominence_m": 335,
     "size": "small",
+    "name_code": null,
     "glyph": 2,
     "flip": true,
     "glyph_scale": 1.05,
-    "glyph_rotate": -2.0
+    "glyph_rotate": -2.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6908,10 +7574,13 @@
     "elevation_m": 1871,
     "prominence_m": 335,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": true,
     "glyph_scale": 1.14,
-    "glyph_rotate": 0.9
+    "glyph_rotate": 0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6939,10 +7608,13 @@
     "elevation_m": 1167,
     "prominence_m": 334,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 1.14,
-    "glyph_rotate": -0.6
+    "glyph_rotate": -0.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -6970,10 +7642,13 @@
     "elevation_m": 2360,
     "prominence_m": 334,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": true,
     "glyph_scale": 0.96,
-    "glyph_rotate": 2.5
+    "glyph_rotate": 2.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7001,10 +7676,13 @@
     "elevation_m": 2081,
     "prominence_m": 333,
     "size": "small",
+    "name_code": "MT",
     "glyph": 6,
     "flip": true,
     "glyph_scale": 1.09,
-    "glyph_rotate": 0.9
+    "glyph_rotate": 0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7032,10 +7710,13 @@
     "elevation_m": 991,
     "prominence_m": 332,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": true,
     "glyph_scale": 0.91,
-    "glyph_rotate": -1.0
+    "glyph_rotate": -1.0,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -7063,10 +7744,13 @@
     "elevation_m": 1290,
     "prominence_m": 331,
     "size": "small",
+    "name_code": "MT",
     "glyph": 11,
     "flip": false,
     "glyph_scale": 0.99,
-    "glyph_rotate": 1.7
+    "glyph_rotate": 1.7,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -7094,10 +7778,13 @@
     "elevation_m": 1590,
     "prominence_m": 330,
     "size": "small",
+    "name_code": "MT",
     "glyph": 5,
     "flip": true,
     "glyph_scale": 1.0,
-    "glyph_rotate": 2.9
+    "glyph_rotate": 2.9,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -7125,10 +7812,13 @@
     "elevation_m": 2253,
     "prominence_m": 329,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 1.01,
-    "glyph_rotate": 1.4
+    "glyph_rotate": 1.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7156,10 +7846,13 @@
     "elevation_m": 1531,
     "prominence_m": 329,
     "size": "small",
+    "name_code": "MT",
     "glyph": 10,
     "flip": false,
     "glyph_scale": 1.03,
-    "glyph_rotate": -0.8
+    "glyph_rotate": -0.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7187,10 +7880,13 @@
     "elevation_m": 2158,
     "prominence_m": 329,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 9,
     "flip": true,
     "glyph_scale": 0.86,
-    "glyph_rotate": -1.8
+    "glyph_rotate": -1.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7218,10 +7914,13 @@
     "elevation_m": 2038,
     "prominence_m": 329,
     "size": "small",
+    "name_code": null,
     "glyph": 10,
     "flip": true,
     "glyph_scale": 0.95,
-    "glyph_rotate": 0.9
+    "glyph_rotate": 0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7249,10 +7948,13 @@
     "elevation_m": 1378,
     "prominence_m": 325,
     "size": "small",
+    "name_code": null,
     "glyph": 3,
     "flip": true,
     "glyph_scale": 0.95,
-    "glyph_rotate": 1.2
+    "glyph_rotate": 1.2,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -7280,10 +7982,13 @@
     "elevation_m": 1286,
     "prominence_m": 325,
     "size": "small",
+    "name_code": "MT",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 0.97,
-    "glyph_rotate": 1.5
+    "glyph_rotate": 1.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7311,10 +8016,13 @@
     "elevation_m": 2164,
     "prominence_m": 325,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 0.89,
-    "glyph_rotate": -2.2
+    "glyph_rotate": -2.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7342,10 +8050,13 @@
     "elevation_m": 1603,
     "prominence_m": 324,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 1.01,
-    "glyph_rotate": 0.7
+    "glyph_rotate": 0.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7373,10 +8084,13 @@
     "elevation_m": 1801,
     "prominence_m": 324,
     "size": "small",
+    "name_code": "MT",
     "glyph": 6,
     "flip": false,
     "glyph_scale": 1.06,
-    "glyph_rotate": 2.7
+    "glyph_rotate": 2.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7404,10 +8118,13 @@
     "elevation_m": 1370,
     "prominence_m": 322,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 0.9,
-    "glyph_rotate": 0.8
+    "glyph_rotate": 0.8,
+    "landform": "ridge",
+    "landform_source": "dem"
    }
   },
   {
@@ -7435,10 +8152,13 @@
     "elevation_m": 2015,
     "prominence_m": 321,
     "size": "small",
+    "name_code": null,
     "glyph": 11,
     "flip": false,
     "glyph_scale": 0.99,
-    "glyph_rotate": -0.5
+    "glyph_rotate": -0.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7452,7 +8172,7 @@
    },
    "properties": {
     "id": "peak-28416-108649",
-    "name": "Unnamed summit",
+    "name": "Cordón los Horcones",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -7460,16 +8180,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8762004",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 1977,
     "prominence_m": 321,
     "size": "small",
+    "name_code": "HLLS",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 0.97,
-    "glyph_rotate": -1.6
+    "glyph_rotate": -1.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7497,10 +8220,13 @@
     "elevation_m": 1915,
     "prominence_m": 319,
     "size": "small",
+    "name_code": "MT",
     "glyph": 5,
     "flip": true,
     "glyph_scale": 0.85,
-    "glyph_rotate": 1.8
+    "glyph_rotate": 1.8,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7528,10 +8254,13 @@
     "elevation_m": 2842,
     "prominence_m": 318,
     "size": "small",
+    "name_code": null,
     "glyph": 12,
     "flip": false,
     "glyph_scale": 1.12,
-    "glyph_rotate": 0.1
+    "glyph_rotate": 0.1,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -7559,10 +8288,13 @@
     "elevation_m": 2469,
     "prominence_m": 318,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 0.85,
-    "glyph_rotate": -2.6
+    "glyph_rotate": -2.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7590,10 +8322,13 @@
     "elevation_m": 2202,
     "prominence_m": 318,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 1.1,
-    "glyph_rotate": 1.9
+    "glyph_rotate": 1.9,
+    "landform": "mesa",
+    "landform_source": "dem"
    }
   },
   {
@@ -7621,10 +8356,13 @@
     "elevation_m": 1969,
     "prominence_m": 317,
     "size": "small",
+    "name_code": null,
     "glyph": 8,
     "flip": true,
     "glyph_scale": 0.99,
-    "glyph_rotate": 1.1
+    "glyph_rotate": 1.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7638,7 +8376,7 @@
    },
    "properties": {
     "id": "peak-28256-106106",
-    "name": "Unnamed summit",
+    "name": "Cerro Barriga",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -7646,16 +8384,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "13660330",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 2088,
     "prominence_m": 317,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 10,
     "flip": false,
     "glyph_scale": 1.09,
-    "glyph_rotate": -2.2
+    "glyph_rotate": -2.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7683,10 +8424,13 @@
     "elevation_m": 1652,
     "prominence_m": 312,
     "size": "small",
+    "name_code": "MT",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 1.0,
-    "glyph_rotate": 2.1
+    "glyph_rotate": 2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7714,10 +8458,13 @@
     "elevation_m": 2491,
     "prominence_m": 312,
     "size": "small",
+    "name_code": null,
     "glyph": 5,
     "flip": false,
     "glyph_scale": 0.94,
-    "glyph_rotate": -0.9
+    "glyph_rotate": -0.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7745,10 +8492,13 @@
     "elevation_m": 2125,
     "prominence_m": 311,
     "size": "small",
+    "name_code": "MT",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 0.99,
-    "glyph_rotate": -0.4
+    "glyph_rotate": -0.4,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7776,10 +8526,13 @@
     "elevation_m": 1133,
     "prominence_m": 310,
     "size": "small",
+    "name_code": "MT",
     "glyph": 3,
     "flip": false,
     "glyph_scale": 1.02,
-    "glyph_rotate": -2.9
+    "glyph_rotate": -2.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7807,10 +8560,13 @@
     "elevation_m": 1826,
     "prominence_m": 310,
     "size": "small",
+    "name_code": "MT",
     "glyph": 5,
     "flip": true,
     "glyph_scale": 1.1,
-    "glyph_rotate": 1.5
+    "glyph_rotate": 1.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7838,10 +8594,13 @@
     "elevation_m": 1063,
     "prominence_m": 310,
     "size": "small",
+    "name_code": "MT",
     "glyph": 4,
     "flip": false,
     "glyph_scale": 0.86,
-    "glyph_rotate": 2.1
+    "glyph_rotate": 2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7869,10 +8628,13 @@
     "elevation_m": 2567,
     "prominence_m": 309,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": false,
     "glyph_scale": 1.11,
-    "glyph_rotate": 2.6
+    "glyph_rotate": 2.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7900,10 +8662,13 @@
     "elevation_m": 1733,
     "prominence_m": 309,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 1.13,
-    "glyph_rotate": -0.2
+    "glyph_rotate": -0.2,
+    "landform": "peak",
+    "landform_source": "name"
    }
   },
   {
@@ -7931,10 +8696,13 @@
     "elevation_m": 1914,
     "prominence_m": 309,
     "size": "small",
+    "name_code": "MT",
     "glyph": 6,
     "flip": false,
     "glyph_scale": 0.95,
-    "glyph_rotate": 0.6
+    "glyph_rotate": 0.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7962,10 +8730,13 @@
     "elevation_m": 1566,
     "prominence_m": 308,
     "size": "small",
+    "name_code": "MT",
     "glyph": 12,
     "flip": true,
     "glyph_scale": 1.0,
-    "glyph_rotate": 0.5
+    "glyph_rotate": 0.5,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -7993,10 +8764,13 @@
     "elevation_m": 1262,
     "prominence_m": 308,
     "size": "small",
+    "name_code": null,
     "glyph": 11,
     "flip": true,
     "glyph_scale": 0.97,
-    "glyph_rotate": -1.7
+    "glyph_rotate": -1.7,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8024,10 +8798,13 @@
     "elevation_m": 2203,
     "prominence_m": 307,
     "size": "small",
+    "name_code": "MT",
     "glyph": 8,
     "flip": true,
     "glyph_scale": 0.95,
-    "glyph_rotate": -0.3
+    "glyph_rotate": -0.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8055,10 +8832,13 @@
     "elevation_m": 3019,
     "prominence_m": 307,
     "size": "small",
+    "name_code": null,
     "glyph": 7,
     "flip": true,
     "glyph_scale": 0.94,
-    "glyph_rotate": -1.3
+    "glyph_rotate": -1.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8086,10 +8866,13 @@
     "elevation_m": 1925,
     "prominence_m": 307,
     "size": "small",
+    "name_code": null,
     "glyph": 5,
     "flip": true,
     "glyph_scale": 1.08,
-    "glyph_rotate": 2.2
+    "glyph_rotate": 2.2,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8117,10 +8900,13 @@
     "elevation_m": 1848,
     "prominence_m": 306,
     "size": "small",
+    "name_code": "MT",
     "glyph": 12,
     "flip": true,
     "glyph_scale": 1.13,
-    "glyph_rotate": 1.3
+    "glyph_rotate": 1.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8148,10 +8934,13 @@
     "elevation_m": 1916,
     "prominence_m": 306,
     "size": "small",
+    "name_code": "MT",
     "glyph": 1,
     "flip": false,
     "glyph_scale": 0.88,
-    "glyph_rotate": -1.3
+    "glyph_rotate": -1.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8179,10 +8968,13 @@
     "elevation_m": 1682,
     "prominence_m": 305,
     "size": "small",
+    "name_code": null,
     "glyph": 4,
     "flip": false,
     "glyph_scale": 1.08,
-    "glyph_rotate": 1.4
+    "glyph_rotate": 1.4,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -8196,7 +8988,7 @@
    },
    "properties": {
     "id": "peak-28096-108999",
-    "name": "Unnamed summit",
+    "name": "Mesa Colorada",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -8204,16 +8996,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8763702",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 1748,
     "prominence_m": 305,
     "size": "small",
+    "name_code": "MESA",
     "glyph": 12,
     "flip": false,
     "glyph_scale": 1.1,
-    "glyph_rotate": -3.0
+    "glyph_rotate": -3.0,
+    "landform": "mesa",
+    "landform_source": "name"
    }
   },
   {
@@ -8227,7 +9022,7 @@
    },
    "properties": {
     "id": "peak-29164-109512",
-    "name": "Unnamed summit",
+    "name": "Cerro el Bonancita",
     "kind": "peak",
     "role": null,
     "part": 1,
@@ -8235,16 +9030,19 @@
     "certainty": "located",
     "method": "generated",
     "source": "copernicus-glo30",
-    "source_id": null,
+    "source_id": "8755975",
     "source_licence": "Copernicus WorldDEM-30 licence",
     "note_safe": "",
     "elevation_m": 1128,
     "prominence_m": 303,
     "size": "small",
+    "name_code": "HLL",
     "glyph": 12,
     "flip": true,
     "glyph_scale": 1.04,
-    "glyph_rotate": -1.6
+    "glyph_rotate": -1.6,
+    "landform": "dome",
+    "landform_source": "name"
    }
   },
   {
@@ -8272,10 +9070,13 @@
     "elevation_m": 1364,
     "prominence_m": 303,
     "size": "small",
+    "name_code": "MT",
     "glyph": 2,
     "flip": true,
     "glyph_scale": 1.14,
-    "glyph_rotate": -2.0
+    "glyph_rotate": -2.0,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   },
   {
@@ -8303,10 +9104,13 @@
     "elevation_m": 1917,
     "prominence_m": 303,
     "size": "small",
+    "name_code": null,
     "glyph": 6,
     "flip": true,
     "glyph_scale": 0.85,
-    "glyph_rotate": -1.1
+    "glyph_rotate": -1.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8334,10 +9138,13 @@
     "elevation_m": 1788,
     "prominence_m": 302,
     "size": "small",
+    "name_code": null,
     "glyph": 1,
     "flip": false,
     "glyph_scale": 0.99,
-    "glyph_rotate": 1.0
+    "glyph_rotate": 1.0,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8365,10 +9172,13 @@
     "elevation_m": 1047,
     "prominence_m": 302,
     "size": "small",
+    "name_code": "MT",
     "glyph": 7,
     "flip": false,
     "glyph_scale": 0.95,
-    "glyph_rotate": -2.9
+    "glyph_rotate": -2.9,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8396,10 +9206,13 @@
     "elevation_m": 2439,
     "prominence_m": 302,
     "size": "small",
+    "name_code": null,
     "glyph": 11,
     "flip": false,
     "glyph_scale": 0.95,
-    "glyph_rotate": -2.3
+    "glyph_rotate": -2.3,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8427,10 +9240,13 @@
     "elevation_m": 1459,
     "prominence_m": 301,
     "size": "small",
+    "name_code": "MT",
     "glyph": 5,
     "flip": true,
     "glyph_scale": 1.06,
-    "glyph_rotate": 2.1
+    "glyph_rotate": 2.1,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8458,10 +9274,13 @@
     "elevation_m": 1751,
     "prominence_m": 301,
     "size": "small",
+    "name_code": null,
     "glyph": 2,
     "flip": false,
     "glyph_scale": 0.99,
-    "glyph_rotate": 2.6
+    "glyph_rotate": 2.6,
+    "landform": "peak",
+    "landform_source": "dem"
    }
   },
   {
@@ -8489,10 +9308,2393 @@
     "elevation_m": 1820,
     "prominence_m": 300,
     "size": "small",
+    "name_code": null,
     "glyph": 2,
     "flip": true,
     "glyph_scale": 1.11,
-    "glyph_rotate": -1.2
+    "glyph_rotate": -1.2,
+    "landform": "peak",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.65829,
+     31.61095
+    ]
+   },
+   "properties": {
+    "id": "peak-31611-108658",
+    "name": "Elephant Butte",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "900830",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1994,
+    "prominence_m": 192,
+    "size": "small",
+    "name_code": "gnis:Summit",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -1.3,
+    "landform": "butte",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.77047,
+     31.99637
+    ]
+   },
+   "properties": {
+    "id": "peak-31996-109770",
+    "name": "Three Sisters Buttes",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "12428",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1463,
+    "prominence_m": 173,
+    "size": "small",
+    "name_code": "gnis:Summit",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.14,
+    "glyph_rotate": 0.3,
+    "landform": "butte",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.54353,
+     29.06694
+    ]
+   },
+   "properties": {
+    "id": "peak-29067-108544",
+    "name": "Mesa San Agustín",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "3987993",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2029,
+    "prominence_m": 132,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": 1.1,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.57842,
+     30.35936
+    ]
+   },
+   "properties": {
+    "id": "peak-30359-108578",
+    "name": "Mesa Lencho",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8677990",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2403,
+    "prominence_m": 125,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.08,
+    "glyph_rotate": -2.4,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.55927,
+     30.46003
+    ]
+   },
+   "properties": {
+    "id": "peak-30460-108559",
+    "name": "Mesa las Guacamayas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8678091",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2401,
+    "prominence_m": 217,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 0.91,
+    "glyph_rotate": 0.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.54654,
+     30.45673
+    ]
+   },
+   "properties": {
+    "id": "peak-30457-109547",
+    "name": "Mesa la Escuadra",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8678792",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1588,
+    "prominence_m": 111,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.88,
+    "glyph_rotate": -0.9,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.98571,
+     30.58459
+    ]
+   },
+   "properties": {
+    "id": "peak-30585-108986",
+    "name": "Mesa el Malpaís",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8688433",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1361,
+    "prominence_m": 134,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.07,
+    "glyph_rotate": -1.9,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.83053,
+     30.52978
+    ]
+   },
+   "properties": {
+    "id": "peak-30530-108831",
+    "name": "Cerro el Volcán",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8688508",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1635,
+    "prominence_m": 185,
+    "size": "small",
+    "name_code": "MT",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.02,
+    "glyph_rotate": 2.2,
+    "landform": "cone",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.31908,
+     30.72285
+    ]
+   },
+   "properties": {
+    "id": "peak-30723-109319",
+    "name": "Mesa el Güérigo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8688551",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1294,
+    "prominence_m": 214,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.14,
+    "glyph_rotate": 1.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.25494,
+     30.68953
+    ]
+   },
+   "properties": {
+    "id": "peak-30690-109255",
+    "name": "Mesa la Chata",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8688574",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1337,
+    "prominence_m": 114,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.0,
+    "glyph_rotate": 0.1,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.45756,
+     30.68307
+    ]
+   },
+   "properties": {
+    "id": "peak-30683-109458",
+    "name": "Mesa los Alisos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8688757",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1490,
+    "prominence_m": 100,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -0.5,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.99956,
+     30.56205
+    ]
+   },
+   "properties": {
+    "id": "peak-30562-110000",
+    "name": "Mesa Mezquitosa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8688983",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1180,
+    "prominence_m": 102,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 3.0,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.9815,
+     30.29302
+    ]
+   },
+   "properties": {
+    "id": "peak-30293-109982",
+    "name": "Mesa la Laguna",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8689593",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1539,
+    "prominence_m": 285,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 0.2,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.97128,
+     29.94449
+    ]
+   },
+   "properties": {
+    "id": "peak-29944-107971",
+    "name": "Mesa los Temporales",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8744232",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2139,
+    "prominence_m": 113,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 0.93,
+    "glyph_rotate": 1.1,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.39265,
+     29.91188
+    ]
+   },
+   "properties": {
+    "id": "peak-29912-107393",
+    "name": "Mesa Mimbres",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8744440",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1967,
+    "prominence_m": 118,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 0.0,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.37497,
+     29.99975
+    ]
+   },
+   "properties": {
+    "id": "peak-30000-107375",
+    "name": "Cerro la Mesa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8744474",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2086,
+    "prominence_m": 127,
+    "size": "small",
+    "name_code": "MT",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.12,
+    "glyph_rotate": -2.9,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.5996,
+     29.60721
+    ]
+   },
+   "properties": {
+    "id": "peak-29607-107600",
+    "name": "Mesa la Montosa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8744802",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2774,
+    "prominence_m": 119,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 0.87,
+    "glyph_rotate": -2.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.95096,
+     29.57456
+    ]
+   },
+   "properties": {
+    "id": "peak-29575-106951",
+    "name": "Mesa el Táscate",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8745086",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2388,
+    "prominence_m": 226,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 1.3,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.42249,
+     28.80408
+    ]
+   },
+   "properties": {
+    "id": "peak-28804-106422",
+    "name": "Mesa la Trampa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8746909",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2114,
+    "prominence_m": 137,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.12,
+    "glyph_rotate": -0.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.62653,
+     29.01273
+    ]
+   },
+   "properties": {
+    "id": "peak-29013-106627",
+    "name": "Mesa la Sandía",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8747383",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2517,
+    "prominence_m": 111,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": -2.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.12154,
+     29.02969
+    ]
+   },
+   "properties": {
+    "id": "peak-29030-108122",
+    "name": "Mesa la Piocha",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8749832",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2708,
+    "prominence_m": 295,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": -1.4,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.79977,
+     29.28251
+    ]
+   },
+   "properties": {
+    "id": "peak-29283-108800",
+    "name": "Mesa los Caballos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8751999",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1407,
+    "prominence_m": 143,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 6,
+    "flip": true,
+    "glyph_scale": 0.87,
+    "glyph_rotate": -1.7,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.78805,
+     29.25344
+    ]
+   },
+   "properties": {
+    "id": "peak-29253-108788",
+    "name": "Mesa las Chivas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8752003",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1420,
+    "prominence_m": 128,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.11,
+    "glyph_rotate": 0.1,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.69496,
+     29.36735
+    ]
+   },
+   "properties": {
+    "id": "peak-29367-108695",
+    "name": "Mesa los Rascón",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8752080",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1649,
+    "prominence_m": 132,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 0.88,
+    "glyph_rotate": -0.7,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.39979,
+     28.48868
+    ]
+   },
+   "properties": {
+    "id": "peak-28489-108400",
+    "name": "Mesa Tierras Blancas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8762123",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2000,
+    "prominence_m": 148,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -1.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.30599,
+     29.66345
+    ]
+   },
+   "properties": {
+    "id": "peak-29663-109306",
+    "name": "Mesa Alta",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8762619",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1234,
+    "prominence_m": 119,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -2.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.97154,
+     28.49661
+    ]
+   },
+   "properties": {
+    "id": "peak-28497-108972",
+    "name": "Mesa Guaguasari",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8763062",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1864,
+    "prominence_m": 103,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 1.7,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.96617,
+     28.35035
+    ]
+   },
+   "properties": {
+    "id": "peak-28350-108966",
+    "name": "Mesa el Pilarcito",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8763079",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2075,
+    "prominence_m": 281,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.09,
+    "glyph_rotate": -0.9,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.21259,
+     28.0718
+    ]
+   },
+   "properties": {
+    "id": "peak-28072-108213",
+    "name": "Mesa Quelloravo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8763807",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2467,
+    "prominence_m": 104,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 1.3,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.04759,
+     28.22891
+    ]
+   },
+   "properties": {
+    "id": "peak-28229-108048",
+    "name": "Mesa de la Papa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8763910",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2809,
+    "prominence_m": 169,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": 2.7,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.61162,
+     28.14971
+    ]
+   },
+   "properties": {
+    "id": "peak-28150-108612",
+    "name": "Mesa la Historia",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8764384",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1991,
+    "prominence_m": 145,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -0.1,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.80179,
+     28.10958
+    ]
+   },
+   "properties": {
+    "id": "peak-28110-108802",
+    "name": "Mesa el Volantín",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8764993",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1564,
+    "prominence_m": 252,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -1.1,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.09826,
+     28.68643
+    ]
+   },
+   "properties": {
+    "id": "peak-28686-108098",
+    "name": "Mesa el Toro",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8766079",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2061,
+    "prominence_m": 111,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -1.8,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.09835,
+     28.60886
+    ]
+   },
+   "properties": {
+    "id": "peak-28609-108098",
+    "name": "Mesa Cuatro Vientos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8766101",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2570,
+    "prominence_m": 295,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.0,
+    "glyph_rotate": 1.8,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.63093,
+     28.65531
+    ]
+   },
+   "properties": {
+    "id": "peak-28655-108631",
+    "name": "Mesa Bonita",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8766268",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1852,
+    "prominence_m": 103,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -0.2,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.38709,
+     28.58947
+    ]
+   },
+   "properties": {
+    "id": "peak-28589-108387",
+    "name": "Mesa la Pinosa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8766438",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2022,
+    "prominence_m": 144,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -0.9,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.23216,
+     28.88408
+    ]
+   },
+   "properties": {
+    "id": "peak-28884-108232",
+    "name": "Mesa Marrana",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8771911",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2493,
+    "prominence_m": 199,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -0.8,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.01407,
+     28.76938
+    ]
+   },
+   "properties": {
+    "id": "peak-28769-108014",
+    "name": "Mesa la Nopalera",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772088",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2028,
+    "prominence_m": 131,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 0.88,
+    "glyph_rotate": 0.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.07136,
+     28.77064
+    ]
+   },
+   "properties": {
+    "id": "peak-28771-108071",
+    "name": "Mesa la Concha",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772089",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2024,
+    "prominence_m": 124,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -1.7,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.54375,
+     28.97132
+    ]
+   },
+   "properties": {
+    "id": "peak-28971-108544",
+    "name": "Mesa Aterrizaje",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772109",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2061,
+    "prominence_m": 199,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 1.9,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.41162,
+     28.83893
+    ]
+   },
+   "properties": {
+    "id": "peak-28839-108412",
+    "name": "Mesa Blanca",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772214",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1846,
+    "prominence_m": 149,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -2.1,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9603,
+     28.8664
+    ]
+   },
+   "properties": {
+    "id": "peak-28866-108960",
+    "name": "Mesa la Cebolla",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772374",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1868,
+    "prominence_m": 209,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": 2.8,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.67505,
+     28.7878
+    ]
+   },
+   "properties": {
+    "id": "peak-28788-108675",
+    "name": "Mesa Grande",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "8772628",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1572,
+    "prominence_m": 128,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 2.3,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.60513,
+     30.02971
+    ]
+   },
+   "properties": {
+    "id": "peak-30030-108605",
+    "name": "Mesa el Perdido",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9022112",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2106,
+    "prominence_m": 103,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -2.9,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.41223,
+     30.11265
+    ]
+   },
+   "properties": {
+    "id": "peak-30113-108412",
+    "name": "Mesa el Presón",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9022182",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2419,
+    "prominence_m": 106,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.09,
+    "glyph_rotate": -1.4,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.55752,
+     29.94224
+    ]
+   },
+   "properties": {
+    "id": "peak-29942-108558",
+    "name": "Mesa Diamante",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9023295",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2256,
+    "prominence_m": 177,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -1.0,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.64221,
+     29.51077
+    ]
+   },
+   "properties": {
+    "id": "peak-29511-108642",
+    "name": "Mesa la Encinosa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9023430",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1753,
+    "prominence_m": 168,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 0.87,
+    "glyph_rotate": 1.0,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.52849,
+     29.69092
+    ]
+   },
+   "properties": {
+    "id": "peak-29691-108528",
+    "name": "Mesa el Venado",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9023497",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2179,
+    "prominence_m": 188,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -1.9,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.00084,
+     30.2318
+    ]
+   },
+   "properties": {
+    "id": "peak-30232-110001",
+    "name": "Mesa los Pelates",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9023782",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1449,
+    "prominence_m": 233,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.88,
+    "glyph_rotate": 0.5,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.22299,
+     29.90494
+    ]
+   },
+   "properties": {
+    "id": "peak-29905-108223",
+    "name": "Mesa Redonda",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9025513",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2664,
+    "prominence_m": 206,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.07,
+    "glyph_rotate": -0.4,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.1321,
+     29.89759
+    ]
+   },
+   "properties": {
+    "id": "peak-29898-108132",
+    "name": "Mesa las Láminas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9025570",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2413,
+    "prominence_m": 101,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 2.3,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.10833,
+     29.78884
+    ]
+   },
+   "properties": {
+    "id": "peak-29789-108108",
+    "name": "Mesa el Álamo",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9025586",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2188,
+    "prominence_m": 138,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 0.5,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.77799,
+     29.71519
+    ]
+   },
+   "properties": {
+    "id": "peak-29715-108778",
+    "name": "Mesa el Padre",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9025748",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2375,
+    "prominence_m": 196,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 2.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.93337,
+     30.1284
+    ]
+   },
+   "properties": {
+    "id": "peak-30128-109933",
+    "name": "Mesa el Aguajito",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9027412",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1309,
+    "prominence_m": 188,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -2.8,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.9216,
+     30.06514
+    ]
+   },
+   "properties": {
+    "id": "peak-30065-109922",
+    "name": "Mesa la Pelona",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9027442",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1203,
+    "prominence_m": 127,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -0.4,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.8803,
+     29.86266
+    ]
+   },
+   "properties": {
+    "id": "peak-29863-109880",
+    "name": "Mesa Santa Ana",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9027807",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1159,
+    "prominence_m": 147,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 0.98,
+    "glyph_rotate": 0.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.84506,
+     29.86597
+    ]
+   },
+   "properties": {
+    "id": "peak-29866-109845",
+    "name": "Mesa la Descubridora",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9027819",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1094,
+    "prominence_m": 147,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.01,
+    "glyph_rotate": 0.2,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.70077,
+     29.92858
+    ]
+   },
+   "properties": {
+    "id": "peak-29929-108701",
+    "name": "Mesa el Saco",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9030555",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1973,
+    "prominence_m": 138,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 1.1,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.80272,
+     29.24106
+    ]
+   },
+   "properties": {
+    "id": "peak-29241-108803",
+    "name": "Mesa los Jacales",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9807160",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1456,
+    "prominence_m": 219,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 2.3,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.82605,
+     29.01227
+    ]
+   },
+   "properties": {
+    "id": "peak-29012-108826",
+    "name": "Mesa los Lobos",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9807188",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1540,
+    "prominence_m": 119,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.05,
+    "glyph_rotate": 0.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.70029,
+     29.12927
+    ]
+   },
+   "properties": {
+    "id": "peak-29129-108700",
+    "name": "Cordón la Mesita",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9807255",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1757,
+    "prominence_m": 179,
+    "size": "small",
+    "name_code": "RDGE",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -2.0,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.79286,
+     29.03166
+    ]
+   },
+   "properties": {
+    "id": "peak-29032-109793",
+    "name": "Mesa del Toro",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "9980005",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1316,
+    "prominence_m": 197,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.15,
+    "glyph_rotate": 1.9,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.18277,
+     29.96498
+    ]
+   },
+   "properties": {
+    "id": "peak-29965-109183",
+    "name": "Mesa el Alamito",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "12449656",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1355,
+    "prominence_m": 141,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.1,
+    "glyph_rotate": 2.7,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.20872,
+     29.78849
+    ]
+   },
+   "properties": {
+    "id": "peak-29788-109209",
+    "name": "Mesa la Sagodepa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "12449888",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1334,
+    "prominence_m": 139,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 2.9,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.24992,
+     28.72963
+    ]
+   },
+   "properties": {
+    "id": "peak-28730-106250",
+    "name": "Mesa las Palomas",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "13659090",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2141,
+    "prominence_m": 242,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -1.2,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.09316,
+     28.40873
+    ]
+   },
+   "properties": {
+    "id": "peak-28409-106093",
+    "name": "Mesa Montosa",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "13659187",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2214,
+    "prominence_m": 139,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.09,
+    "glyph_rotate": -2.1,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.40774,
+     28.53326
+    ]
+   },
+   "properties": {
+    "id": "peak-28533-106408",
+    "name": "Mesa el Roble",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "13659660",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2327,
+    "prominence_m": 102,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -0.3,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.55657,
+     28.1074
+    ]
+   },
+   "properties": {
+    "id": "peak-28107-107557",
+    "name": "Mesa el Nogal",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "13659824",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2616,
+    "prominence_m": 141,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 1.01,
+    "glyph_rotate": 0.4,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.63956,
+     28.15518
+    ]
+   },
+   "properties": {
+    "id": "peak-28155-106640",
+    "name": "Cerro Mesa de la Cueva Pinta",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "13660294",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2062,
+    "prominence_m": 106,
+    "size": "small",
+    "name_code": "HLL",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 0.6,
+    "landform": "mesa",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.8175,
+     28.69975
+    ]
+   },
+   "properties": {
+    "id": "peak-28700-106817",
+    "name": "Mesa los Adobes",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": "13660354",
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2326,
+    "prominence_m": 101,
+    "size": "small",
+    "name_code": "MESA",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -1.1,
+    "landform": "mesa",
+    "landform_source": "name"
    }
   },
   {
@@ -8520,10 +11722,13 @@
     "elevation_m": 1953,
     "prominence_m": 0,
     "size": "small",
+    "name_code": "gnis:Summit",
     "glyph": 6,
     "flip": false,
     "glyph_scale": 1.03,
-    "glyph_rotate": 1.7
+    "glyph_rotate": 1.7,
+    "landform": "dome",
+    "landform_source": "dem"
    }
   }
  ]

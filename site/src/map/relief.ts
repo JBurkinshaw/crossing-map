@@ -117,8 +117,10 @@ function glyphs(t: Treatment): LayerSpecification[] {
         ['>=', ['zoom'], 9],
       ],
       layout: {
+        // <landform>-<nn>[-flip], from art/glyphs/make_glyphs.py.
         'icon-image': [
-          'concat', 'mountain-', ['case', ['<', ['get', 'glyph'], 10], '0', ''], ['to-string', ['get', 'glyph']],
+          'concat', ['coalesce', ['get', 'landform'], 'peak'], '-',
+          ['case', ['<', ['get', 'glyph'], 10], '0', ''], ['to-string', ['get', 'glyph']],
           ['case', ['get', 'flip'], '-flip', ''],
         ],
         'icon-size': ['*', ['match', ['get', 'size'], 'large', 0.85, 'medium', 0.65, 0.5], ['get', 'glyph_scale']],

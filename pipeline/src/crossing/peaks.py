@@ -1,6 +1,7 @@
 """Find significant peaks and write data/mountain_glyphs.geojson (plan section 5.2, layer 2).
 
 Run from the repo root: uv run --project pipeline python -m crossing.peaks
+Then run crossing.landforms, which adds each glyph's landform.
 
 Method. Mosaic the Copernicus GLO-30 tiles at GRID_M in UTM 12N, keeping each
 cell's highest 30 m elevation ("max" resampling) so summits survive. Compute
@@ -11,9 +12,11 @@ summit - the meeting cell (the key col). Keep peaks with at least
 MIN_PROMINENCE_M. Prominence is approximate: a 200 m grid smooths cols, and
 an island that reaches the edge of the mosaic may have higher ground outside it.
 
-Names come from GNIS summits (US) and GeoNames peaks (Mexico) within
-NAME_RADIUS_M of a peak. Every named summit in the book's seeds is kept even
-when its prominence is lower.
+Names come from GNIS (US) and GeoNames (Mexico) summits, hills, mesas, ridges
+and volcanoes within NAME_RADIUS_M of a peak; each keeps its feature code
+(`name_code`) for crossing.landforms. Every named summit in the book's seeds is
+kept even when its prominence is lower. Named mesas, buttes and volcanic cones
+are kept from SHAPE_MIN_PROMINENCE_M, since few of them reach MIN_PROMINENCE_M.
 
 Each glyph gets a stable variation seeded by the peak's id: which of the
 GLYPHS shapes, a horizontal flip, a scale jitter of +/-15% and a rotation of
@@ -23,6 +26,7 @@ GLYPHS shapes, a horizontal flip, a scale jitter of +/-15% and a rotation of
 import csv
 import hashlib
 import json
+import re
 import subprocess
 import tempfile
 from pathlib import Path
@@ -40,6 +44,15 @@ CRS = "EPSG:32612"
 GRID_M = 200
 MIN_PROMINENCE_M = 300
 NAME_RADIUS_M = 2000
+GNIS_CLASSES = {"Summit", "Ridge", "Bench", "Crater"}
+GEONAMES_CODES = {"MT", "PK", "HLL", "HLLS", "MESA", "RDGE", "VLC"}
+SUMMIT_CODES = {"gnis:Summit", "MT", "PK"}
+# Named shapes the prominence cut would lose, kept down to SHAPE_MIN_PROMINENCE_M at the nearest
+# local summit within SHAPE_RADIUS_M.
+SHAPE_CODES = {"gnis:Bench", "gnis:Crater", "MESA", "VLC"}
+SHAPE_WORDS = re.compile(r"\b(mesa|mesas|mesita|butte|buttes|crater|cráter|volcán|volcan)\b", re.IGNORECASE)
+SHAPE_MIN_PROMINENCE_M = 100
+SHAPE_RADIUS_M = 1000
 GLYPHS = 12
 # Summits the book names, with the episode that first names them (from crossing.extract; the book says
 # "the Animas Peaks"). Always kept, at their GNIS position. Other summits are plain geography, shown from 1-01.
@@ -98,21 +111,21 @@ def prominence(dem: np.ndarray) -> list[tuple[int, int, float, float]]:
     return peaks
 
 
-def named_summits(to_utm: Transformer) -> list[tuple[str, str, str, float, float]]:
-    """(name, source, source_id, x, y) for GNIS summits and GeoNames peaks."""
+def named_summits(to_utm: Transformer) -> list[tuple[str, str, str, str, float, float]]:
+    """(name, source, source_id, code, x, y) for named relief features; code is "gnis:<class>" or a GeoNames code."""
     found = []
     for path in GNIS_FILES:
         with path.open(encoding="utf-8-sig", newline="") as f:
             for r in csv.DictReader(f, delimiter="|"):
-                if r["feature_class"] == "Summit" and r["prim_lat_dec"]:
+                if r["feature_class"] in GNIS_CLASSES and r["prim_lat_dec"]:
                     x, y = to_utm.transform(float(r["prim_long_dec"]), float(r["prim_lat_dec"]))
-                    found.append((r["feature_name"], "gnis", r["feature_id"], x, y))
+                    found.append((r["feature_name"], "gnis", r["feature_id"], f"gnis:{r['feature_class']}", x, y))
     with GEONAMES.open(encoding="utf-8") as f:
         for line in f:
             r = line.split("\t")
-            if r[7] in ("MT", "PK"):
+            if r[7] in GEONAMES_CODES:
                 x, y = to_utm.transform(float(r[5]), float(r[4]))
-                found.append((r[1], "geonames", r[0], x, y))
+                found.append((r[1], "geonames", r[0], r[7], x, y))
     return found
 
 
@@ -140,10 +153,11 @@ def main() -> None:
     print(f"{len(all_peaks)} local summits; {len(big)} with prominence >= {MIN_PROMINENCE_M} m")
 
     names = named_summits(to_utm)
-    names_xy = np.array([(n[3], n[4]) for n in names])
+    names_xy = np.array([(n[4], n[5]) for n in names])
+    summit_name = np.array([n[3] in SUMMIT_CODES for n in names])
     feats = []
 
-    def add(x, y, elev, prom, name, src, sid):
+    def add(x, y, elev, prom, name, src, sid, code=None):
         lon, lat = to_wgs.transform(x, y)
         pid = f"peak-{round(abs(lat) * 1000)}-{round(abs(lon) * 1000)}"  # thousandths of a degree N and W
         props = {
@@ -156,6 +170,7 @@ def main() -> None:
             # None where the key col lies outside the mosaic, so prominence is unknown.
             "prominence_m": None if prom == float("inf") else round(float(prom)),
             "size": size_class(prom),
+            "name_code": code,
         }
         props |= variation(props["id"])
         feats.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [round(lon, 5), round(lat, 5)]}, "properties": props})
@@ -163,15 +178,31 @@ def main() -> None:
     for r, c, elev, prom in sorted(big, key=lambda p: -p[3]):
         x, y = transform * (c + 0.5, r + 0.5)
         d = np.hypot(names_xy[:, 0] - x, names_xy[:, 1] - y)
-        j = int(d.argmin())
+        # A summit or mountain name in range beats a nearer hill, mesa or ridge name.
+        j = int(np.where(summit_name, d, d + NAME_RADIUS_M).argmin())
         named = names[j] if d[j] <= NAME_RADIUS_M else None
-        add(x, y, elev, prom, named[0] if named else None, "copernicus-glo30", named[2] if named else None)
+        add(x, y, elev, prom, named[0] if named else None, "copernicus-glo30", named[2] if named else None,
+            named[3] if named else None)
     kept = {f["properties"]["name"] for f in feats}
-    for name, src, sid, x, y in names:
+    small = [p for p in all_peaks if SHAPE_MIN_PROMINENCE_M <= p[3] < MIN_PROMINENCE_M]
+    small_xy = np.array([transform * (c + 0.5, r + 0.5) for r, c, _, _ in small])
+    used = set()  # local summits already given to a named shape
+    for name, src, sid, code, x, y in names:
+        if name in kept or not (code in SHAPE_CODES or SHAPE_WORDS.search(name)):
+            continue
+        d = np.hypot(small_xy[:, 0] - x, small_xy[:, 1] - y)
+        j = int(d.argmin())
+        if d[j] <= SHAPE_RADIUS_M and j not in used:
+            r, c, elev, prom = small[j]
+            add(*(transform * (c + 0.5, r + 0.5)), elev, prom, name, "copernicus-glo30", sid, code)
+            kept.add(name)
+            used.add(j)
+    print(f"{len(used)} named mesas, buttes and cones added below {MIN_PROMINENCE_M} m prominence")
+    for name, src, sid, code, x, y in names:
         if name in BOOK_SUMMITS and name not in kept:
             c, r = ~transform * (x, y)
             elev = dem[int(r), int(c)] if 0 <= int(r) < dem.shape[0] and 0 <= int(c) < dem.shape[1] else 0
-            add(x, y, elev, 0, name, src, sid)
+            add(x, y, elev, 0, name, src, sid, code)
             kept.add(name)
 
     OUT.write_text(json.dumps({"type": "FeatureCollection", "features": feats}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

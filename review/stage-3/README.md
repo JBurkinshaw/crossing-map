@@ -3,8 +3,8 @@
 ## What was built
 
 - **Elevation.** 13 Copernicus GLO-30 tiles (493 MB) under the journeys corridor and the Casas Grandes–Babícora country, and AWS Terrain Tiles repacked to `terrain.pmtiles` (decision 0011).
-- **Peaks.** `pipeline/src/crossing/peaks.py` finds 275 summits with at least 300 m topographic prominence, 159 of them named from GNIS or GeoNames, plus the book's Animas Peak, Gillespie Mountain and Black Point. As a check against published values: Chiricahua Peak 1,563 m prominence, Big Hatchet Peak 1,110 m, Animas Peak 967 m. Result: `data/mountain_glyphs.geojson`.
-- **Mountain glyphs.** 12 shapes plus 12 mirrored twins, lit from the north-west, with paper fill so they knock out the hachures behind them. Each peak takes a stable shape, flip, scale and rotation from its id; size follows prominence. `art/glyphs/make_glyphs.py` generates them and builds the sprite with `spreet`. **These are generated stand-ins.** The plan wants about 12 drawn by hand, traced from the Wheeler, Ehrenberg or Guild references.
+- **Peaks.** `pipeline/src/crossing/peaks.py` finds 274 summits with at least 300 m topographic prominence, 186 of them named from GNIS or GeoNames, plus 70 named mesas and cones from 100 m (see Landforms), and the book's Animas Peak, Gillespie Mountain and Black Point: 345 glyphs. As a check against published values: Chiricahua Peak 1,563 m prominence, Big Hatchet Peak 1,110 m, Animas Peak 967 m. Result: `data/mountain_glyphs.geojson`.
+- **Mountain glyphs.** Six landform families of 12 shapes, each with a mirrored twin (see Landforms below), lit from the north-west, with paper fill so they knock out the hachures behind them. Each peak takes a stable shape, flip, scale and rotation from its id; size follows prominence. `art/glyphs/make_glyphs.py` generates them and builds the sprite with `spreet`. **These are generated stand-ins.** The plan wants about 12 drawn by hand, traced from the Wheeler, Ehrenberg or Guild references.
 - **Hachures.** Huffman's script, run unmodified in headless QGIS 4 (decision 0013), on three test areas at two scales: fine (30 m DEM, 90–240 m spacing, for zoom 10 and up) and coarse (90 m DEM, 270–720 m spacing, for zoom 7–9). Each run takes 14–101 seconds.
 - **Hillshade.** MapLibre's multidirectional hillshade over `terrain.pmtiles`, tinted sepia.
 - **The comparison sheet.** `sheet/peloncillos.jpg`, `sheet/pilares.jpg`, `sheet/babicora.jpg`: eleven treatments at zoom 7, 9 and 11 for each test area, captured at 2x pixel density and laid out at full size (5,920 x 15,842 px), so you can zoom in to individual strokes. Rebuild with `tools/relief-sheet.mjs`.
@@ -50,11 +50,29 @@ Two candidates, and the choice is about taste more than accuracy:
 
 Either can be refined later by hand for key ranges (plan Phase 2).
 
+## Landforms
+
+Each glyph now belongs to one of six families: peak, dome, mesa, butte, cone or ridge. `landforms/glyphs.png` shows all 144 shapes, 12 per family plus their mirrored twins. The map views in `landforms/` are centred on the densest clusters of mesas, domes and ridges, at zoom 9.5 with the soft relief. Rebuild them with `tools/landform-sheet.mjs`.
+
+**How a summit gets its family.** `pipeline/src/crossing/landforms.py` gives every summit points for each landform, and the landform with the most points wins. All weights and thresholds are in `pipeline/seeds/landforms.toml`, with comments that explain each one:
+
+- **Prior.** Every summit starts with 1 point for peak, so a summit with no other evidence stays a peak.
+- **Name words.** A word that states the shape scores about 4 (mesa, butte, cuchilla, volcán), a weaker word less (loma 3, hill 1, cordón 2).
+- **Feature codes.** The matched name's GeoNames code or GNIS class: MESA +3 mesa, HLL +1 dome, RDGE +2 ridge, VLC +3 cone.
+- **DEM rules.** Measurements of the 30 m Copernicus DEM around the summit, each turned into points by a ramp: the share of the upper slopes that is flat top, the slope of the top and of the flanks, the top's width against its relief, and the top's elongation. A rule can have a `gate`, a second ramp its points are multiplied by. The butte rule only counts where the top is flat, for example.
+
+`landforms.csv` lists every summit's measurements, each rule's points, the scores, and the winner. Where a name states a shape, it also gives the DEM's own pick beside the name's.
+
+**Results:** 216 peaks, 86 mesas, 25 domes, 14 ridges, 3 buttes and 1 cone. 94 summits lead by less than 1 point and are marked for review. As a check, where a name states the shape, the DEM alone agrees for 17 of 18 peaks and 40 of 68 mesas, but only 5 of 23 lomas. Many Mexican "lomas" are as steep as peaks, so for domes the name does most of the work. Cones come only from names: at 30 m, a cinder cone looks like any small, steep peak.
+
+**More summits.** `crossing.peaks` now matches names from hills, mesas, ridges and volcanoes as well as summits, and keeps a summit or mountain name when one is in range. It adds 70 named mesas and cones down to 100 m prominence, which brings the total to 345 glyphs. 28 previously unnamed summits now have names, and no existing name changed.
+
 ## Questions for you
 
 1. ~~Which treatment?~~ Answered: Swiss, full, soft.
 2. **Glyph density.** Small peaks appear from zoom 9, and at that zoom the map gets busy. Should they wait until zoom 10?
-3. **Glyph drawings.** Keep the generated set, or will you draw or trace the 12 shapes?
+3. **Glyph drawings.** Keep the generated families, or will you draw or trace some of them?
+4. **Landform weights.** Do the mesas and ridges on the views land where you expect? The weights are yours to tune in `pipeline/seeds/landforms.toml`.
 
 ## Not done in this stage
 

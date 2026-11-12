@@ -1,0 +1,181 @@
+# Landform weights for crossing.landforms: which glyph family each summit gets.
+#
+# Every summit collects points for each landform from three kinds of evidence:
+# its name, the gazetteer's feature code, and measurements of the DEM around it.
+# The landform with the most points wins. Ties go to the order in `landforms`.
+# review/stage-3/landforms.csv lists every summit's measurements, the points
+# each rule gave, and the winner, so the effect of a change here is visible.
+#
+# Rerun after editing: uv run --project pipeline python -m crossing.landforms
+
+landforms = ["peak", "dome", "mesa", "butte", "cone", "ridge"]
+
+# Points every summit starts with, so a summit with no other evidence stays a peak.
+[prior]
+peak = 1.0
+
+# Whole words in the name, matched without regard to case or accents.
+# A word that states the shape outright scores about 4, so it outweighs the DEM
+# unless the DEM disagrees strongly; generic words score less.
+[names.peak]
+picacho = 3
+pico = 3
+peak = 1.5        # GNIS calls most named summits "Peak", whatever their shape
+pinnacle = 3
+spire = 3
+needle = 3
+aguja = 3
+penasco = 2       # crag
+pena = 2
+
+[names.dome]
+loma = 3
+lomas = 3
+lomita = 3
+lomerio = 3
+mogote = 2        # an isolated rounded hill
+knob = 2
+dome = 4
+hill = 1
+cerrito = 1
+pelon = 1         # bald
+tetas = 2         # paired rounded hills
+teta = 2
+
+[names.mesa]
+mesa = 4
+mesas = 4
+mesita = 4
+meseta = 4
+tableland = 4
+table = 3
+bench = 3
+
+[names.butte]
+butte = 4
+buttes = 4
+
+[names.cone]
+volcan = 4
+crater = 4
+cinder = 3
+cone = 3
+
+[names.ridge]
+cuchilla = 4      # knife-edge ridge
+ridge = 3
+creston = 3
+crest = 2
+espinazo = 3
+filo = 2
+cordon = 2
+
+# Feature codes of the matched name: GeoNames codes, or "gnis:<feature class>".
+# MT (mountain) and gnis:Summit say nothing about shape, so they are not listed.
+[codes]
+PK = { peak = 1.5 }
+HLL = { dome = 1 }
+HLLS = { dome = 1 }
+MESA = { mesa = 3 }
+RDGE = { ridge = 2 }
+VLC = { cone = 3 }
+"gnis:Ridge" = { ridge = 2 }
+"gnis:Bench" = { mesa = 2 }
+"gnis:Crater" = { cone = 3 }
+
+# The DEM window and bands that the measurements use.
+[dem]
+radius_m = [1000, 4000]   # window radius: 4 x the summit's prominence, kept inside this range
+relief_floor_pct = 5      # local relief = summit - this percentile of the window
+top_band = 0.15           # the "top": ground within this share of the relief below the summit
+upper_band = 0.5          # the "upper half": ground within this share of the relief
+min_relief_m = 40         # below this, the DEM rules are skipped
+
+# DEM rules. Each measures one thing and turns it into points with a ramp:
+# no points at or before the first value, full points at or beyond the second,
+# linear between. A ramp can run downwards ([18, 8] rewards values of 8 and less).
+# Negative points count against a landform. An optional `gate` is a second ramp
+# that the points are multiplied by, so a rule only counts where the gate holds.
+#
+# Measurements, all from the 30 m Copernicus DEM. Typical values, as quartiles
+# (25th/median/75th) of the summits whose names state a shape:
+#   top_share     area of the top / area of the upper half.
+#                 peaks 0.05/0.06/0.09, mesas 0.12/0.21/0.31.
+#   top_slope     median slope of the top, in degrees.
+#                 peaks 24/27/31, lomas 16/21/25, mesas 9/12/18.
+#   rim_slope     90th percentile slope between the top and the upper half.
+#                 About 35 for every landform here, so no rule uses it.
+#   flank_slope   median slope of the upper half outside the top.
+#                 peaks 26/28/31, lomas 22/25/28, mesas 19/23/30.
+#   top_width     equivalent diameter of the top / local relief.
+#                 peaks 0.8/1.0/1.5, mesas 1.5/1.9/2.9; a butte is flat but narrow.
+#   elongation    length / width of the top (from its principal axes).
+#                 Median 2.1 over all summits; 3.9 at the 90th percentile.
+#   relief_m      local relief, for reference.
+
+# Flat tops: mesas and buttes.
+[[rules]]
+metric = "top_share"
+ramp = [0.1, 0.25]
+points = { mesa = 2, butte = 2 }
+
+[[rules]]
+metric = "top_slope"
+ramp = [18, 8]
+points = { mesa = 2, butte = 2 }
+
+# Wide or narrow for its height, where the top is flat.
+[[rules]]
+metric = "top_width"
+ramp = [1.5, 3]
+points = { mesa = 1, butte = -1 }
+gate = { metric = "top_slope", ramp = [18, 8] }
+
+[[rules]]
+metric = "top_width"
+ramp = [1.5, 0.8]
+points = { butte = 1.5, mesa = -1.5 }
+gate = { metric = "top_slope", ramp = [18, 8] }
+
+# Rounded tops and gentler flanks, without a flat top: domes and lomas.
+[[rules]]
+metric = "top_slope"
+ramp = [26, 16]
+points = { dome = 1.5 }
+gate = { metric = "top_share", ramp = [0.15, 0.08] }
+
+[[rules]]
+metric = "flank_slope"
+ramp = [26, 18]
+points = { dome = 1 }
+
+# Pointed tops and steep flanks: peaks.
+[[rules]]
+metric = "top_slope"
+ramp = [20, 28]
+points = { peak = 1 }
+
+[[rules]]
+metric = "top_share"
+ramp = [0.1, 0.05]
+points = { peak = 1 }
+
+[[rules]]
+metric = "flank_slope"
+ramp = [24, 30]
+points = { peak = 1 }
+
+# Long crests: ridges.
+[[rules]]
+metric = "elongation"
+ramp = [3, 5]
+points = { ridge = 3 }
+
+# Cones have no DEM rule: at 30 m a cinder cone looks like any small, steep peak,
+# so only a name or a feature code makes one.
+
+# A summit goes on the review list when the winner leads by less than this.
+# Where a name states a shape, the CSV also gives the DEM's own pick
+# (dem_landform) beside the name's (name_landform), so disagreements show.
+[review]
+min_margin = 1.0

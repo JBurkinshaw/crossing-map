@@ -64,7 +64,10 @@
         "glyph": { "type": "integer", "minimum": 1, "description": "Mountain glyphs: which drawn shape." },
         "flip": { "type": "boolean" },
         "glyph_scale": { "type": "number" },
-        "glyph_rotate": { "type": "number" }
+        "glyph_rotate": { "type": "number" },
+        "name_code": { "type": ["string", "null"], "description": "Mountain glyphs: the matched name's GeoNames code or GNIS class (gnis:<class>)." },
+        "landform": { "enum": ["peak", "dome", "mesa", "butte", "cone", "ridge"], "description": "Mountain glyphs: which glyph family, from crossing.landforms." },
+        "landform_source": { "enum": ["name", "dem", "default"], "description": "Mountain glyphs: the evidence that gave the landform the most points." }
       }
     }
   }
