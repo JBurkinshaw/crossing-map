@@ -46,13 +46,11 @@ jobs:
           node-version: 22
       - name: Pick the preview branch
         id: preview
+        # Always the newest stage branch, whichever push started the run: the runs queue
+        # (concurrency: pages), so the last to finish must not publish an older branch.
         run: |
-          if [[ "$GITHUB_REF_NAME" == stage/* ]]; then
-            branch="$GITHUB_REF_NAME"
-          else
-            branch=$(git for-each-ref --sort=-committerdate --count=1 \
-              --format='%(refname:lstrip=3)' 'refs/remotes/origin/stage/')
-          fi
+          branch=$(git for-each-ref --sort=-committerdate --count=1 \
+            --format='%(refname:lstrip=3)' 'refs/remotes/origin/stage/')
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
           echo "Preview branch: ${branch:-none}"
       - name: Build main at the root
