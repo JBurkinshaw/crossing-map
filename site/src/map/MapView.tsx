@@ -24,6 +24,9 @@ const tilesBase = new URL(`${import.meta.env.BASE_URL}tiles/`, window.location.o
 const fontsBase = new URL(`${import.meta.env.BASE_URL}fonts/`, window.location.origin).href
 const dataBase = new URL(`${import.meta.env.BASE_URL}data/`, window.location.origin).href
 
+const TERRAIN_EXAGGERATION = 1.5
+const TERRAIN_TILT = 40
+
 type Picked = { lon: number; lat: number; props: StoryProps }
 type Basemap = 'literary' | 'satellite' | 'compare'
 
@@ -45,6 +48,12 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
   if (basemap !== 'literary' && !satelliteStarted) setSatelliteStarted(true)
   // Compare mode: the literary map shows left of this split, in percent of the width.
   const [split, setSplit] = useState(50)
+  // 3D works on the literary map only: the satellite map follows the centre and zoom, not the tilt.
+  const [terrain, setTerrain] = useState(false)
+  // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
+  // tiles are loading, and 'load' fires only once.
+  const [loaded, setLoaded] = useState(false)
+  const in3d = terrain && basemap === 'literary'
 
   const onUnavailable = useCallback(() => {
     setUnavailable(true)
@@ -54,15 +63,26 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
   // In satellite mode the literary paper and base layers hide, so the story layers draw over the imagery.
   useEffect(() => {
     const map = mapRef.current?.getMap()
-    if (!map) return
-    const apply = () => {
-      for (const id of BASE_LAYERS) {
-        if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', basemap === 'satellite' ? 'none' : 'visible')
-      }
+    if (!map || !loaded) return
+    for (const id of BASE_LAYERS) {
+      if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', basemap === 'satellite' ? 'none' : 'visible')
     }
-    if (map.isStyleLoaded()) apply()
-    else map.once('load', apply)
-  }, [basemap, mapRef])
+  }, [basemap, loaded, mapRef])
+
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (!map || !loaded) return
+    if (in3d && !map.getSource('terrain3d')) {
+      // Its own source, as MapLibre recommends, so the hillshade keeps its tiles.
+      map.addSource('terrain3d', { type: 'raster-dem', url: `pmtiles://${tilesBase}terrain.pmtiles`, encoding: 'terrarium', tileSize: 256 })
+    }
+    map.setTerrain(in3d ? { source: 'terrain3d', exaggeration: TERRAIN_EXAGGERATION } : null)
+    // Only when the tilt changes: on load this would otherwise cancel the journey's opening fitBounds.
+    const pitch = in3d ? TERRAIN_TILT : 0
+    if (map.getPitch() !== pitch) {
+      map.easeTo({ pitch, duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 800 })
+    }
+  }, [in3d, loaded, mapRef])
 
   const dragSplit = (e: React.PointerEvent<HTMLDivElement>) => {
     const area = e.currentTarget.parentElement!.getBoundingClientRect()
@@ -100,6 +120,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
           }}
           style={{ position: 'absolute', inset: 0 }}
           onLoad={(e) => {
+            setLoaded(true)
             // Review tooling (tools/*.mjs) drives the map through this handle; only with ?debug.
             if (new URLSearchParams(window.location.search).has('debug')) {
               ;(window as unknown as { __map: unknown }).__map = e.target
@@ -139,19 +160,31 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
           }}
         />
       )}
-      <div className="basemap-switch" role="radiogroup" aria-label="Basemap">
-        {(['literary', 'satellite', 'compare'] as const).map((b) => (
-          <button
-            key={b}
-            type="button"
-            role="radio"
-            aria-checked={basemap === b}
-            disabled={b !== 'literary' && unavailable}
-            onClick={() => setBasemap(b)}
-          >
-            {b === 'literary' ? 'Literary' : b === 'satellite' ? 'Satellite' : 'Compare'}
-          </button>
-        ))}
+      <div className="map-switches">
+        <div className="basemap-switch" role="radiogroup" aria-label="Basemap">
+          {(['literary', 'satellite', 'compare'] as const).map((b) => (
+            <button
+              key={b}
+              type="button"
+              role="radio"
+              aria-checked={basemap === b}
+              disabled={b !== 'literary' && unavailable}
+              onClick={() => setBasemap(b)}
+            >
+              {b === 'literary' ? 'Literary' : b === 'satellite' ? 'Satellite' : 'Compare'}
+            </button>
+          ))}
+        </div>
+        <button
+          type="button"
+          className="toggle-3d"
+          aria-pressed={in3d}
+          disabled={basemap !== 'literary'}
+          title="Show the terrain in 3D"
+          onClick={() => setTerrain((on) => !on)}
+        >
+          3D
+        </button>
       </div>
       {unavailable && <p className="notice" role="status">Satellite imagery is unavailable right now. The literary map works as normal.</p>}
       <div className="cartouche" aria-hidden="true">
