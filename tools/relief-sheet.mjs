@@ -17,6 +17,7 @@ const areas = {
 }
 const treatments = {
   survey: 'Survey: systematic hachures + glyphs',
+  'survey-lines': 'Survey, whole lines: continuous hachures weighted by mean slope + glyphs',
   'survey-noglyphs': 'Survey, no glyphs',
   sierra: 'Sierra: short dense hatches + stipple + glyphs',
   swiss: 'Swiss accent: hillshade + steep-slope hachures + glyphs',

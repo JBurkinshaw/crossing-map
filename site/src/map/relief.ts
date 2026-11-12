@@ -6,9 +6,9 @@ import { fonts, tokens } from './tokens'
 // (tools/relief-sheet.mjs) chooses a treatment with ?relief=<name>; hachures
 // come from tiles/out/relief-test.pmtiles, which exists only on the machine
 // that builds the sheet, so the deployed site never requests it.
-export type Treatment = 'glyphs' | 'survey' | 'survey-noglyphs' | 'sierra' | 'swiss' | 'control'
+export type Treatment = 'glyphs' | 'survey' | 'survey-lines' | 'survey-noglyphs' | 'sierra' | 'swiss' | 'control'
 
-const TREATMENTS: Treatment[] = ['glyphs', 'survey', 'survey-noglyphs', 'sierra', 'swiss', 'control']
+const TREATMENTS: Treatment[] = ['glyphs', 'survey', 'survey-lines', 'survey-noglyphs', 'sierra', 'swiss', 'control']
 
 export function treatmentFromUrl(): Treatment {
   const asked = new URLSearchParams(window.location.search).get('relief') as Treatment | null
@@ -22,34 +22,42 @@ export function reliefSources(t: Treatment, tilesBase: string, dataBase: string)
   if (t === 'swiss' || t === 'control') {
     sources.terrain = { type: 'raster-dem', url: `pmtiles://${tilesBase}terrain.pmtiles`, encoding: 'terrarium', tileSize: 256 }
   }
-  if (t === 'survey' || t === 'survey-noglyphs' || t === 'sierra' || t === 'swiss') {
+  if (t !== 'glyphs' && t !== 'control') {
     sources.relief = { type: 'vector', url: `pmtiles://${tilesBase}relief-test.pmtiles` }
   }
   return sources
 }
 
-// Coarse hachures to zoom 9.5, fine above; steeper is heavier (plan 5.2, step 6).
-const hachureWidth = (scale: number) =>
-  ['interpolate', ['linear'], ['get', 'Slope'], 10, 0.25 * scale, 40, 1.3 * scale] as unknown as number
+// Steeper is heavier (plan 5.2, step 6). The 90 m coarse DEM is smoother, so its slopes run lower
+// (median 11-16 degrees against 18-22 at 30 m) and get their own range and steep threshold.
+const SCALES = {
+  coarse: { layer: 'hachure_coarse', zooms: [6, 9.5], slope: [5, 25], steep: 18 },
+  fine: { layer: 'hachure_fine', zooms: [9.5, 14], slope: [10, 40], steep: 25 },
+  lines: { layer: 'hachure_lines', zooms: [9.5, 14], slope: [10, 40], steep: 25 },
+} as const
 
 function hachures(t: Treatment): LayerSpecification[] {
   if (t === 'glyphs' || t === 'control') return []
-  // Swiss accent: hachures only on the steepest, rockiest ground.
-  const steep = t === 'swiss' ? [['>=', ['get', 'Slope'], 25]] : []
-  const dash = t === 'sierra' ? { 'line-dasharray': [1.2, 1] } : {}
-  const make = (id: string, layer: string, range: [number, number]): LayerSpecification => ({
-    id,
+  // Fine detail from the script's short split pieces, or from its whole lines with a mean slope.
+  const fine = t === 'survey-lines' || t === 'swiss' ? SCALES.lines : SCALES.fine
+  const make = (s: (typeof SCALES)[keyof typeof SCALES]): LayerSpecification => ({
+    id: s === SCALES.coarse ? 'hachure-coarse' : 'hachure-fine',
     type: 'line',
     source: 'relief',
-    'source-layer': layer,
-    minzoom: range[0],
-    maxzoom: range[1],
-    ...(steep.length ? { filter: ['all', ...steep] as never } : {}),
+    'source-layer': s.layer,
+    minzoom: s.zooms[0],
+    maxzoom: s.zooms[1],
+    // Swiss accent: hachures only on each scale's steepest ground.
+    ...(t === 'swiss' ? { filter: ['>=', ['get', 'Slope'], s.steep] as never } : {}),
     layout: { 'line-cap': 'round' },
-    // Whole coarse lines carry no slope, so they take one weight; fine pieces are weighted by slope.
-    paint: { 'line-color': tokens.ink, 'line-opacity': 0.75, 'line-width': layer === 'hachure_coarse' ? 0.7 : hachureWidth(t === 'sierra' ? 1.3 : 1), ...dash },
+    paint: {
+      'line-color': tokens.ink,
+      'line-opacity': 0.75,
+      'line-width': ['interpolate', ['linear'], ['get', 'Slope'], s.slope[0], 0.25 * (t === 'sierra' ? 1.3 : 1), s.slope[1], 1.3 * (t === 'sierra' ? 1.3 : 1)],
+      ...(t === 'sierra' ? { 'line-dasharray': [1.2, 1] } : {}),
+    },
   })
-  const layers = [make('hachure-coarse', 'hachure_coarse', [6, 9.5]), make('hachure-fine', 'hachure_fine', [9.5, 14])]
+  const layers = [make(SCALES.coarse), make(fine)]
   if (t === 'sierra') {
     layers.push({
       id: 'stipple',
