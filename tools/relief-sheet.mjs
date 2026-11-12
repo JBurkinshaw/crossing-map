@@ -1,7 +1,7 @@
 // The relief comparison sheet (plan section 5.2, stage 3): five treatments x
-// three test areas x zooms 7, 9 and 11. Captures the map panel for each, then
-// lays each area out as one page (rows: treatments, columns: zooms) and saves
-// it as review/stage-3/sheet/<area>.png.
+// three test areas x zooms 7, 9 and 11. Captures the middle of the map at 2x
+// pixel density for each, then lays each area out at full size as one page
+// (rows: treatments, columns: zooms) and saves it as review/stage-3/sheet/<area>.jpg.
 // Usage: node relief-sheet.mjs [base-url]   (needs relief-test.pmtiles in the build)
 import { mkdir, writeFile } from 'node:fs/promises'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -26,7 +26,10 @@ const zooms = [7, 9, 11]
 
 await mkdir(path.join(out, 'shots'), { recursive: true })
 const browser = await chromium.launch()
-const page = await browser.newPage({ viewport: { width: 1440, height: 900 } })
+// 2x pixel density so individual hachure strokes stay sharp when the sheet is zoomed.
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 })
+// The middle of the map panel, clear of the controls and cartouche: 900 x 700 CSS px.
+const CLIP = { x: 80, y: 100, width: 900, height: 700 }
 const problems = []
 page.on('console', (m) => m.type() === 'error' && problems.push(m.text().slice(0, 160)))
 
@@ -37,7 +40,7 @@ for (const [area, a] of Object.entries(areas)) {
       await page.goto(`${baseUrl}?relief=${t}#map=${z}/${a.lat}/${a.lon}`, { waitUntil: 'load' })
       await page.waitForSelector('canvas.maplibregl-canvas')
       await page.waitForTimeout(3500)
-      await page.locator('.map-area').screenshot({ path: path.join(out, 'shots', `${area}-${t}-z${z}.png`) })
+      await page.screenshot({ path: path.join(out, 'shots', `${area}-${t}-z${z}.png`), clip: CLIP })
     }
   }
   const rows = Object.entries(treatments)
@@ -46,16 +49,16 @@ for (const [area, a] of Object.entries(areas)) {
   const html = `<!doctype html><meta charset="utf-8"><style>
     body{font:14px Georgia,serif;margin:16px;background:#fff} h1{font-weight:normal;font-size:20px}
     th{text-align:left;width:150px;vertical-align:middle;font-weight:normal;font-style:italic;padding-right:8px}
-    td{padding:3px} img{width:420px;border:1px solid #999;display:block}</style>
+    td{padding:4px} img{width:900px;border:1px solid #999;display:block}</style>
     <h1>${a.title}: relief treatments at zoom ${zooms.join(', ')}</h1>
     <table><tr><th></th>${zooms.map((z) => `<th style="font-style:normal">Zoom ${z}</th>`).join('')}</tr>${rows}</table>`
   const file = path.join(out, `${area}.html`)
   await writeFile(file, html)
-  await page.setViewportSize({ width: 1500, height: 900 })
+  await page.setViewportSize({ width: 2960, height: 900 })
   await page.goto(pathToFileURL(file).href, { waitUntil: 'load' })
-  await page.screenshot({ path: path.join(out, `${area}.png`), fullPage: true })
+  await page.screenshot({ path: path.join(out, `${area}.jpg`), fullPage: true, type: 'jpeg', quality: 88 })
   await page.setViewportSize({ width: 1440, height: 900 })
-  console.log(`Sheet: ${area}.png`)
+  console.log(`Sheet: ${area}.jpg`)
 }
 await browser.close()
 console.log(problems.length ? `Problems:\n${[...new Set(problems)].join('\n')}` : 'No console errors.')

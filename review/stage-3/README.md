@@ -7,7 +7,7 @@
 - **Mountain glyphs.** 12 shapes plus 12 mirrored twins, lit from the north-west, with paper fill so they knock out the hachures behind them. Each peak takes a stable shape, flip, scale and rotation from its id; size follows prominence. `art/glyphs/make_glyphs.py` generates them and builds the sprite with `spreet`. **These are generated stand-ins.** The plan wants about 12 drawn by hand, traced from the Wheeler, Ehrenberg or Guild references.
 - **Hachures.** Huffman's script, run unmodified in headless QGIS 4 (decision 0013), on three test areas at two scales: fine (30 m DEM, 90–240 m spacing, for zoom 10 and up) and coarse (90 m DEM, 270–720 m spacing, for zoom 7–9). Each run takes 14–101 seconds.
 - **Hillshade.** MapLibre's multidirectional hillshade over `terrain.pmtiles`, tinted sepia.
-- **The comparison sheet.** `sheet/peloncillos.png`, `sheet/pilares.png`, `sheet/babicora.png`: five treatments at zoom 7, 9 and 11 for each test area. Rebuild with `tools/relief-sheet.mjs`.
+- **The comparison sheet.** `sheet/peloncillos.jpg`, `sheet/pilares.jpg`, `sheet/babicora.jpg`: five treatments at zoom 7, 9 and 11 for each test area, captured at 2x pixel density and laid out at full size (5,920 x 7,298 px), so you can zoom in to individual strokes. Rebuild with `tools/relief-sheet.mjs`.
 
 The public site shows **glyphs only** until you choose. The hachure tiles are a local review file and are not published.
 
@@ -27,13 +27,13 @@ Hachures exist only inside the three test areas, which is why they end in square
 
 - **Zoom 7.** No hachure treatment reads at this scale; the lines are too small. The glyphs carry the relief, and without them the map looks empty. That is a point in favour of keeping glyphs.
 - **Zoom 9.** The coarse Survey hachures read as engraved relief around the Pilares and the Cabellera. The hillshade treatments read more clearly, but look modern next to the ink.
-- **Zoom 11.** The fine Survey hachures look like the survey sheets the plan cites. The hillshade turns blurry, because the terrain archive stops at zoom 10 and MapLibre stretches it.
+- **Zoom 11.** At full resolution the fine Survey hachures look scattered and scribbly, not like the orderly downslope strokes of a survey sheet. That is my choice of input, not Huffman's method: for slope-weighted widths I drew his "split" output, which chops every hachure into short pieces. His whole lines would read as continuous hachures. The hillshade turns blurry, because the terrain archive stops at zoom 10 and MapLibre stretches it.
 - **Sierra** comes out almost identical to Survey. A dash pattern on Huffman's lines is not the short, dense hatching of the SCOP and Graves maps. A true Sierra look would need its own line generator.
 - **Swiss** shows no hachures at zoom 7–9: the coarse lines carry no slope value, so the steep-only filter removes them all.
 
 ## My recommendation
 
-**Survey, mixed by zoom:** glyphs alone at zoom 6–8, glyphs with coarse hachures at 9, and glyphs with fine hachures from 10. No hillshade. This is the plan's first treatment, it suits the ink style, and it needs no large raster at high zoom.
+**Survey, mixed by zoom, with one more round first:** glyphs alone at zoom 6–8, glyphs with coarse hachures at 9, and glyphs with fine hachures from 10, with no hillshade. Before you pick, I would add a sixth treatment that draws the fine level from Huffman's whole lines, weighted by each line's mean slope (plan section 5.2, step 4), so you can compare it with the fragmented version.
 
 ## Questions for you
 
