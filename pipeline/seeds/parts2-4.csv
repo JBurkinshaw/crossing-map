@@ -1,0 +1,124 @@
+id,name,alt_names,text_names,kind,expect,region,journey,role,characters,first_seen,notes
+el-tigre,El Tigre,,,town,populated,MX-SON,J3,stop,billy,2-01,Mining town in the Sierras; Billy is fed there
+llanos-de-carretas,Llanos de Carretas,Carretas Plain;Llano de Carretas,Carretas Plain,plain,plain;valley,MX-CHH;MX-SON,J3,passing,billy,2-01,Seen east beyond the Bavispe barranca
+huisiachepic,Huisiachepic,,,town,populated,MX-SON,J3,stop,billy,2-01,Ruined town and church of the heretic's tale; may not be in any gazetteer
+bavispe,Bavispe,San Miguel de Bavispe,,town,populated,MX-SON,J3,passing,billy,2-01,The earthquake town of the tale; Billy rides through in 2-03
+tamichopa,Tamichopa,,,town,populated,MX-SON,J3,passing,billy,2-03,
+bacerac,Bacerac,Santa María de Bacerac,,town,populated,MX-SON,J3;J4,stop,billy;boyd,2-03,"The text gives its old name, Santa María"
+ojito,Ojito,El Ojito;Ojitos,,town,populated,MX-SON,J3;J4,stop,billy;boyd,2-03,The road north toward it in 2-03; the brothers stop there in 2-07
+douglas,Douglas,Douglas Arizona,,city,populated,US-AZ,J3;J4,stop,billy;boyd,2-03,Border crossing with Agua Prieta
+animas-plain,Animas Plain,,,plain,plain;valley,US-NM,J3;J7,passing,billy,1-04,Possibly the floor of the Animas Valley; check against animas-valley
+sk-bar,SK Bar,Sanders ranch,,ranch,populated,US-NM,J3;J7,stop,billy,1-02,"Old man Sanders' ranch; a private ranch, probably an inferred area"
+animas-peak,Animas Peak,Animas Peaks,Animas Peaks,summit,summit,US-NM,J3;J7,passing,billy,2-05,Seen from the house and from Hachita
+lordsburg,Lordsburg,,,city,populated,US-NM,J3;J4,stop,billy;boyd,2-05,The sheriff's office
+san-simon-valley,San Simon Valley,,,valley,valley,US-AZ;US-NM,J4,stop,billy;boyd,2-07,
+bowie,Bowie,,,town,populated,US-AZ,J4,passing,billy;boyd,2-07,They cross the highway just east of it
+dos-cabezas-mountains,Dos Cabezas Mountains,Dos Cabezas,Dos Cabezas,range,range,US-AZ,J4,stop,billy;boyd,2-07,
+apache-pass,Apache Pass,,,pass,pass,US-AZ,J4,passing,billy;boyd,2-07,
+sulphur-springs-valley,Sulphur Springs Valley,,,valley,valley,US-AZ,J4,passing,billy;boyd,2-07,
+elfrida,Elfrida,,,town,populated,US-AZ,J4,passing,billy;boyd,2-07,
+mcneal,McNeal,,,town,populated,US-AZ,J4,passing,billy;boyd,2-07,
+colonia-juarez,Colonia Juárez,Colonia Juarez,,town,populated,MX-CHH,J4,stop,billy;boyd,2-08,Mormon settlement
+rio-casas-grandes,Río Casas Grandes,Casas Grandes River;Rio Casas Grandes,Casas Grandes River,river,stream,MX-CHH,J4;J5;J7,stop,billy;boyd,2-08,Crossed on a plank bridge; the river at San Diego in 3-01; Billy follows it north in 4-06
+paquime,Paquimé,Casas Grandes ruins;Paquime,,ruin,populated,MX-CHH,J4,passing,billy;boyd,2-08,"The text never names it, only the walled ruins of an ancient mud city"
+la-babicora,La Babícora,Babícora;Hacienda de Babícora,Babicora,ranch,populated,MX-CHH,J4;J7,stop,billy;boyd,2-08,Hearst's ranch; Billy rides its high country in 4-05
+hacienda-de-san-diego,Hacienda de San Diego,San Diego,,ranch,populated,MX-CHH,J4;J5;J7,stop,billy;boyd;girl,2-08,Reached at the end of 2-08; the ejido where Boyd is nursed
+rio-piedras-verdes,Río Piedras Verdes,Piedras Verdes,Piedras Verdes,river,stream,MX-CHH,J4,passing,billy;boyd;girl,2-08,Below the hacienda
+las-varas,Las Varas,,,town,populated,MX-CHH,J4;J5;J7,stop,billy;boyd,3-01,Railroad town
+mata-ortiz,Mata Ortiz,Juan Mata Ortiz,,town,populated,MX-CHH,J4;J5,stop,billy,3-01,The blue tienda in 3-09
+llanos-de-babicora,Llanos de Babícora,Babícora plains;Laguna de Babícora,,plain,plain;valley,MX-CHH,J4;J5,passing,billy;boyd,3-03,The high plains the wagon road crosses; plan's La Babícora region
+valle-de-santa-maria,Valle de Santa María,Santa María valley,,valley,valley,MX-CHH,J4;J5,passing,billy,3-03,
+namiquipa,Namiquipa,,,town,populated,MX-CHH,J5;J7,stop,billy,3-03,Billy reaches it in 3-14 and again in 4-04
+boquilla,La Boquilla,Boquilla y Anexas;Boquilla,Boquilla y Anexas;Boquilla,town,populated,MX-CHH,J4;J5;J7,stop,billy;boyd,3-04,"The text uses Boquilla, La Boquilla and Boquilla y Anexas for one town by the Babícora lake; the INEGI Boquilla y Anexas in Guerrero municipio is 135 km from Las Varas"
+santa-ana-de-babicora,Santa Ana de Babícora,Santa Ana de Babicora,,town,populated,MX-CHH,J5;J7,stop,billy;girl,3-04,
+san-jose,San José,,,town,populated,MX-CHH,J4,stop,billy;boyd,3-08,"Pueblito the brothers reach by following a river north, north-north-west of Boquilla; a common name, so check the pick"
+la-nortena,La Norteña,,,town,populated,MX-CHH,J5,passing,billy,3-03,Source of the old wagon road in the western sierras
+la-pinta,La Pinta,,,town,populated,MX-CHH,J5,passing,billy,3-12,
+rio-santa-maria,Río Santa María,Santa María,,river,stream,MX-CHH,J5;J7,stop,billy,3-12,Headwater stream where Billy camps; its watershed again in 4-06
+cuauhtemoc,Cuauhtémoc,Ciudad Cuauhtémoc,,city,populated,MX-CHH,J5,passing,billy,3-14,Southernmost point of Billy's search
+san-buenaventura,San Buenaventura,Buenaventura,Buenaventura,town,populated,MX-CHH,J5;J6;J7,stop,billy,3-14,
+alamo,Álamo,Alamo,Alamo,town,populated,MX-CHH,J5,passing,billy,3-14,"Mesa hamlet near Galeana; a common name, so check the pick"
+galeana,Galeana,Hermenegildo Galeana,,town,populated,MX-CHH,J5;J6,passing,billy,3-14,Reported in 4-05 as where Boyd killed two men
+san-lorenzo-chihuahua,San Lorenzo,,,town,populated,MX-CHH,J6,stop,boyd;girl,4-05,Reported by Quijada as where Boyd fell; not the New Mexico San Lorenzo
+columbus,Columbus,,,town,populated,US-NM,J7,stop,billy,4-01,Border gate
+florida-mountains,Florida Mountains,,,range,range,US-NM,J7,passing,billy,4-01,
+deming,Deming,,,city,populated,US-NM,J7,stop,billy,4-01,The recruiting sergeant
+el-paso,El Paso,,,city,populated,US-TX,J7,stop,billy,4-01,Recruiting office; GNIS here covers only NM and AZ
+socorro,Socorro,,,city,populated,US-NM,J7,passing,billy,4-01,Passed on the northbound bus
+hermanas,Hermanas,,,locale,populated,US-NM,J7,passing,billy,4-01,
+hachita,Hachita,,Hatchita,town,populated,US-NM,J7,passing,billy,4-01,Spelled Hatchita in 4-08
+little-hatchet-mountains,Little Hatchet Mountains,,,range,range,US-NM,J7,passing,billy,4-01,
+gillespie-mountain,Gillespie Mountain,,,summit,summit,US-NM,J7,passing,billy,4-01,Also a mountain glyph
+hatchet-mountains,Big Hatchet Mountains,Hatchet Mountains,Hatchet Mountains,range,range,US-NM,J7,passing,billy,4-02,
+hashknife,Hashknife Outfit,Aztec Land and Cattle Company,Hashknives,ranch,populated,US-AZ,J7,stop,billy,4-02,"Billy's work there is told in summary, not shown"
+little-colorado-river,Little Colorado River,Little Colorado,Little Colorado,river,stream,US-AZ,J7,stop,billy,4-02,Linecamp; told in summary
+winslow,Winslow,,Window,city,populated,US-AZ,J7,stop,billy,4-02,"The text reads Window, very likely Winslow"
+magdalena,Magdalena,,,town,populated,US-NM,J7,passing,billy,4-02,He works a ranch out of it until March
+plains-of-san-agustin,Plains of San Agustin,San Agustin Plains,plains of Saint Augustine,plain,plain;valley,US-NM,J7,passing,billy,4-02,
+silver-city,Silver City,,,city,populated,US-NM,J7,stop,billy,4-02,The Palace Hotel
+steins,Steins,,,locale,populated,US-NM,J7,passing,billy,4-02,
+el-berrendo,El Berrendo,Antelope Wells,Berendo,crossing,populated,MX-CHH;US-NM,J7,stop,billy,4-03,Mexican customs opposite Antelope Wells
+janos,Janos,,,town,populated,MX-CHH,J7,stop,billy,4-03,The cantina
+madera,Madera,Ciudad Madera,Madero,town,populated,MX-CHH,J7,stop,billy,3-01,"The troupe's men go to Madero in 3-01, probably Madera; the April fair in 4-05"
+temosachic,Temósachic,Temosachic,Temosachic,town,populated,MX-CHH,J7,stop,billy,4-05,Where he first hears the corrido
+sierra-del-nido,Sierra del Nido,,,range,range,MX-CHH,J7,passing,billy,4-06,Seen to the south
+corralitos,Corralitos,,,town,populated,MX-CHH,J7,passing,billy,4-06,Half-ruined pueblo before dawn
+dog-springs,Dog Springs,,,spring,spring;populated,US-NM,J7,passing,billy,4-08,Where he recrosses the line
+duncan,Duncan,,,town,populated,US-AZ,J7,passing,billy,4-08,
+glenwood,Glenwood,,,town,populated,US-NM,J7,passing,billy,4-08,
+reserve,Reserve,,,town,populated,US-NM,J7,passing,billy,4-08,
+gs-ranch,GS Ranch,,GS,ranch,populated,US-NM,J7,stop,billy,4-08,Billy's work there is told in summary
+carrizozo-ranch,Carrizozo ranch,,Carrizozos,ranch,populated,US-NM,J7,stop,billy,4-08,Billy's work there is told in summary; which outfit is unclear
+santa-rita-mines,Santa Rita,Chino Mine;Santa Rita mines,Santa Rita,locale,populated,US-NM,J7,passing,billy,4-08,Old road east from Silver City past the mines
+san-lorenzo-new-mexico,San Lorenzo,,,locale,populated,US-NM,J7,passing,billy,4-08,New Mexico village on the road east; not the Chihuahua San Lorenzo
+black-range,Black Range,,,range,range,US-NM,J7,passing,billy,4-08,
+organ-mountains,Organ Mountains,,,range,range,US-NM,J7,passing,billy,4-08,Seen eighty miles off
+caborca,Caborca,Heroica Caborca,,town,populated,MX-SON,,tale,,2-01,The heretic's tale
+rio-altar,Río Altar,Altar River;Rio Altar,Altar River,river,stream,MX-SON,,tale,,2-01,"Caborca's river, in the tale"
+batepito,Batepito,,Batopite,town,populated,MX-SON,,tale,,2-01,The text spells it Batopite; Part I's Batopito River
+trinidad,Trinidad,,,town,populated,,,tale,,2-01,Where the bereaved father wanders; which Trinidad is unclear
+mexico-city,Mexico City,Ciudad de México,,city,populated,MX-CMX,,tale,,2-01,The capital; outside the story box
+las-ramadas,Las Ramadas,,,locale,populated,MX-SON,,tale,,2-08,"Station where the eastward track ends, named in Bacerac's square"
+los-horcones,Los Horcones,,,locale,populated,MX-SON,,tale,,2-08,"Beyond the divide, named in Bacerac's square"
+durango,Durango,Victoria de Durango,,city,populated,MX-DUR,,tale,,3-01,Outside the story box
+monclova,Monclova,,,city,populated,MX-COA,,tale,,3-01,Outside the story box
+monterrey,Monterrey,,,city,populated,MX-NLE,,tale,,3-01,Outside the story box
+naco,Naco,,,town,populated,MX-SON;US-AZ,,tale,,3-04,Border cattle pens
+la-quemada,La Quemada,Quemada,Quemada,ranch,populated,MX-CHH,,tale,,3-04,At the south end of La Babícora
+nahuerichic,Nahuerichic,,,ranch,populated,MX-CHH,,tale,,3-04,Quijada's division of the Babícora
+parral,Hidalgo del Parral,Parral,Parral,city,populated,MX-CHH,,tale,,3-09,The blind man's tale; just outside the story box
+juan-ceballos,Juan Ceballos,,,locale,populated,MX-DUR;MX-CHH,,tale,,3-09,The blind man's tale
+rodeo-durango,Rodeo,,,town,populated,MX-DUR,,tale,,3-09,"On the Río Oro, in the blind man's tale; outside the story box"
+rio-oro,Río Oro,Rio Oro,,river,stream,MX-DUR,,tale,,3-09,Outside the story box
+torreon,Torreón,Torreon,,city,populated,MX-COA,,tale,,3-09,"Also in Alfonso's tale, 4-03; outside the story box"
+chihuahua-city,Chihuahua,Ciudad de Chihuahua,,city,populated,MX-CHH,,tale,,3-09,"The alameda, in the blind man's tale"
+ciudad-acuna,Ciudad Acuña,Acuña,Acuña,city,populated,MX-COA,,tale,,3-10,Border radio; outside the story box
+las-varitas,Las Varitas,,,locale,populated,MX-CHH,,tale,,3-12,Where Socorro Rivera was killed
+soto-maynez,Soto Máynez,Oscar Soto Maynez;Soto Maynez,Soto Maynez,town,populated,MX-CHH,,tale,,3-12,Three girls walking there
+fort-bliss,Fort Bliss,,,military,populated,US-TX,,tale,,4-01,Named by the Deming sergeant
+chicago,Chicago,,,city,populated,US-IL,,tale,,4-01,Outside the story box
+matador-ranch,Matador Ranch,,Matadors,ranch,populated,US-TX,,tale,,4-02,"Billy works there, told in summary; outside the story box"
+t-diamond-ranch,T Diamond Ranch,,T Diamond,ranch,populated,,,tale,,4-02,"Billy works there, told in summary; where is unclear"
+kwajalein,Kwajalein Atoll,,,atoll,populated,MH,,tale,,4-02,Outside the story box
+roswell,Roswell,,,city,populated,US-NM,,tale,,4-02,Leona lives there now
+ciudad-juarez,Ciudad Juárez,Juárez,,city,populated,MX-CHH,,tale,,4-02,The cook's radio station
+zacatecas,Zacatecas,,,city,populated,MX-ZAC,,tale,,4-03,Alfonso's tale; outside the story box
+ignacio-zaragoza,Ignacio Zaragoza,,Ignacio Zaragosa,town,populated,MX-CHH,,tale,,4-05,"Rumoured, wrongly, as where Boyd fell"
+bachiniva,Bachíniva,Bachiniva,Bachiniva,town,populated,MX-CHH,,tale,,4-05,The corrido
+gallego,Gallego,,,town,populated,MX-CHH,,tale,,4-06,Named as a road's destination
+guzman,Guzmán,Guzman,Guzman,locale,populated,MX-CHH,,tale,,4-06,Named as a road's origin
+sabinal,Sabinal,,,locale,populated,MX-CHH,,tale,,4-06,Named as a road's origin
+palomas,Puerto Palomas,Palomas,Palomas,town,populated,MX-CHH,,tale,,4-06,The gypsies' plane is to be delivered near it
+rio-papigochic,Río Papigochic,Papigochic;Rio Papigochic,Papigochic,river,stream,MX-CHH,,tale,,4-06,The gorge where the gypsies lost a plane
+mesa-tres-rios,Mesa Tres Ríos,Mesa Tres Rios,Mesa Tres Rios,locale,populated,MX-SON,,tale,,4-06,The bridge on its road
+sahuaripa,Sahuaripa,,,town,populated,MX-SON,,tale,,4-06,The gypsies' route
+divisaderos,Divisaderos,,,town,populated,MX-SON,,tale,,4-06,The gypsies' route
+bacanora,Bacanora,,,town,populated,MX-SON,,tale,,4-06,The gypsies' route
+tonichi,Tónichi,Tonichi,Tonichi,town,populated,MX-SON,,tale,,4-06,The gypsies' route
+nuri,Nuri,,,town,populated,MX-SON,,tale,,4-06,The gypsies' route
+san-nicolas,San Nicolás,San Nicolas,San Nicolas,town,populated,MX-SON,,tale,,4-06,"The gypsies' route; a common name, so check the pick"
+yecora,Yécora,Yecora,Yecora,town,populated,MX-SON,,tale,,4-06,The gypsies' route
+taliafero-ranch,Taliafero Ranch,,,ranch,populated,MX-CHH,,tale,,4-07,The American rider's story; near Flores Magón
+flores-magon,Flores Magón,Ricardo Flores Magón;Flores Magon,Flores Magon,town,populated,MX-CHH,,tale,,4-07,The American rider's story
+mcallen,McAllen,,,city,populated,US-TX,,tale,,4-07,Outside the story box
+fort-sumner,Fort Sumner,,Fort Summer,town,populated,US-NM,,tale,,4-07,Where Billy looked for his sister's grave; the text reads Fort Summer
