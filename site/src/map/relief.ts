@@ -8,11 +8,11 @@ import { fonts, tokens } from './tokens'
 // that builds the sheet, so the deployed site never requests it.
 export type Treatment =
   | 'glyphs' | 'survey' | 'survey-lines' | 'survey-noglyphs' | 'sierra'
-  | 'swiss' | 'swiss-dense' | 'swiss-full' | 'swiss-light' | 'swiss-thin' | 'control'
+  | 'swiss' | 'swiss-dense' | 'swiss-full' | 'swiss-light' | 'swiss-thin' | 'swiss-soft' | 'control'
 
 const TREATMENTS: Treatment[] = [
   'glyphs', 'survey', 'survey-lines', 'survey-noglyphs', 'sierra',
-  'swiss', 'swiss-dense', 'swiss-full', 'swiss-light', 'swiss-thin', 'control',
+  'swiss', 'swiss-dense', 'swiss-full', 'swiss-light', 'swiss-thin', 'swiss-soft', 'control',
 ]
 const isSwiss = (t: Treatment) => t.startsWith('swiss')
 const hasHillshade = (t: Treatment) => isSwiss(t) || t === 'control'
@@ -48,9 +48,10 @@ function hachures(t: Treatment): LayerSpecification[] {
   if (t === 'glyphs' || t === 'control') return []
   // Fine detail from the script's short split pieces, or from its whole lines with a mean slope.
   const fine = t === 'survey-lines' || isSwiss(t) ? SCALES.lines : SCALES.fine
-  // Swiss full, light and thin keep every line; light draws them in pale sepia, thin at half the stroke.
-  const color = t === 'swiss-light' ? 'rgba(90, 66, 44, 0.55)' : tokens.ink
-  const weight = t === 'sierra' ? 1.3 : t === 'swiss-thin' ? 0.5 : 1
+  // Swiss full, light, thin and soft keep every line. Light draws them in pale sepia, thin at half
+  // the stroke, and soft does both.
+  const color = t === 'swiss-light' || t === 'swiss-soft' ? 'rgba(90, 66, 44, 0.55)' : tokens.ink
+  const weight = t === 'sierra' ? 1.3 : t === 'swiss-thin' || t === 'swiss-soft' ? 0.5 : 1
   const make = (s: (typeof SCALES)[keyof typeof SCALES]): LayerSpecification => ({
     id: s === SCALES.coarse ? 'hachure-coarse' : 'hachure-fine',
     type: 'line',

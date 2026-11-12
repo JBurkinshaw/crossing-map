@@ -7,11 +7,11 @@
 - **Mountain glyphs.** 12 shapes plus 12 mirrored twins, lit from the north-west, with paper fill so they knock out the hachures behind them. Each peak takes a stable shape, flip, scale and rotation from its id; size follows prominence. `art/glyphs/make_glyphs.py` generates them and builds the sprite with `spreet`. **These are generated stand-ins.** The plan wants about 12 drawn by hand, traced from the Wheeler, Ehrenberg or Guild references.
 - **Hachures.** Huffman's script, run unmodified in headless QGIS 4 (decision 0013), on three test areas at two scales: fine (30 m DEM, 90–240 m spacing, for zoom 10 and up) and coarse (90 m DEM, 270–720 m spacing, for zoom 7–9). Each run takes 14–101 seconds.
 - **Hillshade.** MapLibre's multidirectional hillshade over `terrain.pmtiles`, tinted sepia.
-- **The comparison sheet.** `sheet/peloncillos.jpg`, `sheet/pilares.jpg`, `sheet/babicora.jpg`: ten treatments at zoom 7, 9 and 11 for each test area, captured at 2x pixel density and laid out at full size (5,920 x 14,418 px), so you can zoom in to individual strokes. Rebuild with `tools/relief-sheet.mjs`.
+- **The comparison sheet.** `sheet/peloncillos.jpg`, `sheet/pilares.jpg`, `sheet/babicora.jpg`: eleven treatments at zoom 7, 9 and 11 for each test area, captured at 2x pixel density and laid out at full size (5,920 x 15,842 px), so you can zoom in to individual strokes. Rebuild with `tools/relief-sheet.mjs`.
 
 The public site shows **glyphs only** until you choose. The hachure tiles are a local review file and are not published.
 
-## The ten treatments
+## The eleven treatments
 
 | Treatment | What it shows |
 | --- | --- |
@@ -24,6 +24,7 @@ The public site shows **glyphs only** until you choose. The hachure tiles are a 
 | Swiss, full | hillshade with every hachure line, plus glyphs |
 | Swiss, full, light | the same, with hachures in pale sepia (about 40% effective opacity) instead of ink |
 | Swiss, full, thin | the same, in ink, at half the stroke width (0.12–0.65 px) |
+| Swiss, full, soft | light and thin combined: pale sepia at half the stroke width |
 | Control | hillshade only |
 
 Hachures exist only inside the three 45 km test areas, which is why they end in square edges, and why at zoom 7 they show as two or three dark patches in an otherwise unhachured view (a zoom 7 view is about 450 km across). A production run would cover the journeys corridor.
@@ -36,6 +37,10 @@ Hachures exist only inside the three 45 km test areas, which is why they end in 
 - **Sierra** comes out almost identical to Survey. A dash pattern on Huffman's lines is not the short, dense hatching of the SCOP and Graves maps. A true Sierra look would need its own line generator.
 - **Swiss** now shows hachures at every zoom. Whole lines get a mean slope sampled from their DEM, and each scale has its own steep threshold, because the 90 m DEM is smoother (median line slope 11–16° against 18–22° at 30 m).
 
+## Your pick
+
+**Swiss, full, soft** (decision 0014): every hachure, in pale sepia at half the stroke width, over the sepia hillshade, with glyphs. At zoom 7 it stays a faint texture, with none of the ink treatments' smudging.
+
 ## My recommendation
 
 Two candidates, and the choice is about taste more than accuracy:
@@ -47,7 +52,7 @@ Either can be refined later by hand for key ranges (plan Phase 2).
 
 ## Questions for you
 
-1. **Which treatment, or which mix by zoom?** The choice becomes a decision record, and production relief follows: the adapted, vendored hachure script with absolute slope limits, run over the journeys corridor.
+1. ~~Which treatment?~~ Answered: Swiss, full, soft.
 2. **Glyph density.** Small peaks appear from zoom 9, and at that zoom the map gets busy. Should they wait until zoom 10?
 3. **Glyph drawings.** Keep the generated set, or will you draw or trace the 12 shapes?
 

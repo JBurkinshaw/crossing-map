@@ -1,4 +1,4 @@
-// The relief comparison sheet (plan section 5.2, stage 3): ten treatments x
+// The relief comparison sheet (plan section 5.2, stage 3): eleven treatments x
 // three test areas x zooms 7, 9 and 11. Captures the middle of the map at 2x
 // pixel density for each, then lays each area out at full size as one page
 // (rows: treatments, columns: zooms) and saves it as review/stage-3/sheet/<area>.jpg.
@@ -25,6 +25,7 @@ const treatments = {
   'swiss-full': 'Swiss, full: hillshade + every hachure + glyphs',
   'swiss-light': 'Swiss, full, light: the same in pale sepia',
   'swiss-thin': 'Swiss, full, thin: the same at half the stroke width',
+  'swiss-soft': 'Swiss, full, soft: pale sepia at half the stroke width',
   control: 'Control: hillshade only',
 }
 const zooms = [7, 9, 11]
