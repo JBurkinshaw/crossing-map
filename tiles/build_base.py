@@ -2,8 +2,9 @@
 
 Run from the repo root: uv run --project pipeline python tiles/build_base.py
 Reads Natural Earth 10m and US Census cartographic boundary files from
-private/cache/basemap/ (see review/stage-2/README.md for the download list),
-clips them to the story box, and tiles them with tippecanoe at zoom 4-11.
+private/cache/basemap/, and USGS NHD flowlines from private/cache/hydro/nhd/
+(see review/stage-2/README.md for the download list), clips them to the story
+box, and tiles them with tippecanoe at zoom 4-11. NHD streams appear from zoom 9.
 """
 
 import subprocess
@@ -12,6 +13,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
 SRC = REPO / "private" / "cache" / "basemap"
+NHD = REPO / "private" / "cache" / "hydro" / "nhd"
 OUT = REPO / "tiles" / "out" / "base.pmtiles"
 # The story box (plan section 7), widened by half a degree so lines run off the edge cleanly.
 BOX = ["-113.5", "26.5", "-103.5", "36.5"]
@@ -34,8 +36,6 @@ LAYERS = {
     "lake": ("ne_10m_lakes_north_america", "SELECT name FROM ne_10m_lakes_north_america", []),
     "railroad": ("ne_10m_railroads_north_america", "SELECT scalerank FROM ne_10m_railroads_north_america", []),
     "road": ("ne_10m_roads", "SELECT type, scalerank FROM ne_10m_roads WHERE continent = 'North America'", []),
-    "town": ("ne_10m_populated_places",
-             "SELECT name, scalerank, adm0_a3 AS country FROM ne_10m_populated_places WHERE adm0_a3 IN ('USA', 'MEX')", []),
 }
 
 
@@ -52,8 +52,19 @@ def main() -> None:
                 check=True,
             )
             args += ["-L", f"{layer}:{dst}"]
+        # NHD natural streams (ftype 460), one file per HU8 watershed, merged into one "creek" layer.
+        for i, shp in enumerate(sorted(NHD.glob("*/Shape/NHDFlowline.shp"))):
+            dst = Path(tmp) / f"creek-{i}.geojson"
+            subprocess.run(
+                ["ogr2ogr", "-f", "GeoJSON", "-spat", *BOX, "-clipsrc", "spat_extent", "-t_srs", "EPSG:4326",
+                 "-lco", "COORDINATE_PRECISION=5", "-dialect", "OGRSQL", "-dim", "XY",
+                 "-sql", "SELECT gnis_name AS name, fcode FROM NHDFlowline WHERE ftype = 460", str(dst), str(shp)],
+                check=True,
+            )
+            args += ["-L", f"creek:{dst}"]
         subprocess.run(
             ["tippecanoe", "-q", "-f", "-o", str(OUT), "-Z4", "-z11", "--no-tile-size-limit",
+             "-j", '{"creek": [">=", "$zoom", 9]}',
              "--detect-shared-borders", "--simplification=4", *args],
             check=True,
         )

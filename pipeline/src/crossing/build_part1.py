@@ -8,9 +8,13 @@ Writes data/places.geojson, data/stops.geojson, data/areas.geojson, data/journey
 import csv
 import json
 import math
+import subprocess
 from pathlib import Path
 
 from pyproj import Geod
+from shapely import line_merge
+from shapely.geometry import MultiLineString, Point, shape
+from shapely.ops import substring
 
 REPO = Path(__file__).resolve().parents[3]
 SEEDS = REPO / "pipeline" / "seeds"
@@ -60,6 +64,22 @@ def curve(a: tuple[float, float], b: tuple[float, float], side: int) -> list[lis
     return pts
 
 
+def snapped(snap: dict, a: tuple[float, float], b: tuple[float, float]) -> list[list[float]]:
+    """The stretch of a named NHD line between stops a and b (lon, lat), joined to both stops."""
+    sql = f"SELECT * FROM NHDFlowline WHERE gnis_name = '{snap['feature_name']}'"
+    out = subprocess.run(["ogr2ogr", "-f", "GeoJSON", "-t_srs", "EPSG:4326", "-dim", "XY", "-sql", sql,
+                          "/vsistdout/", str(REPO / snap["shapefile"])], check=True, capture_output=True, text=True).stdout
+    lines = [shape(f["geometry"]) for f in json.loads(out)["features"]]
+    merged = line_merge(MultiLineString([g for line in lines for g in getattr(line, "geoms", [line])]))
+    # Use the merged piece that passes closest to the two stops together.
+    pieces = list(getattr(merged, "geoms", [merged]))
+    line = min(pieces, key=lambda g: g.distance(Point(a)) + g.distance(Point(b)))
+    da, db = line.project(Point(a)), line.project(Point(b))
+    part = substring(line, min(da, db), max(da, db))
+    coords = list(part.coords) if da <= db else list(part.coords)[::-1]
+    return [[r5(a[0]), r5(a[1])]] + [[r5(x), r5(y)] for x, y in coords] + [[r5(b[0]), r5(b[1])]]
+
+
 def feature(geometry: dict, **props) -> dict:
     return {"type": "Feature", "geometry": geometry, "properties": props}
 
@@ -71,8 +91,9 @@ def write(name: str, features: list[dict]) -> None:
 
 
 def main() -> None:
-    seeds = {s["id"]: s for s in rows(SEEDS / "part1.csv")}
-    picks = {p["id"]: p for p in rows(REPO / "review" / "stage-1" / "places.csv")}
+    # Part I places, then the context towns the book never names (shown at every reading position).
+    seeds = {s["id"]: s for s in rows(SEEDS / "part1.csv") + rows(SEEDS / "context.csv")}
+    picks = {p["id"]: p for p in rows(REPO / "review" / "stage-1" / "places.csv") + rows(REPO / "review" / "stage-2" / "context-places.csv")}
     overrides = {o["id"]: o for o in rows(SEEDS / "part1-place-overrides.csv")}
 
     places, pins = [], {}
@@ -87,7 +108,7 @@ def main() -> None:
         lat, lon = float(src["lat"]), float(src["lon"])
         pins[sid] = (lat, lon, src["source"], src["source_id"])
         reasoning = override["reasoning"] if override else (
-            "Provisional pick from several candidates, awaiting review." if pick["status"] == "review" else None)
+            "Provisional pick from several candidates, awaiting review." if pick["status"] == "review" and seed["role"] != "context" else None)
         journeys = [j for j in seed["journey"].split(";") if j]
         places.append(feature(
             point(lat, lon),
@@ -127,16 +148,24 @@ def main() -> None:
     write("stops.geojson", stops)
     write("areas.geojson", areas)
 
+    snaps = {(s["journey"], int(s["from_seq"])): s for s in rows(SEEDS / "part1-snaps.csv")}
     for jid, seq in by_journey.items():
         seq.sort(key=lambda p: p["sequence"])
         for i, (a, b) in enumerate(zip(seq, seq[1:]), start=1):
+            snap = snaps.get((jid, a["sequence"]))
+            if snap:
+                coords = snapped(snap, (a["lon"], a["lat"]), (b["lon"], b["lat"]))
+                how = dict(certainty="approximate", method="narrated-path", source="usgs-nhd",
+                           source_licence="Public domain", reasoning=snap["reasoning"])
+            else:
+                coords = curve((a["lon"], a["lat"]), (b["lon"], b["lat"]), 1 if i % 2 else -1)
+                how = dict(certainty="inferred", method="schematic", source="this-site", source_licence=LICENCE["this-site"],
+                           reasoning="A gentle curve between consecutive stops; the book names no road or river for this stretch.")
             journeys.append(feature(
-                {"type": "LineString", "coordinates": curve((a["lon"], a["lat"]), (b["lon"], b["lat"]), 1 if i % 2 else -1)},
+                {"type": "LineString", "coordinates": coords},
                 id=f"{jid.lower()}-seg-{i:02d}", name=f"{a['name']} to {b['name']}", kind="route-segment",
-                characters=CHARACTERS[jid], journey=jid, sequence=i, part=1, episode=b["first_seen"],
-                first_seen=b["first_seen"], certainty="inferred", method="schematic", source="this-site",
-                source_licence=LICENCE["this-site"], note_safe="",
-                reasoning="A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2).",
+                characters=CHARACTERS[jid], journey=jid, sequence=i, part=int(b["first_seen"][0]), episode=b["first_seen"],
+                first_seen=b["first_seen"], note_safe="", **how,
             ))
     write("journeys.geojson", journeys)
     write_checklist(stops, places)

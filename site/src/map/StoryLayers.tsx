@@ -34,15 +34,27 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop }: Props) {
         />
       </Source>
       <Source id="journeys" type="geojson" data={story.journeys}>
+        {/* Solid where the book names the road or river followed; dashed where the path is not known. */}
         <Layer
           id="journeys-line"
           type="line"
+          filter={['==', ['get', 'method'], 'narrated-path']}
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
             'line-width': ['case', inFocus, 2.5, 1.2],
             'line-opacity': ['case', inFocus, 0.95, 0.3],
-            // Every Part I segment is schematic: dashed says "the path is not known".
+          }}
+        />
+        <Layer
+          id="journeys-line-schematic"
+          type="line"
+          filter={['!=', ['get', 'method'], 'narrated-path']}
+          layout={{ 'line-cap': 'round', 'line-join': 'round' }}
+          paint={{
+            'line-color': inkByJourney,
+            'line-width': ['case', inFocus, 2.5, 1.2],
+            'line-opacity': ['case', inFocus, 0.95, 0.3],
             'line-dasharray': [3, 2],
           }}
         />
@@ -52,10 +64,11 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop }: Props) {
           id="places-point"
           type="circle"
           paint={{
-            'circle-radius': ['match', ['get', 'role'], 'passing', 3, 4],
-            'circle-color': tokens.paper,
+            // Context towns (never named in the book) are small solid dots; story places are open rings.
+            'circle-radius': ['match', ['get', 'role'], 'context', 2, 'passing', 3, 4],
+            'circle-color': ['match', ['get', 'role'], 'context', tokens.inkFaint, tokens.paper],
             'circle-stroke-color': tokens.ink,
-            'circle-stroke-width': 1.2,
+            'circle-stroke-width': ['match', ['get', 'role'], 'context', 0, 1.2],
           }}
         />
         <Layer
@@ -71,7 +84,12 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop }: Props) {
             'text-offset': [0, 0.6],
             'text-optional': true,
           }}
-          paint={{ 'text-color': tokens.ink, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 }}
+          paint={{
+            'text-color': tokens.ink,
+            'text-opacity': ['match', ['get', 'role'], 'context', 0.6, 1],
+            'text-halo-color': tokens.paper,
+            'text-halo-width': 1.5,
+          }}
         />
       </Source>
       {stops.map((f, i) => (

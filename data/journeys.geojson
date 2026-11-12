@@ -88,12 +88,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -183,12 +183,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -278,12 +278,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -296,64 +296,1080 @@
       31.354
      ],
      [
-      -108.66341,
-      31.3543
+      -108.65723,
+      31.35442
      ],
      [
-      -108.6698,
-      31.35447
-     ],
-     [
-      -108.67618,
-      31.3545
-     ],
-     [
-      -108.68253,
+      -108.65726,
       31.3544
      ],
      [
-      -108.68887,
+      -108.65785,
+      31.35421
+     ],
+     [
+      -108.65871,
+      31.35407
+     ],
+     [
+      -108.65919,
+      31.35405
+     ],
+     [
+      -108.65963,
+      31.35411
+     ],
+     [
+      -108.66028,
+      31.35432
+     ],
+     [
+      -108.66071,
+      31.35456
+     ],
+     [
+      -108.66108,
+      31.35459
+     ],
+     [
+      -108.6615,
+      31.35455
+     ],
+     [
+      -108.66186,
+      31.35442
+     ],
+     [
+      -108.66236,
+      31.3541
+     ],
+     [
+      -108.66254,
+      31.3541
+     ],
+     [
+      -108.66279,
       31.35417
      ],
      [
-      -108.69518,
-      31.3538
+      -108.663,
+      31.35416
      ],
      [
-      -108.70147,
-      31.3533
+      -108.66316,
+      31.35402
      ],
      [
-      -108.70775,
-      31.35267
+      -108.66346,
+      31.3536
      ],
      [
-      -108.714,
+      -108.66387,
+      31.35337
+     ],
+     [
+      -108.664,
+      31.35325
+     ],
+     [
+      -108.66402,
+      31.35314
+     ],
+     [
+      -108.66396,
+      31.35293
+     ],
+     [
+      -108.66398,
+      31.35283
+     ],
+     [
+      -108.66444,
+      31.35258
+     ],
+     [
+      -108.66461,
+      31.35241
+     ],
+     [
+      -108.66621,
+      31.35237
+     ],
+     [
+      -108.66648,
+      31.35243
+     ],
+     [
+      -108.66676,
+      31.35259
+     ],
+     [
+      -108.66713,
+      31.35262
+     ],
+     [
+      -108.66761,
+      31.35248
+     ],
+     [
+      -108.66782,
+      31.35231
+     ],
+     [
+      -108.66797,
+      31.35209
+     ],
+     [
+      -108.66833,
       31.3519
      ],
      [
-      -108.72023,
-      31.351
+      -108.66844,
+      31.35187
      ],
      [
-      -108.72644,
-      31.34996
+      -108.66905,
+      31.35196
      ],
      [
-      -108.73263,
-      31.34879
+      -108.66926,
+      31.35191
      ],
      [
-      -108.7388,
-      31.34749
+      -108.66948,
+      31.35179
      ],
      [
-      -108.74495,
-      31.34605
+      -108.66983,
+      31.35168
      ],
      [
-      -108.75108,
-      31.34448
+      -108.66998,
+      31.35166
+     ],
+     [
+      -108.67017,
+      31.35158
+     ],
+     [
+      -108.67037,
+      31.35141
+     ],
+     [
+      -108.671,
+      31.35129
+     ],
+     [
+      -108.67118,
+      31.35129
+     ],
+     [
+      -108.67202,
+      31.35142
+     ],
+     [
+      -108.67268,
+      31.35146
+     ],
+     [
+      -108.67341,
+      31.35135
+     ],
+     [
+      -108.67379,
+      31.35125
+     ],
+     [
+      -108.67402,
+      31.35119
+     ],
+     [
+      -108.6746,
+      31.35112
+     ],
+     [
+      -108.67496,
+      31.3511
+     ],
+     [
+      -108.6753,
+      31.35115
+     ],
+     [
+      -108.67551,
+      31.35112
+     ],
+     [
+      -108.67568,
+      31.35112
+     ],
+     [
+      -108.67593,
+      31.35096
+     ],
+     [
+      -108.67647,
+      31.35039
+     ],
+     [
+      -108.67672,
+      31.3502
+     ],
+     [
+      -108.67699,
+      31.35012
+     ],
+     [
+      -108.67753,
+      31.35013
+     ],
+     [
+      -108.67801,
+      31.35021
+     ],
+     [
+      -108.67856,
+      31.35024
+     ],
+     [
+      -108.67888,
+      31.3503
+     ],
+     [
+      -108.67904,
+      31.3503
+     ],
+     [
+      -108.67928,
+      31.35027
+     ],
+     [
+      -108.68007,
+      31.35001
+     ],
+     [
+      -108.68027,
+      31.34997
+     ],
+     [
+      -108.68057,
+      31.34999
+     ],
+     [
+      -108.68112,
+      31.35007
+     ],
+     [
+      -108.68152,
+      31.35009
+     ],
+     [
+      -108.68177,
+      31.35004
+     ],
+     [
+      -108.68222,
+      31.34976
+     ],
+     [
+      -108.68267,
+      31.3496
+     ],
+     [
+      -108.6836,
+      31.34975
+     ],
+     [
+      -108.68383,
+      31.34974
+     ],
+     [
+      -108.68403,
+      31.34969
+     ],
+     [
+      -108.68425,
+      31.34984
+     ],
+     [
+      -108.68448,
+      31.34992
+     ],
+     [
+      -108.68463,
+      31.34993
+     ],
+     [
+      -108.68547,
+      31.35002
+     ],
+     [
+      -108.68563,
+      31.35001
+     ],
+     [
+      -108.68617,
+      31.35026
+     ],
+     [
+      -108.68679,
+      31.35066
+     ],
+     [
+      -108.68708,
+      31.35077
+     ],
+     [
+      -108.68746,
+      31.35077
+     ],
+     [
+      -108.68807,
+      31.3507
+     ],
+     [
+      -108.68836,
+      31.35074
+     ],
+     [
+      -108.68855,
+      31.35079
+     ],
+     [
+      -108.68875,
+      31.35083
+     ],
+     [
+      -108.68925,
+      31.35084
+     ],
+     [
+      -108.68985,
+      31.35102
+     ],
+     [
+      -108.69027,
+      31.3511
+     ],
+     [
+      -108.69126,
+      31.35114
+     ],
+     [
+      -108.69164,
+      31.35105
+     ],
+     [
+      -108.69211,
+      31.35098
+     ],
+     [
+      -108.69252,
+      31.35071
+     ],
+     [
+      -108.69265,
+      31.35065
+     ],
+     [
+      -108.69313,
+      31.35079
+     ],
+     [
+      -108.6932,
+      31.35082
+     ],
+     [
+      -108.69361,
+      31.35105
+     ],
+     [
+      -108.69385,
+      31.3512
+     ],
+     [
+      -108.69416,
+      31.35121
+     ],
+     [
+      -108.6946,
+      31.35117
+     ],
+     [
+      -108.69523,
+      31.3512
+     ],
+     [
+      -108.69579,
+      31.35103
+     ],
+     [
+      -108.69593,
+      31.35091
+     ],
+     [
+      -108.69611,
+      31.35067
+     ],
+     [
+      -108.69636,
+      31.3505
+     ],
+     [
+      -108.69672,
+      31.35038
+     ],
+     [
+      -108.69689,
+      31.35037
+     ],
+     [
+      -108.69725,
+      31.35044
+     ],
+     [
+      -108.69788,
+      31.35066
+     ],
+     [
+      -108.6982,
+      31.35071
+     ],
+     [
+      -108.69847,
+      31.35081
+     ],
+     [
+      -108.69918,
+      31.35096
+     ],
+     [
+      -108.69941,
+      31.35105
+     ],
+     [
+      -108.70067,
+      31.35122
+     ],
+     [
+      -108.70092,
+      31.3513
+     ],
+     [
+      -108.70126,
+      31.3515
+     ],
+     [
+      -108.70156,
+      31.35183
+     ],
+     [
+      -108.70166,
+      31.35201
+     ],
+     [
+      -108.70181,
+      31.35211
+     ],
+     [
+      -108.702,
+      31.35215
+     ],
+     [
+      -108.70229,
+      31.35229
+     ],
+     [
+      -108.70262,
+      31.35225
+     ],
+     [
+      -108.70289,
+      31.35216
+     ],
+     [
+      -108.70336,
+      31.3521
+     ],
+     [
+      -108.70404,
+      31.35188
+     ],
+     [
+      -108.70428,
+      31.35175
+     ],
+     [
+      -108.70476,
+      31.35159
+     ],
+     [
+      -108.70509,
+      31.35158
+     ],
+     [
+      -108.70546,
+      31.35145
+     ],
+     [
+      -108.70568,
+      31.35146
+     ],
+     [
+      -108.70588,
+      31.35134
+     ],
+     [
+      -108.70604,
+      31.35129
+     ],
+     [
+      -108.70631,
+      31.35129
+     ],
+     [
+      -108.7065,
+      31.35123
+     ],
+     [
+      -108.70707,
+      31.35126
+     ],
+     [
+      -108.70758,
+      31.35153
+     ],
+     [
+      -108.70802,
+      31.35159
+     ],
+     [
+      -108.70815,
+      31.35167
+     ],
+     [
+      -108.70855,
+      31.35178
+     ],
+     [
+      -108.70889,
+      31.35197
+     ],
+     [
+      -108.70925,
+      31.35213
+     ],
+     [
+      -108.70949,
+      31.35237
+     ],
+     [
+      -108.71004,
+      31.35249
+     ],
+     [
+      -108.71051,
+      31.35264
+     ],
+     [
+      -108.71094,
+      31.35259
+     ],
+     [
+      -108.71146,
+      31.35226
+     ],
+     [
+      -108.71259,
+      31.35195
+     ],
+     [
+      -108.71318,
+      31.35183
+     ],
+     [
+      -108.7133,
+      31.35177
+     ],
+     [
+      -108.71361,
+      31.35181
+     ],
+     [
+      -108.71407,
+      31.3518
+     ],
+     [
+      -108.7143,
+      31.35183
+     ],
+     [
+      -108.71454,
+      31.35197
+     ],
+     [
+      -108.715,
+      31.3521
+     ],
+     [
+      -108.71535,
+      31.35206
+     ],
+     [
+      -108.71593,
+      31.35212
+     ],
+     [
+      -108.71632,
+      31.35202
+     ],
+     [
+      -108.71697,
+      31.35173
+     ],
+     [
+      -108.71798,
+      31.35166
+     ],
+     [
+      -108.71865,
+      31.35178
+     ],
+     [
+      -108.71928,
+      31.35144
+     ],
+     [
+      -108.71974,
+      31.35128
+     ],
+     [
+      -108.7199,
+      31.35131
+     ],
+     [
+      -108.72016,
+      31.35146
+     ],
+     [
+      -108.72093,
+      31.35158
+     ],
+     [
+      -108.72126,
+      31.35175
+     ],
+     [
+      -108.72143,
+      31.35191
+     ],
+     [
+      -108.72164,
+      31.35262
+     ],
+     [
+      -108.72172,
+      31.35276
+     ],
+     [
+      -108.72193,
+      31.35297
+     ],
+     [
+      -108.72214,
+      31.35308
+     ],
+     [
+      -108.72246,
+      31.3531
+     ],
+     [
+      -108.72291,
+      31.35325
+     ],
+     [
+      -108.72341,
+      31.3537
+     ],
+     [
+      -108.72388,
+      31.35395
+     ],
+     [
+      -108.72441,
+      31.35429
+     ],
+     [
+      -108.72466,
+      31.35456
+     ],
+     [
+      -108.72539,
+      31.35495
+     ],
+     [
+      -108.72604,
+      31.35514
+     ],
+     [
+      -108.72641,
+      31.35512
+     ],
+     [
+      -108.72654,
+      31.35516
+     ],
+     [
+      -108.72675,
+      31.35514
+     ],
+     [
+      -108.72691,
+      31.35517
+     ],
+     [
+      -108.72725,
+      31.35535
+     ],
+     [
+      -108.72756,
+      31.35543
+     ],
+     [
+      -108.72814,
+      31.35547
+     ],
+     [
+      -108.72864,
+      31.35541
+     ],
+     [
+      -108.72908,
+      31.35526
+     ],
+     [
+      -108.72954,
+      31.35494
+     ],
+     [
+      -108.73013,
+      31.35466
+     ],
+     [
+      -108.73065,
+      31.35406
+     ],
+     [
+      -108.73127,
+      31.35355
+     ],
+     [
+      -108.732,
+      31.35305
+     ],
+     [
+      -108.73233,
+      31.35297
+     ],
+     [
+      -108.73248,
+      31.35285
+     ],
+     [
+      -108.73286,
+      31.35282
+     ],
+     [
+      -108.73337,
+      31.35289
+     ],
+     [
+      -108.7336,
+      31.35297
+     ],
+     [
+      -108.73415,
+      31.35327
+     ],
+     [
+      -108.73432,
+      31.35328
+     ],
+     [
+      -108.73473,
+      31.35333
+     ],
+     [
+      -108.73523,
+      31.35351
+     ],
+     [
+      -108.73573,
+      31.35357
+     ],
+     [
+      -108.73616,
+      31.35379
+     ],
+     [
+      -108.73656,
+      31.35418
+     ],
+     [
+      -108.73662,
+      31.35432
+     ],
+     [
+      -108.73662,
+      31.35469
+     ],
+     [
+      -108.73678,
+      31.35483
+     ],
+     [
+      -108.73689,
+      31.355
+     ],
+     [
+      -108.73704,
+      31.35509
+     ],
+     [
+      -108.73764,
+      31.35507
+     ],
+     [
+      -108.7381,
+      31.35515
+     ],
+     [
+      -108.73828,
+      31.35514
+     ],
+     [
+      -108.73848,
+      31.355
+     ],
+     [
+      -108.73867,
+      31.3548
+     ],
+     [
+      -108.73893,
+      31.35443
+     ],
+     [
+      -108.73945,
+      31.35415
+     ],
+     [
+      -108.73959,
+      31.35391
+     ],
+     [
+      -108.73966,
+      31.35364
+     ],
+     [
+      -108.73984,
+      31.35337
+     ],
+     [
+      -108.74021,
+      31.35305
+     ],
+     [
+      -108.74034,
+      31.35299
+     ],
+     [
+      -108.74042,
+      31.35289
+     ],
+     [
+      -108.74054,
+      31.35222
+     ],
+     [
+      -108.74022,
+      31.35115
+     ],
+     [
+      -108.74037,
+      31.35062
+     ],
+     [
+      -108.74073,
+      31.35007
+     ],
+     [
+      -108.74087,
+      31.34975
+     ],
+     [
+      -108.7411,
+      31.34955
+     ],
+     [
+      -108.74134,
+      31.34944
+     ],
+     [
+      -108.74211,
+      31.34935
+     ],
+     [
+      -108.74233,
+      31.3493
+     ],
+     [
+      -108.74254,
+      31.3492
+     ],
+     [
+      -108.74289,
+      31.3491
+     ],
+     [
+      -108.74296,
+      31.34914
+     ],
+     [
+      -108.74316,
+      31.34937
+     ],
+     [
+      -108.74338,
+      31.34941
+     ],
+     [
+      -108.74356,
+      31.34938
+     ],
+     [
+      -108.74383,
+      31.34925
+     ],
+     [
+      -108.74401,
+      31.3492
+     ],
+     [
+      -108.74431,
+      31.34929
+     ],
+     [
+      -108.74457,
+      31.34931
+     ],
+     [
+      -108.74479,
+      31.34927
+     ],
+     [
+      -108.74493,
+      31.34938
+     ],
+     [
+      -108.74511,
+      31.34942
+     ],
+     [
+      -108.74554,
+      31.34928
+     ],
+     [
+      -108.74611,
+      31.34935
+     ],
+     [
+      -108.74636,
+      31.34944
+     ],
+     [
+      -108.74677,
+      31.34957
+     ],
+     [
+      -108.74756,
+      31.3497
+     ],
+     [
+      -108.74812,
+      31.34959
+     ],
+     [
+      -108.74837,
+      31.3496
+     ],
+     [
+      -108.74871,
+      31.34951
+     ],
+     [
+      -108.74926,
+      31.34917
+     ],
+     [
+      -108.74957,
+      31.34887
+     ],
+     [
+      -108.74989,
+      31.34868
+     ],
+     [
+      -108.75002,
+      31.34852
+     ],
+     [
+      -108.75017,
+      31.34824
+     ],
+     [
+      -108.75014,
+      31.34806
+     ],
+     [
+      -108.74999,
+      31.34769
+     ],
+     [
+      -108.74999,
+      31.34747
+     ],
+     [
+      -108.75016,
+      31.34689
+     ],
+     [
+      -108.75043,
+      31.34641
+     ],
+     [
+      -108.7506,
+      31.34618
+     ],
+     [
+      -108.75123,
+      31.34584
+     ],
+     [
+      -108.75213,
+      31.34521
+     ],
+     [
+      -108.7524,
+      31.34504
+     ],
+     [
+      -108.75286,
+      31.34483
+     ],
+     [
+      -108.75299,
+      31.34472
      ],
      [
       -108.75719,
@@ -373,12 +1389,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
-    "certainty": "inferred",
-    "method": "schematic",
-    "source": "this-site",
-    "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "usgs-nhd",
+    "source_licence": "Public domain",
+    "reasoning": "The book says she followed Whitewater Creek west from the border toward the San Luis Mountains. The path follows the USGS NHD course of the creek (HU8 13030201) between the two stops."
    }
   },
   {
@@ -468,12 +1484,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -563,12 +1579,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -658,12 +1674,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -753,12 +1769,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -848,12 +1864,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -943,12 +1959,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1038,12 +2054,12 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1133,12 +2149,12 @@
     "part": 1,
     "episode": "1-08",
     "first_seen": "1-08",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1229,12 +2245,12 @@
     "part": 1,
     "episode": "1-08",
     "first_seen": "1-08",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1325,12 +2341,12 @@
     "part": 1,
     "episode": "1-08",
     "first_seen": "1-08",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1421,12 +2437,12 @@
     "part": 1,
     "episode": "1-08",
     "first_seen": "1-08",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1517,12 +2533,12 @@
     "part": 1,
     "episode": "1-09",
     "first_seen": "1-09",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1613,12 +2629,12 @@
     "part": 1,
     "episode": "1-09",
     "first_seen": "1-09",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1709,12 +2725,12 @@
     "part": 1,
     "episode": "1-09",
     "first_seen": "1-09",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1805,12 +2821,12 @@
     "part": 1,
     "episode": "1-09",
     "first_seen": "1-09",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1901,12 +2917,12 @@
     "part": 1,
     "episode": "1-09",
     "first_seen": "1-09",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -1997,12 +3013,12 @@
     "part": 1,
     "episode": "1-09",
     "first_seen": "1-09",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -2093,12 +3109,12 @@
     "part": 1,
     "episode": "1-09",
     "first_seen": "1-09",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -2189,12 +3205,12 @@
     "part": 1,
     "episode": "1-10",
     "first_seen": "1-10",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   },
   {
@@ -2285,12 +3301,12 @@
     "part": 1,
     "episode": "1-10",
     "first_seen": "1-10",
+    "note_safe": "",
     "certainty": "inferred",
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "note_safe": "",
-    "reasoning": "A gentle curve between consecutive stops; the path is not known. Named roads and rivers are snapped once their lines are in (stage 2)."
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
   }
  ]

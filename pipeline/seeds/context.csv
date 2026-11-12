@@ -1,0 +1,16 @@
+id,name,alt_names,text_names,kind,expect,region,journey,role,characters,first_seen,notes
+bisbee,Bisbee,,,town,populated,US-AZ,,context,,1-01,Not named in the book; shown so the map is not empty
+tombstone,Tombstone,,,town,populated,US-AZ,,context,,1-01,Not named in the book
+willcox,Willcox,,,town,populated,US-AZ,,context,,1-01,Not named in the book
+road-forks,Road Forks,,,locale,populated,US-NM,,context,,1-01,Not named in the book
+cananea,Cananea,Heroica Ciudad de Cananea,,town,populated,MX-SON,,context,,1-01,Not named in the book
+fronteras,Fronteras,,,town,populated,MX-SON,,context,,1-01,Not named in the book
+esqueda,Esqueda,,,town,populated,MX-SON,,context,,1-01,Not named in the book
+nacozari,Nacozari de García,Nacozari,,town,populated,MX-SON,,context,,1-01,Not named in the book
+huachinera,Huachinera,,,town,populated,MX-SON,,context,,1-01,Not named in the book
+moctezuma,Moctezuma,Moctezuma (Sonora),,town,populated,MX-SON,,context,,1-01,Not named in the book; the Sonora municipal seat
+cumpas,Cumpas,,,town,populated,MX-SON,,context,,1-01,Not named in the book
+granados,Granados,,,town,populated,MX-SON,,context,,1-01,Not named in the book
+huasabas,Huásabas,Huasabas,,town,populated,MX-SON,,context,,1-01,Not named in the book
+villa-hidalgo,Villa Hidalgo,,,town,populated,MX-SON,,context,,1-01,Not named in the book; the Sonora municipal seat
+nuevo-casas-grandes,Nuevo Casas Grandes,,,city,populated,MX-CHH,,context,,1-01,Not named in the book

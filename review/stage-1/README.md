@@ -1,5 +1,7 @@
 # Stage 1 review packet: Part I, right
 
+**Signed off by the author on 11 November 2026** and merged to `main`. The 12 provisional picks are accepted as they stand; open research threads stay on the private follow-up list.
+
 ## What was built
 
 - **Gazetteer resolver** (`pipeline/src/crossing/gazetteer.py`). It matches the 30 Part I names in `pipeline/seeds/part1.csv` against USGS GNIS (New Mexico, Arizona), GeoNames (Mexico), and Wikidata, within the story box. It keeps candidates of the expected feature type in the expected state, then picks the one nearest the settled stops beside it on the same journey. Output: `places.csv`, with every candidate listed.

@@ -51,6 +51,12 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
         setPicked(f ? { lon: e.lngLat.lng, lat: e.lngLat.lat, props: f.properties as StoryProps } : null)
       }}
       style={{ position: 'absolute', inset: 0 }}
+      onLoad={(e) => {
+        // Review tooling (tools/*.mjs) drives the map through this handle; only with ?debug.
+        if (new URLSearchParams(window.location.search).has('debug')) {
+          ;(window as unknown as { __map: unknown }).__map = e.target
+        }
+      }}
     >
       <NavigationControl position="top-left" showCompass={false} />
       {/* Miles, the book's own unit. */}

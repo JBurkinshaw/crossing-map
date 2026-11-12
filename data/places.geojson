@@ -828,6 +828,426 @@
     "note_safe": "",
     "reasoning": null
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.92841,
+     31.44815
+    ]
+   },
+   "properties": {
+    "id": "place-bisbee",
+    "name": "Bisbee",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "1436",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.06758,
+     31.71287
+    ]
+   },
+   "properties": {
+    "id": "place-tombstone",
+    "name": "Tombstone",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "12590",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.83201,
+     32.25285
+    ]
+   },
+   "properties": {
+    "id": "place-willcox",
+    "name": "Willcox",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "13808",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.953,
+     32.2397
+    ]
+   },
+   "properties": {
+    "id": "place-road-forks",
+    "name": "Road Forks",
+    "kind": "locale",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "wikidata",
+    "source_id": "Q7339330",
+    "source_licence": "CC0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.29758,
+     30.98352
+    ]
+   },
+   "properties": {
+    "id": "place-cananea",
+    "name": "Cananea",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4015700",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.5597,
+     30.89732
+    ]
+   },
+   "properties": {
+    "id": "place-fronteras",
+    "name": "Fronteras",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4006133",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.58781,
+     30.7275
+    ]
+   },
+   "properties": {
+    "id": "place-esqueda",
+    "name": "Esqueda",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4006532",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.68803,
+     30.37462
+    ]
+   },
+   "properties": {
+    "id": "place-nacozari",
+    "name": "Nacozari de García",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3995157",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.95856,
+     30.21019
+    ]
+   },
+   "properties": {
+    "id": "place-huachinera",
+    "name": "Huachinera",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4004716",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.67949,
+     29.80615
+    ]
+   },
+   "properties": {
+    "id": "place-moctezuma",
+    "name": "Moctezuma",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3995647",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.78037,
+     29.9948
+    ]
+   },
+   "properties": {
+    "id": "place-cumpas",
+    "name": "Cumpas",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4012143",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.31112,
+     29.86181
+    ]
+   },
+   "properties": {
+    "id": "place-granados",
+    "name": "Granados",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4005715",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.30099,
+     29.90835
+    ]
+   },
+   "properties": {
+    "id": "place-huasabas",
+    "name": "Huásabas",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4004662",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.3209,
+     30.16202
+    ]
+   },
+   "properties": {
+    "id": "place-villa-hidalgo",
+    "name": "Villa Hidalgo",
+    "kind": "town",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3971332",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.91166,
+     30.41552
+    ]
+   },
+   "properties": {
+    "id": "place-nuevo-casas-grandes",
+    "name": "Nuevo Casas Grandes",
+    "kind": "city",
+    "role": "context",
+    "characters": [],
+    "journey": null,
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3994616",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": null
+   }
   }
  ]
 }

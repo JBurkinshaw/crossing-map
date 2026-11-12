@@ -1,7 +1,7 @@
 // Design tokens for the literary map (docs/plan.md, section 5.1).
 export const tokens = {
-  paper: '#e6d9bd',
-  paperMexico: '#dccdaa',
+  paper: '#e4ddcc',
+  paperMexico: '#d9cfbb',
   water: '#5f7480',
   ink: '#2b2118',
   inkFaint: 'rgba(43, 33, 24, 0.35)',

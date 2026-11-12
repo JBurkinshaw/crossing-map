@@ -208,7 +208,9 @@ def pick(cands: list[Candidate], anchor: tuple[float, float]) -> tuple[str, Cand
     # Wikidata items carry no feature type, so a typed GNIS or GeoNames match outranks them.
     typed = [c for c in cands if c.type_match and c.region_match]
     pool = typed or [c for c in cands if c.region_match] or cands
-    best = max(pool, key=lambda c: (c.type_match, c.exact, -round(dist(c) / 25), SOURCE_RANK[c.source]))
+    # A municipal seat (GeoNames PPLA*) outranks a minor place even when the minor place matches the name
+    # exactly: GeoNames often adds the state to a seat's name, as in "Moctezuma (Sonora)".
+    best = max(pool, key=lambda c: (c.type_match, c.feature.startswith("PPLA"), c.exact, -round(dist(c) / 25), SOURCE_RANK[c.source]))
     certain = bool(typed) and all(km(best, c) <= CLUSTER_KM for c in typed)
     return ("resolved" if certain else "review"), best
 

@@ -25,17 +25,22 @@
 - The border stop at 108°30′ W sits on the 31°20′ line, west of the bootheel's corner.
 - The Mexico Northwestern railroad runs through Casas Grandes, as the book describes.
 
-## Questions for you
+## Decided (11 November 2026)
 
-1. **The paper and Mexico tints** (`#e6d9bd` and `#dccdaa`): too yellow, or about right?
-2. **Duplicate labels.** A town that is both a Natural Earth town and one of our places is labelled twice; Ascensión shows it. Should our places replace the base towns of the same name, or should base towns be dropped once a place exists?
+- **Paper: option B, caliche** (`#e4ddcc`, Mexico `#d9cfbb`). The three options are in `paper/` for comparison.
+- **Towns: option 1.** The Natural Earth towns are gone from the style and the tiles. Every town label now comes from `data/places.geojson`, so it carries a source and obeys the spoiler filter. Fifteen real towns the book never names (Bisbee, Willcox, Fronteras, Nacozari, Huásabas, Nuevo Casas Grandes and others; `pipeline/seeds/context.csv`) are a `context` set, shown at every reading position as small faint dots. The resolver now prefers a municipal seat to a minor place of the same name. That fixed Moctezuma and Cumpas, and no Part I pick changed.
+
+## Added since the first look
+
+- **Creeks.** USGS NHD natural streams for six bootheel watersheds, from zoom 9. Named creeks show from zoom 9; the dense unnamed network from zoom 10, fainter. NHD maps these cross-border watersheds into Sonora as well.
+- **First narrated route.** The wolf's leg from Whitewater Creek to the San Luis Mountains now follows the creek's NHD course, drawn solid; legs the book names no road or river for stay dashed. `pipeline/seeds/part1-snaps.csv` lists snapped legs. See `screenshots/whitewater-z10-desktop.png`.
 
 ## Not done yet in stage 2
 
 - **Swipe to satellite.** Blocked on the MapTiler key.
 - **60 fps on a mid-range phone.** Not measured yet.
-- **Small creeks.** Cloverdale Creek, Whitewater Creek, and the Cajon Bonita are not in Natural Earth. They need USGS NHD and INEGI hydrography, a larger download batch, asked for separately.
-- **Part I routes in their final ink, snapped to rivers.** This waits on the small-creek data.
+- **Mexican creeks beyond the border watersheds.** INEGI's 1:50,000 river network has no direct download; it comes through INEGI's interactive downloads portal (see `TODO-prerequisites.md`). The Cajon Bonita leg stays schematic until then.
+- **More snapped legs.** The Cloverdale Creek road is a road, not the creek; no road line for it exists yet.
 - **State names in small capitals.** The glyphs are built; the label points are not.
 - **Spoiler hiding.** Every label shows regardless of reading progress. That is stage 5.
 
@@ -45,12 +50,13 @@ Downloaded on 11 November 2026 into `private/cache/basemap/`:
 
 - Natural Earth 10m, public domain, from https://naciscdn.org/naturalearth/10m/: admin 0 boundary lines, admin 1 states and lines, rivers and lake centrelines (plus the North America supplement), lakes (plus the North America supplement), railroads (North America), roads, and populated places.
 - US Census cartographic boundary counties, 2023, 1:500k, public domain: https://www2.census.gov/geo/tiger/GENZ2023/shp/cb_2023_us_county_500k.zip
+- USGS NHD Best Resolution, HU8 units 13030201, 13030202, 15040006, 15080301, 15080302 and 15080303 (shapefiles, published December 2023), public domain: https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/HU8/Shape/
 - IM Fell English, IM Fell English Italic, and IM Fell English SC, by Igino Marini, under the SIL Open Font License, from https://github.com/google/fonts
 
 ## Before this stage can deploy
 
-`tiles/release.txt` now names `tiles-v1`. Publish the base archive as that release, from the repo root:
+`tiles/release.txt` now names `tiles-v2`: the rebuilt base (no towns, with creeks, 5.5 MB) and the stage 3 terrain archive (69.4 MB), published together so stage 3 needs no further release. From anywhere:
 
 ```bash
-gh release create tiles-v1 tiles/out/base.pmtiles --target main --title 'Tiles v1: literary base, first look' --notes 'Natural Earth 10m and US Census 2023 counties, clipped to the story box, zoom 4-11. Built by tiles/build_base.py.'
+gh release create tiles-v2 /Users/jb/repos/crossing-map/tiles/out/base.pmtiles /Users/jb/repos/crossing-map/tiles/out/terrain.pmtiles --repo JBurkinshaw/crossing-map --target main --title 'Tiles v2: base with creeks, and terrain' --notes 'base.pmtiles: Natural Earth 10m, 2023 Census counties and USGS NHD streams, zoom 4-11 (tiles/build_base.py). terrain.pmtiles: AWS Terrain Tiles, Terrarium encoding, zoom 5-10 (tiles/build_terrain.py); 3DEP, SRTM and GMTED2010 terrain data courtesy of the U.S. Geological Survey; Source: INEGI, Continental relief, 2016.'
 ```

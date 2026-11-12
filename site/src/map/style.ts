@@ -56,6 +56,23 @@ export function literaryStyle(tilesBase: string, fontsBase: string): StyleSpecif
         },
       },
       {
+        // USGS NHD streams, US side only; intermittent and ephemeral ones (fcode 46003, 46007) dashed.
+        id: 'creek',
+        type: 'line',
+        source: base,
+        'source-layer': 'creek',
+        minzoom: 9,
+        // Named streams from zoom 9; the dense unnamed network only from zoom 10, and fainter.
+        filter: ['any', ['has', 'name'], ['>=', ['zoom'], 10]],
+        layout: { 'line-cap': 'round', 'line-join': 'round' },
+        paint: {
+          'line-color': tokens.water,
+          'line-width': ['interpolate', ['linear'], ['zoom'], 9, 0.4, 12, 1],
+          'line-opacity': ['case', ['has', 'name'], 0.9, 0.35],
+          'line-dasharray': ['match', ['get', 'fcode'], [46003, 46007], ['literal', [3, 2]], ['literal', [1, 0]]],
+        },
+      },
+      {
         id: 'river-minor',
         type: 'line',
         source: base,
@@ -96,16 +113,19 @@ export function literaryStyle(tilesBase: string, fontsBase: string): StyleSpecif
         paint: { 'line-color': tokens.ink, 'line-width': 4, 'line-dasharray': [0.25, 3] },
       },
       {
-        id: 'town',
-        type: 'circle',
+        id: 'creek-label',
+        type: 'symbol',
         source: base,
-        'source-layer': 'town',
-        minzoom: 6,
-        paint: {
-          'circle-radius': 2,
-          'circle-color': tokens.ink,
-          'circle-opacity': 0.6,
+        'source-layer': 'creek',
+        minzoom: 10,
+        filter: ['has', 'name'],
+        layout: {
+          'symbol-placement': 'line',
+          'text-field': ['get', 'name'],
+          'text-font': [fonts.italic],
+          'text-size': 11.5,
         },
+        paint: { 'text-color': tokens.water, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },
       {
         id: 'river-label',
@@ -121,22 +141,6 @@ export function literaryStyle(tilesBase: string, fontsBase: string): StyleSpecif
           'text-letter-spacing': 0.1,
         },
         paint: { 'text-color': tokens.water, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
-      },
-      {
-        id: 'town-label',
-        type: 'symbol',
-        source: base,
-        'source-layer': 'town',
-        minzoom: 6,
-        layout: {
-          'text-field': ['get', 'name'],
-          'text-font': [fonts.roman],
-          'text-size': 12,
-          'text-anchor': 'left',
-          'text-offset': [0.5, 0],
-          'symbol-sort-key': ['get', 'scalerank'],
-        },
-        paint: { 'text-color': tokens.ink, 'text-opacity': 0.75, 'text-halo-color': tokens.paper, 'text-halo-width': 1.2 },
       },
     ],
   }

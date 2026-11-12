@@ -38,7 +38,7 @@
         "name": { "type": "string", "minLength": 1 },
         "name_in_text": { "type": ["string", "null"] },
         "kind": { "type": "string", "minLength": 1 },
-        "role": { "enum": ["stop", "passing", "tale", null] },
+        "role": { "enum": ["stop", "passing", "tale", "context", null], "description": "context: a real town the book never names, shown at every reading position so the map is not empty." },
         "characters": { "type": "array", "items": { "enum": ["billy", "boyd", "wolf", "girl"] } },
         "journey": { "type": ["string", "null"], "pattern": "^J[1-7]$" },
         "sequence": { "type": ["integer", "null"], "minimum": 1 },
