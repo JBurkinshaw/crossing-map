@@ -6,9 +6,10 @@ import { fonts, tokens } from './tokens'
 // (tools/relief-sheet.mjs) chooses a treatment with ?relief=<name>; hachures
 // come from tiles/out/relief-test.pmtiles, which exists only on the machine
 // that builds the sheet, so the deployed site never requests it.
-export type Treatment = 'glyphs' | 'survey' | 'survey-lines' | 'survey-noglyphs' | 'sierra' | 'swiss' | 'control'
+export type Treatment = 'glyphs' | 'survey' | 'survey-lines' | 'survey-noglyphs' | 'sierra' | 'swiss' | 'swiss-dense' | 'control'
 
-const TREATMENTS: Treatment[] = ['glyphs', 'survey', 'survey-lines', 'survey-noglyphs', 'sierra', 'swiss', 'control']
+const TREATMENTS: Treatment[] = ['glyphs', 'survey', 'survey-lines', 'survey-noglyphs', 'sierra', 'swiss', 'swiss-dense', 'control']
+const hasHillshade = (t: Treatment) => t === 'swiss' || t === 'swiss-dense' || t === 'control'
 
 export function treatmentFromUrl(): Treatment {
   const asked = new URLSearchParams(window.location.search).get('relief') as Treatment | null
@@ -19,7 +20,7 @@ export function reliefSources(t: Treatment, tilesBase: string, dataBase: string)
   const sources: Record<string, SourceSpecification> = {
     glyphs: { type: 'geojson', data: `${dataBase}mountain_glyphs.geojson` },
   }
-  if (t === 'swiss' || t === 'control') {
+  if (hasHillshade(t)) {
     sources.terrain = { type: 'raster-dem', url: `pmtiles://${tilesBase}terrain.pmtiles`, encoding: 'terrarium', tileSize: 256 }
   }
   if (t !== 'glyphs' && t !== 'control') {
@@ -31,15 +32,16 @@ export function reliefSources(t: Treatment, tilesBase: string, dataBase: string)
 // Steeper is heavier (plan 5.2, step 6). The 90 m coarse DEM is smoother, so its slopes run lower
 // (median 11-16 degrees against 18-22 at 30 m) and get their own range and steep threshold.
 const SCALES = {
-  coarse: { layer: 'hachure_coarse', zooms: [6, 9.5], slope: [5, 25], steep: 18 },
-  fine: { layer: 'hachure_fine', zooms: [9.5, 14], slope: [10, 40], steep: 25 },
-  lines: { layer: 'hachure_lines', zooms: [9.5, 14], slope: [10, 40], steep: 25 },
+  // steep: the Swiss threshold (about the steepest 10-30% of lines); dense: Swiss dense (about half).
+  coarse: { layer: 'hachure_coarse', zooms: [6, 9.5], slope: [5, 25], steep: 18, dense: 12 },
+  fine: { layer: 'hachure_fine', zooms: [9.5, 14], slope: [10, 40], steep: 25, dense: 18 },
+  lines: { layer: 'hachure_lines', zooms: [9.5, 14], slope: [10, 40], steep: 25, dense: 18 },
 } as const
 
 function hachures(t: Treatment): LayerSpecification[] {
   if (t === 'glyphs' || t === 'control') return []
   // Fine detail from the script's short split pieces, or from its whole lines with a mean slope.
-  const fine = t === 'survey-lines' || t === 'swiss' ? SCALES.lines : SCALES.fine
+  const fine = t === 'survey-lines' || t === 'swiss' || t === 'swiss-dense' ? SCALES.lines : SCALES.fine
   const make = (s: (typeof SCALES)[keyof typeof SCALES]): LayerSpecification => ({
     id: s === SCALES.coarse ? 'hachure-coarse' : 'hachure-fine',
     type: 'line',
@@ -49,6 +51,7 @@ function hachures(t: Treatment): LayerSpecification[] {
     maxzoom: s.zooms[1],
     // Swiss accent: hachures only on each scale's steepest ground.
     ...(t === 'swiss' ? { filter: ['>=', ['get', 'Slope'], s.steep] as never } : {}),
+    ...(t === 'swiss-dense' ? { filter: ['>=', ['get', 'Slope'], s.dense] as never } : {}),
     layout: { 'line-cap': 'round' },
     paint: {
       'line-color': tokens.ink,
@@ -72,7 +75,7 @@ function hachures(t: Treatment): LayerSpecification[] {
 }
 
 function hillshade(t: Treatment): LayerSpecification[] {
-  if (t !== 'swiss' && t !== 'control') return []
+  if (!hasHillshade(t)) return []
   return [
     {
       id: 'hillshade',

@@ -21,6 +21,7 @@ const treatments = {
   'survey-noglyphs': 'Survey, no glyphs',
   sierra: 'Sierra: short dense hatches + stipple + glyphs',
   swiss: 'Swiss accent: hillshade + steep-slope hachures + glyphs',
+  'swiss-dense': 'Swiss, dense: hillshade + hachures on about half the slopes + glyphs',
   control: 'Control: hillshade only',
 }
 const zooms = [7, 9, 11]
