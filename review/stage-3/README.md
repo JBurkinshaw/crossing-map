@@ -7,11 +7,11 @@
 - **Mountain glyphs.** 12 shapes plus 12 mirrored twins, lit from the north-west, with paper fill so they knock out the hachures behind them. Each peak takes a stable shape, flip, scale and rotation from its id; size follows prominence. `art/glyphs/make_glyphs.py` generates them and builds the sprite with `spreet`. **These are generated stand-ins.** The plan wants about 12 drawn by hand, traced from the Wheeler, Ehrenberg or Guild references.
 - **Hachures.** Huffman's script, run unmodified in headless QGIS 4 (decision 0013), on three test areas at two scales: fine (30 m DEM, 90–240 m spacing, for zoom 10 and up) and coarse (90 m DEM, 270–720 m spacing, for zoom 7–9). Each run takes 14–101 seconds.
 - **Hillshade.** MapLibre's multidirectional hillshade over `terrain.pmtiles`, tinted sepia.
-- **The comparison sheet.** `sheet/peloncillos.jpg`, `sheet/pilares.jpg`, `sheet/babicora.jpg`: seven treatments at zoom 7, 9 and 11 for each test area, captured at 2x pixel density and laid out at full size (5,920 x 7,298 px), so you can zoom in to individual strokes. Rebuild with `tools/relief-sheet.mjs`.
+- **The comparison sheet.** `sheet/peloncillos.jpg`, `sheet/pilares.jpg`, `sheet/babicora.jpg`: ten treatments at zoom 7, 9 and 11 for each test area, captured at 2x pixel density and laid out at full size (5,920 x 14,418 px), so you can zoom in to individual strokes. Rebuild with `tools/relief-sheet.mjs`.
 
 The public site shows **glyphs only** until you choose. The hachure tiles are a local review file and are not published.
 
-## The seven treatments
+## The ten treatments
 
 | Treatment | What it shows |
 | --- | --- |
@@ -21,6 +21,9 @@ The public site shows **glyphs only** until you choose. The hachure tiles are a 
 | Sierra | the same hachures, dashed and heavier, with stipple on steep ground, plus glyphs |
 | Swiss accent | sepia hillshade, hachures only on each scale's steepest ground (fine lines 25° and up, coarse 18° and up), plus glyphs |
 | Swiss, dense | the same, with hachures on about half the slopes at each scale (fine 18° and up, coarse 12° and up) |
+| Swiss, full | hillshade with every hachure line, plus glyphs |
+| Swiss, full, light | the same, with hachures in pale sepia (about 40% effective opacity) instead of ink |
+| Swiss, full, thin | the same, in ink, at half the stroke width (0.12–0.65 px) |
 | Control | hillshade only |
 
 Hachures exist only inside the three 45 km test areas, which is why they end in square edges, and why at zoom 7 they show as two or three dark patches in an otherwise unhachured view (a zoom 7 view is about 450 km across). A production run would cover the journeys corridor.
@@ -38,7 +41,7 @@ Hachures exist only inside the three 45 km test areas, which is why they end in 
 Two candidates, and the choice is about taste more than accuracy:
 
 - **Survey, mixed by zoom:** glyphs alone at zoom 6–8, glyphs with coarse hachures at 9, glyphs with fine hachures from 10. All ink, no raster. At zoom 11 the hachures read as dense engraved texture rather than neat strokes.
-- **Swiss accent, dense:** a light sepia hillshade carries the landform at every zoom, with hachures on the steeper half of the ground and glyphs on the peaks. The hachures follow the ridges the shading shows. Calmer than Survey at zoom 11, but the hillshade blurs there and reads more modern. (Plain Swiss, with only the steepest 10–30%, looked too sparse.)
+- **Swiss accent, dense:** a light sepia hillshade carries the landform at every zoom, with hachures on the steeper half of the ground and glyphs on the peaks. The hachures follow the ridges the shading shows. Calmer than Survey at zoom 11, but the hillshade blurs there and reads more modern. (Plain Swiss, with only the steepest 10–30%, looked too sparse.) The full-density rows keep every line. In ink they compete with the shading at zoom 11. Pale sepia sinks them into the hillshade, so they read as texture, not as drawing. Half-width ink keeps the engraved look and stays quiet: of the three, it is the closest to a finished map.
 
 Either can be refined later by hand for key ranges (plan Phase 2).
 

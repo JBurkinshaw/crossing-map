@@ -6,10 +6,16 @@ import { fonts, tokens } from './tokens'
 // (tools/relief-sheet.mjs) chooses a treatment with ?relief=<name>; hachures
 // come from tiles/out/relief-test.pmtiles, which exists only on the machine
 // that builds the sheet, so the deployed site never requests it.
-export type Treatment = 'glyphs' | 'survey' | 'survey-lines' | 'survey-noglyphs' | 'sierra' | 'swiss' | 'swiss-dense' | 'control'
+export type Treatment =
+  | 'glyphs' | 'survey' | 'survey-lines' | 'survey-noglyphs' | 'sierra'
+  | 'swiss' | 'swiss-dense' | 'swiss-full' | 'swiss-light' | 'swiss-thin' | 'control'
 
-const TREATMENTS: Treatment[] = ['glyphs', 'survey', 'survey-lines', 'survey-noglyphs', 'sierra', 'swiss', 'swiss-dense', 'control']
-const hasHillshade = (t: Treatment) => t === 'swiss' || t === 'swiss-dense' || t === 'control'
+const TREATMENTS: Treatment[] = [
+  'glyphs', 'survey', 'survey-lines', 'survey-noglyphs', 'sierra',
+  'swiss', 'swiss-dense', 'swiss-full', 'swiss-light', 'swiss-thin', 'control',
+]
+const isSwiss = (t: Treatment) => t.startsWith('swiss')
+const hasHillshade = (t: Treatment) => isSwiss(t) || t === 'control'
 
 export function treatmentFromUrl(): Treatment {
   const asked = new URLSearchParams(window.location.search).get('relief') as Treatment | null
@@ -41,7 +47,10 @@ const SCALES = {
 function hachures(t: Treatment): LayerSpecification[] {
   if (t === 'glyphs' || t === 'control') return []
   // Fine detail from the script's short split pieces, or from its whole lines with a mean slope.
-  const fine = t === 'survey-lines' || t === 'swiss' || t === 'swiss-dense' ? SCALES.lines : SCALES.fine
+  const fine = t === 'survey-lines' || isSwiss(t) ? SCALES.lines : SCALES.fine
+  // Swiss full, light and thin keep every line; light draws them in pale sepia, thin at half the stroke.
+  const color = t === 'swiss-light' ? 'rgba(90, 66, 44, 0.55)' : tokens.ink
+  const weight = t === 'sierra' ? 1.3 : t === 'swiss-thin' ? 0.5 : 1
   const make = (s: (typeof SCALES)[keyof typeof SCALES]): LayerSpecification => ({
     id: s === SCALES.coarse ? 'hachure-coarse' : 'hachure-fine',
     type: 'line',
@@ -54,9 +63,9 @@ function hachures(t: Treatment): LayerSpecification[] {
     ...(t === 'swiss-dense' ? { filter: ['>=', ['get', 'Slope'], s.dense] as never } : {}),
     layout: { 'line-cap': 'round' },
     paint: {
-      'line-color': tokens.ink,
+      'line-color': color,
       'line-opacity': 0.75,
-      'line-width': ['interpolate', ['linear'], ['get', 'Slope'], s.slope[0], 0.25 * (t === 'sierra' ? 1.3 : 1), s.slope[1], 1.3 * (t === 'sierra' ? 1.3 : 1)],
+      'line-width': ['interpolate', ['linear'], ['get', 'Slope'], s.slope[0], 0.25 * weight, s.slope[1], 1.3 * weight],
       ...(t === 'sierra' ? { 'line-dasharray': [1.2, 1] } : {}),
     },
   })
