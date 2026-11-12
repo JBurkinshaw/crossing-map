@@ -200,3 +200,77 @@ select {
     display: none;
   }
 }
+
+.literary {
+  position: absolute;
+  inset: 0;
+}
+
+.swipe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  margin-left: -2px;
+  background: var(--ink);
+  cursor: ew-resize;
+  touch-action: none;
+}
+
+.swipe::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.basemap-switch {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.basemap-switch button {
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 0;
+  background: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.basemap-switch button[aria-checked='true'] {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.basemap-switch button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.notice {
+  position: absolute;
+  top: 48px;
+  right: 10px;
+  max-width: 260px;
+  margin: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-size: 0.8rem;
+}
+
+/* Clear the MapTiler logo, which the satellite map draws bottom left. */
+.has-satellite .literary .maplibregl-ctrl-bottom-left {
+  left: 100px;
+}

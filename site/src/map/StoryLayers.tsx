@@ -34,6 +34,13 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop }: Props) {
         />
       </Source>
       <Source id="journeys" type="geojson" data={story.journeys}>
+        {/* A paper casing under every route keeps the ink readable over satellite imagery. */}
+        <Layer
+          id="journeys-casing"
+          type="line"
+          layout={{ 'line-cap': 'round', 'line-join': 'round' }}
+          paint={{ 'line-color': tokens.paper, 'line-width': ['case', inFocus, 5, 2.5], 'line-opacity': ['case', inFocus, 0.7, 0.3] }}
+        />
         {/* Solid where the book names the road or river followed; dashed where the path is not known. */}
         <Layer
           id="journeys-line"

@@ -4,6 +4,12 @@ import { fonts, tokens } from './tokens'
 // The literary basemap (docs/plan.md, section 5.1): ink on caliche paper, the
 // Mexico side a shade darker, rivers in blue-grey ink, and a dash-dot
 // international line as on the 1850s-1880s survey sheets.
+// The literary base: everything drawn from base.pmtiles plus the paper. Satellite mode hides these.
+export const BASE_LAYERS = [
+  'paper', 'mexico', 'lake', 'county-line', 'state-line', 'creek', 'river-minor', 'river',
+  'road', 'railroad', 'railroad-ties', 'creek-label', 'river-label',
+]
+
 export function literaryStyle(tilesBase: string, fontsBase: string): StyleSpecification {
   const base = 'base'
   return {

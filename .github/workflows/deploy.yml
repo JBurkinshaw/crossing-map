@@ -35,6 +35,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
+      # Public by design: the key ships in the browser bundle and MapTiler restricts it by origin.
+      VITE_MAPTILER_KEY: ${{ vars.VITE_MAPTILER_KEY }}
     steps:
       - uses: actions/checkout@v7
         with:
