@@ -8,6 +8,7 @@ The reasoning for each pick is in `pipeline/seeds/parts2-4-place-overrides.csv` 
 
 | Place | Shown as | The doubt | What would settle it |
 | --- | --- | --- | --- |
+| Sierra de la Madera | The Sky Island range near Cumpas (GeoNames 9028461) | Bell (2000) and Joe Hazelton's map take the range near Bacerac, 81 km north-east, but from there the wolf would not cross the Bavispe as the text has her do | A source that names the wolf's range, or a reading that puts her west of the river |
 | Soto Máynez | One point with Santa Ana de Babícora | INEGI gives Soto Máynez as Santa Ana de Babícora's official name, but in 3-12 girls walk toward Soto Maynez after the riders pass back through Santa Ana, as if it were another town | A 1940s map or account that shows both names, or a reader who knows the area |
 | Nahuerichic | Nahuerachi, 7 km south-south-west of Madera (GeoNames 13416932) | The name differs by one vowel, and no source yet ties the Babícora division to this place. Bell 2000 independently places a Nahuerachic about 65 miles from San Buenaventura; ours is 63 miles, but he too found nothing tying it to the estate | A history of the Babícora estate's divisions |
 | La Boquilla | La Boquilla in Gómez Farías municipio, by the Babícora lake | The text also calls it Boquilla y Anexas, which INEGI places in Guerrero municipio, 135 km from Las Varas | Already decided for the lake town (stage 4 review); listed because the name is shared |
