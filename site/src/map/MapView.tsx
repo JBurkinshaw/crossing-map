@@ -42,6 +42,11 @@ const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'ha
 const RAISED_GROUPS = raisedLayers(literaryStyle(tilesBase, fontsBase, dataBase).layers)
 
 type Basemap = 'literary' | 'satellite' | 'compare'
+const BASEMAPS: { id: Basemap; label: string; title?: string }[] = [
+  { id: 'literary', label: 'Classic' },
+  { id: 'satellite', label: 'Satellite' },
+  { id: 'compare', label: 'Compare' },
+]
 // Views of the literary map: flat (the default), tilted (live 3D terrain) and raised (plan oblique relief).
 export type View = 'flat' | 'tilted' | 'raised'
 const VIEWS: { id: View; label: string; title: string }[] = [
@@ -67,6 +72,45 @@ type Props = {
   onView: (view: View) => void
   // The latest episode whose features may show (spoiler mode); the story layers arrive already filtered.
   reached: string
+}
+
+// A row of switches, one of which is on: a radio group, one tab stop, with the arrow keys moving the choice.
+function Switch<T extends string>(props: {
+  label: string
+  options: { id: T; label: string; title?: string; disabled: boolean }[]
+  value: T
+  onChange: (value: T) => void
+}) {
+  const { label, options, value, onChange } = props
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const by = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key]
+    if (!by) return
+    e.preventDefault()
+    const enabled = options.filter((o) => !o.disabled)
+    const next = enabled[(enabled.findIndex((o) => o.id === value) + by + enabled.length) % enabled.length]
+    if (!next) return
+    onChange(next.id)
+    e.currentTarget.querySelector<HTMLButtonElement>(`[data-id="${next.id}"]`)?.focus()
+  }
+  return (
+    <div className="basemap-switch" role="radiogroup" aria-label={label} onKeyDown={onKeyDown}>
+      {options.map((o) => (
+        <button
+          key={o.id}
+          type="button"
+          role="radio"
+          data-id={o.id}
+          aria-checked={value === o.id}
+          tabIndex={value === o.id ? 0 : -1}
+          disabled={o.disabled}
+          title={o.title}
+          onClick={() => onChange(o.id)}
+        >
+          {o.label}
+        </button>
+      ))}
+    </div>
+  )
 }
 
 // The base filters of the layers spoiler mode narrows (spoiler/filter.ts), before the reading-progress clause.
@@ -241,6 +285,8 @@ export function MapView(props: Props) {
           minZoom={MIN_ZOOM}
           maxZoom={13}
           dragRotate={false}
+          // The map's own keyboard handler pans and zooms once the map has focus; its name says so.
+          locale={{ 'Map.Title': 'Map. Arrow keys pan, plus and minus zoom', 'AttributionControl.ToggleAttribution': 'Show or hide the map credits' }}
           hash="map"
           // Each archive brings its own credit (the terrain lines wherever the hillshade shows); the Credits page has the rest.
           attributionControl={{ compact: true, customAttribution: '<a href="#/credits">Credits</a>' }}
@@ -300,35 +346,18 @@ export function MapView(props: Props) {
         />
       )}
       <div className="map-switches">
-        <div className="basemap-switch" role="radiogroup" aria-label="Basemap">
-          {(['literary', 'satellite', 'compare'] as const).map((b) => (
-            <button
-              key={b}
-              type="button"
-              role="radio"
-              aria-checked={basemap === b}
-              disabled={b !== 'literary' && unavailable}
-              onClick={() => setBasemap(b)}
-            >
-              {b === 'literary' ? 'Classic' : b === 'satellite' ? 'Satellite' : 'Compare'}
-            </button>
-          ))}
-        </div>
-        <div className="basemap-switch" role="radiogroup" aria-label="View of the classic map">
-          {VIEWS.map((v) => (
-            <button
-              key={v.id}
-              type="button"
-              role="radio"
-              aria-checked={view === v.id}
-              disabled={basemap !== 'literary'}
-              title={v.title}
-              onClick={() => setView(v.id)}
-            >
-              {v.label}
-            </button>
-          ))}
-        </div>
+        <Switch
+          label="Basemap"
+          options={BASEMAPS.map((b) => ({ ...b, disabled: b.id !== 'literary' && unavailable }))}
+          value={basemap}
+          onChange={setBasemap}
+        />
+        <Switch
+          label="View of the classic map"
+          options={VIEWS.map((v) => ({ ...v, disabled: basemap !== 'literary' }))}
+          value={view}
+          onChange={setView}
+        />
         <label className="land-colour-toggle" title={view === 'raised' ? 'Not available in the Raised view' : 'Faint satellite colour under the map'}>
           <input
             type="checkbox"

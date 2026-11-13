@@ -14,10 +14,17 @@ type Props = {
 export function ReadingProgress({ progress, isSet, episodes, onSet }: Props) {
   const [open, setOpen] = useState(!isSet)
   const badge = useRef<HTMLButtonElement>(null)
+  // Focus goes back to the badge once the dialog has gone: while the modal dialog is open, the badge is inert.
+  const returnFocus = useRef(false)
   const close = () => {
     setOpen(false)
-    badge.current?.focus()
+    returnFocus.current = true
   }
+  useEffect(() => {
+    if (open || !returnFocus.current) return
+    returnFocus.current = false
+    badge.current?.focus()
+  }, [open])
   const hidden = spoilersHidden(progress, episodes)
   return (
     <>

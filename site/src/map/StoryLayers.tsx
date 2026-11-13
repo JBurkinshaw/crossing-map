@@ -155,6 +155,9 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
             className={`stop-marker${i === stopIndex ? ' is-current' : ''}${i < stopIndex ? ' is-visited' : ''}`}
             style={{ borderColor: journeyInk[journey] }}
             aria-label={`Stop ${i + 1}: ${f.properties.name}`}
+            // The panel's stop list reaches the same stops by keyboard; out of the tab order, the map's markers
+            // do not add up to 57 tab stops before the map's controls.
+            tabIndex={-1}
             data-first-seen={f.properties.first_seen}
           >
             {i + 1}

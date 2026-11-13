@@ -1,7 +1,8 @@
 :root {
   --paper: #e4ddcc;
   --ink: #2b2118;
-  --ink-faint: rgba(43, 33, 24, 0.55);
+  /* 0.7 over the paper gives 5:1, for small italic text (WCAG AA). */
+  --ink-faint: rgba(43, 33, 24, 0.7);
   --panel-width: 380px;
   font-family: 'IM Fell English', 'Iowan Old Style', Georgia, serif;
   color: var(--ink);
@@ -24,6 +25,22 @@ button,
 select {
   font: inherit;
   color: inherit;
+}
+
+/* One focus ring everywhere the keyboard goes, in the map's ink. */
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* The map fills its box, so its ring sits inside. */
+.maplibregl-canvas:focus-visible {
+  outline-offset: -4px;
+}
+
+::placeholder {
+  color: var(--ink-faint);
+  opacity: 1;
 }
 
 .panel {
