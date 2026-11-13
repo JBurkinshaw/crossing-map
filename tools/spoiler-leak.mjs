@@ -26,7 +26,7 @@ const translations = await read('translations.json')
 const KEY = 'crossing-map.progress'
 
 // null is a first visit (nothing stored); the rest are stored settings. Episode ids sort in reading order.
-// SPOILER_POINTS=1-08,3-12 runs only those ("unset" for a first visit).
+// SPOILER_POINTS=1-08,3-12 runs only those ("unset" for a first visit). COLOR_SCHEME=dark runs the lamplight theme.
 const POINTS = process.env.SPOILER_POINTS
   ? process.env.SPOILER_POINTS.split(',').map((p) => (p === 'unset' ? null : p))
   : [null, 'none', '1-03', '1-08', '2-04', '3-08', '3-12', '4-05', '4-08', 'all']
@@ -111,7 +111,8 @@ for (const point of POINTS) {
   const later = laterOnlyNames(reached)
   const lines = laterOnlyLines(reached)
   const where = `progress ${point ?? 'unset'}`
-  const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce' })
+  const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce',
+    colorScheme: process.env.COLOR_SCHEME === 'dark' ? 'dark' : 'light' })
   if (point !== null) await context.addInitScript(([k, v]) => localStorage.setItem(k, v), [KEY, point])
   const page = await context.newPage()
   page.on('pageerror', (e) => leak(where, `page error: ${e.message}`))

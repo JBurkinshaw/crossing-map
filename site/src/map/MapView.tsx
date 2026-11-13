@@ -11,9 +11,10 @@ import ClassicUnderlay from './ClassicUnderlay'
 import { LayerKey } from './LayerKey'
 import { StoryLayers } from './StoryLayers'
 import { RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
-import { BASE_LAYERS, literaryStyle } from './style'
-import { storyBounds } from './tokens'
+import { BASE_LAYERS, literaryStyle, spriteUrl } from './style'
+import { palettes, storyBounds, type Theme } from './tokens'
 import { layerFilterUpTo, PROGRESS_LAYERS, styleUpTo } from '../spoiler/filter'
+import { useTheme } from '../theme'
 
 // MapLibre 6 looks for its worker beside its own module file. Bundling moves
 // that module into an app chunk, so point MapLibre at the copy Vite emits.
@@ -38,7 +39,17 @@ const TERRAIN_TILT = 40
 const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy',
   'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy', 'mountain-glyph', 'county-line', 'state-line', 'country-line', 'creek',
   'river-minor', 'river', 'creek-label', 'river-label', 'road', 'railroad', 'railroad-ties', 'vignette-leader', 'vignette'])
-const RAISED_GROUPS = raisedLayers(literaryStyle(tilesBase, fontsBase, dataBase).layers)
+const themed = (theme: Theme) => literaryStyle(tilesBase, fontsBase, dataBase, theme)
+const RAISED_GROUPS = {
+  light: raisedLayers(themed('light').layers, palettes.light),
+  lamplight: raisedLayers(themed('lamplight').layers, palettes.lamplight),
+}
+
+// Sets a layer's paint to that of `layer`, the same layer in another theme.
+function repaint(map: maplibregl.Map, id: string, layer: LayerSpecification) {
+  if (!map.getLayer(id) || !('paint' in layer) || !layer.paint) return
+  for (const [property, value] of Object.entries(layer.paint)) map.setPaintProperty(id, property as never, value as never)
+}
 
 type Basemap = 'literary' | 'satellite' | 'compare'
 // Views of the literary map: flat (the default), tilted (live 3D terrain) and raised (plan oblique relief).
@@ -69,7 +80,7 @@ type Props = {
 }
 
 // The base filters of the layers spoiler mode narrows (spoiler/filter.ts), before the reading-progress clause.
-const BASE_FILTERS = Object.fromEntries(literaryStyle(tilesBase, fontsBase, dataBase).layers
+const BASE_FILTERS = Object.fromEntries(themed('light').layers
   .filter((l) => l.id in PROGRESS_LAYERS).map((l) => [l.id, 'filter' in l ? l.filter : undefined]))
 
 // The Home button (plan section 9), under the zoom buttons.
@@ -107,11 +118,17 @@ function HomeControl({ onHome }: { onHome: () => void }) {
 
 export function MapView(props: Props) {
   const { mapRef, story, stops, stopIndex, onSelectStop, onSelectFeature, selectedId, aheadFrom, onHome, onView, reached } = props
-  // Built once with the progress at first render; later changes go through setFilter below.
-  const [style] = useState(() => styleUpTo(literaryStyle(tilesBase, fontsBase, dataBase), reached))
-  // Compare mode's classic underlay gets its own copy: a map may change the style object it is given.
-  const underlayStyle = useMemo(() => styleUpTo(literaryStyle(tilesBase, fontsBase, dataBase), reached), [reached])
+  const [theme, setTheme] = useTheme()
   const [basemap, setBasemap] = useState<Basemap>('literary')
+  // The classic map follows the theme. Satellite and Compare keep the light map's inks over the imagery; only
+  // their controls follow the theme.
+  const mapTheme: Theme = basemap === 'literary' ? theme : 'light'
+  // Built once with the progress and theme at first render; later changes go through setFilter and repaint below.
+  const [style] = useState(() => styleUpTo(themed(mapTheme), reached))
+  // The theme the map's layers are painted in now.
+  const painted = useRef(mapTheme)
+  // Compare mode's classic underlay gets its own copy: a map may change the style object it is given.
+  const underlayStyle = useMemo(() => styleUpTo(themed('light'), reached), [reached])
   const [unavailable, setUnavailable] = useState(false)
   // Once created, the satellite map stays (hidden on the literary basemap): MapTiler counts each new map as a session.
   const [satelliteStarted, setSatelliteStarted] = useState(false)
@@ -147,6 +164,21 @@ export function MapView(props: Props) {
     }
   }, [reached, loaded, mapRef])
 
+  // A change of theme repaints the layers in place and swaps the sprite. The camera, the story layers, the
+  // view's layer visibility and the spoiler filters stay as they are.
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (!map || !loaded || painted.current === mapTheme) return
+    painted.current = mapTheme
+    for (const layer of themed(mapTheme).layers) repaint(map, layer.id, layer)
+    raisedArchives?.forEach((_, i) => {
+      for (const group of RAISED_GROUPS[mapTheme]) {
+        for (const layer of group.layers) repaint(map, `${layer.id}-${i + 1}`, layer)
+      }
+    })
+    map.setSprite(spriteUrl(tilesBase, mapTheme))
+  }, [mapTheme, loaded, raisedArchives, mapRef])
+
   const onUnavailable = useCallback(() => {
     setUnavailable(true)
     setBasemap('literary')
@@ -165,7 +197,7 @@ export function MapView(props: Props) {
       raisedArchives.forEach((file, i) => {
         const source = `oblique-${i + 1}`
         map.addSource(source, { type: 'vector', url: `pmtiles://${tilesBase}${file}` })
-        for (const group of RAISED_GROUPS) {
+        for (const group of RAISED_GROUPS[painted.current]) {
           for (const layer of group.layers) map.addLayer({ ...layer, id: `${layer.id}-${i + 1}`, source } as LayerSpecification, group.before)
         }
       })
@@ -270,6 +302,7 @@ export function MapView(props: Props) {
               halo={basemap === 'literary'}
               selectedId={selectedId}
               aheadFrom={aheadFrom}
+              theme={mapTheme}
             />
           )}
         </Map>
@@ -330,8 +363,17 @@ export function MapView(props: Props) {
           />
           Land colour
         </label>
+        <button
+          type="button"
+          className="theme-toggle"
+          aria-pressed={theme === 'lamplight'}
+          title="The map in light ink on dark paper"
+          onClick={() => setTheme(theme === 'lamplight' ? 'light' : 'lamplight')}
+        >
+          Lamplight
+        </button>
       </div>
-      {basemap === 'literary' && <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} />}
+      {basemap === 'literary' && <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} theme={mapTheme} />}
       {view === 'raised' && (
         <p className="notice" role="status">The Raised view covers the country the journeys ride through; bus rides and reported journeys stay flat.</p>
       )}

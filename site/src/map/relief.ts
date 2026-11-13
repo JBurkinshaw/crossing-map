@@ -1,5 +1,5 @@
 import type { ExpressionSpecification, LayerSpecification, SourceSpecification } from 'maplibre-gl'
-import { fonts, tokens } from './tokens'
+import { fonts, type Palette } from './tokens'
 
 // Relief (docs/plan.md, section 5.2; decision 0016, "S5"): an Imhof desert tint below zoom 10, then
 // near-white paper, a light grey hillshade, 50 m contours and short sepia hachures from relief.pmtiles,
@@ -17,7 +17,7 @@ export function reliefSources(tilesBase: string, dataBase: string): Record<strin
   }
 }
 
-function glyphs(): LayerSpecification[] {
+function glyphs(p: Palette): LayerSpecification[] {
   const size: ExpressionSpecification = ['*', ['match', ['get', 'size'], 'large', 0.85, 'medium', 0.65, 0.5], ['get', 'glyph_scale']]
   return [
     {
@@ -57,7 +57,7 @@ function glyphs(): LayerSpecification[] {
         'text-anchor': 'top',
         'text-optional': true,
       },
-      paint: { 'text-color': tokens.ink, 'text-opacity': 0.8, 'text-halo-color': tokens.paper, 'text-halo-width': 1.2 },
+      paint: { 'text-color': p.ink, 'text-opacity': 0.8, 'text-halo-color': p.paper, 'text-halo-width': 1.2 },
     },
   ]
 }
@@ -68,7 +68,7 @@ function glyphs(): LayerSpecification[] {
 // `priority` first, and the labels above them win any overlap. A located site (a ruin, a hacienda) also gets a
 // hairline leader from the drawing to the site; the leader still draws if its drawing loses a collision.
 // The spoiler filter by `first_seen` is not applied here yet.
-function vignettes(): LayerSpecification[] {
+function vignettes(p: Palette): LayerSpecification[] {
   const inRange = (kind: string): ExpressionSpecification => ['all', ['==', ['get', 'kind'], kind],
     ['>=', ['zoom'], ['get', 'min_zoom']], ['<', ['zoom'], ['get', 'max_zoom']]]
   return [
@@ -78,7 +78,7 @@ function vignettes(): LayerSpecification[] {
       source: 'vignettes',
       filter: inRange('vignette-leader'),
       layout: { 'line-cap': 'round' },
-      paint: { 'line-color': tokens.ink, 'line-width': 0.6, 'line-opacity': 0.6 },
+      paint: { 'line-color': p.ink, 'line-width': 0.6, 'line-opacity': 0.6 },
     },
     {
       id: 'vignette',
@@ -101,20 +101,16 @@ function vignettes(): LayerSpecification[] {
 // and hachures draw.
 const S5_SPLIT = 10
 const s5Blend = <T,>(low: T, high: T) => ['interpolate', ['linear'], ['zoom'], S5_SPLIT - 1, low, S5_SPLIT, high] as never
-// What the paper looks like above the split: the base paper under 70% of the near-white tint. Halos match it.
-export const S5_PAPER_SHOWN = '#f1ede2'
 
-function s5Ground(): LayerSpecification[] {
+function s5Ground(p: Palette): LayerSpecification[] {
   return [
     {
       id: 'relief-tint',
       type: 'color-relief',
       source: 'terrain',
       paint: {
-        // Imhof's aerial perspective, adapted to the desert: hazy grey-green basins, pale sand plains,
-        // warm ochre on the high sierra, paler summits. Metres; the region runs from 0 to about 3,000 m.
-        'color-relief-color': ['interpolate', ['linear'], ['elevation'], 0, '#d3d7c4', 600, '#dedbbf', 1100, '#e6dcbb',
-          1600, '#e9d9b1', 1950, '#e0c498', 2300, '#d3ae88', 2700, '#d8bfa8', 3200, '#e9e0d6'],
+        // Imhof's aerial perspective, adapted to the desert (tokens.ts).
+        'color-relief-color': ['interpolate', ['linear'], ['elevation'], ...p.imhof.flat()] as ExpressionSpecification,
         'color-relief-opacity': s5Blend(0.9, 0),
       },
     },
@@ -123,7 +119,7 @@ function s5Ground(): LayerSpecification[] {
       type: 'color-relief',
       source: 'terrain',
       paint: {
-        'color-relief-color': ['interpolate', ['linear'], ['elevation'], 0, '#f7f4ec', 3000, '#f3eee2'],
+        'color-relief-color': ['interpolate', ['linear'], ['elevation'], 0, p.reliefPaper[0], 3000, p.reliefPaper[1]],
         'color-relief-opacity': s5Blend(0, 0.7),
       },
     },
@@ -135,10 +131,9 @@ function s5Ground(): LayerSpecification[] {
         'hillshade-method': 'combined',
         'hillshade-illumination-direction': 315,
         'hillshade-exaggeration': s5Blend(0.65, 0.5),
-        // Imhof: blue-violet shadows and warm light; above the split, a light swisstopo grey.
-        'hillshade-shadow-color': s5Blend('rgba(74, 88, 128, 0.5)', 'rgba(74, 79, 92, 0.22)'),
-        'hillshade-highlight-color': s5Blend('rgba(255, 240, 192, 0.35)', 'rgba(255, 255, 255, 0.3)'),
-        'hillshade-accent-color': s5Blend('rgba(74, 88, 128, 0.12)', 'rgba(74, 79, 92, 0.05)'),
+        'hillshade-shadow-color': s5Blend(p.shadeLow.shadow, p.shadeHigh.shadow),
+        'hillshade-highlight-color': s5Blend(p.shadeLow.highlight, p.shadeHigh.highlight),
+        'hillshade-accent-color': s5Blend(p.shadeLow.accent, p.shadeHigh.accent),
       },
     },
   ]
@@ -157,18 +152,17 @@ const byShade = (amount: number): ExpressionSpecification => ['+', 1 - amount, [
 // and below zoom 12 only 70% of them draw (Rand is a fixed digit, 0-9). The 90 m coarse DEM gives gentler
 // slopes, so coarse lines get their own slope range. In the corridor a denser set takes over from zoom 12:
 // the fine strokes fade out (`out`) as the dense ones fade in (`in`) by zoom 12.6.
-const S5_INK = '#6e5443'
 const FADE = {
   none: [10, 0.55, 13, 1],
   out: [10, 0.55, 12, 0.85, 12.6, 0],
   in: [12, 0, 12.6, 0.94, 13, 1],
 } as const
-function strokePaint(slope: [number, number], copy: boolean, fade: keyof typeof FADE = 'none') {
+function strokePaint(ink: string, slope: [number, number], copy: boolean, fade: keyof typeof FADE = 'none') {
   const w: ExpressionSpecification = ['*', 0.9, ['interpolate', ['linear'], ['get', 'Slope'], slope[0], 0.25, slope[1], 1.3], byShade(0.4)]
   const o: ExpressionSpecification = ['*', copy ? 0.4 : 1, ['min', 1, ['*', 0.65, byShade(0.6)]]]
   const stops = FADE[fade].flatMap((v, i) => (i % 2 ? [['min', 1, ['*', v, o]]] : [v]))
   return {
-    'line-color': S5_INK,
+    'line-color': ink,
     'line-width': ['interpolate', ['linear'], ['zoom'], 10, ['*', 0.8, w], 13, w] as ExpressionSpecification,
     'line-opacity': ['interpolate', ['linear'], ['zoom'], ...stops] as unknown as ExpressionSpecification,
     // A faint second stroke beside each line gives it body.
@@ -179,12 +173,12 @@ const strokeFilter = (kind?: string): ExpressionSpecification => ['all',
   ...(kind ? [['==', ['get', 'kind'], kind] as ExpressionSpecification] : []),
   ['step', ['zoom'], ['<', ['get', 'Rand'], 7], 12, true]]
 
-function s5Lines(): LayerSpecification[] {
+function s5Lines(p: Palette): LayerSpecification[] {
   const strokes = (id: string, source: string, layer: string, fade: keyof typeof FADE, minzoom = S5_SPLIT): LayerSpecification[] =>
     [false, true].map((copy) => ({
       id: copy ? `${id}-copy` : id, type: 'line', source, 'source-layer': layer, minzoom,
       filter: strokeFilter(), layout: { 'line-cap': 'round' },
-      paint: strokePaint(layer === 'coarse' ? [5, 25] : [10, 40], copy, fade),
+      paint: strokePaint(p.hachure, layer === 'coarse' ? [5, 25] : [10, 40], copy, fade),
     }))
   return [
     {
@@ -192,7 +186,7 @@ function s5Lines(): LayerSpecification[] {
       id: 'contour', type: 'line', source: 'contours', 'source-layer': 'contour', minzoom: S5_SPLIT,
       filter: ['step', ['zoom'], ['==', ['%', ['get', 'Ele'], 100], 0], 12, true],
       layout: { 'line-join': 'round' },
-      paint: { 'line-color': '#b0622e', 'line-opacity': 0.45, 'line-width': ['case', ['==', ['%', ['get', 'Ele'], 200], 0], 0.8, 0.4] },
+      paint: { 'line-color': p.contour, 'line-opacity': 0.45, 'line-width': ['case', ['==', ['%', ['get', 'Ele'], 200], 0], 0.8, 0.4] },
     },
     ...strokes('hachure-coarse', 'relief', 'coarse', 'none'),
     ...strokes('hachure-fine', 'relief', 'fine', 'out'),
@@ -200,11 +194,11 @@ function s5Lines(): LayerSpecification[] {
   ]
 }
 
-// The relief layers; literaryStyle places each group at its depth.
-export function reliefLayers(): {
+// The relief layers in a theme's palette; literaryStyle places each group at its depth.
+export function reliefLayers(p: Palette): {
   hillshade: LayerSpecification[]; hachures: LayerSpecification[]; glyphs: LayerSpecification[]; vignettes: LayerSpecification[]
 } {
-  return { hillshade: s5Ground(), hachures: s5Lines(), glyphs: glyphs(), vignettes: vignettes() }
+  return { hillshade: s5Ground(p), hachures: s5Lines(p), glyphs: glyphs(p), vignettes: vignettes(p) }
 }
 
 // The Raised view (plan oblique relief): line work from oblique-<n>.pmtiles in which every point has moved north
@@ -220,8 +214,9 @@ const RAISED_BASE: Record<string, string> = {
 }
 
 // Each group of raised layers goes in below the classic layer named by `before`: the Mexico side under the
-// paper tint, the relief under the journeys' halo, and the boundaries, water and roads over it.
-export function raisedLayers(classic: LayerSpecification[]): { before: string; layers: LayerSpecification[] }[] {
+// paper tint, the relief under the journeys' halo, and the boundaries, water and roads over it. `classic` is the
+// literary style's layers in the palette `p`.
+export function raisedLayers(classic: LayerSpecification[], p: Palette): { before: string; layers: LayerSpecification[] }[] {
   const source = { source: 'oblique', 'source-layer': 'oblique' } as const
   const base = { ...source, minzoom: RAISED_MIN_ZOOM, layout: { 'line-cap': 'round', 'line-join': 'round', visibility: 'none' } } as const
   const kind = (k: string): ExpressionSpecification => ['==', ['get', 'kind'], k]
@@ -237,15 +232,15 @@ export function raisedLayers(classic: LayerSpecification[]): { before: string; l
       before: 'contour',
       layers: [
         { ...base, id: 'raised-contour', type: 'line', filter: kind('contour'),
-          paint: { 'line-color': '#b0622e', 'line-width': 0.4, 'line-opacity': 0.45 } },
-        { ...base, id: 'raised-stroke', type: 'line', filter: strokeFilter('stroke'), paint: strokePaint([10, 40], false) },
-        { ...base, id: 'raised-stroke-copy', type: 'line', filter: strokeFilter('stroke'), paint: strokePaint([10, 40], true) },
+          paint: { 'line-color': p.contour, 'line-width': 0.4, 'line-opacity': 0.45 } },
+        { ...base, id: 'raised-stroke', type: 'line', filter: strokeFilter('stroke'), paint: strokePaint(p.hachure, [10, 40], false) },
+        { ...base, id: 'raised-stroke-copy', type: 'line', filter: strokeFilter('stroke'), paint: strokePaint(p.hachure, [10, 40], true) },
         // Ridgelines, heavier on higher ridges (rel: height above the ground around, metres); below zoom 12 only the higher ones.
         { ...base, id: 'raised-ridge', type: 'line',
           filter: ['all', kind('ridge'), ['step', ['zoom'], ['>=', ['get', 'rel'], 160], 12, true]],
-          paint: { 'line-color': tokens.ink, 'line-width': ['interpolate', ['linear'], ['get', 'rel'], 100, 0.5, 300, 1.1], 'line-opacity': 0.7 } },
+          paint: { 'line-color': p.ink, 'line-width': ['interpolate', ['linear'], ['get', 'rel'], 100, 0.5, 300, 1.1], 'line-opacity': 0.7 } },
         { ...base, id: 'raised-crest', type: 'line', filter: kind('crest'),
-          paint: { 'line-color': tokens.ink, 'line-width': 0.9, 'line-opacity': 0.8 } },
+          paint: { 'line-color': p.ink, 'line-width': 0.9, 'line-opacity': 0.8 } },
       ],
     },
     {
@@ -254,7 +249,7 @@ export function raisedLayers(classic: LayerSpecification[]): { before: string; l
         copy('county-line'), copy('state-line'), copy('country-line'),
         // Streams on both sides of the border, wider with Strahler order (or NHD's stand-in for it).
         { ...base, id: 'raised-stream', type: 'line', filter: kind('stream'),
-          paint: { 'line-color': '#6f8796', 'line-width': ['interpolate', ['linear'], ['get', 'ord'], 3, 0.6, 8, 2.2], 'line-opacity': 0.6 } },
+          paint: { 'line-color': p.raisedStream, 'line-width': ['interpolate', ['linear'], ['get', 'ord'], 3, 0.6, 8, 2.2], 'line-opacity': 0.6 } },
         copy('road'), copy('railroad'), copy('railroad-ties'), copy('creek-label'),
       ],
     },

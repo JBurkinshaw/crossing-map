@@ -2,10 +2,7 @@ import { Layer, Marker, Source } from '@vis.gl/react-maplibre'
 import type { ExpressionSpecification } from 'maplibre-gl'
 import type { Feature, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
-import { S5_PAPER_SHOWN } from './relief'
-import { fonts, journeyInk, tokens } from './tokens'
-
-const inkByJourney = ['match', ['get', 'journey'], ...Object.entries(journeyInk).flat(), tokens.ink] as unknown as ExpressionSpecification
+import { fonts, journeyInks, palettes, type Theme } from './tokens'
 
 type Props = {
   story: Story
@@ -18,9 +15,14 @@ type Props = {
   selectedId: string | null
   // In step-through, the sequence of the current stop: the road from there on fades (data dimming, plan 9).
   aheadFrom: number | null
+  // The palette the layers are drawn in: the map's theme on the classic basemap.
+  theme: Theme
 }
 
-export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom }: Props) {
+export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, theme }: Props) {
+  const tokens = palettes[theme]
+  const journeyInk = journeyInks(tokens)
+  const inkByJourney = ['match', ['get', 'journey'], ...Object.entries(journeyInk).flat(), tokens.ink] as unknown as ExpressionSpecification
   const journey = stops[0]?.properties.journey ?? ''
   const inFocus: ExpressionSpecification = ['==', ['get', 'journey'], journey]
   const selected: ExpressionSpecification = ['==', ['get', 'id'], selectedId ?? '']
@@ -53,7 +55,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           filter={inFocus}
           layout={{ 'line-cap': 'round', 'line-join': 'round', visibility: halo ? 'visible' : 'none' }}
           paint={{
-            'line-color': ['interpolate', ['linear'], ['zoom'], 9, tokens.paper, 10, S5_PAPER_SHOWN],
+            'line-color': ['interpolate', ['linear'], ['zoom'], 9, tokens.paper, 10, tokens.paperShown],
             'line-width': ['interpolate', ['linear'], ['zoom'], 8, 16, 13, 40],
             'line-blur': 10,
             'line-opacity': 0.9,
