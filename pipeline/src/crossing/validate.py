@@ -50,12 +50,14 @@ def check_translations(path: Path) -> list[str]:
               for e in Draft202012Validator(schema).iter_errors(doc)]
     if errors or not isinstance(doc, list):
         return errors
-    first_seen = {}
-    for name in ("stops", "places", "areas"):
+    first_seen, kind = {}, {}
+    # A line points at a stop, place or area, or (talk on the road) at a route segment.
+    for name, k in (("stops", "stop"), ("places", "place"), ("areas", "area"), ("journeys", "road")):
         layer = DATA / f"{name}.geojson"
         if layer.exists():
             for f in json.loads(layer.read_text(encoding="utf-8"))["features"]:
                 first_seen[f["properties"]["id"]] = f["properties"].get("first_seen")
+                kind[f["properties"]["id"]] = k
     seen: set[str] = set()
     for i, t in enumerate(doc):
         where = f"{i} ({t['id']})"
@@ -68,9 +70,11 @@ def check_translations(path: Path) -> list[str]:
             errors.append(f"{where}: part, episode and first_seen disagree")
         ref = t["location_ref"]
         if ref is not None and ref not in first_seen:
-            errors.append(f"{where}: location_ref {ref} is not a stop, place or area id")
+            errors.append(f"{where}: location_ref {ref} is not a stop, place, area or route segment id")
         elif ref is not None and (first_seen[ref] or "") > t["first_seen"]:
             errors.append(f"{where}: location_ref {ref} is first seen after the line (a spoiler)")
+        if t["location_kind"] != (kind.get(ref) if ref is not None else None):
+            errors.append(f"{where}: location_kind {t['location_kind']} does not match location_ref {ref}")
     return errors
 
 

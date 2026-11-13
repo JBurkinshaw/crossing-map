@@ -5,7 +5,7 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["id", "part", "episode", "page", "es_incipit", "en", "source", "confidence", "speaker", "listener", "location_ref", "first_seen", "guide_page"],
+    "required": ["id", "part", "episode", "page", "es_incipit", "en", "source", "confidence", "speaker", "listener", "location_ref", "location_kind", "first_seen", "guide_page"],
     "additionalProperties": false,
     "properties": {
       "id": { "type": "string", "pattern": "^tr-[1-4]-(0[1-9]|1[0-4])-[0-9]{3}$" },
@@ -18,7 +18,8 @@
       "confidence": { "enum": ["high", "medium", "low", null] },
       "speaker": { "type": ["string", "null"], "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
       "listener": { "type": ["string", "null"], "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
-      "location_ref": { "type": ["string", "null"], "description": "Id of the stop, place or area where it was said (stops, places or areas GeoJSON)." },
+      "location_ref": { "type": ["string", "null"], "description": "Id of the stop, place or area where it was said (stops, places or areas GeoJSON), or of the route segment (journeys GeoJSON) for talk on the road." },
+      "location_kind": { "enum": ["stop", "place", "area", "road", null], "description": "Which layer location_ref is in; null when location_ref is null. 'road' is inferred by this site: the line has no place, and its episode is spent travelling that route segment. The map shows it as the segment buffered 2 km, 'on the road between X and Y'." },
       "first_seen": { "type": "string", "pattern": "^[1-4]-(0[1-9]|1[0-4])$" },
       "guide_page": { "type": ["integer", "null"], "minimum": 1, "maximum": 426, "description": "The Vintage page under which the Campbell guide lists this line, for a link with credit; null when the guide has no entry (a gap)." }
     }

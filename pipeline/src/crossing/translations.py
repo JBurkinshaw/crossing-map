@@ -41,6 +41,7 @@ OUT = DATA / "translations.json"
 REVIEW = REPO / "review" / "stage-5"
 REVIEW_CSV = REVIEW / "translations-review.csv"
 GAPS_CSV = REVIEW / "translation-gaps.csv"
+ROAD_CSV = REVIEW / "road-refs.csv"  # talk on the road: runs of lines judged to be spoken on one route segment
 
 INCIPIT_WORDS = 5
 MATCH_MIN = 85  # rapidfuzz partial ratio for a guide match (plan, section 8)
@@ -491,6 +492,46 @@ def load_places() -> tuple[dict[str, list[dict]], dict[str, str]]:
     return by_episode, first_seen
 
 
+# The layer each kind of location_ref lives in. "road" is a route segment: talk on the road, shown as a corridor.
+LAYER_KIND = {"stops": "stop", "places": "place", "areas": "area", "journeys": "road"}
+
+
+def load_features() -> dict[str, dict]:
+    """Every id a line may point at, with its location_kind, first_seen and episode."""
+    out = {}
+    for layer, kind in LAYER_KIND.items():
+        path = DATA / f"{layer}.geojson"
+        if not path.exists():
+            continue
+        for f in json.loads(path.read_text(encoding="utf-8"))["features"]:
+            p = f["properties"]
+            out[p["id"]] = {"kind": kind, "first_seen": p.get("first_seen") or p.get("episode") or "1-01",
+                            "episode": p.get("episode")}
+    return out
+
+
+def load_road_refs(features: dict[str, dict]) -> list[tuple[str, str, str]]:
+    """(first id, last id, segment id) for each run of lines judged to be spoken on the road.
+
+    The judgement is by hand, from the episode's stops and segments and the narration around the lines
+    (review/stage-5/road-refs.csv, in our own words). A run lies in one episode, and its segment is
+    travelled in that same episode, so a road reference is never a guess across episodes.
+    """
+    if not ROAD_CSV.exists():
+        return []
+    runs = []
+    for row in csv.DictReader(ROAD_CSV.open(encoding="utf-8")):
+        first, last, seg = row["first_id"], row["last_id"], row["segment"]
+        episode = first[3:7]
+        if last[3:7] != episode or last < first:
+            sys.exit(f"{ROAD_CSV.name}: {first}..{last} is not a run within one episode")
+        feature = features.get(seg)
+        if not feature or feature["kind"] != "road" or feature["episode"] != episode:
+            sys.exit(f"{ROAD_CSV.name}: {seg} is not a route segment travelled in episode {episode}")
+        runs.append((first, last, seg))
+    return runs
+
+
 def locate(ep_text: str, para_start: int, candidates: list[dict]) -> str | None:
     """The stop (else place) of this episode whose name the text gave most recently before the span."""
     before = deaccent(ep_text[:para_start])
@@ -539,7 +580,7 @@ def cmd_find() -> None:
 
 
 REVIEW_FIELDS = ["id", "part", "episode", "page", "kind", "occurrences", "es_incipit", "words", "en", "confidence",
-                 "note", "speaker", "listener", "location_ref", "guide_page", "skip", "reviewed"]
+                 "note", "speaker", "listener", "location_ref", "location_kind", "guide_page", "skip", "reviewed"]
 GAP_FIELDS = ["id", "part", "episode", "page", "kind", "es_incipit", "words", "en", "confidence", "note"]
 ES_SEARCH = WORK / "es-search.json"  # accent-folded full spans: private, never published (see the README)
 TRUE = (True, "true", "yes", "1")
@@ -568,15 +609,20 @@ def cmd_build() -> None:
         sys.exit(f"Missing {SPANS}; run the find step first")
     spans = json.loads(SPANS.read_text(encoding="utf-8"))["spans"]
     drafts = load_drafts()
-    _, first_seen = load_places()
+    features = load_features()
+    roads = load_road_refs(features)
     records, review_rows, gap_rows, search = [], [], [], {}
     for s in spans:
         d = drafts.get(s["id"], {})
         skip = d.get("skip") in TRUE
-        # The review CSV may set location_ref by hand; "none" clears it.
+        # The review CSV may set location_ref by hand; "none" clears it (and keeps a road reference off too).
         loc = d.get("location_ref", s.get("location_ref"))
+        cleared = loc in ("none", "null")
         loc = None if loc in (None, "", "none", "null") else loc
-        if loc and first_seen.get(loc, "9-99") > s["episode"]:
+        if loc is None and not cleared:
+            # Talk on the road: a line with no place, in a run judged to be spoken on one route segment.
+            loc = next((seg for first, last, seg in roads if first <= s["id"] <= last), None)
+        if loc and features.get(loc, {}).get("first_seen", "9-99") > s["episode"]:
             loc = None  # never point at something the reader has not met yet
         rec = {
             "id": s["id"],
@@ -590,6 +636,7 @@ def cmd_build() -> None:
             "speaker": slug(d.get("speaker")),
             "listener": slug(d.get("listener")),
             "location_ref": loc,
+            "location_kind": features[loc]["kind"] if loc else None,
             "first_seen": s["episode"],
             "guide_page": s.get("guide_page"),
         }
@@ -614,7 +661,8 @@ def cmd_build() -> None:
     print(f"{OUT.relative_to(REPO)}: {len(records)} translations {by_part}, "
           f"{sum(1 for r in records if r['en'])} with English, "
           f"{sum(1 for r in records if r['guide_page'])} linked to a guide page, {len(gap_rows)} gaps, "
-          f"{len(review_rows) - len(records)} skipped as not Spanish")
+          f"{len(review_rows) - len(records)} skipped as not Spanish, "
+          f"{sum(1 for r in records if r['location_kind'] == 'road')} spoken on the road")
 
 
 def main() -> None:
