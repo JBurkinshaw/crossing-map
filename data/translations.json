@@ -10618,7 +10618,7 @@
   "confidence": "high",
   "speaker": "ruiz",
   "listener": "billy",
-  "location_ref": "j7-deming",
+  "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
   "guide_page": null
@@ -10634,7 +10634,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "ruiz",
-  "location_ref": "j7-deming",
+  "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
   "guide_page": null
@@ -10650,7 +10650,7 @@
   "confidence": "high",
   "speaker": "ruiz",
   "listener": "billy",
-  "location_ref": "j7-deming",
+  "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
   "guide_page": null
@@ -10666,7 +10666,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "ruiz",
-  "location_ref": "j7-deming",
+  "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
   "guide_page": null
@@ -10682,7 +10682,7 @@
   "confidence": "high",
   "speaker": "ruiz",
   "listener": "billy",
-  "location_ref": "j7-deming",
+  "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
   "guide_page": 342
@@ -10698,7 +10698,7 @@
   "confidence": "high",
   "speaker": "ruiz",
   "listener": "billy",
-  "location_ref": "j7-deming",
+  "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
   "guide_page": null
@@ -10714,7 +10714,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "ruiz",
-  "location_ref": "j7-deming",
+  "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
   "guide_page": null
@@ -10730,7 +10730,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "woman",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": null
@@ -10746,7 +10746,7 @@
   "confidence": "high",
   "speaker": "woman",
   "listener": "billy",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": null
@@ -10762,7 +10762,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "woman",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": null
@@ -10778,7 +10778,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "woman",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": null
@@ -10794,7 +10794,7 @@
   "confidence": "high",
   "speaker": "woman",
   "listener": "billy",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": 354
@@ -10810,7 +10810,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "woman",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": null
@@ -10826,7 +10826,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "woman",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": null
@@ -10842,7 +10842,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "woman",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": 354
@@ -10858,7 +10858,7 @@
   "confidence": "high",
   "speaker": "woman",
   "listener": "billy",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": 354
@@ -10874,7 +10874,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "woman",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": null
@@ -10890,7 +10890,7 @@
   "confidence": "high",
   "speaker": "woman",
   "listener": "billy",
-  "location_ref": "j7-steins",
+  "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
   "guide_page": 354
@@ -12650,7 +12650,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "woman",
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-namiquipa",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": 374
@@ -12666,7 +12666,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "woman",
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-namiquipa",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": 374
@@ -12682,7 +12682,7 @@
   "confidence": "high",
   "speaker": "corridero",
   "listener": null,
-  "location_ref": "j6-san-buenaventura",
+  "location_ref": "j7-temosachic",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": 375
@@ -12698,7 +12698,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j6-san-buenaventura",
+  "location_ref": "j7-temosachic",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": 375
@@ -12714,7 +12714,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-temosachic",
+  "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13306,7 +13306,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": 380
@@ -13322,7 +13322,7 @@
   "confidence": "high",
   "speaker": "girl",
   "listener": null,
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13338,7 +13338,7 @@
   "confidence": "high",
   "speaker": "girl",
   "listener": null,
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13354,7 +13354,7 @@
   "confidence": "high",
   "speaker": "girl",
   "listener": null,
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13370,7 +13370,7 @@
   "confidence": "high",
   "speaker": "girl",
   "listener": null,
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": 381
@@ -13386,7 +13386,7 @@
   "confidence": "high",
   "speaker": "girl",
   "listener": null,
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13402,7 +13402,7 @@
   "confidence": "high",
   "speaker": "girl",
   "listener": null,
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13418,7 +13418,7 @@
   "confidence": "high",
   "speaker": "girl",
   "listener": null,
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13434,7 +13434,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": 381
@@ -13450,7 +13450,7 @@
   "confidence": "high",
   "speaker": "girl",
   "listener": "billy",
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13466,7 +13466,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "girl",
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13482,7 +13482,7 @@
   "confidence": "high",
   "speaker": "girl",
   "listener": "billy",
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13498,7 +13498,7 @@
   "confidence": "high",
   "speaker": "girl",
   "listener": "billy",
-  "location_ref": "j6-bachiniva",
+  "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13514,7 +13514,7 @@
   "confidence": "medium",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-babicora-high-country",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13530,7 +13530,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-babicora-high-country",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13546,7 +13546,7 @@
   "confidence": "high",
   "speaker": "man",
   "listener": "billy",
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": 383
@@ -13562,7 +13562,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "man",
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13578,7 +13578,7 @@
   "confidence": "high",
   "speaker": "man",
   "listener": "billy",
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13594,7 +13594,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "man",
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13610,7 +13610,7 @@
   "confidence": "high",
   "speaker": "man",
   "listener": "billy",
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13626,7 +13626,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j6-galeana",
+  "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13642,7 +13642,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13658,7 +13658,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-babicora-2",
+  "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
   "guide_page": null
@@ -13674,7 +13674,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-san-buenaventura",
+  "location_ref": "j7-boyds-grave",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -13690,7 +13690,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-san-buenaventura",
+  "location_ref": "j7-boyds-grave",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -13706,7 +13706,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-san-buenaventura",
+  "location_ref": "j7-boyds-grave",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -13914,7 +13914,7 @@
   "confidence": "high",
   "speaker": "rider",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 394
@@ -13930,7 +13930,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "rider",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -13946,7 +13946,7 @@
   "confidence": "high",
   "speaker": "rider",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -13962,7 +13962,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "rider",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -13978,7 +13978,7 @@
   "confidence": "high",
   "speaker": "rider",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 394
@@ -13994,7 +13994,7 @@
   "confidence": "high",
   "speaker": "rider",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 395
@@ -14010,7 +14010,7 @@
   "confidence": "high",
   "speaker": "rider",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14026,7 +14026,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 395
@@ -14042,7 +14042,7 @@
   "confidence": "high",
   "speaker": "rider",
   "listener": "rider",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14058,7 +14058,7 @@
   "confidence": "high",
   "speaker": "rider",
   "listener": "rider",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14074,7 +14074,7 @@
   "confidence": "high",
   "speaker": "rider",
   "listener": "rider",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14090,7 +14090,7 @@
   "confidence": "high",
   "speaker": "rider",
   "listener": "rider",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 397
@@ -14106,7 +14106,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "gypsy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 402
@@ -14122,7 +14122,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "porfirio",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 402
@@ -14138,7 +14138,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 402
@@ -14154,7 +14154,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "gypsy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 402
@@ -14170,7 +14170,7 @@
   "confidence": "medium",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 402
@@ -14186,7 +14186,7 @@
   "confidence": "medium",
   "speaker": "billy",
   "listener": "gypsy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14202,7 +14202,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14218,7 +14218,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "gypsy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14234,7 +14234,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14250,7 +14250,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "rafael",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14266,7 +14266,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14282,7 +14282,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "gypsy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14298,7 +14298,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 403
@@ -14314,7 +14314,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 404
@@ -14330,7 +14330,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 404
@@ -14346,7 +14346,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 405
@@ -14362,7 +14362,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 406
@@ -14378,7 +14378,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 406
@@ -14394,7 +14394,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 408
@@ -14410,7 +14410,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "gypsy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 409
@@ -14426,7 +14426,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 411
@@ -14442,7 +14442,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14458,7 +14458,7 @@
   "confidence": "high",
   "speaker": null,
   "listener": null,
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14474,7 +14474,7 @@
   "confidence": "medium",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14490,7 +14490,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14506,7 +14506,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "gypsy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 412
@@ -14522,7 +14522,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 412
@@ -14538,7 +14538,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14554,7 +14554,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14570,7 +14570,7 @@
   "confidence": "high",
   "speaker": "billy",
   "listener": "gypsy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14586,7 +14586,7 @@
   "confidence": "high",
   "speaker": "gypsy",
   "listener": "billy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": null
@@ -14602,7 +14602,7 @@
   "confidence": "medium",
   "speaker": "billy",
   "listener": "gypsy",
-  "location_ref": "j7-corralitos",
+  "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
   "guide_page": 414
