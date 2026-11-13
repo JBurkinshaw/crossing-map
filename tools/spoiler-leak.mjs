@@ -1,8 +1,9 @@
 // The spoiler-leak test (docs/plan.md, section 11, acceptance criteria): for several reading positions, load
 // the app and check that nothing first seen later shows anywhere: the story data given to the map, the
-// features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop,
-// "Named elsewhere"), mountain glyphs, vignettes, search results and the cards they open (places and the
-// translations "Spoken here"), the layer key, and the same again in the Raised view.
+// features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop and
+// the road card of each stop with talk on the road, "Named elsewhere"), mountain glyphs, vignettes,
+// search results and the cards they open (places and the translations "Spoken here"), the layer key, and the
+// same again in the Raised view.
 //
 // Usage, with the app running (cd site && npm run dev -- --port 5185, or npm run build && npx vite preview --port 5185):
 //   cd tools && npm run spoiler-leak -- [base-url]     (default http://localhost:5185/; about 10 minutes)
@@ -140,8 +141,16 @@ for (const point of POINTS) {
     await page.selectOption('.journey-pick select', journey)
     const next = page.getByRole('button', { name: 'Next' })
     for (;;) {
-      for (const more of await page.locator('.stop .text-button').all()) await more.click()
+      for (const more of await page.locator('.stop .translations + .text-button').all()) await more.click()
       await checkPanel(page, reached, `${where}, ${journey} step ${steps}`, later, lines)
+      // Talk on the road from this stop: its road's card, every line, and the corridor on the map.
+      if (await page.locator('.stop .road-lines').count()) {
+        await page.locator('.stop .road-lines').click()
+        for (const more of await page.locator('.place-card .translations + .text-button').all()) await more.click()
+        await checkPanel(page, reached, `${where}, ${journey} step ${steps} road`, later, lines)
+        await checkMap(page, reached, `${where}, ${journey} step ${steps} road`)
+        await page.locator('.place-card .close').click()
+      }
       steps++
       if (await next.isDisabled()) break
       await next.click()
@@ -164,7 +173,7 @@ for (const point of POINTS) {
         await page.waitForTimeout(200)
         await checkPanel(page, reached, `${where}, search "${q}" picked`, later, lines)
         // Every line a card lists, not only the first few.
-        for (const more of await page.locator('.panel .text-button').all()) await more.click()
+        for (const more of await page.locator('.panel .translations + .text-button').all()) await more.click()
         await checkPanel(page, reached, `${where}, search "${q}" picked, all lines`, later, lines)
       }
       searched++

@@ -1,8 +1,13 @@
+import { useMemo } from 'react'
 import { Layer, Marker, Source } from '@vis.gl/react-maplibre'
 import type { ExpressionSpecification } from 'maplibre-gl'
-import type { Feature, Point } from 'geojson'
+import type { Feature, FeatureCollection, Geometry, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
+import { corridor, midpoint } from './corridor'
 import { fonts, journeyInks, palettes, type Theme } from './tokens'
+
+// Talk on the road: the route segment a picked line was spoken on, and its label ("on the road between X and Y").
+export type Corridor = { segment: Feature<Geometry, StoryProps>; label: string }
 
 type Props = {
   story: Story
@@ -17,9 +22,26 @@ type Props = {
   aheadFrom: number | null
   // The palette the layers are drawn in: the map's theme on the classic basemap.
   theme: Theme
+  // The corridor to outline, when the line picked was spoken on the road.
+  corridor: Corridor | null
 }
 
-export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, theme }: Props) {
+export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, theme, corridor: road }: Props) {
+  const corridorData = useMemo((): FeatureCollection | null => {
+    if (!road) return null
+    const area = corridor(road.segment.geometry)
+    const at = midpoint(road.segment.geometry)
+    if (!area || !at) return null
+    const properties = { id: road.segment.properties.id, first_seen: road.segment.properties.first_seen, label: road.label }
+    return {
+      type: 'FeatureCollection',
+      features: [
+        { type: 'Feature', geometry: area, properties: { ...properties, part: 'area' } },
+        { type: 'Feature', geometry: { type: 'Point', coordinates: at }, properties: { ...properties, part: 'label' } },
+      ],
+    }
+  }, [road])
+
   const tokens = palettes[theme]
   const journeyInk = journeyInks(tokens)
   const inkByJourney = ['match', ['get', 'journey'], ...Object.entries(journeyInk).flat(), tokens.ink] as unknown as ExpressionSpecification
@@ -142,6 +164,25 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           }}
         />
       </Source>
+      {corridorData && (
+        <Source id="corridor" type="geojson" data={corridorData}>
+          <Layer id="corridor-fill" type="fill" filter={['==', ['get', 'part'], 'area']} paint={{ 'fill-color': tokens.ink, 'fill-opacity': 0.08 }} />
+          <Layer
+            id="corridor-edge"
+            type="line"
+            filter={['==', ['get', 'part'], 'area']}
+            layout={{ 'line-join': 'round' }}
+            paint={{ 'line-color': tokens.ink, 'line-width': 1.5, 'line-dasharray': [4, 2] }}
+          />
+          <Layer
+            id="corridor-label"
+            type="symbol"
+            filter={['==', ['get', 'part'], 'label']}
+            layout={{ 'text-field': ['get', 'label'], 'text-font': ['literal', [fonts.italic]], 'text-size': 13, 'text-max-width': 12 }}
+            paint={{ 'text-color': tokens.ink, 'text-halo-color': tokens.paper, 'text-halo-width': 2 }}
+          />
+        </Source>
+      )}
       {stops.map((f, i) => (
         <Marker
           key={f.properties.id}

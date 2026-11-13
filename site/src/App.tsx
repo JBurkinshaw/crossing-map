@@ -4,6 +4,8 @@ import type { Feature, Geometry, Position } from 'geojson'
 import { useElsewhere, useStory, type Story, type StoryProps } from './data/story'
 import { useTranslations, type Translation } from './data/translations'
 import { MapView, type View } from './map/MapView'
+import { corridor as corridorOf } from './map/corridor'
+import type { Corridor } from './map/StoryLayers'
 import type { DrawerHeight } from './panel/Drawer'
 import { Panel } from './panel/Panel'
 import { PlaceCard } from './panel/PlaceCard'
@@ -39,8 +41,8 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-// A place or area picked on the map or in search.
-type Selection = { layer: 'places' | 'areas'; id: string } | null
+// A place or area picked on the map or in search, or the road a line was spoken on (a route segment).
+type Selection = { layer: 'places' | 'areas' | 'journeys'; id: string } | null
 
 const motion = (ms: number) => (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : ms)
 
@@ -70,8 +72,27 @@ const journeyStops = (story: Story | null, journey: string) =>
     .filter((f) => f.properties.journey === journey)
     .sort((a, b) => (a.properties.sequence ?? 0) - (b.properties.sequence ?? 0))
 
-const byId = (story: Story | null, layer: 'places' | 'stops' | 'areas', id: string) =>
+const byId = (story: Story | null, layer: 'places' | 'stops' | 'areas' | 'journeys', id: string) =>
   (story?.[layer].features as Feature<Geometry, StoryProps>[] | undefined)?.find((f) => f.properties.id === id)
+
+// Talk on the road (plan section 8): a route segment is named by the places at its two ends, or by its stops
+// where a stop is not at a named place. Both ends are reached once the segment is (spoiler/filter.ts).
+function roadLabel(story: Story | null, segment: Feature<Geometry, StoryProps>): string {
+  const end = (sequence: number | null) => {
+    const stop = (story?.stops.features ?? []).find((s) => s.properties.journey === segment.properties.journey && s.properties.sequence === sequence)
+    const place = stop?.properties.place_ref ? byId(story, 'places', stop.properties.place_ref) : undefined
+    return place?.properties.name ?? stop?.properties.name
+  }
+  const seq = segment.properties.sequence
+  const [from, to] = [end(seq), end(seq === null ? null : seq + 1)]
+  return from && to ? `On the road between ${from} and ${to}` : segment.properties.name
+}
+
+// The bounds of a segment's corridor, else of the segment.
+const corridorBounds = (f: Feature<Geometry, StoryProps>) => {
+  const area = corridorOf(f.geometry)
+  return bounds(area ? [{ type: 'Feature', geometry: area, properties: {} }] : [f])
+}
 
 export default function App() {
   const route = useRoute()
@@ -189,11 +210,26 @@ export default function App() {
     flyTo(f)
   }
 
-  // A translation goes to where it was said; when the book does not say, to its episode on the journey then
-  // in progress (the one in focus if it has stops in that episode).
+  // Talk on the road: the segment's journey comes into focus at the stop the segment leaves from, its card
+  // opens, and the map frames the corridor.
+  const showRoad = (id: string) => {
+    const f = byId(flat, 'journeys', id)
+    const j = f?.properties.journey
+    if (!f || !j) return
+    const index = Math.max(0, stopsOf(j).findIndex((s) => s.properties.sequence === f.properties.sequence))
+    framed.current = j
+    dispatch({ type: 'goto', journey: j, index, stepping: false })
+    setSelection({ layer: 'journeys', id })
+    mapRef.current?.fitBounds(corridorBounds(byId(story, 'journeys', id) ?? f), { padding: 60, maxZoom: 11, duration: motion(1600) })
+  }
+
+  // A translation goes to where it was said (a stop, place or area, or the road for talk on the road); when
+  // the book does not say, to its episode on the journey then in progress (the one in focus if it has stops in
+  // that episode).
   const showTranslation = (t: Translation) => {
     setTranslationId(t.id)
     const ref = t.location_ref
+    if (ref && t.location_kind === 'road') return showRoad(ref)
     if (ref && byId(flat, 'stops', ref)) return showStop(ref)
     if (ref && byId(flat, 'places', ref)) return showFeature('places', ref)
     if (ref && byId(flat, 'areas', ref)) return showFeature('areas', ref)
@@ -229,8 +265,34 @@ export default function App() {
   const ref = translation?.location_ref
   const placed = !!ref && (!!byId(flat, 'stops', ref) || selected?.properties.id === ref)
   const stop = stops[stopIndex]
+  // The road from the current stop to the next, and the lines spoken on it.
+  const roadAhead = stop
+    ? (flat?.journeys.features as Feature<Geometry, StoryProps>[] | undefined)?.find(
+        (f) => f.properties.journey === stop.properties.journey && f.properties.sequence === stop.properties.sequence,
+      )
+    : undefined
+  const road = selection?.layer === 'journeys' ? selected : undefined
+  const corridor = useMemo((): Corridor | null => {
+    if (!road) return null
+    // In the Raised view the corridor follows the raised copy of the route.
+    const segment = byId(story, 'journeys', road.properties.id) ?? road
+    return { segment, label: roadLabel(flat, road).replace(/^On /, 'on ') }
+  }, [road, story, flat])
 
-  const card = selected ? (
+  const card = road ? (
+    <PlaceCard
+      feature={road}
+      title={roadLabel(flat, road)}
+      spoken={spokenAt.get(road.properties.id) ?? []}
+      spokenTitle="Spoken on this road"
+      spokenNote="The book does not say where these lines were spoken. The episode travels this road, so this site places them along it: the map outlines the route with 2 km either side."
+      currentTranslation={translationId}
+      onClose={() => {
+        setSelection(null)
+        setTranslationId(null)
+      }}
+    />
+  ) : selected ? (
     <PlaceCard
       feature={selected}
       spoken={spokenAt.get(selected.properties.id) ?? []}
@@ -273,6 +335,7 @@ export default function App() {
         }}
         onView={setView}
         reached={reached}
+        corridor={corridor}
       />
       <Panel
         header={<ReadingProgress progress={progress} isSet={isSet} episodes={episodes} onSet={setProgress} />}
@@ -285,6 +348,12 @@ export default function App() {
         stops={stops}
         stopIndex={stopIndex}
         spokenAtStop={stop ? (spokenAt.get(stop.properties.id) ?? []) : []}
+        spokenOnRoad={roadAhead ? (spokenAt.get(roadAhead.properties.id)?.length ?? 0) : 0}
+        onShowRoad={() => {
+          if (!roadAhead) return
+          setTranslationId(null)
+          showRoad(roadAhead.properties.id)
+        }}
         currentTranslation={translationId}
         onJourney={(journey) => dispatch({ type: 'journey', journey })}
         onStop={goToStop}

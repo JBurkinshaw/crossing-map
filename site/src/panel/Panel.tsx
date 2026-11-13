@@ -21,6 +21,9 @@ type Props = {
   stopIndex: number
   // What was said in Spanish at the current stop, and the line picked in search, if any.
   spokenAtStop: Translation[]
+  // Lines spoken on the road from the current stop to the next (talk on the road), and how to show that road.
+  spokenOnRoad: number
+  onShowRoad: () => void
   currentTranslation: string | null
   onJourney: (journey: string) => void
   onStop: (index: number) => void
@@ -32,6 +35,7 @@ type Props = {
 
 export function Panel(props: Props) {
   const { header, search, card, failed, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
+  const { spokenOnRoad, onShowRoad } = props
   const { phone, drawer, onDrawer } = props
   const stop = stops[stopIndex]
 
@@ -81,6 +85,11 @@ export function Panel(props: Props) {
           <h3>Spoken here</h3>
           <TranslationList key={stop.properties.id} items={spokenAtStop} current={currentTranslation} />
         </>
+      )}
+      {spokenOnRoad > 0 && (
+        <button type="button" className="text-button road-lines" onClick={onShowRoad}>
+          {spokenOnRoad === 1 ? '1 line' : `${spokenOnRoad} lines`} spoken on the road from this stop
+        </button>
       )}
     </section>
   )

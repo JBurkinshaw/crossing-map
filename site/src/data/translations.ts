@@ -13,8 +13,11 @@ export type Translation = {
   confidence: 'high' | 'medium' | 'low' | null
   speaker: string | null
   listener: string | null
-  // The stop, place or area where it was said; null when the text does not pin it down.
+  // The stop, place or area where it was said, or the route segment for talk on the road; null when the text
+  // does not pin it down. 'road' is this site's inference: the line has no place, and its episode travels that
+  // segment (review/stage-5/road-refs.csv).
   location_ref: string | null
+  location_kind: 'stop' | 'place' | 'area' | 'road' | null
   first_seen: string
   guide_page: number | null
 }

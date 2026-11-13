@@ -10,7 +10,7 @@ import type { Story, StoryProps } from '../data/story'
 import ClassicUnderlay from './ClassicUnderlay'
 import { LayerKey } from './LayerKey'
 import { OverviewInset } from './OverviewInset'
-import { StoryLayers } from './StoryLayers'
+import { StoryLayers, type Corridor } from './StoryLayers'
 import { RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
 import { BASE_LAYERS, literaryStyle, spriteUrl } from './style'
 import { palettes, storyBounds, type Theme } from './tokens'
@@ -83,6 +83,8 @@ type Props = {
   onView: (view: View) => void
   // The latest episode whose features may show (spoiler mode); the story layers arrive already filtered.
   reached: string
+  // Talk on the road: the route segment to outline as a corridor, with its label.
+  corridor: Corridor | null
 }
 
 // A row of switches, one of which is on: a radio group, one tab stop, with the arrow keys moving the choice.
@@ -163,6 +165,7 @@ function HomeControl({ onHome }: { onHome: () => void }) {
 
 export function MapView(props: Props) {
   const { mapRef, story, stops, stopIndex, onSelectStop, onSelectFeature, selectedId, aheadFrom, onHome, onView, reached } = props
+  const { corridor } = props
   const [theme, setTheme] = useTheme()
   const [basemap, setBasemap] = useState<Basemap>('literary')
   // The classic map follows the theme. Satellite and Compare keep the light map's inks over the imagery; only
@@ -357,6 +360,7 @@ export function MapView(props: Props) {
               selectedId={selectedId}
               aheadFrom={aheadFrom}
               theme={mapTheme}
+              corridor={corridor}
             />
           )}
         </Map>

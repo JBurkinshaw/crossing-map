@@ -21,6 +21,8 @@ export type StoryProps = {
   role?: string | null
   part?: number | null
   episode?: string | null
+  // Stops: the place the stop stands at, if it is a named one.
+  place_ref?: string | null
 }
 
 export type Story = {
