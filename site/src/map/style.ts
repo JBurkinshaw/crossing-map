@@ -1,5 +1,5 @@
 import type { LayerSpecification, StyleSpecification } from 'maplibre-gl'
-import { reliefLayers, reliefSources, type Treatment } from './relief'
+import { reliefLayers, reliefSources } from './relief'
 import { fonts, tokens } from './tokens'
 
 // The literary base: everything drawn from base.pmtiles, the paper, and relief. Satellite mode hides these.
@@ -7,15 +7,15 @@ export const BASE_LAYERS = [
   'paper', 'mexico', 'lake', 'county-line', 'state-line', 'creek', 'river-minor', 'river',
   'road', 'railroad', 'railroad-ties', 'creek-label', 'river-label',
   'relief-tint', 'relief-paper', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine', 'hachure-fine-copy',
-  'stipple', 'mountain-glyph',
+  'mountain-glyph',
 ]
 
 // The literary basemap (docs/plan.md, section 5.1): ink on caliche paper, the
 // Mexico side a shade darker, rivers in blue-grey ink, and a dash-dot
 // international line as on the 1850s-1880s survey sheets.
-export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: string, relief: Treatment): StyleSpecification {
+export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: string): StyleSpecification {
   const base = 'base'
-  const r = reliefLayers(relief)
+  const r = reliefLayers()
   const layers: LayerSpecification[] = [
       { id: 'paper', type: 'background', paint: { 'background-color': tokens.paper } },
       {
@@ -158,7 +158,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
     sprite: `${tilesBase.replace(/tiles\/$/, '')}sprites/glyphs`,
     sources: {
       [base]: { type: 'vector', url: `pmtiles://${tilesBase}base.pmtiles` },
-      ...reliefSources(relief, tilesBase, dataBase),
+      ...reliefSources(tilesBase, dataBase),
     },
     layers,
   }

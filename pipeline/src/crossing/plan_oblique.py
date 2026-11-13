@@ -43,7 +43,7 @@ from rasterio.transform import from_origin
 from scipy.ndimage import map_coordinates, minimum_filter
 from scipy.spatial import cKDTree
 
-from crossing.hachures import CRS, OUT, REPO, SCALES
+from crossing.hachures import COPERNICUS, CRS, OUT, REPO, SCALES
 
 FINE = OUT / SCALES["fine"]["folder"]
 TILES = ["620e-3400n", "660e-3400n"]
@@ -57,6 +57,8 @@ FORM_INTERVAL = 200  # metres between form lines
 INEGI = REPO / "private" / "cache" / "hydro" / "inegi"
 JOURNEYS = REPO / "data" / "journeys.geojson"
 ARCHIVE = REPO / "tiles" / "out" / "oblique.pmtiles"
+# Shown in the map's attribution while the Raised view is on.
+ATTRIBUTION = f"Streams: Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0; {COPERNICUS}"
 
 to_utm = Transformer.from_crs("EPSG:4326", CRS, always_xy=True).transform
 to_wgs = Transformer.from_crs(CRS, "EPSG:4326", always_xy=True).transform
@@ -258,7 +260,7 @@ def main() -> None:
         (Path(tmp) / "oblique.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": features}))
         # Relative names keep local paths out of the archive's metadata.
         subprocess.run(["tippecanoe", "-q", "-f", "-o", "oblique.pmtiles", "-Z9", "-z12", "--no-line-simplification",
-                        "--no-tile-size-limit", "--no-feature-limit", "-n", "The Crossing: raised relief (test area)",
+                        "--no-tile-size-limit", "--no-feature-limit", "-n", "The Crossing: raised relief (test area)", "-A", ATTRIBUTION,
                         "-L", "oblique:oblique.geojson"], check=True, cwd=tmp)
         ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
         shutil.move(Path(tmp) / "oblique.pmtiles", ARCHIVE)

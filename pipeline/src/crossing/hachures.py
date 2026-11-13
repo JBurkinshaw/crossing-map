@@ -11,7 +11,7 @@ Two scales, each with absolute settings so that tiles match where they meet:
 
 Each scale runs on a fixed UTM 12N tile grid, so a later run for a wider
 corridor adds tiles rather than redoing them. A tile is prepared as in
-crossing.relief (bilinear to 30 m, Gaussian smoothing, then averaged to 90 m
+prepare_dem() (bilinear to 30 m, Gaussian smoothing, then averaged to 90 m
 for coarse), run through pipeline/relief/run_hachures.py with an OVERLAP
 margin, and its lines clipped back to the tile's core, so neighbours meet at
 the seam. Where a tile runs past the DEM's edge, the gap is filled with the
@@ -49,9 +49,13 @@ import shapely
 from shapely import box, LineString, Polygon, unary_union
 from shapely.geometry import shape
 
-from crossing.relief import CRS, DEM_TILES, SMOOTH_SIGMA
 
 REPO = Path(__file__).resolve().parents[3]
+DEM_TILES = REPO / "private" / "cache" / "dem" / "copernicus"
+CRS = "EPSG:32612"  # UTM 12N: the bootheel and eastern Sonora; Chihuahua lies just east of the zone
+SMOOTH_SIGMA = 1.5  # cells; a light Gaussian, so hachures follow landforms rather than noise
+# The Copernicus DEM licence notice, for the attribution of every archive drawn from it.
+COPERNICUS = "Relief from Copernicus DEM GLO-30, © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA"
 HARNESS = REPO / "pipeline" / "relief" / "run_hachures.py"
 OUT = REPO / "private" / "cache" / "relief" / "production"
 JOURNEYS = REPO / "data" / "journeys.geojson"
@@ -110,7 +114,7 @@ def tiles(region: Polygon, size: int) -> list[tuple[str, Polygon]]:
 
 
 def prepare_dem(bounds: tuple[float, ...], cell: int, out: Path) -> None:
-    """The tile's DEM in UTM, smoothed as in crossing.relief, gaps filled from the nearest cell."""
+    """The tile's DEM in UTM, smoothed by SMOOTH_SIGMA cells, gaps filled from the nearest cell."""
     with tempfile.TemporaryDirectory() as tmp:
         vrt, warped = Path(tmp) / "m.vrt", Path(tmp) / "w.tif"
         subprocess.run(["gdalbuildvrt", "-q", str(vrt), *map(str, sorted(DEM_TILES.glob("*.tif")))], check=True)

@@ -8,14 +8,15 @@ import type { Feature, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
 import ClassicUnderlay from './ClassicUnderlay'
 import { StoryLayers } from './StoryLayers'
-import { RAISED_BOUNDS, raisedLayers, treatmentFromUrl } from './relief'
+import { RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
 import { BASE_LAYERS, literaryStyle } from './style'
 import { storyBounds } from './tokens'
 
 // MapLibre 6 looks for its worker beside its own module file. Bundling moves
 // that module into an app chunk, so point MapLibre at the copy Vite emits.
 maplibregl.setWorkerUrl(workerUrl)
-maplibregl.addProtocol('pmtiles', new Protocol().tile)
+// With metadata, each archive's attribution (terrain, relief, raised) reaches the map's attribution control.
+maplibregl.addProtocol('pmtiles', new Protocol({ metadata: true }).tile)
 
 // Loaded only when the reader first leaves the literary basemap.
 const SatelliteMap = lazy(() => import('./SatelliteMap'))
@@ -25,12 +26,13 @@ const tilesBase = new URL(`${import.meta.env.BASE_URL}tiles/`, window.location.o
 const fontsBase = new URL(`${import.meta.env.BASE_URL}fonts/`, window.location.origin).href
 const dataBase = new URL(`${import.meta.env.BASE_URL}data/`, window.location.origin).href
 
+const MIN_ZOOM = 4
 const TERRAIN_EXAGGERATION = 1.5
 const TERRAIN_TILT = 40
 
 // Base layers that cannot move with the terrain, hidden in the Raised view.
 const NOT_RAISED = new Set(['relief-tint', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine',
-  'hachure-fine-copy', 'stipple', 'mountain-glyph', 'creek', 'river-minor', 'river', 'creek-label', 'river-label', 'road',
+  'hachure-fine-copy', 'mountain-glyph', 'creek', 'river-minor', 'river', 'creek-label', 'river-label', 'road',
   'railroad', 'railroad-ties'])
 const RAISED_LAYERS = raisedLayers()
 
@@ -53,9 +55,9 @@ type Props = {
 }
 
 export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props) {
-  const style = useMemo(() => literaryStyle(tilesBase, fontsBase, dataBase, treatmentFromUrl()), [])
+  const style = useMemo(() => literaryStyle(tilesBase, fontsBase, dataBase), [])
   // Compare mode's classic underlay gets its own copy: a map may change the style object it is given.
-  const underlayStyle = useMemo(() => literaryStyle(tilesBase, fontsBase, dataBase, treatmentFromUrl()), [])
+  const underlayStyle = useMemo(() => literaryStyle(tilesBase, fontsBase, dataBase), [])
   const [picked, setPicked] = useState<Picked | null>(null)
   const [basemap, setBasemap] = useState<Basemap>('literary')
   const [unavailable, setUnavailable] = useState(false)
@@ -98,6 +100,8 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
     for (const layer of RAISED_LAYERS) {
       if (map.getLayer(layer.id)) map.setLayoutProperty(layer.id, 'visibility', raised ? 'visible' : 'none')
     }
+    // Below the raised line work's first zoom the view would be bare paper.
+    map.setMinZoom(raised ? RAISED_MIN_ZOOM : MIN_ZOOM)
     // The raised data covers a test area so far, from zoom 9: unless the view is already inside it and close in,
     // go to its middle, close enough to see the line work.
     const [w, s, e, n] = RAISED_BOUNDS
@@ -155,7 +159,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
           mapLib={maplibregl}
           mapStyle={style}
           initialViewState={{ bounds: storyBounds, fitBoundsOptions: { padding: 24 } }}
-          minZoom={4}
+          minZoom={MIN_ZOOM}
           maxZoom={13}
           dragRotate={false}
           hash="map"
@@ -168,7 +172,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
           style={{ position: 'absolute', inset: 0 }}
           onLoad={(e) => {
             setLoaded(true)
-            // Review tooling (tools/*.mjs) drives the map through this handle; only with ?debug.
+            // Scripted review (Playwright) drives the map through this handle; only with ?debug.
             if (new URLSearchParams(window.location.search).has('debug')) {
               ;(window as unknown as { __map: unknown }).__map = e.target
             }

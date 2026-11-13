@@ -1,7 +1,7 @@
 // The landform review sheet (stage 3): the glyph families, and the map where
 // crossing.landforms finds clusters of mesas, domes and ridges, with the chosen
 // relief treatment. Saves review/stage-3/landforms/{glyphs.png,<view>.jpg}.
-// Usage: node landform-sheet.mjs [base-url]   (needs the built site served, as for relief-sheet.mjs)
+// Usage: node landform-sheet.mjs [base-url]   (needs the built site served, e.g. npm run preview in site/)
 import { mkdir, readdir, writeFile } from 'node:fs/promises'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import path from 'node:path'
@@ -13,7 +13,7 @@ const out = path.join(repo, 'review', 'stage-3', 'landforms')
 const svgDir = path.join(repo, 'art', 'glyphs', 'svg')
 const families = ['peak', 'dome', 'mesa', 'butte', 'cone', 'ridge']
 // Centres of the densest clusters of non-peak glyphs in data/mountain_glyphs.geojson, named for the
-// summit at each centre, plus the Pilares, where the relief test hachures also show.
+// summit at each centre, plus the Pilares.
 const views = {
   'torre-tres-ojitos': { lon: -108.3, lat: 28.85 },
   'la-gloria': { lon: -108.92, lat: 29.46 },

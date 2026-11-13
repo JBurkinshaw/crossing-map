@@ -14,6 +14,8 @@ import shutil
 import subprocess
 from pathlib import Path
 
+from crossing.hachures import COPERNICUS
+
 REPO = Path(__file__).resolve().parents[1]
 SRC = REPO / "private" / "cache" / "relief" / "production"
 OUT = REPO / "tiles" / "out" / "relief.pmtiles"
@@ -27,6 +29,8 @@ def main() -> None:
     subprocess.run(["tippecanoe", "-q", "-f", "-o", "relief.pmtiles", "-Z10", "-z12", "--no-line-simplification",
                     "--no-tile-size-limit", "--no-feature-limit",
                     "-n", "The Crossing: hachures", "-N", "Hachures and contours from Copernicus GLO-30 (decision 0016)",
+                    # MapLibre shows this in the map's attribution; decision 0011 also wants it on the Credits page.
+                    "-A", COPERNICUS,
                     "-L", "coarse:coarse.geojson", "-L", "fine:fine.geojson", "-L", "contour:contour.geojson"], check=True, cwd=SRC)
     shutil.move(SRC / "relief.pmtiles", OUT)
     print(f"Wrote {OUT.relative_to(REPO)} ({OUT.stat().st_size / 1e6:.1f} MB)")

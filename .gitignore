@@ -21,8 +21,5 @@ __pycache__/
 playwright-report/
 test-results/
 .DS_Store
-# Relief comparison sheet intermediates; tools/relief-sheet.mjs rebuilds them
-review/*/sheet/shots/
-review/*/sheet/*.html
 # Landform sheet intermediate; tools/landform-sheet.mjs rebuilds it
 review/*/landforms/*.html
