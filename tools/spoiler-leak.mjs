@@ -81,7 +81,7 @@ async function checkMap(page, reached, where) {
   const found = await page.evaluate(async () => {
     const map = window.__map
     const out = []
-    for (const id of ['places', 'stops', 'areas', 'journeys']) {
+    for (const id of ['places', 'stops', 'areas', 'journeys', 'cluster-zone', 'corridor']) {
       const src = map.getSource(id)
       if (!src) continue
       const data = await src.getData()

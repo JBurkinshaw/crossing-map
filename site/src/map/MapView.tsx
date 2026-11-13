@@ -331,7 +331,7 @@ export function MapView(props: Props) {
           hash="map"
           // Each archive brings its own credit (the terrain lines wherever the hillshade shows); the Credits page has the rest.
           attributionControl={{ compact: true, customAttribution: '<a href="#/credits">Credits</a>' }}
-          interactiveLayerIds={['places-point', 'areas-fill']}
+          interactiveLayerIds={['places-point', 'zone-places-point', 'areas-fill']}
           onClick={(e) => {
             const f = e.features?.[0]
             onSelectFeature(f ? { layer: f.layer.id === 'areas-fill' ? 'areas' : 'places', id: (f.properties as StoryProps).id } : null)

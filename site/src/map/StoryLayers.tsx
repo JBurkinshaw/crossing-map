@@ -1,8 +1,9 @@
 import { useMemo } from 'react'
-import { Layer, Marker, Source } from '@vis.gl/react-maplibre'
+import { Layer, Marker, Source, useMap } from '@vis.gl/react-maplibre'
 import type { ExpressionSpecification } from 'maplibre-gl'
 import type { Feature, FeatureCollection, Geometry, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
+import { CLUSTER_MAX_ZOOM, CLUSTER_RADIUS, expandCluster, inZone, useZoneClusters, ZONE_CLUSTERS, ZONE_SOURCE, ZONE_STOPS } from './cluster'
 import { corridor, midpoint } from './corridor'
 import { fonts, journeyInks, palettes, type Theme } from './tokens'
 
@@ -26,7 +27,28 @@ type Props = {
   corridor: Corridor | null
 }
 
+const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
 export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, theme, corridor: road }: Props) {
+  const { current: mapRef } = useMap()
+  // The places and the journey's stops around Cloverdale and the Peloncillos go to the clustered source; the
+  // current stop stays out of it, so the stop being read always shows.
+  const current = stops[stopIndex]?.properties.id
+  const places = useMemo(() => {
+    const outside: FeatureCollection<Point, StoryProps> = { ...story.places, features: story.places.features.filter((f) => !inZone(f.geometry.coordinates)) }
+    const zone: FeatureCollection<Point> = {
+      type: 'FeatureCollection',
+      features: [
+        ...story.places.features.filter((f) => inZone(f.geometry.coordinates)).map((f) => ({ ...f, properties: { ...f.properties, cat: 'place' } })),
+        ...stops
+          .filter((f) => f.properties.id !== current && inZone(f.geometry.coordinates))
+          .map((f) => ({ ...f, properties: { id: f.properties.id, first_seen: f.properties.first_seen, cat: 'stop' } })),
+      ],
+    }
+    return { outside, zone }
+  }, [story.places, stops, current])
+  const zoneIds = useMemo(() => places.zone.features.map((f) => String(f.properties?.id)), [places.zone])
+  const clusters = useZoneClusters(zoneIds)
   const corridorData = useMemo((): FeatureCollection | null => {
     if (!road) return null
     const area = corridor(road.segment.geometry)
@@ -52,6 +74,58 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
   const ahead: ExpressionSpecification =
     aheadFrom === null ? ['boolean', false] : ['all', inFocus, ['>=', ['coalesce', ['get', 'sequence'], 9999], aheadFrom]]
   const routeOpacity: ExpressionSpecification = ['case', ahead, 0.4, inFocus, 0.95, 0.3]
+
+  // The place layers, drawn alike from the places source and from the loose points of the clustered one.
+  // An array, not a fragment: the Source gives its id to each of its direct children.
+  const placeLayers = (prefix: string, only?: ExpressionSpecification) => {
+    const and = (f: ExpressionSpecification): ExpressionSpecification => (only ? ['all', only, f] : f)
+    return [
+      <Layer
+        key="point"
+        id={`${prefix}-point`}
+        type="circle"
+        {...(only ? { filter: only } : {})}
+        paint={{
+          // Context towns (never named in the book) are small solid dots; story places are open rings.
+          'circle-radius': ['match', ['get', 'role'], 'context', 2, 'passing', 3, 4],
+          'circle-color': ['match', ['get', 'role'], 'context', tokens.inkFaint, tokens.paper],
+          'circle-stroke-color': tokens.ink,
+          'circle-stroke-width': ['match', ['get', 'role'], 'context', 0, 1.2],
+        }}
+      />,
+      // Places in the tales told to Billy: a ring with a dot.
+      <Layer key="tale" id={`${prefix}-tale`} type="circle" filter={and(['==', ['get', 'role'], 'tale'])} paint={{ 'circle-radius': 1.4, 'circle-color': tokens.ink }} />,
+      <Layer
+        key="selected"
+        id={`${prefix}-selected`}
+        type="circle"
+        filter={and(selected)}
+        paint={{ 'circle-radius': 9, 'circle-color': 'rgba(0, 0, 0, 0)', 'circle-stroke-color': tokens.ink, 'circle-stroke-width': 2 }}
+      />,
+      <Layer
+        key="label"
+        id={`${prefix}-label`}
+        type="symbol"
+        {...(only ? { filter: only } : {})}
+        layout={{
+          'text-field': ['get', 'name'],
+          // Ranges, valleys and streams in spaced italic, as on the survey sheets; settlements in roman.
+          'text-font': ['match', ['get', 'kind'], ['range', 'valley', 'stream', 'spring', 'plain'], ['literal', [fonts.italic]], ['literal', [fonts.roman]]],
+          'text-letter-spacing': ['match', ['get', 'kind'], ['range', 'valley'], 0.15, 0.02],
+          'text-size': ['match', ['get', 'kind'], ['range', 'valley'], 14, 12.5],
+          'text-anchor': 'top',
+          'text-offset': [0, 0.6],
+          'text-optional': true,
+        }}
+        paint={{
+          'text-color': tokens.ink,
+          'text-opacity': ['match', ['get', 'role'], 'context', 0.6, 1],
+          'text-halo-color': tokens.paper,
+          'text-halo-width': 1.5,
+        }}
+      />,
+    ]
+  }
 
   return (
     <>
@@ -123,46 +197,18 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           paint={{ 'line-color': inkByJourney, 'line-width': 2, 'line-opacity': ['case', inFocus, 0.9, 0.3], 'line-dasharray': [0.1, 2.5] }}
         />
       </Source>
-      <Source id="places" type="geojson" data={story.places}>
-        <Layer
-          id="places-point"
-          type="circle"
-          paint={{
-            // Context towns (never named in the book) are small solid dots; story places are open rings.
-            'circle-radius': ['match', ['get', 'role'], 'context', 2, 'passing', 3, 4],
-            'circle-color': ['match', ['get', 'role'], 'context', tokens.inkFaint, tokens.paper],
-            'circle-stroke-color': tokens.ink,
-            'circle-stroke-width': ['match', ['get', 'role'], 'context', 0, 1.2],
-          }}
-        />
-        {/* Places in the tales told to Billy: a ring with a dot. */}
-        <Layer id="places-tale" type="circle" filter={['==', ['get', 'role'], 'tale']} paint={{ 'circle-radius': 1.4, 'circle-color': tokens.ink }} />
-        <Layer
-          id="places-selected"
-          type="circle"
-          filter={selected}
-          paint={{ 'circle-radius': 9, 'circle-color': 'rgba(0, 0, 0, 0)', 'circle-stroke-color': tokens.ink, 'circle-stroke-width': 2 }}
-        />
-        <Layer
-          id="places-label"
-          type="symbol"
-          layout={{
-            'text-field': ['get', 'name'],
-            // Ranges, valleys and streams in spaced italic, as on the survey sheets; settlements in roman.
-            'text-font': ['match', ['get', 'kind'], ['range', 'valley', 'stream', 'spring', 'plain'], ['literal', [fonts.italic]], ['literal', [fonts.roman]]],
-            'text-letter-spacing': ['match', ['get', 'kind'], ['range', 'valley'], 0.15, 0.02],
-            'text-size': ['match', ['get', 'kind'], ['range', 'valley'], 14, 12.5],
-            'text-anchor': 'top',
-            'text-offset': [0, 0.6],
-            'text-optional': true,
-          }}
-          paint={{
-            'text-color': tokens.ink,
-            'text-opacity': ['match', ['get', 'role'], 'context', 0.6, 1],
-            'text-halo-color': tokens.paper,
-            'text-halo-width': 1.5,
-          }}
-        />
+      <Source id="places" type="geojson" data={places.outside}>
+        {placeLayers('places')}
+      </Source>
+      {/* Around Cloverdale and the Peloncillos the places and the journey's stops share one clustered source
+          (cluster.ts). Its clusters are markers, below; its loose places draw as places do everywhere else. */}
+      <Source id={ZONE_SOURCE} type="geojson" data={places.zone} cluster clusterMaxZoom={CLUSTER_MAX_ZOOM} clusterRadius={CLUSTER_RADIUS}>
+        {[
+          ...placeLayers('zone-places', ['all', ['!', ['has', 'point_count']], ['==', ['get', 'cat'], 'place']]),
+          // Unseen: they let cluster.ts ask which clusters and loose stops the map draws now.
+          <Layer key="clusters" id={ZONE_CLUSTERS} type="circle" filter={['has', 'point_count']} paint={{ 'circle-radius': 1, 'circle-opacity': 0 }} />,
+          <Layer key="stops" id={ZONE_STOPS} type="circle" filter={['==', ['get', 'cat'], 'stop']} paint={{ 'circle-radius': 1, 'circle-opacity': 0 }} />,
+        ]}
       </Source>
       {corridorData && (
         <Source id="corridor" type="geojson" data={corridorData}>
@@ -183,7 +229,26 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           />
         </Source>
       )}
-      {stops.map((f, i) => (
+      {clusters?.clusters.map((c) => (
+        <Marker key={c.id} longitude={c.lon} latitude={c.lat}>
+          {/* In the tab order, unlike the stop markers (the panel's stop list stands in for those): only a
+              cluster's own button opens it from the keyboard. */}
+          <button
+            type="button"
+            className="cluster-marker"
+            aria-label={`${c.count} places and stops here. Zoom in to see them`}
+            title="Zoom in to see them"
+            onClick={(e) => {
+              e.stopPropagation()
+              const map = mapRef?.getMap()
+              if (map) void expandCluster(map, c, reducedMotion())
+            }}
+          >
+            {c.count}
+          </button>
+        </Marker>
+      ))}
+      {stops.map((f, i) => clusters?.clustered.has(f.properties.id) ? null : (
         <Marker
           key={f.properties.id}
           longitude={f.geometry.coordinates[0]}

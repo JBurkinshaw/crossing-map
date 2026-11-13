@@ -283,6 +283,28 @@ select {
   background: var(--ink);
 }
 
+/* A cluster around Cloverdale and the Peloncillos (plan 9): a double ring with the count, opened by a click,
+   Enter or zooming in. */
+.cluster-marker {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  border: 1.5px solid var(--ink);
+  border-radius: 15px;
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: zoom-in;
+}
+
+.cluster-marker:focus-visible {
+  outline-width: 2px;
+}
+
 /* "In view": what the map shows now, under the stepper. */
 .in-view {
   margin: 12px 0;
