@@ -4,10 +4,12 @@ import type { Feature, Geometry, Position } from 'geojson'
 import { useElsewhere, useStory, type Story, type StoryProps } from './data/story'
 import { useTranslations, type Translation } from './data/translations'
 import { MapView, type View } from './map/MapView'
+import type { DrawerHeight } from './panel/Drawer'
 import { Panel } from './panel/Panel'
 import { PlaceCard } from './panel/PlaceCard'
 import { SearchBox, type SearchHit } from './panel/SearchBox'
 import { TranslationList } from './panel/TranslationList'
+import { usePhone } from './panel/usePhone'
 import { useRoute } from './route'
 import { shownAt, storyUpTo, translationsUpTo } from './spoiler/filter'
 import { reachedEpisode, spoilersHidden, useEpisodes, useProgress } from './spoiler/progress'
@@ -109,6 +111,11 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, { journey: 'J1', stopIndex: 0, stepping: false })
   const [selection, setSelection] = useState<Selection>(null)
   const [translationId, setTranslationId] = useState<string | null>(null)
+  // Phones: the panel is a bottom drawer. It opens half way, so the reading-progress badge and search show.
+  const phone = usePhone()
+  const [drawer, setDrawer] = useState<DrawerHeight>('half')
+  // A pick shows its card at half height, with the map still in view above it.
+  const showDrawer = () => setDrawer('half')
 
   // The journeys drawn so far and reached, from the flat story data (the raised copies cover fewer), each with
   // the episode of its first stop.
@@ -204,6 +211,7 @@ export default function App() {
   }
 
   const onPick = (hit: SearchHit) => {
+    showDrawer()
     if (hit.kind === 'translation') {
       const t = translations.find((x) => x.id === hit.ref)
       if (t) showTranslation(t)
@@ -244,7 +252,8 @@ export default function App() {
   )
 
   return (
-    <main className="app">
+    <main className="app" data-drawer={phone ? drawer : undefined}>
+      <h1 className="visually-hidden">The Crossing: a reading map</h1>
       <MapView
         mapRef={mapRef}
         story={story}
@@ -254,6 +263,7 @@ export default function App() {
         onSelectFeature={(pick) => {
           setSelection(pick)
           setTranslationId(null)
+          if (pick && drawer === 'peek') showDrawer()
         }}
         selectedId={selected ? selected.properties.id : null}
         aheadFrom={state.stepping ? (stop?.properties.sequence ?? null) : null}
@@ -278,6 +288,9 @@ export default function App() {
         currentTranslation={translationId}
         onJourney={(journey) => dispatch({ type: 'journey', journey })}
         onStop={goToStop}
+        phone={phone}
+        drawer={drawer}
+        onDrawer={setDrawer}
       />
       {route !== '/' && (
         <Suspense fallback={null}>

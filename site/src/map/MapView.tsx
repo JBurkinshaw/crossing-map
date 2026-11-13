@@ -251,6 +251,13 @@ export function MapView(props: Props) {
           style={{ position: 'absolute', inset: 0 }}
           onLoad={(e) => {
             setLoaded(true)
+            // MapLibre opens the compact attribution at first; on a phone it would cover a third of the map, so
+            // it starts closed there, behind its (i) button. The archives' credits arrive with their first tiles.
+            if (window.matchMedia('(max-width: 720px)').matches) {
+              const close = () => e.target.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show')
+              close()
+              e.target.once('idle', close)
+            }
             // Scripted review (Playwright) drives the map through this handle; only with ?debug.
             if (new URLSearchParams(window.location.search).has('debug')) {
               ;(window as unknown as { __map: unknown }).__map = e.target
