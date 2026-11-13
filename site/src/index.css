@@ -258,21 +258,6 @@ select {
   background: var(--ink);
 }
 
-.toggle-3d {
-  min-height: 34px;
-  padding: 4px 10px;
-  border: 1px solid var(--ink);
-  background: var(--paper);
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-
-.toggle-3d[aria-pressed='true'] {
-  color: var(--paper);
-  background: var(--ink);
-}
-
-.toggle-3d:disabled,
 .basemap-switch button:disabled {
   opacity: 0.4;
   cursor: default;
@@ -291,6 +276,41 @@ select {
 }
 
 /* Clear the MapTiler logo, which the satellite map draws bottom left. */
-.has-satellite .literary .maplibregl-ctrl-bottom-left {
+.has-satellite .literary .maplibregl-ctrl-bottom-left,
+.land-colour .literary .maplibregl-ctrl-bottom-left {
   left: 100px;
+}
+
+/* Land colour: the imagery, brightened, saturated and faded over white, tints the classic map multiplied
+   over it. Bright imagery darkens the map very little, so the tint adds colour without murk, and ink and
+   water keep nearly their own colour. Only the imagery fades; the MapTiler logo and attribution stay at
+   full strength. */
+.land-colour .satellite {
+  background: #fff;
+}
+
+.land-colour .satellite .maplibregl-canvas {
+  opacity: 0.25;
+  filter: saturate(1.4) brightness(1.45) contrast(0.95);
+}
+
+.land-colour .literary .maplibregl-canvas {
+  mix-blend-mode: multiply;
+}
+
+.land-colour-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.land-colour-toggle:has(input:disabled) {
+  opacity: 0.4;
+  cursor: default;
 }

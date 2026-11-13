@@ -1,11 +1,13 @@
-"""Production hachures (plan section 5.2, layer 1; decisions 0014 and 0015).
+"""Production hachures and contours (plan section 5.2, layer 1; decisions 0015 and 0016).
 
 Run from the repo root, with QGIS_ENV set to the QGIS 4 environment:
     QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures [--scale fine|coarse] [--jobs 4]
 
 Two scales, each with absolute settings so that tiles match where they meet:
-  fine    30 m DEM, inside the journeys corridor (journeys buffered CORRIDOR_HALF_M each side)
-  coarse  90 m DEM, everywhere the Copernicus tiles in private/cache/dem/copernicus cover
+  fine    30 m DEM, inside the journeys corridor (journeys buffered CORRIDOR_HALF_M each side),
+          as short strokes split at each 10 m contour band (decision 0016)
+  coarse  90 m DEM, everywhere the Copernicus tiles in private/cache/dem/copernicus cover;
+          drawn only outside the corridor
 
 Each scale runs on a fixed UTM 12N tile grid, so a later run for a wider
 corridor adds tiles rather than redoing them. A tile is prepared as in
@@ -15,11 +17,16 @@ margin, and its lines clipped back to the tile's core, so neighbours meet at
 the seam. Where a tile runs past the DEM's edge, the gap is filled with the
 nearest elevation and the lines there are dropped.
 
-Per-tile results are cached in private/cache/relief/production/<scale>/;
-delete a tile's file to run it again. The merged result,
-private/cache/relief/production/<scale>.geojson, gives each line its mean
-slope (`Slope`, degrees) and its zoom range: coarse to zoom 9 inside the
-corridor and to 13 outside it, fine from zoom 10.
+Per-tile results are cached in private/cache/relief/production/<folder>/;
+delete a tile's file to run it again. The merged results,
+private/cache/relief/production/<scale>.geojson, give each line the
+attributes the style shades it with, rounded to keep the tiles small:
+  Slope   mean slope under the line, whole degrees
+  Aspect  the direction the ground under the line faces (downslope), degrees clockwise from north, in 5s
+  Rand    a fixed random digit, 0-9, for drawing a share of the lines at lower zooms
+Both scales are tiled from zoom 10 to 12; the map over-zooms to 13. contour.geojson
+holds 50 m contours (`Ele`, metres) from the same smoothed DEMs, fine inside the
+corridor and coarse outside it.
 """
 
 import argparse
@@ -30,6 +37,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import zlib
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -39,6 +47,7 @@ from pyproj import Transformer
 from scipy.ndimage import distance_transform_edt, gaussian_filter
 import shapely
 from shapely import box, LineString, Polygon, unary_union
+from shapely.geometry import shape
 
 from crossing.relief import CRS, DEM_TILES, SMOOTH_SIGMA
 
@@ -53,14 +62,15 @@ GRID_ORIGIN = (500_000, 3_000_000)  # UTM 12N metres; tile edges fall on multipl
 # Fine and coarse use the same cell spacing, so coarse lines lie three times as far apart. The generator's
 # spacing step compares every contour with every hachure, so run time grows faster than tile area: a
 # 120 km coarse tile over the Sierra Madre ran for over 30 minutes, which 60 km tiles avoid.
+# Fine lines are split into short strokes, one per 10 m contour band ("split"); coarse lines stay whole ("main").
 SCALES = {
-    "fine": {"cell": 30, "tile": 40_000, "overlap": 3_000, "min_spacing": 3, "max_spacing": 8,
-             "min_slope": 10, "max_slope": 40, "interval": 10, "zooms": (10, 13)},
+    "fine": {"cell": 30, "tile": 40_000, "overlap": 3_000, "min_spacing": 2, "max_spacing": 4.5,
+             "min_slope": 10, "max_slope": 40, "interval": 10, "folder": "fine-s2-4.5-split", "output": "split"},
     "coarse": {"cell": 90, "tile": 60_000, "overlap": 6_000, "min_spacing": 3, "max_spacing": 8,
-               "min_slope": 5, "max_slope": 38, "interval": 10, "zooms": (6, 9),
-               # Outside the corridor no fine lines take over, so the coarse ones carry on to the last zoom.
-               "zooms_outside_corridor": (6, 13)},
+               "min_slope": 5, "max_slope": 38, "interval": 10, "folder": "coarse", "output": "main"},
 }
+ZOOMS = (10, 12)
+CONTOUR_INTERVAL = 50
 
 to_utm = Transformer.from_crs("EPSG:4326", CRS, always_xy=True).transform
 to_wgs = Transformer.from_crs(CRS, "EPSG:4326", always_xy=True).transform
@@ -122,10 +132,10 @@ def prepare_dem(bounds: tuple[float, ...], cell: int, out: Path) -> None:
 
 
 def run_tile(scale: str, name: str, core: Polygon, s: dict, qgis_env: Path) -> Path:
-    """Hachures for one tile, cached as <name>-main.geojson (WGS 84, unclipped)."""
-    folder = OUT / scale
+    """Hachures for one tile, cached as <name>-<output>.geojson (WGS 84, unclipped)."""
+    folder = OUT / s["folder"]
     folder.mkdir(parents=True, exist_ok=True)
-    result = folder / f"{name}-main.geojson"
+    result = folder / f"{name}-{s['output']}.geojson"
     if result.exists():
         return result
     dem = folder / f"{name}.tif"
@@ -134,7 +144,7 @@ def run_tile(scale: str, name: str, core: Polygon, s: dict, qgis_env: Path) -> P
     args = [str(qgis_env / "bin" / "python3.14"), str(HARNESS), str(dem), str(folder / name),
             "--min-spacing", str(s["min_spacing"]), "--max-spacing", str(s["max_spacing"]),
             "--min-slope", str(s["min_slope"]), "--max-slope", str(s["max_slope"]),
-            "--contour-interval", str(s["interval"])]
+            "--contour-interval", str(s["interval"]), *(["--split"] if s["output"] == "split" else [])]
     started = time.monotonic()
     run = subprocess.run(args, env=env, capture_output=True, text=True)
     if run.returncode != 0:
@@ -145,50 +155,70 @@ def run_tile(scale: str, name: str, core: Polygon, s: dict, qgis_env: Path) -> P
     return result
 
 
-def slope_sampler(dem_path: Path):
-    """A function giving the mean slope (degrees) under a UTM line, from the tile's DEM."""
+def sampler(dem_path: Path):
+    """A function giving (mean slope, aspect) in degrees under a UTM line, from the tile's DEM."""
     with rasterio.open(dem_path) as src:
         dem, t = src.read(1).astype(float), src.transform
-    gy, gx = np.gradient(dem, t.e, t.a)
+    gy, gx = np.gradient(dem, t.e, t.a)  # dz/dy (north) and dz/dx (east)
     slope = np.degrees(np.arctan(np.hypot(gx, gy)))
 
-    def mean(line: LineString) -> float:
+    def sample(line: LineString) -> tuple[float, float]:
         xs, ys = np.asarray(line.xy)
         rows, cols = rasterio.transform.rowcol(t, xs, ys)
         rows = np.clip(rows, 0, slope.shape[0] - 1)
         cols = np.clip(cols, 0, slope.shape[1] - 1)
-        return float(slope[rows, cols].mean())
+        # Downslope is against the gradient; the azimuth runs clockwise from north.
+        aspect = np.degrees(np.arctan2(-gx[rows, cols].mean(), -gy[rows, cols].mean())) % 360
+        return float(slope[rows, cols].mean()), float(aspect)
 
-    return mean
+    return sample
 
 
-def clip_tile(scale: str, name: str, core: Polygon, keep: Polygon, s: dict, corridor: Polygon) -> list[dict]:
-    """The tile's lines clipped to its core and to `keep`, with mean slope and zoom range.
-
-    Coarse lines are split at the corridor's edge: inside it they stop where the fine lines start.
-    """
-    doc = json.loads((OUT / scale / f"{name}-main.geojson").read_text())
+def clip_tile(name: str, core: Polygon, keep: Polygon, s: dict) -> list[dict]:
+    """The tile's lines clipped to its core and to `keep`, with the attributes the style shades them with."""
+    doc = json.loads((OUT / s["folder"] / f"{name}-{s['output']}.geojson").read_text())
     if not doc["features"]:
         return []
     area = core.intersection(keep)
-    mean_slope = slope_sampler(OUT / scale / f"{name}.tif")
+    sample = sampler(OUT / s["folder"] / f"{name}.tif")
+    # Split strokes span one 10 m contour band, so on steep ground they are only a few cells long.
+    shortest = 10 if s["output"] == "split" else 2 * s["cell"]
     out = []
     for f in doc["features"]:
         clipped = reproject(to_utm, LineString(f["geometry"]["coordinates"])).intersection(area)
-        if "zooms_outside_corridor" in s:
-            pieces = [(clipped.intersection(corridor), s["zooms"]),
-                      (clipped.difference(corridor), s["zooms_outside_corridor"])]
-        else:
-            pieces = [(clipped, s["zooms"])]
-        for geom, (minzoom, maxzoom) in pieces:
-            for part in getattr(geom, "geoms", [geom]):
-                if not isinstance(part, LineString) or part.length < 2 * s["cell"]:
-                    continue
-                coords = [(round(x, 5), round(y, 5)) for x, y in reproject(to_wgs, part).coords]
-                out.append({"type": "Feature", "tippecanoe": {"minzoom": minzoom, "maxzoom": maxzoom},
-                            "properties": {"Slope": round(mean_slope(part), 1)},
-                            "geometry": {"type": "LineString", "coordinates": coords}})
+        for part in getattr(clipped, "geoms", [clipped]):
+            if not isinstance(part, LineString) or part.length < shortest:
+                continue
+            slope, aspect = sample(part)
+            coords = [(round(x, 5), round(y, 5)) for x, y in reproject(to_wgs, part).coords]
+            rand = zlib.crc32(json.dumps(coords[0]).encode()) % 10
+            out.append({"type": "Feature", "tippecanoe": {"minzoom": ZOOMS[0], "maxzoom": ZOOMS[1]},
+                        "properties": {"Slope": round(slope), "Aspect": round(aspect) // 5 * 5 % 360, "Rand": rand},
+                        "geometry": {"type": "LineString", "coordinates": coords}})
     return out
+
+
+def contours(name: str, core: Polygon, keep: Polygon, s: dict) -> list[dict]:
+    """CONTOUR_INTERVAL contours (`Ele`, metres) from the tile's smoothed DEM, clipped to its core and to `keep`."""
+    area = core.intersection(keep)
+    if area.is_empty:
+        return []
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / "c.geojson"
+        subprocess.run(["gdal_contour", "-q", "-a", "Ele", "-i", str(CONTOUR_INTERVAL), "-f", "GeoJSON",
+                        str(OUT / s["folder"] / f"{name}.tif"), str(out)], check=True)
+        doc = json.loads(out.read_text())
+    features = []
+    for f in doc["features"]:
+        clipped = shape(f["geometry"]).intersection(area)
+        for part in getattr(clipped, "geoms", [clipped]):
+            if not isinstance(part, LineString) or part.length < 2 * s["cell"]:
+                continue
+            coords = [(round(x, 5), round(y, 5)) for x, y in reproject(to_wgs, part).coords]
+            features.append({"type": "Feature", "tippecanoe": {"minzoom": ZOOMS[0], "maxzoom": ZOOMS[1]},
+                             "properties": {"Ele": round(f["properties"]["Ele"])},
+                             "geometry": {"type": "LineString", "coordinates": coords}})
+    return features
 
 
 def main() -> None:
@@ -202,18 +232,25 @@ def main() -> None:
 
     cover = coverage()
     # Lines within two cells of the DEM's edge come from filled ground, so they are dropped.
-    regions = {"fine": corridor().intersection(cover.buffer(-60)), "coarse": cover.buffer(-180)}
+    # The fine lines cover the corridor; the coarse lines, everywhere else.
+    fine_region = corridor().intersection(cover.buffer(-60))
+    regions = {"fine": fine_region, "coarse": cover.buffer(-180).difference(fine_region)}
+    lines = []
     for scale in (SCALES if a.scale == "both" else [a.scale]):
         s = SCALES[scale]
         grid = tiles(regions[scale], s["tile"])
         print(f"{scale}: {len(grid)} tiles of {s['tile'] // 1000} km, {regions[scale].area / 1e6:,.0f} km2", flush=True)
         with ThreadPoolExecutor(a.jobs) as pool:
             list(pool.map(lambda t: run_tile(scale, *t, s, qgis_env), grid))
-        features = [f for name, core in grid for f in clip_tile(scale, name, core, regions[scale], s, regions["fine"])]
+        features = [f for name, core in grid for f in clip_tile(name, core, regions[scale], s)]
         merged = OUT / f"{scale}.geojson"
         merged.write_text(json.dumps({"type": "FeatureCollection", "features": features}))
         print(f"{merged.relative_to(REPO)}: {len(features):,} lines, {merged.stat().st_size / 1e6:.0f} MB", flush=True)
-
+        lines += [f for name, core in grid for f in contours(name, core, regions[scale], s)]
+    if a.scale == "both":
+        merged = OUT / "contour.geojson"
+        merged.write_text(json.dumps({"type": "FeatureCollection", "features": lines}))
+        print(f"{merged.relative_to(REPO)}: {len(lines):,} contours, {merged.stat().st_size / 1e6:.0f} MB", flush=True)
 
 if __name__ == "__main__":
     main()

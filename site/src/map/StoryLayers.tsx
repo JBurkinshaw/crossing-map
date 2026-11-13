@@ -2,6 +2,7 @@ import { Layer, Marker, Source } from '@vis.gl/react-maplibre'
 import type { ExpressionSpecification } from 'maplibre-gl'
 import type { Feature, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
+import { S5_PAPER_SHOWN } from './relief'
 import { fonts, journeyInk, tokens } from './tokens'
 
 const inkByJourney: ExpressionSpecification = [
@@ -13,9 +14,11 @@ type Props = {
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
   onSelectStop: (index: number) => void
+  // A wide band of paper under the journey in focus, which clears the relief around it. Off over satellite imagery.
+  halo: boolean
 }
 
-export function StoryLayers({ story, stops, stopIndex, onSelectStop }: Props) {
+export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo }: Props) {
   const journey = stops[0]?.properties.journey ?? ''
   const inFocus: ExpressionSpecification = ['==', ['get', 'journey'], journey]
 
@@ -34,6 +37,20 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop }: Props) {
         />
       </Source>
       <Source id="journeys" type="geojson" data={story.journeys}>
+        {/* Above the relief, below the boundaries and water; the colour of the paper on screen at each zoom. */}
+        <Layer
+          id="journeys-halo"
+          type="line"
+          beforeId="county-line"
+          filter={inFocus}
+          layout={{ 'line-cap': 'round', 'line-join': 'round', visibility: halo ? 'visible' : 'none' }}
+          paint={{
+            'line-color': ['interpolate', ['linear'], ['zoom'], 9, tokens.paper, 10, S5_PAPER_SHOWN],
+            'line-width': ['interpolate', ['linear'], ['zoom'], 8, 16, 13, 40],
+            'line-blur': 10,
+            'line-opacity': 0.9,
+          }}
+        />
         {/* A paper casing under every route keeps the ink readable over satellite imagery. */}
         <Layer
           id="journeys-casing"

@@ -40,7 +40,7 @@ The site is meant to be quick to build and good to look at, then grow only if pe
 | Geometry | Gazetteer points; routes snapped to rivers and roads where the text names them, gentle curves elsewhere; inferred areas drawn by hand in QGIS with written reasoning | Least-cost routes over terrain, viewshed- and travel-time-built areas |
 | Relief | Generated hachures plus mountain glyphs on significant peaks; hillshade only if the relief experiment says it helps | Hand-tuned hachures for key ranges; Eduard or Blender shading if hillshade earns a place |
 | Historical maps | Style references and links | Georeferenced overlays with a swipe |
-| Translations | Campbell guide (with permission) or links, plus gap-fill | Speaker review, audio |
+| Translations | Our own translations, each linked to its Campbell guide page with credit, plus gap-fill (decided 12 November 2026: no permission request) | Speaker review, audio |
 | Concepts | One concept (Endpaper), informed by two static mockups | Story mode |
 | Data out | GeoJSON and GeoParquet downloads, documented | A STAC-style catalogue only if the dataset grows to many files |
 
@@ -117,7 +117,7 @@ Unchanged from v1 in substance. The novel and the Campbell guide are under copyr
 | Material | Rule | Attribution shown |
 | --- | --- | --- |
 | Novel text | No passages. Notes are paraphrase. Spanish appears only as an opening phrase (incipit) with a page number. | Title, author, Vintage edition, page |
-| Campbell translation guide | Written permission before its translations go in the app; otherwise our own translations plus a link per guide page. | "Translation: Lt. Jim Campbell, cormacmccarthy.com" on each entry |
+| Campbell translation guide | Not copied. Decided 12 November 2026: we do not ask for permission; the site writes its own translations and links each one to the matching guide page. | "Campbell's guide: Lt. Jim Campbell, cormacmccarthy.com" with the link, on each entry and on the Credits page |
 | Our own translations and notes | Ours. Marked "Added by this site" with a confidence level. | CC BY 4.0 |
 | Book text in the pipeline | Your own legally owned copy, on your machine. Never commit text or offsets that rebuild it. | n/a |
 | Wikimedia Commons photos | Only PD, CC0, CC BY, CC BY-SA. Reject NC, ND and non-free files. | Title, author, source, licence (TASL) |

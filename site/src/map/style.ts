@@ -6,7 +6,8 @@ import { fonts, tokens } from './tokens'
 export const BASE_LAYERS = [
   'paper', 'mexico', 'lake', 'county-line', 'state-line', 'creek', 'river-minor', 'river',
   'road', 'railroad', 'railroad-ties', 'creek-label', 'river-label',
-  'hillshade', 'hachure-coarse', 'hachure-fine', 'stipple', 'mountain-glyph',
+  'relief-tint', 'relief-paper', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine', 'hachure-fine-copy',
+  'stipple', 'mountain-glyph',
 ]
 
 // The literary basemap (docs/plan.md, section 5.1): ink on caliche paper, the

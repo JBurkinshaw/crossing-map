@@ -48,7 +48,7 @@ console.log('Glyphs: glyphs.png')
 
 for (const [name, v] of Object.entries(views)) {
   await page.goto('about:blank')
-  await page.goto(`${baseUrl}?relief=swiss-soft#map=9.5/${v.lat}/${v.lon}`, { waitUntil: 'load' })
+  await page.goto(`${baseUrl}#map=9.5/${v.lat}/${v.lon}`, { waitUntil: 'load' })
   await page.waitForSelector('canvas.maplibregl-canvas')
   await page.waitForTimeout(3500)
   await page.screenshot({ path: path.join(out, `${name}.jpg`), type: 'jpeg', quality: 88 })
