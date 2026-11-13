@@ -161,7 +161,13 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'David Rumsey Map Collection',
         link: 'https://davidrumsey.com/maps5853.html',
-        use: 'The Wheeler Survey’s Atlas Sheet 83 (1876) and other period maps, studied for the hachure style. Nothing from them is reproduced.',
+        use: (
+          <>
+            The Wheeler Survey’s Atlas Sheet 83 (1876) and other period maps, studied for the hachure style; the{' '}
+            <a href={`${REPO_URL}/blob/main/docs/inspiration/rumsey.md`}>list</a> gives each one. Nothing from them is
+            reproduced.
+          </>
+        ),
         licence: 'Links only',
       },
       {
