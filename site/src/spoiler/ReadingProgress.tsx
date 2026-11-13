@@ -29,7 +29,7 @@ export function ReadingProgress({ progress, isSet, episodes, onSet }: Props) {
   return (
     <>
       <button ref={badge} type="button" className="progress-badge" aria-haspopup="dialog" onClick={() => setOpen(true)}>
-        <span className="meta">{hidden ? 'Spoilers hidden · read up to' : 'Spoilers shown'}</span>
+        <span className="meta">{hidden ? 'Read up to' : 'Spoilers shown'}</span>
         <span>{isSet ? progressLabel(progress, episodes) : 'Not set: how far have you read?'}</span>
       </button>
       {open && (

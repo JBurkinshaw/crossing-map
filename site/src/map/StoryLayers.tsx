@@ -70,7 +70,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
   // A segment joins stop `sequence` to the next, so the road ahead starts at the current stop's sequence.
   const ahead: ExpressionSpecification =
     aheadFrom === null ? ['boolean', false] : ['all', inFocus, ['>=', ['coalesce', ['get', 'sequence'], 9999], aheadFrom]]
-  const routeOpacity: ExpressionSpecification = ['case', ahead, 0.4, inFocus, 0.95, 0.3]
+  const routeOpacity: ExpressionSpecification = ['case', ahead, 0.4, inFocus, 1, 0.6]
 
   // The place layers, drawn alike from the places source and from the loose points of the clustered one.
   // An array, not a fragment: the Source gives its id to each of its direct children.
@@ -159,7 +159,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           id="journeys-casing"
           type="line"
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
-          paint={{ 'line-color': tokens.paper, 'line-width': ['case', inFocus, 5, 2.5], 'line-opacity': ['case', inFocus, 0.7, 0.3] }}
+          paint={{ 'line-color': tokens.paper, 'line-width': ['case', inFocus, 6.5, 3.5], 'line-opacity': ['case', inFocus, 0.8, 0.5] }}
         />
         {/* Solid where the book names the road or river followed; dashed where the path is not known. */}
         <Layer
@@ -169,7 +169,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
-            'line-width': ['case', inFocus, 2.5, 1.2],
+            'line-width': ['case', inFocus, 3.5, 1.8],
             'line-opacity': routeOpacity,
           }}
         />
@@ -180,7 +180,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
-            'line-width': ['case', inFocus, 2.5, 1.2],
+            'line-width': ['case', inFocus, 3.5, 1.8],
             'line-opacity': routeOpacity,
             'line-dasharray': [3, 2],
           }}
@@ -191,7 +191,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           type="line"
           filter={['==', ['get', 'kind'], 'sightline']}
           layout={{ 'line-cap': 'round' }}
-          paint={{ 'line-color': inkByJourney, 'line-width': 2, 'line-opacity': ['case', inFocus, 0.9, 0.3], 'line-dasharray': [0.1, 2.5] }}
+          paint={{ 'line-color': inkByJourney, 'line-width': 2, 'line-opacity': ['case', inFocus, 0.9, 0.6], 'line-dasharray': [0.1, 2.5] }}
         />
       </Source>
       <Source id="places" type="geojson" data={places.outside}>

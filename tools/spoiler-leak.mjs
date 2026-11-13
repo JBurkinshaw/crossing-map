@@ -1,7 +1,7 @@
 // The spoiler-leak test (docs/plan.md, section 11, acceptance criteria): for several reading positions, load
 // the app and check that nothing first seen later shows anywhere: the story data given to the map, the
 // features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop and
-// the road card of each stop with talk on the road, "In view", "Named elsewhere"), mountain glyphs, vignettes,
+// the road card of each stop with talk on the road, "Named elsewhere"), mountain glyphs, vignettes,
 // search results and the cards they open (places and the translations "Spoken here"), the layer key, and the
 // same again in the Raised view.
 //
@@ -61,6 +61,8 @@ const leak = (where, what) => leaks.push(`${where}: ${what}`)
 async function checkPanel(page, reached, where, later, lines = new Set()) {
   const { text, names, firstSeen, shownLines } = await page.evaluate(() => {
     const panel = document.querySelector('.panel')
+    // Folded sections count too: open them, so innerText includes them.
+    for (const d of panel.querySelectorAll('details')) d.open = true
     const key = document.querySelector('.layer-key')?.innerText ?? ''
     const names = [...document.querySelectorAll('.panel li, .panel h2, .maplibregl-popup strong')].map((e) => e.textContent.trim())
     for (const m of document.querySelectorAll('.stop-marker')) names.push(m.getAttribute('aria-label').replace(/^Stop \d+: /, ''))

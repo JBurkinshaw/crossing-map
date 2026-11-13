@@ -61,9 +61,11 @@ function bounds(features: Feature[]): [number, number, number, number] {
   return [Math.min(...lons), Math.min(...lats), Math.max(...lons), Math.max(...lats)]
 }
 
-// The whole of a journey: its stops, with room around them.
+// The whole of a journey: its stops, clear of the map's switches (top), zoom buttons and key (left), and the
+// inset and cartouche (bottom right). Phones have no room to spare.
 function frameStops(map: MapRef | null, stops: Feature<Geometry, StoryProps>[]) {
-  if (stops.length > 0) map?.fitBounds(bounds(stops), { padding: 40, duration: motion(1200) })
+  const padding = window.matchMedia('(max-width: 720px)').matches ? 30 : { top: 70, right: 130, bottom: 100, left: 80 }
+  if (stops.length > 0) map?.fitBounds(bounds(stops), { padding, duration: motion(1200) })
 }
 
 // A journey's stops in order.

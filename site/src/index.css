@@ -172,13 +172,6 @@ select {
   margin-top: 12px;
 }
 
-.drawer .site-links {
-  margin: 20px 0 0;
-  padding: 8px 0 0;
-  border-top: 1px solid var(--ink-faint);
-  border-bottom: 0;
-}
-
 .journey-pick {
   display: grid;
   gap: 4px;
@@ -505,13 +498,34 @@ select {
 }
 
 .elsewhere {
-  margin-top: 16px;
   font-size: 0.85rem;
 }
 
-.elsewhere h3 {
-  margin: 0 0 4px;
-  font-size: 0.95rem;
+/* Folded sections: the stop's placement, all stops, places named elsewhere. */
+details.more {
+  margin-top: 12px;
+  padding-top: 6px;
+  border-top: 1px solid var(--ink-faint);
+}
+
+details.more summary,
+.placement summary {
+  min-height: 32px;
+  padding: 6px 0;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.placement summary {
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+details.more summary:focus-visible,
+.placement summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
 }
 
 .elsewhere ul {
@@ -519,14 +533,14 @@ select {
   padding-left: 18px;
 }
 
-/* Links to the site's pages, at the top of the panel. */
+/* Links to the site's pages, at the foot of the panel. */
 .site-links {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 14px;
-  margin: -4px 0 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--ink-faint);
+  margin: 20px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--ink-faint);
   font-size: 0.8rem;
   font-style: italic;
 }
@@ -764,12 +778,13 @@ a {
 
 /* Reading progress: the badge at the top of the panel and its dialog. Nothing here moves. */
 .progress-badge {
-  display: grid;
-  gap: 2px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
   width: 100%;
-  min-height: 44px;
-  margin-bottom: 12px;
-  padding: 6px 10px;
+  min-height: 36px;
+  margin-bottom: 10px;
+  padding: 4px 10px;
   border: 1px solid var(--ink);
   background: var(--paper);
   text-align: left;
