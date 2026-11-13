@@ -1,7 +1,7 @@
 """Generate the mountain glyph SVGs and build the MapLibre sprite (plan section 5.2, layer 2).
 
 Run from the repo root: uv run --project pipeline python art/glyphs/make_glyphs.py
-Needs spreet (cargo install spreet).
+Needs spreet (cargo install spreet). The sprite also holds the vignettes (art/build_sprite.py).
 
 One family of COUNT shapes per landform (crossing.landforms), named
 <landform>-<nn>.svg: peak, dome, mesa, butte, cone, ridge and pass. Each glyph is a
@@ -16,12 +16,13 @@ hatching is redrawn on the right, so the light stays in the north-west.
 
 import math
 import random
-import subprocess
+import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from build_sprite import build_sprite  # noqa: E402  (art/build_sprite.py, shared with the vignettes)
+
 SVG_DIR = Path(__file__).parent / "svg"
-SPRITE = REPO / "site" / "public" / "sprites" / "glyphs"
 INK, PAPER = "#2b2118", "#e4ddcc"
 COUNT = 12  # shapes per family
 Point = tuple[float, float]
@@ -276,11 +277,8 @@ def main() -> None:
             (SVG_DIR / f"{family}-{i:02d}.svg").write_text(svg(family, pts, extras, random.Random(hatch_seed), W, H))
             (SVG_DIR / f"{family}-{i:02d}-flip.svg").write_text(
                 svg(family, mirror(pts, W), [mirror(e, W) for e in extras], random.Random(hatch_seed), W, H))
-    SPRITE.parent.mkdir(parents=True, exist_ok=True)
-    for extra in ([], ["--retina"]):
-        out = f"{SPRITE}@2x" if extra else str(SPRITE)
-        subprocess.run([str(Path.home() / ".cargo" / "bin" / "spreet"), *extra, str(SVG_DIR), out], check=True)
-    print(f"{len(FAMILIES) * COUNT * 2} glyphs in {len(FAMILIES)} families; sprite at {SPRITE.relative_to(REPO)}")
+    print(f"{len(FAMILIES) * COUNT * 2} glyphs in {len(FAMILIES)} families")
+    build_sprite()
 
 
 if __name__ == "__main__":

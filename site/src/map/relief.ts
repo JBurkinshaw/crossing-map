@@ -7,6 +7,7 @@ import { fonts, tokens } from './tokens'
 export function reliefSources(tilesBase: string, dataBase: string): Record<string, SourceSpecification> {
   return {
     glyphs: { type: 'geojson', data: `${dataBase}mountain_glyphs.geojson` },
+    vignettes: { type: 'geojson', data: `${dataBase}vignettes.geojson` },
     terrain: { type: 'raster-dem', url: `pmtiles://${tilesBase}terrain.pmtiles`, encoding: 'terrarium', tileSize: 256 },
     relief: { type: 'vector', url: `pmtiles://${tilesBase}relief.pmtiles` },
     // Split from relief.pmtiles so each archive stays under 100 MB (plan 5.2) and readers who stay zoomed out
@@ -57,6 +58,40 @@ function glyphs(): LayerSpecification[] {
         'text-optional': true,
       },
       paint: { 'text-color': tokens.ink, 'text-opacity': 0.8, 'text-halo-color': tokens.paper, 'text-halo-width': 1.2 },
+    },
+  ]
+}
+
+// Vignettes (plan section 10): drawings of the book's creatures, buildings and objects, each in empty country near
+// what it stands for, from data/vignettes.geojson and the vignette-<id> drawings in the sprite (placeholders for now).
+// Each shows only in its own zoom range, which keeps them a few to a screen; symbol collision places the lowest
+// `priority` first, and the labels above them win any overlap. A located site (a ruin, a hacienda) also gets a
+// hairline leader from the drawing to the site; the leader still draws if its drawing loses a collision.
+// The spoiler filter by `first_seen` is not applied here yet.
+function vignettes(): LayerSpecification[] {
+  const inRange = (kind: string): ExpressionSpecification => ['all', ['==', ['get', 'kind'], kind],
+    ['>=', ['zoom'], ['get', 'min_zoom']], ['<', ['zoom'], ['get', 'max_zoom']]]
+  return [
+    {
+      id: 'vignette-leader',
+      type: 'line',
+      source: 'vignettes',
+      filter: inRange('vignette-leader'),
+      layout: { 'line-cap': 'round' },
+      paint: { 'line-color': tokens.ink, 'line-width': 0.6, 'line-opacity': 0.6 },
+    },
+    {
+      id: 'vignette',
+      type: 'symbol',
+      source: 'vignettes',
+      filter: inRange('vignette'),
+      layout: {
+        'icon-image': ['get', 'vignette'],
+        // Drawn on a 96 px grid: about 38 px across at zoom 6, 53 px at 9 and 67 px from 12.
+        'icon-size': ['interpolate', ['linear'], ['zoom'], 6, 0.4, 9, 0.55, 12, 0.7],
+        'icon-padding': 4,
+        'symbol-sort-key': ['get', 'priority'],
+      },
     },
   ]
 }
@@ -166,8 +201,10 @@ function s5Lines(): LayerSpecification[] {
 }
 
 // The relief layers; literaryStyle places each group at its depth.
-export function reliefLayers(): { hillshade: LayerSpecification[]; hachures: LayerSpecification[]; glyphs: LayerSpecification[] } {
-  return { hillshade: s5Ground(), hachures: s5Lines(), glyphs: glyphs() }
+export function reliefLayers(): {
+  hillshade: LayerSpecification[]; hachures: LayerSpecification[]; glyphs: LayerSpecification[]; vignettes: LayerSpecification[]
+} {
+  return { hillshade: s5Ground(), hachures: s5Lines(), glyphs: glyphs(), vignettes: vignettes() }
 }
 
 // The Raised view (plan oblique relief): line work from oblique-<n>.pmtiles in which every point has moved north

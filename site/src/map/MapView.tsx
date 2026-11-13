@@ -36,7 +36,7 @@ const TERRAIN_TILT = 40
 // boundaries, roads, streams and the Mexico side from raised copies.
 const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy',
   'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy', 'mountain-glyph', 'county-line', 'state-line', 'country-line', 'creek',
-  'river-minor', 'river', 'creek-label', 'river-label', 'road', 'railroad', 'railroad-ties'])
+  'river-minor', 'river', 'creek-label', 'river-label', 'road', 'railroad', 'railroad-ties', 'vignette-leader', 'vignette'])
 const RAISED_GROUPS = raisedLayers(literaryStyle(tilesBase, fontsBase, dataBase).layers)
 
 type Picked = { lon: number; lat: number; props: StoryProps; story: Story | null }

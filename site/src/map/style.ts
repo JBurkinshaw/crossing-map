@@ -7,7 +7,7 @@ export const BASE_LAYERS = [
   'paper', 'mexico', 'lake', 'county-line', 'state-line', 'creek', 'river-minor', 'river',
   'road', 'railroad', 'railroad-ties', 'creek-label', 'river-label',
   'relief-tint', 'relief-paper', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy',
-  'mountain-glyph',
+  'mountain-glyph', 'vignette-leader', 'vignette',
 ]
 
 // The literary basemap (docs/plan.md, section 5.1): ink on caliche paper, the
@@ -147,9 +147,10 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         paint: { 'text-color': tokens.water, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },
     ]
-  // Hillshade sits on the paper; hachures under the water and lines; glyphs above the lines, below the labels.
+  // Hillshade sits on the paper; hachures under the water and lines; glyphs, then vignettes, above the lines and
+  // below the labels.
   const at = (id: string) => layers.findIndex((l) => l.id === id)
-  layers.splice(at('creek-label'), 0, ...r.glyphs)
+  layers.splice(at('creek-label'), 0, ...r.glyphs, ...r.vignettes)
   layers.splice(at('county-line'), 0, ...r.hachures)
   layers.splice(at('lake'), 0, ...r.hillshade)
   return {
