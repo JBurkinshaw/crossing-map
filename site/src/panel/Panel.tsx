@@ -1,30 +1,38 @@
 import type { Feature, Point } from 'geojson'
-import type { StoryProps } from '../data/story'
+import type { Elsewhere, StoryProps } from '../data/story'
 
 const JOURNEYS: Record<string, string> = {
   J1: 'The she-wolf, north out of Sonora',
   J2: "Billy's first crossing, with the wolf",
+  J3: 'Billy alone in the Sierras, and home',
+  J4: 'Billy and Boyd, for the horses',
+  J5: 'Billy looking for Boyd and the girl',
+  J6: 'Boyd and the girl (reported)',
+  J7: "Billy's war years and third crossing",
 }
 
 type Props = {
   failed: boolean
   journey: string
+  // The journeys drawn so far, and the places named outside the map.
+  journeys: string[]
+  elsewhere: Elsewhere[]
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
   onJourney: (journey: string) => void
   onStop: (index: number) => void
 }
 
-export function Panel({ failed, journey, stops, stopIndex, onJourney, onStop }: Props) {
+export function Panel({ failed, journey, journeys, elsewhere, stops, stopIndex, onJourney, onStop }: Props) {
   const stop = stops[stopIndex]
   return (
     <aside className="panel" aria-label="Journey">
       <label className="journey-pick">
         <span>Journey</span>
         <select value={journey} onChange={(e) => onJourney(e.target.value)}>
-          {Object.entries(JOURNEYS).map(([id, title]) => (
+          {journeys.map((id) => (
             <option key={id} value={id}>
-              {id}. {title}
+              {id}. {JOURNEYS[id] ?? id}
             </option>
           ))}
         </select>
@@ -66,6 +74,18 @@ export function Panel({ failed, journey, stops, stopIndex, onJourney, onStop }: 
           </li>
         ))}
       </ol>
+
+      {elsewhere.length > 0 && (
+        <section className="elsewhere">
+          <h3>Named elsewhere</h3>
+          <p className="meta">Places the book names that lie beyond this map.</p>
+          <ul>
+            {elsewhere.map((e) => (
+              <li key={e.id}>{e.name}</li>
+            ))}
+          </ul>
+        </section>
+      )}
     </aside>
   )
 }

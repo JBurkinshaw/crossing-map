@@ -871,6 +871,1279 @@
     "note_safe": "",
     "reasoning": "GeoNames 3981872, Sierra de Teras, which GeoNames also lists as Pilares de Teras."
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.08316,
+     30.77508
+    ]
+   },
+   "properties": {
+    "id": "j3-wolfs-grave",
+    "name": "The wolf's grave, a high pass in the Pilares",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 1,
+    "place_ref": "place-pilares-de-teras",
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3981872",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Part II opens where Part I ended: he carried the wolf up into the mountains and buried her in a high pass under a cairn of scree. The book does not say which pass; the pin is the range."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.04959,
+     30.57036
+    ]
+   },
+   "properties": {
+    "id": "j3-bavispe-promontory",
+    "name": "A promontory above the Bavispe",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 2,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "inferred",
+    "uncertainty_m": 12000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Two days later he sees the Bavispe from a promontory 'running backwards' and works out that he has crossed back through the mountains to where the river runs north along the eastern side of the Sierras. That north-running reach is the upper Bavispe between Bacerac and Bavispe town, so the promontory is on the sierra's eastern edge above it; the circle covers that edge."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.21793,
+     30.61245
+    ]
+   },
+   "properties": {
+    "id": "j3-el-tigre",
+    "name": "El Tigre",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 3,
+    "place_ref": "place-el-tigre",
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4007229",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "'A week later' he rides, ragged and starving, into the mining town of El Tigre, where a woman feeds him. GeoNames 4007229 is the old silver camp in the Sierra El Tigre, 27.1 km straight-line south of Colonia Morelos (pyproj, WGS 84)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.09964,
+     30.31882
+    ]
+   },
+   "properties": {
+    "id": "j3-indian-rancherias",
+    "name": "Among the Indians in the Sierras",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 4,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "inferred",
+    "uncertainty_m": 20000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He wanders the high country for weeks and Indians feed him; the book names no range or camp. The circle covers the Sierra El Tigre country south of the mining town and west of the upper Bavispe, between his stop at El Tigre and his descent to the river."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.94973,
+     30.01314
+    ]
+   },
+   "properties": {
+    "id": "j3-eastern-escarpment",
+    "name": "The eastern escarpment above the Bavispe barranca",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 5,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "inferred",
+    "uncertainty_m": 10000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "From the eastern escarpment he looks out over 'the broad barranca of the Bavispe and the ensuing Carretas Plain', then goes down, sleeps by the river and rides north along the river track to a ford. So the escarpment is on the sierra's eastern edge upriver (south) of Huisiachepic; the circle is set south-west of the Huisiachepic estimate."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.83449,
+     30.04844
+    ]
+   },
+   "properties": {
+    "id": "j3-huisiachepic",
+    "name": "Huisiachepic, the heretic's town",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 6,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "inferred",
+    "uncertainty_m": 10000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "No gazetteer or source has Huisiachepic (see docs/open-questions.md). The text puts it across a ford on the upper Bavispe, reached by riding north along the river, and several days upriver (south) of Tamichopa. The estimate is the midpoint of the river reach between Mesa Tres Ríos and Huachinera, 28.2 km straight-line south of Tamichopa."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.90331,
+     30.28339
+    ]
+   },
+   "properties": {
+    "id": "j3-tamichopa",
+    "name": "Tamichopa",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 7,
+    "place_ref": "place-tamichopa",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3982557",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He passes through Tamichopa riding north; the text gives its history (burned by Apaches in 1758)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.93096,
+     30.36599
+    ]
+   },
+   "properties": {
+    "id": "j3-bacerac",
+    "name": "Bacerac",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 8,
+    "place_ref": "place-bacerac",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4017806",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He is fed and lodged at Bacerac; the text gives its old name, Santa María, founded 1642."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9408,
+     30.48946
+    ]
+   },
+   "properties": {
+    "id": "j3-bavispe",
+    "name": "Bavispe",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 9,
+    "place_ref": "place-bavispe",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4017239",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides through Bavispe, the earthquake town of the heretic's tale, without stopping."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.05807,
+     30.73789
+    ]
+   },
+   "properties": {
+    "id": "j3-colonia-oaxaca",
+    "name": "Colonia Oaxaca (the alguacil's house)",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 10,
+    "place_ref": "place-colonia-oaxaca",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4013341",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He halts by the house of the alguacil who arrested him in Part I, spits, and rides on."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.22371,
+     30.83377
+    ]
+   },
+   "properties": {
+    "id": "j3-colonia-morelos",
+    "name": "Colonia Morelos",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 11,
+    "place_ref": "place-colonia-morelos",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4013350",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He passes through Colonia Morelos going north."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.24309,
+     30.89962
+    ]
+   },
+   "properties": {
+    "id": "j3-ojito",
+    "name": "The road north toward Ojito",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 12,
+    "place_ref": "place-ojito",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3990426",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He takes the road north toward Ojito. GeoNames 3990426 El Ojito is 7 km north of Colonia Morelos on the road to the border (see the place's reasoning)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.54513,
+     31.35825
+    ]
+   },
+   "properties": {
+    "id": "j3-douglas",
+    "name": "The border at Douglas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 13,
+    "place_ref": "place-douglas",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "4069",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He crosses back into the United States at Douglas, where the guard John Gilchrist lends him a half dollar."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.01953,
+     31.47255
+    ]
+   },
+   "properties": {
+    "id": "j3-guadalupe-pass",
+    "name": "A pass in the Guadalupes on the old Cloverdale road",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 14,
+    "place_ref": "place-guadalupe-mountains",
+    "part": 2,
+    "episode": "2-04",
+    "first_seen": "2-04",
+    "certainty": "inferred",
+    "uncertainty_m": 6000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names carved in the rock, and looks down on the Animas Plain at dusk. The book does not name the pass; the circle is where a road east from Douglas toward Cloverdale crosses the range, north of the low pass of J2."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.92932,
+     31.43762
+    ]
+   },
+   "properties": {
+    "id": "j3-parham-house",
+    "name": "The Parham house, found empty",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 15,
+    "place_ref": "place-cloverdale",
+    "part": 2,
+    "episode": "2-04",
+    "first_seen": "2-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920578",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He reaches the house at midnight and finds it empty; the bloodstain is found in 2-05. The family's house is at Cloverdale, as in Part I."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.89955,
+     31.5651
+    ]
+   },
+   "properties": {
+    "id": "j3-sk-bar",
+    "name": "Sanders' (the SK Bar)",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 16,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-04",
+    "first_seen": "2-04",
+    "certainty": "inferred",
+    "uncertainty_m": 4000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Old man Sanders and Leona tell him what happened. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is about 14.5 km north of Cloverdale."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.8069,
+     31.96483
+    ]
+   },
+   "properties": {
+    "id": "j3-animas",
+    "name": "Animas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 17,
+    "place_ref": "place-animas",
+    "part": 2,
+    "episode": "2-05",
+    "first_seen": "2-05",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "885759",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He fills his canteen at the store in Animas."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.70828,
+     32.36536
+    ]
+   },
+   "properties": {
+    "id": "j3-lordsburg",
+    "name": "Lordsburg, the sheriff's office",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 18,
+    "place_ref": "place-lordsburg",
+    "part": 2,
+    "episode": "2-05",
+    "first_seen": "2-05",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "891335",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He tells the sheriff at Lordsburg, and learns Boyd is staying on the east side of town."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.68962,
+     32.3648
+    ]
+   },
+   "properties": {
+    "id": "j3-websters",
+    "name": "The Websters' (Boyd)",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 19,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-06",
+    "first_seen": "2-06",
+    "certainty": "inferred",
+    "uncertainty_m": 2000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Boyd is lodging with the Websters on the east side of Lordsburg; the book gives no street. The circle covers the east side of town."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.68962,
+     32.3648
+    ]
+   },
+   "properties": {
+    "id": "j4-lordsburg",
+    "name": "Leaving the Websters', Lordsburg",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 1,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "inferred",
+    "uncertainty_m": 2000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The brothers leave the Websters' with the shotgun, money and food, and cross the Southern Pacific tracks out of Lordsburg."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.96476,
+     32.36549
+    ]
+   },
+   "properties": {
+    "id": "j4-alkali-flats",
+    "name": "Camp on the alkali flats",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 2,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "inferred",
+    "uncertainty_m": 4000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They camp 'on the alkali flats fifteen miles west of Lordsburg' with a fire of fenceposts. Fifteen miles due west of Lordsburg (pyproj, WGS 84) falls on the playa west of town; the circle allows for the direction."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.14975,
+     32.28236
+    ]
+   },
+   "properties": {
+    "id": "j4-san-simon",
+    "name": "Noon at the San Simon River",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 3,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "inferred",
+    "uncertainty_m": 7000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They cross a low range and descend into the San Simon Valley 'where it ran down from the north' and noon at the river in cottonwoods. GNIS pins the valley 54 km north of Bowie, so the stop is a point on the San Simon River between the state line and San Simon town (see the place's reasoning)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.4598,
+     32.33204
+    ]
+   },
+   "properties": {
+    "id": "j4-bowie",
+    "name": "Across the highway east of Bowie",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 4,
+    "place_ref": "place-bowie",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "inferred",
+    "uncertainty_m": 3000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "In the evening they cross the highway 'just east of Bowie' and strike the old road south through the Dos Cabezas."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.61138,
+     32.25881
+    ]
+   },
+   "properties": {
+    "id": "j4-dos-cabezas",
+    "name": "The old road through the Dos Cabezas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 5,
+    "place_ref": "place-dos-cabezas-mountains",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "4038",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "They take the old road south through the Dos Cabezas range and camp."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.4814,
+     32.17149
+    ]
+   },
+   "properties": {
+    "id": "j4-apache-pass",
+    "name": "Apache Pass",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 6,
+    "place_ref": "place-apache-pass",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "732",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "They cross the high gap at Apache Pass the next day; Billy points out Mexico."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.68681,
+     31.69982
+    ]
+   },
+   "properties": {
+    "id": "j4-elfrida",
+    "name": "Elfrida",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 7,
+    "place_ref": "place-elfrida",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "4408",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "At noon the following day they strike route 666 and follow the blacktop down out of the Sulphur Springs Valley, through Elfrida."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.66986,
+     31.61576
+    ]
+   },
+   "properties": {
+    "id": "j4-mcneal",
+    "name": "McNeal",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 8,
+    "place_ref": "place-mcneal",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "7855",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "They ride through McNeal on route 666."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.54513,
+     31.35825
+    ]
+   },
+   "properties": {
+    "id": "j4-douglas",
+    "name": "Douglas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 9,
+    "place_ref": "place-douglas",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "4069",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "They return through Douglas heading south; Billy repays Gilchrist's half dollar through another guard."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.5423,
+     31.33611
+    ]
+   },
+   "properties": {
+    "id": "j4-agua-prieta",
+    "name": "Agua Prieta",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 10,
+    "place_ref": "place-agua-prieta",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4019260",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Ice cream, supplies, and their money changed to pesos."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.24309,
+     30.89962
+    ]
+   },
+   "properties": {
+    "id": "j4-ojito",
+    "name": "Ojito",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 11,
+    "place_ref": "place-ojito",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3990426",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They stop at Ojito in the evening and ask for food."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.22371,
+     30.83377
+    ]
+   },
+   "properties": {
+    "id": "j4-colonia-morelos",
+    "name": "Colonia Morelos at midnight",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 12,
+    "place_ref": "place-colonia-morelos",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4013350",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They pass Colonia Morelos after midnight."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.93096,
+     30.36599
+    ]
+   },
+   "properties": {
+    "id": "j4-bacerac",
+    "name": "Bacerac (Keno)",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 13,
+    "place_ref": "place-bacerac",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4017806",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "'Seven days into the country passing one by one through the squalid mud towns along the river they entered the town of Bacerac', where they find the one-eyed horse Keno."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.44921,
+     30.38042
+    ]
+   },
+   "properties": {
+    "id": "j4-escarpment-rim",
+    "name": "The eastern rim of the escarpment at sunrise",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 14,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "inferred",
+    "uncertainty_m": 12000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "From Bacerac a wretched trail climbs through pine and scrub oak; within an hour of setting out they sit the horses on 'the eastern rim of the escarpment' and watch the sun rise out of the plains of Chihuahua. The book names no pass; the circle is on the eastern edge of the sierra on the line from Bacerac to Colonia Juárez (82.4 km apart)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.24931,
+     30.34455
+    ]
+   },
+   "properties": {
+    "id": "j4-plains-camp",
+    "name": "The plains, with the Tarahumaras",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 15,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "inferred",
+    "uncertainty_m": 10000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Below the rim they cross prairie to a ciénega where Tarahumaras afoot are watering, headed back into the sierras. The circle covers the plain between the escarpment and Colonia Juárez."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.07529,
+     30.32821
+    ]
+   },
+   "properties": {
+    "id": "j4-colonia-juarez",
+    "name": "Colonia Juárez",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 16,
+    "place_ref": "place-colonia-juarez",
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4003756",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They reach the Mormon settlement in the late afternoon and pick apples in the orchards."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95145,
+     30.39581
+    ]
+   },
+   "properties": {
+    "id": "j4-casas-grandes",
+    "name": "Casas Grandes",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 17,
+    "place_ref": "place-casas-grandes",
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4015076",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They cross the Casas Grandes River on a plank bridge, pass the ruins and the railroad, and in town find the ganadero's office, Soto y Gillian."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95941,
+     30.32894
+    ]
+   },
+   "properties": {
+    "id": "j4-the-girl",
+    "name": "The girl, at a fire in an oak grove",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 18,
+    "place_ref": null,
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "inferred",
+    "uncertainty_m": 5000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Riding south on the road toward San Diego they see a fire 'in a small grove of oaks off to the east', where two men hold the girl; Boyd stampedes their horses. The circle is east of the road between Casas Grandes and San Diego (15.8 km apart)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.00985,
+     30.26302
+    ]
+   },
+   "properties": {
+    "id": "j4-san-diego",
+    "name": "The Hacienda de San Diego",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 19,
+    "place_ref": "place-hacienda-de-san-diego",
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3987333",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "In the evening they reach the hacienda of San Diego, on a hill above tilled lands running to the Casas Grandes and the Piedras Verdes."
+   }
   }
  ]
 }

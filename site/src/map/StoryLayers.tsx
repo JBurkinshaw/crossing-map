@@ -5,9 +5,7 @@ import type { Story, StoryProps } from '../data/story'
 import { S5_PAPER_SHOWN } from './relief'
 import { fonts, journeyInk, tokens } from './tokens'
 
-const inkByJourney: ExpressionSpecification = [
-  'match', ['get', 'journey'], 'J1', journeyInk.J1, 'J2', journeyInk.J2, tokens.ink,
-]
+const inkByJourney = ['match', ['get', 'journey'], ...Object.entries(journeyInk).flat(), tokens.ink] as unknown as ExpressionSpecification
 
 type Props = {
   story: Story

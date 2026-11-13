@@ -3308,6 +3308,4204 @@
     "source_licence": "CC BY 4.0",
     "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.08333,
+      30.76667
+     ],
+     [
+      -109.0783,
+      30.75346
+     ],
+     [
+      -109.07365,
+      30.74021
+     ],
+     [
+      -109.06941,
+      30.72692
+     ],
+     [
+      -109.06555,
+      30.71358
+     ],
+     [
+      -109.06209,
+      30.70019
+     ],
+     [
+      -109.05902,
+      30.68676
+     ],
+     [
+      -109.05635,
+      30.67329
+     ],
+     [
+      -109.05407,
+      30.65977
+     ],
+     [
+      -109.05218,
+      30.6462
+     ],
+     [
+      -109.05069,
+      30.6326
+     ],
+     [
+      -109.04959,
+      30.61894
+     ],
+     [
+      -109.04889,
+      30.60524
+     ],
+     [
+      -109.04858,
+      30.5915
+     ],
+     [
+      -109.04866,
+      30.57771
+     ],
+     [
+      -109.04913,
+      30.56388
+     ],
+     [
+      -109.05,
+      30.55
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-01",
+    "name": "The wolf's grave, a high pass in the Pilares to A promontory above the Bavispe",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 1,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.05,
+      30.55
+     ],
+     [
+      -109.06001,
+      30.55405
+     ],
+     [
+      -109.07009,
+      30.55787
+     ],
+     [
+      -109.08024,
+      30.56147
+     ],
+     [
+      -109.09046,
+      30.56484
+     ],
+     [
+      -109.10074,
+      30.56798
+     ],
+     [
+      -109.1111,
+      30.5709
+     ],
+     [
+      -109.12152,
+      30.57359
+     ],
+     [
+      -109.13201,
+      30.57605
+     ],
+     [
+      -109.14256,
+      30.57829
+     ],
+     [
+      -109.15319,
+      30.5803
+     ],
+     [
+      -109.16388,
+      30.58208
+     ],
+     [
+      -109.17465,
+      30.58364
+     ],
+     [
+      -109.18548,
+      30.58497
+     ],
+     [
+      -109.19638,
+      30.58607
+     ],
+     [
+      -109.20734,
+      30.58695
+     ],
+     [
+      -109.21838,
+      30.5876
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-02",
+    "name": "A promontory above the Bavispe to El Tigre",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 2,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.21838,
+      30.5876
+     ],
+     [
+      -109.20707,
+      30.57082
+     ],
+     [
+      -109.19629,
+      30.55388
+     ],
+     [
+      -109.18602,
+      30.53678
+     ],
+     [
+      -109.17628,
+      30.51953
+     ],
+     [
+      -109.16705,
+      30.50211
+     ],
+     [
+      -109.15835,
+      30.48453
+     ],
+     [
+      -109.15017,
+      30.4668
+     ],
+     [
+      -109.14251,
+      30.4489
+     ],
+     [
+      -109.13537,
+      30.43085
+     ],
+     [
+      -109.12876,
+      30.41263
+     ],
+     [
+      -109.12266,
+      30.39426
+     ],
+     [
+      -109.11709,
+      30.37573
+     ],
+     [
+      -109.11203,
+      30.35703
+     ],
+     [
+      -109.1075,
+      30.33818
+     ],
+     [
+      -109.10349,
+      30.31917
+     ],
+     [
+      -109.1,
+      30.3
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-03",
+    "name": "El Tigre to Among the Indians in the Sierras",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 3,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.1,
+      30.3
+     ],
+     [
+      -109.09469,
+      30.27973
+     ],
+     [
+      -109.08884,
+      30.25966
+     ],
+     [
+      -109.08245,
+      30.2398
+     ],
+     [
+      -109.07551,
+      30.22014
+     ],
+     [
+      -109.06803,
+      30.20068
+     ],
+     [
+      -109.06001,
+      30.18142
+     ],
+     [
+      -109.05145,
+      30.16237
+     ],
+     [
+      -109.04235,
+      30.14351
+     ],
+     [
+      -109.0327,
+      30.12487
+     ],
+     [
+      -109.02251,
+      30.10642
+     ],
+     [
+      -109.01178,
+      30.08818
+     ],
+     [
+      -109.00051,
+      30.07014
+     ],
+     [
+      -108.9887,
+      30.0523
+     ],
+     [
+      -108.97634,
+      30.03466
+     ],
+     [
+      -108.96344,
+      30.01723
+     ],
+     [
+      -108.95,
+      30.0
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-04",
+    "name": "Among the Indians in the Sierras to The eastern escarpment above the Bavispe barranca",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 4,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.95,
+      30.0
+     ],
+     [
+      -108.76965,
+      30.05065
+     ],
+     [
+      -108.76775,
+      30.04389
+     ],
+     [
+      -108.835,
+      30.025
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-05",
+    "name": "The eastern escarpment above the Bavispe barranca to Huisiachepic, the heretic's town",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 5,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "note_safe": "",
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "natural-earth",
+    "source_licence": "Public domain",
+    "reasoning": "He goes down from the escarpment to the river and rides north along the river track to the ford at Huisiachepic; the route follows the Bavispe's main stem as Natural Earth draws it (the river line on the map)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.835,
+      30.025
+     ],
+     [
+      -108.76775,
+      30.04389
+     ],
+     [
+      -108.80278,
+      30.16865
+     ],
+     [
+      -108.8095,
+      30.18281
+     ],
+     [
+      -108.82251,
+      30.19216
+     ],
+     [
+      -108.83684,
+      30.20624
+     ],
+     [
+      -108.8449,
+      30.20942
+     ],
+     [
+      -108.86455,
+      30.21076
+     ],
+     [
+      -108.87388,
+      30.21284
+     ],
+     [
+      -108.88274,
+      30.21625
+     ],
+     [
+      -108.89458,
+      30.22414
+     ],
+     [
+      -108.90234,
+      30.23449
+     ],
+     [
+      -108.90276,
+      30.24702
+     ],
+     [
+      -108.89268,
+      30.2613
+     ],
+     [
+      -108.89072,
+      30.27321
+     ],
+     [
+      -108.90111,
+      30.27786
+     ],
+     [
+      -108.90354,
+      30.27243
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-06",
+    "name": "Huisiachepic, the heretic's town to Tamichopa",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 6,
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "note_safe": "",
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "natural-earth",
+    "source_licence": "Public domain",
+    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.90354,
+      30.27243
+     ],
+     [
+      -108.90111,
+      30.27786
+     ],
+     [
+      -108.90708,
+      30.28054
+     ],
+     [
+      -108.93735,
+      30.28517
+     ],
+     [
+      -108.94683,
+      30.28889
+     ],
+     [
+      -108.95244,
+      30.29352
+     ],
+     [
+      -108.95508,
+      30.30007
+     ],
+     [
+      -108.95537,
+      30.30939
+     ],
+     [
+      -108.95688,
+      30.31806
+     ],
+     [
+      -108.96396,
+      30.33459
+     ],
+     [
+      -108.96411,
+      30.34321
+     ],
+     [
+      -108.96079,
+      30.34924
+     ],
+     [
+      -108.94365,
+      30.36567
+     ],
+     [
+      -108.93118,
+      30.35564
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-07",
+    "name": "Tamichopa to Bacerac",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 7,
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "note_safe": "",
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "natural-earth",
+    "source_licence": "Public domain",
+    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.93118,
+      30.35564
+     ],
+     [
+      -108.94365,
+      30.36567
+     ],
+     [
+      -108.93511,
+      30.38056
+     ],
+     [
+      -108.9248,
+      30.41389
+     ],
+     [
+      -108.92021,
+      30.44362
+     ],
+     [
+      -108.92156,
+      30.45485
+     ],
+     [
+      -108.93157,
+      30.48303
+     ],
+     [
+      -108.94101,
+      30.47968
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-08",
+    "name": "Bacerac to Bavispe",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 8,
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "note_safe": "",
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "natural-earth",
+    "source_licence": "Public domain",
+    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.94101,
+      30.47968
+     ],
+     [
+      -108.93157,
+      30.48303
+     ],
+     [
+      -108.93506,
+      30.49287
+     ],
+     [
+      -108.93804,
+      30.49726
+     ],
+     [
+      -108.94556,
+      30.50392
+     ],
+     [
+      -108.95239,
+      30.50861
+     ],
+     [
+      -108.95835,
+      30.51398
+     ],
+     [
+      -108.96338,
+      30.52253
+     ],
+     [
+      -108.96709,
+      30.53413
+     ],
+     [
+      -108.96899,
+      30.54689
+     ],
+     [
+      -108.96753,
+      30.55927
+     ],
+     [
+      -108.96128,
+      30.56977
+     ],
+     [
+      -108.95703,
+      30.60676
+     ],
+     [
+      -109.03252,
+      30.67858
+     ],
+     [
+      -109.03979,
+      30.70974
+     ],
+     [
+      -109.06159,
+      30.72549
+     ],
+     [
+      -109.05822,
+      30.73016
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-09",
+    "name": "Bavispe to Colonia Oaxaca (the alguacil's house)",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 9,
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "note_safe": "",
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "natural-earth",
+    "source_licence": "Public domain",
+    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.05822,
+      30.73016
+     ],
+     [
+      -109.06725,
+      30.73788
+     ],
+     [
+      -109.07646,
+      30.74538
+     ],
+     [
+      -109.08584,
+      30.75265
+     ],
+     [
+      -109.0954,
+      30.75971
+     ],
+     [
+      -109.10513,
+      30.76654
+     ],
+     [
+      -109.11504,
+      30.77315
+     ],
+     [
+      -109.12513,
+      30.77953
+     ],
+     [
+      -109.13539,
+      30.7857
+     ],
+     [
+      -109.14583,
+      30.79164
+     ],
+     [
+      -109.15644,
+      30.79736
+     ],
+     [
+      -109.16723,
+      30.80286
+     ],
+     [
+      -109.1782,
+      30.80813
+     ],
+     [
+      -109.18934,
+      30.81319
+     ],
+     [
+      -109.20066,
+      30.81802
+     ],
+     [
+      -109.21216,
+      30.82262
+     ],
+     [
+      -109.22383,
+      30.82701
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-10",
+    "name": "Colonia Oaxaca (the alguacil's house) to Colonia Morelos",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 10,
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.22383,
+      30.82701
+     ],
+     [
+      -109.22593,
+      30.8309
+     ],
+     [
+      -109.22792,
+      30.83481
+     ],
+     [
+      -109.22978,
+      30.83875
+     ],
+     [
+      -109.23153,
+      30.84271
+     ],
+     [
+      -109.23316,
+      30.8467
+     ],
+     [
+      -109.23467,
+      30.85072
+     ],
+     [
+      -109.23606,
+      30.85476
+     ],
+     [
+      -109.23733,
+      30.85883
+     ],
+     [
+      -109.23848,
+      30.86292
+     ],
+     [
+      -109.23951,
+      30.86704
+     ],
+     [
+      -109.24043,
+      30.87119
+     ],
+     [
+      -109.24123,
+      30.87536
+     ],
+     [
+      -109.2419,
+      30.87956
+     ],
+     [
+      -109.24246,
+      30.88378
+     ],
+     [
+      -109.2429,
+      30.88803
+     ],
+     [
+      -109.24322,
+      30.89231
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-11",
+    "name": "Colonia Morelos to The road north toward Ojito",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 11,
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.24322,
+      30.89231
+     ],
+     [
+      -109.25591,
+      30.92361
+     ],
+     [
+      -109.26943,
+      30.9545
+     ],
+     [
+      -109.28377,
+      30.98499
+     ],
+     [
+      -109.29894,
+      31.01507
+     ],
+     [
+      -109.31493,
+      31.04475
+     ],
+     [
+      -109.33175,
+      31.07402
+     ],
+     [
+      -109.3494,
+      31.1029
+     ],
+     [
+      -109.36787,
+      31.13136
+     ],
+     [
+      -109.38716,
+      31.15943
+     ],
+     [
+      -109.40728,
+      31.18708
+     ],
+     [
+      -109.42823,
+      31.21434
+     ],
+     [
+      -109.45,
+      31.24119
+     ],
+     [
+      -109.4726,
+      31.26764
+     ],
+     [
+      -109.49602,
+      31.29368
+     ],
+     [
+      -109.52027,
+      31.31932
+     ],
+     [
+      -109.54534,
+      31.34455
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-12",
+    "name": "The road north toward Ojito to The border at Douglas",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 12,
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.54534,
+      31.34455
+     ],
+     [
+      -109.51395,
+      31.3564
+     ],
+     [
+      -109.48237,
+      31.36754
+     ],
+     [
+      -109.4506,
+      31.37798
+     ],
+     [
+      -109.41864,
+      31.38773
+     ],
+     [
+      -109.38648,
+      31.39677
+     ],
+     [
+      -109.35413,
+      31.40511
+     ],
+     [
+      -109.32158,
+      31.41275
+     ],
+     [
+      -109.28885,
+      31.4197
+     ],
+     [
+      -109.25592,
+      31.42594
+     ],
+     [
+      -109.22279,
+      31.43148
+     ],
+     [
+      -109.18948,
+      31.43631
+     ],
+     [
+      -109.15597,
+      31.44045
+     ],
+     [
+      -109.12227,
+      31.44389
+     ],
+     [
+      -109.08837,
+      31.44663
+     ],
+     [
+      -109.05428,
+      31.44866
+     ],
+     [
+      -109.02,
+      31.45
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-13",
+    "name": "The border at Douglas to A pass in the Guadalupes on the old Cloverdale road",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 13,
+    "part": 2,
+    "episode": "2-04",
+    "first_seen": "2-04",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.02,
+      31.45
+     ],
+     [
+      -109.01481,
+      31.44704
+     ],
+     [
+      -109.00957,
+      31.4442
+     ],
+     [
+      -109.00426,
+      31.44148
+     ],
+     [
+      -108.99889,
+      31.43888
+     ],
+     [
+      -108.99346,
+      31.4364
+     ],
+     [
+      -108.98797,
+      31.43403
+     ],
+     [
+      -108.98243,
+      31.4318
+     ],
+     [
+      -108.97682,
+      31.42968
+     ],
+     [
+      -108.97115,
+      31.42768
+     ],
+     [
+      -108.96542,
+      31.4258
+     ],
+     [
+      -108.95963,
+      31.42404
+     ],
+     [
+      -108.95378,
+      31.4224
+     ],
+     [
+      -108.94786,
+      31.42088
+     ],
+     [
+      -108.94189,
+      31.41948
+     ],
+     [
+      -108.93586,
+      31.41821
+     ],
+     [
+      -108.92977,
+      31.41705
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-14",
+    "name": "A pass in the Guadalupes on the old Cloverdale road to The Parham house, found empty",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 14,
+    "part": 2,
+    "episode": "2-04",
+    "first_seen": "2-04",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.92977,
+      31.41705
+     ],
+     [
+      -108.92967,
+      31.42534
+     ],
+     [
+      -108.92933,
+      31.4336
+     ],
+     [
+      -108.92876,
+      31.44181
+     ],
+     [
+      -108.92795,
+      31.44999
+     ],
+     [
+      -108.92691,
+      31.45813
+     ],
+     [
+      -108.92564,
+      31.46622
+     ],
+     [
+      -108.92413,
+      31.47428
+     ],
+     [
+      -108.92239,
+      31.48229
+     ],
+     [
+      -108.92041,
+      31.49027
+     ],
+     [
+      -108.9182,
+      31.49821
+     ],
+     [
+      -108.91575,
+      31.50611
+     ],
+     [
+      -108.91307,
+      31.51396
+     ],
+     [
+      -108.91015,
+      31.52178
+     ],
+     [
+      -108.907,
+      31.52956
+     ],
+     [
+      -108.90362,
+      31.5373
+     ],
+     [
+      -108.9,
+      31.545
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-15",
+    "name": "The Parham house, found empty to Sanders' (the SK Bar)",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 15,
+    "part": 2,
+    "episode": "2-04",
+    "first_seen": "2-04",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.9,
+      31.545
+     ],
+     [
+      -108.88864,
+      31.56932
+     ],
+     [
+      -108.87802,
+      31.59377
+     ],
+     [
+      -108.86814,
+      31.61834
+     ],
+     [
+      -108.85901,
+      31.64304
+     ],
+     [
+      -108.85061,
+      31.66786
+     ],
+     [
+      -108.84296,
+      31.6928
+     ],
+     [
+      -108.83605,
+      31.71786
+     ],
+     [
+      -108.82989,
+      31.74305
+     ],
+     [
+      -108.82446,
+      31.76836
+     ],
+     [
+      -108.81978,
+      31.79379
+     ],
+     [
+      -108.81584,
+      31.81935
+     ],
+     [
+      -108.81265,
+      31.84503
+     ],
+     [
+      -108.81019,
+      31.87083
+     ],
+     [
+      -108.80848,
+      31.89676
+     ],
+     [
+      -108.80751,
+      31.92281
+     ],
+     [
+      -108.80728,
+      31.94898
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-16",
+    "name": "Sanders' (the SK Bar) to Animas",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 16,
+    "part": 2,
+    "episode": "2-05",
+    "first_seen": "2-05",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.80728,
+      31.94898
+     ],
+     [
+      -108.80667,
+      31.97504
+     ],
+     [
+      -108.80532,
+      32.00098
+     ],
+     [
+      -108.80323,
+      32.02678
+     ],
+     [
+      -108.8004,
+      32.05246
+     ],
+     [
+      -108.79683,
+      32.078
+     ],
+     [
+      -108.79252,
+      32.10341
+     ],
+     [
+      -108.78747,
+      32.12869
+     ],
+     [
+      -108.78167,
+      32.15384
+     ],
+     [
+      -108.77514,
+      32.17887
+     ],
+     [
+      -108.76786,
+      32.20376
+     ],
+     [
+      -108.75985,
+      32.22852
+     ],
+     [
+      -108.75109,
+      32.25315
+     ],
+     [
+      -108.7416,
+      32.27765
+     ],
+     [
+      -108.73136,
+      32.30201
+     ],
+     [
+      -108.72038,
+      32.32625
+     ],
+     [
+      -108.70866,
+      32.35036
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-17",
+    "name": "Animas to Lordsburg, the sheriff's office",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 17,
+    "part": 2,
+    "episode": "2-05",
+    "first_seen": "2-05",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.70866,
+      32.35036
+     ],
+     [
+      -108.7075,
+      32.35015
+     ],
+     [
+      -108.70634,
+      32.34997
+     ],
+     [
+      -108.70517,
+      32.34981
+     ],
+     [
+      -108.70401,
+      32.34968
+     ],
+     [
+      -108.70285,
+      32.34957
+     ],
+     [
+      -108.70168,
+      32.34949
+     ],
+     [
+      -108.70052,
+      32.34943
+     ],
+     [
+      -108.69935,
+      32.34939
+     ],
+     [
+      -108.69818,
+      32.34938
+     ],
+     [
+      -108.69702,
+      32.3494
+     ],
+     [
+      -108.69585,
+      32.34944
+     ],
+     [
+      -108.69468,
+      32.3495
+     ],
+     [
+      -108.69351,
+      32.34959
+     ],
+     [
+      -108.69234,
+      32.3497
+     ],
+     [
+      -108.69117,
+      32.34984
+     ],
+     [
+      -108.69,
+      32.35
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j3-seg-18",
+    "name": "Lordsburg, the sheriff's office to The Websters' (Boyd)",
+    "kind": "route-segment",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "sequence": 18,
+    "part": 2,
+    "episode": "2-06",
+    "first_seen": "2-06",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.69,
+      32.35
+     ],
+     [
+      -108.7072,
+      32.34728
+     ],
+     [
+      -108.72439,
+      32.34493
+     ],
+     [
+      -108.74158,
+      32.34294
+     ],
+     [
+      -108.75878,
+      32.34131
+     ],
+     [
+      -108.77597,
+      32.34005
+     ],
+     [
+      -108.79317,
+      32.33914
+     ],
+     [
+      -108.81036,
+      32.33861
+     ],
+     [
+      -108.82756,
+      32.33843
+     ],
+     [
+      -108.84475,
+      32.33862
+     ],
+     [
+      -108.86194,
+      32.33917
+     ],
+     [
+      -108.87914,
+      32.34008
+     ],
+     [
+      -108.89633,
+      32.34136
+     ],
+     [
+      -108.91352,
+      32.343
+     ],
+     [
+      -108.93072,
+      32.345
+     ],
+     [
+      -108.94791,
+      32.34737
+     ],
+     [
+      -108.9651,
+      32.3501
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-01",
+    "name": "Leaving the Websters', Lordsburg to Camp on the alkali flats",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 1,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.9651,
+      32.3501
+     ],
+     [
+      -108.97777,
+      32.34693
+     ],
+     [
+      -108.99029,
+      32.34351
+     ],
+     [
+      -109.00266,
+      32.33984
+     ],
+     [
+      -109.01488,
+      32.33594
+     ],
+     [
+      -109.02695,
+      32.33178
+     ],
+     [
+      -109.03888,
+      32.32739
+     ],
+     [
+      -109.05066,
+      32.32275
+     ],
+     [
+      -109.06229,
+      32.31786
+     ],
+     [
+      -109.07377,
+      32.31274
+     ],
+     [
+      -109.08511,
+      32.30736
+     ],
+     [
+      -109.09629,
+      32.30175
+     ],
+     [
+      -109.10733,
+      32.29589
+     ],
+     [
+      -109.11822,
+      32.28978
+     ],
+     [
+      -109.12896,
+      32.28343
+     ],
+     [
+      -109.13955,
+      32.27684
+     ],
+     [
+      -109.15,
+      32.27
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-02",
+    "name": "Camp on the alkali flats to Noon at the San Simon River",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 2,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.15,
+      32.27
+     ],
+     [
+      -109.17007,
+      32.27005
+     ],
+     [
+      -109.19004,
+      32.27052
+     ],
+     [
+      -109.20993,
+      32.27139
+     ],
+     [
+      -109.22972,
+      32.27267
+     ],
+     [
+      -109.24942,
+      32.27437
+     ],
+     [
+      -109.26902,
+      32.27647
+     ],
+     [
+      -109.28854,
+      32.27898
+     ],
+     [
+      -109.30796,
+      32.2819
+     ],
+     [
+      -109.32729,
+      32.28523
+     ],
+     [
+      -109.34652,
+      32.28897
+     ],
+     [
+      -109.36567,
+      32.29312
+     ],
+     [
+      -109.38472,
+      32.29767
+     ],
+     [
+      -109.40368,
+      32.30264
+     ],
+     [
+      -109.42254,
+      32.30802
+     ],
+     [
+      -109.44132,
+      32.3138
+     ],
+     [
+      -109.46,
+      32.32
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-03",
+    "name": "Noon at the San Simon River to Across the highway east of Bowie",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 3,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.46,
+      32.32
+     ],
+     [
+      -109.47085,
+      32.3154
+     ],
+     [
+      -109.48152,
+      32.3106
+     ],
+     [
+      -109.49201,
+      32.3056
+     ],
+     [
+      -109.50232,
+      32.30039
+     ],
+     [
+      -109.51245,
+      32.29499
+     ],
+     [
+      -109.52239,
+      32.28938
+     ],
+     [
+      -109.53216,
+      32.28358
+     ],
+     [
+      -109.54175,
+      32.27757
+     ],
+     [
+      -109.55115,
+      32.27137
+     ],
+     [
+      -109.56038,
+      32.26496
+     ],
+     [
+      -109.56942,
+      32.25835
+     ],
+     [
+      -109.57829,
+      32.25154
+     ],
+     [
+      -109.58697,
+      32.24453
+     ],
+     [
+      -109.59548,
+      32.23732
+     ],
+     [
+      -109.6038,
+      32.22991
+     ],
+     [
+      -109.61194,
+      32.2223
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-04",
+    "name": "Across the highway east of Bowie to The old road through the Dos Cabezas",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 4,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.61194,
+      32.2223
+     ],
+     [
+      -109.60282,
+      32.21918
+     ],
+     [
+      -109.59384,
+      32.21589
+     ],
+     [
+      -109.58499,
+      32.21243
+     ],
+     [
+      -109.57626,
+      32.20879
+     ],
+     [
+      -109.56767,
+      32.20499
+     ],
+     [
+      -109.5592,
+      32.20101
+     ],
+     [
+      -109.55087,
+      32.19686
+     ],
+     [
+      -109.54267,
+      32.19253
+     ],
+     [
+      -109.53459,
+      32.18804
+     ],
+     [
+      -109.52665,
+      32.18337
+     ],
+     [
+      -109.51884,
+      32.17853
+     ],
+     [
+      -109.51116,
+      32.17352
+     ],
+     [
+      -109.5036,
+      32.16834
+     ],
+     [
+      -109.49618,
+      32.16298
+     ],
+     [
+      -109.48889,
+      32.15745
+     ],
+     [
+      -109.48173,
+      32.15175
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-05",
+    "name": "The old road through the Dos Cabezas to Apache Pass",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 5,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.48173,
+      32.15175
+     ],
+     [
+      -109.501,
+      32.12464
+     ],
+     [
+      -109.51941,
+      32.09726
+     ],
+     [
+      -109.53696,
+      32.06961
+     ],
+     [
+      -109.55365,
+      32.04169
+     ],
+     [
+      -109.56949,
+      32.01349
+     ],
+     [
+      -109.58447,
+      31.98503
+     ],
+     [
+      -109.59858,
+      31.95628
+     ],
+     [
+      -109.61184,
+      31.92727
+     ],
+     [
+      -109.62424,
+      31.89799
+     ],
+     [
+      -109.63579,
+      31.86843
+     ],
+     [
+      -109.64647,
+      31.8386
+     ],
+     [
+      -109.65629,
+      31.8085
+     ],
+     [
+      -109.66526,
+      31.77813
+     ],
+     [
+      -109.67337,
+      31.74748
+     ],
+     [
+      -109.68062,
+      31.71656
+     ],
+     [
+      -109.68701,
+      31.68537
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-06",
+    "name": "Apache Pass to Elfrida",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 6,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.68701,
+      31.68537
+     ],
+     [
+      -109.68737,
+      31.68538
+     ],
+     [
+      -109.68737,
+      31.68535
+     ],
+     [
+      -109.68739,
+      31.68449
+     ],
+     [
+      -109.6874,
+      31.68401
+     ],
+     [
+      -109.6874,
+      31.68379
+     ],
+     [
+      -109.68739,
+      31.68352
+     ],
+     [
+      -109.68738,
+      31.68325
+     ],
+     [
+      -109.68732,
+      31.68256
+     ],
+     [
+      -109.68728,
+      31.68226
+     ],
+     [
+      -109.68724,
+      31.68199
+     ],
+     [
+      -109.68723,
+      31.68193
+     ],
+     [
+      -109.68723,
+      31.6819
+     ],
+     [
+      -109.68722,
+      31.68185
+     ],
+     [
+      -109.68719,
+      31.68165
+     ],
+     [
+      -109.6871,
+      31.68117
+     ],
+     [
+      -109.68697,
+      31.68063
+     ],
+     [
+      -109.68686,
+      31.68019
+     ],
+     [
+      -109.68672,
+      31.67972
+     ],
+     [
+      -109.68661,
+      31.6794
+     ],
+     [
+      -109.68649,
+      31.67907
+     ],
+     [
+      -109.68636,
+      31.67874
+     ],
+     [
+      -109.68615,
+      31.67825
+     ],
+     [
+      -109.68605,
+      31.67804
+     ],
+     [
+      -109.68554,
+      31.67694
+     ],
+     [
+      -109.68486,
+      31.67549
+     ],
+     [
+      -109.68439,
+      31.67447
+     ],
+     [
+      -109.68378,
+      31.67315
+     ],
+     [
+      -109.68367,
+      31.67291
+     ],
+     [
+      -109.68343,
+      31.67239
+     ],
+     [
+      -109.68272,
+      31.67085
+     ],
+     [
+      -109.6827,
+      31.67081
+     ],
+     [
+      -109.68127,
+      31.66773
+     ],
+     [
+      -109.67981,
+      31.66459
+     ],
+     [
+      -109.67813,
+      31.66094
+     ],
+     [
+      -109.67804,
+      31.66076
+     ],
+     [
+      -109.67798,
+      31.6606
+     ],
+     [
+      -109.67598,
+      31.6563
+     ],
+     [
+      -109.67592,
+      31.65617
+     ],
+     [
+      -109.67524,
+      31.65469
+     ],
+     [
+      -109.67497,
+      31.6541
+     ],
+     [
+      -109.67464,
+      31.65332
+     ],
+     [
+      -109.67449,
+      31.65293
+     ],
+     [
+      -109.67427,
+      31.65234
+     ],
+     [
+      -109.674,
+      31.65156
+     ],
+     [
+      -109.67382,
+      31.65097
+     ],
+     [
+      -109.67354,
+      31.64998
+     ],
+     [
+      -109.67343,
+      31.64957
+     ],
+     [
+      -109.67333,
+      31.64915
+     ],
+     [
+      -109.67319,
+      31.64851
+     ],
+     [
+      -109.67307,
+      31.64787
+     ],
+     [
+      -109.67299,
+      31.64744
+     ],
+     [
+      -109.6729,
+      31.64678
+     ],
+     [
+      -109.67284,
+      31.64634
+     ],
+     [
+      -109.67279,
+      31.6459
+     ],
+     [
+      -109.67273,
+      31.64522
+     ],
+     [
+      -109.67264,
+      31.64385
+     ],
+     [
+      -109.67251,
+      31.64174
+     ],
+     [
+      -109.67212,
+      31.63538
+     ],
+     [
+      -109.67204,
+      31.63418
+     ],
+     [
+      -109.67197,
+      31.63298
+     ],
+     [
+      -109.67164,
+      31.62787
+     ],
+     [
+      -109.67117,
+      31.62033
+     ],
+     [
+      -109.67109,
+      31.61904
+     ],
+     [
+      -109.67072,
+      31.6132
+     ],
+     [
+      -109.67035,
+      31.60733
+     ],
+     [
+      -109.67031,
+      31.60661
+     ],
+     [
+      -109.67029,
+      31.60564
+     ],
+     [
+      -109.67029,
+      31.60491
+     ],
+     [
+      -109.67029,
+      31.60322
+     ],
+     [
+      -109.67028,
+      31.60242
+     ],
+     [
+      -109.67028,
+      31.60226
+     ],
+     [
+      -109.67025,
+      31.6015
+     ],
+     [
+      -109.67024,
+      31.6012
+     ],
+     [
+      -109.67007,
+      31.60121
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-07",
+    "name": "Elfrida to McNeal",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 7,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "census-tiger",
+    "source_licence": "Public domain",
+    "reasoning": "The text has them on route 666 down the Sulphur Springs Valley through Elfrida and McNeal; US 666 there is today's US 191 (renumbered in 1992). The route follows US 191 in Census TIGER."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.67007,
+      31.60121
+     ],
+     [
+      -109.67024,
+      31.6012
+     ],
+     [
+      -109.67023,
+      31.60108
+     ],
+     [
+      -109.6702,
+      31.60051
+     ],
+     [
+      -109.67019,
+      31.60038
+     ],
+     [
+      -109.67011,
+      31.59951
+     ],
+     [
+      -109.67002,
+      31.59854
+     ],
+     [
+      -109.66965,
+      31.5947
+     ],
+     [
+      -109.66955,
+      31.59375
+     ],
+     [
+      -109.66942,
+      31.59231
+     ],
+     [
+      -109.66938,
+      31.59183
+     ],
+     [
+      -109.66923,
+      31.58966
+     ],
+     [
+      -109.66811,
+      31.57174
+     ],
+     [
+      -109.66795,
+      31.56922
+     ],
+     [
+      -109.66775,
+      31.56602
+     ],
+     [
+      -109.66771,
+      31.56552
+     ],
+     [
+      -109.66766,
+      31.56502
+     ],
+     [
+      -109.66757,
+      31.5643
+     ],
+     [
+      -109.6675,
+      31.56382
+     ],
+     [
+      -109.66742,
+      31.56335
+     ],
+     [
+      -109.66733,
+      31.56287
+     ],
+     [
+      -109.66724,
+      31.56239
+     ],
+     [
+      -109.66713,
+      31.56191
+     ],
+     [
+      -109.6671,
+      31.56178
+     ],
+     [
+      -109.66701,
+      31.56143
+     ],
+     [
+      -109.66689,
+      31.56095
+     ],
+     [
+      -109.66679,
+      31.5606
+     ],
+     [
+      -109.66675,
+      31.56046
+     ],
+     [
+      -109.66661,
+      31.55997
+     ],
+     [
+      -109.66645,
+      31.55949
+     ],
+     [
+      -109.66629,
+      31.559
+     ],
+     [
+      -109.66611,
+      31.55852
+     ],
+     [
+      -109.66593,
+      31.55804
+     ],
+     [
+      -109.66574,
+      31.55755
+     ],
+     [
+      -109.66554,
+      31.55708
+     ],
+     [
+      -109.66533,
+      31.5566
+     ],
+     [
+      -109.66511,
+      31.55613
+     ],
+     [
+      -109.66488,
+      31.55566
+     ],
+     [
+      -109.66452,
+      31.55496
+     ],
+     [
+      -109.6643,
+      31.55455
+     ],
+     [
+      -109.66164,
+      31.54957
+     ],
+     [
+      -109.66121,
+      31.54878
+     ],
+     [
+      -109.65937,
+      31.54534
+     ],
+     [
+      -109.65815,
+      31.54304
+     ],
+     [
+      -109.65725,
+      31.54139
+     ],
+     [
+      -109.65662,
+      31.54023
+     ],
+     [
+      -109.65645,
+      31.53991
+     ],
+     [
+      -109.65422,
+      31.53578
+     ],
+     [
+      -109.65034,
+      31.52857
+     ],
+     [
+      -109.64946,
+      31.52695
+     ],
+     [
+      -109.64855,
+      31.52527
+     ],
+     [
+      -109.64655,
+      31.52155
+     ],
+     [
+      -109.64494,
+      31.51857
+     ],
+     [
+      -109.64449,
+      31.51774
+     ],
+     [
+      -109.64418,
+      31.51717
+     ],
+     [
+      -109.6406,
+      31.51052
+     ],
+     [
+      -109.63876,
+      31.50712
+     ],
+     [
+      -109.63662,
+      31.50316
+     ],
+     [
+      -109.63399,
+      31.49829
+     ],
+     [
+      -109.63222,
+      31.49502
+     ],
+     [
+      -109.6295,
+      31.48999
+     ],
+     [
+      -109.62691,
+      31.48522
+     ],
+     [
+      -109.62452,
+      31.48081
+     ],
+     [
+      -109.62415,
+      31.4801
+     ],
+     [
+      -109.62367,
+      31.47923
+     ],
+     [
+      -109.62059,
+      31.47356
+     ],
+     [
+      -109.61753,
+      31.46791
+     ],
+     [
+      -109.61644,
+      31.4659
+     ],
+     [
+      -109.61354,
+      31.46054
+     ],
+     [
+      -109.61305,
+      31.45965
+     ],
+     [
+      -109.6128,
+      31.4592
+     ],
+     [
+      -109.61254,
+      31.45877
+     ],
+     [
+      -109.61227,
+      31.45833
+     ],
+     [
+      -109.61199,
+      31.4579
+     ],
+     [
+      -109.61156,
+      31.45725
+     ],
+     [
+      -109.61125,
+      31.45682
+     ],
+     [
+      -109.61094,
+      31.45639
+     ],
+     [
+      -109.61061,
+      31.45596
+     ],
+     [
+      -109.61028,
+      31.45554
+     ],
+     [
+      -109.60977,
+      31.45491
+     ],
+     [
+      -109.60942,
+      31.4545
+     ],
+     [
+      -109.60906,
+      31.45409
+     ],
+     [
+      -109.6087,
+      31.45369
+     ],
+     [
+      -109.60833,
+      31.4533
+     ],
+     [
+      -109.60796,
+      31.45292
+     ],
+     [
+      -109.6076,
+      31.45256
+     ],
+     [
+      -109.60706,
+      31.45204
+     ],
+     [
+      -109.60673,
+      31.45172
+     ],
+     [
+      -109.6002,
+      31.44549
+     ],
+     [
+      -109.59866,
+      31.44403
+     ],
+     [
+      -109.59688,
+      31.44233
+     ],
+     [
+      -109.59598,
+      31.44147
+     ],
+     [
+      -109.59135,
+      31.43705
+     ],
+     [
+      -109.5909,
+      31.43661
+     ],
+     [
+      -109.59034,
+      31.43605
+     ],
+     [
+      -109.59029,
+      31.436
+     ],
+     [
+      -109.58998,
+      31.43566
+     ],
+     [
+      -109.58962,
+      31.43528
+     ],
+     [
+      -109.58928,
+      31.43489
+     ],
+     [
+      -109.58894,
+      31.43449
+     ],
+     [
+      -109.58844,
+      31.43389
+     ],
+     [
+      -109.58835,
+      31.43378
+     ],
+     [
+      -109.58795,
+      31.43328
+     ],
+     [
+      -109.58749,
+      31.43265
+     ],
+     [
+      -109.58704,
+      31.43202
+     ],
+     [
+      -109.58675,
+      31.43159
+     ],
+     [
+      -109.58591,
+      31.43029
+     ],
+     [
+      -109.585,
+      31.42887
+     ],
+     [
+      -109.58398,
+      31.42727
+     ],
+     [
+      -109.58204,
+      31.42422
+     ],
+     [
+      -109.58135,
+      31.42315
+     ],
+     [
+      -109.58097,
+      31.4225
+     ],
+     [
+      -109.58074,
+      31.42206
+     ],
+     [
+      -109.58052,
+      31.42161
+     ],
+     [
+      -109.58042,
+      31.42139
+     ],
+     [
+      -109.58023,
+      31.42094
+     ],
+     [
+      -109.58005,
+      31.42049
+     ],
+     [
+      -109.5799,
+      31.42003
+     ],
+     [
+      -109.57975,
+      31.41957
+     ],
+     [
+      -109.57969,
+      31.41934
+     ],
+     [
+      -109.57958,
+      31.41888
+     ],
+     [
+      -109.57948,
+      31.41842
+     ],
+     [
+      -109.57943,
+      31.41819
+     ],
+     [
+      -109.57936,
+      31.41776
+     ],
+     [
+      -109.57929,
+      31.41725
+     ],
+     [
+      -109.57925,
+      31.41678
+     ],
+     [
+      -109.57923,
+      31.41636
+     ],
+     [
+      -109.57922,
+      31.4163
+     ],
+     [
+      -109.57921,
+      31.41558
+     ],
+     [
+      -109.57923,
+      31.41005
+     ],
+     [
+      -109.57924,
+      31.40819
+     ],
+     [
+      -109.57926,
+      31.40332
+     ],
+     [
+      -109.57928,
+      31.39709
+     ],
+     [
+      -109.57928,
+      31.39497
+     ],
+     [
+      -109.57929,
+      31.39336
+     ],
+     [
+      -109.57929,
+      31.39267
+     ],
+     [
+      -109.5793,
+      31.39212
+     ],
+     [
+      -109.5793,
+      31.39021
+     ],
+     [
+      -109.5793,
+      31.38969
+     ],
+     [
+      -109.57931,
+      31.38793
+     ],
+     [
+      -109.57931,
+      31.38624
+     ],
+     [
+      -109.5793,
+      31.38315
+     ],
+     [
+      -109.57929,
+      31.38119
+     ],
+     [
+      -109.57929,
+      31.37845
+     ],
+     [
+      -109.57933,
+      31.37166
+     ],
+     [
+      -109.57934,
+      31.36899
+     ],
+     [
+      -109.57935,
+      31.36769
+     ],
+     [
+      -109.57937,
+      31.36571
+     ],
+     [
+      -109.57938,
+      31.36422
+     ],
+     [
+      -109.57938,
+      31.36347
+     ],
+     [
+      -109.57939,
+      31.36242
+     ],
+     [
+      -109.5794,
+      31.3605
+     ],
+     [
+      -109.57941,
+      31.35965
+     ],
+     [
+      -109.57941,
+      31.35926
+     ],
+     [
+      -109.57942,
+      31.35859
+     ],
+     [
+      -109.57942,
+      31.3578
+     ],
+     [
+      -109.57942,
+      31.35759
+     ],
+     [
+      -109.57943,
+      31.35693
+     ],
+     [
+      -109.57945,
+      31.35411
+     ],
+     [
+      -109.57946,
+      31.35243
+     ],
+     [
+      -109.54534,
+      31.34455
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-08",
+    "name": "McNeal to Douglas",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 8,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "census-tiger",
+    "source_licence": "Public domain",
+    "reasoning": "Route 666 (today's US 191) from McNeal down to Douglas, in Census TIGER."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.54534,
+      31.34455
+     ],
+     [
+      -109.54486,
+      31.34319
+     ],
+     [
+      -109.54442,
+      31.34183
+     ],
+     [
+      -109.54402,
+      31.34047
+     ],
+     [
+      -109.54366,
+      31.3391
+     ],
+     [
+      -109.54334,
+      31.33773
+     ],
+     [
+      -109.54306,
+      31.33636
+     ],
+     [
+      -109.54283,
+      31.33498
+     ],
+     [
+      -109.54263,
+      31.3336
+     ],
+     [
+      -109.54247,
+      31.33221
+     ],
+     [
+      -109.54236,
+      31.33082
+     ],
+     [
+      -109.54228,
+      31.32943
+     ],
+     [
+      -109.54225,
+      31.32803
+     ],
+     [
+      -109.54225,
+      31.32663
+     ],
+     [
+      -109.5423,
+      31.32522
+     ],
+     [
+      -109.54238,
+      31.32381
+     ],
+     [
+      -109.54251,
+      31.3224
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-09",
+    "name": "Douglas to Agua Prieta",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 9,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.54251,
+      31.3224
+     ],
+     [
+      -109.52969,
+      31.29252
+     ],
+     [
+      -109.51609,
+      31.26303
+     ],
+     [
+      -109.5017,
+      31.23395
+     ],
+     [
+      -109.48652,
+      31.20527
+     ],
+     [
+      -109.47057,
+      31.17699
+     ],
+     [
+      -109.45382,
+      31.1491
+     ],
+     [
+      -109.43629,
+      31.12162
+     ],
+     [
+      -109.41798,
+      31.09454
+     ],
+     [
+      -109.39888,
+      31.06786
+     ],
+     [
+      -109.379,
+      31.04158
+     ],
+     [
+      -109.35833,
+      31.0157
+     ],
+     [
+      -109.33688,
+      30.99022
+     ],
+     [
+      -109.31464,
+      30.96514
+     ],
+     [
+      -109.29162,
+      30.94047
+     ],
+     [
+      -109.26781,
+      30.91619
+     ],
+     [
+      -109.24322,
+      30.89231
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-10",
+    "name": "Agua Prieta to Ojito",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 10,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.24322,
+      30.89231
+     ],
+     [
+      -109.24112,
+      30.88842
+     ],
+     [
+      -109.23913,
+      30.88451
+     ],
+     [
+      -109.23727,
+      30.88057
+     ],
+     [
+      -109.23552,
+      30.87661
+     ],
+     [
+      -109.23389,
+      30.87262
+     ],
+     [
+      -109.23238,
+      30.8686
+     ],
+     [
+      -109.23099,
+      30.86456
+     ],
+     [
+      -109.22972,
+      30.86049
+     ],
+     [
+      -109.22857,
+      30.8564
+     ],
+     [
+      -109.22754,
+      30.85228
+     ],
+     [
+      -109.22662,
+      30.84813
+     ],
+     [
+      -109.22582,
+      30.84396
+     ],
+     [
+      -109.22515,
+      30.83976
+     ],
+     [
+      -109.22459,
+      30.83554
+     ],
+     [
+      -109.22415,
+      30.83129
+     ],
+     [
+      -109.22383,
+      30.82701
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-11",
+    "name": "Ojito to Colonia Morelos at midnight",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 11,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -109.22383,
+      30.82701
+     ],
+     [
+      -109.20977,
+      30.83107
+     ],
+     [
+      -109.1981,
+      30.83327
+     ],
+     [
+      -109.14006,
+      30.82702
+     ],
+     [
+      -109.12314,
+      30.81806
+     ],
+     [
+      -109.10308,
+      30.79787
+     ],
+     [
+      -109.08677,
+      30.77648
+     ],
+     [
+      -109.07773,
+      30.75783
+     ],
+     [
+      -109.07544,
+      30.74177
+     ],
+     [
+      -109.07114,
+      30.73395
+     ],
+     [
+      -109.06445,
+      30.72756
+     ],
+     [
+      -109.03979,
+      30.70974
+     ],
+     [
+      -109.03252,
+      30.67858
+     ],
+     [
+      -108.95703,
+      30.60676
+     ],
+     [
+      -108.96128,
+      30.56977
+     ],
+     [
+      -108.96753,
+      30.55927
+     ],
+     [
+      -108.96899,
+      30.54689
+     ],
+     [
+      -108.96709,
+      30.53413
+     ],
+     [
+      -108.96338,
+      30.52253
+     ],
+     [
+      -108.95835,
+      30.51398
+     ],
+     [
+      -108.95239,
+      30.50861
+     ],
+     [
+      -108.94556,
+      30.50392
+     ],
+     [
+      -108.93804,
+      30.49726
+     ],
+     [
+      -108.93506,
+      30.49287
+     ],
+     [
+      -108.92156,
+      30.45485
+     ],
+     [
+      -108.92021,
+      30.44362
+     ],
+     [
+      -108.9248,
+      30.41389
+     ],
+     [
+      -108.93511,
+      30.38056
+     ],
+     [
+      -108.94365,
+      30.36567
+     ],
+     [
+      -108.93118,
+      30.35564
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-12",
+    "name": "Colonia Morelos at midnight to Bacerac (Keno)",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 12,
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "note_safe": "",
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "natural-earth",
+    "source_licence": "Public domain",
+    "reasoning": "'Seven days into the country passing one by one through the squalid mud towns along the river': from Colonia Morelos the route follows the Bavispe's main stem upriver to Bacerac, as Natural Earth draws it (the river line on the map)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.93118,
+      30.35564
+     ],
+     [
+      -108.90103,
+      30.36015
+     ],
+     [
+      -108.87089,
+      30.36402
+     ],
+     [
+      -108.84076,
+      30.36723
+     ],
+     [
+      -108.81064,
+      30.3698
+     ],
+     [
+      -108.78053,
+      30.37172
+     ],
+     [
+      -108.75043,
+      30.37299
+     ],
+     [
+      -108.72034,
+      30.37361
+     ],
+     [
+      -108.69026,
+      30.37358
+     ],
+     [
+      -108.66019,
+      30.3729
+     ],
+     [
+      -108.63014,
+      30.37158
+     ],
+     [
+      -108.60009,
+      30.3696
+     ],
+     [
+      -108.57005,
+      30.36698
+     ],
+     [
+      -108.54002,
+      30.36371
+     ],
+     [
+      -108.51,
+      30.35979
+     ],
+     [
+      -108.48,
+      30.35522
+     ],
+     [
+      -108.45,
+      30.35
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-13",
+    "name": "Bacerac (Keno) to The eastern rim of the escarpment at sunrise",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 13,
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.45,
+      30.35
+     ],
+     [
+      -108.43791,
+      30.3461
+     ],
+     [
+      -108.42576,
+      30.34247
+     ],
+     [
+      -108.41356,
+      30.33912
+     ],
+     [
+      -108.4013,
+      30.33603
+     ],
+     [
+      -108.38899,
+      30.33321
+     ],
+     [
+      -108.37663,
+      30.33066
+     ],
+     [
+      -108.36421,
+      30.32838
+     ],
+     [
+      -108.35174,
+      30.32637
+     ],
+     [
+      -108.33921,
+      30.32463
+     ],
+     [
+      -108.32663,
+      30.32316
+     ],
+     [
+      -108.31399,
+      30.32196
+     ],
+     [
+      -108.3013,
+      30.32103
+     ],
+     [
+      -108.28856,
+      30.32037
+     ],
+     [
+      -108.27576,
+      30.31997
+     ],
+     [
+      -108.26291,
+      30.31985
+     ],
+     [
+      -108.25,
+      30.32
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-14",
+    "name": "The eastern rim of the escarpment at sunrise to The plains, with the Tarahumaras",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 14,
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.25,
+      30.32
+     ],
+     [
+      -108.23896,
+      30.32105
+     ],
+     [
+      -108.22795,
+      30.32187
+     ],
+     [
+      -108.21695,
+      30.32246
+     ],
+     [
+      -108.20598,
+      30.32281
+     ],
+     [
+      -108.19502,
+      30.32292
+     ],
+     [
+      -108.18409,
+      30.32281
+     ],
+     [
+      -108.17317,
+      30.32245
+     ],
+     [
+      -108.16228,
+      30.32186
+     ],
+     [
+      -108.15141,
+      30.32104
+     ],
+     [
+      -108.14055,
+      30.31998
+     ],
+     [
+      -108.12972,
+      30.31868
+     ],
+     [
+      -108.11891,
+      30.31715
+     ],
+     [
+      -108.10812,
+      30.31539
+     ],
+     [
+      -108.09735,
+      30.31339
+     ],
+     [
+      -108.0866,
+      30.31116
+     ],
+     [
+      -108.07587,
+      30.30869
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-15",
+    "name": "The plains, with the Tarahumaras to Colonia Juárez",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 15,
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -108.07587,
+      30.30869
+     ],
+     [
+      -108.0672,
+      30.31174
+     ],
+     [
+      -108.05864,
+      30.31495
+     ],
+     [
+      -108.05022,
+      30.31834
+     ],
+     [
+      -108.04192,
+      30.32188
+     ],
+     [
+      -108.03374,
+      30.3256
+     ],
+     [
+      -108.02569,
+      30.32948
+     ],
+     [
+      -108.01776,
+      30.33353
+     ],
+     [
+      -108.00996,
+      30.33775
+     ],
+     [
+      -108.00228,
+      30.34213
+     ],
+     [
+      -107.99473,
+      30.34669
+     ],
+     [
+      -107.9873,
+      30.3514
+     ],
+     [
+      -107.97999,
+      30.35629
+     ],
+     [
+      -107.97281,
+      30.36134
+     ],
+     [
+      -107.96576,
+      30.36656
+     ],
+     [
+      -107.95883,
+      30.37195
+     ],
+     [
+      -107.95202,
+      30.3775
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-16",
+    "name": "Colonia Juárez to Casas Grandes",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 16,
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -107.95202,
+      30.3775
+     ],
+     [
+      -107.9516,
+      30.3732
+     ],
+     [
+      -107.95131,
+      30.36891
+     ],
+     [
+      -107.95113,
+      30.36463
+     ],
+     [
+      -107.95108,
+      30.36037
+     ],
+     [
+      -107.95115,
+      30.35611
+     ],
+     [
+      -107.95135,
+      30.35186
+     ],
+     [
+      -107.95166,
+      30.34763
+     ],
+     [
+      -107.9521,
+      30.34341
+     ],
+     [
+      -107.95266,
+      30.33919
+     ],
+     [
+      -107.95334,
+      30.33499
+     ],
+     [
+      -107.95415,
+      30.3308
+     ],
+     [
+      -107.95507,
+      30.32662
+     ],
+     [
+      -107.95612,
+      30.32245
+     ],
+     [
+      -107.95729,
+      30.31829
+     ],
+     [
+      -107.95858,
+      30.31414
+     ],
+     [
+      -107.96,
+      30.31
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-17",
+    "name": "Casas Grandes to The girl, at a fire in an oak grove",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 17,
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -107.96,
+      30.31
+     ],
+     [
+      -107.96405,
+      30.30639
+     ],
+     [
+      -107.96798,
+      30.3027
+     ],
+     [
+      -107.97178,
+      30.29895
+     ],
+     [
+      -107.97547,
+      30.29513
+     ],
+     [
+      -107.97904,
+      30.29125
+     ],
+     [
+      -107.98249,
+      30.28729
+     ],
+     [
+      -107.98582,
+      30.28327
+     ],
+     [
+      -107.98904,
+      30.27918
+     ],
+     [
+      -107.99213,
+      30.27502
+     ],
+     [
+      -107.9951,
+      30.27079
+     ],
+     [
+      -107.99795,
+      30.2665
+     ],
+     [
+      -108.00069,
+      30.26213
+     ],
+     [
+      -108.0033,
+      30.2577
+     ],
+     [
+      -108.0058,
+      30.2532
+     ],
+     [
+      -108.00817,
+      30.24864
+     ],
+     [
+      -108.01043,
+      30.244
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j4-seg-18",
+    "name": "The girl, at a fire in an oak grove to The Hacienda de San Diego",
+    "kind": "route-segment",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 18,
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "note_safe": "",
+    "certainty": "inferred",
+    "method": "schematic",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch."
+   }
   }
  ]
 }

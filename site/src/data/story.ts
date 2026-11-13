@@ -23,6 +23,19 @@ export type Story = {
 
 const LAYERS = ['places', 'stops', 'areas', 'journeys'] as const
 
+// Tale places outside the story box: named in the panel, not mapped (data/elsewhere.json).
+export type Elsewhere = { id: string; name: string; first_seen: string; role: string }
+
+export function useElsewhere(): Elsewhere[] {
+  const [list, setList] = useState<Elsewhere[]>([])
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/elsewhere.json`)
+      .then((r) => (r.ok ? r.json() : []))
+      .then(setList, () => setList([]))
+  }, [])
+  return list
+}
+
 // The story layers from data/, or from the raised copies in data/raised/ (the Raised view), fetched once
 // `enabled` is first true.
 export function useStory(folder: '' | 'raised/' = '', enabled = true): Story | 'failed' | null {

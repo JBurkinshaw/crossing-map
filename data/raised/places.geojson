@@ -1248,6 +1248,676 @@
     "note_safe": "",
     "reasoning": null
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.21793,
+     30.61245
+    ]
+   },
+   "properties": {
+    "id": "place-el-tigre",
+    "name": "El Tigre",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4007229",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4007229 is the old silver camp of El Tigre in the Sierra El Tigre, which Silver Tiger Metals' history puts about 90 km south-south-east of Agua Prieta above the Bavispe; this point is 87 km from Agua Prieta and 27 km south of Colonia Morelos (straight-line), so a week's ride from the Pilares Teras fits. The other 14 El Tigre villages in Sonora and Chihuahua are farms or ranchos far from the Bavispe country and no mining town."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.49957,
+     31.01659
+    ]
+   },
+   "properties": {
+    "id": "place-llanos-de-carretas",
+    "name": "Llanos de Carretas",
+    "kind": "plain",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4015316",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4015316 is the only Llanos de Carretas (feature PLN). It lies east of the Bavispe, 72 km straight-line north-east of Bavispe town and 48 km north-east of the old Hacienda Carretas (GeoNames 4015318), so it fits the view east over the Bavispe barranca from the Sonoran sierras. The coordinate is rounded to the half degree and the plain is an area, so treat it as a label point, or draw the plain as an area if one is made."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9408,
+     30.48946
+    ]
+   },
+   "properties": {
+    "id": "place-bavispe",
+    "name": "Bavispe",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4017239",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4017239 is the municipal seat (Wikidata Q2919569 agrees within 50 m), 14 km straight-line north of Bacerac on the river road, as in 2-03, and the town the 1887 earthquake destroyed. GeoNames 4017240, 14 km to the south-east, is a rounded point with no population and not the town."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.90331,
+     30.28339
+    ]
+   },
+   "properties": {
+    "id": "place-tamichopa",
+    "name": "Tamichopa",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3982557",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3982557 (Wikidata Q61295693 agrees) is the old mission site on the upper Bavispe, 10 km straight-line south of Bacerac, which fits Billy passing it on the way downriver to Bacerac the same day. It is the only populated place of the name."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.93096,
+     30.36599
+    ]
+   },
+   "properties": {
+    "id": "place-bacerac",
+    "name": "Bacerac",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4017806",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4017806 is the municipal seat (Wikidata Q2991325), on the river between Tamichopa (10 km south) and Bavispe (14 km north), straight-line, as the text orders them. No other namesake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.24309,
+     30.89962
+    ]
+   },
+   "properties": {
+    "id": "place-ojito",
+    "name": "Ojito",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3990426",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The text says Ojito, a roadside hamlet on the road north from Colonia Morelos toward the border (2-03), reached by the brothers the evening before they pass Morelos after midnight (2-07). GeoNames 3990426 El Ojito is 7 km straight-line north of Colonia Morelos, which fits both; the gazetteer's pick, a spring in Cibola County NM, is wrong, Ojitos in Chihuahua is 66 km east across the mountains, and Rancho El Ojito near the border is 51 km from Morelos, too far for an evening ride."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.54513,
+     31.35825
+    ]
+   },
+   "properties": {
+    "id": "place-douglas",
+    "name": "Douglas",
+    "kind": "city",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "4069",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 4069, Douglas in Cochise County, the only US namesake and the border town facing Agua Prieta where the brothers halt at the gateshack (2-07). The Wikidata port-of-entry point (Q5301214) is about 1 km southwest, at the crossing itself, if a gate point is wanted."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.78303,
+     31.61834
+    ]
+   },
+   "properties": {
+    "id": "place-animas-peak",
+    "name": "Animas Peak",
+    "kind": "summit",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-05",
+    "first_seen": "2-05",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "899504",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 899504, Animas Peak in the Animas Mountains, Hidalgo County: 23 km straight-line northeast of Cloverdale and 58 km southwest of Hachita, matching the text's view from Hachita toward the southwest (4-08). The Sierra County Animas Peak (GNIS 885763) is 139 km northeast of Hachita in the Black Range and does not fit."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.70828,
+     32.36536
+    ]
+   },
+   "properties": {
+    "id": "place-lordsburg",
+    "name": "Lordsburg",
+    "kind": "city",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-05",
+    "first_seen": "2-05",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "891335",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 891335, Lordsburg, Hidalgo County seat, where the sheriff's office is; the only namesake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.48681,
+     32.33878
+    ]
+   },
+   "properties": {
+    "id": "place-bowie",
+    "name": "Bowie",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "1890",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 1890, Bowie in Cochise County; they cross the highway just east of it before taking the old road south through the Dos Cabezas (2-07). Apache Pass is 19 km straight-line south, which fits an evening crossing and a pass the next day."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.61138,
+     32.25881
+    ]
+   },
+   "properties": {
+    "id": "place-dos-cabezas-mountains",
+    "name": "Dos Cabezas Mountains",
+    "kind": "range",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "4038",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 4038, the Dos Cabezas Mountains range point in Cochise County, south of Bowie on the brothers' route to Apache Pass. The Sonora Dos Cabezas places (GeoNames 3971320) are a different place."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.4814,
+     32.17149
+    ]
+   },
+   "properties": {
+    "id": "place-apache-pass",
+    "name": "Apache Pass",
+    "kind": "pass",
+    "role": "passing",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "732",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 732, Apache Pass in Cochise County between the Dos Cabezas and Chiricahua Mountains, 19 km straight-line south of Bowie. The Santa Cruz County Apache Pass (GNIS 25713) is 185 km southwest and off the route."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.68681,
+     31.69982
+    ]
+   },
+   "properties": {
+    "id": "place-elfrida",
+    "name": "Elfrida",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "4408",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 4408, Elfrida in Cochise County on the old route 666 down the Sulphur Springs Valley; the only namesake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.66986,
+     31.61576
+    ]
+   },
+   "properties": {
+    "id": "place-mcneal",
+    "name": "McNeal",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "7855",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 7855, McNeal in Cochise County, on the same highway south of Elfrida toward Douglas; the only namesake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.07529,
+     30.32821
+    ]
+   },
+   "properties": {
+    "id": "place-colonia-juarez",
+    "name": "Colonia Juárez",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4003756",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4003756 agrees with Wikidata Q4228432 to about 0.1 km; it is the only Colonia Juárez in the region, 14 km straight-line south-west of Casas Grandes, which fits the ride to the ruins and Casas Grandes that evening. In reality the river at Colonia Juárez is the Piedras Verdes, though the text calls the river at the plank bridge the Casas Grandes."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95499,
+     30.39435
+    ]
+   },
+   "properties": {
+    "id": "place-paquime",
+    "name": "Paquimé",
+    "kind": "ruin",
+    "role": "passing",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "wikidata",
+    "source_id": "Q853265",
+    "source_licence": "CC0",
+    "note_safe": "",
+    "reasoning": "The gazetteer's pick (GeoNames 12193954, 28.68,-106.13) is near Chihuahua city, about 240 km away, and is wrong. Wikidata Q853265 (Casas Grandes archaeological site) sits beside Casas Grandes town (GeoNames 4015076, under 1 km), which matches the walled ruins passed on the road from Colonia Juárez to Casas Grandes."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.74698,
+     29.28123
+    ]
+   },
+   "properties": {
+    "id": "place-la-babicora",
+    "name": "La Babícora",
+    "kind": "ranch",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3986261",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "San José Babícora (GeoNames 3986261, Gómez Farías municipio) is the Hacienda de San José de Babícora that Hearst-era photographs in the Bancroft Library (UC Berkeley digital collections) show as the ranch headquarters. It lies 13 km straight-line south-east of Laguna de Babícora and 12 km south-south-west of La Boquilla, on Billy's way from Boquilla to Santa Ana. The ranch itself covered about 360,000 ha (INAH Gaceta 2021), so per plan 2.4 draw it as a region; this point marks only the headquarters. Other Babícoras (Babícora de Conoachic, 28.71,-108.21) are outside the ranch country of the text."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.00985,
+     30.26302
+    ]
+   },
+   "properties": {
+    "id": "place-hacienda-de-san-diego",
+    "name": "Hacienda de San Diego",
+    "kind": "ranch",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd",
+     "girl"
+    ],
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3987333",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The gazetteer's pick (San Diego del Monte, 28.65,-107.05) is wrong. GeoNames 3987333 (Colonia San Diego, Casas Grandes municipio) matches OpenStreetMap's Ex Hacienda de San Diego (30.24443,-108.00978) within 0.1 km. It is 16 km straight-line south-south-west of Casas Grandes and 7 km north of Mata Ortiz on the road south, with the Casas Grandes (Palanganas) and Piedras Verdes rivers below it, as the text describes."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.03141,
+     30.28679
+    ]
+   },
+   "properties": {
+    "id": "place-rio-piedras-verdes",
+    "name": "Río Piedras Verdes",
+    "kind": "river",
+    "role": "passing",
+    "characters": [
+     "billy",
+     "boyd",
+     "girl"
+    ],
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3992608",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3992608 is the Río Piedras Verdes near its junction with the Palanganas, 3 km straight-line north-west of the Hacienda de San Diego and 6 km south-east of Colonia Juárez. The story only sees it from the hacienda, so this single point is a fair place for it; if rivers are drawn as lines, draw it upstream through Colonia Juárez instead."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -112.15827,
+     30.70997
+    ]
+   },
+   "properties": {
+    "id": "place-caborca",
+    "name": "Caborca",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4004887",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4004887 Heroica Caborca (Wikidata Q1024929), the town with the old mission church whose ruined dome the heretic describes. Inside the story box at its western edge. The text puts it on the Altar River; strictly the town stands a little below where the Altar's lower course ends, 22 km straight-line to the east-south-east (GeoNames 4018697)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.19987,
+     30.82346
+    ]
+   },
+   "properties": {
+    "id": "place-batepito",
+    "name": "Batepito",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4017288",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4017288 Batepito, the settlement by the Batepito stream (GeoNames 4017287, 4 km west), 3 km straight-line from Colonia Morelos; this is the text's Batopite (2-01) and Part I's Batopito River. It is 45 km straight-line from Bavispe, a day's ride as the tale implies. The coordinate is rounded to the arc-minute, so it is good to about 1 to 2 km."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.69196,
+     30.22706
+    ]
+   },
+   "properties": {
+    "id": "place-las-ramadas",
+    "name": "Las Ramadas",
+    "kind": "locale",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3971312",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3971312 La Ramada lies 28 km straight-line east-south-east of Bacerac in the mountains toward Chihuahua, and Ciénega de Horcones (GeoNames 8881777) lies 7 km beyond it to the east, which matches the text's track east from Bacerac ending at Las Ramadas before the divide to Los Horcones (2-08). The spelling differs (singular), and the gazetteer's pick, a picnic ground near Phoenix, is wrong."
+   }
   }
  ]
 }

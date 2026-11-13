@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import type { MapRef } from '@vis.gl/react-maplibre'
-import { useStory } from './data/story'
+import { useElsewhere, useStory } from './data/story'
 import { MapView, type View } from './map/MapView'
 import { Panel } from './panel/Panel'
 
@@ -18,6 +18,7 @@ function reducer(state: State, action: Action): State {
 
 export default function App() {
   const loaded = useStory()
+  const elsewhere = useElsewhere()
   const [view, setView] = useState<View>('flat')
   // The Raised view draws the story where the raised line work puts it: the copies in data/raised/,
   // fetched the first time the reader turns it on.
@@ -28,6 +29,12 @@ export default function App() {
   const story = shown === 'failed' ? null : shown
   const mapRef = useRef<MapRef>(null)
   const [state, dispatch] = useReducer(reducer, { journey: 'J1', stopIndex: 0 })
+
+  // The journeys drawn so far, from the flat story data (the raised copies cover fewer).
+  const journeys = useMemo(
+    () => [...new Set((loaded && loaded !== 'failed' ? loaded.stops.features : []).map((f) => f.properties.journey ?? ''))].filter(Boolean).sort(),
+    [loaded],
+  )
 
   const stops = useMemo(
     () =>
@@ -79,6 +86,8 @@ export default function App() {
       <Panel
         failed={loaded === 'failed'}
         journey={state.journey}
+        journeys={journeys}
+        elsewhere={elsewhere}
         stops={stops}
         stopIndex={state.stopIndex}
         onJourney={(journey) => dispatch({ type: 'journey', journey })}

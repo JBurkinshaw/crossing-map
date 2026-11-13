@@ -314,3 +314,18 @@ select {
   opacity: 0.4;
   cursor: default;
 }
+
+.elsewhere {
+  margin-top: 16px;
+  font-size: 0.85rem;
+}
+
+.elsewhere h3 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.elsewhere ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}

@@ -7,6 +7,8 @@ export const tokens = {
   inkFaint: 'rgba(43, 33, 24, 0.35)',
   routeWolf: '#4a5560',
   routeBilly: '#6e1f1c',
+  routeBoyd: '#2f5d50',
+  routeGirl: '#6a3d5c',
 } as const
 
 // Font stacks: folder names under public/fonts/, built by tiles/build_glyphs.sh.
@@ -15,10 +17,16 @@ export const fonts = {
   italic: 'IMFeENit28P',
 } as const
 
-// Route ink by journey. J2 is Billy's, with the wolf beside him.
+// Route ink by journey, after its central figure (plan 5.1): the wolf in slate, Billy in oxblood (J2 with the wolf
+// beside him), Boyd in green for the brothers' ride (J4), and "the girl" in plum for the reported J6.
 export const journeyInk: Record<string, string> = {
   J1: tokens.routeWolf,
   J2: tokens.routeBilly,
+  J3: tokens.routeBilly,
+  J4: tokens.routeBoyd,
+  J5: tokens.routeBilly,
+  J6: tokens.routeGirl,
+  J7: tokens.routeBilly,
 }
 
 // The story box: where the pipeline resolves names and the base tiles are clipped.
