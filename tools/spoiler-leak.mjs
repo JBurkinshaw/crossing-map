@@ -1,7 +1,7 @@
 // The spoiler-leak test (docs/plan.md, section 11, acceptance criteria): for several reading positions, load
 // the app and check that nothing first seen later shows anywhere: the story data given to the map, the
 // features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop and
-// the road card of each stop with talk on the road, "Named elsewhere"), mountain glyphs, vignettes,
+// the road card of each stop with talk on the road, "In view", "Named elsewhere"), mountain glyphs, vignettes,
 // search results and the cards they open (places and the translations "Spoken here"), the layer key, and the
 // same again in the Raised view.
 //
@@ -131,6 +131,10 @@ for (const point of POINTS) {
 
   const features = await checkMap(page, reached, `${where}, flat`)
   await checkPanel(page, reached, `${where}, panel`, later)
+  // The "In view" list, opened and shown in full (each "Show all" goes once clicked).
+  if (!(await page.locator('.in-view[open]').count())) await page.locator('.in-view summary').click()
+  while (await page.locator('.in-view .text-button').count()) await page.locator('.in-view .text-button').first().click()
+  await checkPanel(page, reached, `${where}, in view`, later)
 
   // Every journey offered, stepped through stop by stop with Next.
   const options = await page.locator('.journey-pick option').evaluateAll((os) => os.map((o) => o.value))

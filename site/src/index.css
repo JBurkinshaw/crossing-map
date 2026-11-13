@@ -283,6 +283,47 @@ select {
   background: var(--ink);
 }
 
+/* "In view": what the map shows now, under the stepper. */
+.in-view {
+  margin: 12px 0;
+  font-size: 0.9rem;
+}
+
+.in-view summary {
+  min-height: 32px;
+  padding: 6px 0;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.in-view summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.in-view h3 {
+  margin: 6px 0 2px;
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.in-view ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.in-view li button {
+  padding: 3px 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .maplibregl-popup-content {
   background: var(--paper);
   font-family: inherit;

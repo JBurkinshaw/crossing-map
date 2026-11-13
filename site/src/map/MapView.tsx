@@ -85,6 +85,8 @@ type Props = {
   reached: string
   // Talk on the road: the route segment to outline as a corridor, with its label.
   corridor: Corridor | null
+  // The view's west, south, east and north edges, when the map first loads and each time it stops moving.
+  onViewChange: (bounds: [number, number, number, number]) => void
 }
 
 // A row of switches, one of which is on: a radio group, one tab stop, with the arrow keys moving the choice.
@@ -165,7 +167,11 @@ function HomeControl({ onHome }: { onHome: () => void }) {
 
 export function MapView(props: Props) {
   const { mapRef, story, stops, stopIndex, onSelectStop, onSelectFeature, selectedId, aheadFrom, onHome, onView, reached } = props
-  const { corridor } = props
+  const { corridor, onViewChange } = props
+  const viewChanged = (map: maplibregl.Map) => {
+    const [[w, s], [e, n]] = map.getBounds().toArray()
+    onViewChange([w, s, e, n])
+  }
   const [theme, setTheme] = useTheme()
   const [basemap, setBasemap] = useState<Basemap>('literary')
   // The classic map follows the theme. Satellite and Compare keep the light map's inks over the imagery; only
@@ -330,9 +336,11 @@ export function MapView(props: Props) {
             const f = e.features?.[0]
             onSelectFeature(f ? { layer: f.layer.id === 'areas-fill' ? 'areas' : 'places', id: (f.properties as StoryProps).id } : null)
           }}
+          onMoveEnd={(e) => viewChanged(e.target)}
           style={{ position: 'absolute', inset: 0 }}
           onLoad={(e) => {
             setLoaded(true)
+            viewChanged(e.target)
             // MapLibre opens the compact attribution at first; on a phone it would cover a third of the map, so
             // it starts closed there, behind its (i) button. The archives' credits arrive with their first tiles.
             if (window.matchMedia('(max-width: 720px)').matches) {
