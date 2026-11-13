@@ -329,3 +329,246 @@ select {
   margin: 4px 0 0;
   padding-left: 18px;
 }
+
+/* Links to the site's pages, at the top of the panel. */
+.site-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: -4px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ink-faint);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+a {
+  color: inherit;
+}
+
+/* The About, How it's built, Data and Credits pages: a sheet of paper over the map. */
+.page {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  overflow-y: auto;
+  background: var(--paper);
+}
+
+.page-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+  padding: 12px max(18px, env(safe-area-inset-right)) 10px max(18px, env(safe-area-inset-left));
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.page-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.page-header a {
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.page-header a:hover,
+.page-header a[aria-current='page'] {
+  text-decoration: underline;
+}
+
+.page-home {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-body {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 24px 18px max(48px, env(safe-area-inset-bottom));
+  line-height: 1.5;
+}
+
+.page-body h1 {
+  margin: 8px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+  outline: none;
+}
+
+.page-body h2 {
+  margin: 32px 0 8px;
+  font-size: 1.35rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.page-body h3,
+.page-body h4 {
+  margin: 16px 0 4px;
+  font-size: 1rem;
+}
+
+.lede {
+  font-size: 1.1rem;
+}
+
+.page-body code,
+.page-body pre {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.82em;
+}
+
+.page-body pre {
+  overflow-x: auto;
+  padding: 10px 12px;
+  border: 1px solid var(--ink-faint);
+}
+
+.page-body table {
+  width: 100%;
+  margin: 12px 0 20px;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.page-body caption {
+  margin-bottom: 4px;
+  font-style: italic;
+  text-align: left;
+}
+
+.page-body th,
+.page-body td {
+  padding: 4px 8px 4px 0;
+  border-bottom: 1px solid var(--ink-faint);
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+}
+
+.page-body thead th {
+  border-bottom-color: var(--ink);
+  font-style: italic;
+}
+
+.page-body .num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.page-body tr.total th,
+.page-body tr.total td {
+  border-bottom: 0;
+  border-top: 1px solid var(--ink);
+}
+
+/* Wide tables scroll inside their own box on phones. */
+.tables,
+.table-scroll {
+  overflow-x: auto;
+}
+
+.page-body details {
+  border-top: 1px solid var(--ink-faint);
+}
+
+.page-body details:last-of-type {
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.page-body summary {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.record-number {
+  font-variant-numeric: tabular-nums;
+}
+
+.record > :not(summary) {
+  margin-left: 1.2em;
+}
+
+.terms dt,
+.credits dt {
+  margin-top: 12px;
+  font-style: italic;
+}
+
+.terms dd,
+.credits dd {
+  margin: 2px 0 0 1.2em;
+}
+
+.credits blockquote {
+  margin: 6px 0 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--ink);
+}
+
+.todo {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #8a2b1b;
+}
+
+/* The architecture diagram, in the map's ink. */
+.architecture {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 8px 0;
+}
+
+.architecture text {
+  fill: var(--ink);
+  font-family: inherit;
+  white-space: pre;
+}
+
+.ink-line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.4;
+}
+
+.ink-line.thin {
+  stroke-width: 0.6;
+}
+
+.ink-line.dashed {
+  stroke-dasharray: 6 3;
+}
+
+.ink-fill {
+  fill: var(--ink);
+}
+
+.ink-title {
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ink-text {
+  font-size: 14px;
+}
+
+.ink-text.small {
+  font-size: 12px;
+}
+
+.ink-text.italic {
+  font-style: italic;
+}
