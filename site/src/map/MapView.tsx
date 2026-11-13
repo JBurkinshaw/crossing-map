@@ -185,7 +185,8 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView 
           maxZoom={13}
           dragRotate={false}
           hash="map"
-          attributionControl={{ compact: true }}
+          // Each archive brings its own credit (the terrain lines wherever the hillshade shows); the Credits page has the rest.
+          attributionControl={{ compact: true, customAttribution: '<a href="#/credits">Credits</a>' }}
           interactiveLayerIds={['places-point', 'areas-fill']}
           onClick={(e) => {
             const f = e.features?.[0]
