@@ -30,7 +30,7 @@ uv run --project pipeline python -m crossing.validate
 2. **Spanish in the text.** Each paragraph of the 41 episode files is split into sentences. A trailing English dialogue tag ("he said", "the old man wheezed") is cut off, and the rest is language-identified with lingua (English against Spanish only). A clause counts as Spanish when the model is confident and few of its words are English dictionary words. Consecutive Spanish sentences in one paragraph form one span, even with a dialogue tag between them. Inside English sentences, single Spanish words (and short runs such as "hermanos en armas") are found from the dictionary, the model and the guide's one-word entries. A word that recurs in the narration ("alguacil", "carretero") is glossed once, where it first appears; the `occurrences` column says how often it recurs. A bare "No." is dropped, because it reads the same in English.
 3. **Guide matching.** Text is accent- and case-folded. Each guide entry is matched to the best span within 6 pages of its printed page, by rapidfuzz partial ratio of at least 85. Entries of one or two words must appear as whole words. A span can hold several guide entries, because the guide often splits one speech; `guide_page` is the page of the first.
 4. **Pages.** The ebook has no print pages. 132 long guide entries that matched with a score of 92 or more became page anchors (offset in the text, guide page). The anchors were kept in order (longest increasing chain), and pages between them are interpolated. Episode start pages come out at Part II 128, Part III 214 and Part IV 333, against the guide's 131, 215 and 342. Treat every `page` as approximate, within about 2 pages where anchors are dense and worse in the gaps the plan lists (for example Part One 51 to 69). The Part IV figure may be early because the guide's first Part IV entry is not on the Part's first page.
-5. **Where it was spoken.** `location_ref` is the stop of the same episode whose place name the text gave most recently before the line. If no stop is named, a place first named in that episode (as a stop or in passing) is used. Otherwise it is null. Descriptive stops ("The girl, at a fire in an oak grove") cannot be found by name, so their talk is often null or points to the town named just before. This is a heuristic: check it. Two hand-made files correct it, both read by the same step in the build (`load_hand_refs`). `road-refs.csv` lists runs of lines, judged from the episode's stops and segments, that are spoken while travelling one route segment (talk on the road, plan section 8); a run fills only lines the heuristic left without a place. `where-spoken.csv` lists single lines (`id`, `ref`, `kind`, `why`) and replaces the heuristic. An empty `ref` records a line the text does not place and changes nothing. A segment reference has `location_kind` `road`; every other reference has the kind of its layer (`stop`, `place`, `area`). The build stops if a ref does not exist with the stated kind, is first seen after the line, or is a segment not travelled in the line's episode, or if a line is in both files. A hand edit in `translations-review.csv` still wins over both; a cell that only repeats the heuristic does not count as an edit. See `patterns.md`.
+5. **Where it was spoken.** `location_ref` is the stop of the same episode whose place name the text gave most recently before the line. If no stop is named, a place first named in that episode (as a stop or in passing) is used. Otherwise it is null. Descriptive stops ("The girl, at a fire in an oak grove") cannot be found by name, so their talk is often null or points to the town named just before. This is a heuristic: check it. Two hand-made files correct it, both read by the same step in the build (`load_hand_refs`). `road-refs.csv` lists runs of lines, judged from the episode's stops and segments, that are spoken while travelling one route segment (talk on the road, plan section 8); a run fills only lines the heuristic left without a place. `where-spoken.csv` lists single lines (`id`, `ref`, `kind`, `why`) and replaces the heuristic. An empty `ref` records a line the text does not place and changes nothing. A row whose `why` starts with "Checked:" repeats the heuristic's own ref: the line was read in context and the heuristic was right. A segment reference has `location_kind` `road`; every other reference has the kind of its layer (`stop`, `place`, `area`). The build stops if a ref does not exist with the stated kind, is first seen after the line, or is a segment not travelled in the line's episode, or if a line is in both files. A hand edit in `translations-review.csv` still wins over both; a cell that only repeats the heuristic does not count as an edit. See `patterns.md`.
 6. **Drafts.** The English is ours. It was drafted from the Spanish and its context, without reference to the guide, in plain and faithful wording. Each line has a confidence and, where useful, a note on northern Mexican or rural usage or on a scan error in the ebook (the ebook has OCR errors such as "to" for "lo"). Speaker and listener are slugs (`billy`, `boyd`, `father`, or a role such as `old-man`), filled in only when the context makes them clear.
 
 ## Counts
@@ -57,11 +57,60 @@ Where it was spoken, for the 916 published entries:
 | --- | --- | --- | --- |
 | Name heuristic only | 661 | 0 | 255 |
 | After `road-refs.csv` (previous pass) | 661 | 52 | 203 |
-| After `where-spoken.csv` (this pass) | 847 | 67 | 2 |
+| After `where-spoken.csv`, pass 1 | 847 | 67 | 2 |
+| After `where-spoken.csv`, pass 2 (this pass) | 829 | 85 | 2 |
 
-By kind, the 916 are now 754 `stop`, 93 `place`, 67 `road` and 2 null. Of the 847 placed, 226 were judged by hand in `where-spoken.csv` and 621 still rest on the name heuristic alone.
+By kind, the 916 are now 767 `stop`, 62 `place`, 85 `road` and 2 null. No line rests on the name heuristic alone any more:
 
-### This pass: `where-spoken.csv`
+| Source of `location_ref` | Lines |
+| --- | --- |
+| Placed by hand in `where-spoken.csv`, pass 1 | 241 |
+| Corrected by hand in `where-spoken.csv`, pass 2 | 315 |
+| Heuristic checked and confirmed ("Checked:" rows), pass 2 | 306 |
+| Runs in `road-refs.csv` | 52 |
+| Null (2 empty rows in `where-spoken.csv`) | 2 |
+| Heuristic, not checked | 0 |
+
+### Pass 2: checking the heuristic
+
+Each of the 621 lines that still used the heuristic was read in context, episode by episode. 315 were wrong and now have a corrected row; 306 were right and have a "Checked:" row with the reason. No new line was made null: where the right feature was missing or not yet seen, the line takes the nearest feature the reader has met, and the reason says so. The usual faults were a place named in the talk (a destination, a town where someone lives, a name in a song) and a stop named for the same town on an earlier visit.
+
+| Episode | Corrected | Checked | Where the corrections now point |
+| --- | --- | --- | --- |
+| 1-03, 1-07, 1-09 | 0 | 61 | All right: the meadow below Black Point, the old trapper's house near Animas, the fair at Colonia Morelos. |
+| 1-04 | 3 | 0 | The wolf in the Sierra de la Madera (was Animas Valley); the vaqueros by the Cloverdale road (was Hog Canyon). |
+| 1-08 | 9 | 2 | The warning at the vaqueros' fire is at the trap (`j1-cloverdale-creek`); the wolf's leg is sewn at the ranch past the Guadalupe pass, which takes `j2-guadalupe-pass` (was Cloverdale). See question 9. |
+| 1-10 | 26 | 0 | The pit is in the hacienda's bodega (`j2-hacienda`, was Casas Grandes or Colonia Oaxaca); two words as he rides west after the ford take `j2-seg-12`. |
+| 2-01 | 13 | 16 | El Tigre is right for the kitchen scene. The Indians' rancherías, the wagonroad, the escarpment, and the ruined town and church (`j3-huisiachepic`, which the text names only later) were all on El Tigre. |
+| 2-07 | 0 | 4 | Agua Prieta and Bacerac are right. |
+| 2-08 | 59 | 19 | The map in the dust is in Bacerac's square (was Casas Grandes); the first camp is on `j4-seg-13`; the vaqueros at the ciénega are at `j4-plains-camp`; the ruins take `place-paquime`; the oak-grove fire is `j4-the-girl` (was San Diego, not reached in this episode); the roadside ditch and the gallop south are on `j4-seg-17` and `j4-seg-18`. Casas Grandes is right for the ganadero. |
+| 3-01 | 30 | 0 | The girl's question is at San Diego; the primadonna scene is at `j4-opera-camp` (was Mata Ortiz). |
+| 3-03 | 7 | 0 | The old man with the oxen is at the river camp by `j4-wagon-road-crossing` (was Namiquipa). |
+| 3-04 | 19 | 8 | The Las Varas cafe is right. The steer herd, the horses found, the manco's roadblock, the crossroads and Quijada's remuda each take their own stop or segment. |
+| 3-08 | 7 | 2 | San José is right. Billy's call across the river is at `j4-shooting`; the truck is `j4-truck`. |
+| 3-09 | 6 | 26 | The tienda scene is all at Mata Ortiz (some lines were on San Diego or Casas Grandes). The Muñoz house and the Casas Grandes cantina are right. |
+| 3-10 | 6 | 65 | `tr-3-10-010` to `-021` are at the doctor's gate (`j4-casas-grandes-doctor`); the rest is right. |
+| 3-12 | 37 | 1 | The truck on the road (`j5-seg-02`), the girl on the road (`j5-santa-maria-stream`), the meal north of Santa Ana (`j5-santa-ana-return`), the arriero at Las Varas, the river camp and the feast day. |
+| 3-14 | 0 | 3 | The doctor's gate in Casas Grandes is right. |
+| 4-01 | 7 | 0 | Deming at three in the morning (`j7-deming-3`, was the earlier Deming stop). |
+| 4-02 | 11 | 0 | The cook's kitchen is at the SK Bar (`j7-sk-bar`, was Steins). |
+| 4-03, 4-04 | 0 | 51 | The Janos cantina and the dead man's house in Namiquipa are right. |
+| 4-05 | 28 | 36 | The funeral meal at Namiquipa, the Temósachic bodega, the hotel garden in Casas Grandes (`j7-casas-grandes-2`), the high country and Quijada's cabin. Madera and the ciénega north of Babícora are right. |
+| 4-06 | 47 | 12 | The grave board (`j7-boyds-grave`), and the robbers and the gypsies on the river trail (`j7-attack`, was Corralitos). The church in San Buenaventura is right. |
+
+Lines inside a song or a tale (the corrido in the hotel garden in 4-05, the heretic's tale in 2-01) take the place where they are sung or told, as in pass 1.
+
+**What to spot-check.** These are the judgements most open to a different reading:
+
+- 1-08, `tr-1-08-007` to `-014`: placed at `j2-guadalupe-pass` only because the ranch stop is first seen in 1-09 (question 9).
+- 2-01, `tr-2-01-030` to `-038`: the ruined town across the ford is taken to be Huisiachepic before the text names it.
+- 2-08, `tr-2-08-003` to `-016`: the square is taken to be Bacerac's ("back into the town" after finding Keno there).
+- 3-04, `tr-3-04-032`: the crossroads where Quijada waits is put on the road segment, not at the remuda.
+- 3-12, `tr-3-12-026` to `-044`: the meal is an hour north of Santa Ana, put at the stop for riding back through it.
+- 4-05, `tr-4-05-041` to `-054`: the ciénega is north of Babícora, after he rode through it; kept at `j7-babicora-2`.
+- 4-06, `tr-4-06-036` to `-070`: the gypsies' camp is a day after the attack in the same grove; both use `j7-attack`.
+
+### Pass 1: `where-spoken.csv`
 
 Each of the 203 lines with no place was read in context. 201 now have a place and 2 are left null, both in 3-14: a charm he looks at during weeks of searching, and a word said of two hamlets together. Most of the rest are said at one stop:
 
@@ -100,11 +149,9 @@ The guide is one 15-page PDF with no anchors, so a link cannot go to an entry. T
 1. **Draft English** in `translations-review.csv`: start with `confidence` low and medium, then the notes. Put `yes` in `reviewed` when a line is done. Ideally a speaker who knows northern Mexican usage reads the whole file (plan section 8).
 2. **False positives:** set `skip` to `yes` for anything that is not Spanish. 12 are already marked, mostly proper names said in English. They stay in the CSV but are left out of `translations.json`.
 3. **Missed Spanish:** the gap list covers spans we found. Spanish we did not find shows up as an unmatched guide entry (47, listed in the private working files) or not at all. Sentences that mix English and Spanish words fifty-fifty are the likely misses.
-4. **`location_ref`:** the 226 hand judgements are in `where-spoken.csv`, each with its reason; change a `ref` there, or write `none` in `translations-review.csv` to clear a line. The 621 heuristic references were not all checked in this pass. While reading context I saw these that look wrong (not changed, because they were outside this pass):
-   - 1-10, 26 lines from `tr-1-10-060` on: the wolf in the pit and the ride out. They point at `place-casas-grandes` (8) and `place-colonia-oaxaca` (18), because those names appear in the crowd's description and the dialogue. The pit is in the hacienda's bodega, so most are probably `j2-hacienda`, and the last ones are at the ford on leaving.
-   - 3-10, `tr-3-10-010` to about `-021`: still at the doctor's gate in Casas Grandes, but pointing at `j4-san-diego-doctor` (the drive back to San Diego). The rest of 3-10 may be right.
-   - 2-01: 24 lines point at `j3-el-tigre`. Some, near the church, may be at Huisiachepic.
+4. **`location_ref`:** every line now has a reason in `where-spoken.csv` or a run in `road-refs.csv`. Corrections are the rows without "Checked:"; start with the spot-check list under "Pass 2". To change a line, change its `ref` there. The pass 1 suspects (1-10 pit, 3-10 doctor's gate, 2-01 El Tigre) are corrected. Still open:
    - `j3-colonia-oaxaca` (2-03) says the alguacil's house is at Colonia Oaxaca, but in 1-09 the alguacil questions Billy in the mud-house settlement (`j2-mud-settlement`), the stop after the river crossing. One of the two stops needs a look.
+   - Writing `none` in `translations-review.csv` clears a line for one build only: the build writes the cleared cell back as empty, so the next build restores the heuristic. This pass therefore made no line null (question 10).
 5. **Speaker and listener slugs:** check them against the characters the site will name. People the text has not named yet are given roles, and the drafts were made in seven batches, so the slugs are not fully consistent. For example, `woman` and `girl` each stand for more than one person, and the old man in 1-07 is `old-man`, not a name. A pass to make them consistent is needed before the UI shows speakers.
 
 ## Open questions for the owner
@@ -117,3 +164,5 @@ The guide is one 15-page PDF with no anchors, so a link cannot go to an entry. T
 6. Lines inside a tale told in the story (the blind man's wife's tale in 3-09, 32 lines) now point at the place where the tale is told, not at the tale's own places, which are not on the map. Is that what you want, or should they stay null?
 7. Two lines in 3-14 stay null: the text does not place them. Should they get the nearest stop of the search (for example Buenaventura), or stay null?
 8. The 7 lines in 3-11 and 3-13 point at the place `place-hacienda-de-san-diego`, because neither episode has a stop. Would you rather they took a San Diego stop (for example `j4-san-diego-doctor`, the last one before them)?
+9. The ranch where the old Mexican sews the wolf's leg is reached at the end of 1-08, but its stop `j2-volcanic-plain-ranch` has `first_seen` 1-09. Its 8 lines (`tr-1-08-007` to `-014`) take `j2-guadalupe-pass` for now. Should the stop's `first_seen` move to 1-08, so they can point at it?
+10. Should an empty `ref` in `where-spoken.csv` clear the heuristic (make the line null)? Now it changes nothing, and the `none` cell in `translations-review.csv` does not survive a second build. This pass needed no nulls, but a later review may.
