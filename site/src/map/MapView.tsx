@@ -30,16 +30,18 @@ const MIN_ZOOM = 4
 const TERRAIN_EXAGGERATION = 1.5
 const TERRAIN_TILT = 40
 
-// Base layers that cannot move with the terrain, hidden in the Raised view.
-const NOT_RAISED = new Set(['relief-tint', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine',
-  'hachure-fine-copy', 'mountain-glyph', 'creek', 'river-minor', 'river', 'creek-label', 'river-label', 'road',
-  'railroad', 'railroad-ties'])
-const RAISED_LAYERS = raisedLayers()
+// Base layers that cannot move with the terrain, hidden in the Raised view; raisedLayers() redraws the
+// boundaries, roads, streams and the Mexico side from raised copies.
+const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy',
+  'hachure-fine', 'hachure-fine-copy', 'mountain-glyph', 'county-line', 'state-line', 'country-line', 'creek',
+  'river-minor', 'river', 'creek-label', 'river-label', 'road', 'railroad', 'railroad-ties'])
+const RAISED_GROUPS = raisedLayers(literaryStyle(tilesBase, fontsBase, dataBase).layers)
+const RAISED_IDS = RAISED_GROUPS.flatMap((g) => g.layers.map((l) => l.id))
 
 type Picked = { lon: number; lat: number; props: StoryProps }
 type Basemap = 'literary' | 'satellite' | 'compare'
 // Views of the literary map: flat (the default), tilted (live 3D terrain) and raised (plan oblique relief).
-type View = 'flat' | 'tilted' | 'raised'
+export type View = 'flat' | 'tilted' | 'raised'
 const VIEWS: { id: View; label: string; title: string }[] = [
   { id: 'flat', label: 'Flat', title: 'The map seen straight down' },
   { id: 'tilted', label: 'Tilted', title: 'The terrain in 3D, tilted towards the horizon' },
@@ -48,13 +50,15 @@ const VIEWS: { id: View; label: string; title: string }[] = [
 
 type Props = {
   mapRef: RefObject<MapRef | null>
+  // In the Raised view, the raised copies of the story layers (App swaps them in).
   story: Story | null
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
   onSelectStop: (index: number) => void
+  onView: (view: View) => void
 }
 
-export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props) {
+export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView }: Props) {
   const style = useMemo(() => literaryStyle(tilesBase, fontsBase, dataBase), [])
   // Compare mode's classic underlay gets its own copy: a map may change the style object it is given.
   const underlayStyle = useMemo(() => literaryStyle(tilesBase, fontsBase, dataBase), [])
@@ -77,6 +81,8 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
   // tiles are loading, and 'load' fires only once.
   const [loaded, setLoaded] = useState(false)
 
+  useEffect(() => onView(view), [view, onView])
+
   const onUnavailable = useCallback(() => {
     setUnavailable(true)
     setBasemap('literary')
@@ -91,24 +97,25 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
     const raised = view === 'raised'
     if (raised && !map.getSource('oblique')) {
       map.addSource('oblique', { type: 'vector', url: `pmtiles://${tilesBase}oblique.pmtiles` })
-      for (const layer of RAISED_LAYERS) map.addLayer(layer, 'county-line')
+      for (const group of RAISED_GROUPS) for (const layer of group.layers) map.addLayer(layer, group.before)
     }
-    for (const id of BASE_LAYERS) {
-      const hidden = basemap !== 'literary' || (raised && NOT_RAISED.has(id))
+    // The international line is not a base layer (it stays over satellite imagery), but it is raised.
+    for (const id of new Set([...BASE_LAYERS, ...NOT_RAISED])) {
+      const hidden = (basemap !== 'literary' && BASE_LAYERS.includes(id)) || (raised && NOT_RAISED.has(id))
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', hidden ? 'none' : 'visible')
     }
-    for (const layer of RAISED_LAYERS) {
-      if (map.getLayer(layer.id)) map.setLayoutProperty(layer.id, 'visibility', raised ? 'visible' : 'none')
+    for (const id of RAISED_IDS) {
+      if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', raised ? 'visible' : 'none')
     }
     // Below the raised line work's first zoom the view would be bare paper.
     map.setMinZoom(raised ? RAISED_MIN_ZOOM : MIN_ZOOM)
-    // The raised data covers a test area so far, from zoom 9: unless the view is already inside it and close in,
-    // go to its middle, close enough to see the line work.
+    // The raised data covers the first two journeys' corridor, from zoom 9: from outside it, go to its middle;
+    // from too far out, close in where the view is, enough to see the line work.
     const [w, s, e, n] = RAISED_BOUNDS
     const { lng, lat } = map.getCenter()
     const inside = lng >= w && lng <= e && lat >= s && lat <= n
     if (raised && (!inside || map.getZoom() < 11)) {
-      map.flyTo({ center: [(w + e) / 2, (s + n) / 2], zoom: Math.max(map.getZoom(), 11.5),
+      map.flyTo({ center: inside ? [lng, lat] : [(w + e) / 2, (s + n) / 2], zoom: Math.max(map.getZoom(), 11.5),
         duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1600 })
     }
   }, [basemap, view, loaded, mapRef])
@@ -181,8 +188,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
           <NavigationControl position="top-left" showCompass={false} />
           {/* Miles, the book's own unit. */}
           <ScaleControl position="bottom-left" unit="imperial" maxWidth={140} />
-          {/* Stops, areas and routes are not raised yet, so the Raised view shows only its own raised journeys. */}
-          {story && view !== 'raised' && <StoryLayers story={story} stops={stops} stopIndex={stopIndex} onSelectStop={onSelectStop} halo={basemap === 'literary'} />}
+          {story && <StoryLayers story={story} stops={stops} stopIndex={stopIndex} onSelectStop={onSelectStop} halo={basemap === 'literary'} />}
           {picked && (
             <Popup longitude={picked.lon} latitude={picked.lat} onClose={() => setPicked(null)} maxWidth="280px">
               <strong>{picked.props.name}</strong>
@@ -253,7 +259,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop }: Props
         </label>
       </div>
       {view === 'raised' && (
-        <p className="notice" role="status">The Raised view is a preview around the Pilares for now. Stops and labels are not raised yet.</p>
+        <p className="notice" role="status">The Raised view covers the first two journeys for now.</p>
       )}
       {unavailable && <p className="notice" role="status">Satellite imagery is unavailable right now. The classic map works as normal.</p>}
       <div className="cartouche" aria-hidden="true">

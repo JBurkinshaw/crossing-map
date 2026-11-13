@@ -23,10 +23,13 @@ export type Story = {
 
 const LAYERS = ['places', 'stops', 'areas', 'journeys'] as const
 
-export function useStory(): Story | 'failed' | null {
+// The story layers from data/, or from the raised copies in data/raised/ (the Raised view), fetched once
+// `enabled` is first true.
+export function useStory(folder: '' | 'raised/' = '', enabled = true): Story | 'failed' | null {
   const [story, setStory] = useState<Story | 'failed' | null>(null)
   useEffect(() => {
-    const base = `${import.meta.env.BASE_URL}data/`
+    if (!enabled) return
+    const base = `${import.meta.env.BASE_URL}data/${folder}`
     Promise.all(
       LAYERS.map((name) =>
         fetch(`${base}${name}.geojson`).then((r) => {
@@ -40,6 +43,6 @@ export function useStory(): Story | 'failed' | null {
         console.error('Story data failed to load:', e)
         setStory('failed')
       })
-  }, [])
+  }, [folder, enabled])
   return story
 }

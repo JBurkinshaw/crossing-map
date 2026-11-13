@@ -149,27 +149,55 @@ export function reliefLayers(): { hillshade: LayerSpecification[]; hachures: Lay
 }
 
 // The Raised view (plan oblique relief): line work from oblique.pmtiles in which every point has moved north
-// by its height, so ranges stand up and hide the ground behind them. For now it covers only a test area
-// around the Pilares; the map's other layers cannot move with the terrain, so MapView hides them.
-export const RAISED_BOUNDS: [number, number, number, number] = [-109.74, 30.72, -108.92, 31.08]
+// by its height, so ranges stand up and hide the ground behind them. It covers the corridor of the first two
+// journeys (decision 0018); the map's layers that cannot move with the terrain are hidden by MapView.
+export const RAISED_BOUNDS: [number, number, number, number] = [-109.76, 29.62, -108.04, 31.85]
 export const RAISED_MIN_ZOOM = 9
 
-export function raisedLayers(): LayerSpecification[] {
-  const base = { source: 'oblique', 'source-layer': 'oblique', minzoom: RAISED_MIN_ZOOM, layout: { 'line-cap': 'round', 'line-join': 'round', visibility: 'none' } } as const
+// Classic base layers drawn again from the raised copies of their lines, by the `kind` in oblique.pmtiles.
+const RAISED_BASE: Record<string, string> = {
+  mexico: 'mexico', 'county-line': 'county', 'state-line': 'state', 'country-line': 'country', road: 'road',
+  railroad: 'railroad', 'railroad-ties': 'railroad', 'creek-label': 'stream',
+}
+
+// Each group of raised layers goes in below the classic layer named by `before`: the Mexico side under the
+// paper tint, the relief under the journeys' halo, and the boundaries, water and roads over it.
+export function raisedLayers(classic: LayerSpecification[]): { before: string; layers: LayerSpecification[] }[] {
+  const source = { source: 'oblique', 'source-layer': 'oblique' } as const
+  const base = { ...source, minzoom: RAISED_MIN_ZOOM, layout: { 'line-cap': 'round', 'line-join': 'round', visibility: 'none' } } as const
+  const kind = (k: string): ExpressionSpecification => ['==', ['get', 'kind'], k]
+  // The classic layer's look, drawn from the raised lines of its kind.
+  const copy = (id: string): LayerSpecification => {
+    const layer = classic.find((l) => l.id === id) as LayerSpecification & { filter?: ExpressionSpecification; layout?: object }
+    return { ...layer, ...source, id: `raised-${id}`, filter: layer.filter ? ['all', kind(RAISED_BASE[id]), layer.filter] : kind(RAISED_BASE[id]),
+      layout: { ...layer.layout, visibility: 'none' } } as LayerSpecification
+  }
   return [
-    { ...base, id: 'raised-contour', type: 'line', filter: ['==', ['get', 'kind'], 'contour'],
-      paint: { 'line-color': '#b0622e', 'line-width': 0.4, 'line-opacity': 0.45 } },
-    { ...base, id: 'raised-stream', type: 'line', filter: ['==', ['get', 'kind'], 'stream'],
-      paint: { 'line-color': '#6f8796', 'line-width': ['interpolate', ['linear'], ['get', 'ord'], 3, 0.6, 8, 2.2], 'line-opacity': 0.6 } },
-    { ...base, id: 'raised-stroke', type: 'line', filter: strokeFilter('stroke'), paint: strokePaint([10, 40], false) },
-    { ...base, id: 'raised-stroke-copy', type: 'line', filter: strokeFilter('stroke'), paint: strokePaint([10, 40], true) },
-    // Ridgelines, heavier on higher ridges (rel: height above the ground around, metres); below zoom 12 only the higher ones.
-    { ...base, id: 'raised-ridge', type: 'line',
-      filter: ['all', ['==', ['get', 'kind'], 'ridge'], ['step', ['zoom'], ['>=', ['get', 'rel'], 160], 12, true]],
-      paint: { 'line-color': tokens.ink, 'line-width': ['interpolate', ['linear'], ['get', 'rel'], 100, 0.5, 300, 1.1], 'line-opacity': 0.7 } },
-    { ...base, id: 'raised-crest', type: 'line', filter: ['==', ['get', 'kind'], 'crest'],
-      paint: { 'line-color': tokens.ink, 'line-width': 0.9, 'line-opacity': 0.8 } },
-    { ...base, id: 'raised-journey', type: 'line', filter: ['==', ['get', 'kind'], 'journey'],
-      paint: { 'line-color': tokens.ink, 'line-width': 2, 'line-dasharray': [3, 1.5] } },
+    { before: 'relief-tint', layers: [copy('mexico')] },
+    {
+      before: 'contour',
+      layers: [
+        { ...base, id: 'raised-contour', type: 'line', filter: kind('contour'),
+          paint: { 'line-color': '#b0622e', 'line-width': 0.4, 'line-opacity': 0.45 } },
+        { ...base, id: 'raised-stroke', type: 'line', filter: strokeFilter('stroke'), paint: strokePaint([10, 40], false) },
+        { ...base, id: 'raised-stroke-copy', type: 'line', filter: strokeFilter('stroke'), paint: strokePaint([10, 40], true) },
+        // Ridgelines, heavier on higher ridges (rel: height above the ground around, metres); below zoom 12 only the higher ones.
+        { ...base, id: 'raised-ridge', type: 'line',
+          filter: ['all', kind('ridge'), ['step', ['zoom'], ['>=', ['get', 'rel'], 160], 12, true]],
+          paint: { 'line-color': tokens.ink, 'line-width': ['interpolate', ['linear'], ['get', 'rel'], 100, 0.5, 300, 1.1], 'line-opacity': 0.7 } },
+        { ...base, id: 'raised-crest', type: 'line', filter: kind('crest'),
+          paint: { 'line-color': tokens.ink, 'line-width': 0.9, 'line-opacity': 0.8 } },
+      ],
+    },
+    {
+      before: 'creek-label',
+      layers: [
+        copy('county-line'), copy('state-line'), copy('country-line'),
+        // Streams on both sides of the border, wider with Strahler order (or NHD's stand-in for it).
+        { ...base, id: 'raised-stream', type: 'line', filter: kind('stream'),
+          paint: { 'line-color': '#6f8796', 'line-width': ['interpolate', ['linear'], ['get', 'ord'], 3, 0.6, 8, 2.2], 'line-opacity': 0.6 } },
+        copy('road'), copy('railroad'), copy('railroad-ties'), copy('creek-label'),
+      ],
+    },
   ]
 }
