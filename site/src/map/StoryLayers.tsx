@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { Layer, Marker, Source, useMap } from '@vis.gl/react-maplibre'
 import type { ExpressionSpecification } from 'maplibre-gl'
 import type { Feature, FeatureCollection, Geometry, Point } from 'geojson'
@@ -27,6 +27,26 @@ type Props = {
 
 const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+// The tale places' diamond, drawn once into the map's images: paper inside an ink edge, 11 px across.
+const TALE_ICON = 'tale-diamond'
+function taleDiamond(): ImageData {
+  const size = 24
+  const ctx = document.createElement('canvas').getContext('2d')!
+  ctx.canvas.width = ctx.canvas.height = size
+  ctx.beginPath()
+  ctx.moveTo(size / 2, 1.5)
+  ctx.lineTo(size - 1.5, size / 2)
+  ctx.lineTo(size / 2, size - 1.5)
+  ctx.lineTo(1.5, size / 2)
+  ctx.closePath()
+  ctx.fillStyle = tokens.paper
+  ctx.fill()
+  ctx.lineWidth = 2.6
+  ctx.strokeStyle = tokens.ink
+  ctx.stroke()
+  return ctx.getImageData(0, 0, size, size)
+}
+
 export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, corridor: road }: Props) {
   const { current: mapRef } = useMap()
   // The places and the journey's stops around Cloverdale and the Peloncillos go to the clustered source; the
@@ -45,6 +65,10 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
     }
     return { outside, zone }
   }, [story.places, stops, current])
+  useEffect(() => {
+    const map = mapRef?.getMap()
+    if (map && !map.hasImage(TALE_ICON)) map.addImage(TALE_ICON, taleDiamond(), { pixelRatio: 2 })
+  }, [mapRef])
   const zoneIds = useMemo(() => places.zone.features.map((f) => String(f.properties?.id)), [places.zone])
   // The journey's stops grouped by spot (to about 100 m), in order: a journey that comes back to a place, such as
   // J4 to San Diego, gets one badge there instead of markers drawn over each other.
@@ -93,15 +117,25 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         type="circle"
         {...(only ? { filter: only } : {})}
         paint={{
-          // Context towns (never named in the book) are small solid dots; story places are open rings.
-          'circle-radius': ['match', ['get', 'role'], 'context', 2, 'passing', 3, 4],
-          'circle-color': ['match', ['get', 'role'], 'context', tokens.inkFaint, tokens.paper],
-          'circle-stroke-color': tokens.ink,
-          'circle-stroke-width': ['match', ['get', 'role'], 'context', 0, 1.2],
+          // Told apart by fill and shape more than size: places on a journey are solid ink dots, places passed
+          // or named open rings, towns the book never names small faint dots. Cities are a step larger.
+          // Tale places keep an unseen circle here, so they stay clickable under their diamond.
+          'circle-radius': ['+', ['match', ['get', 'role'], 'context', 2, 'passing', 3.5, 'tale', 5, 4], ['match', ['get', 'kind'], 'city', 1, 0]],
+          'circle-color': ['match', ['get', 'role'], 'context', tokens.inkFaint, 'stop', tokens.ink, tokens.paper],
+          'circle-opacity': ['match', ['get', 'role'], 'tale', 0, 1],
+          'circle-stroke-color': ['match', ['get', 'role'], 'stop', tokens.paper, tokens.ink],
+          'circle-stroke-width': ['match', ['get', 'role'], 'context', 0, 'stop', 1.5, 1.2],
+          'circle-stroke-opacity': ['match', ['get', 'role'], 'tale', 0, 1],
         }}
       />,
-      // Places in the tales told to Billy: a ring with a dot.
-      <Layer key="tale" id={`${prefix}-tale`} type="circle" filter={and(['==', ['get', 'role'], 'tale'])} paint={{ 'circle-radius': 1.4, 'circle-color': tokens.ink }} />,
+      // Places in the tales told to Billy: a hollow diamond (TALE_ICON), told rather than travelled.
+      <Layer
+        key="tale"
+        id={`${prefix}-tale`}
+        type="symbol"
+        filter={and(['==', ['get', 'role'], 'tale'])}
+        layout={{ 'icon-image': TALE_ICON, 'icon-allow-overlap': true, 'icon-ignore-placement': true }}
+      />,
       <Layer
         key="selected"
         id={`${prefix}-selected`}
@@ -115,11 +149,16 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         type="symbol"
         {...(only ? { filter: only } : {})}
         layout={{
-          'text-field': ['get', 'name'],
-          // Ranges, valleys and streams in spaced italic, as on the survey sheets; settlements in roman.
-          'text-font': ['match', ['get', 'kind'], ['range', 'valley', 'stream', 'spring', 'plain'], ['literal', [fonts.italic]], ['literal', [fonts.roman]]],
+          // Towns the book never names are labelled only from zoom 9.
+          'text-field': ['step', ['zoom'], ['match', ['get', 'role'], 'context', '', ['get', 'name']], 9, ['get', 'name']],
+          // Ranges, valleys and streams in spaced italic, as on the survey sheets, and so are tale places;
+          // settlements in roman.
+          'text-font': ['case',
+            ['any', ['==', ['get', 'role'], 'tale'], ['in', ['get', 'kind'], ['literal', ['range', 'valley', 'stream', 'spring', 'plain']]]],
+            ['literal', [fonts.italic]], ['literal', [fonts.roman]]],
           'text-letter-spacing': ['match', ['get', 'kind'], ['range', 'valley'], 0.15, 0.02],
-          'text-size': ['match', ['get', 'kind'], ['range', 'valley'], 14, 12.5],
+          // Places on a journey a size up from places passed.
+          'text-size': ['match', ['get', 'kind'], ['range', 'valley'], 14, ['match', ['get', 'role'], 'stop', 13.5, 12.5]],
           'text-anchor': 'top',
           'text-offset': [0, 0.6],
           'text-optional': true,

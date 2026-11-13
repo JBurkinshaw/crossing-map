@@ -43,11 +43,18 @@ function Line({ colour, dash, width = 2.5, opacity = 1 }: { colour: string; dash
   )
 }
 
-function Dot({ r, fill, stroke, inner }: { r: number; fill: string; stroke?: string; inner?: string }) {
+function Dot({ r, fill, stroke, width = 1.2 }: { r: number; fill: string; stroke?: string; width?: number }) {
   return (
     <svg width="34" height="14" aria-hidden="true">
-      <circle cx="17" cy="7" r={r} fill={fill} stroke={stroke} strokeWidth={stroke ? 1.2 : 0} />
-      {inner && <circle cx="17" cy="7" r="1.4" fill={inner} />}
+      <circle cx="17" cy="7" r={r} fill={fill} stroke={stroke} strokeWidth={stroke ? width : 0} />
+    </svg>
+  )
+}
+
+function Diamond({ fill, stroke }: { fill: string; stroke: string }) {
+  return (
+    <svg width="34" height="14" aria-hidden="true">
+      <path d="M17 1.5 L22.5 7 L17 12.5 L11.5 7 Z" fill={fill} stroke={stroke} strokeWidth={1.3} />
     </svg>
   )
 }
@@ -165,19 +172,19 @@ export function LayerKey({ story, journey, reached }: Props) {
           </li>
           {shown.roles.has('stop') && (
             <li>
-              <Dot r={4} fill={tokens.paper} stroke={tokens.ink} />
+              <Dot r={4} fill={tokens.ink} stroke={tokens.paper} width={1.5} />
               Place on a journey
             </li>
           )}
           {shown.roles.has('passing') && (
             <li>
-              <Dot r={3} fill={tokens.paper} stroke={tokens.ink} />
+              <Dot r={3.5} fill={tokens.paper} stroke={tokens.ink} />
               Place passed or named
             </li>
           )}
           {shown.roles.has('tale') && (
             <li>
-              <Dot r={4} fill={tokens.paper} stroke={tokens.ink} inner={tokens.ink} />
+              <Diamond fill={tokens.paper} stroke={tokens.ink} />
               Place in a tale
             </li>
           )}
