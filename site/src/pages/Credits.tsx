@@ -96,7 +96,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
         link: 'https://www.inegi.org.mx/temas/hidrografia/',
-        use: 'Streams on the Mexico side in the Raised view.',
+        use: 'The courses of named rivers in Sonora and Chihuahua on the classic map, and streams on the Mexico side in the Raised view.',
         licence: 'INEGI free-use terms, attribution required',
         credit: 'Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
       },

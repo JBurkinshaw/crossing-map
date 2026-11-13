@@ -2,15 +2,18 @@
 
 Run from the repo root: uv run --project pipeline python tiles/build_base.py
 Reads Natural Earth 10m and US Census cartographic boundary files from
-private/cache/basemap/, and USGS NHD flowlines from private/cache/hydro/nhd/
-(see review/stage-2/README.md for the download list), clips them to the story
-box, and tiles them with tippecanoe at zoom 4-11. NHD streams appear from zoom 9.
+private/cache/basemap/, USGS NHD flowlines from private/cache/hydro/nhd/ and INEGI's
+river network from private/cache/hydro/inegi/ (see review/stage-2/README.md for the
+download list), clips them to the story box, and tiles them with tippecanoe at
+zoom 4-11. NHD streams appear from zoom 9; the rivers come from tiles/mexico_rivers.py.
 """
 
 import shutil
 import subprocess
 import tempfile
 from pathlib import Path
+
+from mexico_rivers import write_layers
 
 REPO = Path(__file__).resolve().parents[1]
 SRC = REPO / "private" / "cache" / "basemap"
@@ -30,10 +33,6 @@ LAYERS = {
     "county_line": ("cb_2023_us_county_500k",
                     "SELECT NAME AS name FROM cb_2023_us_county_500k WHERE STATEFP IN ('04', '35', '48')",
                     ["-nlt", "MULTILINESTRING"]),
-    "river": ("ne_10m_rivers_lake_centerlines",
-              "SELECT name, scalerank FROM ne_10m_rivers_lake_centerlines", []),
-    "river_minor": ("ne_10m_rivers_north_america",
-                    "SELECT name, scalerank FROM ne_10m_rivers_north_america", []),
     "lake": ("ne_10m_lakes_north_america", "SELECT name FROM ne_10m_lakes_north_america", []),
     "railroad": ("ne_10m_railroads_north_america", "SELECT scalerank FROM ne_10m_railroads_north_america", []),
     "road": ("ne_10m_roads", "SELECT type, scalerank FROM ne_10m_roads WHERE continent = 'North America'", []),
@@ -53,6 +52,8 @@ def main() -> None:
                 check=True,
             )
             args += ["-L", f"{layer}:{dst.name}"]
+        for layer, path in write_layers(BOX, Path(tmp)).items():
+            args += ["-L", f"{layer}:{path.name}"]
         # NHD natural streams (ftype 460), one file per HU8 watershed, merged into one "creek" layer.
         for i, shp in enumerate(sorted(NHD.glob("*/Shape/NHDFlowline.shp"))):
             dst = Path(tmp) / f"creek-{i}.geojson"
@@ -67,7 +68,8 @@ def main() -> None:
         # in the archive's metadata, and the archive is published.
         subprocess.run(
             ["tippecanoe", "-q", "-f", "-o", "base.pmtiles", "-Z4", "-z11", "--no-tile-size-limit",
-             "-n", "The Crossing: base", "-N", "Natural Earth, Census and NHD layers for the literary map",
+             "-n", "The Crossing: base", "-N", "Natural Earth, Census, NHD and INEGI layers for the literary map",
+             "-A", "Rivers in Mexico: Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0",
              "-j", '{"creek": [">=", "$zoom", 9]}',
              "--detect-shared-borders", "--simplification=4", *args],
             check=True, cwd=tmp,
