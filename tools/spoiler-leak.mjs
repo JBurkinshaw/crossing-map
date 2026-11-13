@@ -1,7 +1,7 @@
 // The spoiler-leak test (docs/plan.md, section 11, acceptance criteria): for several reading positions, load
 // the app and check that nothing first seen later shows anywhere: the story data given to the map, the
 // features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop,
-// "Named elsewhere"), mountain glyphs, and the same again in the Raised view.
+// "Named elsewhere"), mountain glyphs, vignettes, and the same again in the Raised view.
 //
 // Usage, with the app running (cd site && npm run dev -- --port 5185, or npm run build && npx vite preview --port 5185):
 //   cd tools && npm run spoiler-leak -- [base-url]     (default http://localhost:5185/; about 10 minutes)
@@ -20,6 +20,7 @@ const layers = Object.fromEntries(
 )
 const elsewhere = await read('elsewhere.json')
 const glyphs = (await read('mountain_glyphs.geojson')).features
+const vignettes = (await read('vignettes.geojson')).features
 const KEY = 'crossing-map.progress'
 
 // null is a first visit (nothing stored); the rest are stored settings. Episode ids sort in reading order.
@@ -33,7 +34,7 @@ const allowed = (props, reached) => props.role === 'context' || props.first_seen
 const EPISODE_ID = /\b[1-4]-(0[1-9]|1[0-4])\b/g
 
 function laterOnlyNames(reached) {
-  const all = [...Object.values(layers).flat().map((f) => f.properties), ...elsewhere, ...glyphs.map((f) => f.properties)]
+  const all = [...Object.values(layers).flat().map((f) => f.properties), ...elsewhere, ...glyphs.map((f) => f.properties), ...vignettes.map((f) => f.properties)]
   const early = new Set(all.filter((p) => allowed(p, reached)).map((p) => p.name))
   return new Set(all.filter((p) => !allowed(p, reached) && !early.has(p.name)).map((p) => p.name))
 }
@@ -134,6 +135,18 @@ for (const point of POINTS) {
     await idle(page)
     const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['mountain-glyph'] }).map((f) => [f.properties.name, f.properties.first_seen]))
     for (const [name, fs] of shown) if (fs > reached && fs > '1-01') leak(where, `glyph ${name} first seen ${fs}`)
+  }
+
+  // Vignettes drawn later than this point: go to each, inside its zoom range, and look for it and its leader.
+  for (const v of vignettes.filter((f) => f.properties.first_seen > reached)) {
+    // Leader lines are LineStrings: go to where they start.
+    const [lon, lat] = v.geometry.type === 'Point' ? v.geometry.coordinates : v.geometry.coordinates[0]
+    const zoom = Math.max(v.properties.min_zoom, Math.min(9, v.properties.max_zoom - 0.5))
+    await page.evaluate(([lo, la, z]) => window.__map.jumpTo({ center: [lo, la], zoom: z }), [lon, lat, zoom])
+    await idle(page)
+    const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['vignette', 'vignette-leader'].filter((id) => window.__map.getLayer(id)) })
+      .map((f) => [f.properties.name, f.properties.first_seen]))
+    for (const [name, fs] of shown) if (fs > reached) leak(where, `vignette ${name} first seen ${fs}`)
   }
 
   // The Raised view loads its own copies of the story layers.

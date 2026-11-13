@@ -12,7 +12,7 @@ import { StoryLayers } from './StoryLayers'
 import { RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
 import { BASE_LAYERS, literaryStyle } from './style'
 import { storyBounds } from './tokens'
-import { GLYPH_LAYER, glyphFilterUpTo, styleUpTo } from '../spoiler/filter'
+import { layerFilterUpTo, PROGRESS_LAYERS, styleUpTo } from '../spoiler/filter'
 
 // MapLibre 6 looks for its worker beside its own module file. Bundling moves
 // that module into an app chunk, so point MapLibre at the copy Vite emits.
@@ -61,9 +61,9 @@ type Props = {
   reached: string
 }
 
-// The mountain glyph layer's own filter, before the reading-progress clause is added.
-const GLYPH_FILTER = literaryStyle(tilesBase, fontsBase, dataBase).layers.find((l) => l.id === GLYPH_LAYER)
-const GLYPH_BASE_FILTER = GLYPH_FILTER && 'filter' in GLYPH_FILTER ? GLYPH_FILTER.filter : undefined
+// The base filters of the layers spoiler mode narrows (spoiler/filter.ts), before the reading-progress clause.
+const BASE_FILTERS = Object.fromEntries(literaryStyle(tilesBase, fontsBase, dataBase).layers
+  .filter((l) => l.id in PROGRESS_LAYERS).map((l) => [l.id, 'filter' in l ? l.filter : undefined]))
 
 export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView, reached }: Props) {
   // Built once with the progress at first render; later changes go through setFilter below.
@@ -103,7 +103,10 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView,
 
   useEffect(() => {
     const map = mapRef.current?.getMap()
-    if (map && loaded && map.getLayer(GLYPH_LAYER)) map.setFilter(GLYPH_LAYER, glyphFilterUpTo(GLYPH_BASE_FILTER, reached))
+    if (!map || !loaded) return
+    for (const [id, base] of Object.entries(BASE_FILTERS)) {
+      if (map.getLayer(id)) map.setFilter(id, layerFilterUpTo(id, base, reached))
+    }
   }, [reached, loaded, mapRef])
 
   const onUnavailable = useCallback(() => {
