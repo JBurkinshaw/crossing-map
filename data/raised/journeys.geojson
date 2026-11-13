@@ -52731,6 +52731,230 @@
     "source_licence": "Public domain",
     "reasoning": "Down from the Black Range onto the plain the old road east is today's NM 152 through Kingston and Hillsboro, in Census TIGER (Sierra County)."
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -107.5189,
+      32.948
+     ],
+     [
+      -107.51742,
+      32.94986
+     ],
+     [
+      -107.51645,
+      32.95069
+     ],
+     [
+      -107.51406,
+      32.95176
+     ],
+     [
+      -107.51262,
+      32.95271
+     ],
+     [
+      -107.51164,
+      32.95372
+     ],
+     [
+      -107.5102,
+      32.95444
+     ],
+     [
+      -107.50875,
+      32.95566
+     ],
+     [
+      -107.50732,
+      32.95622
+     ],
+     [
+      -107.50536,
+      32.95829
+     ],
+     [
+      -107.50247,
+      32.96022
+     ],
+     [
+      -107.50101,
+      32.96155
+     ],
+     [
+      -107.49861,
+      32.96279
+     ],
+     [
+      -107.49567,
+      32.96592
+     ],
+     [
+      -107.49038,
+      32.96914
+     ],
+     [
+      -107.48073,
+      32.97592
+     ],
+     [
+      -107.45609,
+      32.99355
+     ],
+     [
+      -107.44498,
+      33.00113
+     ],
+     [
+      -107.4266,
+      33.01461
+     ],
+     [
+      -107.42564,
+      33.01511
+     ],
+     [
+      -107.42376,
+      33.01516
+     ],
+     [
+      -107.4228,
+      33.01575
+     ],
+     [
+      -107.41451,
+      33.02326
+     ],
+     [
+      -107.40484,
+      33.03015
+     ],
+     [
+      -107.40342,
+      33.03051
+     ],
+     [
+      -107.40245,
+      33.03112
+     ],
+     [
+      -107.40099,
+      33.0323
+     ],
+     [
+      -107.40001,
+      33.03333
+     ],
+     [
+      -107.39516,
+      33.03724
+     ],
+     [
+      -107.3579,
+      33.06388
+     ],
+     [
+      -107.35501,
+      33.06559
+     ],
+     [
+      -107.35258,
+      33.06758
+     ],
+     [
+      -107.35064,
+      33.06897
+     ],
+     [
+      -107.3492,
+      33.06979
+     ],
+     [
+      -107.34725,
+      33.0714
+     ],
+     [
+      -107.33953,
+      33.07624
+     ],
+     [
+      -107.33082,
+      33.08237
+     ],
+     [
+      -107.32839,
+      33.08431
+     ],
+     [
+      -107.32549,
+      33.08629
+     ],
+     [
+      -107.31965,
+      33.09111
+     ],
+     [
+      -107.31629,
+      33.09269
+     ],
+     [
+      -107.31291,
+      33.09482
+     ],
+     [
+      -107.31,
+      33.09698
+     ],
+     [
+      -107.3061,
+      33.10033
+     ],
+     [
+      -107.30366,
+      33.10266
+     ],
+     [
+      -107.30317,
+      33.10296
+     ],
+     [
+      -107.30079,
+      33.10378
+     ],
+     [
+      -107.2979,
+      33.10549
+     ],
+     [
+      -107.27681,
+      33.1207
+     ]
+    ]
+   },
+   "properties": {
+    "id": "j7-false-dawn",
+    "name": "The false dawn",
+    "kind": "sightline",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": null,
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "travel": null,
+    "note_safe": "",
+    "certainty": "reported",
+    "method": "computed",
+    "source": "this-site",
+    "source_licence": "CC BY 4.0",
+    "reasoning": "In the last episode Billy wakes in the night to a light like desert noon, which fades; the true dawn comes later. The book names no place, event or direction for that light; it is widely read as the Trinity test of 16 July 1945. The line points from his last stop towards the Trinity Site (Wikidata Q19842077), bearing 49 degrees (pyproj, WGS 84), and is 30 km long only to show the direction."
+   }
   }
  ]
 }

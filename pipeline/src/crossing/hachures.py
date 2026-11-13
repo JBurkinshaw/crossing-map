@@ -103,7 +103,8 @@ def coverage() -> Polygon:
 def corridor(journeys: tuple[str, ...] | None = None) -> Polygon:
     """The journeys buffered CORRIDOR_HALF_M each side, in UTM; all journeys unless some are named."""
     lines = [LineString(f["geometry"]["coordinates"]) for f in json.loads(JOURNEYS.read_text())["features"]
-             if (journeys is None or f["properties"]["journey"] in journeys)
+             if f["properties"]["kind"] == "route-segment"
+             and (journeys is None or f["properties"]["journey"] in journeys)
              and f["properties"].get("travel") not in NOT_IN_CORRIDOR]
     return reproject(to_utm, unary_union(lines)).buffer(CORRIDOR_HALF_M)
 
