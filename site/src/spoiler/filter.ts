@@ -62,18 +62,22 @@ export function translationsUpTo<T extends { first_seen: string }>(list: T[], re
 // Mountain glyphs come from the base style, not the story sources; a few are named only later in the book.
 // The rest carry first_seen 1-01: they are the land itself, named from gazetteers, and like context towns
 // they show at every reading position, "not started" included.
-export const GLYPH_LAYER = 'mountain-glyph'
 export const GLYPH_ALWAYS = '1-01'
+// Base-style layers whose features carry first_seen, with the episode they always show from (the glyphs are the
+// land; the vignettes appear only once the reader reaches their episode).
+export const PROGRESS_LAYERS: Record<string, string> = { 'mountain-glyph': GLYPH_ALWAYS, vignette: '', 'vignette-leader': '' }
 
-export function glyphFilterUpTo(base: FilterSpecification | undefined, reached: string): FilterSpecification {
-  const upToHere: ExpressionSpecification = ['<=', ['to-string', ['get', 'first_seen']], reached > GLYPH_ALWAYS ? reached : GLYPH_ALWAYS]
+export function layerFilterUpTo(id: string, base: FilterSpecification | undefined, reached: string): FilterSpecification {
+  const floor = PROGRESS_LAYERS[id] ?? ''
+  const upToHere: ExpressionSpecification = ['<=', ['to-string', ['get', 'first_seen']], reached > floor ? reached : floor]
   return base ? ['all', base as ExpressionSpecification, upToHere] : upToHere
 }
 
-// A copy of a style with the glyph layer filtered to the reader's progress.
+// A copy of a style with the PROGRESS_LAYERS filtered to the reader's progress.
 export function styleUpTo(style: StyleSpecification, reached: string): StyleSpecification {
   return {
     ...style,
-    layers: style.layers.map((l) => (l.id === GLYPH_LAYER && l.type === 'symbol' ? { ...l, filter: glyphFilterUpTo(l.filter, reached) } : l)),
+    layers: style.layers.map((l) => (l.id in PROGRESS_LAYERS && 'filter' in l ? { ...l, filter: layerFilterUpTo(l.id, l.filter, reached) }
+      : l.id in PROGRESS_LAYERS ? { ...l, filter: layerFilterUpTo(l.id, undefined, reached) } : l)),
   }
 }
