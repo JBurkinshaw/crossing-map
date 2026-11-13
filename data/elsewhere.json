@@ -4,5 +4,89 @@
   "name": "Mexico City",
   "first_seen": "2-01",
   "role": "tale"
+ },
+ {
+  "id": "durango",
+  "name": "Durango",
+  "first_seen": "3-01",
+  "role": "tale"
+ },
+ {
+  "id": "monclova",
+  "name": "Monclova",
+  "first_seen": "3-01",
+  "role": "tale"
+ },
+ {
+  "id": "monterrey",
+  "name": "Monterrey",
+  "first_seen": "3-01",
+  "role": "tale"
+ },
+ {
+  "id": "parral",
+  "name": "Hidalgo del Parral",
+  "first_seen": "3-09",
+  "role": "tale"
+ },
+ {
+  "id": "juan-ceballos",
+  "name": "Juan Ceballos",
+  "first_seen": "3-09",
+  "role": "tale"
+ },
+ {
+  "id": "rodeo-durango",
+  "name": "Rodeo",
+  "first_seen": "3-09",
+  "role": "tale"
+ },
+ {
+  "id": "rio-oro",
+  "name": "Río Oro",
+  "first_seen": "3-09",
+  "role": "tale"
+ },
+ {
+  "id": "torreon",
+  "name": "Torreón",
+  "first_seen": "3-09",
+  "role": "tale"
+ },
+ {
+  "id": "ciudad-acuna",
+  "name": "Ciudad Acuña",
+  "first_seen": "3-10",
+  "role": "tale"
+ },
+ {
+  "id": "chicago",
+  "name": "Chicago",
+  "first_seen": "4-01",
+  "role": "tale"
+ },
+ {
+  "id": "matador-ranch",
+  "name": "Matador Ranch",
+  "first_seen": "4-02",
+  "role": "tale"
+ },
+ {
+  "id": "kwajalein",
+  "name": "Kwajalein Atoll",
+  "first_seen": "4-02",
+  "role": "tale"
+ },
+ {
+  "id": "zacatecas",
+  "name": "Zacatecas",
+  "first_seen": "4-03",
+  "role": "tale"
+ },
+ {
+  "id": "mcallen",
+  "name": "McAllen",
+  "first_seen": "4-07",
+  "role": "tale"
  }
 ]

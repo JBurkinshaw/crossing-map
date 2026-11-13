@@ -1840,6 +1840,1211 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
+     -108.02464,
+     29.51231
+    ]
+   },
+   "properties": {
+    "id": "place-las-varas",
+    "name": "Las Varas",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 3,
+    "episode": "3-01",
+    "first_seen": "3-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4006519",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The gazetteer's pick (GeoNames 3999149, 29.73,-107.44) is a different Las Varas, 79 km south-east of San Diego and off the railroad. GeoNames 4006519, Las Varas (Estación Babícora), Madera municipio, agrees with Wikidata Q20215019 and with GeoNames 3999157. It is on the Ferrocarril Noroeste line 77 km straight-line due south of Mata Ortiz and 32 km west-north-west of La Boquilla, which fits the railroad town, the Madera road south and the road east to Boquilla."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.02191,
+     30.19922
+    ]
+   },
+   "properties": {
+    "id": "place-mata-ortiz",
+    "name": "Mata Ortiz",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J4",
+    "part": 3,
+    "episode": "3-01",
+    "first_seen": "3-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975330",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3975330 (Juan Mata Ortiz) agrees with Wikidata Q4284456 within 0.2 km; the gazetteer's pick 3996407 is a rounded duplicate about 1.5 km off. It is 7 km straight-line south of the Hacienda de San Diego, the first town on the road south to Las Varas."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.41195,
+     29.27553
+    ]
+   },
+   "properties": {
+    "id": "place-namiquipa",
+    "name": "Namiquipa",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-03",
+    "first_seen": "3-03",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3995134",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3995134 agrees with Wikidata Q863021 to under 0.5 km; it is the only Namiquipa, the municipal seat on the upper Santa María, 25 km straight-line north-north-east of Santa Ana de Babícora. The text says Billy takes the road west from Santa Ana to Namiquipa, but the real town is to the north."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.72172,
+     29.38946
+    ]
+   },
+   "properties": {
+    "id": "place-boquilla",
+    "name": "La Boquilla",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "8749710",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The gazetteer's pick, Boquilla y Anexas in Guerrero municipio (GeoNames 3976048, the INEGI locality the plan names), is 135 km straight-line south-east of Las Varas and nowhere near the lake, so it does not fit. GeoNames 8749710, La Boquilla in Gómez Farías municipio, is 32 km east-south-east of Las Varas and 10 km east of Laguna de Babícora, on the route Boquilla to La Pinta (15 km) to Santa Ana (44 km), matching the road east from Las Varas by the lake and the road south to Santa Ana. It sits 2 km east of the town of Valentín Gómez Farías; I found no source confirming the name Boquilla y Anexas there."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.47114,
+     29.05639
+    ]
+   },
+   "properties": {
+    "id": "place-santa-ana-de-babicora",
+    "name": "Santa Ana de Babícora",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "girl"
+    ],
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3984699",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3984699 (Santa Ana, alternate name Santa Ana Babícora, Namiquipa municipio) is the only match, with the Santa Ana de Bavicora airfield (3984695) beside it. It is 44 km straight-line south-south-east of La Boquilla with La Pinta between them, as the text has it."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.88748,
+     29.79326
+    ]
+   },
+   "properties": {
+    "id": "place-san-jose",
+    "name": "San José",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "part": 3,
+    "episode": "3-08",
+    "first_seen": "3-08",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3974647",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "In the text the brothers leave the road north of Boquilla, ride west and then north through the night, and reach San José by following a river north; after the shooting Billy flees north to Mata Ortiz. San José de Ermita (GeoNames 3974647, Ignacio Zaragoza municipio, duplicated as 3986374) is on the upper Casas Grandes drainage 48 km straight-line north-north-west of La Boquilla and 48 km south of Mata Ortiz, which fits. The gazetteer's pick (3986371, 30.44,-107.95) is north of Casas Grandes, and San José 3986377 is only 4 km from Boquilla; neither fits. Many San Josés exist, so this remains a best fit."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.45008,
+     29.67473
+    ]
+   },
+   "properties": {
+    "id": "place-la-nortena",
+    "name": "La Norteña",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-03",
+    "first_seen": "3-03",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975183",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3975183 (Madera municipio, matching Wikidata Q49979501; Ejido La Norteña 4011547 is a near duplicate) lies in the sierras 45 km straight-line west-north-west of Las Varas and 110 km west of Namiquipa. That fits a wagon road from La Norteña in the western sierras across the Babícora plains to Namiquipa, and Billy's ride west as far as the watershed."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.67033,
+     29.2619
+    ]
+   },
+   "properties": {
+    "id": "place-la-pinta",
+    "name": "La Pinta",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4000793",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4000793 (Gómez Farías municipio, with the La Pinta airfield 4000797 beside it) lies 15 km straight-line south-south-east of La Boquilla and 29 km north-west of Santa Ana de Babícora, exactly on Billy's road south between them. The other La Pinta nearby (8772006) is a stream."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.86555,
+     28.43499
+    ]
+   },
+   "properties": {
+    "id": "place-cuauhtemoc",
+    "name": "Cuauhtémoc",
+    "kind": "city",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4012406",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4012406, the city of Cuauhtémoc (municipal seat), is the only Cuauhtémoc in the region; it lies 108 km straight-line south-south-east of Namiquipa, the southern end of Billy's search. The town took the name in 1927, before the story's time."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.46008,
+     29.86332
+    ]
+   },
+   "properties": {
+    "id": "place-san-buenaventura",
+    "name": "San Buenaventura",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4016722",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4016722 is San Buenaventura, the municipal seat of Buenaventura on the Santa María; no other town of the name is in the region. It is 33 km straight-line south-south-east of Galeana, and the old road toward Gallego runs from it, as in 4-06."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.61572,
+     30.13099
+    ]
+   },
+   "properties": {
+    "id": "place-galeana",
+    "name": "Galeana",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975370",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3975370 (Hermenegildo Galeana, the municipal seat) is the only Galeana in the region, 33 km straight-line north-north-west of San Buenaventura on the way north to Casas Grandes, which fits both Billy's ride in 3-14 and Quijada's account in 4-05."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.07532,
+     29.83416
+    ]
+   },
+   "properties": {
+    "id": "place-san-lorenzo-chihuahua",
+    "name": "San Lorenzo",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "boyd",
+     "girl"
+    ],
+    "journey": "J6",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3985741",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The gazetteer's pick (GeoNames 4011872, Dr. Belisario Domínguez) is 210 km south-south-east of San Buenaventura and does not fit. GeoNames 3985741, San Lorenzo in Buenaventura municipio, is 37 km straight-line east of San Buenaventura, where Boyd is buried, and 62 km south-east of Galeana. The other Chihuahua San Lorenzo near the story (9980175, Madera municipio) is 90 km from San Buenaventura. The text gives no direction, so this is the nearest fit rather than a certainty."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.63951,
+     31.84153
+    ]
+   },
+   "properties": {
+    "id": "place-columbus",
+    "name": "Columbus",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "897342",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 897342, Columbus in Luna County, the border gate where Billy crosses north (4-01); 33 km straight-line south of the Florida Mountains point, which he passes the same evening."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.62045,
+     32.15639
+    ]
+   },
+   "properties": {
+    "id": "place-florida-mountains",
+    "name": "Florida Mountains",
+    "kind": "range",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920596",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920596, the Florida Mountains range point in Luna County, between Columbus (33 km south) and Deming (21 km northwest), matching the ride north in 4-01."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.75809,
+     32.28422
+    ]
+   },
+   "properties": {
+    "id": "place-deming",
+    "name": "Deming",
+    "kind": "city",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920584",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920584, Deming, Luna County seat, where the recruiting sergeant is; the only namesake on the route."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.48902,
+     31.75084
+    ]
+   },
+   "properties": {
+    "id": "place-el-paso",
+    "name": "El Paso",
+    "kind": "city",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "wikidata",
+    "source_id": "Q16562",
+    "source_licence": "CC0",
+    "note_safe": "",
+    "reasoning": "Wikidata Q16562, El Paso, Texas, reached by bus from Deming for the recruiting office (4-01). GNIS here covers only NM and AZ; the Sonora El Paso (GeoNames 3990407) is a ranch locality and irrelevant. It lies inside the story box, near its east edge."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.89182,
+     34.05006
+    ]
+   },
+   "properties": {
+    "id": "place-socorro",
+    "name": "Socorro",
+    "kind": "city",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "938832",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 938832, Socorro, New Mexico, passed on the bus north to Albuquerque with the Rio Grande marshes beside the highway (4-01), and later the high plains west of it (4-02). The Chihuahua Socorro is a reservoir and does not fit."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95145,
+     31.86701
+    ]
+   },
+   "properties": {
+    "id": "place-hermanas",
+    "name": "Hermanas",
+    "kind": "locale",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "899669",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 899669, Hermanas in Luna County, on the old road from Deming to Hachita; Hachita is 36 km straight-line west, matching the order in 4-01 and 4-08."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.31984,
+     31.93466
+    ]
+   },
+   "properties": {
+    "id": "place-hachita",
+    "name": "Hachita",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920609",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920609, Hachita in Grant County (the book's Hatchita), with its crossroads store; Animas Peak lies 58 km to its southwest, as the text has it in 4-08."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.45285,
+     31.86954
+    ]
+   },
+   "properties": {
+    "id": "place-little-hatchet-mountains",
+    "name": "Little Hatchet Mountains",
+    "kind": "range",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920632",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920632, the Little Hatchet Mountains range point, 15 km straight-line southwest of Hachita, where Billy rides through the foothills after leaving the road west of Hachita (4-01)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.67977,
+     31.69448
+    ]
+   },
+   "properties": {
+    "id": "place-gillespie-mountain",
+    "name": "Gillespie Mountain",
+    "kind": "summit",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920601",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920601, Gillespie Mountain in Hidalgo County, 13 km northeast of Animas Peak, so seen with the Animas Peaks beyond it from the Playas flats (4-01). The Graham County, Arizona, namesake (GNIS 5039) is 142 km northwest and does not fit."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.39732,
+     31.67206
+    ]
+   },
+   "properties": {
+    "id": "place-hatchet-mountains",
+    "name": "Big Hatchet Mountains",
+    "kind": "range",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920562",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920562, the Big Hatchet Mountains in Hidalgo County, 23 km south-southeast of the Little Hatchets; the text's plain Hatchet Mountains, seen from the Animas Plain with Mexico beyond (4-02), most likely means the higher southern range, but could loosely mean both Hatchet ranges."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.69739,
+     35.01583
+    ]
+   },
+   "properties": {
+    "id": "place-winslow",
+    "name": "Winslow",
+    "kind": "city",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "13930",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 13930, Winslow, Navajo County, Arizona. The text reads Window, but it has a post office and a First Street and is the town near a Hashknife linecamp on the Little Colorado, which fits Winslow; no place called Window exists in the area."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.2443,
+     34.10839
+    ]
+   },
+   "properties": {
+    "id": "place-magdalena",
+    "name": "Magdalena",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "908353",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 908353, Magdalena in Socorro County, New Mexico, west of Socorro on the way to the plains of San Agustin (4-02); the Sonora and Chihuahua Magdalenas are hundreds of km south and do not fit."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.25116,
+     33.86698
+    ]
+   },
+   "properties": {
+    "id": "place-plains-of-san-agustin",
+    "name": "Plains of San Agustin",
+    "kind": "plain",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "923769",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 923769 (Area), the Plains of San Agustin in Catron County, the book's plains of Saint Augustine, crossed between Magdalena (97 km east-northeast of the point) and Silver City (123 km south). The basin is about 80 km long, so this is a label point; an area would be better."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.27959,
+     32.79429
+    ]
+   },
+   "properties": {
+    "id": "place-silver-city",
+    "name": "Silver City",
+    "kind": "city",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920706",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920706, Silver City, Grant County seat (Palace Hotel, Bullard Street); the only namesake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.98916,
+     32.2448
+    ]
+   },
+   "properties": {
+    "id": "place-steins",
+    "name": "Steins",
+    "kind": "locale",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "899927",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 899927, Steins in Hidalgo County, 30 km straight-line west-southwest of Lordsburg on the old highway Billy crosses just east of it heading south to the SK Bar (4-02)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.52968,
+     31.35007
+    ]
+   },
+   "properties": {
+    "id": "place-el-berrendo",
+    "name": "El Berrendo",
+    "kind": "crossing",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-03",
+    "first_seen": "4-03",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4010957",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4010957 El Berrendo (PPL, Janos municipality) sits on the line at the Antelope Wells port of entry (Wikidata Q4771212, under 1 km away; GNIS 898517 Antelope Wells is 3 km NE), which is the Mexican customs post the text calls Berendo. The gazetteer's pick, the El Berrendo locality 4010955, is 82 km to the SE inland and has no crossing; the other dozen El Berrendos are farther south and east."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.19284,
+     30.90493
+    ]
+   },
+   "properties": {
+    "id": "place-janos",
+    "name": "Janos",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-03",
+    "first_seen": "4-03",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4004116",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4004116, the municipal seat of Janos (PPLA2), 59 km SSE of the El Berrendo crossing (straight-line), which fits two days' ride south from the border with the western sierras in view. The other Janos points (two small Chihuahua places at 28.57 N and 28.27 N, and Los Janos in Sonora) are off the route."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.14252,
+     29.22229
+    ]
+   },
+   "properties": {
+    "id": "place-madera",
+    "name": "Madera",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 3,
+    "episode": "3-01",
+    "first_seen": "3-01",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3996956",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3996956, the municipal seat Madera (Wikidata Q2447269 agrees within 1 km), a sawmill and railroad town as the text describes. The only other Madera town is in southern Sonora. The 3-01 Madero the troupe's men go to is the same place: the troupe is camped on the Madera road south of Las Varas."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.82941,
+     28.97914
+    ]
+   },
+   "properties": {
+    "id": "place-temosachic",
+    "name": "Temósachic",
+    "kind": "town",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3982082",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3982082, the municipal seat Temósachic (Wikidata Q2455181 agrees), 40 km SE of Madera (straight-line), which fits the road south out of Madera toward it. GeoNames 3982081 puts a Temósachic in Sonora with rounded coordinates and is likely an error; Temosachi 3982083 is a different hamlet 36 km NW of Madera."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.78224,
+     29.59522
+    ]
+   },
+   "properties": {
+    "id": "place-sierra-del-nido",
+    "name": "Sierra del Nido",
+    "kind": "range",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3994946",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3994946 Sierra el Nido (alt Sierra del Nido), the only range of that name in Chihuahua. Its centre point is 73 km from San Buenaventura at a bearing of 116 degrees (straight-line), so ESE rather than due south as the text has it; the range is long and its high peaks may read as south from the cemetery road. A point is acceptable, but the range could be drawn as an area."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.94239,
+     30.7156
+    ]
+   },
+   "properties": {
+    "id": "place-corralitos",
+    "name": "Corralitos",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4012754",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4012754 Corralitos (alt Hacienda Corralitos; Wikidata Q20144121, Nuevo Casas Grandes municipality), the old hacienda and smelter town 37 km due north of Casas Grandes (straight-line), which fits a night's ride north along the Casas Grandes River with slagheaps in view. Nuevo Corralitos 4012755 is the railway section 11 km SSE; 3975894 and 4012753 are bare rounded points; the other Corralitos are far south."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.10509,
+     32.73317
+    ]
+   },
+   "properties": {
+    "id": "place-duncan",
+    "name": "Duncan",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "4189",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 4189, Duncan in Greenlee County, Arizona, west of Silver City on the Gila; the text names it Duncan Arizona, so there is no ambiguity."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.88332,
+     33.30838
+    ]
+   },
+   "properties": {
+    "id": "place-glenwood",
+    "name": "Glenwood",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "923604",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 923604, Glenwood in Catron County, on the road north through the mountains from Duncan toward Reserve (4-08); the only namesake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.75806,
+     33.70476
+    ]
+   },
+   "properties": {
+    "id": "place-reserve",
+    "name": "Reserve",
+    "kind": "town",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "923657",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 923657, Reserve, Catron County seat, north of Glenwood (4-08); the only namesake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.05995,
+     32.83149
+    ]
+   },
+   "properties": {
+    "id": "place-santa-rita-mines",
+    "name": "Santa Rita",
+    "kind": "locale",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920698",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920698, Santa Rita (historical), the company town swallowed by the Chino open pit, on the old road east from Silver City: 21 km straight-line east of Silver City and 13 km west of San Lorenzo, matching the order in 4-08. The gazetteer pick (Q116713231) is a mine power station, and the Mexican Santa Ritas are irrelevant."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.91924,
+     32.83322
+    ]
+   },
+   "properties": {
+    "id": "place-san-lorenzo-new-mexico",
+    "name": "San Lorenzo",
+    "kind": "locale",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920693",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920693, San Lorenzo in Grant County on the Mimbres, 13 km east of Santa Rita on the old road to the Black Range (4-08). The Chihuahua San Lorenzo where Boyd was killed is a separate seed."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.8527,
+     33.18956
+    ]
+   },
+   "properties": {
+    "id": "place-black-range",
+    "name": "Black Range",
+    "kind": "range",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920566",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920566, the Black Range point in Grant County, 37 km north of San Lorenzo. Billy crosses the range on the old road east, which goes over Emory Pass (GNIS 906157, 32.91007, -107.76670); use the range point as a label and the pass for the route."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.55624,
+     32.31787
+    ]
+   },
+   "properties": {
+    "id": "place-organ-mountains",
+    "name": "Organ Mountains",
+    "kind": "range",
+    "role": "passing",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920657",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 920657, the Organ Mountains in Dona Ana County. The text sees them about eighty miles off from the plain east of the Black Range; Emory Pass to this point is 131 km (81 miles) straight-line, which fits."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
      -112.15827,
      30.70997
     ]
@@ -1917,6 +3122,650 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "GeoNames 3971312 La Ramada lies 28 km straight-line east-south-east of Bacerac in the mountains toward Chihuahua, and Ciénega de Horcones (GeoNames 8881777) lies 7 km beyond it to the east, which matches the text's track east from Bacerac ending at Las Ramadas before the divide to Los Horcones (2-08). The spelling differs (singular), and the gazetteer's pick, a picnic ground near Phoenix, is wrong."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.9458,
+     31.3436
+    ]
+   },
+   "properties": {
+    "id": "place-naco",
+    "name": "Naco",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3995171",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3995171 Naco, Sonora (Wikidata Q1963147), the border town where the cattle pens stood; Naco, Arizona (GNIS 8475) is 1 km straight-line across the line. The herd in 3-04 comes north out of Chihuahua, so the Mexican side is the natural point."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.11834,
+     29.16727
+    ]
+   },
+   "properties": {
+    "id": "place-nahuerichic",
+    "name": "Nahuerichic",
+    "kind": "ranch",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "13416932",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Open question (docs/open-questions.md). GeoNames 13416932 Nahuerachi (alt Nahuerachic) is a small locality in Madera municipio, 7 km south-south-west of Madera, inside the municipios the Babícora estate covered. The name differs from the text's Nahuerichic by one vowel, and no source yet ties the division to this place."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.08807,
+     28.65283
+    ]
+   },
+   "properties": {
+    "id": "place-chihuahua-city",
+    "name": "Chihuahua",
+    "kind": "city",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 3,
+    "episode": "3-09",
+    "first_seen": "3-09",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4014338",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4014338, the state capital Chihuahua (PPLA; Wikidata Q61302 agrees within 2 km), where the blind man's tale puts the alameda. The other candidates are small Sonora places or urban colonias in Ciudad Juárez."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.47114,
+     29.05639
+    ]
+   },
+   "properties": {
+    "id": "place-soto-maynez",
+    "name": "Soto Máynez",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3984699",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Open question (docs/open-questions.md). INEGI (locality 080480065) and GeoNames 3984699 give Soto Máynez as the official name of Santa Ana de Babícora, so the two share this point. But in 3-12 girls are walking toward Soto Maynez after the riders have passed back through Santa Ana, as if it were a separate town. Shown as one place with both names until evidence settles it."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.43263,
+     31.79889
+    ]
+   },
+   "properties": {
+    "id": "place-fort-bliss",
+    "name": "Fort Bliss",
+    "kind": "military",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "approximate",
+    "method": "gazetteer",
+    "source": "wikidata",
+    "source_id": "Q65121339",
+    "source_licence": "CC0",
+    "note_safe": "",
+    "reasoning": "Wikidata Q65121339, Fort Bliss Main Post Historic District in El Paso, the 1940s post the sergeant names (4-01), 8 km from central El Paso. The GNIS Fort Bliss point in Otero County (GNIS 2512186) is the training range, 64 km away; inside the story box near its east edge."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -104.52364,
+     33.38597
+    ]
+   },
+   "properties": {
+    "id": "place-roswell",
+    "name": "Roswell",
+    "kind": "city",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "894171",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 894171, Roswell, Chaves County, New Mexico, where Leona now lives (4-02); just outside the story box to the east (-104.52)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.46125,
+     31.71191
+    ]
+   },
+   "properties": {
+    "id": "place-ciudad-juarez",
+    "name": "Ciudad Juárez",
+    "kind": "city",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4013708",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4013708 Ciudad Juárez (PPLA2; Wikidata Q26590), the border city whose radio station the cook listens to. The other Juárez candidates are small places (Colonia Juárez, Juárez near Janos) without a broadcast station."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.76282,
+     29.6707
+    ]
+   },
+   "properties": {
+    "id": "place-ignacio-zaragoza",
+    "name": "Ignacio Zaragoza",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975344",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3975344, the municipal seat Ignacio Zaragoza (PPLA2), 37 km SW of San Buenaventura (straight-line), where Boyd is buried, so a natural place for the rumour of his death. The other Chihuahua namesakes (3975343 near Janos, 141 km NW; El Willy 3975345; 4004419 near Cuauhtémoc) are smaller and farther from the story's events."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.25301,
+     28.79313
+    ]
+   },
+   "properties": {
+    "id": "place-bachiniva",
+    "name": "Bachíniva",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4017791",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4017791, the municipal seat Bachíniva (Wikidata Q863131 agrees), the pueblo named in the corrido; the only namesake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.3552,
+     29.84605
+    ]
+   },
+   "properties": {
+    "id": "place-gallego",
+    "name": "Gallego",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975006",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3975006 El Galleguito (alt Hacienda de Gallego), with the duplicate 4009777 and the El Gallego railway station 4006048 3 km west, 107 km due east (bearing 91 degrees) of San Buenaventura (straight-line), which fits the old road east out of town through a gap toward Gallego. No other Gallego exists in the region."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.45051,
+     31.23661
+    ]
+   },
+   "properties": {
+    "id": "place-guzman",
+    "name": "Guzmán",
+    "kind": "locale",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4005067",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4005067 Sección Estación Guzmán, the railway settlement on the Juárez to Casas Grandes line, 75 km NE of Corralitos (straight-line), so a road coming down from Guzmán and Sabinal would cross Billy's route SE of Casas Grandes. The only other Guzmán is in Sonora; the text may mean the older Guzmán settlement or the Laguna de Guzmán area, which lie nearby."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.63565,
+     30.95138
+    ]
+   },
+   "properties": {
+    "id": "place-sabinal",
+    "name": "Sabinal",
+    "kind": "locale",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3988340",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3988340 Sabinal Viejo (alt El Sabinal, Rancho El Sabinal), the old settlement 39 km NE of Corralitos (straight-line) between it and Guzmán. Sabinal station (3988339) is 14 km east on the railway and would also fit; the Sabinal in New Mexico is far outside the area."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.6346,
+     31.79149
+    ]
+   },
+   "properties": {
+    "id": "place-palomas",
+    "name": "Puerto Palomas",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3991350",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3991350 Puerto Palomas de Villa (Wikidata Q4384919 agrees within 1 km), the border town 6 km south of Columbus, New Mexico (straight-line). The gazetteer's pick, Palomas Viejo 3974803, is a hamlet 7 km SSE; the other Palomas are far south and not on the border."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.71181,
+     29.86651
+    ]
+   },
+   "properties": {
+    "id": "place-mesa-tres-rios",
+    "name": "Mesa Tres Ríos",
+    "kind": "locale",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4013362",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4013362 Mesa Tres Ríos (Wikidata Q55668904, Nácori Chico municipality, Sonora), 91 km NW of Madera (straight-line), the end of the mountain road from Madera that crosses the Papigochic at Huápoca, which fits the bridge on the Mesa Tres Ríos road. The point marks the town the road is named for, not the bridge itself."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.23367,
+     29.05365
+    ]
+   },
+   "properties": {
+    "id": "place-sahuaripa",
+    "name": "Sahuaripa",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3988265",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3988265 is the municipal seat (Wikidata Q20131758), where the gypsies come out of the mountains and wait for the truck (4-06); it is 18 km straight-line from Bacanora, the next stop. The other two Sahuaripas in GeoNames are hamlets near Hermosillo, off the route."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.46958,
+     29.61877
+    ]
+   },
+   "properties": {
+    "id": "place-divisaderos",
+    "name": "Divisaderos",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4011908",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4011908 is the municipal seat (Wikidata Q3844435), 66 km straight-line north-north-west of Sahuaripa, so a truck coming down from it reaches Sahuaripa and goes on south-west to Bacanora. Divisadero near Cananea (270 km) and an unnamed Divisaderos south-west of Tónichi (108 km, the wrong side of the route) fit less well. The text only says the truck came from there, not that the gypsies went there."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.40042,
+     28.97199
+    ]
+   },
+   "properties": {
+    "id": "place-bacanora",
+    "name": "Bacanora",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4017826",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 4017826 is the municipal seat (Wikidata Q2652290), 18 km straight-line west-south-west of Sahuaripa and 45 km north of Tónichi, in route order. No other namesake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.56604,
+     28.5906
+    ]
+   },
+   "properties": {
+    "id": "place-tonichi",
+    "name": "Tónichi",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3981363",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3981363 Tónichi (Wikidata Q4460511), the town on the Río Yaqui in Soyopa municipality, 45 km straight-line south-south-west of Bacanora and 58 km north of Nuri, in route order. The gazetteer's pick, Rancho Tonichi near Ures, is 157 km off the route."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.32729,
+     28.10753
+    ]
+   },
+   "properties": {
+    "id": "place-nuri",
+    "name": "Nuri",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3994565",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3994565 is the town of Nuri (population recorded), 58 km straight-line south-south-east of Tónichi, from where the text turns the route north to San Nicolás. GeoNames 3994566, 10 km to the south, is a rounded point with no population and probably a duplicate or outlying ranch."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.18104,
+     28.4232
+    ]
+   },
+   "properties": {
+    "id": "place-san-nicolas",
+    "name": "San Nicolás",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3970707",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3970707 San Nicolás, in Yécora municipality (Mindat lists a San Nicolás locality there), is 38 km straight-line north-north-east of Nuri and 26 km west of Yécora, exactly the text's leg north out of Nuri to San Nicolás and Yécora. GeoNames 3985266, 8 km south-west, is a rounded point that is probably the same place; the other 18 namesakes are far from the route."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.92743,
+     28.39104
+    ]
+   },
+   "properties": {
+    "id": "place-yecora",
+    "name": "Yécora",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3979954",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3979954 is the municipal seat (Wikidata Q22874690), 26 km straight-line east of San Nicolás on the road over the mountains to Temósachic and Madera. No other namesake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.96162,
+     29.96228
+    ]
+   },
+   "properties": {
+    "id": "place-flores-magon",
+    "name": "Flores Magón",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-07",
+    "first_seen": "4-07",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3988731",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "GeoNames 3988731 Flores Magón (Wikidata Q49984203, Buenaventura municipality), the farming town 49 km ENE of San Buenaventura (straight-line), near the region of Billy's search. A second Flores Magón 8744544 is a small place 14 km west; the Ricardo Flores Magón entries are urban colonias in Chihuahua city, Delicias and Juárez."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -104.2462,
+     34.46343
+    ]
+   },
+   "properties": {
+    "id": "place-fort-sumner",
+    "name": "Fort Sumner",
+    "kind": "town",
+    "role": "tale",
+    "characters": [],
+    "journey": null,
+    "part": 4,
+    "episode": "4-07",
+    "first_seen": "4-07",
+    "certainty": "located",
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "923600",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "GNIS 923600, the village of Fort Sumner, De Baca County seat (the text's Fort Summer), where Billy looked for his sister's grave (4-07; his mother came from a De Baca County ranch). The old fort site (Q1514927) is 9 km southeast; the village is the better label; outside the story box."
    }
   }
  ]
