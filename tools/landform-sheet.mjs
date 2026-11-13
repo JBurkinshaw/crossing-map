@@ -25,6 +25,8 @@ const views = {
 await mkdir(out, { recursive: true })
 const browser = await chromium.launch()
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 })
+// Spoiler mode would open its dialog over every view; these screenshots show the whole book.
+await page.addInitScript(() => localStorage.setItem('crossing-map.progress', 'all'))
 const problems = []
 page.on('console', (m) => m.type() === 'error' && problems.push(m.text().slice(0, 160)))
 

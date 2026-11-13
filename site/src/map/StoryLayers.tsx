@@ -129,6 +129,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo }: Pro
             className={`stop-marker${i === stopIndex ? ' is-current' : ''}${i < stopIndex ? ' is-visited' : ''}`}
             style={{ borderColor: journeyInk[journey] }}
             aria-label={`Stop ${i + 1}: ${f.properties.name}`}
+            data-first-seen={f.properties.first_seen}
           >
             {i + 1}
           </button>

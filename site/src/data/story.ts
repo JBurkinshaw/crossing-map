@@ -11,6 +11,10 @@ export type StoryProps = {
   uncertainty_m: number | null
   source: string
   source_id: string | null
+  first_seen: string
+  note_safe: string
+  // Absent while spoiler mode is on: spoiler/filter.ts drops it so only note_safe can show.
+  note_full?: string | null
   reasoning: string | null
 }
 

@@ -12,6 +12,7 @@ import { StoryLayers } from './StoryLayers'
 import { RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
 import { BASE_LAYERS, literaryStyle } from './style'
 import { storyBounds } from './tokens'
+import { GLYPH_LAYER, glyphFilterUpTo, styleUpTo } from '../spoiler/filter'
 
 // MapLibre 6 looks for its worker beside its own module file. Bundling moves
 // that module into an app chunk, so point MapLibre at the copy Vite emits.
@@ -38,7 +39,7 @@ const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'ha
   'river-minor', 'river', 'creek-label', 'river-label', 'road', 'railroad', 'railroad-ties'])
 const RAISED_GROUPS = raisedLayers(literaryStyle(tilesBase, fontsBase, dataBase).layers)
 
-type Picked = { lon: number; lat: number; props: StoryProps }
+type Picked = { lon: number; lat: number; props: StoryProps; story: Story | null }
 type Basemap = 'literary' | 'satellite' | 'compare'
 // Views of the literary map: flat (the default), tilted (live 3D terrain) and raised (plan oblique relief).
 export type View = 'flat' | 'tilted' | 'raised'
@@ -56,13 +57,22 @@ type Props = {
   stopIndex: number
   onSelectStop: (index: number) => void
   onView: (view: View) => void
+  // The latest episode whose features may show (spoiler mode); the story layers arrive already filtered.
+  reached: string
 }
 
-export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView }: Props) {
-  const style = useMemo(() => literaryStyle(tilesBase, fontsBase, dataBase), [])
+// The mountain glyph layer's own filter, before the reading-progress clause is added.
+const GLYPH_FILTER = literaryStyle(tilesBase, fontsBase, dataBase).layers.find((l) => l.id === GLYPH_LAYER)
+const GLYPH_BASE_FILTER = GLYPH_FILTER && 'filter' in GLYPH_FILTER ? GLYPH_FILTER.filter : undefined
+
+export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView, reached }: Props) {
+  // Built once with the progress at first render; later changes go through setFilter below.
+  const [style] = useState(() => styleUpTo(literaryStyle(tilesBase, fontsBase, dataBase), reached))
   // Compare mode's classic underlay gets its own copy: a map may change the style object it is given.
-  const underlayStyle = useMemo(() => literaryStyle(tilesBase, fontsBase, dataBase), [])
-  const [picked, setPicked] = useState<Picked | null>(null)
+  const underlayStyle = useMemo(() => styleUpTo(literaryStyle(tilesBase, fontsBase, dataBase), reached), [reached])
+  const [pickedAt, setPicked] = useState<Picked | null>(null)
+  // A popup belongs to the story it was picked from: a change of progress closes it.
+  const picked = pickedAt?.story === story ? pickedAt : null
   const [basemap, setBasemap] = useState<Basemap>('literary')
   const [unavailable, setUnavailable] = useState(false)
   // Once created, the satellite map stays (hidden on the literary basemap): MapTiler counts each new map as a session.
@@ -90,6 +100,11 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView 
   }, [view, raisedArchives])
 
   useEffect(() => onView(view), [view, onView])
+
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (map && loaded && map.getLayer(GLYPH_LAYER)) map.setFilter(GLYPH_LAYER, glyphFilterUpTo(GLYPH_BASE_FILTER, reached))
+  }, [reached, loaded, mapRef])
 
   const onUnavailable = useCallback(() => {
     setUnavailable(true)
@@ -190,7 +205,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView 
           interactiveLayerIds={['places-point', 'areas-fill']}
           onClick={(e) => {
             const f = e.features?.[0]
-            setPicked(f ? { lon: e.lngLat.lng, lat: e.lngLat.lat, props: f.properties as StoryProps } : null)
+            setPicked(f ? { lon: e.lngLat.lng, lat: e.lngLat.lat, props: f.properties as StoryProps, story } : null)
           }}
           style={{ position: 'absolute', inset: 0 }}
           onLoad={(e) => {
@@ -212,6 +227,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView 
                 {picked.props.certainty} · {picked.props.source}
                 {picked.props.source_id ? ` ${picked.props.source_id}` : ''}
               </div>
+              {(picked.props.note_full || picked.props.note_safe) && <p>{picked.props.note_full || picked.props.note_safe}</p>}
               {picked.props.reasoning && <p>{picked.props.reasoning}</p>}
             </Popup>
           )}

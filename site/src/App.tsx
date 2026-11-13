@@ -4,6 +4,9 @@ import { useElsewhere, useStory } from './data/story'
 import { MapView, type View } from './map/MapView'
 import { Panel } from './panel/Panel'
 import { useRoute } from './route'
+import { shownAt, storyUpTo } from './spoiler/filter'
+import { reachedEpisode, spoilersHidden, useEpisodes, useProgress } from './spoiler/progress'
+import { ReadingProgress } from './spoiler/ReadingProgress'
 
 // The About, How it's built, Data and Credits pages, loaded the first time one opens.
 const Pages = lazy(() => import('./pages/Pages'))
@@ -22,32 +25,54 @@ function reducer(state: State, action: Action): State {
 
 export default function App() {
   const route = useRoute()
-  const loaded = useStory()
-  const elsewhere = useElsewhere()
+  const loadedAll = useStory()
+  const elsewhereAll = useElsewhere()
+  // Spoiler mode: everything below sees only what the reader has reached (spoiler/filter.ts).
+  const { progress, isSet, setProgress } = useProgress()
+  const episodes = useEpisodes()
+  const reached = reachedEpisode(progress)
+  const spoilers = spoilersHidden(progress, episodes)
+  const loaded = useMemo(
+    () => (loadedAll && loadedAll !== 'failed' ? storyUpTo(loadedAll, reached, spoilers) : loadedAll),
+    [loadedAll, reached, spoilers],
+  )
+  const elsewhere = useMemo(() => elsewhereAll.filter((e) => shownAt(e, reached)), [elsewhereAll, reached])
   const [view, setView] = useState<View>('flat')
   // The Raised view draws the story where the raised line work puts it: the copies in data/raised/,
   // fetched the first time the reader turns it on.
   const [raisedWanted, setRaisedWanted] = useState(false)
   if (view === 'raised' && !raisedWanted) setRaisedWanted(true)
-  const raised = useStory('raised/', raisedWanted)
+  const raisedAll = useStory('raised/', raisedWanted)
+  const raised = useMemo(
+    () => (raisedAll && raisedAll !== 'failed' ? storyUpTo(raisedAll, reached, spoilers) : raisedAll),
+    [raisedAll, reached, spoilers],
+  )
   const shown = view === 'raised' ? raised : loaded
   const story = shown === 'failed' ? null : shown
   const mapRef = useRef<MapRef>(null)
   const [state, dispatch] = useReducer(reducer, { journey: 'J1', stopIndex: 0 })
 
-  // The journeys drawn so far, from the flat story data (the raised copies cover fewer).
-  const journeys = useMemo(
-    () => [...new Set((loaded && loaded !== 'failed' ? loaded.stops.features : []).map((f) => f.properties.journey ?? ''))].filter(Boolean).sort(),
-    [loaded],
-  )
+  // The journeys drawn so far and reached, from the flat story data (the raised copies cover fewer), each with
+  // the episode of its first stop.
+  const journeys = useMemo(() => {
+    const first = new Map<string, string>()
+    for (const f of loaded && loaded !== 'failed' ? loaded.stops.features : []) {
+      const { journey: id, first_seen } = f.properties
+      if (id && (!first.has(id) || first_seen < first.get(id)!)) first.set(id, first_seen)
+    }
+    return [...first].map(([id, first_seen]) => ({ id, first_seen })).sort((a, b) => a.id.localeCompare(b.id))
+  }, [loaded])
+  // A journey not reached yet (after the reader moves progress back) gives way to the first one reached.
+  const journey = journeys.some((j) => j.id === state.journey) ? state.journey : (journeys[0]?.id ?? '')
 
   const stops = useMemo(
     () =>
       (story?.stops.features ?? [])
-        .filter((f) => f.properties.journey === state.journey)
+        .filter((f) => f.properties.journey === journey)
         .sort((a, b) => (a.properties.sequence ?? 0) - (b.properties.sequence ?? 0)),
-    [story, state.journey],
+    [story, journey],
   )
+  const stopIndex = Math.min(state.stopIndex, Math.max(0, stops.length - 1))
 
   // Frame the whole journey when the data arrives and whenever the reader switches journey.
   // A shared link with a #map= view keeps its view on first load.
@@ -56,18 +81,18 @@ export default function App() {
     const map = mapRef.current
     if (!map || stops.length === 0) return
     if (framed.current === 'from-link') {
-      framed.current = state.journey
+      framed.current = journey
       return
     }
-    if (framed.current === state.journey) return
-    framed.current = state.journey
+    if (framed.current === journey) return
+    framed.current = journey
     const lons = stops.map((f) => f.geometry.coordinates[0])
     const lats = stops.map((f) => f.geometry.coordinates[1])
     map.fitBounds([Math.min(...lons), Math.min(...lats), Math.max(...lons), Math.max(...lats)], {
       padding: 40,
       duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1200,
     })
-  }, [stops, state.journey])
+  }, [stops, journey])
 
   const goToStop = (index: number) => {
     const stop = stops[index]
@@ -84,17 +109,19 @@ export default function App() {
         mapRef={mapRef}
         story={story}
         stops={stops}
-        stopIndex={state.stopIndex}
+        stopIndex={stopIndex}
         onSelectStop={goToStop}
         onView={setView}
+        reached={reached}
       />
       <Panel
+        header={<ReadingProgress progress={progress} isSet={isSet} episodes={episodes} onSet={setProgress} />}
         failed={loaded === 'failed'}
-        journey={state.journey}
+        journey={journey}
         journeys={journeys}
         elsewhere={elsewhere}
         stops={stops}
-        stopIndex={state.stopIndex}
+        stopIndex={stopIndex}
         onJourney={(journey) => dispatch({ type: 'journey', journey })}
         onStop={goToStop}
       />

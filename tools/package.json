@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "review-packet": "node review-packet.mjs",
+    "spoiler-leak": "node spoiler-leak.mjs",
     "guild-browse": "node guild-browse/browse.mjs",
     "guild-login": "node guild-browse/login.mjs"
   },
