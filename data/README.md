@@ -15,3 +15,15 @@ Each layer has a row below with its source and licence.
 | `mountain_glyphs.geojson` | 767 summits with at least 200 m prominence, plus named mesas, buttes and cones from 100 m, unnamed mesas the DEM shows clearly, and the book's named summits, found in Copernicus GLO-30; 168 passes: GNIS gaps and GeoNames passes that lie on a key col, and the key cols of the most prominent summits; names from GNIS and GeoNames | Produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved |
 
 Every feature carries `certainty`, `source`, `source_licence`, and `first_seen`. See `docs/plan.md`, section 6, for the property schema.
+
+## No passages of the novel
+
+Notes and reasoning are our own words, and Spanish appears only as an incipit of at most five words (plan section 3). `crossing.echo_check` checks the first rule. It compares every tracked text file, and `site/dist/` if it has been built, with the private text of the novel, and reports each run of 8 or more consecutive words that they share. Words are compared after folding case, accents, curly quotes and punctuation. Each report line gives the file, the line and only the first 8 words of the run. The check exits 1 on a match. The novel's text is not in the repo, so in CI the check skips with a message and exits 0. Run it locally from the repo root after a data change:
+
+```
+uv run --project pipeline python -m crossing.echo_check                # tracked files and site/dist/
+uv run --project pipeline python -m crossing.echo_check data review    # only these paths
+uv run --project pipeline python -m crossing.echo_check --words 7      # a shorter run
+```
+
+Place names and short stock phrases are shared with the novel by nature, so a match is a prompt to reword, not proof of copying. Binary files (the GeoParquet copies) are skipped; they hold the same text as the GeoJSON.
