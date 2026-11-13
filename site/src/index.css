@@ -265,6 +265,53 @@ select {
   background: var(--ink);
 }
 
+/* Stops at one spot: a single badge holding each stop's number. */
+.stop-group {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 4px;
+  border: 1.5px solid;
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.stop-group .stop-marker {
+  width: auto;
+  min-width: 16px;
+  height: 20px;
+  padding: 0 2px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.stop-group .stop-marker + .stop-marker::before {
+  content: '·';
+  margin-right: 4px;
+  color: var(--ink);
+  opacity: 0.6;
+}
+
+.stop-group.has-current {
+  height: 28px;
+  background: var(--ink);
+}
+
+.stop-group.has-current .stop-marker {
+  color: var(--paper);
+}
+
+.stop-group .stop-marker.is-current {
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.stop-group.has-current .stop-marker + .stop-marker::before {
+  color: var(--paper);
+}
+
 /* A cluster around Cloverdale and the Peloncillos (plan 9): a double ring with the count, opened by a click,
    Enter or zooming in. */
 .cluster-marker {

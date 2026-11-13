@@ -46,6 +46,16 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
     return { outside, zone }
   }, [story.places, stops, current])
   const zoneIds = useMemo(() => places.zone.features.map((f) => String(f.properties?.id)), [places.zone])
+  // The journey's stops grouped by spot (to about 100 m), in order: a journey that comes back to a place, such as
+  // J4 to San Diego, gets one badge there instead of markers drawn over each other.
+  const stopGroups = useMemo(() => {
+    const groups = new Map<string, number[]>()
+    stops.forEach((f, i) => {
+      const key = f.geometry.coordinates.map((c) => c.toFixed(3)).join(',')
+      groups.set(key, [...(groups.get(key) ?? []), i])
+    })
+    return [...groups.values()]
+  }, [stops])
   const clusters = useZoneClusters(zoneIds)
   const corridorData = useMemo((): FeatureCollection | null => {
     if (!road) return null
@@ -241,34 +251,53 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
               if (map) void expandCluster(map, c, reducedMotion())
             }}
           >
-            {c.count}
+            +{c.count}
           </button>
         </Marker>
       ))}
-      {stops.map((f, i) => clusters?.clustered.has(f.properties.id) ? null : (
-        <Marker
-          key={f.properties.id}
-          longitude={f.geometry.coordinates[0]}
-          latitude={f.geometry.coordinates[1]}
-          onClick={(e) => {
-            e.originalEvent.stopPropagation()
-            onSelectStop(i)
-          }}
-        >
+      {stopGroups.map((group) => {
+        const shown = group.filter((i) => !clusters?.clustered.has(stops[i].properties.id))
+        if (shown.length === 0) return null
+        const [lon, lat] = stops[shown[0]].geometry.coordinates
+        const marker = (i: number) => (
           <button
+            key={stops[i].properties.id}
             type="button"
             className={`stop-marker${i === stopIndex ? ' is-current' : ''}${i < stopIndex ? ' is-visited' : ''}`}
             style={{ borderColor: journeyInk[journey] }}
-            aria-label={`Stop ${i + 1}: ${f.properties.name}`}
+            aria-label={`Stop ${i + 1}: ${stops[i].properties.name}`}
             // The panel's stop list reaches the same stops by keyboard; out of the tab order, the map's markers
             // do not add up to 57 tab stops before the map's controls.
             tabIndex={-1}
-            data-first-seen={f.properties.first_seen}
+            data-first-seen={stops[i].properties.first_seen}
+            data-index={i}
           >
             {i + 1}
           </button>
-        </Marker>
-      ))}
+        )
+        return (
+          <Marker
+            key={stops[shown[0]].properties.id}
+            longitude={lon}
+            latitude={lat}
+            onClick={(e) => {
+              // Stopped here, natively, so the map does not take the click as one on empty map.
+              e.originalEvent.stopPropagation()
+              const index = (e.originalEvent.target as HTMLElement).closest<HTMLElement>('[data-index]')?.dataset.index
+              if (index !== undefined) onSelectStop(Number(index))
+            }}
+          >
+            {shown.length === 1 ? (
+              marker(shown[0])
+            ) : (
+              // Stops at the same spot share one badge, each number its own button.
+              <div className={`stop-group${shown.includes(stopIndex) ? ' has-current' : ''}`} style={{ borderColor: journeyInk[journey] }}>
+                {shown.map(marker)}
+              </div>
+            )}
+          </Marker>
+        )
+      })}
     </>
   )
 }
