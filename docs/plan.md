@@ -133,6 +133,9 @@ Unchanged from v1 in substance. The novel and the Campbell guide are under copyr
 | Huffman's Hachures script (vendored, adapted) | GPL-3.0; kept in `pipeline/relief/hachures/` with its LICENSE and a NOTICE of changes; called as a separate process | Credits page and README; the generated lines are our data |
 | Public-domain art traced for vignettes and mountain glyphs | Only works with clear PD status (US government reports, pre-1929 plates) | Credits page |
 | Eduard relief output (if used) | Check the app's licence for use of its output in a public web map | Credits page |
+| Bell (2000), *Contextualizing Cormac McCarthy's Border Trilogy* (v5, stage 7) | © 2000 James Bell. Facts (where a place is, which page names it) are free to use; his prose is not, and neither are the novel passages he quotes. We paraphrase with a page citation, as for Campbell's guide. The PDF and anything extracted from it stay in `private/sources/`. His figures are excerpts from commercial road atlases (Guía Roji 1999, Benchmark Maps 1995, Infografix, Williams and McAllister): we read positions off them and never reproduce them, even cropped. No permission is needed for this use; a courtesy note to the author, with a link to the site, is the owner's call | "Bell, James Luther. *Contextualizing Cormac McCarthy's Border Trilogy: An Annotative Approach*. PhD diss., Texas Tech University, 2000", with the page, on each card that uses it and on the Credits page |
+| The Reddit map of *The Crossing* and its Gaia GPS data (v5, stage 7) | The author's work. The coordinates are facts, but copying the set wholesale into our CC BY 4.0 data would relicense their compilation, and Gaia's terms bar scraping. Until the author agrees, the points are leads only: each one we adopt is confirmed by our own source and cited to it, with the author credited as the lead. With the author's written yes (a Reddit message), points with no other source may be used under CC BY 4.0 with their credit. The owner sends the request and downloads the export | "Also placed by u/<author>'s map of *The Crossing*" with a link to the thread, on each card that uses it and on the Credits page |
+| Library of Congress Sanborn maps (v5, stage 7, for street-level places) | Public domain up to 1929; later sheets are checked one by one | Courtesy credit with the sheet's title and date |
 
 Keep a `source` field on every feature. Prefer Wikidata, GNIS and INEGI; use Nominatim last.
 
@@ -549,6 +552,7 @@ Inside a stage Claude Code works on its own; it stops early only for a blocking 
 | MapTiler account and origin-restricted key | Stage 1 | Yours to create; goes in a repository variable and `site/.env.local` | Satellite shows its "unavailable" state; the literary map does not need it |
 | `spreet` | Stage 2 (sprites) | Missing | Installed by Claude Code when needed (cargo or brew) |
 | QGIS, from your micromamba environment (`micromamba run ... qgis`) | Stage 3 | micromamba fails here with a missing `libnettle.8.dylib` (Homebrew moved to nettle 4.0); needs `brew reinstall micromamba` or similar | Glyphs and the hillshade control are built; hachure treatments wait |
+| The Reddit thread's text and the Gaia GPS export (GPX, KML or GeoJSON), and the author's permission reply | Stage 7 | Reddit and Gaia refuse automated access; the owner downloads them into `private/sources/reddit-gaia/` | Bell's index and figures go ahead; the Reddit map's rows wait |
 | DRM-free EPUB of the novel | Stage 4 | In `private/` when you add it | Mentions come from section 2.2, without page anchors |
 | Inkscape, `potrace` or `vtracer` | Stage 6 | Missing; you install when needed | Vignette anchors and placement rules only |
 
@@ -596,6 +600,77 @@ Inside a stage Claude Code works on its own; it stops early only for a blocking 
 - You check: the vignette placements and the photo picks (both from review CSVs), then the whole site end to end.
 - Done when: the acceptance criteria below are met. Soft launch, then Reddit.
 
+**Stage 7. Second sources: the Reddit map and Bell (2000)** (v5, owner, 13 November 2026; two to three sessions, before the soft launch)
+
+Two independent readings of the book's geography, used to confirm, correct and add to ours. Our own sources stay the record wherever they can: a second source points to a place, and GNIS, INEGI, GeoNames, NHD, TIGER, a dated map or the imagery confirms it.
+
+*The sources*
+
+- **The Reddit map.** A reader's map of the novel, posted at https://www.reddit.com/r/cormacmccarthy/comments/18wu63g/map_of_the_crossing/, with its data on Gaia GPS. Reddit and Gaia refuse automated access, so the owner downloads the thread text and the Gaia export (GPX, KML or GeoJSON) into `private/sources/reddit-gaia/`.
+- **Bell (2000).** James Luther Bell, *Contextualizing Cormac McCarthy's Border Trilogy: An Annotative Approach*, PhD dissertation, Texas Tech University, August 2000. 158 pages, scanned with OCR, in `private/sources/bell-2000.pdf`. Chapter III covers *The Crossing*:
+  - a chronology (pp. 43-47)
+  - a character index (pp. 48-53)
+  - an index of place names (pp. 54-87), with about 170 entries giving the page where each place is first named, its role in the story, and where it is, often in highway miles from a town
+  - four figures (pp. 88-91): 3.1 Northern Sonora, 3.2 Hidalgo County and surrounding area, 3.3 Chihuahua, and 3.4 New Mexico counties
+
+  Bell visited the settings and interviewed people there: the Animas Foundation, the Deming-Luna Mimbres Historical Society, a lifelong Animas Valley resident, and the owner of the San Augustin Ranch. His local detail, such as roads, ranches, draws and street names, is the part no gazetteer has. Chapter V, on cultural allusions, and the Cities of the Plain chapters are context only.
+
+*Steps*
+
+1. **Extract** (`pipeline/src/crossing/second_sources.py`, writing to `private/sources/`). Parse Bell's place index into one row per entry: name, pages, his locating sentence, and the figure it cites. Parse the Gaia export into one row per waypoint or track. The OCR has errors ("Ahar" for Altar, "€" in names), so each row keeps the raw text beside a cleaned name. Neither the extracted rows nor Bell's prose is committed: the repo gets only our paraphrase, coordinates and citations.
+2. **Calibrate pages.** Bell cites the 1994 Knopf pagination, which the Vintage paperback shares. Check ten of his first-mention pages against our episode index (`private/book/mentions.csv`, for example Agua Prieta, first named on p. 113 in Part I, episode 1-10). Then turn each of his pages into a `first_seen` episode.
+3. **Read the figures.** Figure 3.2 is the only one Bell annotated himself. It is an excerpt from Benchmark Maps' *New Mexico Road and Recreation Atlas* (1995) with his numbered points: Cloverdale, San Luis Pass, Hachita, Hermanas, Black Point, Animas, the Guadalupe Mountains, Playas and Rodeo. Georeference it in QGIS on the towns it shows (Lordsburg, Deming, Animas, Hachita, Rodeo) and read off his points as estimates, with the fit's error recorded. Figures 3.1, 3.3 and 3.4 are road-atlas excerpts with no marks of his, so they confirm only towns we already have. The scans stay in `private/`.
+4. **Match** each second-source row to our features by name and alias, then by distance:
+   - **confirm:** within the feature's `uncertainty_m`, or 2 km for a located place
+   - **disagree:** farther than that
+   - **new:** no match
+   - **finer:** the source names something more specific inside or beside ours, such as a street, a building, a ranch headquarters, a draw or a spring
+
+   Distances are computed in `pipeline/measure/` (pyproj, WGS 84 ellipsoid). Output: `review/stage-7/second-sources.csv`, one row per match, with our position, theirs, the distance, the class, and a proposed action with its evidence.
+5. **Resolve.** Every "disagree" gets a look at the text (in `private/`), our reasoning, theirs, and the imagery. Then one of three outcomes:
+   - We keep ours, and the reasoning says why.
+   - We move to a position confirmed by our own sources, crediting the second source as the lead.
+   - It goes to `docs/open-questions.md` with the evidence on each side.
+
+   A judgement call that changes a stop gets a decision record.
+6. **Make places more specific.** For "finer" rows, locate the specific thing:
+   - **US streets and buildings:** TIGER for streets. For buildings that may be gone, such as the Palace Hotel and the cafés Bell places in Deming and Silver City, use Library of Congress Sanborn fire-insurance maps (public domain up to 1929, later sheets checked one by one) and city directories.
+   - **Mexican streets:** INEGI's street network, under its free-use terms. OSM through Nominatim comes last, because its features carry the ODbL.
+   - **Ranches, draws and springs:** GNIS and NHD names, and Bell's mileages measured along the roads he names.
+   - **Where the specific spot is found:** the feature moves there, or a child point is added for it (Alameda Street inside Casas Grandes). `certainty` and `uncertainty_m` tighten to match.
+7. **Add what is missing.** Each candidate needs our own confirmation, a `first_seen` from its page, and a check that the text names it. Candidates from Bell's index include:
+   - **Streets and buildings:** Alameda Street in Casas Grandes; Bullard Street in Silver City; South Silver Street, Spruce and Gold, West Pine, and the Palace Hotel in Deming; San Antonio Street in El Paso; the Manhattan and Splendid cafés.
+   - **Ranches and pastures:** Pendleton's, Martel's, the Taliafero ranch and the Ibáñez pasture.
+   - **Water and draws:** Cloverdale Draw, Government Draw, Taylor's Draw and Ciénega Springs.
+   - **Rivers:** the Batopito, Bavispe and Papigóchic.
+   - **Plains and valleys:** the Carretas plain, and the San Simon and Sulphur Springs valleys.
+   - **Mountains:** the Animas Peaks, the Dos Cabezas range and Caballera Canyon.
+   - **Other:** the old Nations road, and the thirtieth minute of the 108th meridian.
+
+   Places outside the story box go to `data/elsewhere.json`, as now. Brands and companies (the GS, Hashknife and T Diamond outfits, Phelps Dodge, the Victoria Land and Cattle Company) become notes on the places they belong to, not points.
+8. **Context into notes.** Where Bell explains a place in a way our notes lack, such as the history of a ranch or a town's railroad, we write our own paraphrase into the place's `note_safe` or reasoning and cite "Bell 2000, p. N". This keeps Bell's words and any novel text he quotes out of the repo. Notes written this way are checked by `crossing.echo_check` against Bell's text as well as the novel's, so no eight-word run of his is reproduced.
+9. **Data model.**
+   - Two new source ids, `bell-2000` and `reddit-gaia`, each with its licence and credit line in the schema and the data README.
+   - A `leads` array on each feature names any second source that pointed to it or agrees with it. `source` stays the dataset that fixed the coordinates.
+   - Street-level points need zoom 14 or more. `maxZoom` rises from 13 to 15. The base and relief tiles overzoom, and the satellite and Topo basemaps carry the streets.
+10. **Show it.**
+    - **Cards:** a place's card says "Also placed by: Bell (2000), p. N; [the Reddit map's author]" when a lead agrees.
+    - **Disputes:** where readers disagree, the card shows "Readers disagree" with both readings.
+    - **Credits page:** both sources listed.
+    - **About page:** Bell's dissertation added to the further reading.
+
+*You check*
+
+- `review/stage-7/second-sources.csv`: the "disagree" and "new" rows first, then the street-level moves on satellite.
+- The Reddit author's reply to the permission request (see section 3).
+
+*Done when*
+
+- Every row has an outcome.
+- Every new or moved feature has its own confirming source, a `first_seen`, and a lead credit.
+- The spoiler-leak, echo and schema checks pass.
+- The Credits page names both sources.
+
 **Phase 2 backlog** (pick by demand, not in order): land-cover marks among the hachures (scrub stipple, tree marks) from a land-cover dataset; Cloudflare R2 for larger tiles; Blender or Eduard relief; least-cost routes and constraint-built areas (12 November 2026: redraw the routes between known points as paths of least resistance over the terrain, for a rider in the 1940s: slope, river crossings and canyons as costs, the roads and trails the text names as cheap corridors, the border crossings the text gives as gates; a modelled route is marked as such, not as the book's path); Rumsey overlays with the swipe; story mode; a Spanish interface; more vignettes by an illustrator; speaker-reviewed translations; a paid MapTiler month around a spike; privacy-friendly analytics to see what people use (v5, owner, 13 November 2026, to discuss): something simple and free, with Google Analytics acceptable but not preferred; cookie-free options such as GoatCounter or Cloudflare Web Analytics need no consent banner; reader feedback on content (v5, revisit after launch): a way to report a wrong place, date, translation or note from the card it appears on, such as a prefilled GitHub issue form or a mail link that carries the feature id, with each accepted correction credited in the CHANGELOG. A place with an open question (`docs/open-questions.md`, such as whether Soto Máynez and Santa Ana de Babícora are one town) says so on its card, with the evidence on each side, and invites readers' evidence through the same form. "What Billy saw" (v5, parked 12 November 2026, to revisit; it may be clutter): a panorama from a chosen stop, drawn as a line skyline with the peaks labelled, computed by marching a ray along each compass bearing over the 30 m DEM and keeping the highest viewing angle, with the Earth's curvature corrected (the method of Viewfinder Panoramas and the open-source horizonator; PeakFinder and PeakVisor do not publish theirs). Creeks (v5, 12 November 2026, to revisit; they may be hidden altogether): the current dashed intermittent style dots the desert, because nearly every stream there is intermittent (8,801 of 8,865 INEGI streams around the Pilares). A local test tried INEGI's 1:50,000 network instead, tapered by its Strahler order (`ORDER_1`), thinned by zoom, and with intermittent streams solid and lighter; the US side's NHD would need a stream order computed from how its lines join. Block diagrams on place cards (v5, 12 November 2026, to revisit): pre-generated pen-and-ink diagrams, one per key landscape, drawn from the map's own hachure strokes and contours with hidden lines removed (a local test renderer took about 3 seconds each; 200-800 KB each). A general declutter (v5, owner, 13 November 2026, later): cut noise across the map and panel, including whether every decision and placement note belongs in the map at all. The edge of the riding corridor (v5, 13 November 2026, later): the hachures stop in a hard line along the 40 km tile grid at the corridor's edge (Mesa Atravesada shows it); the full-region relief would remove it, or the strokes could fade out over the last few kilometres. Vignettes drawn from research (v5, owner, 13 November 2026, the owner will start it): replace the placeholders with drawings that look roughly as the text describes each subject, informed by reference images found online, each with a short label giving its context.
 
 **Acceptance criteria**
@@ -630,7 +705,7 @@ Settled: satellite provider (MapTiler), UI (React), illustrations (vignettes plu
 - [ ] **Spoiler default.** On until set (proposed) or ask on first visit only.
 - [ ] **Interface language.** English only for v1, or Spanish too.
 - [ ] **Licences.** MIT code (except the GPL-3.0 hachure folder); CC BY 4.0 data and notes; ODbL noted where OSM-derived.
-- [ ] **Reddit thread.** Paste the link so the launch post can reply there.
+- [ ] **Reddit thread.** https://www.reddit.com/r/cormacmccarthy/comments/18wu63g/map_of_the_crossing/ (given 13 November 2026). Stage 7 uses its map, and the launch post replies there.
 - [ ] **Portfolio framing.** Should the "How it's built" page carry your name and links (GitHub, LinkedIn, personal site), or stay anonymous with a link in the footer?
 - [ ] **Inspiration folder.** Fill `private/inspiration/` and the `docs/inspiration/` indexes before stage 2, by hand as described in section 5.1.
 
