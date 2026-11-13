@@ -6,7 +6,8 @@ Run from the repo root, after crossing.peaks:
 Every weight and threshold lives in pipeline/seeds/landforms.toml, which also
 explains each measurement. This module only applies them: each summit starts
 with the prior, gains points from words in its name, from its gazetteer feature
-code and from DEM rules, and takes the landform with the most points.
+code and from DEM rules, and takes the landform with the most points. Passes
+are not summits: they keep the landform "pass" and are left out of the report.
 
 Writes `landform` and `landform_source` (name, dem or default: the evidence
 that gave the winner the most points) into data/mountain_glyphs.geojson, and
@@ -156,6 +157,9 @@ def main() -> None:
         with rasterio.open(vrt) as src:
             for f in doc["features"]:
                 p = f["properties"]
+                if p["kind"] == "pass":  # crossing.peaks places passes on saddles; they have no summit to measure
+                    p["landform"], p["landform_source"] = "pass", "dem" if p["name"] == "Unnamed pass" else "name"
+                    continue
                 metrics = measure(src, *f["geometry"]["coordinates"], p["prominence_m"], cfg["dem"])
                 result = score(p, metrics, cfg)
                 p["landform"], p["landform_source"] = result["landform"], result["source"]

@@ -11,7 +11,7 @@ const baseUrl = process.argv[2] ?? 'http://localhost:4173/'
 const repo = fileURLToPath(new URL('..', import.meta.url))
 const out = path.join(repo, 'review', 'stage-3', 'landforms')
 const svgDir = path.join(repo, 'art', 'glyphs', 'svg')
-const families = ['peak', 'dome', 'mesa', 'butte', 'cone', 'ridge']
+const families = ['peak', 'dome', 'mesa', 'butte', 'cone', 'ridge', 'pass']
 // Centres of the densest clusters of non-peak glyphs in data/mountain_glyphs.geojson, named for the
 // summit at each centre, plus the Pilares.
 const views = {

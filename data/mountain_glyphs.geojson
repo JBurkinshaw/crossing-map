@@ -27982,6 +27982,6160 @@
     "landform": "mesa",
     "landform_source": "name"
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.26635,
+     30.66087
+    ]
+   },
+   "properties": {
+    "id": "peak-30661-109266",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1374,
+    "prominence_m": 167,
+    "size": "small",
+    "name_code": null,
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 1.12,
+    "glyph_rotate": 0.5,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.94508,
+     29.86819
+    ]
+   },
+   "properties": {
+    "id": "peak-29868-107945",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2328,
+    "prominence_m": 156,
+    "size": "small",
+    "name_code": null,
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 2.3,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.33573,
+     29.01973
+    ]
+   },
+   "properties": {
+    "id": "peak-29020-108336",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2449,
+    "prominence_m": 148,
+    "size": "small",
+    "name_code": null,
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -1.8,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.72223,
+     29.18022
+    ]
+   },
+   "properties": {
+    "id": "peak-29180-108722",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1955,
+    "prominence_m": 144,
+    "size": "small",
+    "name_code": null,
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -0.1,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.12462,
+     28.78627
+    ]
+   },
+   "properties": {
+    "id": "peak-28786-108125",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1959,
+    "prominence_m": 143,
+    "size": "small",
+    "name_code": null,
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 1.04,
+    "glyph_rotate": -1.9,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.70357,
+     28.23734
+    ]
+   },
+   "properties": {
+    "id": "peak-28237-107704",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2777,
+    "prominence_m": 140,
+    "size": "small",
+    "name_code": null,
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.87,
+    "glyph_rotate": -2.5,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.07181,
+     28.7707
+    ]
+   },
+   "properties": {
+    "id": "peak-28771-108072",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2024,
+    "prominence_m": 124,
+    "size": "small",
+    "name_code": null,
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 1.09,
+    "glyph_rotate": 1.9,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.72618,
+     32.97219
+    ]
+   },
+   "properties": {
+    "id": "peak-32972-108726",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2017,
+    "prominence_m": 120,
+    "size": "small",
+    "name_code": null,
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 0.94,
+    "glyph_rotate": 0.2,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.13111,
+     29.43944
+    ]
+   },
+   "properties": {
+    "id": "peak-29439-108131",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2550,
+    "prominence_m": 114,
+    "size": "small",
+    "name_code": null,
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.12,
+    "glyph_rotate": -0.9,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.00218,
+     29.61878
+    ]
+   },
+   "properties": {
+    "id": "peak-29619-108002",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2583,
+    "prominence_m": 112,
+    "size": "small",
+    "name_code": null,
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -2.4,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.45982,
+     28.51885
+    ]
+   },
+   "properties": {
+    "id": "peak-28519-106460",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2097,
+    "prominence_m": 109,
+    "size": "small",
+    "name_code": null,
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.94,
+    "glyph_rotate": 2.5,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95783,
+     32.60604
+    ]
+   },
+   "properties": {
+    "id": "peak-32606-107958",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1765,
+    "prominence_m": 106,
+    "size": "small",
+    "name_code": null,
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.85,
+    "glyph_rotate": -1.0,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.24721,
+     30.16887
+    ]
+   },
+   "properties": {
+    "id": "peak-30169-108247",
+    "name": "Unnamed summit",
+    "kind": "peak",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2296,
+    "prominence_m": 106,
+    "size": "small",
+    "name_code": null,
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 0.2,
+    "landform": "mesa",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.74368,
+     32.34396
+    ]
+   },
+   "properties": {
+    "id": "pass-32344-109744",
+    "name": "Railroad Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "9908",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1345,
+    "prominence_m": 1911,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 1.03,
+    "glyph_rotate": -0.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.74297,
+     30.38125
+    ]
+   },
+   "properties": {
+    "id": "pass-30381-107743",
+    "name": "Puerto Laguna Prieta",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "4002104",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1538,
+    "prominence_m": 941,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 2.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.48173,
+     32.15175
+    ]
+   },
+   "properties": {
+    "id": "pass-32152-109482",
+    "name": "Apache Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "732",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1565,
+    "prominence_m": 925,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.14,
+    "glyph_rotate": 0.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.61667,
+     28.85
+    ]
+   },
+   "properties": {
+    "id": "pass-28850-107617",
+    "name": "Puerto de Las Manzanas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "3999646",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2144,
+    "prominence_m": 877,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.88,
+    "glyph_rotate": -0.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.77639,
+     30.63472
+    ]
+   },
+   "properties": {
+    "id": "pass-30635-109776",
+    "name": "Puerto la Valdeza",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8689063",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1616,
+    "prominence_m": 839,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -1.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.36083,
+     29.69611
+    ]
+   },
+   "properties": {
+    "id": "pass-29696-109361",
+    "name": "Puerto las Trancas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8758927",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 930,
+    "prominence_m": 787,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.15,
+    "glyph_rotate": 0.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.45,
+     29.86722
+    ]
+   },
+   "properties": {
+    "id": "pass-29867-109450",
+    "name": "Puerto el Aire",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9028510",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1128,
+    "prominence_m": 696,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 0.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.855,
+     30.76861
+    ]
+   },
+   "properties": {
+    "id": "pass-30769-109855",
+    "name": "Puerto Mababi",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8700341",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1639,
+    "prominence_m": 666,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.02,
+    "glyph_rotate": 2.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.62444,
+     28.0675
+    ]
+   },
+   "properties": {
+    "id": "pass-28068-108624",
+    "name": "Puerto los Alamillos",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764362",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1522,
+    "prominence_m": 646,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.98,
+    "glyph_rotate": 1.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.962,
+     32.05759
+    ]
+   },
+   "properties": {
+    "id": "pass-32058-108962",
+    "name": "Cowboy Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "887987",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1334,
+    "prominence_m": 637,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 2.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9075,
+     29.75194
+    ]
+   },
+   "properties": {
+    "id": "pass-29752-108908",
+    "name": "Puerto María Dolores",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9030362",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1259,
+    "prominence_m": 596,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -1.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.81528,
+     29.20472
+    ]
+   },
+   "properties": {
+    "id": "pass-29205-107815",
+    "name": "Puerto el Caracol",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8765432",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2237,
+    "prominence_m": 574,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 1.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.45722,
+     28.76972
+    ]
+   },
+   "properties": {
+    "id": "pass-28770-107457",
+    "name": "Puerto las Manzanillas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764170",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2240,
+    "prominence_m": 531,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": 2.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.58583,
+     29.35028
+    ]
+   },
+   "properties": {
+    "id": "pass-29350-107586",
+    "name": "Puerto la Cruz",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8745279",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2473,
+    "prominence_m": 495,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -1.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.86667,
+     29.16667
+    ]
+   },
+   "properties": {
+    "id": "pass-29167-109867",
+    "name": "Puerto Mátape",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "3996403",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1112,
+    "prominence_m": 456,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.86,
+    "glyph_rotate": -1.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.97611,
+     29.65194
+    ]
+   },
+   "properties": {
+    "id": "pass-29652-109976",
+    "name": "Puerto Chihuahuilla",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8758033",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1050,
+    "prominence_m": 456,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -1.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.07972,
+     28.29917
+    ]
+   },
+   "properties": {
+    "id": "pass-28299-106080",
+    "name": "Puerto el Águila",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13660076",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1856,
+    "prominence_m": 442,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 0.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.7667,
+     32.91007
+    ]
+   },
+   "properties": {
+    "id": "pass-32910-107767",
+    "name": "Emory Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "906157",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 2511,
+    "prominence_m": 424,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 0.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.35806,
+     28.93083
+    ]
+   },
+   "properties": {
+    "id": "pass-28931-108358",
+    "name": "Puerto Manzanilla",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8772272",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2051,
+    "prominence_m": 416,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.05,
+    "glyph_rotate": 0.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.80111,
+     29.76861
+    ]
+   },
+   "properties": {
+    "id": "pass-29769-108801",
+    "name": "Puerto el Carrizo",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9030507",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2165,
+    "prominence_m": 395,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 0.94,
+    "glyph_rotate": -1.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.73667,
+     30.75861
+    ]
+   },
+   "properties": {
+    "id": "pass-30759-106737",
+    "name": "Puerto la Luz",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8635766",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1281,
+    "prominence_m": 387,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 2.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.64722,
+     28.24194
+    ]
+   },
+   "properties": {
+    "id": "pass-28242-108647",
+    "name": "Puerto el Frijolar",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764303",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1623,
+    "prominence_m": 381,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -2.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.38972,
+     29.445
+    ]
+   },
+   "properties": {
+    "id": "pass-29445-109390",
+    "name": "Puerto el Tulito",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8750526",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1081,
+    "prominence_m": 374,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -0.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.34201,
+     32.08231
+    ]
+   },
+   "properties": {
+    "id": "pass-32082-109342",
+    "name": "Emigrant Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "4436",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1832,
+    "prominence_m": 371,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 1.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.58639,
+     29.04389
+    ]
+   },
+   "properties": {
+    "id": "pass-29044-109586",
+    "name": "Puerto los Pericos",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8755898",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1321,
+    "prominence_m": 370,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -2.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.36444,
+     30.5525
+    ]
+   },
+   "properties": {
+    "id": "pass-30553-108364",
+    "name": "Puerto Casa de Piedra",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8688202",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2004,
+    "prominence_m": 366,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.07,
+    "glyph_rotate": 2.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.44889,
+     30.20056
+    ]
+   },
+   "properties": {
+    "id": "pass-30201-108449",
+    "name": "Puerto los Lajeros",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9022167",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2191,
+    "prominence_m": 356,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 1.09,
+    "glyph_rotate": 1.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.30861,
+     29.02444
+    ]
+   },
+   "properties": {
+    "id": "pass-29024-109309",
+    "name": "Puerto el Represo",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8765666",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 845,
+    "prominence_m": 345,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.15,
+    "glyph_rotate": 1.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.48806,
+     29.275
+    ]
+   },
+   "properties": {
+    "id": "pass-29275-109488",
+    "name": "Puerto el Hielo",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8750486",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1296,
+    "prominence_m": 345,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.12,
+    "glyph_rotate": -0.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.76917,
+     30.34389
+    ]
+   },
+   "properties": {
+    "id": "pass-30344-107769",
+    "name": "Puerto el Mezquite",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13659481",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1607,
+    "prominence_m": 339,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 1.04,
+    "glyph_rotate": -0.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.90806,
+     29.48
+    ]
+   },
+   "properties": {
+    "id": "pass-29480-108908",
+    "name": "Puerto el Maguey",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8751956",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1035,
+    "prominence_m": 337,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.9,
+    "glyph_rotate": -0.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.58417,
+     29.37417
+    ]
+   },
+   "properties": {
+    "id": "pass-29374-109584",
+    "name": "Puerto la Parida",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8750409",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 659,
+    "prominence_m": 332,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -3.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.95396,
+     31.86675
+    ]
+   },
+   "properties": {
+    "id": "pass-31867-109954",
+    "name": "Middlemarch Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "7991",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1829,
+    "prominence_m": 329,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.98,
+    "glyph_rotate": -0.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.97124,
+     31.82543
+    ]
+   },
+   "properties": {
+    "id": "pass-31825-108971",
+    "name": "Burro Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "886962",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1694,
+    "prominence_m": 321,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -0.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.60114,
+     32.16065
+    ]
+   },
+   "properties": {
+    "id": "pass-32161-107601",
+    "name": "Florida Gap",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "889105",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1403,
+    "prominence_m": 307,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.04,
+    "glyph_rotate": 2.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.59389,
+     30.35556
+    ]
+   },
+   "properties": {
+    "id": "pass-30356-109594",
+    "name": "Puerto Rico",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8678898",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1610,
+    "prominence_m": 306,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -2.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.42173,
+     32.12203
+    ]
+   },
+   "properties": {
+    "id": "pass-32122-109422",
+    "name": "Bear Spring Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "1144",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1791,
+    "prominence_m": 304,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 1.09,
+    "glyph_rotate": 1.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.5,
+     29.18333
+    ]
+   },
+   "properties": {
+    "id": "pass-29183-109500",
+    "name": "Puerto del Encino",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "4006747",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 825,
+    "prominence_m": 303,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.92,
+    "glyph_rotate": -2.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.8548,
+     32.59146
+    ]
+   },
+   "properties": {
+    "id": "pass-32591-109855",
+    "name": "Stockton Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "11862",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1738,
+    "prominence_m": 301,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": 0.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.70144,
+     31.79982
+    ]
+   },
+   "properties": {
+    "id": "pass-31800-108701",
+    "name": "Whitmire Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "896568",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1520,
+    "prominence_m": 300,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 0.88,
+    "glyph_rotate": 1.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.2325,
+     29.20806
+    ]
+   },
+   "properties": {
+    "id": "pass-29208-108232",
+    "name": "Puerto el Tres",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8749758",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2414,
+    "prominence_m": 295,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 2.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.73917,
+     30.44444
+    ]
+   },
+   "properties": {
+    "id": "pass-30444-109739",
+    "name": "Puerto el Batamote",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8689377",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1564,
+    "prominence_m": 283,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 2.3,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.94285,
+     31.45843
+    ]
+   },
+   "properties": {
+    "id": "pass-31458-109943",
+    "name": "Mule Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "8421",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1896,
+    "prominence_m": 281,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.87,
+    "glyph_rotate": 2.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.79528,
+     28.72694
+    ]
+   },
+   "properties": {
+    "id": "pass-28727-106795",
+    "name": "Puerto Nieto",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13660351",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2209,
+    "prominence_m": 273,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.9,
+    "glyph_rotate": 0.3,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.60056,
+     28.15167
+    ]
+   },
+   "properties": {
+    "id": "pass-28152-108601",
+    "name": "Puerto los Horcones",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764383",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1693,
+    "prominence_m": 270,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 0.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.44449,
+     31.77732
+    ]
+   },
+   "properties": {
+    "id": "pass-31777-108444",
+    "name": "Granite Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "889547",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1505,
+    "prominence_m": 260,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -2.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.32444,
+     29.35
+    ]
+   },
+   "properties": {
+    "id": "pass-29350-109324",
+    "name": "Puerto Piedra Bola",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8750715",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 986,
+    "prominence_m": 256,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -1.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.40583,
+     28.64556
+    ]
+   },
+   "properties": {
+    "id": "pass-28646-106406",
+    "name": "Puerto la Manzanilla",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13660171",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2283,
+    "prominence_m": 255,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.1,
+    "glyph_rotate": 0.3,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.58333,
+     30.475
+    ]
+   },
+   "properties": {
+    "id": "pass-30475-109583",
+    "name": "Puerto la Nacha",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8678770",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1569,
+    "prominence_m": 254,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -2.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.54972,
+     29.45611
+    ]
+   },
+   "properties": {
+    "id": "pass-29456-106550",
+    "name": "Puerto el Cinco",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "11361605",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2287,
+    "prominence_m": 250,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 1.0,
+    "glyph_rotate": 1.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.74806,
+     29.60472
+    ]
+   },
+   "properties": {
+    "id": "pass-29605-109748",
+    "name": "Puerto Tehuibabi",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8758298",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1078,
+    "prominence_m": 245,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 12,
+    "flip": true,
+    "glyph_scale": 0.88,
+    "glyph_rotate": -2.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.10583,
+     30.89694
+    ]
+   },
+   "properties": {
+    "id": "pass-30897-106106",
+    "name": "Puerto el Gorrión",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8635903",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1512,
+    "prominence_m": 245,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.05,
+    "glyph_rotate": 1.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.75028,
+     28.30611
+    ]
+   },
+   "properties": {
+    "id": "pass-28306-106750",
+    "name": "Puerto Coyachi",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13659502",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2100,
+    "prominence_m": 243,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": -0.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.17978,
+     31.7501
+    ]
+   },
+   "properties": {
+    "id": "pass-31750-109180",
+    "name": "Jack Wood Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "6305",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1689,
+    "prominence_m": 241,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -2.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.07954,
+     30.95215
+    ]
+   },
+   "properties": {
+    "id": "pass-30952-107080",
+    "name": "Puerto San Salvador",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8627103",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1338,
+    "prominence_m": 241,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 1.14,
+    "glyph_rotate": 1.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.38444,
+     28.78389
+    ]
+   },
+   "properties": {
+    "id": "pass-28784-107384",
+    "name": "Puerto la Virgen",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764177",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2465,
+    "prominence_m": 240,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 0.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.20694,
+     29.78444
+    ]
+   },
+   "properties": {
+    "id": "pass-29784-109207",
+    "name": "Puerto el Babiso",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "12449889",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1186,
+    "prominence_m": 239,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 0.9,
+    "glyph_rotate": -0.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.78167,
+     28.12278
+    ]
+   },
+   "properties": {
+    "id": "pass-28123-108782",
+    "name": "Puerto Buenavista",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8765192",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1327,
+    "prominence_m": 236,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.03,
+    "glyph_rotate": 2.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.69694,
+     30.67444
+    ]
+   },
+   "properties": {
+    "id": "pass-30674-108697",
+    "name": "Puerto los Alisos",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8688350",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1900,
+    "prominence_m": 235,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 2.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.25,
+     29.5
+    ]
+   },
+   "properties": {
+    "id": "pass-29500-107250",
+    "name": "Puerto del Alamillo",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "4019007",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2333,
+    "prominence_m": 233,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.07,
+    "glyph_rotate": -0.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.64,
+     28.1575
+    ]
+   },
+   "properties": {
+    "id": "pass-28158-108640",
+    "name": "Puerto los Bajíos",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764381",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1633,
+    "prominence_m": 233,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.11,
+    "glyph_rotate": -1.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.88035,
+     31.40538
+    ]
+   },
+   "properties": {
+    "id": "pass-31405-109880",
+    "name": "Black Gap",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "1514",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1561,
+    "prominence_m": 232,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.0,
+    "glyph_rotate": 1.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.07056,
+     29.31583
+    ]
+   },
+   "properties": {
+    "id": "pass-29316-106071",
+    "name": "Puerto las Burras",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "11361297",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1585,
+    "prominence_m": 229,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 2.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.94417,
+     30.95528
+    ]
+   },
+   "properties": {
+    "id": "pass-30955-107944",
+    "name": "Puerto de Lino",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13660514",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1446,
+    "prominence_m": 225,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.92,
+    "glyph_rotate": 2.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.28639,
+     29.83722
+    ]
+   },
+   "properties": {
+    "id": "pass-29837-106286",
+    "name": "Puerto los Magueyes",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13659483",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1671,
+    "prominence_m": 220,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.1,
+    "glyph_rotate": -2.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.87778,
+     30.07417
+    ]
+   },
+   "properties": {
+    "id": "pass-30074-109878",
+    "name": "Puerto los Bueyes",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9027600",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1120,
+    "prominence_m": 219,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 1.1,
+    "glyph_rotate": 0.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.41806,
+     28.01028
+    ]
+   },
+   "properties": {
+    "id": "pass-28010-108418",
+    "name": "Puerto la Joyita",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764524",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1066,
+    "prominence_m": 218,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": 1.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.55194,
+     30.31889
+    ]
+   },
+   "properties": {
+    "id": "pass-30319-109552",
+    "name": "Puerto Chino",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8678940",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1397,
+    "prominence_m": 217,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.07,
+    "glyph_rotate": -1.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.72278,
+     29.05667
+    ]
+   },
+   "properties": {
+    "id": "pass-29057-107723",
+    "name": "Puerto la Borrega",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8765491",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2203,
+    "prominence_m": 216,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 1.15,
+    "glyph_rotate": 2.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.64556,
+     28.78917
+    ]
+   },
+   "properties": {
+    "id": "pass-28789-106646",
+    "name": "Puerto el Mollejón",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8746888",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2573,
+    "prominence_m": 215,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 0.91,
+    "glyph_rotate": 0.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.06139,
+     30.94139
+    ]
+   },
+   "properties": {
+    "id": "pass-30941-108061",
+    "name": "Puerto Bajito",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8699353",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1562,
+    "prominence_m": 214,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 0.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.57528,
+     30.50444
+    ]
+   },
+   "properties": {
+    "id": "pass-30504-108575",
+    "name": "Puerto el Burro",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8688256",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2233,
+    "prominence_m": 213,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 1.04,
+    "glyph_rotate": -2.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.96833,
+     30.16556
+    ]
+   },
+   "properties": {
+    "id": "pass-30166-107968",
+    "name": "Puerto los Monos",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8738264",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1868,
+    "prominence_m": 212,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 1.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.79611,
+     30.28778
+    ]
+   },
+   "properties": {
+    "id": "pass-30288-107796",
+    "name": "Puerto el Chocolate",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "4014118",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1610,
+    "prominence_m": 209,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -1.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.6459,
+     32.23813
+    ]
+   },
+   "properties": {
+    "id": "pass-32238-109646",
+    "name": "Silver Camp Divide",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "11322",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1778,
+    "prominence_m": 205,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 0.85,
+    "glyph_rotate": 1.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.84528,
+     30.57222
+    ]
+   },
+   "properties": {
+    "id": "pass-30572-107845",
+    "name": "Puerto Basilio",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8638915",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1562,
+    "prominence_m": 204,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.15,
+    "glyph_rotate": 1.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.93056,
+     29.82694
+    ]
+   },
+   "properties": {
+    "id": "pass-29827-108931",
+    "name": "Puerto la Joyita",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9030329",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1432,
+    "prominence_m": 202,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.02,
+    "glyph_rotate": 0.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.20339,
+     31.82926
+    ]
+   },
+   "properties": {
+    "id": "pass-31829-109203",
+    "name": "Horseshoe Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "6015",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 2236,
+    "prominence_m": 201,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 1.09,
+    "glyph_rotate": 1.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.95222,
+     29.06389
+    ]
+   },
+   "properties": {
+    "id": "pass-29064-108952",
+    "name": "Puerto el Ocote",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9807079",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1521,
+    "prominence_m": 200,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 2.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.05667,
+     28.1
+    ]
+   },
+   "properties": {
+    "id": "pass-28100-106057",
+    "name": "Puerto la Cruz",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13660542",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1822,
+    "prominence_m": 194,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 0.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.13472,
+     30.02306
+    ]
+   },
+   "properties": {
+    "id": "pass-30023-108135",
+    "name": "Puerto el Avión",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9022504",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2482,
+    "prominence_m": 193,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 2.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.15083,
+     28.30333
+    ]
+   },
+   "properties": {
+    "id": "pass-28303-108151",
+    "name": "Puerto el Cuatro",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8762253",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2524,
+    "prominence_m": 192,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": 2.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.20889,
+     29.66111
+    ]
+   },
+   "properties": {
+    "id": "pass-29661-107209",
+    "name": "Puerto Maynas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8745033",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2141,
+    "prominence_m": 189,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 1.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.09197,
+     33.34618
+    ]
+   },
+   "properties": {
+    "id": "pass-33346-107092",
+    "name": "Red Gap",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "893735",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1689,
+    "prominence_m": 189,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": -2.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.23667,
+     28.38917
+    ]
+   },
+   "properties": {
+    "id": "pass-28389-108237",
+    "name": "Puerto Portales",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8762299",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2406,
+    "prominence_m": 187,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -0.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.81222,
+     28.63806
+    ]
+   },
+   "properties": {
+    "id": "pass-28638-108812",
+    "name": "Puerto la Muela",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8766703",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1671,
+    "prominence_m": 185,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 1.1,
+    "glyph_rotate": -2.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.88694,
+     29.02833
+    ]
+   },
+   "properties": {
+    "id": "pass-29028-109887",
+    "name": "Puerto la Toruga",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8768334",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 878,
+    "prominence_m": 184,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 1.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.92889,
+     29.735
+    ]
+   },
+   "properties": {
+    "id": "pass-29735-109929",
+    "name": "Puerto la Cieneguita",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8758001",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1319,
+    "prominence_m": 182,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -1.3,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.48806,
+     28.535
+    ]
+   },
+   "properties": {
+    "id": "pass-28535-108488",
+    "name": "Puerto el Sabino",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8766343",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1938,
+    "prominence_m": 178,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 1.1,
+    "glyph_rotate": 2.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.54612,
+     29.42973
+    ]
+   },
+   "properties": {
+    "id": "pass-29430-107546",
+    "name": "Puerto el Salitre",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "3988139",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2582,
+    "prominence_m": 178,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -0.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.30639,
+     29.75722
+    ]
+   },
+   "properties": {
+    "id": "pass-29757-109306",
+    "name": "Puerto el Cacalote",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "12449916",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 702,
+    "prominence_m": 173,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -0.3,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.71194,
+     29.15
+    ]
+   },
+   "properties": {
+    "id": "pass-29150-108712",
+    "name": "Puerto la Chicura",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9807258",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1588,
+    "prominence_m": 169,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": 2.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.38062,
+     31.7351
+    ]
+   },
+   "properties": {
+    "id": "pass-31735-109381",
+    "name": "Bruno Saddle",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "1958047",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1927,
+    "prominence_m": 168,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -0.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.52619,
+     30.25899
+    ]
+   },
+   "properties": {
+    "id": "pass-30259-108526",
+    "name": "Puerto los Azules",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8678071",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2318,
+    "prominence_m": 168,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.86,
+    "glyph_rotate": -1.3,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.49667,
+     30.10917
+    ]
+   },
+   "properties": {
+    "id": "pass-30109-107497",
+    "name": "Puerto el Gato",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "4005918",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1485,
+    "prominence_m": 168,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.12,
+    "glyph_rotate": -2.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.37229,
+     31.90676
+    ]
+   },
+   "properties": {
+    "id": "pass-31907-109372",
+    "name": "Fife Saddle",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "4587",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1971,
+    "prominence_m": 167,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 0.89,
+    "glyph_rotate": 0.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.99083,
+     29.08111
+    ]
+   },
+   "properties": {
+    "id": "pass-29081-107991",
+    "name": "Puerto los Leones",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8765383",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2270,
+    "prominence_m": 167,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 0.9,
+    "glyph_rotate": 2.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.39667,
+     28.88833
+    ]
+   },
+   "properties": {
+    "id": "pass-28888-107397",
+    "name": "Puerto las Burras",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764176",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2029,
+    "prominence_m": 164,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.08,
+    "glyph_rotate": 2.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.0925,
+     29.47083
+    ]
+   },
+   "properties": {
+    "id": "pass-29471-109092",
+    "name": "Puerto la Morita",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8750720",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1066,
+    "prominence_m": 163,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.87,
+    "glyph_rotate": 1.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.63444,
+     28.09667
+    ]
+   },
+   "properties": {
+    "id": "pass-28097-108634",
+    "name": "Puerto el Carmen",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764408",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1620,
+    "prominence_m": 163,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 6,
+    "flip": true,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -1.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.23194,
+     28.91667
+    ]
+   },
+   "properties": {
+    "id": "pass-28917-108232",
+    "name": "Puerto Boleo",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8771898",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2231,
+    "prominence_m": 162,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 1.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.0489,
+     32.37037
+    ]
+   },
+   "properties": {
+    "id": "pass-32370-107049",
+    "name": "Rough and Ready Gap",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "901119",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1433,
+    "prominence_m": 162,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 1.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.18389,
+     29.285
+    ]
+   },
+   "properties": {
+    "id": "pass-29285-109184",
+    "name": "Puerto la Ciénega",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8750716",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1483,
+    "prominence_m": 162,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 1.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.80246,
+     28.25943
+    ]
+   },
+   "properties": {
+    "id": "pass-28259-108802",
+    "name": "Puerto el Metate",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8763283",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1951,
+    "prominence_m": 160,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 1.07,
+    "glyph_rotate": 2.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.49444,
+     30.57361
+    ]
+   },
+   "properties": {
+    "id": "pass-30574-109494",
+    "name": "Puerto la Estufa",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8688799",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1464,
+    "prominence_m": 160,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": 2.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.31562,
+     31.94092
+    ]
+   },
+   "properties": {
+    "id": "pass-31941-109316",
+    "name": "Downing Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "4080",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1960,
+    "prominence_m": 160,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 0.9,
+    "glyph_rotate": 0.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.669,
+     31.2339
+    ]
+   },
+   "properties": {
+    "id": "pass-31234-109669",
+    "name": "Puerta Colorada",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "10215129",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1400,
+    "prominence_m": 155,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": false,
+    "glyph_scale": 1.0,
+    "glyph_rotate": -0.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.05306,
+     28.49167
+    ]
+   },
+   "properties": {
+    "id": "pass-28492-108053",
+    "name": "Puerto las Varas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8762322",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2491,
+    "prominence_m": 155,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 1.01,
+    "glyph_rotate": -1.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.37056,
+     29.85556
+    ]
+   },
+   "properties": {
+    "id": "pass-29856-107371",
+    "name": "Puerto Palos Blancos",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8744456",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1810,
+    "prominence_m": 155,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 0.95,
+    "glyph_rotate": -2.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.54,
+     30.39806
+    ]
+   },
+   "properties": {
+    "id": "pass-30398-109540",
+    "name": "Puerto los Chutis",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8678842",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1278,
+    "prominence_m": 153,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 2.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.77278,
+     29.72417
+    ]
+   },
+   "properties": {
+    "id": "pass-29724-109773",
+    "name": "Puerto las Pivipas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8758092",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1380,
+    "prominence_m": 153,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 2.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.29534,
+     31.99092
+    ]
+   },
+   "properties": {
+    "id": "pass-31991-109295",
+    "name": "Hands Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "5542",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 2062,
+    "prominence_m": 151,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.01,
+    "glyph_rotate": -2.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.15778,
+     29.92444
+    ]
+   },
+   "properties": {
+    "id": "pass-29924-107158",
+    "name": "Puerto el Mezquite",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "3995987",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1630,
+    "prominence_m": 148,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 0.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.02083,
+     30.38472
+    ]
+   },
+   "properties": {
+    "id": "pass-30385-109021",
+    "name": "Puerto los Federales",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8678738",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1527,
+    "prominence_m": 147,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": -2.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.47333,
+     29.35444
+    ]
+   },
+   "properties": {
+    "id": "pass-29354-109473",
+    "name": "Puerto las Cuchillas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8750473",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1104,
+    "prominence_m": 147,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 0.94,
+    "glyph_rotate": 0.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.98506,
+     32.15703
+    ]
+   },
+   "properties": {
+    "id": "pass-32157-108985",
+    "name": "Johnny Bull Gap",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "890494",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1485,
+    "prominence_m": 145,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.12,
+    "glyph_rotate": 0.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.42531,
+     33.65062
+    ]
+   },
+   "properties": {
+    "id": "pass-33651-107425",
+    "name": "Cyclone Saddle",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "905570",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 2920,
+    "prominence_m": 144,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 6,
+    "flip": true,
+    "glyph_scale": 0.94,
+    "glyph_rotate": -2.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.78667,
+     29.95694
+    ]
+   },
+   "properties": {
+    "id": "pass-29957-108787",
+    "name": "Puerto Colorado",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9030437",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2024,
+    "prominence_m": 144,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 2,
+    "flip": false,
+    "glyph_scale": 1.05,
+    "glyph_rotate": -2.9,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.33173,
+     32.04342
+    ]
+   },
+   "properties": {
+    "id": "pass-32043-109332",
+    "name": "Whitetail Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "13710",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 2111,
+    "prominence_m": 140,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 0.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.38444,
+     28.60944
+    ]
+   },
+   "properties": {
+    "id": "pass-28609-106384",
+    "name": "Puerto Colorado",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13660620",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2323,
+    "prominence_m": 140,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 10,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 1.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.7125,
+     29.94194
+    ]
+   },
+   "properties": {
+    "id": "pass-29942-108712",
+    "name": "Puerto el Sabinal",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9030554",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1836,
+    "prominence_m": 138,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": 2.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.42111,
+     29.38778
+    ]
+   },
+   "properties": {
+    "id": "pass-29388-109421",
+    "name": "Puerto Nacatobori",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8750509",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1382,
+    "prominence_m": 137,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 11,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": -2.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.59222,
+     30.31972
+    ]
+   },
+   "properties": {
+    "id": "pass-30320-109592",
+    "name": "Puerto la Francisca",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8678942",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1618,
+    "prominence_m": 134,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": 3.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.77417,
+     29.69
+    ]
+   },
+   "properties": {
+    "id": "pass-29690-109774",
+    "name": "Puerto las Palmas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8758089",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1547,
+    "prominence_m": 133,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 10,
+    "flip": false,
+    "glyph_scale": 1.07,
+    "glyph_rotate": -2.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.39861,
+     29.89806
+    ]
+   },
+   "properties": {
+    "id": "pass-29898-109399",
+    "name": "Puerto la Esperanza",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9028544",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 997,
+    "prominence_m": 131,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.92,
+    "glyph_rotate": 0.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.1625,
+     30.78889
+    ]
+   },
+   "properties": {
+    "id": "pass-30789-107162",
+    "name": "Puerto el Vado",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8627190",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1295,
+    "prominence_m": 131,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 0.96,
+    "glyph_rotate": 3.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.5798,
+     32.9209
+    ]
+   },
+   "properties": {
+    "id": "pass-32921-109580",
+    "name": "Solomon Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "11542",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1444,
+    "prominence_m": 130,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.9,
+    "glyph_rotate": -1.3,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.90111,
+     29.69611
+    ]
+   },
+   "properties": {
+    "id": "pass-29696-108901",
+    "name": "Puerto Navarro",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9025721",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1288,
+    "prominence_m": 128,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 0.85,
+    "glyph_rotate": 1.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.3725,
+     29.99028
+    ]
+   },
+   "properties": {
+    "id": "pass-29990-107372",
+    "name": "Puerto Nogales",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8744473",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1959,
+    "prominence_m": 127,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -2.3,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.91778,
+     29.475
+    ]
+   },
+   "properties": {
+    "id": "pass-29475-109918",
+    "name": "Puerto el Jonuco",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8751459",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 879,
+    "prominence_m": 126,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -1.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.98417,
+     29.82694
+    ]
+   },
+   "properties": {
+    "id": "pass-29827-109984",
+    "name": "Puerto la Chanza",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9027749",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1525,
+    "prominence_m": 125,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -1.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.56778,
+     29.55806
+    ]
+   },
+   "properties": {
+    "id": "pass-29558-107568",
+    "name": "Puerto la Aguja",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8744839",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2692,
+    "prominence_m": 125,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 0.93,
+    "glyph_rotate": 2.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.2734,
+     31.95759
+    ]
+   },
+   "properties": {
+    "id": "pass-31958-109273",
+    "name": "Jhus Horse Saddle",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "6410",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 2226,
+    "prominence_m": 123,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 2,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": -0.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.99028,
+     29.69528
+    ]
+   },
+   "properties": {
+    "id": "pass-29695-109990",
+    "name": "Puerto Zipigori",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8758016",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1211,
+    "prominence_m": 123,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.86,
+    "glyph_rotate": -0.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.40868,
+     32.62674
+    ]
+   },
+   "properties": {
+    "id": "pass-32627-109409",
+    "name": "Powerline Pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "22610",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1424,
+    "prominence_m": 123,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.97,
+    "glyph_rotate": 0.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.76806,
+     30.83194
+    ]
+   },
+   "properties": {
+    "id": "pass-30832-106768",
+    "name": "Puerto el Rey del Cobre",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8635756",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1277,
+    "prominence_m": 122,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 0.96,
+    "glyph_rotate": -2.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.53861,
+     28.07833
+    ]
+   },
+   "properties": {
+    "id": "pass-28078-108539",
+    "name": "Puerto los Fierros",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764454",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1295,
+    "prominence_m": 121,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": false,
+    "glyph_scale": 1.01,
+    "glyph_rotate": 1.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.92222,
+     30.21111
+    ]
+   },
+   "properties": {
+    "id": "pass-30211-109922",
+    "name": "Puerto el Peñasco",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9027601",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1383,
+    "prominence_m": 119,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 1.06,
+    "glyph_rotate": 0.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.87278,
+     30.67306
+    ]
+   },
+   "properties": {
+    "id": "pass-30673-108873",
+    "name": "Puerto los Cochis",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8688344",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1925,
+    "prominence_m": 118,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.87,
+    "glyph_rotate": 1.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.60641,
+     32.22148
+    ]
+   },
+   "properties": {
+    "id": "pass-32221-107606",
+    "name": "The Little Gap",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "898176",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1396,
+    "prominence_m": 117,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 1.06,
+    "glyph_rotate": -2.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.62556,
+     29.90833
+    ]
+   },
+   "properties": {
+    "id": "pass-29908-108626",
+    "name": "Puerto Chihuahuita",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9023247",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1715,
+    "prominence_m": 117,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 1.09,
+    "glyph_rotate": 2.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.74083,
+     28.62639
+    ]
+   },
+   "properties": {
+    "id": "pass-28626-106741",
+    "name": "Puerto el Álamo",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13660805",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2362,
+    "prominence_m": 113,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 6,
+    "flip": false,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -0.4,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.62083,
+     28.00556
+    ]
+   },
+   "properties": {
+    "id": "pass-28006-106621",
+    "name": "Puerto el Negro",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "3994981",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2006,
+    "prominence_m": 113,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 0.88,
+    "glyph_rotate": 1.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.95861,
+     30.95611
+    ]
+   },
+   "properties": {
+    "id": "pass-30956-109959",
+    "name": "Puerto Tanano",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8700245",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2161,
+    "prominence_m": 112,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.04,
+    "glyph_rotate": -2.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.97111,
+     29.73583
+    ]
+   },
+   "properties": {
+    "id": "pass-29736-109971",
+    "name": "Puerto las Palomas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8757997",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1442,
+    "prominence_m": 111,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.94,
+    "glyph_rotate": -0.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.22306,
+     30.95333
+    ]
+   },
+   "properties": {
+    "id": "pass-30953-108223",
+    "name": "Puerta de Ojo Caliente",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8699321",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1454,
+    "prominence_m": 110,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.09,
+    "glyph_rotate": 1.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.6375,
+     28.72
+    ]
+   },
+   "properties": {
+    "id": "pass-28720-106638",
+    "name": "Puerto el Faro",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13660484",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2229,
+    "prominence_m": 110,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": true,
+    "glyph_scale": 1.01,
+    "glyph_rotate": -1.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.8725,
+     30.70389
+    ]
+   },
+   "properties": {
+    "id": "pass-30704-108872",
+    "name": "Puerto los Metates",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8688311",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2072,
+    "prominence_m": 110,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.11,
+    "glyph_rotate": -1.7,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.66306,
+     28.42778
+    ]
+   },
+   "properties": {
+    "id": "pass-28428-106663",
+    "name": "Puerto los Chivos",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8739304",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2252,
+    "prominence_m": 109,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": true,
+    "glyph_scale": 0.89,
+    "glyph_rotate": -0.6,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.25528,
+     28.54194
+    ]
+   },
+   "properties": {
+    "id": "pass-28542-108255",
+    "name": "Puerto Cueva el Gavilán",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8766008",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2160,
+    "prominence_m": 108,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 1.11,
+    "glyph_rotate": -2.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.32056,
+     28.00417
+    ]
+   },
+   "properties": {
+    "id": "pass-28004-106321",
+    "name": "Puerto los Comanches",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13659770",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1951,
+    "prominence_m": 107,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 1.13,
+    "glyph_rotate": -2.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.25583,
+     28.71722
+    ]
+   },
+   "properties": {
+    "id": "pass-28717-106256",
+    "name": "Puerto Calabacillas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13659813",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1924,
+    "prominence_m": 107,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.99,
+    "glyph_rotate": -1.0,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.55889,
+     30.24778
+    ]
+   },
+   "properties": {
+    "id": "pass-30248-108559",
+    "name": "Puerto el Apache",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9022096",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2323,
+    "prominence_m": 107,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 9,
+    "flip": false,
+    "glyph_scale": 0.88,
+    "glyph_rotate": -0.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.21611,
+     29.90833
+    ]
+   },
+   "properties": {
+    "id": "pass-29908-109216",
+    "name": "Puerto el Lobo",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "12449690",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1477,
+    "prominence_m": 106,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 4,
+    "flip": false,
+    "glyph_scale": 0.98,
+    "glyph_rotate": -0.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.53361,
+     29.82222
+    ]
+   },
+   "properties": {
+    "id": "pass-29822-109534",
+    "name": "Puerto las Tierritas",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "9028415",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 918,
+    "prominence_m": 104,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -1.1,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.11722,
+     30.96333
+    ]
+   },
+   "properties": {
+    "id": "pass-30963-106117",
+    "name": "Puerto el Venado",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8635896",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1652,
+    "prominence_m": 104,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 1,
+    "flip": false,
+    "glyph_scale": 0.98,
+    "glyph_rotate": -2.3,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.46472,
+     28.87611
+    ]
+   },
+   "properties": {
+    "id": "pass-28876-107465",
+    "name": "Puerto la Piedra",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8764173",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2059,
+    "prominence_m": 104,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 8,
+    "flip": true,
+    "glyph_scale": 0.92,
+    "glyph_rotate": 1.2,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.41389,
+     29.33556
+    ]
+   },
+   "properties": {
+    "id": "pass-29336-108414",
+    "name": "Puerto el Tenedor",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8752287",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2230,
+    "prominence_m": 102,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": false,
+    "glyph_scale": 1.04,
+    "glyph_rotate": 2.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.97367,
+     32.0887
+    ]
+   },
+   "properties": {
+    "id": "pass-32089-108974",
+    "name": "Granite Gap",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "gnis",
+    "source_id": "889546",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "elevation_m": 1366,
+    "prominence_m": 102,
+    "size": "small",
+    "name_code": "gnis:Gap",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.11,
+    "glyph_rotate": 0.5,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.36139,
+     29.745
+    ]
+   },
+   "properties": {
+    "id": "pass-29745-107361",
+    "name": "Puerto el Mezquite",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "8744961",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 1975,
+    "prominence_m": 102,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 11,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": -2.8,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.39306,
+     28.52611
+    ]
+   },
+   "properties": {
+    "id": "pass-28526-106393",
+    "name": "Puerto los Horcones",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "geonames",
+    "source_id": "13660271",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "elevation_m": 2225,
+    "prominence_m": 102,
+    "size": "small",
+    "name_code": "PASS",
+    "glyph": 3,
+    "flip": true,
+    "glyph_scale": 1.02,
+    "glyph_rotate": 1.3,
+    "landform": "pass",
+    "landform_source": "name"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.92143,
+     29.89802
+    ]
+   },
+   "properties": {
+    "id": "pass-29898-108921",
+    "name": "Unnamed pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1353,
+    "prominence_m": 1025,
+    "size": "small",
+    "name_code": null,
+    "glyph": 7,
+    "flip": false,
+    "glyph_scale": 0.93,
+    "glyph_rotate": -1.3,
+    "landform": "pass",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.38739,
+     32.97166
+    ]
+   },
+   "properties": {
+    "id": "pass-32972-109387",
+    "name": "Unnamed pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 1122,
+    "prominence_m": 932,
+    "size": "small",
+    "name_code": null,
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 1.07,
+    "glyph_rotate": 2.4,
+    "landform": "pass",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.13179,
+     29.27318
+    ]
+   },
+   "properties": {
+    "id": "pass-29273-109132",
+    "name": "Unnamed pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 800,
+    "prominence_m": 903,
+    "size": "small",
+    "name_code": null,
+    "glyph": 4,
+    "flip": true,
+    "glyph_scale": 0.92,
+    "glyph_rotate": -1.6,
+    "landform": "pass",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.24157,
+     29.11225
+    ]
+   },
+   "properties": {
+    "id": "pass-29112-109242",
+    "name": "Unnamed pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 509,
+    "prominence_m": 830,
+    "size": "small",
+    "name_code": null,
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 0.91,
+    "glyph_rotate": -0.4,
+    "landform": "pass",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.97866,
+     29.39606
+    ]
+   },
+   "properties": {
+    "id": "pass-29396-109979",
+    "name": "Unnamed pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 822,
+    "prominence_m": 825,
+    "size": "small",
+    "name_code": null,
+    "glyph": 5,
+    "flip": true,
+    "glyph_scale": 0.98,
+    "glyph_rotate": 0.9,
+    "landform": "pass",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.81387,
+     29.03009
+    ]
+   },
+   "properties": {
+    "id": "pass-29030-109814",
+    "name": "Unnamed pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 762,
+    "prominence_m": 685,
+    "size": "small",
+    "name_code": null,
+    "glyph": 7,
+    "flip": true,
+    "glyph_scale": 0.98,
+    "glyph_rotate": -0.2,
+    "landform": "pass",
+    "landform_source": "dem"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.54579,
+     30.43458
+    ]
+   },
+   "properties": {
+    "id": "pass-30435-108546",
+    "name": "Unnamed pass",
+    "kind": "pass",
+    "role": null,
+    "part": 1,
+    "first_seen": "1-01",
+    "certainty": "located",
+    "method": "generated",
+    "source": "copernicus-glo30",
+    "source_id": null,
+    "source_licence": "Copernicus WorldDEM-30 licence",
+    "note_safe": "",
+    "elevation_m": 2064,
+    "prominence_m": 633,
+    "size": "small",
+    "name_code": null,
+    "glyph": 12,
+    "flip": false,
+    "glyph_scale": 0.86,
+    "glyph_rotate": 1.0,
+    "landform": "pass",
+    "landform_source": "dem"
+   }
   }
  ]
 }
