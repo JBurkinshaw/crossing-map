@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { Feature, Point } from 'geojson'
 import type { Elsewhere, StoryProps } from '../data/story'
 
@@ -12,10 +13,12 @@ const JOURNEYS: Record<string, string> = {
 }
 
 type Props = {
+  // The reading-progress badge, at the top of the panel.
+  header: ReactNode
   failed: boolean
   journey: string
-  // The journeys drawn so far, and the places named outside the map.
-  journeys: string[]
+  // The journeys drawn so far, each with the episode it starts in, and the places named outside the map.
+  journeys: { id: string; first_seen: string }[]
   elsewhere: Elsewhere[]
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
@@ -23,25 +26,30 @@ type Props = {
   onStop: (index: number) => void
 }
 
-export function Panel({ failed, journey, journeys, elsewhere, stops, stopIndex, onJourney, onStop }: Props) {
+export function Panel({ header, failed, journey, journeys, elsewhere, stops, stopIndex, onJourney, onStop }: Props) {
   const stop = stops[stopIndex]
   return (
     <aside className="panel" aria-label="Journey">
-      <label className="journey-pick">
-        <span>Journey</span>
-        <select value={journey} onChange={(e) => onJourney(e.target.value)}>
-          {journeys.map((id) => (
-            <option key={id} value={id}>
-              {id}. {JOURNEYS[id] ?? id}
-            </option>
-          ))}
-        </select>
-      </label>
+      {header}
+      {journeys.length > 0 ? (
+        <label className="journey-pick">
+          <span>Journey</span>
+          <select value={journey} onChange={(e) => onJourney(e.target.value)}>
+            {journeys.map(({ id, first_seen }) => (
+              <option key={id} value={id} data-first-seen={first_seen}>
+                {id}. {JOURNEYS[id] ?? id}
+              </option>
+            ))}
+          </select>
+        </label>
+      ) : (
+        !failed && <p className="meta">No journey has begun by this point in the book.</p>
+      )}
 
       {failed && <p role="alert">The story data could not be loaded. Try reloading the page.</p>}
 
       {stop && (
-        <section className="stop" aria-live="polite">
+        <section className="stop" aria-live="polite" data-first-seen={stop.properties.first_seen}>
           <div className="stop-count">
             Stop {stopIndex + 1} of {stops.length}
           </div>
@@ -52,6 +60,7 @@ export function Panel({ failed, journey, journeys, elsewhere, stops, stopIndex, 
             {stop.properties.source}
             {stop.properties.source_id ? ` ${stop.properties.source_id}` : ''}
           </div>
+          {(stop.properties.note_full || stop.properties.note_safe) && <p>{stop.properties.note_full || stop.properties.note_safe}</p>}
           {stop.properties.reasoning && <p>{stop.properties.reasoning}</p>}
         </section>
       )}
@@ -67,7 +76,7 @@ export function Panel({ failed, journey, journeys, elsewhere, stops, stopIndex, 
 
       <ol className="stop-list">
         {stops.map((f, i) => (
-          <li key={f.properties.id}>
+          <li key={f.properties.id} data-first-seen={f.properties.first_seen}>
             <button type="button" aria-current={i === stopIndex ? 'step' : undefined} onClick={() => onStop(i)}>
               {f.properties.name}
             </button>
@@ -81,7 +90,9 @@ export function Panel({ failed, journey, journeys, elsewhere, stops, stopIndex, 
           <p className="meta">Places the book names that lie beyond this map.</p>
           <ul>
             {elsewhere.map((e) => (
-              <li key={e.id}>{e.name}</li>
+              <li key={e.id} data-first-seen={e.first_seen}>
+                {e.name}
+              </li>
             ))}
           </ul>
         </section>

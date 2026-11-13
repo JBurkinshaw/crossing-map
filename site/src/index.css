@@ -329,3 +329,101 @@ select {
   margin: 4px 0 0;
   padding-left: 18px;
 }
+
+/* Reading progress: the badge at the top of the panel and its dialog. Nothing here moves. */
+.progress-badge {
+  display: grid;
+  gap: 2px;
+  width: 100%;
+  min-height: 44px;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  text-align: left;
+  cursor: pointer;
+}
+
+.progress-dialog {
+  box-sizing: border-box;
+  width: min(480px, calc(100% - 24px));
+  padding: 20px 22px;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.progress-dialog::backdrop {
+  background: rgba(43, 33, 24, 0.35);
+}
+
+.progress-dialog h2 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  font-weight: normal;
+}
+
+.progress-dialog p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.progress-slider {
+  display: block;
+  width: 100%;
+  min-height: 32px;
+  margin: 4px 0 0;
+  accent-color: var(--ink);
+}
+
+.part-ticks {
+  position: relative;
+  height: 1.2em;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.part-ticks span {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.progress-choice {
+  min-height: 5.5em;
+  margin-top: 8px;
+}
+
+.progress-choice p {
+  margin: 4px 0 0;
+}
+
+.progress-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.progress-actions button {
+  min-height: 44px;
+  padding: 4px 12px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.progress-actions button.primary,
+.progress-confirm button:first-child {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.progress-badge:focus-visible,
+.progress-actions button:focus-visible,
+.progress-slider:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}

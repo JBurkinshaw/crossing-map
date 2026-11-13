@@ -22,6 +22,8 @@ const ZOOM = 11.5
 await mkdir(out, { recursive: true })
 const browser = await chromium.launch()
 const page = await browser.newPage({ viewport: { width: 1300, height: 820 } })
+// Spoiler mode would open its dialog over every view; these screenshots show the whole book.
+await page.addInitScript(() => localStorage.setItem('crossing-map.progress', 'all'))
 const problems = []
 // MapTiler refuses localhost (403), which the satellite map reports; that is expected here.
 const expected = (t) => /maptiler|403/i.test(t)

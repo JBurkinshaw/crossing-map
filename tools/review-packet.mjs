@@ -34,6 +34,8 @@ const problems = []
 for (const [profileName, profile] of Object.entries(profiles)) {
   const context = await browser.newContext(profile)
   const page = await context.newPage()
+  // Spoiler mode would open its dialog over every view; these screenshots show the whole book.
+  await page.addInitScript(() => localStorage.setItem('crossing-map.progress', 'all'))
   page.on('console', (m) => m.type() === 'error' && problems.push(`${profileName}: console: ${m.text()}`))
   page.on('pageerror', (e) => problems.push(`${profileName}: pageerror: ${e.message}`))
   page.on('requestfailed', (r) => {
