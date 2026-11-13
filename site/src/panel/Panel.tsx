@@ -1,20 +1,16 @@
 import type { ReactNode } from 'react'
 import type { Feature, Point } from 'geojson'
+import { JOURNEYS } from '../data/journeys'
 import type { Elsewhere, StoryProps } from '../data/story'
-
-const JOURNEYS: Record<string, string> = {
-  J1: 'The she-wolf, north out of Sonora',
-  J2: "Billy's first crossing, with the wolf",
-  J3: 'Billy alone in the Sierras, and home',
-  J4: 'Billy and Boyd, for the horses',
-  J5: 'Billy looking for Boyd and the girl',
-  J6: 'Boyd and the girl (reported)',
-  J7: "Billy's war years and third crossing",
-}
+import type { Translation } from '../data/translations'
+import { TranslationList } from './TranslationList'
 
 type Props = {
   // The reading-progress badge, at the top of the panel.
   header: ReactNode
+  // The search box, and the card for whatever was picked on the map or in search.
+  search: ReactNode
+  card: ReactNode
   failed: boolean
   journey: string
   // The journeys drawn so far, each with the episode it starts in, and the places named outside the map.
@@ -22,11 +18,15 @@ type Props = {
   elsewhere: Elsewhere[]
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
+  // What was said in Spanish at the current stop, and the line picked in search, if any.
+  spokenAtStop: Translation[]
+  currentTranslation: string | null
   onJourney: (journey: string) => void
   onStop: (index: number) => void
 }
 
-export function Panel({ header, failed, journey, journeys, elsewhere, stops, stopIndex, onJourney, onStop }: Props) {
+export function Panel(props: Props) {
+  const { header, search, card, failed, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
   const stop = stops[stopIndex]
   return (
     <aside className="panel" aria-label="Journey">
@@ -38,6 +38,8 @@ export function Panel({ header, failed, journey, journeys, elsewhere, stops, sto
       </nav>
 
       {header}
+      {search}
+      {card}
       {journeys.length > 0 ? (
         <label className="journey-pick">
           <span>Journey</span>
@@ -69,6 +71,12 @@ export function Panel({ header, failed, journey, journeys, elsewhere, stops, sto
           </div>
           {(stop.properties.note_full || stop.properties.note_safe) && <p>{stop.properties.note_full || stop.properties.note_safe}</p>}
           {stop.properties.reasoning && <p>{stop.properties.reasoning}</p>}
+          {spokenAtStop.length > 0 && (
+            <>
+              <h3>Spoken here</h3>
+              <TranslationList key={stop.properties.id} items={spokenAtStop} current={currentTranslation} />
+            </>
+          )}
         </section>
       )}
 

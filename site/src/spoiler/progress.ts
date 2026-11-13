@@ -59,6 +59,12 @@ export function progressLabel(progress: Progress, episodes: Episode[]): string {
   return `Part ${PART_NUMERALS[e.part]}, episode ${Number(e.episode.split('-')[1])}: ${e.opening}`
 }
 
+// "Part I, episode 7", from an episode id such as '1-07'.
+export function episodeLabel(episode: string): string {
+  const [part, n] = episode.split('-').map(Number)
+  return `Part ${PART_NUMERALS[part] ?? part}, episode ${n}`
+}
+
 export function useEpisodes(): Episode[] {
   const [list, setList] = useState<Episode[]>([])
   useEffect(() => {

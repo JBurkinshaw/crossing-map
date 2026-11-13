@@ -1,12 +1,11 @@
 import type { ReactNode } from 'react'
+import { CAMPBELL_CREDIT, CAMPBELL_GUIDE } from '../data/translations'
 import { REPO_URL } from './format'
 
 // Every source the site uses, with the credit its terms ask for (plan section 3). `credit` is the wording
 // shown wherever the source appears; `todo` marks wording not yet checked against the source's own terms.
 type Credit = { name: string; link?: string; use: ReactNode; licence: string; credit?: string; todo?: string }
 
-const CAMPBELL_GUIDE =
-  'https://d41cfaf2-ac52-4400-a6e1-aaf2dee170dc.filesusr.com/ugd/842cf5_fac7639eeb8e4ed0812f996b15164ccd.pdf'
 const COPERNICUS =
   'produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved'
 
@@ -20,7 +19,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         licence: 'In copyright',
       },
       {
-        name: 'Campbell’s guide: Lt. Jim Campbell, cormacmccarthy.com',
+        name: CAMPBELL_CREDIT,
         link: CAMPBELL_GUIDE,
         use: (
           <>
@@ -30,7 +29,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
           </>
         ),
         licence: 'In copyright; linked, not copied',
-        credit: 'Campbell’s guide: Lt. Jim Campbell, cormacmccarthy.com',
+        credit: CAMPBELL_CREDIT,
       },
     ],
   },

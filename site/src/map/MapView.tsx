@@ -1,13 +1,14 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState, type RefObject } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type RefObject } from 'react'
 import * as maplibregl from 'maplibre-gl'
-import type { LayerSpecification } from 'maplibre-gl'
-import { Map, NavigationControl, Popup, ScaleControl, type MapRef } from '@vis.gl/react-maplibre'
+import type { IControl, LayerSpecification } from 'maplibre-gl'
+import { Map, NavigationControl, ScaleControl, useControl, type MapRef } from '@vis.gl/react-maplibre'
 import { Protocol } from 'pmtiles'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 import type { Feature, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
 import ClassicUnderlay from './ClassicUnderlay'
+import { LayerKey } from './LayerKey'
 import { StoryLayers } from './StoryLayers'
 import { RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
 import { BASE_LAYERS, literaryStyle } from './style'
@@ -39,7 +40,6 @@ const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'ha
   'river-minor', 'river', 'creek-label', 'river-label', 'road', 'railroad', 'railroad-ties'])
 const RAISED_GROUPS = raisedLayers(literaryStyle(tilesBase, fontsBase, dataBase).layers)
 
-type Picked = { lon: number; lat: number; props: StoryProps; story: Story | null }
 type Basemap = 'literary' | 'satellite' | 'compare'
 // Views of the literary map: flat (the default), tilted (live 3D terrain) and raised (plan oblique relief).
 export type View = 'flat' | 'tilted' | 'raised'
@@ -56,6 +56,13 @@ type Props = {
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
   onSelectStop: (index: number) => void
+  // A place or area picked on the map (null: a click on empty map), and the one now picked, outlined.
+  onSelectFeature: (pick: { layer: 'places' | 'areas'; id: string } | null) => void
+  selectedId: string | null
+  // In step-through, the current stop's sequence: the road ahead of it fades.
+  aheadFrom: number | null
+  // The Home button: back to the whole journey in focus.
+  onHome: () => void
   onView: (view: View) => void
   // The latest episode whose features may show (spoiler mode); the story layers arrive already filtered.
   reached: string
@@ -65,14 +72,45 @@ type Props = {
 const GLYPH_FILTER = literaryStyle(tilesBase, fontsBase, dataBase).layers.find((l) => l.id === GLYPH_LAYER)
 const GLYPH_BASE_FILTER = GLYPH_FILTER && 'filter' in GLYPH_FILTER ? GLYPH_FILTER.filter : undefined
 
-export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView, reached }: Props) {
+// The Home button (plan section 9), under the zoom buttons.
+class HomeButton implements IControl {
+  private box = document.createElement('div')
+  constructor(onClick: () => void) {
+    this.box.className = 'maplibregl-ctrl maplibregl-ctrl-group'
+    const button = document.createElement('button')
+    button.type = 'button'
+    button.className = 'home-button'
+    button.title = 'Back to the whole journey'
+    button.setAttribute('aria-label', 'Back to the whole journey')
+    button.innerHTML =
+      '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M3 10 L10 3 L17 10 M5.5 8.5 V16 H14.5 V8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
+    button.addEventListener('click', onClick)
+    this.box.append(button)
+  }
+  onAdd() {
+    return this.box
+  }
+  onRemove() {
+    this.box.remove()
+  }
+}
+
+function HomeControl({ onHome }: { onHome: () => void }) {
+  // The control is made once; the ref keeps its click on the latest handler.
+  const latest = useRef(onHome)
+  useEffect(() => {
+    latest.current = onHome
+  })
+  useControl(() => new HomeButton(() => latest.current()), { position: 'top-left' })
+  return null
+}
+
+export function MapView(props: Props) {
+  const { mapRef, story, stops, stopIndex, onSelectStop, onSelectFeature, selectedId, aheadFrom, onHome, onView, reached } = props
   // Built once with the progress at first render; later changes go through setFilter below.
   const [style] = useState(() => styleUpTo(literaryStyle(tilesBase, fontsBase, dataBase), reached))
   // Compare mode's classic underlay gets its own copy: a map may change the style object it is given.
   const underlayStyle = useMemo(() => styleUpTo(literaryStyle(tilesBase, fontsBase, dataBase), reached), [reached])
-  const [pickedAt, setPicked] = useState<Picked | null>(null)
-  // A popup belongs to the story it was picked from: a change of progress closes it.
-  const picked = pickedAt?.story === story ? pickedAt : null
   const [basemap, setBasemap] = useState<Basemap>('literary')
   const [unavailable, setUnavailable] = useState(false)
   // Once created, the satellite map stays (hidden on the literary basemap): MapTiler counts each new map as a session.
@@ -205,7 +243,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView,
           interactiveLayerIds={['places-point', 'areas-fill']}
           onClick={(e) => {
             const f = e.features?.[0]
-            setPicked(f ? { lon: e.lngLat.lng, lat: e.lngLat.lat, props: f.properties as StoryProps, story } : null)
+            onSelectFeature(f ? { layer: f.layer.id === 'areas-fill' ? 'areas' : 'places', id: (f.properties as StoryProps).id } : null)
           }}
           style={{ position: 'absolute', inset: 0 }}
           onLoad={(e) => {
@@ -217,19 +255,19 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView,
           }}
         >
           <NavigationControl position="top-left" showCompass={false} />
+          <HomeControl onHome={onHome} />
           {/* Miles, the book's own unit. */}
           <ScaleControl position="bottom-left" unit="imperial" maxWidth={140} />
-          {story && <StoryLayers story={story} stops={stops} stopIndex={stopIndex} onSelectStop={onSelectStop} halo={basemap === 'literary'} />}
-          {picked && (
-            <Popup longitude={picked.lon} latitude={picked.lat} onClose={() => setPicked(null)} maxWidth="280px">
-              <strong>{picked.props.name}</strong>
-              <div className="meta">
-                {picked.props.certainty} · {picked.props.source}
-                {picked.props.source_id ? ` ${picked.props.source_id}` : ''}
-              </div>
-              {(picked.props.note_full || picked.props.note_safe) && <p>{picked.props.note_full || picked.props.note_safe}</p>}
-              {picked.props.reasoning && <p>{picked.props.reasoning}</p>}
-            </Popup>
+          {story && (
+            <StoryLayers
+              story={story}
+              stops={stops}
+              stopIndex={stopIndex}
+              onSelectStop={onSelectStop}
+              halo={basemap === 'literary'}
+              selectedId={selectedId}
+              aheadFrom={aheadFrom}
+            />
           )}
         </Map>
       </div>
@@ -290,6 +328,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView,
           Land colour
         </label>
       </div>
+      {basemap === 'literary' && <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} />}
       {view === 'raised' && (
         <p className="notice" role="status">The Raised view covers the country the journeys ride through; bus rides and reported journeys stay flat.</p>
       )}

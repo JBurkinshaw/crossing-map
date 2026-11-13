@@ -670,3 +670,248 @@ a {
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Search: one box for places, stops and the Spanish, with a Part filter. */
+.search {
+  margin-bottom: 12px;
+}
+
+.search-row {
+  display: flex;
+  gap: 6px;
+}
+
+.search-row input {
+  flex: 1;
+  min-width: 0;
+  min-height: 36px;
+  padding: 4px 8px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font: inherit;
+  color: inherit;
+}
+
+.search-row select {
+  padding: 4px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.search .meta[role='status'] {
+  margin: 6px 0 2px;
+}
+
+.search-results {
+  max-height: 40vh;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.search-results button {
+  display: block;
+  width: 100%;
+  min-height: 36px;
+  padding: 4px 2px;
+  border: 0;
+  border-top: 1px solid rgba(43, 33, 24, 0.15);
+  background: none;
+  text-align: left;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.search-results button:hover,
+.search-results button:focus-visible {
+  background: rgba(43, 33, 24, 0.08);
+}
+
+.search-row input:focus-visible,
+.search-row select:focus-visible,
+.search-results button:focus-visible,
+.place-card .close:focus-visible,
+.text-button:focus-visible,
+.layer-key summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+/* The Spanish in italic, as the book sets it; our English in roman. */
+.es {
+  font-style: italic;
+}
+
+/* The card for a place or area picked on the map or in search. */
+.place-card {
+  position: relative;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--ink);
+}
+
+.place-card h2 {
+  margin: 0 28px 4px 0;
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+
+.place-card p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.place-card .close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.place-card h3,
+.stop h3 {
+  margin: 12px 0 4px;
+  font-size: 0.95rem;
+}
+
+/* "Spoken here": each line's opening, our English, the episode and the guide's page. */
+.translations {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.translations li {
+  padding: 6px 0 6px 8px;
+  border-left: 2px solid transparent;
+  border-top: 1px solid rgba(43, 33, 24, 0.15);
+}
+
+.translations li[aria-current] {
+  border-left-color: var(--ink);
+  background: rgba(43, 33, 24, 0.06);
+}
+
+.translations .en {
+  margin: 2px 0;
+}
+
+.text-button {
+  margin-top: 4px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* The Home button sits with the zoom buttons. */
+.home-button {
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+}
+
+/* The layer key, bottom left on the classic map. */
+.layer-key {
+  position: absolute;
+  bottom: 34px;
+  left: 10px;
+  max-width: min(300px, calc(100% - 20px));
+  max-height: calc(100% - 140px);
+  overflow-y: auto;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-size: 0.82rem;
+}
+
+.layer-key summary {
+  min-height: 32px;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.layer-key-body {
+  padding: 0 10px 8px;
+}
+
+.layer-key h3 {
+  margin: 6px 0 2px;
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.layer-key ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.layer-key li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 20px;
+}
+
+.layer-key li svg {
+  flex: none;
+}
+
+.key-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+}
+
+.key-stop {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 10px;
+}
+
+.key-glyphs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+}
+
+.key-glyph {
+  display: inline-block;
+  flex: none;
+  min-width: 20px;
+  background-repeat: no-repeat;
+}
+
+/* On a phone the attribution spans the foot of the map, so the key sits under the zoom and Home buttons. */
+@media (max-width: 720px) {
+  .layer-key {
+    top: 118px;
+    bottom: auto;
+    max-height: calc(100% - 128px);
+  }
+}

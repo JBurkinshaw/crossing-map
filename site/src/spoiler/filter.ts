@@ -53,6 +53,12 @@ export function storyUpTo(story: Story, reached: string, spoilers: boolean): Sto
   }
 }
 
+// Translations follow the same rule as the map: a line shows once the reader has reached its episode
+// ("Se murió" is itself a spoiler). Their location_ref never points at a feature first seen later (validate).
+export function translationsUpTo<T extends { first_seen: string }>(list: T[], reached: string): T[] {
+  return list.filter((t) => t.first_seen <= reached)
+}
+
 // Mountain glyphs come from the base style, not the story sources; a few are named only later in the book.
 // The rest carry first_seen 1-01: they are the land itself, named from gazetteers, and like context towns
 // they show at every reading position, "not started" included.

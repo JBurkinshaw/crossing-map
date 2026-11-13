@@ -14,11 +14,20 @@ type Props = {
   onSelectStop: (index: number) => void
   // A wide band of paper under the journey in focus, which clears the relief around it. Off over satellite imagery.
   halo: boolean
+  // The place or area picked on the map or in search, outlined.
+  selectedId: string | null
+  // In step-through, the sequence of the current stop: the road from there on fades (data dimming, plan 9).
+  aheadFrom: number | null
 }
 
-export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo }: Props) {
+export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom }: Props) {
   const journey = stops[0]?.properties.journey ?? ''
   const inFocus: ExpressionSpecification = ['==', ['get', 'journey'], journey]
+  const selected: ExpressionSpecification = ['==', ['get', 'id'], selectedId ?? '']
+  // A segment joins stop `sequence` to the next, so the road ahead starts at the current stop's sequence.
+  const ahead: ExpressionSpecification =
+    aheadFrom === null ? ['boolean', false] : ['all', inFocus, ['>=', ['coalesce', ['get', 'sequence'], 9999], aheadFrom]]
+  const routeOpacity: ExpressionSpecification = ['case', ahead, 0.4, inFocus, 0.95, 0.3]
 
   return (
     <>
@@ -33,6 +42,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo }: Pro
           type="line"
           paint={{ 'line-color': inkByJourney, 'line-width': 1, 'line-dasharray': [2, 2], 'line-opacity': ['case', inFocus, 0.8, 0.25] }}
         />
+        <Layer id="areas-selected" type="line" filter={selected} paint={{ 'line-color': tokens.ink, 'line-width': 2.5 }} />
       </Source>
       <Source id="journeys" type="geojson" data={story.journeys}>
         {/* Above the relief, below the boundaries and water; the colour of the paper on screen at each zoom. */}
@@ -65,20 +75,28 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo }: Pro
           paint={{
             'line-color': inkByJourney,
             'line-width': ['case', inFocus, 2.5, 1.2],
-            'line-opacity': ['case', inFocus, 0.95, 0.3],
+            'line-opacity': routeOpacity,
           }}
         />
         <Layer
           id="journeys-line-schematic"
           type="line"
-          filter={['!=', ['get', 'method'], 'narrated-path']}
+          filter={['all', ['!=', ['get', 'method'], 'narrated-path'], ['!=', ['get', 'kind'], 'sightline']]}
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
             'line-width': ['case', inFocus, 2.5, 1.2],
-            'line-opacity': ['case', inFocus, 0.95, 0.3],
+            'line-opacity': routeOpacity,
             'line-dasharray': [3, 2],
           }}
+        />
+        {/* The false dawn: a direction, not a road, so dotted. */}
+        <Layer
+          id="journeys-sightline"
+          type="line"
+          filter={['==', ['get', 'kind'], 'sightline']}
+          layout={{ 'line-cap': 'round' }}
+          paint={{ 'line-color': inkByJourney, 'line-width': 2, 'line-opacity': ['case', inFocus, 0.9, 0.3], 'line-dasharray': [0.1, 2.5] }}
         />
       </Source>
       <Source id="places" type="geojson" data={story.places}>
@@ -92,6 +110,14 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo }: Pro
             'circle-stroke-color': tokens.ink,
             'circle-stroke-width': ['match', ['get', 'role'], 'context', 0, 1.2],
           }}
+        />
+        {/* Places in the tales told to Billy: a ring with a dot. */}
+        <Layer id="places-tale" type="circle" filter={['==', ['get', 'role'], 'tale']} paint={{ 'circle-radius': 1.4, 'circle-color': tokens.ink }} />
+        <Layer
+          id="places-selected"
+          type="circle"
+          filter={selected}
+          paint={{ 'circle-radius': 9, 'circle-color': 'rgba(0, 0, 0, 0)', 'circle-stroke-color': tokens.ink, 'circle-stroke-width': 2 }}
         />
         <Layer
           id="places-label"
