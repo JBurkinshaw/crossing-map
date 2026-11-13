@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { JOURNEYS } from '../data/journeys'
 import type { Story } from '../data/story'
-import { journeyInk, tokens } from './tokens'
+import { journeyInks, palettes, spriteName, type Theme } from './tokens'
 
 // The layer key (legend, plan section 9) for the classic map: one row per kind of mark the map draws, from
 // the story it is given. That story is already filtered to the reader's progress, so a journey, a region or
@@ -26,11 +26,12 @@ type Vignette = { vignette: string; first_seen: string; priority: number }
 
 const sheet = (name: string) => `${import.meta.env.BASE_URL}sprites/${name}`
 
-// The sprite index and the 1x sheet's size, which the @2x sheet is scaled down to.
+// The sprite index and the 1x sheet's size, which the @2x sheet is scaled down to. Both themes' sheets share
+// the index and size.
 async function loadSprite(): Promise<Sprite> {
-  const icons = await fetch(sheet('glyphs.json')).then((r) => r.json())
+  const icons = await fetch(sheet(`${spriteName.light}.json`)).then((r) => r.json())
   const image = new Image()
-  image.src = sheet('glyphs.png')
+  image.src = sheet(`${spriteName.light}.png`)
   await image.decode()
   return { icons, width: image.naturalWidth, height: image.naturalHeight }
 }
@@ -43,11 +44,11 @@ function Line({ colour, dash, width = 2.5, opacity = 1 }: { colour: string; dash
   )
 }
 
-function Dot({ r, fill, stroke, inner }: { r: number; fill: string; stroke?: string; inner?: boolean }) {
+function Dot({ r, fill, stroke, inner }: { r: number; fill: string; stroke?: string; inner?: string }) {
   return (
     <svg width="34" height="14" aria-hidden="true">
       <circle cx="17" cy="7" r={r} fill={fill} stroke={stroke} strokeWidth={stroke ? 1.2 : 0} />
-      {inner && <circle cx="17" cy="7" r="1.4" fill={tokens.ink} />}
+      {inner && <circle cx="17" cy="7" r="1.4" fill={inner} />}
     </svg>
   )
 }
@@ -60,7 +61,7 @@ function Area({ colour }: { colour: string }) {
   )
 }
 
-function Icon({ name, sprite, scale }: { name: string; sprite: Sprite | null; scale: number }) {
+function Icon({ name, sprite, sheetName, scale }: { name: string; sprite: Sprite | null; sheetName: string; scale: number }) {
   const s = sprite?.icons[name]
   if (!sprite || !s) return <span className="key-glyph" />
   return (
@@ -70,7 +71,7 @@ function Icon({ name, sprite, scale }: { name: string; sprite: Sprite | null; sc
       style={{
         width: s.width * scale,
         height: s.height * scale,
-        backgroundImage: `url(${sheet('glyphs@2x.png')})`,
+        backgroundImage: `url(${sheet(`${sheetName}@2x.png`)})`,
         backgroundSize: `${sprite.width * scale}px ${sprite.height * scale}px`,
         backgroundPosition: `${-s.x * scale}px ${-s.y * scale}px`,
       }}
@@ -83,9 +84,12 @@ type Props = {
   journey: string
   // The latest episode whose features may show (spoiler mode).
   reached: string
+  theme: Theme
 }
 
-export function LayerKey({ story, journey, reached }: Props) {
+export function LayerKey({ story, journey, reached, theme }: Props) {
+  const tokens = palettes[theme]
+  const journeyInk = journeyInks(tokens)
   const [open, setOpen] = useState(false)
   const [sprite, setSprite] = useState<Sprite | null>(null)
   const [vignettes, setVignettes] = useState<Vignette[]>([])
@@ -176,7 +180,7 @@ export function LayerKey({ story, journey, reached }: Props) {
           )}
           {shown.roles.has('tale') && (
             <li>
-              <Dot r={4} fill={tokens.paper} stroke={tokens.ink} inner />
+              <Dot r={4} fill={tokens.paper} stroke={tokens.ink} inner={tokens.ink} />
               Place in a tale
             </li>
           )}
@@ -201,7 +205,7 @@ export function LayerKey({ story, journey, reached }: Props) {
         <ul className="key-glyphs">
           {GLYPHS.map(([name, label]) => (
             <li key={name}>
-              <Icon name={`${name}-01`} sprite={sprite} scale={GLYPH_SCALE} />
+              <Icon name={`${name}-01`} sprite={sprite} sheetName={spriteName[theme]} scale={GLYPH_SCALE} />
               {label}
             </li>
           ))}
@@ -211,7 +215,7 @@ export function LayerKey({ story, journey, reached }: Props) {
             <h3>Drawings</h3>
             <ul>
               <li data-first-seen={vignette.first_seen}>
-                <Icon name={vignette.vignette} sprite={sprite} scale={VIGNETTE_SCALE} />
+                <Icon name={vignette.vignette} sprite={sprite} sheetName={spriteName[theme]} scale={VIGNETTE_SCALE} />
                 A scene from the book, near where it happens; a fine line may lead to the place
               </li>
             </ul>
