@@ -412,12 +412,15 @@ def raise_story(heights: Heights) -> dict[str, int]:
         # Every STORY_STEP metres, keeping the last point, so that rings stay closed.
         dist = np.concatenate([[0], np.cumsum(np.hypot(*np.diff(xy, axis=0).T))])
         s = np.unique(np.concatenate([np.arange(0, dist[-1], STORY_STEP), [dist[-1]]]))
-        return shift(np.interp(s, dist, xy[:, 0]), np.interp(s, dist, xy[:, 1]))
+        shifted = shift(np.interp(s, dist, xy[:, 0]), np.interp(s, dist, xy[:, 1]))
+        # Once shifted, drop the samples that add nothing at map scale (about 10 m), as the flat files are rounded.
+        kept = LineString(shifted).simplify(0.0001).coords if len(shifted) > 2 else shifted
+        return [[round(x, 5), round(y, 5)] for x, y in kept]
 
     def raised(geom: dict) -> dict:
         kind, c = geom["type"], geom["coordinates"]
         if kind == "Point":
-            return {"type": kind, "coordinates": shift(*(np.array([v]) for v in to_utm(*c[:2])))[0]}
+            return {"type": kind, "coordinates": [round(v, 5) for v in shift(*(np.array([v]) for v in to_utm(*c[:2])))[0]]}
         if kind == "LineString":
             return {"type": kind, "coordinates": line(c)}
         if kind in ("Polygon", "MultiLineString"):
