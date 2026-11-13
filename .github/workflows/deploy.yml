@@ -29,6 +29,8 @@ jobs:
       - uses: astral-sh/setup-uv@v10.3.3
       - name: Validate data against schemas
         run: uv run --project pipeline python -m crossing.validate
+      - name: GeoParquet downloads match the GeoJSON
+        run: uv run --project pipeline python -m crossing.downloads --check
 
   build:
     needs: check
