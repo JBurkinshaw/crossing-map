@@ -52,6 +52,8 @@ from shapely.geometry import shape
 
 REPO = Path(__file__).resolve().parents[3]
 DEM_TILES = REPO / "private" / "cache" / "dem" / "copernicus"
+# Folders of Copernicus tiles the relief covers; crossing.full_region adds the rest of the story box for its run.
+DEM_FOLDERS = [DEM_TILES]
 CRS = "EPSG:32612"  # UTM 12N: the bootheel and eastern Sonora; Chihuahua lies just east of the zone
 SMOOTH_SIGMA = 1.5  # cells; a light Gaussian, so hachures follow landforms rather than noise
 # The Copernicus DEM licence notice, for the attribution of every archive drawn from it.
@@ -92,7 +94,7 @@ def reproject(transform, geom):
 def coverage() -> Polygon:
     """Where the Copernicus tiles are, in UTM: each tile name gives its south-west corner."""
     boxes = []
-    for tif in DEM_TILES.glob("*.tif"):
+    for tif in (t for folder in DEM_FOLDERS for t in folder.glob("*.tif")):
         parts = tif.stem.split("_")  # Copernicus_DSM_COG_10_N28_00_W107_00_DEM
         lat = int(parts[4][1:]) * (1 if parts[4][0] == "N" else -1)
         lon = int(parts[6][1:]) * (-1 if parts[6][0] == "W" else 1)
@@ -126,7 +128,8 @@ def prepare_dem(bounds: tuple[float, ...], cell: int, out: Path) -> None:
     """The tile's DEM in UTM, smoothed by SMOOTH_SIGMA cells, gaps filled from the nearest cell."""
     with tempfile.TemporaryDirectory() as tmp:
         vrt, warped = Path(tmp) / "m.vrt", Path(tmp) / "w.tif"
-        subprocess.run(["gdalbuildvrt", "-q", str(vrt), *map(str, sorted(DEM_TILES.glob("*.tif")))], check=True)
+        subprocess.run(["gdalbuildvrt", "-q", str(vrt), *map(str, sorted(t for folder in DEM_FOLDERS for t in folder.glob("*.tif")))],
+                       check=True)
         subprocess.run(["gdalwarp", "-q", "-overwrite", "-t_srs", CRS, "-te", *map(str, bounds), "-tr", "30", "30",
                         "-r", "bilinear", "-ot", "Float32", "-dstnodata", "-9999", str(vrt), str(warped)], check=True)
         with rasterio.open(warped) as src:
