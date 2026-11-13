@@ -2,7 +2,7 @@
 
 `photos.csv` lists candidate photos for the places and stops, up to five a place, ranked. Nothing is in the app or the data layers yet: you pick first (plan section 11, stage 6).
 
-**The search is not finished.** Commons rate-limited the run twice (see "Requests" below), so only 13 of 135 places were searched. The other 122 wait for a rerun, listed in `TODO-prerequisites.md`.
+**The search is not finished.** Commons rate-limited the run twice (see "Requests" below), and a polite retry at 3:33 am on 13 November was refused again after a few requests, so 20 of 135 places are searched. The other 115 wait for a rerun, listed in `TODO-prerequisites.md`.
 
 ## Method
 
@@ -41,20 +41,20 @@ One row per candidate. Fill in `pick` (for example `y`) on the rows you want; le
 | | Places |
 | --- | --- |
 | To search | 135 |
-| Searched | 13 |
-| With candidates | 4 (14 rows) |
-| Searched, no candidate | 9 |
-| Not searched yet (rate limit) | 122 |
+| Searched | 20 |
+| With candidates | 5 (19 rows) |
+| Searched, no candidate | 15 |
+| Not searched yet (rate limit) | 115 |
 
 Files seen with an allowed licence: 36; dropped as aerial views: 62; dropped as not a photo: 1. No file in the searched places was dropped for its licence.
 
-**Licences in the CSV:** CC0 5, CC BY-SA 3.0 4, CC BY 2.0 2, CC BY-SA 4.0 1, CC BY 4.0 1, public domain 1.
+**Licences in the CSV:** CC0 10, CC BY-SA 3.0 4, CC BY 2.0 2, CC BY-SA 4.0 1, CC BY 4.0 1, public domain 1.
 
-**Searched, no candidate** (geosearch found only aerial views here): Sierra de la Madera, Animas Mountains, Peloncillo Mountains, Foster Draw, Skeleton Creek, Starvation Canyon, Hog Canyon Spring, Clanton Draw, Cloverdale Creek. All are stop places in Part I's back country, where Commons has few ground photos.
+**Searched, no candidate** (geosearch found only aerial views here): Sierra de la Madera, Animas Mountains, Peloncillo Mountains, Foster Draw, Skeleton Creek, Starvation Canyon, Hog Canyon Spring, Clanton Draw, Cloverdale Creek, Cloverdale, Cajón Bonito, Sierra de la Cabellera, Colonia Oaxaca, Colonia Morelos, Sierra de los Pilares de Teras. All are stop places in Part I's country, where Commons has few ground photos.
 
-**With candidates:** San Luis Mountains (3, views from the Puerto San Luis), Whitewater Creek (1, a kangaroo rat), Animas Valley (5, Lordsburg Mesa views), Casas Grandes (5, led by its Wikidata image of the town sign).
+**With candidates:** San Luis Mountains (3, views from the Puerto San Luis), Whitewater Creek (1, a kangaroo rat), Animas Valley (5, Lordsburg Mesa views), Casas Grandes (5, led by its Wikidata image of the town sign), Guadalupe Mountains (5).
 
-**Not searched yet:** the other 122 places, from Cloverdale to Fort Sumner, and the stops `j1-border-108-30`, `j1-clanton-foster`, `j3-websters`, `j4-lordsburg`, `j7-boyds-grave`, `j7-cemetery` and `j7-black-range`. The script prints the full list.
+**Not searched yet:** the other 115 places, from Cloverdale to Fort Sumner, and the stops `j1-border-108-30`, `j1-clanton-foster`, `j3-websters`, `j4-lordsburg`, `j7-boyds-grave`, `j7-cemetery` and `j7-black-range`. The script prints the full list.
 
 ## Requests
 
