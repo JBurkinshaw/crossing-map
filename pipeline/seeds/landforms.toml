@@ -179,3 +179,12 @@ points = { ridge = 3 }
 # (dem_landform) beside the name's (name_landform), so disagreements show.
 [review]
 min_margin = 1.0
+
+# Unnamed low summits that crossing.peaks adds as mesas, below its usual prominence cut. Only the
+# DEM speaks for them, so it must pick a listed landform by at least `min_margin` points, on a top
+# no steeper than `max_top_slope` degrees that holds at least `min_top_share` of the upper half.
+[detect]
+landforms = ["mesa"]
+min_margin = 2.0
+max_top_slope = 10
+min_top_share = 0.25

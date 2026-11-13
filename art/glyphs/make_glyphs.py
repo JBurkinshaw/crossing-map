@@ -4,7 +4,7 @@ Run from the repo root: uv run --project pipeline python art/glyphs/make_glyphs.
 Needs spreet (cargo install spreet).
 
 One family of COUNT shapes per landform (crossing.landforms), named
-<landform>-<nn>.svg: peak, dome, mesa, butte, cone and ridge. Each glyph is a
+<landform>-<nn>.svg: peak, dome, mesa, butte, cone, ridge and pass. Each glyph is a
 profile in one ink weight, filled with paper so it knocks out the hachures
 behind it, and lit from the north-west. Peaks and cones have a spur line down
 from the summit with hatching between it and the south-east flank. The other
@@ -147,6 +147,25 @@ def ridge(rng: random.Random, W: float, H: float) -> tuple[list[Point], list[lis
     return pts, []
 
 
+def saddle(rng: random.Random, W: float, H: float) -> tuple[list[Point], list[list[Point]]]:
+    """A pass: two rounded shoulders and the broad dip of the col between them, lower than a twin peak."""
+    base = H - 3
+    width, height = rng.uniform(42, 50), rng.uniform(11, 14)
+    left = (W - width) / 2
+    right_share = rng.uniform(0.8, 0.95)  # the right shoulder is a little lower
+    cl, cr, s = rng.uniform(0.24, 0.3), rng.uniform(0.7, 0.76), rng.uniform(0.13, 0.16)
+
+    def bumps(t: float) -> float:
+        return math.exp(-((t - cl) ** 2) / (2 * s * s)) + right_share * math.exp(-((t - cr) ** 2) / (2 * s * s))
+
+    # Less a straight line between the two ends, so both feet touch the ground.
+    ts = [i / 28 for i in range(29)]
+    lift = [bumps(t) - (bumps(0) + (bumps(1) - bumps(0)) * t) for t in ts]
+    k = height / max(lift)
+    pts = [(left + width * t, base - k * v) for t, v in zip(ts, lift)]
+    return pts, []
+
+
 FAMILIES = {  # landform: (silhouette, canvas width, canvas height)
     "peak": (peak, 64, 44),
     "dome": (dome, 64, 40),
@@ -154,6 +173,7 @@ FAMILIES = {  # landform: (silhouette, canvas width, canvas height)
     "butte": (butte, 52, 44),
     "cone": (cone, 60, 40),
     "ridge": (ridge, 90, 36),
+    "pass": (saddle, 52, 26),
 }
 
 
@@ -224,7 +244,7 @@ def svg(family: str, pts: list[Point], extras: list[list[Point]], rng: random.Ra
     if family in ("peak", "cone"):
         hatches, marks = peak_marks(pts, rng, H)
     else:
-        hatches, marks = face_hatches(pts, rng, hang=family == "ridge"), []
+        hatches, marks = face_hatches(pts, rng, hang=family in ("ridge", "pass")), []
     marks += [f'<polyline points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in line)}" stroke-width="0.8"/>' for line in extras]
     outline = " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)
     return (

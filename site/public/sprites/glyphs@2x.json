@@ -671,6 +671,174 @@
     "x": 160,
     "y": 536
   },
+  "pass-01": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 512,
+    "y": 960
+  },
+  "pass-01-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 768,
+    "y": 952
+  },
+  "pass-02": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1136,
+    "y": 968
+  },
+  "pass-02-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1240,
+    "y": 968
+  },
+  "pass-03": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 0,
+    "y": 968
+  },
+  "pass-03-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 104,
+    "y": 968
+  },
+  "pass-04": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1472,
+    "y": 488
+  },
+  "pass-04-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1552,
+    "y": 540
+  },
+  "pass-05": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1576,
+    "y": 400
+  },
+  "pass-05-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1632,
+    "y": 312
+  },
+  "pass-06": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1664,
+    "y": 224
+  },
+  "pass-06-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1576,
+    "y": 452
+  },
+  "pass-07": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1656,
+    "y": 504
+  },
+  "pass-07-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1680,
+    "y": 364
+  },
+  "pass-08": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1736,
+    "y": 276
+  },
+  "pass-08-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1768,
+    "y": 224
+  },
+  "pass-09": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1680,
+    "y": 416
+  },
+  "pass-09-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1872,
+    "y": 224
+  },
+  "pass-10": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1840,
+    "y": 276
+  },
+  "pass-10-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1944,
+    "y": 276
+  },
+  "pass-11": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1760,
+    "y": 468
+  },
+  "pass-11-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1784,
+    "y": 328
+  },
+  "pass-12": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1784,
+    "y": 380
+  },
+  "pass-12-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1864,
+    "y": 432
+  },
   "peak-01": {
     "height": 88,
     "pixelRatio": 2,

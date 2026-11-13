@@ -13,17 +13,19 @@ export function reliefSources(tilesBase: string, dataBase: string): Record<strin
 }
 
 function glyphs(): LayerSpecification[] {
+  const size: ExpressionSpecification = ['*', ['match', ['get', 'size'], 'large', 0.85, 'medium', 0.65, 0.5], ['get', 'glyph_scale']]
   return [
     {
       id: 'mountain-glyph',
       type: 'symbol',
       source: 'glyphs',
-      // Large glyphs from zoom 6, medium from 7.5, small from 10.
+      // Large glyphs from zoom 6, medium from 7, small from 9: below zoom 10 the Imhof tint has no line work,
+      // so the glyphs carry the relief there.
       filter: [
         'any',
         ['==', ['get', 'size'], 'large'],
-        ['all', ['==', ['get', 'size'], 'medium'], ['>=', ['zoom'], 7.5]],
-        ['>=', ['zoom'], 10],
+        ['all', ['==', ['get', 'size'], 'medium'], ['>=', ['zoom'], 7]],
+        ['>=', ['zoom'], 9],
       ],
       layout: {
         // <landform>-<nn>[-flip], from art/glyphs/make_glyphs.py.
@@ -32,13 +34,19 @@ function glyphs(): LayerSpecification[] {
           ['case', ['<', ['get', 'glyph'], 10], '0', ''], ['to-string', ['get', 'glyph']],
           ['case', ['get', 'flip'], '-flip', ''],
         ],
-        'icon-size': ['*', ['match', ['get', 'size'], 'large', 0.85, 'medium', 0.65, 0.5], ['get', 'glyph_scale']],
+        // A fifth smaller up to zoom 8, so more glyphs pass collision where they first appear.
+        'icon-size': ['interpolate', ['linear'], ['zoom'], 8, ['*', 0.8, size], 10, size],
         'icon-rotate': ['get', 'glyph_rotate'],
         'icon-anchor': 'bottom',
         'icon-padding': 2,
-        // Biggest peaks win collisions; unknown prominence (the highest summits) sorts first.
-        'symbol-sort-key': ['-', 0, ['coalesce', ['get', 'prominence_m'], 99999]],
-        'text-field': ['case', ['all', ['!=', ['get', 'name'], 'Unnamed summit'], ['!=', ['get', 'size'], 'small']], ['get', 'name'], ''],
+        // Biggest peaks win collisions; unknown prominence (the highest summits) sorts first. Passes come after
+        // every summit, named before unnamed, each by the prominence of the summit whose key col it is.
+        'symbol-sort-key': ['case', ['==', ['get', 'landform'], 'pass'],
+          ['-', ['case', ['==', ['get', 'name'], 'Unnamed pass'], 200000, 100000], ['get', 'prominence_m']],
+          ['-', 0, ['coalesce', ['get', 'prominence_m'], 99999]]],
+        // Named summits from medium size up; every named pass, since passes are all small.
+        'text-field': ['case', ['all', ['!=', ['get', 'name'], 'Unnamed summit'], ['!=', ['get', 'name'], 'Unnamed pass'],
+          ['any', ['!=', ['get', 'size'], 'small'], ['==', ['get', 'landform'], 'pass']]], ['get', 'name'], ''],
         'text-font': [fonts.italic],
         'text-size': 11,
         'text-anchor': 'top',

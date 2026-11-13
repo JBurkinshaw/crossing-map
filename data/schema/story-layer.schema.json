@@ -59,14 +59,14 @@
         "photo_ids": { "type": "array", "items": { "type": "string" } },
         "vignette": { "type": ["string", "null"] },
         "elevation_m": { "type": "number", "description": "Mountain glyphs: summit elevation." },
-        "prominence_m": { "type": ["number", "null"], "description": "Mountain glyphs: topographic prominence; null where the key col lies outside the DEM." },
+        "prominence_m": { "type": ["number", "null"], "description": "Mountain glyphs: topographic prominence; null where the key col lies outside the DEM. For a pass, the prominence of the summit whose key col it is." },
         "size": { "enum": ["small", "medium", "large"], "description": "Mountain glyphs: size class from prominence." },
         "glyph": { "type": "integer", "minimum": 1, "description": "Mountain glyphs: which drawn shape." },
         "flip": { "type": "boolean" },
         "glyph_scale": { "type": "number" },
         "glyph_rotate": { "type": "number" },
         "name_code": { "type": ["string", "null"], "description": "Mountain glyphs: the matched name's GeoNames code or GNIS class (gnis:<class>)." },
-        "landform": { "enum": ["peak", "dome", "mesa", "butte", "cone", "ridge"], "description": "Mountain glyphs: which glyph family, from crossing.landforms." },
+        "landform": { "enum": ["peak", "dome", "mesa", "butte", "cone", "ridge", "pass"], "description": "Mountain glyphs: which glyph family, from crossing.landforms." },
         "landform_source": { "enum": ["name", "dem", "default"], "description": "Mountain glyphs: the evidence that gave the landform the most points." }
       }
     }
