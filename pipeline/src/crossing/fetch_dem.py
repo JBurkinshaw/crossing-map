@@ -19,8 +19,9 @@ REPO = Path(__file__).resolve().parents[3]
 OUT = REPO / "private" / "cache" / "dem" / "copernicus"
 URL = "https://copernicus-dem-30m.s3.amazonaws.com/{name}/{name}.tif"
 CORRIDOR_KM = 40
-# (west, south, east, north): the Casas Grandes - Babícora - Namiquipa country of Parts II-IV.
-EXTRA = [(-109, 28, -106, 31)]
+# (west, south, east, north): the Casas Grandes - Babícora - Namiquipa country of Parts II-IV; the bootheel to
+# Deming, Lordsburg and Apache Pass (J4, J7); the Black Range (J7). Only legs on horseback or on foot (plan 5.2).
+EXTRA = [(-109, 28, -106, 31), (-108, 31, -107, 32), (-110, 32, -107, 33), (-108, 33, -107, 34)]
 
 
 def name(lat: int, lon: int) -> str:
