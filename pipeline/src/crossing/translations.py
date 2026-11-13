@@ -42,6 +42,7 @@ REVIEW = REPO / "review" / "stage-5"
 REVIEW_CSV = REVIEW / "translations-review.csv"
 GAPS_CSV = REVIEW / "translation-gaps.csv"
 ROAD_CSV = REVIEW / "road-refs.csv"  # talk on the road: runs of lines judged to be spoken on one route segment
+WHERE_CSV = REVIEW / "where-spoken.csv"  # single lines judged by hand to be spoken at a stop, place, area or segment
 
 INCIPIT_WORDS = 5
 MATCH_MIN = 85  # rapidfuzz partial ratio for a guide match (plan, section 8)
@@ -510,26 +511,49 @@ def load_features() -> dict[str, dict]:
     return out
 
 
-def load_road_refs(features: dict[str, dict]) -> list[tuple[str, str, str]]:
-    """(first id, last id, segment id) for each run of lines judged to be spoken on the road.
+def load_hand_refs(features: dict[str, dict], line_ids: list[str]) -> dict[str, tuple[str, bool]]:
+    """Where a line was spoken, judged by hand: line id -> (ref, whether it overrides the name heuristic).
 
-    The judgement is by hand, from the episode's stops and segments and the narration around the lines
-    (review/stage-5/road-refs.csv, in our own words). A run lies in one episode, and its segment is
-    travelled in that same episode, so a road reference is never a guess across episodes.
+    The judgements are made from the episode's stops and segments and the narration around the lines, with
+    a reason in our own words. road-refs.csv lists runs of lines (first id, last id, segment) spoken while
+    travelling one route segment; a run fills only lines the heuristic left without a place.
+    where-spoken.csv lists single lines (id, ref, kind) and wins over the heuristic; an empty ref records a
+    line the text does not place, and changes nothing. A ref must exist with the stated kind and not be
+    first seen after the line, and a segment must be travelled in the line's own episode, or the build stops.
     """
-    if not ROAD_CSV.exists():
-        return []
-    runs = []
-    for row in csv.DictReader(ROAD_CSV.open(encoding="utf-8")):
-        first, last, seg = row["first_id"], row["last_id"], row["segment"]
-        episode = first[3:7]
-        if last[3:7] != episode or last < first:
-            sys.exit(f"{ROAD_CSV.name}: {first}..{last} is not a run within one episode")
-        feature = features.get(seg)
-        if not feature or feature["kind"] != "road" or feature["episode"] != episode:
-            sys.exit(f"{ROAD_CSV.name}: {seg} is not a route segment travelled in episode {episode}")
-        runs.append((first, last, seg))
-    return runs
+    known = set(line_ids)
+    out: dict[str, tuple[str, bool]] = {}
+
+    def add(source: str, line: str, ref: str, kind: str, override: bool) -> None:
+        episode = line[3:7]
+        feature = features.get(ref)
+        if line not in known:
+            sys.exit(f"{source}: {line} is not a line id")
+        if line in out:
+            sys.exit(f"{source}: {line} is placed twice")
+        if not feature or feature["kind"] != kind:
+            sys.exit(f"{source}: {line}: {ref} is not a {kind} id")
+        if kind == "road" and feature["episode"] != episode:
+            sys.exit(f"{source}: {line}: {ref} is not a route segment travelled in episode {episode}")
+        if feature["first_seen"] > episode:
+            sys.exit(f"{source}: {line}: {ref} is first seen after the line (a spoiler)")
+        out[line] = (ref, override)
+
+    if ROAD_CSV.exists():
+        for row in csv.DictReader(ROAD_CSV.open(encoding="utf-8")):
+            first, last = row["first_id"], row["last_id"]
+            if last[3:7] != first[3:7] or last < first:
+                sys.exit(f"{ROAD_CSV.name}: {first}..{last} is not a run within one episode")
+            for line in line_ids:
+                if first <= line <= last:
+                    add(ROAD_CSV.name, line, row["segment"], "road", False)
+    if WHERE_CSV.exists():
+        for row in csv.DictReader(WHERE_CSV.open(encoding="utf-8")):
+            if row["ref"]:
+                add(WHERE_CSV.name, row["id"], row["ref"], row["kind"], True)
+            elif row["id"] not in known:
+                sys.exit(f"{WHERE_CSV.name}: {row['id']} is not a line id")
+    return out
 
 
 def locate(ep_text: str, para_start: int, candidates: list[dict]) -> str | None:
@@ -610,18 +634,19 @@ def cmd_build() -> None:
     spans = json.loads(SPANS.read_text(encoding="utf-8"))["spans"]
     drafts = load_drafts()
     features = load_features()
-    roads = load_road_refs(features)
+    hand = load_hand_refs(features, [s["id"] for s in spans])
     records, review_rows, gap_rows, search = [], [], [], {}
     for s in spans:
         d = drafts.get(s["id"], {})
         skip = d.get("skip") in TRUE
-        # The review CSV may set location_ref by hand; "none" clears it (and keeps a road reference off too).
+        # The review CSV may set location_ref by hand; "none" clears it (and keeps a hand reference off too).
+        # A cell that only repeats the heuristic is not an edit, so a judgement in where-spoken.csv replaces it.
         loc = d.get("location_ref", s.get("location_ref"))
         cleared = loc in ("none", "null")
         loc = None if loc in (None, "", "none", "null") else loc
-        if loc is None and not cleared:
-            # Talk on the road: a line with no place, in a run judged to be spoken on one route segment.
-            loc = next((seg for first, last, seg in roads if first <= s["id"] <= last), None)
+        ref, override = hand.get(s["id"], (None, False))
+        if ref and not cleared and (loc is None or (override and loc == s.get("location_ref"))):
+            loc = ref
         if loc and features.get(loc, {}).get("first_seen", "9-99") > s["episode"]:
             loc = None  # never point at something the reader has not met yet
         rec = {
@@ -662,7 +687,9 @@ def cmd_build() -> None:
           f"{sum(1 for r in records if r['en'])} with English, "
           f"{sum(1 for r in records if r['guide_page'])} linked to a guide page, {len(gap_rows)} gaps, "
           f"{len(review_rows) - len(records)} skipped as not Spanish, "
-          f"{sum(1 for r in records if r['location_kind'] == 'road')} spoken on the road")
+          f"{sum(1 for r in records if r['location_kind'] not in (None, 'road'))} placed at a stop, place or area, "
+          f"{sum(1 for r in records if r['location_kind'] == 'road')} spoken on the road, "
+          f"{sum(1 for r in records if r['location_kind'] is None)} with no place")
 
 
 def main() -> None:
