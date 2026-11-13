@@ -418,7 +418,7 @@ Base: [A Translation of Spanish Passages in The Crossing](https://d41cfaf2-ac52-
 
 **Where it was spoken.** Each entry points to a stop, place or area. Talk on the road links to a corridor: the route segment buffered 2 km, labelled "on the road between X and Y". Selecting a place shows "Spoken here"; selecting a translation flies to its place and outlines the area. Search covers Spanish, English and place names, accent-insensitive, filtered by Part and source, and obeys the spoiler setting ("Se murió" is itself a spoiler).
 
-**Permission.** Write to the Society (and Lt. Campbell if reachable) before launch. Until a yes arrives, the public build shows only site translations and links each guide page.
+**Permission.** Decided 12 November 2026: no permission request (section 3). The site writes its own translations and links each to the matching guide page with credit; the guide's English is never copied.
 
 ## 9. Interface
 
