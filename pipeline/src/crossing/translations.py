@@ -109,11 +109,20 @@ def fold(s: str) -> str:
     return " ".join(re.sub(r"[^a-z0-9]+", " ", s).split())
 
 
+# A speech tag in the narration (", he said.", "? she said.", ", Billy said."): the incipit stops before it, so it
+# holds only the speaker's Spanish. A rare Spanish "he" (I have) after a comma is cut too, which only shortens it.
+# The text sometimes closes a line with a curly apostrophe where a comma belongs, so that counts as a break too.
+SPEECH_TAG = re.compile(rf"(?<=[,?!\u2019])\s+(?:(?:{SPEECH_VERBS}|wrote|he|she|they|it|the|his|her|their)\b"
+                        rf"|[A-Z][a-z]+\s+(?:{SPEECH_VERBS}|wrote)\b).*$", re.S)
+
+
 def incipit(es: str, n: int = INCIPIT_WORDS) -> str:
-    """The opening words of a span, at most n, with an ellipsis when cut."""
-    words = es.replace(" ", " ").split()
+    """The opening words of a span's Spanish, at most n, with an ellipsis when cut."""
+    text = " ".join(es.split())
+    spoken = SPEECH_TAG.sub("", text).rstrip(",\u2019")
+    words = spoken.split()
     cut = " ".join(words[:n])
-    return cut + ("…" if len(words) > n else "")
+    return cut + ("…" if len(words) > n or spoken != text else "")
 
 
 # ---------- the Campbell guide (matching only: its English is never kept) ----------
