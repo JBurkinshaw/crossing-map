@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Translations",
+  "description": "Spanish lines and words in the novel with this site's own English. Only the opening words (incipit) of each Spanish span are published, never the full span; the Campbell guide is linked by page, never copied. See docs/plan.md, sections 3 and 8.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["id", "part", "episode", "page", "es_incipit", "en", "source", "confidence", "speaker", "listener", "location_ref", "first_seen", "guide_page"],
+    "additionalProperties": false,
+    "properties": {
+      "id": { "type": "string", "pattern": "^tr-[1-4]-(0[1-9]|1[0-4])-[0-9]{3}$" },
+      "part": { "type": "integer", "minimum": 1, "maximum": 4 },
+      "episode": { "type": "string", "pattern": "^[1-4]-(0[1-9]|1[0-4])$" },
+      "page": { "type": ["integer", "null"], "minimum": 1, "maximum": 426, "description": "Approximate Vintage International page, interpolated between Campbell guide anchors." },
+      "es_incipit": { "type": "string", "minLength": 1, "description": "The span's opening words, at most five, with an ellipsis when cut. The full span is never published." },
+      "en": { "type": ["string", "null"], "minLength": 1, "description": "This site's own English translation; null while a draft is pending." },
+      "source": { "enum": ["site", "campbell"], "description": "Who wrote the English. Only site translations are published until permission arrives (plan section 3)." },
+      "confidence": { "enum": ["high", "medium", "low", null] },
+      "speaker": { "type": ["string", "null"], "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+      "listener": { "type": ["string", "null"], "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+      "location_ref": { "type": ["string", "null"], "description": "Id of the stop, place or area where it was said (stops, places or areas GeoJSON)." },
+      "first_seen": { "type": "string", "pattern": "^[1-4]-(0[1-9]|1[0-4])$" },
+      "guide_page": { "type": ["integer", "null"], "minimum": 1, "maximum": 426, "description": "The Vintage page under which the Campbell guide lists this line, for a link with credit; null when the guide has no entry (a gap)." }
+    }
+  }
+}
