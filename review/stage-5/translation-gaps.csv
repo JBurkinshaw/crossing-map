@@ -1,0 +1,537 @@
+id,part,episode,page,kind,es_incipit,words,en,confidence,note
+tr-1-04-005,1,1-04,34,speech,Hasta la vista.,3,See you.,medium,Speaker is not named in the passage.
+tr-1-07-002,1,1-07,41,speech,El señor?,2,The master?,high,
+tr-1-07-003,1,1-07,41,speech,Él está?,2,Is he in?,high,
+tr-1-07-004,1,1-07,41,speech,"Bueno, she said. Pásale.",4,All right. Come in.,high,Pásale is a common Mexican form inviting someone in.
+tr-1-07-005,1,1-07,42,speech,Gracias,1,Thank you.,high,
+tr-1-07-007,1,1-07,42,speech,Gracias.,1,Thank you.,high,
+tr-1-07-010,1,1-07,42,speech,Sí señor.,2,Yes sir.,high,
+tr-1-07-012,1,1-07,43,speech,Gracias,1,Thank you.,high,
+tr-1-07-014,1,1-07,43,speech,"Bueno, the old man said.…",6,Good. Good.,high,
+tr-1-07-018,1,1-07,43,speech,La Charca.,2,La Charca.,high,The old man corrects the place name to the singular.
+tr-1-07-019,1,1-07,43,speech,Sí.,1,Yes.,high,
+tr-1-07-021,1,1-07,43,speech,Historia?,1,A story?,high,
+tr-1-07-022,1,1-07,43,speech,Sí,1,Yes.,high,
+tr-1-07-036,1,1-07,47,speech,Se fué.,2,It's gone.,high,Answering where the sun is: it has set.
+tr-1-07-044,1,1-07,47,word,matríz,1,matrix (scent lure),high,The trapper's lure formula.
+tr-1-07-046,1,1-07,47,speech,Lugares donde el fierro ya…,19,Places where the iron is already in the earth. Places where the fire has burned.,high,
+tr-1-07-047,1,1-07,47,speech,Y cómo se encuentra?,4,And how is it found?,high,
+tr-1-08-001,1,1-08,50,speech,"Cuidado, he wrote. Hay una…",12,Careful. There is a wolf trap buried in the fire.,high,Written in the sand as a warning to the vaqueros.
+tr-1-08-007,1,1-08,70,speech,Puede detenerla?,2,Can you hold her?,high,
+tr-1-08-008,1,1-08,70,speech,Sí,1,Yes.,high,
+tr-1-08-010,1,1-08,70,speech,Sí,1,Yes.,high,
+tr-1-08-012,1,1-08,70,speech,Listo.,1,Ready.,high,
+tr-1-08-014,1,1-08,71,speech,Ándale.,1,Go on.,high,"Ándale: go ahead, get on with it."
+tr-1-09-006,1,1-09,75,speech,Sí.,1,Yes.,high,
+tr-1-09-012,1,1-09,75,speech,"Bueno, said the man. Bueno.",5,Good. Good.,high,
+tr-1-09-014,1,1-09,75,speech,Ándale,1,Go on.,high,Ándale used as a send-off.
+tr-1-09-019,1,1-09,84,word,esclarajo,1,strike-a-light (flint lighter),low,Not a standard word; from context a flint-and-steel or wick lighter.
+tr-1-09-020,1,1-09,84,speech,Buenos días,2,Good morning.,high,
+tr-1-09-021,1,1-09,85,speech,Sí.,1,Yes.,high,Answering that he is American.
+tr-1-09-022,1,1-09,85,speech,"Es feroz la perm, no?",5,"The dog is fierce, isn't she?",high,"Scan error: read ""perm"" as ""perra""."
+tr-1-09-026,1,1-09,85,speech,Es una loba.,3,She's a wolf.,high,
+tr-1-09-028,1,1-09,85,speech,Sí.,1,Yes.,high,
+tr-1-09-033,1,1-09,85,speech,Me entiende?,2,Do you understand me?,high,
+tr-1-09-036,1,1-09,85,speech,Sí.,1,Yes.,high,
+tr-1-09-047,1,1-09,86,word,Debe,1,You should (take off the muzzle),medium,"The full line is garbled by OCR; read ""guitar el bowl"" as ""quitar el bozal"" (take off the muzzle)."
+tr-1-09-049,1,1-09,86,speech,Todos que vengas alrededor,4,Everyone who comes around.,medium,Ungrammatical as printed (vengas for vengan); meaning is clear from context.
+tr-1-09-051,1,1-09,87,word,jovencita,1,young girl,high,
+tr-1-09-059,1,1-09,90,speech,De quién es?,3,Whose is it?,high,
+tr-1-09-060,1,1-09,90,word,hacendado,1,"estate owner, big landowner",high,Hacendado: the owner of a hacienda.
+tr-1-09-066,1,1-09,95,speech,Documentos?,1,Papers?,high,
+tr-1-09-067,1,1-09,95,speech,Sí. Documentos.,2,Yes. Papers.,high,
+tr-1-09-069,1,1-09,95,speech,Qué es su nombre,4,What is your name?,high,"Anglicized phrasing (standard would be ""Cuál es su nombre"")."
+tr-1-09-071,1,1-09,95,speech,Sí.,1,Yes.,high,
+tr-1-09-075,1,1-09,95,speech,Pasaporte’,1,Passport?,high,Stray OCR punctuation dropped.
+tr-1-09-076,1,1-09,95,speech,Nada.,1,Nothing.,high,Meaning he has no papers of any kind.
+tr-1-09-081,1,1-09,97,speech,Dónde está la loba?,4,Where is the she-wolf?,high,
+tr-1-09-082,1,1-09,97,speech,Afuera.,1,Outside.,high,
+tr-1-09-084,1,1-09,97,speech,Cuántos años tiene?,3,How old are you?,high,
+tr-1-09-085,1,1-09,97,speech,Dieciseis.,1,Sixteen.,high,
+tr-1-09-111,1,1-09,100,word,extranjero,1,foreigner,high,
+tr-1-09-118,1,1-09,101,speech,Adónde vamos?,2,Where are we going?,high,
+tr-1-09-119,1,1-09,101,word,rebozos,1,shawls,high,Rebozo: a long shawl worn by Mexican women.
+tr-1-09-121,1,1-09,101,speech,La feria?,2,The fair?,high,
+tr-1-09-122,1,1-09,101,speech,Sí señor.,2,Yes sir.,high,
+tr-1-09-123,1,1-09,101,speech,Adónde?,1,Where?,high,
+tr-1-09-132,1,1-09,102,word,machaca,1,dried shredded meat,high,"Machaca: dried meat pounded into shreds, a northern Mexican staple."
+tr-1-09-133,1,1-09,102,speech,Le gusta?,2,Do you like it?,high,
+tr-1-09-134,1,1-09,102,word,carretas,1,carts,high,
+tr-1-09-138,1,1-09,103,word,cacahuates,1,peanuts,high,Mexican Spanish (from Nahuatl).
+tr-1-09-139,1,1-09,103,word,buñuelos,1,fritters,high,"Buñuelos: fried dough fritters, often sugared."
+tr-1-09-142,1,1-09,104,speech,Pásale,1,Go on in.,high,
+tr-1-09-147,1,1-09,105,speech,La tablilla,2,The sign!,high,Tablilla: the board giving the wolf's history.
+tr-1-09-152,1,1-09,106,word,mozos,1,"grooms, stable hands",high,Mozos de estribo (grooms riding alongside) and mozos de cuadra (stable hands).
+tr-1-09-156,1,1-09,106,word,norteño,1,northern Mexican (style of dress),high,Norteño: of northern Mexico.
+tr-1-10-008,1,1-10,108,word,patrón,1,"boss, the estate owner",high,
+tr-1-10-028,1,1-10,110,speech,"Sí, he said. Sí.",4,Yes. Yes.,high,
+tr-1-10-030,1,1-10,110,speech,No? said the alguacil. Y…,7,No? And why not?,high,
+tr-1-10-044,1,1-10,111,speech,Es su caballo,3,Is it your horse?,high,Could be a statement or question; the mozo is a stable hand.
+tr-1-10-045,1,1-10,111,speech,Sí.,1,Yes.,high,
+tr-1-10-047,1,1-10,111,speech,Todo está bien,3,Everything all right?,medium,Speaker inferred from the alternating exchange.
+tr-1-10-048,1,1-10,111,speech,Sí. Bien. Gracias.,3,Yes. Fine. Thank you.,high,
+tr-1-10-051,1,1-10,112,word,domicilios,1,dwellings (the workers' houses),high,
+tr-1-10-055,1,1-10,113,word,hacendados,1,estate owners,high,
+tr-1-10-056,1,1-10,113,word,mayordomos,1,"foremen, stewards",high,
+tr-1-10-057,1,1-10,113,word,ejidos,1,communal farms,high,Ejido: land held in common by a village under Mexican land reform.
+tr-1-10-059,1,1-10,113,word,estacada,1,stockaded pit,high,
+tr-1-10-060,1,1-10,114,word,querencia,1,chosen home ground,high,Bullfighting term for the spot in the ring where a cornered animal takes its stand.
+tr-1-10-070,1,1-10,117,speech,Qué pasó?,2,What happened?,high,
+tr-1-10-075,1,1-10,118,word,güero,1,fair-haired one (the Anglo boy),high,Güero = blond or fair-skinned; a common nickname for an Anglo.
+tr-1-10-105,1,1-10,122,word,aguador,1,water carrier,high,
+tr-1-10-109,1,1-10,122,speech,Déme la carabina,3,Give me the rifle.,high,
+tr-1-10-111,1,1-10,122,speech,Bastante,1,Enough.,high,The speaker in the bleachers goes on to say to leave him alone (scan error 'molests' for 'moleste').
+tr-1-10-113,1,1-10,123,word,puros,1,cigars,medium,Exact use not visible in the supplied context; puros normally means cigars.
+tr-1-10-118,1,1-10,123,speech,Cuánto quiere por él?,4,How much do you want for it?,high,
+tr-1-10-121,1,1-10,123,speech,En un huinche?,3,A Winchester?,medium,"Huinche is Mexican slang for a Winchester rifle; literally 'in a Winchester?', meaning payment in that form."
+tr-1-10-123,1,1-10,123,speech,Bueno,1,All right.,high,
+tr-1-10-128,1,1-10,126,word,soldadera,1,woman soldier,high,Soldadera: a woman who followed and fought alongside soldiers in the Mexican Revolution.
+tr-2-01-002,2,2-01,130,word,madroño,1,madrone (tree),high,
+tr-2-01-003,2,2-01,131,word,piñon,1,pinyon pine,high,
+tr-2-01-004,2,2-01,131,speech,De dónde viene?,3,Where are you coming from?,high,
+tr-2-01-005,2,2-01,132,speech,De los Estados Unidos.,4,From the United States.,high,
+tr-2-01-006,2,2-01,132,speech,De Tejas?,2,From Texas?,high,
+tr-2-01-007,2,2-01,132,speech,Nuevo Mexico.,2,New Mexico.,high,
+tr-2-01-008,2,2-01,132,speech,Que undo,2,How lovely.,low,"Garbled; read as 'Qué lindo' (how lovely), though 'Qué mundo' (what a world) is possible."
+tr-2-01-011,2,2-01,132,speech,Adónde va?,2,Where are you going?,high,
+tr-2-01-013,2,2-01,132,speech,Muchísimas gracias,2,Thank you very much.,high,
+tr-2-01-014,2,2-01,132,speech,Momentito,1,Just a moment.,high,
+tr-2-01-016,2,2-01,133,word,chozas,1,huts,high,
+tr-2-01-017,2,2-01,133,word,rancherías,1,small settlements,high,Ranchería: a scattered Indian settlement.
+tr-2-01-019,2,2-01,134,word,huérfano,1,orphan,high,
+tr-2-01-024,2,2-01,135,word,mojoneras de muerte,3,death markers (stone cairns),high,Mojonera: a boundary marker or cairn; here cairns marking where travelers were killed.
+tr-2-01-028,2,2-01,136,word,grullo,1,mouse-gray horse,high,"Grullo: a slate or blue-dun horse color, named for the crane."
+tr-2-01-031,2,2-01,137,word,horno,1,outdoor clay oven,high,
+tr-2-01-033,2,2-01,139,speech,A barretero.,2,A drill man (miner).,high,Barretero: a miner who works the drill bar.
+tr-2-01-038,2,2-01,142,word,corridos,1,ballads,high,
+tr-2-01-040,2,2-01,143,word,estancias,1,ranches,high,
+tr-2-01-046,2,2-01,150,word,golondrinas,1,swallows,high,
+tr-2-01-051,2,2-01,157,speech,Pero es el más dulce…,11,But he's the sweetest of all. And the nicest.,high,
+tr-2-02-002,2,2-02,159,speech,Gracias. Adiós.,2,Thank you. Goodbye.,high,
+tr-2-07-001,2,2-07,179,word,paletas,1,ice pops,high,Paleta: a frozen treat on a stick.
+tr-2-07-003,2,2-07,183,speech,Quién es?,2,Who is it?,high,
+tr-2-07-005,2,2-07,183,speech,Estaba?,1,Was it?,high,
+tr-2-08-001,2,2-08,183,word,factura,1,bill of sale,high,
+tr-2-08-003,2,2-08,184,word,zócalo,1,town square,high,
+tr-2-08-005,2,2-08,185,speech,Fantasma?,1,Ghost?,high,
+tr-2-08-006,2,2-08,185,speech,"Sí, sí.",2,"Yes, yes.",high,
+tr-2-08-008,2,2-08,185,speech,Cómo?,1,How so?,high,
+tr-2-08-009,2,2-08,185,speech,Cómo? Porque el viejo está…,8,"How? Because the old man is crazy, that's how.",high,
+tr-2-08-010,2,2-08,185,speech,Completamente.,1,Completely.,high,
+tr-2-08-011,2,2-08,185,speech,No es correcto?,3,Isn't it right?,high,
+tr-2-08-013,2,2-08,185,word,jovenes,1,young men,high,
+tr-2-08-015,2,2-08,186,speech,Cuatro días,2,Four days.,high,
+tr-2-08-016,2,2-08,187,word,idiosincrasico,1,"peculiar, out of sorts",medium,"Idiosincrásico, a loan-word sense of 'idiosyncratic'."
+tr-2-08-017,2,2-08,188,speech,Buenas noches,2,Good evening.,high,
+tr-2-08-018,2,2-08,188,speech,Buenas noches.,2,Good evening.,high,
+tr-2-08-019,2,2-08,188,speech,Son Americanos?,2,Are you Americans?,high,
+tr-2-08-020,2,2-08,188,speech,Sí.,1,Yes.,high,
+tr-2-08-022,2,2-08,188,speech,No hay otro caballero más…,7,There's no other horseman but us.,medium,Caballero means both gentleman and horseman.
+tr-2-08-025,2,2-08,192,speech,Adónde van?,2,Where are you headed?,high,
+tr-2-08-026,2,2-08,192,speech,A Casas Grandes,3,To Casas Grandes.,high,
+tr-2-08-030,2,2-08,195,word,acequias,1,irrigation ditches,high,
+tr-2-08-034,2,2-08,197,speech,"Bueno, he said. Bueno.",4,Hello. Hello.,high,Bueno is the Mexican way to answer the telephone.
+tr-2-08-036,2,2-08,197,speech,"Bueno, he said. Pendejo. Completamente…",7,Well. Idiot. Completely shameless.,high,"Pendejo is a strong insult (jerk, idiot); said after hanging up."
+tr-2-08-037,2,2-08,197,speech,"Pásale, pásale.",2,"Come in, come in.",high,
+tr-2-08-039,2,2-08,197,speech,No está.,2,He isn't here.,high,
+tr-2-08-040,2,2-08,197,speech,Cuándo regresa?,2,When will he be back?,high,
+tr-2-08-041,2,2-08,197,speech,Todo el mundo quiere saber.,5,Everyone wants to know.,high,
+tr-2-08-042,2,2-08,198,word,oscuro,1,dark (castaño oscuro = dark bay),high,"Preceded by 'castafio', a scan error for 'castaño'."
+tr-2-08-052,2,2-08,200,speech,Hay otro más,3,There's something else.,high,
+tr-2-08-056,2,2-08,200,word,señor,1,Mr.,high,
+tr-2-08-057,2,2-08,200,speech,Quién sabe?,2,Who knows?,high,
+tr-2-08-058,2,2-08,200,word,capón,1,gelding,high,
+tr-2-08-062,2,2-08,201,speech,Ruano. Bayo. Bayo cebruno. Alazán.…,7,Roan. Dun. Zebra dun. Sorrel. Burnt sorrel.,medium,Horse colors read from a list; bayo cebruno is a dun with dark points.
+tr-2-08-069,2,2-08,201,speech,Otto más,2,One more thing.,high,Scan error: read 'Otto' as 'Otro'.
+tr-2-08-076,2,2-08,203,word,acequia,1,irrigation ditch,high,
+tr-2-08-078,2,2-08,206,speech,Buenas noches,2,Good evening.,high,
+tr-2-08-079,2,2-08,206,speech,Buenas noches,2,Good evening.,high,
+tr-2-08-080,2,2-08,207,speech,Nuestros caballos están allá,4,Our horses are over there.,high,
+tr-2-08-081,2,2-08,207,speech,Está bien,2,All right.,high,
+tr-2-08-082,2,2-08,207,speech,Cómo está,2,How are you?,high,
+tr-2-08-083,2,2-08,207,speech,De dónde viene?,3,Where are you coming from?,high,
+tr-2-08-084,2,2-08,207,speech,Tejas.,1,Texas?,medium,Speaker inferred: a guess after Billy names America.
+tr-2-08-085,2,2-08,207,speech,Nuevo Mexico.,2,New Mexico.,high,
+tr-2-08-086,2,2-08,207,speech,"Nuevo Mexico, the man said.…",7,New Mexico. Where are you going?,high,
+tr-2-08-090,2,2-08,208,speech,"Nada, said Billy. No queremos…",6,Nothing. We don't want anything.,high,
+tr-2-08-091,2,2-08,208,speech,Nada,1,Nothing.,high,
+tr-2-08-092,2,2-08,208,speech,Cuántos años tiene?,3,How old are you?,high,
+tr-2-08-095,2,2-08,208,speech,Cuántos años tiene la muchacha?,5,How old is the girl?,high,
+tr-2-08-096,2,2-08,208,speech,No to sé.,3,I don't know.,high,Scan error: read 'to' as 'lo'.
+tr-2-08-098,2,2-08,208,speech,Es muy joven,3,She's very young.,high,
+tr-2-08-099,2,2-08,208,speech,Bastante.,1,Quite.,medium,Bastante here likely means 'quite (young)' or 'old enough'; speaker inferred.
+tr-2-08-101,2,2-08,209,speech,Quiere tomar?,2,Want a drink?,high,
+tr-2-08-102,2,2-08,209,speech,No. Gracias.,2,No. Thank you.,high,
+tr-2-08-103,2,2-08,209,speech,No quiero tomar,3,I don't want a drink.,high,
+tr-2-08-104,2,2-08,209,speech,Adónde vas?,2,Where are you going?,high,
+tr-2-08-105,2,2-08,209,speech,Adónde va el muchacho?,4,Where's the boy going?,high,
+tr-2-08-108,2,2-08,210,speech,Vámonos,1,Let's go.,high,
+tr-2-08-109,2,2-08,210,speech,Vámonos,1,Let's go.,high,
+tr-2-08-110,2,2-08,210,speech,Vámonos,1,Let's go.,high,
+tr-2-08-111,2,2-08,211,speech,Está bien?,2,Are you all right?,high,
+tr-2-08-112,2,2-08,211,speech,"Sí, sí",2,"Yes, yes.",high,
+tr-3-01-003,3,3-01,214,speech,Qué clase de lugar es…,6,What kind of place is this?,high,
+tr-3-01-004,3,3-01,215,speech,Es ejido,2,It's an ejido.,high,Ejido: a communal farming settlement.
+tr-3-01-007,3,3-01,215,word,azotea,1,flat roof,high,
+tr-3-01-008,3,3-01,215,speech,Dónde están los domicilios?,4,Where are the houses?,high,
+tr-3-01-012,3,3-01,217,word,ejiditarios,1,ejido members,high,Standard spelling is ejidatarios: members of a communal farm.
+tr-3-01-013,3,3-01,217,speech,Vámonos,1,Let's go.,high,
+tr-3-01-014,3,3-01,217,speech,"Vámonos, she said. Está bien.",5,Let's go. It's all right.,high,
+tr-3-01-022,3,3-01,225,word,jinete,1,horseman,high,
+tr-3-01-023,3,3-01,226,speech,Tienen mucho miedo.,3,They're very frightened.,high,
+tr-3-01-024,3,3-01,227,word,borrachon,1,drunkard,high,
+tr-3-01-026,3,3-01,227,speech,Todo el mundo.,3,Everybody.,high,
+tr-3-01-028,3,3-01,227,speech,Buenas tardes,2,Good afternoon.,high,
+tr-3-01-029,3,3-01,229,word,payaso,1,clown,high,
+tr-3-01-030,3,3-01,229,speech,Mánde?,1,Pardon?,medium,Mande: polite Mexican 'what did you say?'; speaker inferred.
+tr-3-01-032,3,3-01,229,speech,Te mata,2,He kills you,high,
+tr-3-01-033,3,3-01,229,speech,No es porque le sé…,7,Isn't it because I know his?,high,Meaning: because I know his secret.
+tr-3-01-034,3,3-01,229,speech,A pesar de to que…,8,In spite of what people think?,medium,Scan error: read 'to' as 'lo'; speaker inferred from alternation.
+tr-3-01-035,3,3-01,229,speech,A pesar de cualquier.,4,In spite of anything.,medium,Speaker inferred from alternation.
+tr-3-01-036,3,3-01,229,speech,Y qué es este secreto?,5,And what is this secret?,high,
+tr-3-01-037,3,3-01,229,speech,El secreto,2,The secret,high,
+tr-3-01-038,3,3-01,229,speech,Le entendió’,2,Did you understand him?,high,
+tr-3-01-039,3,3-01,229,word,arriero,1,muleteer,high,
+tr-3-01-040,3,3-01,229,speech,Quién Babe?,2,Who knows?,high,Scan error: read 'Babe' as 'sabe'.
+tr-3-01-045,3,3-01,230,speech,Ándale pues,2,"Go on, then.",high,Ándale pues: friendly 'off you go then'.
+tr-3-01-046,3,3-01,231,speech,Adiós.,1,Goodbye.,high,
+tr-3-01-047,3,3-01,231,speech,Adiós.,1,Goodbye.,high,
+tr-3-01-048,3,3-01,231,speech,Hasta luego,2,See you later.,high,
+tr-3-01-049,3,3-01,231,speech,Adiós,1,Goodbye.,high,
+tr-3-02-002,3,3-02,232,speech,Tráigame la escopeta,3,Bring me the shotgun.,high,
+tr-3-03-002,3,3-03,235,speech,Cómo le va?,3,How are you doing?,high,
+tr-3-03-003,3,3-03,235,speech,"Bien, gracias a Dios",4,"Well, thank God.",high,
+tr-3-03-004,3,3-03,235,speech,Bien.,1,Fine.,high,
+tr-3-03-005,3,3-03,235,speech,Mi hermano,2,My brother.,high,
+tr-3-03-008,3,3-03,235,speech,Y los caballos?,3,And the horses?,high,
+tr-3-04-001,3,3-04,238,word,puro maíz,2,pure corn,high,"Warehouse sign; maíz = maize, corn."
+tr-3-04-002,3,3-04,238,word,maíz,1,corn,high,"From the sign 'compro maíz', i.e. 'I buy corn'."
+tr-3-04-005,3,3-04,239,speech,Tenemos cabrito.,2,We have kid goat.,high,"Cabrito = roast young goat, a northern Mexican dish."
+tr-3-04-006,3,3-04,239,speech,Qué más?,2,What else?,high,
+tr-3-04-007,3,3-04,239,speech,Enchiladas de pollo.,3,Chicken enchiladas.,high,
+tr-3-04-008,3,3-04,239,speech,Qué más?,2,What else?,high,
+tr-3-04-009,3,3-04,239,speech,Cabrito.,1,Kid goat.,high,
+tr-3-04-010,3,3-04,239,speech,"Dos ordenes de las enchiladas,…",9,Two orders of the enchiladas. And coffee.,high,
+tr-3-04-011,3,3-04,240,speech,Cabrito,1,Kid goat.,high,
+tr-3-04-012,3,3-04,240,word,corriente,1,"common, scrub (cattle)",high,Corriente = ordinary range cattle of mixed breed.
+tr-3-04-013,3,3-04,241,word,güeros,1,fair-haired ones (the Anglo boys),high,"Güero = fair-haired, a common nickname for Anglos."
+tr-3-04-014,3,3-04,241,word,laguna,1,"lake, mountain pond",high,
+tr-3-04-016,3,3-04,242,speech,Qué pass?,2,What's going on?,medium,Scan or spelling error: read 'pass' as 'pasa'.
+tr-3-04-017,3,3-04,242,word,Niño,1,Niño (horse's name; literally 'boy'),high,Proper name of a horse.
+tr-3-04-018,3,3-04,242,speech,Qué están haciendo?,3,What are you doing?,high,
+tr-3-04-019,3,3-04,243,speech,Qué pasa?,2,What's going on?,high,
+tr-3-04-021,3,3-04,243,speech,No moleste esos caballos,4,Don't bother those horses.,high,
+tr-3-04-022,3,3-04,243,speech,Quiénes son ustedes?,3,Who are you?,high,
+tr-3-04-023,3,3-04,243,speech,Somos proprietarios de estos caballos,5,We are the owners of these horses.,high,'Proprietarios' is a misspelling of 'propietarios'.
+tr-3-04-026,3,3-04,246,speech,"Bueno, he said. Bueno.",4,Good. Good.,high,"Bueno here as 'all right', sizing up the situation."
+tr-3-04-027,3,3-04,246,speech,Déme sus papeles,3,Give me your papers.,high,
+tr-3-04-028,3,3-04,246,speech,Los papeles,2,The papers.,high,
+tr-3-04-030,3,3-04,247,word,jefe,1,"boss, leader",high,
+tr-3-04-031,3,3-04,247,speech,Vámonos,1,Let's go.,high,
+tr-3-04-032,3,3-04,251,speech,Buenos días,2,Good morning.,high,Also a general daytime greeting.
+tr-3-04-043,3,3-04,255,speech,"Adiós, caballero",2,"Goodbye, gentleman.",high,Caballero also means 'horseman'; said half-jokingly to a boy.
+tr-3-06-001,3,3-06,257,word,tienda,1,"store, shop",high,
+tr-3-07-006,3,3-07,260,speech,Bueno,1,"Well, then.",high,"Bueno as an opener, 'all right'."
+tr-3-07-007,3,3-07,260,speech,Quiero mis papeles,3,I want my papers.,high,
+tr-3-07-010,3,3-07,260,speech,Factura de donde?,3,A bill of sale from where?,high,Factura = invoice or bill of sale.
+tr-3-07-011,3,3-07,260,speech,De la Babícora.,3,From the Babícora.,high,La Babícora is a large ranch in Chihuahua.
+tr-3-07-012,3,3-07,260,speech,La Babícora,2,The Babícora.,high,
+tr-3-07-013,3,3-07,260,speech,Sí.,1,Yes.,high,
+tr-3-07-015,3,3-07,260,speech,Firmado por el señor Quijada.,5,Signed by Mr. Quijada.,high,
+tr-3-07-016,3,3-07,260,speech,Quijada no es alguacil,4,Quijada is not a constable.,high,"Alguacil = constable, peace officer."
+tr-3-07-017,3,3-07,260,speech,Es gerente,2,He's the manager.,high,Gerente = ranch manager.
+tr-3-07-020,3,3-07,260,speech,Cómo?,1,What?,high,Cómo? = 'What did you say?'
+tr-3-07-022,3,3-07,260,speech,Te los encargo,3,I'm leaving them in your charge.,high,"Familiar tú form, to one of his own men."
+tr-3-07-024,3,3-07,260,speech,Cómo? said the jefe. Cómo?,5,What? What?,high,
+tr-3-07-040,3,3-07,262,speech,Cómo?,1,What?,high,
+tr-3-07-042,3,3-07,262,speech,Mánde?,1,Sorry? (What was that?),high,Mande? is the polite Mexican way to ask someone to repeat.
+tr-3-08-002,3,3-08,264,word,quemada,1,burned-over patch (of forest),high,
+tr-3-08-009,3,3-08,266,word,niños,1,children,high,
+tr-3-08-013,3,3-08,269,speech,Nos rendimos. Nos rendimos aquí.,5,We surrender. We surrender here.,high,
+tr-3-08-016,3,3-08,271,word,el güerito,2,the little fair-haired one,high,"Diminutive of güero, an affectionate name for a blond or Anglo boy."
+tr-3-08-017,3,3-08,272,speech,Vámonos,1,Let's go!,high,
+tr-3-08-020,3,3-08,272,speech,Vámonos,1,Let's go!,high,
+tr-3-09-001,3,3-09,274,speech,Quién es?,2,Who is it?,high,
+tr-3-09-002,3,3-09,275,speech,Le gustan los blanquillos?,4,Do you like eggs?,high,"Blanquillos is a Mexican euphemism for eggs (avoiding huevos, which is slang for testicles)."
+tr-3-09-003,3,3-09,275,speech,Sí.,1,Yes.,high,
+tr-3-09-006,3,3-09,275,speech,Orígenes humildes,2,Humble origins,high,
+tr-3-09-007,3,3-09,277,word,cárcel,1,jail,high,
+tr-3-09-012,3,3-09,279,speech,Y adónde va,3,And where are you going,high,
+tr-3-09-013,3,3-09,279,speech,La voluntad de Dios,4,The will of God,high,
+tr-3-09-015,3,3-09,280,speech,Quién está?,2,Who's there?,high,
+tr-3-09-017,3,3-09,281,speech,A su izquierda,3,To your left,high,
+tr-3-09-019,3,3-09,281,speech,Se va.,2,It's getting away.,medium,"Literally 'it's going', i.e. the cane is drifting off."
+tr-3-09-020,3,3-09,281,speech,"Qué hace, ciego?",3,"What are you doing, blind man?",high,
+tr-3-09-022,3,3-09,281,speech,"Le molesto? Ciego, ciego.",4,"Am I bothering you? Blind man, blind man.",high,
+tr-3-09-027,3,3-09,283,speech,"Toca, he said. Si el…",15,"Touch. If the world is an illusion, the loss of the world is an illusion too.",high,
+tr-3-09-031,3,3-09,284,speech,"Sí, the woman said. Está…",6,Yes. He is awake.,high,
+tr-3-09-032,3,3-09,284,speech,Hay luz?,2,Is there light?,medium,Speaker not stated; most likely the blind man asking his wife.
+tr-3-09-033,3,3-09,284,speech,Sí. Hay luz.,3,Yes. There is light.,medium,Speaker not stated; most likely the wife.
+tr-3-09-035,3,3-09,284,speech,"Bueno, the woman said. Como…",28,"Well. As in all tales, there are three travelers we meet on the road. We have already met the woman and the man.",high,
+tr-3-09-036,3,3-09,285,speech,Puede acertar quien es el…,6,Can you guess who the third one is?,high,
+tr-3-09-037,3,3-09,285,speech,Un niño?,2,A child?,high,
+tr-3-09-038,3,3-09,285,speech,Un niño. Exactamente.,3,A child. Exactly.,high,
+tr-3-09-039,3,3-09,285,speech,"Pero es verídica, esta historic?",5,"But is it true, this story?",high,Read 'historic' as 'historia' (scan error).
+tr-3-09-040,3,3-09,285,word,cuento,1,"tale, story",high,
+tr-3-09-041,3,3-09,285,speech,Verdad?,1,Right?,high,
+tr-3-09-045,3,3-09,286,speech,Lo siento,2,I'm sorry,high,
+tr-3-09-046,3,3-09,287,speech,Quién es’,2,Who is it?,high,
+tr-3-09-047,3,3-09,287,speech,Otto hermano,2,Another brother,high,Read 'Otto' as 'Otro' (scan error).
+tr-3-09-049,3,3-09,287,speech,Mi padre.,2,My father.,high,
+tr-3-09-050,3,3-09,287,speech,Y tú?,2,And you?,high,
+tr-3-09-055,3,3-09,288,word,pañuelos,1,handkerchiefs,high,
+tr-3-09-056,3,3-09,289,speech,"Ándale, he said. Está bien.",5,Go on. It's all right.,high,Ándale here is encouragement: go ahead.
+tr-3-09-057,3,3-09,289,speech,Persínese,1,Cross yourself,high,"Formal command (persígnese), said as a funeral procession passes."
+tr-3-09-060,3,3-09,290,speech,Sí.,1,Yes.,high,
+tr-3-09-062,3,3-09,290,speech,"No, Billy said. Y ademas,…",16,"No. And besides, didn't you tell me that the appearances of things are deceptive?",high,
+tr-3-09-063,3,3-09,290,speech,"Para mi, sí",3,"For me, yes",high,
+tr-3-09-068,3,3-09,291,speech,En mis primeros años de…,46,In my first years of darkness I thought that blindness was a form of death. I was wrong. Losing your sight is like a dream of falling. You think there is no bottom to this abyss. You fall and fall. The light recedes.,high,Read 'A1' as 'Al' (scan error).
+tr-3-09-069,3,3-09,292,speech,La memoria del mundo. De…,11,The memory of the world. Of your own face. Of the ruined face.,medium,"Carantoña taken as the disfigured face, as earlier in the scene."
+tr-3-09-080,3,3-09,294,speech,"Lo que debemos entender, said…",46,"What we must understand is that in the end everything is dust. Everything we can touch. Everything we can see. In this we have the deepest evidence of justice, of mercy. In this we see God's greatest blessing.",high,Read 'to que' as 'lo que' (scan error).
+tr-3-09-081,3,3-09,294,speech,Vaya con Dios,3,Go with God,high,
+tr-3-09-082,3,3-09,297,word,pueblo,1,"village, town",high,
+tr-3-09-084,3,3-09,297,speech,Médico? she said. Médico?,4,A doctor? A doctor?,high,
+tr-3-09-085,3,3-09,298,speech,En este pueblo,3,In this town,high,
+tr-3-09-086,3,3-09,298,speech,"No, she said. No. El…",6,No. No. The dog.,high,
+tr-3-09-089,3,3-09,298,speech,Es mi hermano.,3,He's my brother.,high,
+tr-3-09-090,3,3-09,298,speech,El vivía?,2,Was he alive?,medium,Billy asks whether his brother was alive when she saw or heard of him.
+tr-3-09-091,3,3-09,298,speech,Es su caballo,3,It's his horse,high,
+tr-3-09-092,3,3-09,298,speech,Sí.,1,Yes.,high,
+tr-3-09-093,3,3-09,298,speech,"Bueno, she said. Monte, caballero.…",10,"Good. Mount up, sir. Mount up and go with God.",high,Caballero is a polite address that also literally means horseman.
+tr-3-09-094,3,3-09,298,speech,Momento,1,Just a moment,high,
+tr-3-09-098,3,3-09,298,speech,Milagro?,1,Milagro?,high,
+tr-3-09-099,3,3-09,298,speech,Sí. Para el güero. El…,7,Yes. For the güero. The wounded güero.,high,Güero (fair-haired one) refers to Billy's brother.
+tr-3-09-101,3,3-09,298,speech,"Gracias, he said. Muchas gracias.",5,Thank you. Thank you very much.,high,
+tr-3-09-102,3,3-09,298,speech,Que joven tan valiente,4,What a brave young man,high,
+tr-3-09-104,3,3-09,299,speech,Él está?,2,Is he here?,high,
+tr-3-09-105,3,3-09,299,speech,Sí. Él está.,3,Yes. He is here.,high,
+tr-3-09-106,3,3-09,299,speech,Él vive?,2,Is he alive?,high,
+tr-3-09-107,3,3-09,299,speech,Él vive.,2,He is alive.,high,
+tr-3-09-108,3,3-09,299,word,milagros,1,votive charms,high,"Small metal ex-votos shaped like body parts, offered for healing."
+tr-3-09-110,3,3-09,299,speech,Del ejido?,2,From the ejido?,high,An ejido is a communal farm granted under land reform.
+tr-3-09-112,3,3-09,300,speech,Qué dice el médico?,4,What does the doctor say?,high,
+tr-3-09-113,3,3-09,300,word,bruja,1,"witch, folk healer",high,Bruja here is a village herb woman rather than a literal witch.
+tr-3-09-116,3,3-09,300,speech,Hombre,1,"Hey, man",high,Hombre used as an interjection to rouse someone.
+tr-3-09-117,3,3-09,300,speech,"El médico, Billy said. Dónde…",8,The doctor. Where does the doctor live.,high,
+tr-3-10-003,3,3-10,300,speech,"Bueno, he said. Pásale.",4,All right. Come in.,high,Pásale is a colloquial Mexican 'come in'.
+tr-3-10-005,3,3-10,300,speech,Espere aquí,2,Wait here.,high,
+tr-3-10-009,3,3-10,301,speech,En el ejido de San…,6,At the San Diego ejido.,high,Ejido: a communal farm settlement.
+tr-3-10-010,3,3-10,301,speech,Y cuándo ocurrió ese accidente?,5,And when did this accident happen?,high,
+tr-3-10-011,3,3-10,301,speech,Hace dos días.,3,Two days ago.,high,
+tr-3-10-012,3,3-10,301,speech,Bueno,1,All right.,high,
+tr-3-10-014,3,3-10,301,speech,Tengo los papeles.,3,I have the papers.,high,
+tr-3-10-021,3,3-10,301,speech,Listo.,1,Ready.,medium,The reply is probably Billy's but the speaker is not stated.
+tr-3-10-029,3,3-10,303,word,Hiérvame,1,boil me (some water),high,Start of a request to boil some water; 'aqua' in the line is a scan error for 'agua'.
+tr-3-10-030,3,3-10,304,speech,Respire profundo.,2,Breathe deeply.,high,
+tr-3-10-032,3,3-10,304,speech,Cómo?,1,What?,high,
+tr-3-10-035,3,3-10,305,speech,No habla.,2,Don't talk.,high,"Literally 'he does not talk', used as a command."
+tr-3-10-038,3,3-10,305,speech,Saca la lengua,3,Stick out your tongue.,high,
+tr-3-10-040,3,3-10,306,speech,Hay una silla.,3,There's a chair.,high,
+tr-3-10-041,3,3-10,306,speech,Bueno. Tráigala. Y tráigame una…,15,Good. Bring it. And bring me a container of water. A jug or whatever you have.,high,Read 'aqua' as 'agua'; a bota is a leather drinking bag.
+tr-3-10-042,3,3-10,306,speech,Sí señor.,2,Yes sir.,high,
+tr-3-10-043,3,3-10,306,speech,Él debe tomar agua. Me…,6,He must drink water. Do you understand me?,high,
+tr-3-10-044,3,3-10,306,speech,Y deja abierta la puerta.…,7,And leave the door open. We need air.,high,Read 'afire' as 'aire'.
+tr-3-10-045,3,3-10,306,speech,Bueno,1,Good.,high,
+tr-3-10-046,3,3-10,306,speech,Bueno,1,Good.,high,
+tr-3-10-050,3,3-10,308,speech,"Bueno, he said. Bueno.",4,Good. Good.,high,
+tr-3-10-053,3,3-10,308,speech,"Bueno, he said. Bueno.",4,Good. Good.,high,
+tr-3-10-055,3,3-10,308,speech,Sí,1,Yes.,high,
+tr-3-10-057,3,3-10,309,speech,Ándale,1,Go ahead.,high,"Ándale: go on, get going."
+tr-3-10-059,3,3-10,309,speech,"Bastante, the doctor said. Bueno.",5,That's enough. Good.,high,
+tr-3-10-062,3,3-10,309,speech,"Ándale pues, he said. Está…",6,"Go on, then. It's all right.",high,
+tr-3-10-063,3,3-10,309,speech,La otra?,2,The other one?,high,
+tr-3-10-064,3,3-10,309,speech,Sí.,1,Yes.,high,
+tr-3-10-065,3,3-10,310,speech,Mánde?,1,Pardon?,high,Mánde: polite Mexican 'what did you say?'.
+tr-3-10-069,3,3-10,310,speech,"Nada, said Billy. Ándale.",4,Nothing. Go on.,high,
+tr-3-10-072,3,3-10,311,speech,Unos pocos minutos más,4,A few more minutes.,high,
+tr-3-10-073,3,3-10,311,speech,Qué es eso?,3,What is that?,high,
+tr-3-10-078,3,3-10,312,speech,Sí.,1,Yes.,high,
+tr-3-10-080,3,3-10,312,speech,Pero no es muy grave.,5,But it isn't very serious.,high,
+tr-3-10-081,3,3-10,312,speech,Qué sería muy grave?,4,What would be very serious?,high,
+tr-3-10-082,3,3-10,312,speech,Eso,1,That.,high,
+tr-3-10-083,3,3-10,312,word,muy,1,very,high,
+tr-3-10-085,3,3-10,313,speech,Cómo?,1,How so?,high,
+tr-3-10-086,3,3-10,313,speech,Que no se le han…,38,"That his lungs weren't punctured. That the great artery, which was very close to the path of the bullet, wasn't broken. But above all that there's no serious infection. Very lucky.",medium,"The Spanish is ungrammatical in places, but the meaning is clear."
+tr-3-10-087,3,3-10,314,speech,Permítame,1,Allow me.,high,
+tr-3-10-088,3,3-10,314,speech,Bueno,1,Good.,high,
+tr-3-10-089,3,3-10,314,speech,Gracias,1,Thank you.,high,
+tr-3-10-091,3,3-10,314,speech,Sí.,1,Yes.,high,
+tr-3-11-004,3,3-11,315,speech,Su caballo,2,Your horse.,high,
+tr-3-11-009,3,3-11,315,speech,Quiere montarlo?,2,Do you want to ride him?,medium,"Speaker not marked; probably Billy making the offer, since he then bridles the horse for the mozo."
+tr-3-11-010,3,3-11,315,speech,Ándale,1,Go ahead.,high,
+tr-3-11-013,3,3-11,316,speech,Le gusta?,2,Do you like him?,high,
+tr-3-12-002,3,3-12,316,speech,Dónde está la pistola?,4,Where is the pistol?,high,
+tr-3-12-007,3,3-12,317,speech,Sí,1,Yes.,high,
+tr-3-12-009,3,3-12,317,speech,Herida tan fea.,3,Such an ugly wound.,high,
+tr-3-12-014,3,3-12,318,word,güerito,1,the fair-haired boy (Boyd),high,"Diminutive of güero, fair-haired; a common nickname for an Anglo."
+tr-3-12-023,3,3-12,320,speech,Gracias a Dios. Gracias a…,6,Thank God. Thank God.,high,
+tr-3-12-027,3,3-12,321,speech,Mánde?,1,Pardon?,high,Mánde: polite Mexican 'what did you say?'.
+tr-3-12-028,3,3-12,321,word,empanadas,1,turnovers (stuffed pastries),high,
+tr-3-12-035,3,3-12,321,speech,Quizás.,1,Maybe.,high,
+tr-3-12-040,3,3-12,323,speech,No. Gracias.,2,No. Thank you.,high,
+tr-3-12-041,3,3-12,323,speech,No Babes nada de mi…,6,You don't know anything about my brother.,high,Read 'Babes' as 'sabes'.
+tr-3-12-042,3,3-12,323,speech,Quizás,1,Maybe.,high,
+tr-3-12-043,3,3-12,323,speech,Por qué no me contesta?,5,Why don't you answer me?,high,
+tr-3-12-044,3,3-12,323,speech,Sabías que él tenía una…,14,Did you know he had a twin sister? Who died when she was five?,high,
+tr-3-12-054,3,3-12,327,speech,"Le conozco, Billy said. Cómo…",7,I know you. How are you?,high,
+tr-3-12-055,3,3-12,327,speech,Bien.,1,Fine.,high,
+tr-3-12-056,3,3-12,327,speech,Dónde está su hermano?,4,Where is your brother?,high,
+tr-3-12-057,3,3-12,327,speech,Ya está en San Diego.,5,He's in San Diego now.,medium,The speaker of the reply is not stated; probably Billy.
+tr-3-12-059,3,3-12,327,speech,Dónde está la caravana?,4,Where is the caravan?,high,
+tr-3-12-065,3,3-12,327,word,dueña,1,proprietress (of the troupe),high,
+tr-3-12-068,3,3-12,327,speech,Pobrecito,1,Poor man.,high,"Pobrecito: poor thing, said with pity."
+tr-3-12-071,3,3-12,328,speech,Las grullas Megan,3,The cranes are migrating.,medium,Read 'Megan' as 'migran'.
+tr-3-13-001,3,3-13,329,word,esquiladores,1,shearers,high,
+tr-3-14-001,3,3-14,332,word,milagro,1,small votive charm,high,"A milagro is a small metal offering, often shaped like a heart or body part, left at shrines."
+tr-3-14-002,3,3-14,332,word,lagunas,1,"lakes, ponds",high,
+tr-3-14-003,3,3-14,332,word,poblanos,1,"villagers, townspeople",medium,Here the local people of the hamlets; poblano can also mean someone from Puebla.
+tr-3-14-008,3,3-14,333,speech,Lo siento,2,I'm sorry.,high,
+tr-4-01-002,4,4-01,342,speech,Lo siento.,2,I'm sorry.,high,
+tr-4-01-003,4,4-01,342,speech,Yo también.,2,Me too.,high,
+tr-4-01-004,4,4-01,342,speech,Adónde va?,2,Where are you going?,high,
+tr-4-01-005,4,4-01,342,speech,No sé.,2,I don't know.,high,
+tr-4-01-007,4,4-01,342,speech,Buen viaje,2,Have a good trip.,high,
+tr-4-01-008,4,4-01,342,speech,Gracias.,1,Thank you.,high,
+tr-4-02-001,4,4-02,353,speech,"Está bien, he said. No…",8,It's all right. You don't have to turn it off.,high,
+tr-4-02-002,4,4-02,354,speech,Quiere crema,2,Do you want cream?,high,
+tr-4-02-003,4,4-02,354,speech,No gracias. Hay salsa?,4,No thank you. Is there salsa?,high,
+tr-4-02-004,4,4-02,354,speech,Gracias.,1,Thank you.,high,
+tr-4-02-006,4,4-02,354,speech,No. El era amigo de…,7,No. He was a friend of my father's.,high,
+tr-4-02-007,4,4-02,354,speech,"Siéntate, he said. Puede sentarse.",5,Sit down. You can sit down.,high,Shifts from familiar to polite address.
+tr-4-02-010,4,4-02,354,speech,Sí.,1,Yes.,high,
+tr-4-03-006,4,4-03,356,speech,"Sí, caballero, he said. Cómo…",6,"Yes, sir. Why not?",high,
+tr-4-03-008,4,4-03,356,speech,No gracias.,2,"No, thanks.",high,
+tr-4-03-009,4,4-03,357,speech,Salud,1,Cheers.,high,
+tr-4-03-010,4,4-03,357,speech,Salud,1,Cheers.,high,
+tr-4-03-012,4,4-03,357,speech,"Bueno, said the barman. Cómo…",6,All right. Of course.,high,
+tr-4-03-014,4,4-03,358,speech,"Venga, he called. Siéntate con…",6,Come on. Sit with us.,high,
+tr-4-03-016,4,4-03,358,speech,Otra vez,2,Again.,high,
+tr-4-03-018,4,4-03,358,speech,"Quién es, joven?",3,"Who are you, young man?",medium,"Could also be read as 'Who is he, young man?'; Billy answers it as asked of him."
+tr-4-03-019,4,4-03,358,speech,"Un hombre, he said. No…",6,A man. Nothing more.,high,
+tr-4-03-020,4,4-03,358,speech,Americano.,1,American.,high,Speaker not marked.
+tr-4-03-022,4,4-03,358,speech,Americano.,1,American.,high,Speaker not marked.
+tr-4-03-023,4,4-03,358,speech,Es vaquero?,2,Are you a cowboy?,high,Speaker not marked.
+tr-4-03-024,4,4-03,358,speech,Sí.,1,Yes.,high,
+tr-4-03-026,4,4-03,359,speech,Soldado no.,2,Not a soldier.,medium,Speaker not clear.
+tr-4-03-027,4,4-03,359,speech,Otra vez,2,Again.,high,
+tr-4-03-029,4,4-03,359,speech,Aquí?,1,Here?,high,
+tr-4-03-031,4,4-03,359,speech,En este país,3,To this country.,high,
+tr-4-03-032,4,4-03,359,speech,Otra vez,2,Again.,high,
+tr-4-03-033,4,4-03,360,word,norteamericano,1,North American,high,
+tr-4-03-035,4,4-03,360,speech,El sello?,2,The seal?,high,
+tr-4-03-036,4,4-03,360,speech,Sí.,1,Yes.,high,
+tr-4-03-037,4,4-03,361,speech,Es mentira,2,It's a lie.,high,
+tr-4-03-038,4,4-03,361,speech,Mentira?,1,A lie?,high,
+tr-4-03-039,4,4-03,361,speech,Sí. Mentira.,2,Yes. A lie.,high,
+tr-4-03-040,4,4-03,361,speech,Nada es mentira,3,Nothing is a lie.,high,
+tr-4-03-042,4,4-03,361,speech,Otra vez,2,Again.,high,
+tr-4-03-043,4,4-03,361,speech,Mánde?,1,What?,high,Mande? is the polite Mexican way of asking someone to repeat.
+tr-4-03-044,4,4-03,361,speech,Salud,1,Cheers.,high,
+tr-4-03-045,4,4-03,362,speech,Salud,1,Cheers.,high,
+tr-4-03-047,4,4-03,362,speech,Otra vez,2,Again.,high,
+tr-4-03-049,4,4-03,362,speech,Más mentiras,2,More lies.,high,
+tr-4-03-050,4,4-03,362,speech,Cuánto debo?,2,How much do I owe?,high,
+tr-4-03-051,4,4-03,362,speech,Cinco dolares?,2,Five dollars?,high,
+tr-4-03-052,4,4-03,363,speech,Caballeros,1,Gentlemen.,high,
+tr-4-03-053,4,4-03,363,speech,Joven,1,Young man.,medium,Caller is most likely the drunk man but not stated.
+tr-4-03-055,4,4-03,363,speech,Embustero?,1,Liar?,high,
+tr-4-04-001,4,4-04,365,speech,Dónde están los caballos?,4,Where are the horses?,high,
+tr-4-04-002,4,4-04,365,speech,Quieres montar,2,Do you want to ride?,high,
+tr-4-04-004,4,4-04,366,word,menudo,1,tripe soup,high,"Menudo is a Mexican soup of beef tripe, often taken as a hangover cure."
+tr-4-04-005,4,4-04,366,speech,Ándale,1,Go on.,high,"Ándale is a common Mexican urging: go on, come on."
+tr-4-04-006,4,4-04,366,speech,Ya comí.,2,I've already eaten.,high,
+tr-4-04-009,4,4-04,366,speech,Con permiso,2,Excuse me.,high,
+tr-4-04-010,4,4-04,366,speech,Gracias,1,Thank you.,high,
+tr-4-04-011,4,4-04,366,word,crudo,1,hungover,high,Crudo is Mexican slang for hungover.
+tr-4-04-016,4,4-04,367,speech,"Cuánto le debo, señora",4,"How much do I owe you, ma'am?",high,
+tr-4-04-017,4,4-04,367,speech,"Señorita, she said. Nada.",4,Miss. Nothing.,high,She corrects señora (married woman) to señorita (unmarried).
+tr-4-04-019,4,4-04,367,speech,Para los nietos.,3,For the grandchildren.,high,
+tr-4-04-022,4,4-04,367,speech,Bueno. Gracias.,2,All right. Thank you.,high,
+tr-4-04-024,4,4-04,367,speech,Cómo?,1,What?,high,
+tr-4-04-025,4,4-04,367,speech,Su mano.,2,Your hand.,high,
+tr-4-04-026,4,4-04,368,speech,Cuántos años tiene?,3,How old are you?,high,
+tr-4-04-027,4,4-04,368,speech,Tan joven.,2,So young.,high,
+tr-4-04-029,4,4-04,368,speech,"Me lleva Judas, she said.…",6,Good grief. No.,medium,Me lleva Judas is an exclamation of mock dismay (roughly 'Judas take me').
+tr-4-04-034,4,4-04,369,speech,Quizás,1,Maybe.,high,
+tr-4-04-036,4,4-04,369,speech,El mundo.,2,The world.,high,
+tr-4-04-037,4,4-04,369,speech,El mundo?,2,The world?,high,
+tr-4-04-040,4,4-04,369,speech,Quizás sí. Quizás no.,4,Maybe yes. Maybe no.,high,
+tr-4-04-043,4,4-04,369,speech,Es mentira.,2,That's a lie.,high,
+tr-4-04-044,4,4-04,369,speech,Sí.,1,Yes.,high,
+tr-4-04-046,4,4-04,369,speech,Bastante,1,Plenty.,high,
+tr-4-04-052,4,4-04,369,speech,Qué ve?,2,What do you see?,high,
+tr-4-04-053,4,4-04,369,speech,Veo dos hermanos. Uno ha…,6,I see two brothers. One has died.,high,
+tr-4-04-054,4,4-04,369,speech,"Hermano, she said. Uno que…",10,"Brother. One who lives, one who has died.",high,
+tr-4-04-056,4,4-04,369,speech,No sabes?,2,Don't you know?,high,
+tr-4-04-062,4,4-04,371,speech,Hola,1,Hello?,high,
+tr-4-05-015,4,4-05,376,word,lotería,1,Mexican picture-card game like bingo,high,
+tr-4-05-018,4,4-05,376,speech,Otra vez,2,Again!,high,
+tr-4-05-019,4,4-05,376,speech,Cuánto?,1,How much?,high,
+tr-4-05-020,4,4-05,376,speech,Está fibre.,2,It's free.,high,Read 'fibre' as 'libre' (scan error).
+tr-4-05-024,4,4-05,376,word,calavera,1,the skull,high,
+tr-4-05-025,4,4-05,376,speech,Alguien?,1,Anyone?,high,
+tr-4-05-030,4,4-05,376,speech,"Aquí, he called. Aquí tenemos…",7,Here! Here we have the skull.,high,
+tr-4-05-032,4,4-05,377,speech,Venga,1,Come on.,high,
+tr-4-05-034,4,4-05,377,speech,No quiero ver,3,I don't want to see.,high,
+tr-4-05-035,4,4-05,377,speech,Es un espectáculo. Nunca ha…,9,It's a spectacle. You've never seen anything like it.,high,
+tr-4-05-036,4,4-05,377,speech,"Olga, hombre, he said. No…",9,"Listen, man. I don't want to see it, understand?",high,Read 'Olga' as 'Oiga' (scan error).
+tr-4-05-037,4,4-05,377,speech,"Adelante, he cried. Qué pasó?",5,Come forward! What's the matter?,high,
+tr-4-05-038,4,4-05,377,word,barata,1,deck of cards,medium,Probably 'baraja' (deck) misread as 'barata'.
+tr-4-05-039,4,4-05,377,word,muy guapo,2,very handsome,high,
+tr-4-05-052,4,4-05,380,speech,Qué piensa usted?,3,What do you think?,high,
+tr-4-05-058,4,4-05,381,speech,Abril era el mes,4,April was the month,high,Corrido line.
+tr-4-05-059,4,4-05,381,speech,Jinetes armados,2,Armed horsemen,high,Corrido line.
+tr-4-05-060,4,4-05,381,speech,Llegaron los seis,3,The six arrived,high,Corrido line.
+tr-4-05-062,4,4-05,381,speech,No se le veía en…,7,It didn't show in his face,high,Corrido line.
+tr-4-05-063,4,4-05,381,speech,Cuantos vayan llegando,3,However many may come,high,Corrido line.
+tr-4-05-064,4,4-05,381,speech,El güerito les espera,4,The little fair-haired one awaits them,high,"Güerito: diminutive of güero, a fair-haired or light-skinned person, often an Anglo."
+tr-4-05-072,4,4-05,382,speech,Déme su mano,3,Give me your hand.,high,
+tr-4-05-073,4,4-05,382,speech,Mánde?,1,What?,high,
+tr-4-05-074,4,4-05,382,speech,Déme su mano.,3,Give me your hand.,high,
+tr-4-05-075,4,4-05,382,speech,Ándale pues,2,"Go on, then.",high,
+tr-4-05-076,4,4-05,383,word,mascareñas,1,'masked ones' (vaqueros named for the white-faced cattle),medium,"Apparently from máscara (mask), after the white-faced Hereford cattle, as the text explains."
+tr-4-05-077,4,4-05,383,word,agringados,1,"gringo-fied, Americanized",high,Said of Mexicans working for Americans.
+tr-4-05-079,4,4-05,383,speech,Un viajero.,2,A traveler.,high,
+tr-4-05-080,4,4-05,383,speech,Cuántos son ustedes?,3,How many of you are there?,high,
+tr-4-05-081,4,4-05,383,speech,Yo sólo.,2,Just me.,high,
+tr-4-05-082,4,4-05,383,speech,"Bueno, the man said. Desmonte.…",6,All right. Get down. Come in.,high,Pásale is a northern Mexican 'come in'.
+tr-4-05-090,4,4-05,385,word,campesinos,1,"peasants, farm workers",high,
+tr-4-05-092,4,4-05,385,word,paraje,1,"place, locale",high,A paraje is a named rural spot.
+tr-4-05-099,4,4-05,387,word,cerros,1,hills,high,
+tr-4-06-003,4,4-06,389,word,el 24 de febrero,4,February 24,high,Part of the grave inscription.
+tr-4-06-004,4,4-06,389,word,hermanos en armas,3,brothers in arms,high,
+tr-4-06-005,4,4-06,389,word,recuerdo,1,remembrance; memorial,high,
+tr-4-06-006,4,4-06,389,speech,Señora,1,Ma'am,high,
+tr-4-06-008,4,4-06,389,speech,Muerto.,1,Dead.,high,
+tr-4-06-009,4,4-06,389,speech,Quién está encargado del cementerio?,5,Who is in charge of the cemetery?,high,
+tr-4-06-010,4,4-06,389,speech,Dios.,1,God.,high,
+tr-4-06-011,4,4-06,389,speech,Dónde está el sacerdote.,4,Where is the priest?,high,
+tr-4-06-012,4,4-06,389,speech,Se fué.,2,He left.,high,
+tr-4-06-014,4,4-06,390,speech,Nada. Está bien.,3,Nothing. It's all right.,high,
+tr-4-06-015,4,4-06,390,speech,Por quién está orando?,4,Who are you praying for?,high,
+tr-4-06-016,4,4-06,390,speech,Gracias.,1,Thank you.,high,
+tr-4-06-017,4,4-06,390,speech,No puedo hacerlo de otro…,6,I can't do it any other way.,medium,Unattributed; most likely the woman explaining that she prays for everyone.
+tr-4-06-021,4,4-06,394,speech,Los huesos de mi hermano.,5,My brother's bones.,high,
+tr-4-06-022,4,4-06,394,speech,Huesos?,1,Bones?,high,
+tr-4-06-023,4,4-06,394,speech,Sí.,1,Yes.,high,
+tr-4-06-026,4,4-06,395,speech,Dónde está el dinero?,4,Where is the money?,high,
+tr-4-06-028,4,4-06,396,speech,Vámonos,1,Let's go.,high,
+tr-4-06-029,4,4-06,396,speech,Vámonos,1,Let's go.,high,
+tr-4-06-030,4,4-06,397,speech,Vámonos,1,Let's go.,high,
+tr-4-06-041,4,4-06,402,speech,Sí. Ladrónes.,2,Yes. Thieves.,medium,Unattributed; speaker inferred from the alternation of lines.
+tr-4-06-042,4,4-06,402,speech,Qué tiene allá?,3,What have you got there?,high,
+tr-4-06-043,4,4-06,402,speech,Los huesos de mi hermano.,5,My brother's bones.,high,
+tr-4-06-044,4,4-06,402,speech,Huesos,1,Bones.,high,
+tr-4-06-045,4,4-06,402,speech,Leña.,1,Firewood.,high,An order to fetch firewood.
+tr-4-06-046,4,4-06,403,word,gitanos,1,gypsies,high,
+tr-4-06-047,4,4-06,403,speech,Y adónde van con el…,6,And where are you going with the airplane?,high,
+tr-4-06-059,4,4-06,411,word,la tercera,2,the third (story),high,The third of the three stories.
+tr-4-06-061,4,4-06,411,word,ésta,1,this one,high,
+tr-4-06-062,4,4-06,411,speech,É1 existe en la historic…,24,"It exists in the story of the stories. It is that, in the end, the truth can reside nowhere else but in speech.",medium,"Scan errors: read 'É1' as 'Él' and 'historic de las historian' as 'historia de las historias'; 'Él' is odd for a feminine antecedent, so the referent is uncertain."
+tr-4-06-063,4,4-06,412,speech,Bueno,1,Good.,high,
+tr-4-06-066,4,4-06,414,speech,"Pensamos, he said, que somos…",43,We think that we are the victims of time. In reality the way of the world is not fixed in any place. How could it be? We ourselves are our own journey. And so we are time as well. We are the same thing. Fleeting. Inscrutable. Pitiless.,high,Scan error: read 'to mismo' as 'lo mismo'.
+tr-4-06-067,4,4-06,414,speech,Para el camino,3,For the road.,high,Said while waving off payment.
+tr-4-06-068,4,4-06,414,speech,Gracias,1,Thank you.,high,
+tr-4-06-069,4,4-06,414,speech,Por nada.,2,You're welcome.,high,
+tr-4-07-001,4,4-07,415,speech,Buenas tardes,2,Good afternoon.,high,
+tr-4-07-004,4,4-07,417,word,señoritas,1,young ladies; girls,high,
