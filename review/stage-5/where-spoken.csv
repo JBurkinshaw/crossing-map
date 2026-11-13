@@ -1,8 +1,8 @@
 id,ref,kind,why
 tr-1-03-001,place-black-point,place,"Checked: A word in the narration at the dead calf in the upland meadow, in the Peloncillos below Black Point, the landmark the text names as they ride up."
-tr-1-04-001,j1-sierra-de-la-madera,stop,"A word in the narration of the wolf's week on the eastern slopes of the Sierra de la Madera, which the same paragraph names; the heuristic only saw the Animas Valley named before it."
-tr-1-04-004,place-cloverdale-creek,place,"Three vaqueros eating by a fire on the far side of the Cloverdale road, in the Cloverdale Creek pasture where he lost and found her track; Hog Canyon is named only later, of where she crossed back."
-tr-1-04-005,place-cloverdale-creek,place,"Three vaqueros eating by a fire on the far side of the Cloverdale road, in the Cloverdale Creek pasture where he lost and found her track; Hog Canyon is named only later, of where she crossed back."
+tr-1-04-001,j1-sierra-de-la-madera,stop,"A word in the narration of the week the wolf spends on the east side of the Sierra de la Madera, which the same paragraph names; the heuristic only saw the Animas Valley named before it."
+tr-1-04-004,place-cloverdale-creek,place,"Three vaqueros at their meal by a fire across the Cloverdale road, in the Cloverdale Creek pasture where he lost and found her track; Hog Canyon is named only later, of where she crossed back."
+tr-1-04-005,place-cloverdale-creek,place,"Three vaqueros at their meal by a fire across the Cloverdale road, in the Cloverdale Creek pasture where he lost and found her track; Hog Canyon is named only later, of where she crossed back."
 tr-1-07-001,place-animas,place,"Checked: The old trapper's house on the plain south of Animas, reached by the road to Animas; the whole episode is this visit and has no stop."
 tr-1-07-002,place-animas,place,"Checked: The old trapper's house on the plain south of Animas, reached by the road to Animas; the whole episode is this visit and has no stop."
 tr-1-07-003,place-animas,place,"Checked: The old trapper's house on the plain south of Animas, reached by the road to Animas; the whole episode is this visit and has no stop."
@@ -330,9 +330,9 @@ tr-3-04-008,j4-las-varas,stop,"Checked: The cafe in Las Varas, where they eat on
 tr-3-04-009,j4-las-varas,stop,"Checked: The cafe in Las Varas, where they eat on arrival."
 tr-3-04-010,j4-las-varas,stop,"Checked: The cafe in Las Varas, where they eat on arrival."
 tr-3-04-011,j4-las-varas,stop,"Checked: The cafe in Las Varas, where they eat on arrival."
-tr-3-04-012,j4-steer-herd,stop,Words in the narration of the vaqueros driving steers that they meet in the evening on the road to Boquilla.
-tr-3-04-013,j4-steer-herd,stop,Words in the narration of the vaqueros driving steers that they meet in the evening on the road to Boquilla.
-tr-3-04-014,j4-steer-herd,stop,Words in the narration of the vaqueros driving steers that they meet in the evening on the road to Boquilla.
+tr-3-04-012,j4-steer-herd,stop,Words in the narration of the vaqueros driving steers whom they come across at evening on the Boquilla road.
+tr-3-04-013,j4-steer-herd,stop,Words in the narration of the vaqueros driving steers whom they come across at evening on the Boquilla road.
+tr-3-04-014,j4-steer-herd,stop,Words in the narration of the vaqueros driving steers whom they come across at evening on the Boquilla road.
 tr-3-04-016,j4-horses-found,stop,"The next morning on the road, where their own horses come up from the lake with two young riders behind them and they take them back."
 tr-3-04-017,j4-horses-found,stop,"The next morning on the road, where their own horses come up from the lake with two young riders behind them and they take them back."
 tr-3-04-018,j4-horses-found,stop,"The next morning on the road, where their own horses come up from the lake with two young riders behind them and they take them back."
@@ -601,7 +601,7 @@ tr-3-12-062,j5-las-varas,stop,"Behind a store in Las Varas, where the arriero fr
 tr-3-12-063,j5-las-varas,stop,"Behind a store in Las Varas, where the arriero from the opera company asks for money. San Diego is only named in the talk."
 tr-3-12-065,j5-las-varas,stop,"Behind a store in Las Varas, where the arriero from the opera company asks for money. San Diego is only named in the talk."
 tr-3-12-068,j5-las-varas,stop,"Behind a store in Las Varas, where the arriero from the opera company asks for money. San Diego is only named in the talk."
-tr-3-12-071,j5-river-camp,stop,"Their last camp, on a gravel bar of the river some miles south of Mata Ortiz, watching the cranes."
+tr-3-12-071,j5-river-camp,stop,"Their last camp, on a river gravel bar several miles below Mata Ortiz, with cranes overhead."
 tr-3-12-074,j5-san-diego-feast,stop,Boyd speaks to the girl in the Muñoz house at San Diego on the feast day.
 tr-3-13-001,place-hacienda-de-san-diego,place,"Shearing in the San Diego compound during the stay at the ejido. 3-13 has no stop, so the place is used."
 tr-3-14-001,,,Left null. He looks at the charm somewhere during weeks of searching; the text gives no place.
