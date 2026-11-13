@@ -270,8 +270,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.0607,
-     31.61652
+     -109.06807,
+     31.61925
     ]
    },
    "properties": {
@@ -292,7 +292,7 @@
     "uncertainty_m": null,
     "method": "gazetteer",
     "source": "gnis",
-    "source_id": "11397",
+    "source_id": "11603",
     "source_licence": "Public domain",
     "note_safe": "",
     "reasoning": "GNIS has no Skeleton Creek here; Skeleton Canyon (GNIS 11397) carries its south fork in Cochise County."
@@ -835,7 +835,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Unnamed in the book. It lies by a river within a day of Colonia Morelos and the Pilares Teras; the circle is centred near Morelos and sized to that reach. Earlier notes placed it on the Batepito plain, but the book does not name Batepito."
+    "reasoning": "Unnamed in the book. The text sets it on flat ground beside the Batopito River, with the road on the other side (1-10): the Batepito stream near Colonia Morelos (GeoNames 4017287), 1.7 km from the circle's centre. The circle is sized to the reach within a day of Morelos and the Pilares Teras. Bell 2000 (p. 107) also puts the hacienda on this river."
    }
   },
   {
@@ -843,8 +843,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.083,
-     30.78343
+     -109.19963,
+     30.69657
     ]
    },
    "properties": {
@@ -866,10 +866,10 @@
     "uncertainty_m": null,
     "method": "gazetteer",
     "source": "geonames",
-    "source_id": "3981872",
+    "source_id": "8688585",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 3981872, Sierra de Teras, which GeoNames also lists as Pilares de Teras."
+    "reasoning": "The range point, GeoNames 8688585, Serranía Pilares de Teras, inside the Bavispe's great bend south of Colonia Morelos; the book does not say where Billy enters the range."
    }
   },
   {
@@ -877,8 +877,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.083,
-     30.78343
+     -109.19963,
+     30.69657
     ]
    },
    "properties": {
@@ -899,7 +899,7 @@
     "uncertainty_m": null,
     "method": "gazetteer",
     "source": "geonames",
-    "source_id": "3981872",
+    "source_id": "8688585",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "Part II opens where Part I ended: he took the dead wolf up into the range and laid her under a pile of loose rock in a high pass. The book does not say which pass; the pin is the range."

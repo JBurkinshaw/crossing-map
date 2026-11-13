@@ -5,7 +5,7 @@ Rows marked **check** are provisional picks among several candidates. Reasoning 
 
 | OK | # | Name | Certainty | Source | Look | |
 | --- | --- | --- | --- | --- | --- | --- |
-| [ ] | J3.1 | The wolf's grave, a high pass in the Pilares | approximate | geonames 3981872 | [OSM](https://www.openstreetmap.org/?mlat=30.76667&mlon=-109.08333#map=13/30.76667/-109.08333) · [satellite](https://www.google.com/maps/@30.76667,-109.08333,13z/data=!3m1!1e3) |  |
+| [ ] | J3.1 | The wolf's grave, a high pass in the Pilares | approximate | geonames 8688585 | [OSM](https://www.openstreetmap.org/?mlat=30.65895&mlon=-109.20033#map=13/30.65895/-109.20033) · [satellite](https://www.google.com/maps/@30.65895,-109.20033,13z/data=!3m1!1e3) |  |
 | [ ] | J3.2 | A promontory above the Bavispe | inferred | this-site | [OSM](https://www.openstreetmap.org/?mlat=30.55&mlon=-109.05#map=13/30.55/-109.05) · [satellite](https://www.google.com/maps/@30.55,-109.05,13z/data=!3m1!1e3) |  |
 | [ ] | J3.3 | El Tigre | located | geonames 4007229 | [OSM](https://www.openstreetmap.org/?mlat=30.5876&mlon=-109.21838#map=13/30.5876/-109.21838) · [satellite](https://www.google.com/maps/@30.5876,-109.21838,13z/data=!3m1!1e3) |  |
 | [ ] | J3.4 | Among the Indians in the Sierras | inferred | this-site | [OSM](https://www.openstreetmap.org/?mlat=30.3&mlon=-109.1#map=13/30.3/-109.1) · [satellite](https://www.google.com/maps/@30.3,-109.1,13z/data=!3m1!1e3) |  |
@@ -51,7 +51,6 @@ Rows marked **check** are provisional picks among several candidates. Reasoning 
 | [ ] |  | Llanos de Carretas | approximate | geonames 4015316 | [OSM](https://www.openstreetmap.org/?mlat=31.0&mlon=-108.5#map=13/31.0/-108.5) · [satellite](https://www.google.com/maps/@31.0,-108.5,13z/data=!3m1!1e3) |  |
 | [ ] |  | Bavispe | located | geonames 4017239 | [OSM](https://www.openstreetmap.org/?mlat=30.47968&mlon=-108.94101#map=13/30.47968/-108.94101) · [satellite](https://www.google.com/maps/@30.47968,-108.94101,13z/data=!3m1!1e3) |  |
 | [ ] |  | Tamichopa | located | geonames 3982557 | [OSM](https://www.openstreetmap.org/?mlat=30.27243&mlon=-108.90354#map=13/30.27243/-108.90354) · [satellite](https://www.google.com/maps/@30.27243,-108.90354,13z/data=!3m1!1e3) |  |
-| [ ] |  | Animas Peak | located | gnis 899504 | [OSM](https://www.openstreetmap.org/?mlat=31.58016&mlon=-108.78393#map=13/31.58016/-108.78393) · [satellite](https://www.google.com/maps/@31.58016,-108.78393,13z/data=!3m1!1e3) |  |
 | [ ] |  | Bowie | located | gnis 1890 | [OSM](https://www.openstreetmap.org/?mlat=32.32647&mlon=-109.48701#map=13/32.32647/-109.48701) · [satellite](https://www.google.com/maps/@32.32647,-109.48701,13z/data=!3m1!1e3) |  |
 | [ ] |  | Apache Pass | located | gnis 732 | [OSM](https://www.openstreetmap.org/?mlat=32.15175&mlon=-109.48173#map=13/32.15175/-109.48173) · [satellite](https://www.google.com/maps/@32.15175,-109.48173,13z/data=!3m1!1e3) |  |
 | [ ] |  | Elfrida | located | gnis 4408 | [OSM](https://www.openstreetmap.org/?mlat=31.68537&mlon=-109.68701#map=13/31.68537/-109.68701) · [satellite](https://www.google.com/maps/@31.68537,-109.68701,13z/data=!3m1!1e3) |  |

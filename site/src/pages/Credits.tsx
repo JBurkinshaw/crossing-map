@@ -31,6 +31,31 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         licence: 'In copyright; linked, not copied',
         credit: CAMPBELL_CREDIT,
       },
+      {
+        name: 'James Luther Bell, Contextualizing Cormac McCarthy’s Border Trilogy: An Annotative Approach',
+        use: (
+          <>
+            PhD dissertation, Texas Tech University, 2000. Its index of the novel’s places, its local research around
+            Cloverdale and its map of Hidalgo County were used to check and correct places on this map. Notes that
+            draw on it cite the page, in our own words.
+          </>
+        ),
+        licence: 'In copyright; facts used, text not copied',
+        credit: 'Bell 2000',
+      },
+      {
+        name: 'Joe Hazelton, Cormac McCarthy “The Crossing” (Gaia GPS)',
+        link: 'https://www.gaiagps.com/public/QVoNQ0FcmpOf9KOEQVRqw6l4',
+        use: (
+          <>
+            A reader’s map of the novel’s places, shared on{' '}
+            <a href="https://www.reddit.com/r/cormacmccarthy/comments/18wu63g/map_of_the_crossing/">r/cormacmccarthy</a>.
+            Its pins were compared with every place here; where they agree or led to a correction, the place says so.
+          </>
+        ),
+        licence: 'Used with credit',
+        credit: 'Joe Hazelton’s map',
+      },
     ],
   },
   {

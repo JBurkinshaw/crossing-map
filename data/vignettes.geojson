@@ -118,7 +118,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "At a hacienda by a river near Colonia Morelos the wolf is taken from Billy and put in a pit to fight dogs at the fair.",
-    "reasoning": "The hacienda is inferred (a 10 km circle around Morelos), and Morelos, Ojito, Batepito and four journeys' stops crowd that valley. The drawing goes south-west, into the empty hills between Morelos, El Tigre and Esqueda. No leader: the site is inferred, not located. The anchor is 20 km from The hacienda, bearing 227 degrees; the nearest stop or place, El Tigre, is 19 km away (pyproj, WGS 84).",
+    "reasoning": "The hacienda is inferred (a 10 km circle around Morelos), and Morelos, Ojito, Batepito and four journeys' stops crowd that valley. The drawing goes south-west, into the empty hills between Morelos, El Tigre and Esqueda. No leader: the site is inferred, not located. The anchor is 20 km from The hacienda, bearing 227 degrees; the nearest stop or place, Into the Pilares Teras, is 17 km away (pyproj, WGS 84).",
     "vignette": "vignette-hacienda-pit",
     "min_zoom": 8.0,
     "max_zoom": 12.0,

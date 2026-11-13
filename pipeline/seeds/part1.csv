@@ -24,7 +24,11 @@ grant-county,Grant County,,,county,admin,US-NM,,passing,,1-01,
 de-baca-county,De Baca County,,,county,admin,US-NM,,passing,,4-07,
 agua-prieta,Agua Prieta,,,city,populated,MX-SON,,passing,,1-10,
 casas-grandes,Casas Grandes,,,town,populated,MX-CHH,,passing,,1-10,
-ascension,Ascensión,Ascension,,town,populated,MX-CHH,,passing,,4-03,
+ascension,Ascensión,Ascension,Ascención;Ascensión,town,populated,MX-CHH,,passing,,1-09,
 san-luis-pass,San Luis Pass,,,pass,pass,US-NM,,passing,,1-01,
 black-point,Black Point,,,summit,summit,US-NM;US-AZ,,passing,,1-03,
 animas,Animas,,,town,populated,US-NM,,passing,,1-07,
+hidalgo-county,Hidalgo County,,Hidalgo,county,admin,US-NM,,passing,,1-01,The Parhams' county
+cochise-county,Cochise County,,,county,admin,US-AZ,,passing,wolf,1-04,The wolf ranges west into it
+taylor-draw,Taylor's Draw,Taylor Draw,Taylor's Draw,valley,valley,US-NM,J1,passing,wolf,1-01,"The head of the draw, on the western slope of the Animas"
+cabellera-canyon,Cañón la Cabellera,Cabellera Canyon,Cabellera Canyon,canyon,valley,MX-SON,J2,passing,billy;wolf,1-09,Beside the Sierra de la Cabellera
