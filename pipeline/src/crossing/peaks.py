@@ -42,7 +42,8 @@ GEONAMES = REPO / "private" / "cache" / "gazetteer" / "MX" / "MX.txt"
 OUT = REPO / "data" / "mountain_glyphs.geojson"
 CRS = "EPSG:32612"
 GRID_M = 200
-MIN_PROMINENCE_M = 300
+# Not below about 150 m: the 200 m grid smooths cols, so lower prominences are mostly noise.
+MIN_PROMINENCE_M = 200
 NAME_RADIUS_M = 2000
 GNIS_CLASSES = {"Summit", "Ridge", "Bench", "Crater"}
 GEONAMES_CODES = {"MT", "PK", "HLL", "HLLS", "MESA", "RDGE", "VLC"}
@@ -53,6 +54,8 @@ SHAPE_CODES = {"gnis:Bench", "gnis:Crater", "MESA", "VLC"}
 SHAPE_WORDS = re.compile(r"\b(mesa|mesas|mesita|butte|buttes|crater|cráter|volcán|volcan)\b", re.IGNORECASE)
 SHAPE_MIN_PROMINENCE_M = 100
 SHAPE_RADIUS_M = 1000
+# A summit within this distance of a glyph in the previous file keeps that glyph's id, and so its shape.
+KEEP_ID_M = 500
 GLYPHS = 12
 # Summits the book names, with the episode that first names them (from crossing.extract; the book says
 # "the Animas Peaks"). Always kept, at their GNIS position. Other summits are plain geography, shown from 1-01.
@@ -63,7 +66,8 @@ def mosaic() -> tuple[np.ndarray, rasterio.Affine]:
     with tempfile.TemporaryDirectory() as tmp:
         vrt, out = Path(tmp) / "m.vrt", Path(tmp) / "m.tif"
         subprocess.run(["gdalbuildvrt", "-q", str(vrt), *map(str, sorted(DEM_TILES.glob("*.tif")))], check=True)
-        subprocess.run(["gdalwarp", "-q", "-t_srs", CRS, "-tr", str(GRID_M), str(GRID_M), "-r", "max",
+        # -tap pins the grid to multiples of GRID_M, so adding DEM tiles does not move every summit.
+        subprocess.run(["gdalwarp", "-q", "-t_srs", CRS, "-tr", str(GRID_M), str(GRID_M), "-tap", "-r", "max",
                         "-dstnodata", "-9999", str(vrt), str(out)], check=True)
         with rasterio.open(out) as src:
             return src.read(1).astype(np.float64), src.transform
@@ -143,6 +147,43 @@ def size_class(prom: float) -> str:
     return "large" if prom >= 1000 else "medium" if prom >= 600 else "small"
 
 
+def keep_ids(feats: list[dict], to_utm: Transformer) -> int:
+    """Give each new glyph the id of the nearest unclaimed glyph in the previous file within KEEP_ID_M.
+
+    Ids come from coordinates, which move a little whenever the mosaic grid
+    changes; carrying the old id keeps each glyph's shape, flip and size jitter.
+    Returns how many ids carried over.
+    """
+    if not OUT.exists():
+        return 0
+    old = json.loads(OUT.read_text(encoding="utf-8"))["features"]
+    old_ids = [f["properties"]["id"] for f in old]
+    old_xy = np.array([to_utm.transform(*f["geometry"]["coordinates"]) for f in old])
+    claimed: set[int] = set()
+    used: set[str] = set()
+    fresh = []
+    for f in feats:  # biggest first, so they claim first
+        x, y = to_utm.transform(*f["geometry"]["coordinates"])
+        d = np.hypot(old_xy[:, 0] - x, old_xy[:, 1] - y)
+        d[list(claimed)] = np.inf
+        j = int(d.argmin())
+        if d[j] <= KEEP_ID_M:
+            claimed.add(j)
+            f["properties"] |= {"id": old_ids[j], **variation(old_ids[j])}
+            used.add(old_ids[j])
+        else:
+            fresh.append(f)
+    # A new glyph whose own id is already taken takes a suffix.
+    for f in fresh:
+        pid = base = f["properties"]["id"]
+        n = 2
+        while pid in used:
+            pid, n = f"{base}-{n}", n + 1
+        used.add(pid)
+        f["properties"] |= {"id": pid, **variation(pid)}
+    return len(claimed)
+
+
 def main() -> None:
     dem, transform = mosaic()
     print(f"mosaic {dem.shape[1]} x {dem.shape[0]} cells at {GRID_M} m")
@@ -178,9 +219,11 @@ def main() -> None:
     for r, c, elev, prom in sorted(big, key=lambda p: -p[3]):
         x, y = transform * (c + 0.5, r + 0.5)
         d = np.hypot(names_xy[:, 0] - x, names_xy[:, 1] - y)
+        # Out of range first, so a summit name just beyond NAME_RADIUS_M cannot beat a mesa name in range.
+        d[d > NAME_RADIUS_M] = np.inf
         # A summit or mountain name in range beats a nearer hill, mesa or ridge name.
         j = int(np.where(summit_name, d, d + NAME_RADIUS_M).argmin())
-        named = names[j] if d[j] <= NAME_RADIUS_M else None
+        named = names[j] if np.isfinite(d[j]) else None
         add(x, y, elev, prom, named[0] if named else None, "copernicus-glo30", named[2] if named else None,
             named[3] if named else None)
     kept = {f["properties"]["name"] for f in feats}
@@ -205,6 +248,7 @@ def main() -> None:
             add(x, y, elev, 0, name, src, sid, code)
             kept.add(name)
 
+    print(f"{keep_ids(feats, to_utm)} ids carried over from the previous {OUT.name}")
     OUT.write_text(json.dumps({"type": "FeatureCollection", "features": feats}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     named_count = sum(1 for f in feats if f["properties"]["name"] != "Unnamed summit")
     print(f"{OUT.name}: {len(feats)} peaks, {named_count} named; sizes "
