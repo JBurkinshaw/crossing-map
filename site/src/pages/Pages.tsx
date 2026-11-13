@@ -4,17 +4,21 @@ import { About } from './About'
 import { Credits } from './Credits'
 import { Data } from './Data'
 import { HowItsBuilt } from './HowItsBuilt'
+import type { OpenQuestion } from '../data/openQuestions'
+import { OpenQuestions } from './OpenQuestions'
 
 const PAGES: { route: Exclude<Route, '/'>; label: string; title: string }[] = [
   { route: '/about', label: 'About', title: 'About this map' },
   { route: '/about/how-its-built', label: "How it's built", title: "How it's built" },
+  { route: '/open-questions', label: 'Open questions', title: 'Open questions' },
   { route: '/data', label: 'Data', title: 'The data' },
   { route: '/credits', label: 'Credits', title: 'Credits' },
 ]
 
 // The site's pages, over the map (which stays loaded underneath, so returning to it is instant).
 // Loaded as their own chunk the first time a page opens.
-export default function Pages({ route }: { route: Exclude<Route, '/'> }) {
+// `questions` are the open questions the reader has reached.
+export default function Pages({ route, questions }: { route: Exclude<Route, '/'>; questions: OpenQuestion[] }) {
   const page = PAGES.find((p) => p.route === route)!
   const scroller = useRef<HTMLDivElement>(null)
   const heading = useRef<HTMLHeadingElement>(null)
@@ -62,6 +66,7 @@ export default function Pages({ route }: { route: Exclude<Route, '/'> }) {
         </h1>
         {route === '/about' && <About />}
         {route === '/about/how-its-built' && <HowItsBuilt />}
+        {route === '/open-questions' && <OpenQuestions questions={questions} />}
         {route === '/data' && <Data />}
         {route === '/credits' && <Credits />}
       </article>

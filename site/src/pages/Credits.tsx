@@ -65,9 +65,8 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         name: 'Copernicus DEM GLO-30',
         link: 'https://registry.opendata.aws/copernicus-dem/',
         use: 'The 30 m elevation model behind the hachures, contours, summits and passes, and the Raised view.',
-        licence: 'Copernicus DEM licence: free use, with this notice',
+        licence: 'Copernicus DEM licence: free use, with this notice. The organisations in charge of the Copernicus programme by law or by delegation do not incur any liability for any use of the Copernicus WorldDEM-30.',
         credit: COPERNICUS,
-        todo: 'Wording as in data/README.md; check it against the Copernicus DEM licence text.',
       },
       {
         name: 'AWS Terrain Tiles (Mapzen and Tilezen)',
@@ -117,10 +116,9 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'Natural Earth',
         link: 'https://www.naturalearthdata.com/',
-        use: 'Borders, the Mexican states, rivers, lakes, roads and railroads of the base map, and the rivers some routes follow.',
-        licence: 'Public domain',
+        use: 'Borders, the Mexican states, lakes, roads and railroads of the base map, and the rivers outside the basins INEGI’s network covers.',
+        licence: 'Public domain; no credit required',
         credit: 'Made with Natural Earth',
-        todo: 'Check this wording against Natural Earth’s terms of use page.',
       },
     ],
   },

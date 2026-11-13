@@ -3,6 +3,8 @@ import type { Feature, Geometry } from 'geojson'
 import type { StoryProps } from '../data/story'
 import type { Translation } from '../data/translations'
 import { TranslationList } from './TranslationList'
+import { FeatureQuestions } from './OpenQuestions'
+import type { OpenQuestion } from '../data/openQuestions'
 import { distance, type Units } from '../units'
 
 const KIND: Record<string, string> = {
@@ -14,6 +16,8 @@ const KIND: Record<string, string> = {
 type Props = {
   feature: Feature<Geometry, StoryProps>
   units: Units
+  // Open questions reached so far; the card shows those about this feature.
+  questions: OpenQuestion[]
   // The translations whose location_ref is this feature, already filtered to the reader's progress.
   spoken: Translation[]
   currentTranslation: string | null
@@ -27,7 +31,7 @@ type Props = {
 
 // The card for a place or area picked on the map or in search, or for the road a line was spoken on: what it
 // is, how it was placed, and what was said there in Spanish ("Spoken here", plan section 8).
-export function PlaceCard({ feature, units, spoken, currentTranslation, onClose, title, spokenTitle = 'Spoken here', spokenNote }: Props) {
+export function PlaceCard({ feature, units, questions, spoken, currentTranslation, onClose, title, spokenTitle = 'Spoken here', spokenNote }: Props) {
   const p = feature.properties
   const card = useRef<HTMLElement>(null)
   useEffect(() => {
@@ -46,6 +50,7 @@ export function PlaceCard({ feature, units, spoken, currentTranslation, onClose,
       </div>
       {(p.note_full || p.note_safe) && <p>{p.note_full || p.note_safe}</p>}
       {p.reasoning && <p>{p.reasoning}</p>}
+      <FeatureQuestions id={p.id} name={title ?? p.name} questions={questions} />
       {spoken.length > 0 && (
         <>
           <h3>{spokenTitle}</h3>

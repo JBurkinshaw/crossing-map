@@ -1,0 +1,277 @@
+[
+ {
+  "id": "q-sierra-de-la-madera",
+  "title": "Which Sierra de la Madera?",
+  "first_seen": "1-04",
+  "features": [
+   "place-sierra-de-la-madera",
+   "j1-sierra-de-la-madera"
+  ],
+  "shown": "The Sky Island range near Cumpas, west of the Río Bavispe.",
+  "other": "Bell (2000) and Joe Hazelton's map take the Sierra de la Madera on the upper Río Bavispe, 81 km north-east.",
+  "why": "From that range the wolf would reach the border without crossing the Río Bavispe, which the book has her do."
+ },
+ {
+  "id": "q-bavispe-crossing",
+  "title": "Where did the wolf cross the Río Bavispe?",
+  "first_seen": "1-04",
+  "features": [
+   "j1-bavispe-crossing",
+   "area-j1-bavispe-crossing"
+  ],
+  "shown": "On the river's western arm, below Villa Hidalgo, within a wide circle.",
+  "other": "The book names one crossing and no place.",
+  "why": "The Río Bavispe is one river bent into a long U, so her way north must cross it again on the eastern arm."
+ },
+ {
+  "id": "q-starvation-canyon",
+  "title": "Starvation Canyon: mouth or head?",
+  "first_seen": "1-04",
+  "features": [
+   "place-starvation-canyon",
+   "j1-starvation-canyon"
+  ],
+  "shown": "The canyon's mouth.",
+  "other": "Its head, 6.4 km south-east.",
+  "why": "The wolf goes to where the canyon heads and then south to Hog Canyon Spring, which is 2.4 km from the head."
+ },
+ {
+  "id": "q-clanton-foster",
+  "title": "How high between Clanton and Foster draws?",
+  "first_seen": "1-04",
+  "features": [
+   "place-clanton-draw",
+   "place-foster-draw",
+   "j1-clanton-foster",
+   "j1-foster-draw",
+   "area-j1-clanton-foster"
+  ],
+  "shown": "The draws' mouths on the valley floor.",
+  "other": "Their middle and upper reaches, about 7 km west.",
+  "why": "The wolf keeps to the high ground between the draws, and the calf is killed at the head of Foster Draw."
+ },
+ {
+  "id": "q-nations-road",
+  "title": "The old Nations road",
+  "first_seen": "1-04",
+  "features": [
+   "j1-border-108-30",
+   "j1-whitewater-creek"
+  ],
+  "shown": "Not on the map.",
+  "other": "A crossing about a mile north of the line, near the Nations Tank on Whitewater Creek, from Bell's local informant.",
+  "why": "The book names the road and nothing else about it."
+ },
+ {
+  "id": "q-pendletons",
+  "title": "Where was Pendleton's ranch?",
+  "first_seen": "1-04",
+  "features": [],
+  "shown": "Not on the map.",
+  "other": "About five miles north-west of Cloverdale, from Bell's local informant; Joe Hazelton's map agrees.",
+  "why": "No gazetteer names the ranch."
+ },
+ {
+  "id": "q-fitzpatrick-wells",
+  "title": "Fitzpatrick Wells",
+  "first_seen": "1-04",
+  "features": [],
+  "shown": "Not on the map.",
+  "other": "The end of Fitzpatrick Camp Road, about four miles east-south-east of Cloverdale (Bell; Joe Hazelton's map).",
+  "why": "The book names only the old road to the wells, and no gazetteer has them."
+ },
+ {
+  "id": "q-cloverdale-creek",
+  "title": "Where on Cloverdale Creek was the trap?",
+  "first_seen": "1-08",
+  "features": [
+   "place-cloverdale-creek",
+   "j1-cloverdale-creek",
+   "j2-cloverdale-creek"
+  ],
+  "shown": "The creek's mouth, south-east of Cloverdale.",
+  "other": "Up the creek, about 7 km north-west of the town.",
+  "why": "Billy turns west up the creek road from Cloverdale and rides about two hours to the trap."
+ },
+ {
+  "id": "q-cienega-springs",
+  "title": "Ciénega Springs and Government Draw",
+  "first_seen": "1-08",
+  "features": [],
+  "shown": "Not on the map.",
+  "other": "A Cienega Springs at the south end of the Animas Valley (GNIS), or north-east of Cloverdale (Bell's informant).",
+  "why": "They come in an old man's story, and the sources disagree."
+ },
+ {
+  "id": "q-cajon-bonito",
+  "title": "Where did Billy reach the Cajón Bonito?",
+  "first_seen": "1-09",
+  "features": [
+   "place-cajon-bonito",
+   "j2-cajon-bonito"
+  ],
+  "shown": "The stream's lower end, 47 km from Cloverdale.",
+  "other": "The upper canyon, 27 km south of Cloverdale, as on Joe Hazelton's map.",
+  "why": "Billy reaches the canyon a few hours after crossing the line."
+ },
+ {
+  "id": "q-huisiachepic",
+  "title": "Huisiachepic",
+  "first_seen": "2-01",
+  "features": [
+   "j3-huisiachepic",
+   "area-j3-huisiachepic"
+  ],
+  "shown": "An area on the upper Río Bavispe, about 28 km south of Tamichopa.",
+  "other": "No gazetteer or source has the name.",
+  "why": "It may be invented or lost."
+ },
+ {
+  "id": "q-parham-house",
+  "title": "Where was the Parham house?",
+  "first_seen": "2-04",
+  "features": [
+   "j3-parham-house",
+   "j3-sk-bar",
+   "area-j3-sk-bar",
+   "j7-sk-bar",
+   "area-j7-sk-bar"
+  ],
+  "shown": "At Cloverdale, with the SK Bar about 14 km north.",
+  "other": "A few kilometres north of Cloverdale on the Cloverdale road, which would move the SK Bar north too.",
+  "why": "Billy rides south from home and reaches Cloverdale at first light; Bell reads it the same way."
+ },
+ {
+  "id": "q-casas-grandes",
+  "title": "Old Casas Grandes or the new town?",
+  "first_seen": "2-08",
+  "features": [
+   "place-casas-grandes",
+   "j4-casas-grandes",
+   "j4-casas-grandes-doctor",
+   "j5-casas-grandes",
+   "j7-casas-grandes",
+   "j7-casas-grandes-2"
+  ],
+  "shown": "The old town, beside the Paquimé ruins.",
+  "other": "Nuevo Casas Grandes, the railroad town 5 km north-east.",
+  "why": "The brothers pass the ruins but ride in over the railroad and past the depot, and the only station is in the new town."
+ },
+ {
+  "id": "q-boquilla",
+  "title": "Which La Boquilla?",
+  "first_seen": "3-04",
+  "features": [
+   "place-boquilla",
+   "j4-boquilla",
+   "j5-boquilla",
+   "j5-boquilla-return"
+  ],
+  "shown": "La Boquilla by the lake in Gómez Farías municipio.",
+  "other": "The text also calls it Boquilla y Anexas, which INEGI places 135 km away; Joe Hazelton pins one near Mata Ortiz.",
+  "why": "The name is common, and the lake town fits the ride."
+ },
+ {
+  "id": "q-nahuerichic",
+  "title": "Nahuerichic",
+  "first_seen": "3-04",
+  "features": [
+   "place-nahuerichic"
+  ],
+  "shown": "Nahuerachi, 7 km south-south-west of Madera.",
+  "other": "Bell independently places a Nahuerachic in about the same spot.",
+  "why": "The name differs by a vowel, and nothing yet ties this town to the one in the book."
+ },
+ {
+  "id": "q-san-jose",
+  "title": "Which San José?",
+  "first_seen": "3-08",
+  "features": [
+   "place-san-jose",
+   "j4-san-jose"
+  ],
+  "shown": "San José de Ermita, 48 km north-north-west of La Boquilla.",
+  "other": "Any of several San Josés in the region.",
+  "why": "The name is common; this one fits the brothers' ride north up a river."
+ },
+ {
+  "id": "q-soto-maynez",
+  "title": "Soto Máynez and Santa Ana",
+  "first_seen": "3-12",
+  "features": [
+   "place-soto-maynez"
+  ],
+  "shown": "One point with Santa Ana de Babícora.",
+  "other": "Two towns.",
+  "why": "INEGI gives Soto Máynez as Santa Ana's official name, but the text treats them as separate places."
+ },
+ {
+  "id": "q-alamo",
+  "title": "Which Álamo?",
+  "first_seen": "3-14",
+  "features": [
+   "j5-alamo",
+   "area-j5-alamo"
+  ],
+  "shown": "An area near Galeana.",
+  "other": "Joe Hazelton pins an Álamo in Sonora, 211 km away.",
+  "why": "Two Álamos lie near San Buenaventura, and neither is between it and Galeana."
+ },
+ {
+  "id": "q-namiquipa",
+  "title": "Namiquipa's direction",
+  "first_seen": "3-14",
+  "features": [
+   "place-namiquipa",
+   "j5-namiquipa",
+   "j6-namiquipa",
+   "j7-namiquipa"
+  ],
+  "shown": "The town of Namiquipa.",
+  "other": "The text sends Billy west from Santa Ana to reach it.",
+  "why": "The real town lies 25 km north-north-east of Santa Ana; the text's direction may be loose."
+ },
+ {
+  "id": "q-town-scenes",
+  "title": "Streets and buildings in town",
+  "first_seen": "4-02",
+  "features": [
+   "j7-deming",
+   "j7-silver-city",
+   "j7-el-paso",
+   "j7-deming-2",
+   "j7-deming-3",
+   "j7-silver-city-2",
+   "j7-silver-city-3",
+   "place-deming",
+   "place-silver-city",
+   "place-el-paso"
+  ],
+  "shown": "Each town as one point.",
+  "other": "Bell gives addresses: the Deming bus station, armory and cafés, the Palace Hotel and Bullard Street in Silver City, and streets in El Paso.",
+  "why": "Most need a period directory or fire-insurance map to place exactly."
+ },
+ {
+  "id": "q-sierra-del-nido",
+  "title": "The Sierra del Nido's direction",
+  "first_seen": "4-06",
+  "features": [
+   "place-sierra-del-nido"
+  ],
+  "shown": "The range east-south-east of San Buenaventura.",
+  "other": "The text sees it to the south.",
+  "why": "The text's direction may be loose."
+ },
+ {
+  "id": "q-dog-springs",
+  "title": "Dog Springs",
+  "first_seen": "4-08",
+  "features": [
+   "j7-dog-springs",
+   "area-j7-dog-springs"
+  ],
+  "shown": "The border south of Hermanas.",
+  "other": "Bell and Joe Hazelton put it at the Dog Mountains, 66 km away.",
+  "why": "From the Dog Mountains Billy could not reach Hachita by the next evening with his travois."
+ }
+]

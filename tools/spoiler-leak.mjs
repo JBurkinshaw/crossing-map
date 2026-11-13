@@ -36,6 +36,11 @@ const reachedOf = (p) => (p === null || p === 'none' ? '0-00' : p === 'all' ? '9
 const allowed = (props, reached) => props.role === 'context' || props.first_seen <= reached
 const EPISODE_ID = /\b[1-4]-(0[1-9]|1[0-4])\b/g
 
+function reachedNames(reached) {
+  const all = [...Object.values(layers).flat().map((f) => f.properties), ...elsewhere, ...glyphs.map((f) => f.properties), ...vignettes.map((f) => f.properties)]
+  return new Set(all.filter((p) => allowed(p, reached)).map((p) => p.name))
+}
+
 function laterOnlyNames(reached) {
   const all = [...Object.values(layers).flat().map((f) => f.properties), ...elsewhere, ...glyphs.map((f) => f.properties), ...vignettes.map((f) => f.properties)]
   const early = new Set(all.filter((p) => allowed(p, reached)).map((p) => p.name))
@@ -133,6 +138,24 @@ for (const point of POINTS) {
 
   const features = await checkMap(page, reached, `${where}, flat`)
   await checkPanel(page, reached, `${where}, panel`, later)
+
+  // The Open questions page lists only the questions reached.
+  await page.evaluate(() => (window.location.hash = '#/open-questions'))
+  await page.waitForSelector('.page h1')
+  await page.waitForTimeout(300)
+  const pageText = await page.evaluate(() => ({
+    firstSeen: [...document.querySelectorAll('.page [data-first-seen]')].map((e) => [e.textContent.trim().slice(0, 60), e.dataset.firstSeen]),
+    text: document.querySelector('.page').innerText,
+  }))
+  for (const [label, first_seen] of pageText.firstSeen) if (!allowed({ first_seen }, reached)) leak(`${where}, open questions`, `question first seen ${first_seen}: ${label}`)
+  // A later name that is part of a reached one ("Madera" in "Sierra de la Madera", "Bavispe" in "Crossing of the
+  // Bavispe") is already known to the reader, so it is not a leak.
+  const known = [...reachedNames(reached)]
+  for (const name of later) {
+    if (pageText.text.includes(name) && !known.some((k) => k.includes(name))) leak(`${where}, open questions`, `later name shown: ${name}`)
+  }
+  await page.goBack()
+  await page.waitForTimeout(500)
 
   // Every journey offered, stepped through stop by stop with Next.
   const options = await page.locator('.journey-pick option').evaluateAll((os) => os.map((o) => o.value))

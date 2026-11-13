@@ -3,8 +3,8 @@ import { useSyncExternalStore } from 'react'
 // A small hash router for the site's pages. Only hashes starting `#/` are routes; anything else, such as the
 // map's own `#map=zoom/lat/lon`, is the map. MapLibre adds `&map=...` to whatever hash is showing when the
 // map moves, so a route ends at the first `&`.
-export type Route = '/' | '/about' | '/about/how-its-built' | '/data' | '/credits'
-const ROUTES: Route[] = ['/', '/about', '/about/how-its-built', '/data', '/credits']
+export type Route = '/' | '/about' | '/about/how-its-built' | '/open-questions' | '/data' | '/credits'
+const ROUTES: Route[] = ['/', '/about', '/about/how-its-built', '/open-questions', '/data', '/credits']
 
 function read(): Route {
   const hash = window.location.hash

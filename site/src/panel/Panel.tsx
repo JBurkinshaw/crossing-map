@@ -6,9 +6,13 @@ import type { Translation } from '../data/translations'
 import { Drawer, type DrawerHeight } from './Drawer'
 import { TranslationList } from './TranslationList'
 import { distance, type Units } from '../units'
+import type { OpenQuestion } from '../data/openQuestions'
+import { FeatureQuestions } from './OpenQuestions'
 
 type Props = {
   units: Units
+  // Open questions reached so far; the stop shows those about it.
+  questions: OpenQuestion[]
   // The reading-progress badge, at the top of the panel.
   header: ReactNode
   // The search box, and the card for whatever was picked on the map or in search.
@@ -38,13 +42,14 @@ type Props = {
 export function Panel(props: Props) {
   const { header, search, card, failed, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
   const { spokenOnRoad, onShowRoad } = props
-  const { phone, drawer, onDrawer, units } = props
+  const { phone, drawer, onDrawer, units, questions } = props
   const stop = stops[stopIndex]
 
   const links = (
     <nav className="site-links" aria-label="Pages">
       <a href="#/about">About</a>
       <a href="#/about/how-its-built">How it’s built</a>
+      <a href="#/open-questions">Open questions</a>
       <a href="#/data">Data</a>
       <a href="#/credits">Credits</a>
     </nav>
@@ -83,6 +88,7 @@ export function Panel(props: Props) {
         </div>
         {stop.properties.reasoning && <p>{stop.properties.reasoning}</p>}
       </details>
+      <FeatureQuestions id={stop.properties.id} name={stop.properties.name} questions={questions} />
       {spokenAtStop.length > 0 && (
         <>
           <h3>Spoken here</h3>

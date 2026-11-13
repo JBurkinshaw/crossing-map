@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import type { MapRef } from '@vis.gl/react-maplibre'
 import type { Feature, Geometry, Position } from 'geojson'
+import { useOpenQuestions } from './data/openQuestions'
 import { useElsewhere, useStory, type Story, type StoryProps } from './data/story'
 import { useTranslations, type Translation } from './data/translations'
 import { MapView, type View } from './map/MapView'
@@ -112,6 +113,8 @@ export default function App() {
     [loadedAll, reached, spoilers],
   )
   const elsewhere = useMemo(() => elsewhereAll.filter((e) => shownAt(e, reached)), [elsewhereAll, reached])
+  const questionsAll = useOpenQuestions()
+  const questions = useMemo(() => questionsAll.filter((q) => shownAt(q, reached)), [questionsAll, reached])
   const translations = useMemo(() => translationsUpTo(translationsAll, reached), [translationsAll, reached])
   const spokenAt = useMemo(() => {
     const at = new Map<string, Translation[]>()
@@ -288,6 +291,7 @@ export default function App() {
     <PlaceCard
       feature={road}
       units={units}
+      questions={questions}
       title={roadLabel(flat, road)}
       spoken={spokenAt.get(road.properties.id) ?? []}
       spokenTitle="Spoken on this road"
@@ -302,6 +306,7 @@ export default function App() {
     <PlaceCard
       feature={selected}
       units={units}
+      questions={questions}
       spoken={spokenAt.get(selected.properties.id) ?? []}
       currentTranslation={translationId}
       onClose={() => setSelection(null)}
@@ -348,6 +353,7 @@ export default function App() {
       />
       <Panel
         units={units}
+        questions={questions}
         header={<ReadingProgress progress={progress} isSet={isSet} episodes={episodes} onSet={setProgress} />}
         search={<SearchBox places={flat?.places.features ?? []} stops={flat?.stops.features ?? []} translations={translations} onPick={onPick} />}
         card={card}
@@ -373,7 +379,7 @@ export default function App() {
       />
       {route !== '/' && (
         <Suspense fallback={null}>
-          <Pages route={route} />
+          <Pages route={route} questions={questions} />
         </Suspense>
       )}
     </main>

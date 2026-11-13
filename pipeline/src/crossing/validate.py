@@ -5,6 +5,7 @@ Exits non-zero on the first file with errors, after listing all its errors.
 """
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -78,6 +79,26 @@ def check_translations(path: Path) -> list[str]:
     return errors
 
 
+def check_questions(path: Path) -> list[str]:
+    """Each open question has its fields, an episode id, and features that exist and are reached by then."""
+    first = {}
+    for layer in DATA.glob("*.geojson"):
+        for f in json.loads(layer.read_text(encoding="utf-8"))["features"]:
+            first[f["properties"]["id"]] = f["properties"].get("first_seen")
+    errors = []
+    for q in json.loads(path.read_text(encoding="utf-8")):
+        missing = {"id", "title", "first_seen", "features", "shown", "other", "why"} - set(q)
+        if missing:
+            errors.append(f"{q.get('id')}: missing {sorted(missing)}")
+            continue
+        if not re.fullmatch(r"[1-4]-(0[1-9]|1[0-4])", q["first_seen"]):
+            errors.append(f"{q['id']}: first_seen {q['first_seen']!r} is not an episode")
+        for fid in q["features"]:
+            if fid not in first:
+                errors.append(f"{q['id']}: no feature {fid}")
+    return errors
+
+
 def main() -> int:
     validator = Draft202012Validator(json.loads(SCHEMA.read_text(encoding="utf-8")))
     files = sorted(DATA.glob("*.geojson"))
@@ -106,6 +127,14 @@ def main() -> int:
             print(f"  {e}")
         failed = failed or bool(errors)
         files.append(translations)
+    questions = DATA / "open-questions.json"
+    if questions.exists():
+        errors = check_questions(questions)
+        print(f"open-questions.json: {'ok' if not errors else f'{len(errors)} errors'}")
+        for e in errors:
+            print(f"  {e}")
+        failed = failed or bool(errors)
+        files.append(questions)
     print(f"Checked {len(files)} files.")
     return 1 if failed else 0
 

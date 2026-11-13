@@ -1159,3 +1159,40 @@ a {
   background-repeat: no-repeat;
 }
 
+
+/* An open question on a card or the Open questions page: what is shown, the other reading, and why. */
+.open-question {
+  margin: 10px 0;
+  padding: 6px 10px;
+  border-left: 3px solid var(--ink-faint);
+  font-size: 0.85rem;
+}
+
+.open-question h3 {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.open-question dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 2px 8px;
+  margin: 0;
+}
+
+.open-question dt {
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.open-question dd {
+  margin: 0;
+}
+
+.correction {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  font-style: italic;
+}
