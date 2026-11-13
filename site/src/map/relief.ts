@@ -9,6 +9,10 @@ export function reliefSources(tilesBase: string, dataBase: string): Record<strin
     glyphs: { type: 'geojson', data: `${dataBase}mountain_glyphs.geojson` },
     terrain: { type: 'raster-dem', url: `pmtiles://${tilesBase}terrain.pmtiles`, encoding: 'terrarium', tileSize: 256 },
     relief: { type: 'vector', url: `pmtiles://${tilesBase}relief.pmtiles` },
+    // Split from relief.pmtiles so each archive stays under 100 MB (plan 5.2) and readers who stay zoomed out
+    // never fetch the dense strokes.
+    'relief-dense': { type: 'vector', url: `pmtiles://${tilesBase}relief-dense.pmtiles` },
+    contours: { type: 'vector', url: `pmtiles://${tilesBase}contours.pmtiles` },
   }
 }
 
@@ -116,15 +120,22 @@ const byShade = (amount: number): ExpressionSpecification => ['+', 1 - amount, [
 
 // Sepia strokes, heavier and darker on shaded slopes, steeper is wider. They fade in from zoom 10 to 13,
 // and below zoom 12 only 70% of them draw (Rand is a fixed digit, 0-9). The 90 m coarse DEM gives gentler
-// slopes, so coarse lines get their own slope range.
+// slopes, so coarse lines get their own slope range. In the corridor a denser set takes over from zoom 12:
+// the fine strokes fade out (`out`) as the dense ones fade in (`in`) by zoom 12.6.
 const S5_INK = '#6e5443'
-function strokePaint(slope: [number, number], copy: boolean) {
+const FADE = {
+  none: [10, 0.55, 13, 1],
+  out: [10, 0.55, 12, 0.85, 12.6, 0],
+  in: [12, 0, 12.6, 0.94, 13, 1],
+} as const
+function strokePaint(slope: [number, number], copy: boolean, fade: keyof typeof FADE = 'none') {
   const w: ExpressionSpecification = ['*', 0.9, ['interpolate', ['linear'], ['get', 'Slope'], slope[0], 0.25, slope[1], 1.3], byShade(0.4)]
   const o: ExpressionSpecification = ['*', copy ? 0.4 : 1, ['min', 1, ['*', 0.65, byShade(0.6)]]]
+  const stops = FADE[fade].flatMap((v, i) => (i % 2 ? [['min', 1, ['*', v, o]]] : [v]))
   return {
     'line-color': S5_INK,
     'line-width': ['interpolate', ['linear'], ['zoom'], 10, ['*', 0.8, w], 13, w] as ExpressionSpecification,
-    'line-opacity': ['interpolate', ['linear'], ['zoom'], 10, ['min', 1, ['*', 0.55, o]], 13, ['min', 1, o]] as ExpressionSpecification,
+    'line-opacity': ['interpolate', ['linear'], ['zoom'], ...stops] as unknown as ExpressionSpecification,
     // A faint second stroke beside each line gives it body.
     ...(copy ? { 'line-offset': 0.35 } : {}),
   }
@@ -134,20 +145,23 @@ const strokeFilter = (kind?: string): ExpressionSpecification => ['all',
   ['step', ['zoom'], ['<', ['get', 'Rand'], 7], 12, true]]
 
 function s5Lines(): LayerSpecification[] {
-  const strokes = (id: string, layer: string, slope: [number, number]): LayerSpecification[] => [false, true].map((copy) => ({
-    id: copy ? `${id}-copy` : id, type: 'line', source: 'relief', 'source-layer': layer, minzoom: S5_SPLIT,
-    filter: strokeFilter(), layout: { 'line-cap': 'round' }, paint: strokePaint(slope, copy),
-  }))
+  const strokes = (id: string, source: string, layer: string, fade: keyof typeof FADE, minzoom = S5_SPLIT): LayerSpecification[] =>
+    [false, true].map((copy) => ({
+      id: copy ? `${id}-copy` : id, type: 'line', source, 'source-layer': layer, minzoom,
+      filter: strokeFilter(), layout: { 'line-cap': 'round' },
+      paint: strokePaint(layer === 'coarse' ? [5, 25] : [10, 40], copy, fade),
+    }))
   return [
     {
       // Orange-brown, as on the Siegfried sheets: every 100 m below zoom 12, every 50 m from 12, heavier every 200 m.
-      id: 'contour', type: 'line', source: 'relief', 'source-layer': 'contour', minzoom: S5_SPLIT,
+      id: 'contour', type: 'line', source: 'contours', 'source-layer': 'contour', minzoom: S5_SPLIT,
       filter: ['step', ['zoom'], ['==', ['%', ['get', 'Ele'], 100], 0], 12, true],
       layout: { 'line-join': 'round' },
       paint: { 'line-color': '#b0622e', 'line-opacity': 0.45, 'line-width': ['case', ['==', ['%', ['get', 'Ele'], 200], 0], 0.8, 0.4] },
     },
-    ...strokes('hachure-coarse', 'coarse', [5, 25]),
-    ...strokes('hachure-fine', 'fine', [10, 40]),
+    ...strokes('hachure-coarse', 'relief', 'coarse', 'none'),
+    ...strokes('hachure-fine', 'relief', 'fine', 'out'),
+    ...strokes('hachure-dense', 'relief-dense', 'dense', 'in', 12),
   ]
 }
 
@@ -157,9 +171,9 @@ export function reliefLayers(): { hillshade: LayerSpecification[]; hachures: Lay
 }
 
 // The Raised view (plan oblique relief): line work from oblique.pmtiles in which every point has moved north
-// by its height, so ranges stand up and hide the ground behind them. It covers the corridor of the first two
-// journeys (decision 0018); the map's layers that cannot move with the terrain are hidden by MapView.
-export const RAISED_BOUNDS: [number, number, number, number] = [-109.76, 29.62, -108.04, 31.85]
+// by its height, so ranges stand up and hide the ground behind them. It covers the corridor of the journeys
+// in RAISED_JOURNEYS in crossing.plan_oblique, so far J1 to J4 (decision 0018); the map's layers that cannot move with the terrain are hidden by MapView.
+export const RAISED_BOUNDS: [number, number, number, number] = [-109.9, 29.62, -107.74, 32.53]
 export const RAISED_MIN_ZOOM = 9
 
 // Classic base layers drawn again from the raised copies of their lines, by the `kind` in oblique.pmtiles.

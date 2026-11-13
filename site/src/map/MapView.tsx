@@ -33,7 +33,7 @@ const TERRAIN_TILT = 40
 // Base layers that cannot move with the terrain, hidden in the Raised view; raisedLayers() redraws the
 // boundaries, roads, streams and the Mexico side from raised copies.
 const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy',
-  'hachure-fine', 'hachure-fine-copy', 'mountain-glyph', 'county-line', 'state-line', 'country-line', 'creek',
+  'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy', 'mountain-glyph', 'county-line', 'state-line', 'country-line', 'creek',
   'river-minor', 'river', 'creek-label', 'river-label', 'road', 'railroad', 'railroad-ties'])
 const RAISED_GROUPS = raisedLayers(literaryStyle(tilesBase, fontsBase, dataBase).layers)
 const RAISED_IDS = RAISED_GROUPS.flatMap((g) => g.layers.map((l) => l.id))
@@ -109,7 +109,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView 
     }
     // Below the raised line work's first zoom the view would be bare paper.
     map.setMinZoom(raised ? RAISED_MIN_ZOOM : MIN_ZOOM)
-    // The raised data covers the first two journeys' corridor, from zoom 9: from outside it, go to its middle;
+    // The raised data covers the corridor of Parts I and II's journeys, from zoom 9: from outside it, go to its middle;
     // from too far out, close in where the view is, enough to see the line work.
     const [w, s, e, n] = RAISED_BOUNDS
     const { lng, lat } = map.getCenter()
@@ -259,7 +259,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView 
         </label>
       </div>
       {view === 'raised' && (
-        <p className="notice" role="status">The Raised view covers the first two journeys for now.</p>
+        <p className="notice" role="status">The Raised view covers the journeys of Parts I and II for now.</p>
       )}
       {unavailable && <p className="notice" role="status">Satellite imagery is unavailable right now. The classic map works as normal.</p>}
       <div className="cartouche" aria-hidden="true">

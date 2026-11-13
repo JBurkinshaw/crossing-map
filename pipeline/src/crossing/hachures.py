@@ -1,7 +1,7 @@
 """Production hachures and contours (plan section 5.2, layer 1; decisions 0015 and 0016).
 
 Run from the repo root, with QGIS_ENV set to the QGIS 4 environment:
-    QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures [--scale fine|coarse] [--jobs 4]
+    QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures [--scale fine|coarse|dense|all] [--jobs 4]
 
 Two scales, each with absolute settings so that tiles match where they meet:
   fine    30 m DEM, inside the journeys corridor (journeys buffered CORRIDOR_HALF_M each side),
@@ -67,13 +67,18 @@ GRID_ORIGIN = (500_000, 3_000_000)  # UTM 12N metres; tile edges fall on multipl
 # spacing step compares every contour with every hachure, so run time grows faster than tile area: a
 # 120 km coarse tile over the Sierra Madre ran for over 30 minutes, which 60 km tiles avoid.
 # Fine lines are split into short strokes, one per 10 m contour band ("split"); coarse lines stay whole ("main").
+# Dense is the fine set closer together (density B, plan 5.2), drawn from zoom 12 over the same corridor.
+FINE = {"cell": 30, "tile": 40_000, "overlap": 3_000, "min_spacing": 2, "max_spacing": 4.5, "min_slope": 10, "max_slope": 40,
+        "interval": 10, "folder": "fine-s2-4.5-split", "output": "split", "zooms": (10, 12)}
 SCALES = {
-    "fine": {"cell": 30, "tile": 40_000, "overlap": 3_000, "min_spacing": 2, "max_spacing": 4.5,
-             "min_slope": 10, "max_slope": 40, "interval": 10, "folder": "fine-s2-4.5-split", "output": "split"},
+    "fine": FINE,
     "coarse": {"cell": 90, "tile": 60_000, "overlap": 6_000, "min_spacing": 3, "max_spacing": 8,
-               "min_slope": 5, "max_slope": 38, "interval": 10, "folder": "coarse", "output": "main"},
+               "min_slope": 5, "max_slope": 38, "interval": 10, "folder": "coarse", "output": "main", "zooms": (10, 12)},
+    "dense": FINE | {"min_spacing": 1.3, "max_spacing": 3, "folder": "fine-s1.3-3-split", "zooms": (12, 12)},
 }
-ZOOMS = (10, 12)
+CONTOUR_ZOOMS = (10, 12)
+# Route segments travelled this way get no fine relief (plan 5.2): the corridor follows the rides and walks.
+NOT_IN_CORRIDOR = {"bus", "train", "reported"}
 CONTOUR_INTERVAL = 50
 
 to_utm = Transformer.from_crs("EPSG:4326", CRS, always_xy=True).transform
@@ -98,7 +103,8 @@ def coverage() -> Polygon:
 def corridor(journeys: tuple[str, ...] | None = None) -> Polygon:
     """The journeys buffered CORRIDOR_HALF_M each side, in UTM; all journeys unless some are named."""
     lines = [LineString(f["geometry"]["coordinates"]) for f in json.loads(JOURNEYS.read_text())["features"]
-             if journeys is None or f["properties"]["journey"] in journeys]
+             if (journeys is None or f["properties"]["journey"] in journeys)
+             and f["properties"].get("travel") not in NOT_IN_CORRIDOR]
     return reproject(to_utm, unary_union(lines)).buffer(CORRIDOR_HALF_M)
 
 
@@ -198,7 +204,7 @@ def clip_tile(name: str, core: Polygon, keep: Polygon, s: dict) -> list[dict]:
             slope, aspect = sample(part)
             coords = [(round(x, 5), round(y, 5)) for x, y in reproject(to_wgs, part).coords]
             rand = zlib.crc32(json.dumps(coords[0]).encode()) % 10
-            out.append({"type": "Feature", "tippecanoe": {"minzoom": ZOOMS[0], "maxzoom": ZOOMS[1]},
+            out.append({"type": "Feature", "tippecanoe": {"minzoom": s["zooms"][0], "maxzoom": s["zooms"][1]},
                         "properties": {"Slope": round(slope), "Aspect": round(aspect) // 5 * 5 % 360, "Rand": rand},
                         "geometry": {"type": "LineString", "coordinates": coords}})
     return out
@@ -221,7 +227,7 @@ def contours(name: str, core: Polygon, keep: Polygon, s: dict) -> list[dict]:
             if not isinstance(part, LineString) or part.length < 2 * s["cell"]:
                 continue
             coords = [(round(x, 5), round(y, 5)) for x, y in reproject(to_wgs, part).coords]
-            features.append({"type": "Feature", "tippecanoe": {"minzoom": ZOOMS[0], "maxzoom": ZOOMS[1]},
+            features.append({"type": "Feature", "tippecanoe": {"minzoom": CONTOUR_ZOOMS[0], "maxzoom": CONTOUR_ZOOMS[1]},
                              "properties": {"Ele": round(f["properties"]["Ele"])},
                              "geometry": {"type": "LineString", "coordinates": coords}})
     return features
@@ -229,7 +235,7 @@ def contours(name: str, core: Polygon, keep: Polygon, s: dict) -> list[dict]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--scale", choices=[*SCALES, "both"], default="both")
+    ap.add_argument("--scale", choices=[*SCALES, "all"], default="all")
     ap.add_argument("--jobs", type=int, default=4)
     a = ap.parse_args()
     if "QGIS_ENV" not in os.environ:
@@ -240,9 +246,9 @@ def main() -> None:
     # Lines within two cells of the DEM's edge come from filled ground, so they are dropped.
     # The fine lines cover the corridor; the coarse lines, everywhere else.
     fine_region = corridor().intersection(cover.buffer(-60))
-    regions = {"fine": fine_region, "coarse": cover.buffer(-180).difference(fine_region)}
+    regions = {"fine": fine_region, "dense": fine_region, "coarse": cover.buffer(-180).difference(fine_region)}
     lines = []
-    for scale in (SCALES if a.scale == "both" else [a.scale]):
+    for scale in (SCALES if a.scale == "all" else [a.scale]):
         s = SCALES[scale]
         grid = tiles(regions[scale], s["tile"])
         print(f"{scale}: {len(grid)} tiles of {s['tile'] // 1000} km, {regions[scale].area / 1e6:,.0f} km2", flush=True)
@@ -252,8 +258,9 @@ def main() -> None:
         merged = OUT / f"{scale}.geojson"
         merged.write_text(json.dumps({"type": "FeatureCollection", "features": features}))
         print(f"{merged.relative_to(REPO)}: {len(features):,} lines, {merged.stat().st_size / 1e6:.0f} MB", flush=True)
-        lines += [f for name, core in grid for f in contours(name, core, regions[scale], s)]
-    if a.scale == "both":
+        if scale != "dense":
+            lines += [f for name, core in grid for f in contours(name, core, regions[scale], s)]
+    if a.scale == "all":
         merged = OUT / "contour.geojson"
         merged.write_text(json.dumps({"type": "FeatureCollection", "features": lines}))
         print(f"{merged.relative_to(REPO)}: {len(lines):,} contours, {merged.stat().st_size / 1e6:.0f} MB", flush=True)

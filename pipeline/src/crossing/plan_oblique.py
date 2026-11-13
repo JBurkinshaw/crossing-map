@@ -1,4 +1,4 @@
-"""The Raised view (decisions 0017 and 0018): plan oblique relief over the corridor of the first two journeys.
+"""The Raised view (decisions 0017 and 0018): plan oblique relief over the corridor of the journeys in RAISED_JOURNEYS.
 
 Run from the repo root, after crossing.hachures:
     uv run --project pipeline python -m crossing.plan_oblique
@@ -62,7 +62,7 @@ from crossing.hachures import COPERNICUS, CRS, DEM_TILES, OUT, REPO, SCALES, cor
 
 FINE = OUT / SCALES["fine"]["folder"]
 TILE = SCALES["fine"]["tile"]
-RAISED_JOURNEYS = ("J1", "J2")
+RAISED_JOURNEYS = ("J1", "J2", "J3", "J4")
 CELL = 30
 STEP = 8  # metres between samples along a line
 STORY_STEP = 60  # metres between samples along the story's lines and area edges
