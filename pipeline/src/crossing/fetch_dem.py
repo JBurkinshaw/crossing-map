@@ -6,8 +6,13 @@ named by their south-west corner. A tile is fetched when it lies within
 CORRIDOR_KM of any route segment in data/journeys.geojson, or inside one of
 the EXTRA regions that later Parts cover. Existing files are skipped.
 Writes to private/cache/dem/copernicus/.
+
+With --story-box, fetches instead every tile of the story box (plan section 7) that the corridor run does not
+already have, into private/cache/dem/copernicus-region/, for the full-region hachure run (plan 5.2). That folder
+is kept apart so the production relief, which covers whatever is in copernicus/, does not grow by accident.
 """
 
+import argparse
 import json
 import math
 import time
@@ -17,6 +22,8 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[3]
 OUT = REPO / "private" / "cache" / "dem" / "copernicus"
+REGION_OUT = REPO / "private" / "cache" / "dem" / "copernicus-region"
+STORY_BOX = (-113, 27, -104, 36)  # west, south, east, north
 URL = "https://copernicus-dem-30m.s3.amazonaws.com/{name}/{name}.tif"
 CORRIDOR_KM = 40
 # (west, south, east, north): the Casas Grandes - Babícora - Namiquipa country of Parts II-IV; the bootheel to
@@ -45,13 +52,20 @@ def corridor_tiles() -> set[tuple[int, int]]:
 
 
 def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
-    tiles = sorted(corridor_tiles())
-    print(f"{len(tiles)} tiles in the corridor")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--story-box", action="store_true", help="the whole story box, into copernicus-region/")
+    a = ap.parse_args()
+    if a.story_box:
+        w, s, e, n = STORY_BOX
+        tiles, out = sorted((y, x) for y in range(s, n) for x in range(w, e)), REGION_OUT
+    else:
+        tiles, out = sorted(corridor_tiles()), OUT
+    out.mkdir(parents=True, exist_ok=True)
+    print(f"{len(tiles)} tiles")
     for lat, lon in tiles:
         n = name(lat, lon)
-        path = OUT / f"{n}.tif"
-        if path.exists():
+        path = out / f"{n}.tif"
+        if path.exists() or (OUT / f"{n}.tif").exists():
             continue
         req = urllib.request.Request(URL.format(name=n), headers={"User-Agent": "crossing-map-pipeline/0.1"})
         try:

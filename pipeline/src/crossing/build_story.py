@@ -36,6 +36,11 @@ SNAP_SOURCES = {"nhd": "usgs-nhd", "tiger-road": "census-tiger", "ne-river": "na
 GAP_DEG = 0.01
 # The story box (plan section 7): tale places outside it are listed, not mapped.
 STORY_BOX = (-113, 27, -104, 36)
+# The false dawn at the book's end (plan 2.4): the text names no place or event, but it is widely read as the
+# Trinity test, so the map draws a reported line of sight from Billy's last stop towards the Trinity Site
+# (Wikidata Q19842077), SIGHTLINE_KM long, rather than a point.
+TRINITY = (-106.4754, 33.6773)
+SIGHTLINE_KM = 30
 # Each batch's stops and snaps, its journeys, and where its sign-off checklist goes.
 BATCHES = [
     {"stops": "part1-stops.csv", "snaps": "part1-snaps.csv", "parts": {"1"}, "title": "Stage 1 place checklist",
@@ -215,6 +220,14 @@ def main() -> None:
                             "role": None, "sequence": None}
             areas.append(feature(circle(lat, lon, float(s["radius_km"])), **area))
     write("stops.geojson", stops)
+    # The named regions, drafted by crossing.regions and checked by hand (decision 0008).
+    for f in json.loads((SEEDS / "regions.geojson").read_text(encoding="utf-8"))["features"]:
+        r = f["properties"]
+        areas.append(feature(f["geometry"], id=r["id"], name=r["name"], kind="region", role=None, characters=[], journey=None,
+                             sequence=None, place_ref=f"place-{r['place']}", part=int(r["first_seen"][0]), episode=r["first_seen"],
+                             first_seen=r["first_seen"], certainty="approximate", uncertainty_m=None, method="computed",
+                             source="this-site", source_id=None, source_licence=LICENCE["this-site"], note_safe="",
+                             reasoning=r["reasoning"]))
     write("areas.geojson", areas)
 
     # Part I's snaps predate the source column: all of them follow NHD flowlines.
@@ -243,6 +256,19 @@ def main() -> None:
                 characters=CHARACTERS[jid], journey=jid, sequence=i, part=int(b["first_seen"][0]), episode=b["first_seen"],
                 first_seen=b["first_seen"], travel=b["travel"], note_safe="", **how,
             ))
+    last = max(by_journey["J7"], key=lambda p: p["sequence"])
+    azimuth = GEOD.inv(last["lon"], last["lat"], *TRINITY)[0]
+    lon, lat, _ = GEOD.fwd(last["lon"], last["lat"], azimuth, SIGHTLINE_KM * 1000)
+    journeys.append(feature(
+        {"type": "LineString", "coordinates": [[r5(last["lon"]), r5(last["lat"])], [r5(lon), r5(lat)]]},
+        id="j7-false-dawn", name="The false dawn", kind="sightline", characters=["billy"], journey="J7", sequence=None,
+        part=int(last["first_seen"][0]), episode=last["first_seen"], first_seen=last["first_seen"], travel=None, note_safe="",
+        certainty="reported", method="computed", source="this-site", source_licence=LICENCE["this-site"],
+        reasoning=f"In the last episode Billy wakes in the night to a light like desert noon, which fades; the true dawn "
+                  f"comes later. The book names no place, event or direction for that light; it is widely read as the Trinity "
+                  f"test of 16 July 1945. The line points from his last stop towards the "
+                  f"Trinity Site (Wikidata Q19842077), bearing {azimuth % 360:.0f} degrees (pyproj, WGS 84), and is {SIGHTLINE_KM} km long "
+                  f"only to show the direction."))
     write("journeys.geojson", journeys)
     # Part I's seeds include a few places first named later; they stay on the stage 1 list.
     def in_batch(place: dict, batch: dict) -> bool:
