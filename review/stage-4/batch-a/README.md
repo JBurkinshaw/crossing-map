@@ -15,7 +15,7 @@ Part II's journeys are drawn: J3, Billy alone in the Sierras and home (19 stops)
 1. **Mexican rivers snap to Natural Earth, not INEGI.** INEGI's 1:50,000 network has no river names, and a shortest path over it took long detours (63 km between Bacerac and Bavispe, 14 km apart). Natural Earth's Bavispe is the line the map already draws, so the route sits on the drawn river. INEGI stays in the Raised streams.
 2. **Stops on the J3 sierra loop are areas.** The text names El Tigre and Huisiachepic and nothing else for weeks of riding; the promontory, the Indians' rancherías and the eastern escarpment are circles placed from the text's directions (see each stop's reasoning).
 3. **The Parham house is Cloverdale,** as in Part I, and the SK Bar is the open-questions estimate, nine miles north.
-4. **J4's mud towns are not separate stops.** The text passes "one by one through the squalid mud towns along the river" over seven days; the route follows the river and names Bacerac, where the text stops.
+4. **J4's mud towns are not separate stops.** The text has them pass one river town after another over a week; the route follows the river and names Bacerac, where the text stops.
 
 ## For you to check
 
