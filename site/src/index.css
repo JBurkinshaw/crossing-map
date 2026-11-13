@@ -302,6 +302,25 @@ select {
   }
 }
 
+/* The overview inset (OverviewInset.tsx): above the cartouche, or above the attribution on phones. */
+.overview {
+  position: absolute;
+  right: 12px;
+  bottom: 110px;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+  background: var(--paper);
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .overview {
+    right: 10px;
+    bottom: 44px;
+  }
+}
+
 .literary {
   position: absolute;
   inset: 0;

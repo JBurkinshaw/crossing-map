@@ -9,6 +9,7 @@ import type { Feature, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
 import ClassicUnderlay from './ClassicUnderlay'
 import { LayerKey } from './LayerKey'
+import { OverviewInset } from './OverviewInset'
 import { StoryLayers } from './StoryLayers'
 import { RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
 import { BASE_LAYERS, literaryStyle } from './style'
@@ -339,6 +340,7 @@ export function MapView(props: Props) {
         </label>
       </div>
       {basemap === 'literary' && <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} />}
+      {loaded && view !== 'raised' && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}
       {view === 'raised' && (
         <p className="notice" role="status">The Raised view covers the country the journeys ride through; bus rides and reported journeys stay flat.</p>
       )}
