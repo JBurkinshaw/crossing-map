@@ -25,7 +25,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "A pregnant wolf comes up out of the Sonoran mountains alone, crosses the Bavispe and walks north towards the line and the Animas country.",
-    "reasoning": "The plan anchors her in the Peloncillos or the Animas Valley, but that is the most crowded stretch of the map (every J1 and J2 stop from Foster Draw to Cloverdale). The drawing goes instead beside the long empty leg of her route from the Bavispe crossing to the border at 108°30′ W, out on the southern Llanos de Carretas east of the line her route takes, so it covers neither the route nor the labels of the Bavispe towns, the Llanos and Janos at zoom 7. The anchor is 102 km from Crossing of the Bavispe, bearing 50 degrees; the nearest stop or place, The eastern rim of the escarpment at sunrise, is 28 km away (pyproj, WGS 84).",
+    "reasoning": "The plan anchors her in the Peloncillos or the Animas Valley, but that is the most crowded stretch of the map (every J1 and J2 stop from Foster Draw to Cloverdale). The drawing goes instead beside the long empty leg of her route from the Bavispe crossing to the border at 108°30′ W, out on the southern Llanos de Carretas east of the line her route takes, so it covers neither the route nor the labels of the Bavispe towns, the Llanos and Janos at zoom 7. The anchor is 101 km from Crossing of the Bavispe, bearing 49 degrees; the nearest stop or place, The eastern rim of the escarpment at sunrise, is 28 km away (pyproj, WGS 84).",
     "vignette": "vignette-she-wolf",
     "min_zoom": 6.0,
     "max_zoom": 11.0,
