@@ -26,7 +26,7 @@ Build a free, self-hosted reading guide to Cormac McCarthy's *The Crossing*: a m
 
 **Working blurb** (for the about page and the Reddit post):
 
-> The geographer in me needed to see these places more closely. *The Crossing* moves through real country: the Animas Valley, the Peloncillos, the Bavispe, the Babícora. This is a map of where Billy, Boyd, "the girl" and the she-wolf went, built from real geographic data and marked honestly where the book leaves us guessing.
+> I read *All the Pretty Horses* years ago, and only recently got to *The Crossing*. It left me wanting to know the country its characters travel through, and the geographer in me needed to see these places more closely. *The Crossing* moves through real country: the Animas Valley, the Peloncillos, the Bavispe, the Babícora. This is a map of where Billy, Boyd, "the girl" and the she-wolf went, built from real geographic data and marked honestly where the book leaves us guessing.
 
 ### 1.1 Two phases
 
@@ -134,7 +134,7 @@ Unchanged from v1 in substance. The novel and the Campbell guide are under copyr
 | Public-domain art traced for vignettes and mountain glyphs | Only works with clear PD status (US government reports, pre-1929 plates) | Credits page |
 | Eduard relief output (if used) | Check the app's licence for use of its output in a public web map | Credits page |
 | Bell (2000), *Contextualizing Cormac McCarthy's Border Trilogy* (v5, stage 7) | © 2000 James Bell. Facts (where a place is, which page names it) are free to use; his prose is not, and neither are the novel passages he quotes. We paraphrase with a page citation, as for Campbell's guide. The PDF and anything extracted from it stay in `private/sources/`. His figures are excerpts from commercial road atlases (Guía Roji 1999, Benchmark Maps 1995, Infografix, Williams and McAllister): we read positions off them and never reproduce them, even cropped. No permission is needed for this use; a courtesy note to the author, with a link to the site, is the owner's call | "Bell, James Luther. *Contextualizing Cormac McCarthy's Border Trilogy: An Annotative Approach*. PhD diss., Texas Tech University, 2000", with the page, on each card that uses it and on the Credits page |
-| The Reddit map of *The Crossing* and its Gaia GPS data (v5, stage 7) | The author's work. The coordinates are facts, but copying the set wholesale into our CC BY 4.0 data would relicense their compilation, and Gaia's terms bar scraping. Until the author agrees, the points are leads only: each one we adopt is confirmed by our own source and cited to it, with the author credited as the lead. With the author's written yes (a Reddit message), points with no other source may be used under CC BY 4.0 with their credit. The owner sends the request and downloads the export | "Also placed by u/<author>'s map of *The Crossing*" with a link to the thread, on each card that uses it and on the Credits page |
+| The Reddit map of *The Crossing* and its Gaia GPS data (v5, stage 7) | Joe Hazelton's work (u/CrossingMcCarthy). The coordinates are facts, but copying the set wholesale into our CC BY 4.0 data would relicense their compilation. The waypoint notes are copied from Bell (2000), so they fall under Bell's row and are never used. The waypoints were read from the public map page in a browser, not scraped in bulk, and stay in `private/`. Until the author agrees, the points are leads only: each one we adopt is confirmed by our own source and cited to it, with the author credited as the lead. With the author's written yes (a Reddit message), points with no other source may be used under CC BY 4.0 with their credit. The owner sends the request | "Also placed by u/<author>'s map of *The Crossing*" with a link to the thread, on each card that uses it and on the Credits page |
 | Library of Congress Sanborn maps (v5, stage 7, for street-level places) | Public domain up to 1929; later sheets are checked one by one | Courtesy credit with the sheet's title and date |
 
 Keep a `source` field on every feature. Prefer Wikidata, GNIS and INEGI; use Nominatim last.
@@ -553,7 +553,7 @@ Inside a stage Claude Code works on its own; it stops early only for a blocking 
 | MapTiler account and origin-restricted key | Stage 1 | Yours to create; goes in a repository variable and `site/.env.local` | Satellite shows its "unavailable" state; the literary map does not need it |
 | `spreet` | Stage 2 (sprites) | Missing | Installed by Claude Code when needed (cargo or brew) |
 | QGIS, from your micromamba environment (`micromamba run ... qgis`) | Stage 3 | micromamba fails here with a missing `libnettle.8.dylib` (Homebrew moved to nettle 4.0); needs `brew reinstall micromamba` or similar | Glyphs and the hillshade control are built; hachure treatments wait |
-| The Reddit thread's text and the Gaia GPS export (GPX, KML or GeoJSON), and the author's permission reply | Stage 7 | Reddit and Gaia refuse automated access; the owner downloads them into `private/sources/reddit-gaia/` | Bell's index and figures go ahead; the Reddit map's rows wait |
+| The Gaia map author's permission reply, and Hunt (1998) from Academia | Stage 7 | The threads and the 135 waypoints are saved in `private/sources/` (13 November 2026); the permission request is not yet sent; Hunt needs an Academia login | The Reddit points are used as leads only; the false-dawn line keeps its current reasoning |
 | DRM-free EPUB of the novel | Stage 4 | In `private/` when you add it | Mentions come from section 2.2, without page anchors |
 | Inkscape, `potrace` or `vtracer` | Stage 6 | Missing; you install when needed | Vignette anchors and placement rules only |
 
@@ -607,7 +607,15 @@ Two independent readings of the book's geography, used to confirm, correct and a
 
 *The sources*
 
-- **The Reddit map.** A reader's map of the novel, posted at https://www.reddit.com/r/cormacmccarthy/comments/18wu63g/map_of_the_crossing/, with its data on Gaia GPS. Reddit and Gaia refuse automated access, so the owner downloads the thread text and the Gaia export (GPX, KML or GeoJSON) into `private/sources/reddit-gaia/`.
+- **The Reddit map.** "Cormac McCarthy 'The Crossing'" on Gaia GPS, by Joe Hazelton (u/CrossingMcCarthy), posted on 2 January 2024 at https://www.reddit.com/r/cormacmccarthy/comments/18wu63g/map_of_the_crossing/.
+  - **Obtained on 13 November 2026.** The thread and the public Gaia page were read in a browser, and the 135 waypoints the page loads are saved as `private/sources/reddit-gaia/waypoints.geojson`.
+  - **Contents.** Each waypoint has a name and a colour: Billy visited, Billy visited approximately, only mentioned, or the wolf's.
+  - **Not independent of Bell.** The author says in the thread that the notes and page numbers were copied from Bell (2000), so the notes are Bell's text. Only the positions are the author's own reading.
+  - **First pass.** 93 waypoints match our places by name: 69 within 2 km, 9 between 2 and 10 km, and 15 more than 10 km away. The farthest are Álamo (211 km, probably a different Álamo), Las Ramadas (121 km), La Boquilla (102 km), the Sierra de la Madera (81 km) and the Peloncillo Mountains (79 km). Another 42 have no name match; some are spelling variants (Ascención, Guadelupe), and the rest are mostly Bell's streets and ranches.
+- **Other threads** the owner pointed to, indexed in `docs/inspiration/reddit.md`:
+  - A 2021 Google Earth pin confirms our wolf crossing at 108°30′ W to within about 50 m.
+  - Alex Hunt's "Right and False Suns" (*Southwestern American Literature*, 1998) is cited for the false-dawn reading; the owner downloads it from Academia, which needs a login.
+  - "The Trail of Blood Meridian" is a style reference for the vignettes.
 - **Bell (2000).** James Luther Bell, *Contextualizing Cormac McCarthy's Border Trilogy: An Annotative Approach*, PhD dissertation, Texas Tech University, August 2000. 158 pages, scanned with OCR, in `private/sources/bell-2000.pdf`. Chapter III covers *The Crossing*:
   - a chronology (pp. 43-47)
   - a character index (pp. 48-53)
@@ -618,7 +626,7 @@ Two independent readings of the book's geography, used to confirm, correct and a
 
 *Steps*
 
-1. **Extract** (`pipeline/src/crossing/second_sources.py`, writing to `private/sources/`). Parse Bell's place index into one row per entry: name, pages, his locating sentence, and the figure it cites. Parse the Gaia export into one row per waypoint or track. The OCR has errors ("Ahar" for Altar, "€" in names), so each row keeps the raw text beside a cleaned name. Neither the extracted rows nor Bell's prose is committed: the repo gets only our paraphrase, coordinates and citations.
+1. **Extract** (`pipeline/src/crossing/second_sources.py`, writing to `private/sources/`). Parse Bell's place index into one row per entry: name, pages, his locating sentence, and the figure it cites. Read the Gaia waypoints, and join each one to its Bell entry by name, so the two count as one reading with two parts: Bell's description and Hazelton's position. Where they disagree with each other, that is itself a finding. The OCR has errors ("Ahar" for Altar, "€" in names), so each row keeps the raw text beside a cleaned name. Neither the extracted rows nor Bell's prose is committed: the repo gets only our paraphrase, coordinates and citations.
 2. **Calibrate pages.** Bell cites the 1994 Knopf pagination, which the Vintage paperback shares. Check ten of his first-mention pages against our episode index (`private/book/mentions.csv`, for example Agua Prieta, first named on p. 113 in Part I, episode 1-10). Then turn each of his pages into a `first_seen` episode.
 3. **Read the figures.** Figure 3.2 is the only one Bell annotated himself. It is an excerpt from Benchmark Maps' *New Mexico Road and Recreation Atlas* (1995) with his numbered points: Cloverdale, San Luis Pass, Hachita, Hermanas, Black Point, Animas, the Guadalupe Mountains, Playas and Rodeo. Georeference it in QGIS on the towns it shows (Lordsburg, Deming, Animas, Hachita, Rodeo) and read off his points as estimates, with the fit's error recorded. Figures 3.1, 3.3 and 3.4 are road-atlas excerpts with no marks of his, so they confirm only towns we already have. The scans stay in `private/`.
 4. **Match** each second-source row to our features by name and alias, then by distance:
@@ -664,6 +672,7 @@ Two independent readings of the book's geography, used to confirm, correct and a
 
 - `review/stage-7/second-sources.csv`: the "disagree" and "new" rows first, then the street-level moves on satellite.
 - The Reddit author's reply to the permission request (see section 3).
+- Hunt (1998), once downloaded into `private/sources/`: does its reading of the false dawn's place and time fit the map's line and its 4-09 episode?
 
 *Done when*
 

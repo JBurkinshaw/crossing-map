@@ -5,7 +5,9 @@ export function About() {
     <>
       {/* The working blurb from the plan (section 1). */}
       <p className="lede">
-        The geographer in me needed to see these places more closely. <cite>The Crossing</cite> moves through real
+        I read <cite>All the Pretty Horses</cite> years ago, and only recently got to <cite>The Crossing</cite>. It left
+        me wanting to know the country its characters travel through, and the geographer in me needed to see these
+        places more closely. <cite>The Crossing</cite> moves through real
         country: the Animas Valley, the Peloncillos, the Bavispe, the Babícora. This is a map of where Billy, Boyd,
         “the girl” and the she-wolf went, built from real geographic data and marked honestly where the book leaves
         us guessing.
