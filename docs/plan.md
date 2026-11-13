@@ -134,7 +134,7 @@ Unchanged from v1 in substance. The novel and the Campbell guide are under copyr
 | Public-domain art traced for vignettes and mountain glyphs | Only works with clear PD status (US government reports, pre-1929 plates) | Credits page |
 | Eduard relief output (if used) | Check the app's licence for use of its output in a public web map | Credits page |
 | Bell (2000), *Contextualizing Cormac McCarthy's Border Trilogy* (v5, stage 7) | © 2000 James Bell. Facts (where a place is, which page names it) are free to use; his prose is not, and neither are the novel passages he quotes. We paraphrase with a page citation, as for Campbell's guide. The PDF and anything extracted from it stay in `private/sources/`. His figures are excerpts from commercial road atlases (Guía Roji 1999, Benchmark Maps 1995, Infografix, Williams and McAllister): we read positions off them and never reproduce them, even cropped. No permission is needed for this use; a courtesy note to the author, with a link to the site, is the owner's call | "Bell, James Luther. *Contextualizing Cormac McCarthy's Border Trilogy: An Annotative Approach*. PhD diss., Texas Tech University, 2000", with the page, on each card that uses it and on the Credits page |
-| The Reddit map of *The Crossing* and its Gaia GPS data (v5, stage 7) | Joe Hazelton's work (u/CrossingMcCarthy). The coordinates are facts, but copying the set wholesale into our CC BY 4.0 data would relicense their compilation. The waypoint notes are copied from Bell (2000), so they fall under Bell's row and are never used. The waypoints were read from the public map page in a browser, not scraped in bulk, and stay in `private/`. Until the author agrees, the points are leads only: each one we adopt is confirmed by our own source and cited to it, with the author credited as the lead. With the author's written yes (a Reddit message), points with no other source may be used under CC BY 4.0 with their credit. The owner sends the request | "Also placed by u/<author>'s map of *The Crossing*" with a link to the thread, on each card that uses it and on the Credits page |
+| The Reddit map of *The Crossing* and its Gaia GPS data (v5, stage 7) | Joe Hazelton's work (u/CrossingMcCarthy). The coordinates are facts, but copying the set wholesale into our CC BY 4.0 data would relicense their compilation. The waypoint notes are copied from Bell (2000), so they fall under Bell's row and are never used. The waypoints were read from the public map page in a browser, not scraped in bulk, and stay in `private/`. Owner, 13 November 2026: proceed as if permission is given, while the request is sent. Points with no other source may be used under CC BY 4.0 with the author's credit, and are tagged so they can be removed if the author declines. Where our own source confirms a point, the coordinates come from that source and the author is credited as the lead | "Also placed by u/<author>'s map of *The Crossing*" with a link to the thread, on each card that uses it and on the Credits page |
 | Library of Congress Sanborn maps (v5, stage 7, for street-level places) | Public domain up to 1929; later sheets are checked one by one | Courtesy credit with the sheet's title and date |
 
 Keep a `source` field on every feature. Prefer Wikidata, GNIS and INEGI; use Nominatim last.
@@ -553,7 +553,7 @@ Inside a stage Claude Code works on its own; it stops early only for a blocking 
 | MapTiler account and origin-restricted key | Stage 1 | Yours to create; goes in a repository variable and `site/.env.local` | Satellite shows its "unavailable" state; the literary map does not need it |
 | `spreet` | Stage 2 (sprites) | Missing | Installed by Claude Code when needed (cargo or brew) |
 | QGIS, from your micromamba environment (`micromamba run ... qgis`) | Stage 3 | micromamba fails here with a missing `libnettle.8.dylib` (Homebrew moved to nettle 4.0); needs `brew reinstall micromamba` or similar | Glyphs and the hillshade control are built; hachure treatments wait |
-| The Gaia map author's permission reply, and Hunt (1998) from Academia | Stage 7 | The threads and the 135 waypoints are saved in `private/sources/` (13 November 2026); the permission request is not yet sent; Hunt needs an Academia login | The Reddit points are used as leads only; the false-dawn line keeps its current reasoning |
+| The Gaia map author's permission reply | Stage 7 | The threads and the 135 waypoints are saved in `private/sources/` (13 November 2026). The owner sends the request and has decided to proceed as if permission is given | The points are used with credit; if the author declines, every point with no other source is removed |
 | DRM-free EPUB of the novel | Stage 4 | In `private/` when you add it | Mentions come from section 2.2, without page anchors |
 | Inkscape, `potrace` or `vtracer` | Stage 6 | Missing; you install when needed | Vignette anchors and placement rules only |
 
@@ -614,8 +614,8 @@ Two independent readings of the book's geography, used to confirm, correct and a
   - **First pass.** 93 waypoints match our places by name: 69 within 2 km, 9 between 2 and 10 km, and 15 more than 10 km away. The farthest are Álamo (211 km, probably a different Álamo), Las Ramadas (121 km), La Boquilla (102 km), the Sierra de la Madera (81 km) and the Peloncillo Mountains (79 km). Another 42 have no name match; some are spelling variants (Ascención, Guadelupe), and the rest are mostly Bell's streets and ranches.
 - **Other threads** the owner pointed to, indexed in `docs/inspiration/reddit.md`:
   - A 2021 Google Earth pin confirms our wolf crossing at 108°30′ W to within about 50 m.
-  - Alex Hunt's "Right and False Suns" (*Southwestern American Literature*, 1998) is cited for the false-dawn reading; the owner downloads it from Academia, which needs a login.
-  - "The Trail of Blood Meridian" is a style reference for the vignettes.
+  - Alex Hunt's "Right and False Suns" (*Southwestern American Literature*, 1998) is not used (owner, 13 November 2026).
+  - "The Trail of Blood Meridian" is a style reference for the vignettes, to come back to with the research-based vignettes.
 - **Bell (2000).** James Luther Bell, *Contextualizing Cormac McCarthy's Border Trilogy: An Annotative Approach*, PhD dissertation, Texas Tech University, August 2000. 158 pages, scanned with OCR, in `private/sources/bell-2000.pdf`. Chapter III covers *The Crossing*:
   - a chronology (pp. 43-47)
   - a character index (pp. 48-53)
@@ -672,7 +672,6 @@ Two independent readings of the book's geography, used to confirm, correct and a
 
 - `review/stage-7/second-sources.csv`: the "disagree" and "new" rows first, then the street-level moves on satellite.
 - The Reddit author's reply to the permission request (see section 3).
-- Hunt (1998), once downloaded into `private/sources/`: does its reading of the false dawn's place and time fit the map's line and its 4-09 episode?
 
 *Done when*
 
