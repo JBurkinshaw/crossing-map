@@ -1,7 +1,8 @@
 // The spoiler-leak test (docs/plan.md, section 11, acceptance criteria): for several reading positions, load
 // the app and check that nothing first seen later shows anywhere: the story data given to the map, the
 // features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop,
-// "Named elsewhere"), mountain glyphs, vignettes, and the same again in the Raised view.
+// "Named elsewhere"), mountain glyphs, vignettes, search results and the cards they open (places and the
+// translations "Spoken here"), the layer key, and the same again in the Raised view.
 //
 // Usage, with the app running (cd site && npm run dev -- --port 5185, or npm run build && npx vite preview --port 5185):
 //   cd tools && npm run spoiler-leak -- [base-url]     (default http://localhost:5185/; about 10 minutes)
@@ -21,6 +22,7 @@ const layers = Object.fromEntries(
 const elsewhere = await read('elsewhere.json')
 const glyphs = (await read('mountain_glyphs.geojson')).features
 const vignettes = (await read('vignettes.geojson')).features
+const translations = await read('translations.json')
 const KEY = 'crossing-map.progress'
 
 // null is a first visit (nothing stored); the rest are stored settings. Episode ids sort in reading order.
@@ -39,22 +41,38 @@ function laterOnlyNames(reached) {
   return new Set(all.filter((p) => !allowed(p, reached) && !early.has(p.name)).map((p) => p.name))
 }
 
+// Translation text (our English, the Spanish opening) found only in lines first seen later. A line the reader
+// has reached can share its words with a later one ("Sí."), so those are left out.
+function laterOnlyLines(reached) {
+  const texts = (t) => [t.en, t.es_incipit].filter(Boolean)
+  const early = new Set(translations.filter((t) => t.first_seen <= reached).flatMap(texts))
+  return new Set(translations.filter((t) => t.first_seen > reached).flatMap(texts).filter((x) => !early.has(x)))
+}
+
+// Search: words common in the Spanish and the English, the line the plan names as a spoiler, and the names of
+// places first seen later. Results and the cards they open must hold only what the reader has reached.
+const SEARCHES = ['a', 'el', 'que', 'the', 'se murio', 'casas', 'san', 'rio', 'boyd', 'girl', 'wolf', 'babicora']
+
 const leaks = []
 const leak = (where, what) => leaks.push(`${where}: ${what}`)
 
 // The panel's visible text, the names it lists, and the episode ids it cites.
-async function checkPanel(page, reached, where, later) {
-  const { text, names, firstSeen } = await page.evaluate(() => {
+async function checkPanel(page, reached, where, later, lines = new Set()) {
+  const { text, names, firstSeen, shownLines } = await page.evaluate(() => {
     const panel = document.querySelector('.panel')
+    const key = document.querySelector('.layer-key')?.innerText ?? ''
     const names = [...document.querySelectorAll('.panel li, .panel h2, .maplibregl-popup strong')].map((e) => e.textContent.trim())
     for (const m of document.querySelectorAll('.stop-marker')) names.push(m.getAttribute('aria-label').replace(/^Stop \d+: /, ''))
-    const firstSeen = [...document.querySelectorAll('[data-first-seen]')].map((e) => [e.textContent.trim().slice(0, 60), e.dataset.firstSeen])
+    const firstSeen = [...document.querySelectorAll('[data-first-seen]')].map((e) => [e.textContent.trim().slice(0, 60), e.dataset.firstSeen, e.dataset.role])
     const popups = [...document.querySelectorAll('.maplibregl-popup')].map((e) => e.innerText).join('\n')
-    return { text: `${panel.innerText}\n${popups}`, names, firstSeen }
+    // Each line's Spanish opening and English, in cards and search results.
+    const shownLines = [...document.querySelectorAll('.panel .es, .panel .en')].map((e) => e.textContent.trim())
+    return { text: `${panel.innerText}\n${popups}\n${key}`, names, firstSeen, shownLines }
   })
-  for (const [label, fs] of firstSeen) if (fs > reached) leak(where, `element first seen ${fs}: ${label}`)
+  for (const [label, first_seen, role] of firstSeen) if (!allowed({ first_seen, role }, reached)) leak(where, `element first seen ${first_seen}: ${label}`)
   for (const name of names) if (later.has(name)) leak(where, `later name shown: ${name}`)
   for (const id of text.match(EPISODE_ID) ?? []) if (id > reached) leak(where, `text cites episode ${id}`)
+  for (const line of shownLines) if (lines.has(line)) leak(where, `later translation shown: ${line}`)
 }
 
 // What the map holds and draws: the GeoJSON in each story source, and every rendered feature with a first_seen.
@@ -91,6 +109,7 @@ const browser = await chromium.launch()
 for (const point of POINTS) {
   const reached = reachedOf(point)
   const later = laterOnlyNames(reached)
+  const lines = laterOnlyLines(reached)
   const where = `progress ${point ?? 'unset'}`
   const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce' })
   if (point !== null) await context.addInitScript(([k, v]) => localStorage.setItem(k, v), [KEY, point])
@@ -120,12 +139,43 @@ for (const point of POINTS) {
     await page.selectOption('.journey-pick select', journey)
     const next = page.getByRole('button', { name: 'Next' })
     for (;;) {
-      await checkPanel(page, reached, `${where}, ${journey} step ${steps}`, later)
+      for (const more of await page.locator('.stop .text-button').all()) await more.click()
+      await checkPanel(page, reached, `${where}, ${journey} step ${steps}`, later, lines)
       steps++
       if (await next.isDisabled()) break
       await next.click()
     }
   }
+
+  // Search, in every Part and in Part IV alone: each query's results, then the card its first result opens.
+  // Later-only place names and lines are searched for too; they must find nothing.
+  const queries = [...SEARCHES, ...[...later].slice(0, 5), ...[...lines].slice(0, 5)]
+  let searched = 0
+  for (const part of ['0', '4']) {
+    await page.selectOption('.search select', part)
+    for (const q of queries) {
+      await page.fill('.search input', q)
+      const hits = await page.locator('.search-results li').evaluateAll((ls) => ls.map((l) => [l.textContent.slice(0, 60), l.dataset.firstSeen, l.dataset.role]))
+      for (const [label, first_seen, role] of hits) if (!allowed({ first_seen, role }, reached)) leak(where, `search "${q}" found ${label} first seen ${first_seen}`)
+      await checkPanel(page, reached, `${where}, search "${q}"`, later, lines)
+      if (hits.length && part === '0' && SEARCHES.includes(q)) {
+        await page.locator('.search-results button').first().click()
+        await page.waitForTimeout(200)
+        await checkPanel(page, reached, `${where}, search "${q}" picked`, later, lines)
+        // Every line a card lists, not only the first few.
+        for (const more of await page.locator('.panel .text-button').all()) await more.click()
+        await checkPanel(page, reached, `${where}, search "${q}" picked, all lines`, later, lines)
+      }
+      searched++
+    }
+  }
+  await page.selectOption('.search select', '0')
+  await page.fill('.search input', '')
+
+  // The layer key, opened.
+  await page.locator('.layer-key summary').click()
+  await page.waitForTimeout(300)
+  await checkPanel(page, reached, `${where}, layer key`, later, lines)
 
   // Glyphs named later than this point: go to each and look at what the map draws there.
   // Glyphs first seen 1-01 are the land itself, named from gazetteers; they show at every position.
@@ -156,9 +206,9 @@ for (const point of POINTS) {
   await page.waitForTimeout(500)
   await idle(page)
   await checkMap(page, reached, `${where}, raised`)
-  await checkPanel(page, reached, `${where}, raised panel`, later)
+  await checkPanel(page, reached, `${where}, raised panel`, later, lines)
 
-  console.log(`${where}: ${features} map features checked, ${options.length} journeys offered, ${steps} panel steps`)
+  console.log(`${where}: ${features} map features checked, ${options.length} journeys offered, ${steps} panel steps, ${searched} searches`)
   await context.close()
 }
 await browser.close()

@@ -20,6 +20,8 @@ export type SearchHit = {
   detail: string
   part: number | null
   first_seen: string
+  // Context towns show at every reading position (spoiler/filter.ts); the leak test reads this.
+  role?: string | null
 }
 
 const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase()
@@ -60,6 +62,7 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
         detail: ROLE[f.properties.role ?? ''] ?? 'Place',
         part: f.properties.part ?? null,
         first_seen: f.properties.first_seen,
+        role: f.properties.role,
       })),
       ...stops.map((f) => ({
         id: `stop:${f.properties.id}`,
@@ -84,7 +87,7 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
     ]
     const search = new MiniSearch<SearchHit>({
       fields: ['title', 'en'],
-      storeFields: ['kind', 'ref', 'title', 'en', 'detail', 'part', 'first_seen'],
+      storeFields: ['kind', 'ref', 'title', 'en', 'detail', 'part', 'first_seen', 'role'],
       processTerm: (term) => fold(term),
       // On a name, the place comes first, then its stops, then lines said there.
       searchOptions: {
@@ -168,7 +171,7 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
           </p>
           <ul ref={list} className="search-results">
             {hits.slice(0, MAX_SHOWN).map((h) => (
-              <li key={h.id} data-first-seen={h.first_seen}>
+              <li key={h.id} data-first-seen={h.first_seen} data-role={h.role ?? undefined}>
                 <button type="button" onClick={() => pick(h)}>
                   <span className={h.kind === 'translation' ? 'es' : undefined} lang={h.kind === 'translation' ? 'es' : undefined}>
                     {h.title}

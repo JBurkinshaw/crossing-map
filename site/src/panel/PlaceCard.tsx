@@ -26,7 +26,7 @@ export function PlaceCard({ feature, spoken, currentTranslation, onClose }: Prop
     card.current?.scrollIntoView({ block: 'nearest' })
   }, [p.id])
   return (
-    <section ref={card} className="place-card" aria-live="polite" data-first-seen={p.first_seen}>
+    <section ref={card} className="place-card" aria-live="polite" data-first-seen={p.first_seen} data-role={p.role ?? undefined}>
       <button type="button" className="close" aria-label="Close" onClick={onClose}>
         ×
       </button>
