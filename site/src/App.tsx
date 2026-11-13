@@ -1,8 +1,12 @@
-import { useEffect, useMemo, useReducer, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import type { MapRef } from '@vis.gl/react-maplibre'
 import { useElsewhere, useStory } from './data/story'
 import { MapView, type View } from './map/MapView'
 import { Panel } from './panel/Panel'
+import { useRoute } from './route'
+
+// The About, How it's built, Data and Credits pages, loaded the first time one opens.
+const Pages = lazy(() => import('./pages/Pages'))
 
 type State = { journey: string; stopIndex: number }
 type Action = { type: 'journey'; journey: string } | { type: 'stop'; index: number }
@@ -17,6 +21,7 @@ function reducer(state: State, action: Action): State {
 }
 
 export default function App() {
+  const route = useRoute()
   const loaded = useStory()
   const elsewhere = useElsewhere()
   const [view, setView] = useState<View>('flat')
@@ -93,6 +98,11 @@ export default function App() {
         onJourney={(journey) => dispatch({ type: 'journey', journey })}
         onStop={goToStop}
       />
+      {route !== '/' && (
+        <Suspense fallback={null}>
+          <Pages route={route} />
+        </Suspense>
+      )}
     </main>
   )
 }

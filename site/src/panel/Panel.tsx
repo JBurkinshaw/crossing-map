@@ -27,6 +27,13 @@ export function Panel({ failed, journey, journeys, elsewhere, stops, stopIndex, 
   const stop = stops[stopIndex]
   return (
     <aside className="panel" aria-label="Journey">
+      <nav className="site-links" aria-label="Pages">
+        <a href="#/about">About</a>
+        <a href="#/about/how-its-built">How it’s built</a>
+        <a href="#/data">Data</a>
+        <a href="#/credits">Credits</a>
+      </nav>
+
       <label className="journey-pick">
         <span>Journey</span>
         <select value={journey} onChange={(e) => onJourney(e.target.value)}>
