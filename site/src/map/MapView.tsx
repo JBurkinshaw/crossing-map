@@ -44,11 +44,12 @@ const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'co
 const literary = (units: Units = 'metric') => literaryStyle(tilesBase, fontsBase, dataBase, units)
 const RAISED_GROUPS = raisedLayers(literary().layers, palette)
 
-type Basemap = 'literary' | 'satellite' | 'compare'
+type Basemap = 'literary' | 'satellite' | 'topo' | 'compare'
 const BASEMAPS: { id: Basemap; label: string; title?: string }[] = [
   { id: 'literary', label: 'Classic' },
   { id: 'satellite', label: 'Satellite' },
-  { id: 'compare', label: 'Compare' },
+  { id: 'topo', label: 'Topo', title: 'MapTiler Topo: roads, places and contours of today' },
+  { id: 'compare', label: 'Compare', title: 'The classic map and satellite, side by side' },
 ]
 // Views of the literary map: flat (the default), tilted (live 3D terrain) and raised (plan oblique relief).
 export type View = 'flat' | 'tilted' | 'raised'
@@ -287,6 +288,7 @@ export function MapView(props: Props) {
           <SatelliteMap
             literary={mapRef}
             hidden={basemap === 'literary' && !wash}
+            topo={basemap === 'topo'}
             terrain={wash && view === 'tilted' ? TERRAIN_EXAGGERATION : null}
             onUnavailable={onUnavailable}
           />
@@ -399,7 +401,7 @@ export function MapView(props: Props) {
       {view === 'raised' && (
         <p className="notice" role="status">The Raised view covers the country the journeys ride through; bus rides and reported journeys stay flat.</p>
       )}
-      {unavailable && <p className="notice" role="status">Satellite imagery is unavailable right now. The classic map works as normal.</p>}
+      {unavailable && <p className="notice" role="status">Satellite and Topo are unavailable right now. The classic map works as normal.</p>}
       <div className="cartouche" aria-hidden="true">
         <svg className="north" viewBox="0 0 24 48" width="14" height="28">
           <path d="M12 2 L18 30 L12 24 L6 30 Z" fill="currentColor" />

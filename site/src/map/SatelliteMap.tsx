@@ -3,24 +3,32 @@ import * as maptilersdk from '@maptiler/sdk'
 import '@maptiler/sdk/dist/maptiler-sdk.css'
 import type { MapRef } from '@vis.gl/react-maplibre'
 
-// The satellite basemap: a MapTiler SDK map under the literary map, kept on the
-// same camera. MapTiler counts a session per SDK map, so this module is loaded
-// and the map created only when a reader first needs imagery: the satellite basemap,
-// or the land colour under the literary map (decision 0005).
+// The MapTiler basemaps: one MapTiler SDK map under the literary map, kept on the
+// same camera, showing satellite imagery or MapTiler Topo. MapTiler counts a session
+// per SDK map, so this module is loaded and the map created only when a reader first
+// needs it, and Topo switches the style of the same map (decision 0005).
 
 type Props = {
   literary: React.RefObject<MapRef | null>
   hidden: boolean
+  // MapTiler Topo instead of satellite imagery.
+  topo: boolean
   // Terrain exaggeration while the literary map is tilted over 3D terrain, so the imagery stays under it.
   terrain: number | null
   onUnavailable: () => void
 }
 
-export default function SatelliteMap({ literary, hidden, terrain, onUnavailable }: Props) {
+export default function SatelliteMap({ literary, hidden, topo, terrain, onUnavailable }: Props) {
   const container = useRef<HTMLDivElement>(null)
   const satRef = useRef<maptilersdk.Map | null>(null)
   // Set on the style's first load; isStyleLoaded() is false again whenever tiles are loading.
   const [loaded, setLoaded] = useState(false)
+  const styleOf = (isTopo: boolean) => (isTopo ? maptilersdk.MapStyle.TOPO : maptilersdk.MapStyle.SATELLITE)
+  const shownTopo = useRef(topo)
+  const terrainRef = useRef(terrain)
+  useEffect(() => {
+    terrainRef.current = terrain
+  }, [terrain])
 
   useEffect(() => {
     const top = literary.current?.getMap()
@@ -32,7 +40,7 @@ export default function SatelliteMap({ literary, hidden, terrain, onUnavailable 
     maptilersdk.config.apiKey = key
     const sat = new maptilersdk.Map({
       container: container.current,
-      style: maptilersdk.MapStyle.SATELLITE,
+      style: styleOf(shownTopo.current),
       center: top.getCenter(),
       zoom: top.getZoom(),
       navigationControl: false,
@@ -71,6 +79,17 @@ export default function SatelliteMap({ literary, hidden, terrain, onUnavailable 
       setLoaded(false)
     }
   }, [literary, onUnavailable])
+
+  // A new style drops the terrain, so it goes back on once the style has loaded.
+  useEffect(() => {
+    const sat = satRef.current
+    if (!sat || !loaded || shownTopo.current === topo) return
+    shownTopo.current = topo
+    sat.setStyle(styleOf(topo))
+    sat.once('style.load', () => {
+      if (terrainRef.current) sat.enableTerrain(terrainRef.current)
+    })
+  }, [topo, loaded])
 
   useEffect(() => {
     const sat = satRef.current
