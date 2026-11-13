@@ -1,7 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type RefObject } from 'react'
 import * as maplibregl from 'maplibre-gl'
 import type { IControl, LayerSpecification } from 'maplibre-gl'
-import { Map, NavigationControl, ScaleControl, useControl, type MapRef } from '@vis.gl/react-maplibre'
+import { AttributionControl, Map, NavigationControl, ScaleControl, useControl, type MapRef } from '@vis.gl/react-maplibre'
 import { Protocol } from 'pmtiles'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
@@ -75,8 +75,6 @@ type Props = {
   reached: string
   // Talk on the road: the route segment to outline as a corridor, with its label.
   corridor: Corridor | null
-  // The view's west, south, east and north edges, when the map first loads and each time it stops moving.
-  onViewChange: (bounds: [number, number, number, number]) => void
 }
 
 // A row of switches, one of which is on: a radio group, one tab stop, with the arrow keys moving the choice.
@@ -157,11 +155,7 @@ function HomeControl({ onHome }: { onHome: () => void }) {
 
 export function MapView(props: Props) {
   const { mapRef, story, stops, stopIndex, onSelectStop, onSelectFeature, selectedId, aheadFrom, onHome, onView, reached } = props
-  const { corridor, onViewChange } = props
-  const viewChanged = (map: maplibregl.Map) => {
-    const [[w, s], [e, n]] = map.getBounds().toArray()
-    onViewChange([w, s, e, n])
-  }
+  const { corridor } = props
   const [basemap, setBasemap] = useState<Basemap>('literary')
   // Built once with the progress at first render; later changes go through setFilter below.
   const [style] = useState(() => styleUpTo(literary(), reached))
@@ -298,25 +292,20 @@ export function MapView(props: Props) {
           // The map's own keyboard handler pans and zooms once the map has focus; its name says so.
           locale={{ 'Map.Title': 'Map. Arrow keys pan, plus and minus zoom', 'AttributionControl.ToggleAttribution': 'Show or hide the map credits' }}
           hash="map"
-          // Each archive brings its own credit (the terrain lines wherever the hillshade shows); the Credits page has the rest.
-          attributionControl={{ compact: true, customAttribution: '<a href="#/credits">Credits</a>' }}
+          attributionControl={false}
           interactiveLayerIds={['places-point', 'zone-places-point', 'areas-fill']}
           onClick={(e) => {
             const f = e.features?.[0]
             onSelectFeature(f ? { layer: f.layer.id === 'areas-fill' ? 'areas' : 'places', id: (f.properties as StoryProps).id } : null)
           }}
-          onMoveEnd={(e) => viewChanged(e.target)}
           style={{ position: 'absolute', inset: 0 }}
           onLoad={(e) => {
             setLoaded(true)
-            viewChanged(e.target)
-            // MapLibre opens the compact attribution at first; on a phone it would cover a third of the map, so
-            // it starts closed there, behind its (i) button. The archives' credits arrive with their first tiles.
-            if (window.matchMedia('(max-width: 720px)').matches) {
-              const close = () => e.target.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show')
-              close()
-              e.target.once('idle', close)
-            }
+            // MapLibre opens the compact attribution at first; it starts closed, behind its (i) button. The
+            // archives' credits arrive with their first tiles.
+            const close = () => e.target.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show')
+            close()
+            e.target.once('idle', close)
             // Scripted review (Playwright) drives the map through this handle; only with ?debug.
             if (new URLSearchParams(window.location.search).has('debug')) {
               ;(window as unknown as { __map: unknown }).__map = e.target
@@ -327,6 +316,9 @@ export function MapView(props: Props) {
           <HomeControl onHome={onHome} />
           {/* Miles, the book's own unit. */}
           <ScaleControl position="bottom-left" unit="imperial" maxWidth={140} />
+          {/* Added after the scale, so MapLibre stacks it above. Each archive brings its own credit (the terrain
+              lines wherever the hillshade shows); the Credits page has the rest. */}
+          <AttributionControl position="bottom-left" compact customAttribution='<a href="#/credits">Credits</a>' />
           {story && (
             <StoryLayers
               story={story}

@@ -131,10 +131,6 @@ for (const point of POINTS) {
 
   const features = await checkMap(page, reached, `${where}, flat`)
   await checkPanel(page, reached, `${where}, panel`, later)
-  // The "In view" list, opened and shown in full (each "Show all" goes once clicked).
-  if (!(await page.locator('.in-view[open]').count())) await page.locator('.in-view summary').click()
-  while (await page.locator('.in-view .text-button').count()) await page.locator('.in-view .text-button').first().click()
-  await checkPanel(page, reached, `${where}, in view`, later)
 
   // Every journey offered, stepped through stop by stop with Next.
   const options = await page.locator('.journey-pick option').evaluateAll((os) => os.map((o) => o.value))

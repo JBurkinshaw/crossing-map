@@ -7,7 +7,6 @@ import { MapView, type View } from './map/MapView'
 import { corridor as corridorOf } from './map/corridor'
 import type { Corridor } from './map/StoryLayers'
 import type { DrawerHeight } from './panel/Drawer'
-import { InView, type InViewItem } from './panel/InView'
 import { Panel } from './panel/Panel'
 import { PlaceCard } from './panel/PlaceCard'
 import { SearchBox, type SearchHit } from './panel/SearchBox'
@@ -133,13 +132,6 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, { journey: 'J1', stopIndex: 0, stepping: false })
   const [selection, setSelection] = useState<Selection>(null)
   const [translationId, setTranslationId] = useState<string | null>(null)
-  // The map's view (west, south, east, north), a moment after it stops moving, for the "In view" list.
-  const [viewBox, setViewBox] = useState<[number, number, number, number] | null>(null)
-  const viewTimer = useRef<number | undefined>(undefined)
-  const onViewChange = (box: [number, number, number, number]) => {
-    window.clearTimeout(viewTimer.current)
-    viewTimer.current = window.setTimeout(() => setViewBox(box), 250)
-  }
   // Phones: the panel is a bottom drawer. It opens half way, so the reading-progress badge and search show.
   const phone = usePhone()
   const [drawer, setDrawer] = useState<DrawerHeight>('half')
@@ -163,31 +155,6 @@ export default function App() {
   const stops = useMemo(() => journeyStops(story, journey), [story, journey])
   const stopIndex = Math.min(state.stopIndex, Math.max(0, stops.length - 1))
 
-  // Extent-driven content (plan section 9): the stops, places and areas in the map's view, from the same
-  // spoiler-filtered data the map draws. Stops are those of the journey in focus, whose markers show; context
-  // towns, never named in the book, are left out.
-  const inViewItems = useMemo((): InViewItem[] => {
-    if (!viewBox || !story) return []
-    const [w, s, e, n] = viewBox
-    const inside = ([lon, lat]: Position) => lon >= w && lon <= e && lat >= s && lat <= n
-    const item = (layer: InViewItem['layer'], f: Feature<Geometry, StoryProps>, index?: number): InViewItem => ({
-      layer, id: f.properties.id, name: f.properties.name, first_seen: f.properties.first_seen, role: f.properties.role ?? null, index,
-    })
-    const byName = (a: InViewItem, b: InViewItem) => a.name.localeCompare(b.name)
-    return [
-      ...stops.flatMap((f, i) => (inside(f.geometry.coordinates) ? [item('stops', f, i)] : [])),
-      ...story.places.features.filter((f) => f.properties.role !== 'context' && inside(f.geometry.coordinates)).map((f) => item('places', f)).sort(byName),
-      ...(story.areas.features as Feature<Geometry, StoryProps>[])
-        .filter((f) => {
-          const [aw, as, ae, an] = bounds([f])
-          return aw <= e && ae >= w && as <= n && an >= s
-        })
-        .map((f) => item('areas', f))
-        .sort(byName),
-    ]
-  }, [viewBox, story, stops])
-  // Open at first on a desktop; in the phone drawer it starts closed.
-  const [inViewOpen, setInViewOpen] = useState(!phone)
 
 
   // Frame the whole journey when the data arrives and whenever the reader switches journey.
@@ -370,7 +337,6 @@ export default function App() {
         onView={setView}
         reached={reached}
         corridor={corridor}
-        onViewChange={onViewChange}
       />
       <Panel
         header={<ReadingProgress progress={progress} isSet={isSet} episodes={episodes} onSet={setProgress} />}
@@ -390,18 +356,6 @@ export default function App() {
           showRoad(roadAhead.properties.id)
         }}
         currentTranslation={translationId}
-        inView={
-          <InView
-            items={inViewItems}
-            open={inViewOpen}
-            onToggle={setInViewOpen}
-            onPick={(item) => {
-              setTranslationId(null)
-              if (item.layer === 'stops') goToStop(item.index ?? 0)
-              else showFeature(item.layer, item.id)
-            }}
-          />
-        }
         onJourney={(journey) => dispatch({ type: 'journey', journey })}
         onStop={goToStop}
         phone={phone}

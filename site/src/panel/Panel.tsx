@@ -25,8 +25,6 @@ type Props = {
   spokenOnRoad: number
   onShowRoad: () => void
   currentTranslation: string | null
-  // The "In view" list, which follows the map.
-  inView: ReactNode
   onJourney: (journey: string) => void
   onStop: (index: number) => void
   // On phones the panel is a bottom drawer (Drawer.tsx) at this height.
@@ -37,7 +35,7 @@ type Props = {
 
 export function Panel(props: Props) {
   const { header, search, card, failed, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
-  const { spokenOnRoad, onShowRoad, inView } = props
+  const { spokenOnRoad, onShowRoad } = props
   const { phone, drawer, onDrawer } = props
   const stop = stops[stopIndex]
 
@@ -153,7 +151,6 @@ export function Panel(props: Props) {
         {card}
         {failure}
         {stopSection}
-        {inView}
         {stopList}
         {elsewhereList}
         {links}
@@ -171,7 +168,6 @@ export function Panel(props: Props) {
       {failure}
       {stopSection}
       {stepper}
-      {inView}
       {stopList}
       {elsewhereList}
     </aside>
