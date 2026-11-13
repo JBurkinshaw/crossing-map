@@ -40,6 +40,8 @@ STORY_BOX = (-113, 27, -104, 36)
 # Trinity test, so the map draws a reported line of sight from Billy's last stop towards the Trinity Site
 # (Wikidata Q19842077), SIGHTLINE_KM long, rather than a point.
 TRINITY = (-106.4754, 33.6773)
+# The light comes in the book's last episode, after the night at the waystation (4-08).
+FALSE_DAWN = "4-09"
 SIGHTLINE_KM = 30
 # Each batch's stops and snaps, its journeys, and where its sign-off checklist goes.
 BATCHES = [
@@ -262,7 +264,7 @@ def main() -> None:
     journeys.append(feature(
         {"type": "LineString", "coordinates": [[r5(last["lon"]), r5(last["lat"])], [r5(lon), r5(lat)]]},
         id="j7-false-dawn", name="The false dawn", kind="sightline", characters=["billy"], journey="J7", sequence=None,
-        part=int(last["first_seen"][0]), episode=last["first_seen"], first_seen=last["first_seen"], travel=None, note_safe="",
+        part=4, episode=FALSE_DAWN, first_seen=FALSE_DAWN, travel=None, note_safe="",
         certainty="reported", method="computed", source="this-site", source_licence=LICENCE["this-site"],
         reasoning=f"In the last episode Billy wakes in the night to a light like desert noon, which fades; the true dawn "
                   f"comes later. The book names no place, event or direction for that light; it is widely read as the Trinity "

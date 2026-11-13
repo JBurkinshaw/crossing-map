@@ -494,6 +494,7 @@ The sea-monster idea, grounded. On old maps the empty quarters hold drawings tha
 | The gypsies' wrecked airplane | Casas Grandes River trail | IV |
 | The guitar and the corrido | Bachíniva / Casas Grandes | IV |
 | The crippled dog | the shed near the Black Range | IV |
+| The Trinity cloud (v5, owner, 13 November 2026) | the Trinity Site, where the false-dawn line points; shown from 4-09, the episode of the light | IV |
 | The false dawn | off-map arrow to the north-east | IV |
 
 **Where the drawings come from**, in order: traced public-domain sources (1890s Boundary Commission photos of the monuments, Biodiversity Heritage Library plates for wolf, antelope and crane, period locomotive engravings, pre-1929 photographs of Paquimé), vectorised with `vtracer` or `potrace` and redrawn to one line weight in Inkscape; fresh drawings in the same style; image generation only as a sketch to trace over, never shipped as is.

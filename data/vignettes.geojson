@@ -446,6 +446,37 @@
     "max_zoom": 12.0,
     "priority": 1
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.4754,
+     33.6773
+    ]
+   },
+   "properties": {
+    "id": "vignette-trinity-cloud",
+    "name": "The Trinity cloud",
+    "kind": "vignette",
+    "stands_for": "The false dawn, read as the Trinity test of 16 July 1945 (J7)",
+    "place_ref": "j7-waystation",
+    "part": 4,
+    "episode": "4-09",
+    "first_seen": "4-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Before daybreak Billy is woken by a great white light that floods the country and then dies away, long before the real dawn. Readers take it for the first atomic bomb, tested at the Trinity Site on 16 July 1945.",
+    "reasoning": "The book names no place or event for the light. The drawing stands on the Trinity Site itself (Wikidata Q19842077), in the empty Jornada del Muerto, at the far end of the direction the dotted false-dawn line points from the waystation. No leader: the site is not one of the book's places. The anchor is 129 km from The ruined waystation by the blacktop, bearing 49 degrees; the nearest stop or place, Past Socorro at nightfall, is 57 km away (pyproj, WGS 84).",
+    "vignette": "vignette-trinity-cloud",
+    "min_zoom": 7.0,
+    "max_zoom": 12.0,
+    "priority": 1
+   }
   }
  ]
 }
