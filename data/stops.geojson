@@ -2144,6 +2144,3567 @@
     "note_safe": "",
     "reasoning": "In the evening they reach the hacienda of San Diego, on a hill above tilled lands running to the Casas Grandes and the Piedras Verdes."
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.02249,
+     30.17983
+    ]
+   },
+   "properties": {
+    "id": "j4-mata-ortiz-south",
+    "name": "Mata Ortiz, on the road south",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 20,
+    "place_ref": "place-mata-ortiz",
+    "part": 3,
+    "episode": "3-01",
+    "first_seen": "3-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975330",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The opera caravans leave the hacienda by the road south to Mata Ortiz, Las Varas and Babícora, and two days later the brothers and the girl ride south the same way, nooning by the river. Mata Ortiz is the first town on that road, 7 km south of the hacienda."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.0432,
+     29.4384
+    ]
+   },
+   "properties": {
+    "id": "j4-opera-camp",
+    "name": "The opera company stranded on the Madera road",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 21,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-01",
+    "first_seen": "3-01",
+    "certainty": "inferred",
+    "uncertainty_m": 4000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Late in the day they find the troupe's caravan in a field beside the road a few miles south of Las Varas on the Madera road, with a dead mule on the road nearby. The circle is centred 5 km (about three miles) from Las Varas toward Madera, on the bearing between the two towns (200 degrees, pyproj, WGS 84)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.09,
+     29.33
+    ]
+   },
+   "properties": {
+    "id": "j4-river-camps",
+    "name": "Camps by the river",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 22,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-02",
+    "first_seen": "3-02",
+    "certainty": "inferred",
+    "uncertainty_m": 12000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They camp in an oak grove by a river, then leave the dirt road for a path past a pepper field and an irrigation ditch to a ford where boys are swimming. The book names neither the river nor a town; the circle covers the country along the road between the opera camp and Madera."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.0,
+     29.27
+    ]
+   },
+   "properties": {
+    "id": "j4-wagon-road-crossing",
+    "name": "Crossing of the old wagon road to Namiquipa",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 23,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-03",
+    "first_seen": "3-03",
+    "certainty": "inferred",
+    "uncertainty_m": 15000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning the girl rides away east toward Namiquipa, which is 57 km due east of the circle's centre (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The circle is wide for that reason."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.02556,
+     29.48083
+    ]
+   },
+   "properties": {
+    "id": "j4-las-varas",
+    "name": "Las Varas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 24,
+    "place_ref": "place-las-varas",
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4006519",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Two days without food, they cross the railroad tracks into Las Varas, pass the maize warehouses and the station, and eat at a café."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.9,
+     29.43
+    ]
+   },
+   "properties": {
+    "id": "j4-steer-herd",
+    "name": "The steer herd on the road to Boquilla",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 25,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "inferred",
+    "uncertainty_m": 8000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "In the evening, on the road east to Boquilla, they meet about a thousand steers being trailed from La Quemada to the pens at Naco; after dark they pass a hamlet of log houses on the high plain. The circle is on the road between Las Varas and the Babícora lake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.81,
+     29.4
+    ]
+   },
+   "properties": {
+    "id": "j4-horses-found",
+    "name": "Their horses, up from the lake",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 26,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "inferred",
+    "uncertainty_m": 5000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Next morning two young vaqueros drive their own horses up from a high-country laguna south of the road, and the brothers rope Niño and Bailey. The laguna is the Babícora lake (GeoNames 4017246, 29.35 N, 107.83 W); the circle is on the road north of it."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.76,
+     29.37
+    ]
+   },
+   "properties": {
+    "id": "j4-manco-roadblock",
+    "name": "The manco's riders, the Boquilla hacienda in sight",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 27,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "inferred",
+    "uncertainty_m": 5000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "At noon, with the walls of the hacienda in the distance and the lake to the south, riders led by a one-armed man block the road and take the horses. The circle is on the road west of La Boquilla, east of the lake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.82,
+     29.55
+    ]
+   },
+   "properties": {
+    "id": "j4-tracking-north",
+    "name": "Following the horses' tracks north",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 28,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "inferred",
+    "uncertainty_m": 10000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They ride back west for an hour to where the tracks leave the road above the lake and follow them north all afternoon, sighting the riders at twilight, and camp in a swale. The circle is north of the lake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.68,
+     29.62
+    ]
+   },
+   "properties": {
+    "id": "j4-quijada-remuda",
+    "name": "Quijada's remuda",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 29,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "inferred",
+    "uncertainty_m": 12000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Next day they reach an east-west road, follow it east to a crossroads where a track comes down from the mountains to the north, and Quijada, superintendent of the Nahuerichic division, leads them up the road to the remuda and lets Boyd cut out three horses. The book gives no distances; the circle is north-east of the tracking camp."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.7227,
+     29.35876
+    ]
+   },
+   "properties": {
+    "id": "j4-boquilla",
+    "name": "Boquilla y Anexas (the manco falls)",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 30,
+    "place_ref": "place-boquilla",
+    "part": 3,
+    "episode": "3-06",
+    "first_seen": "3-06",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "8749710",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "After a night at a stone tank with a windmill on the high prairie (3-05), they ride into Boquilla y Anexas at noon and buy rope; in the alameda the manco's horse falls back on him (3-07)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.78,
+     29.4
+    ]
+   },
+   "properties": {
+    "id": "j4-leave-road",
+    "name": "Off the road north of Boquilla, west to a river",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 31,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-08",
+    "first_seen": "3-08",
+    "certainty": "inferred",
+    "uncertainty_m": 5000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They leave the road a mile north of the town and go west to a river with nine horses, turning the Boquilla horses back. The book does not name the river; the circle is north-west of La Boquilla."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.86,
+     29.58
+    ]
+   },
+   "properties": {
+    "id": "j4-dry-camp",
+    "name": "The dry camp after the night ride",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 32,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-08",
+    "first_seen": "3-08",
+    "certainty": "inferred",
+    "uncertainty_m": 12000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They cross the river upcountry, ride all night through open country away from it, and make a dry camp toward morning in a burned grove on a rise a mile west of the river. The circle is between Boquilla and San José, which are 48 km apart (bearing 340 degrees)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.8883,
+     29.76666
+    ]
+   },
+   "properties": {
+    "id": "j4-san-jose",
+    "name": "San José",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 33,
+    "place_ref": "place-san-jose",
+    "part": 3,
+    "episode": "3-08",
+    "first_seen": "3-08",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3974647",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Next morning they head north, cross the river, find no road and follow the river north to the pueblito of San José, where a woman feeds them. The pick is a best fit (see the place's reasoning and docs/open-questions.md)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.89,
+     29.77
+    ]
+   },
+   "properties": {
+    "id": "j4-shooting",
+    "name": "The river camp where Boyd is shot",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 34,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-08",
+    "first_seen": "3-08",
+    "certainty": "inferred",
+    "uncertainty_m": 4000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They camp in a cottonwood grove by the river near San José. At dawn five riders come upriver on the far bank and Boyd is shot from across the river. The book gives no distance from the pueblito; the circle is around it."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.96,
+     29.8
+    ]
+   },
+   "properties": {
+    "id": "j4-truck",
+    "name": "The road where the workers' truck takes Boyd",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 35,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-08",
+    "first_seen": "3-08",
+    "certainty": "inferred",
+    "uncertainty_m": 8000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Billy rides double with Boyd into open country, sees a vehicle crossing in the distance, and on the dirt road meets a flatbed truck of farmworkers coming from the south; they lift Boyd aboard and it goes on north. The circle is between the river camp and the main road north to Mata Ortiz."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95,
+     29.9
+    ]
+   },
+   "properties": {
+    "id": "j4-blind-man",
+    "name": "The blind man's house",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 36,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-09",
+    "first_seen": "3-09",
+    "certainty": "inferred",
+    "uncertainty_m": 10000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Alone, Billy leads his horse up an arroyo, sees a light far to the north at dusk and goes toward it; near midnight he reaches a fence, turns east to a gate and rides up a clay track to a lone house, where the blind man and his wife take him in. The circle is north of the shooting, about a day and a half south of Mata Ortiz by the text's timing."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.0,
+     29.98
+    ]
+   },
+   "properties": {
+    "id": "j4-crossroads",
+    "name": "The desert crossroads on the main road north",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 37,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-09",
+    "first_seen": "3-09",
+    "certainty": "inferred",
+    "uncertainty_m": 8000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Next morning he rides north along the road and before noon strikes the main road north to Casas Grandes at an empty desert crossroads; he sleeps in a field near the river breaks and rides on in rain. The circle is on the road south of Mata Ortiz."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.02249,
+     30.17983
+    ]
+   },
+   "properties": {
+    "id": "j4-mata-ortiz",
+    "name": "Mata Ortiz, the blue tienda",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 38,
+    "place_ref": "place-mata-ortiz",
+    "part": 3,
+    "episode": "3-09",
+    "first_seen": "3-09",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975330",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "In the evening he crosses the railroad into Mata Ortiz, where the woman at a small blue tienda tells him his brother passed alive in the truck."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.01043,
+     30.244
+    ]
+   },
+   "properties": {
+    "id": "j4-san-diego-boyd",
+    "name": "San Diego, where he finds Boyd",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 39,
+    "place_ref": "place-hacienda-de-san-diego",
+    "part": 3,
+    "episode": "3-09",
+    "first_seen": "3-09",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3987333",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides north up the mud street, crosses the bridge after dark, and finds Boyd alive in the Muñoz house at the ejido."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95202,
+     30.3775
+    ]
+   },
+   "properties": {
+    "id": "j4-casas-grandes-doctor",
+    "name": "Casas Grandes at 3 a.m., for the doctor",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 40,
+    "place_ref": "place-casas-grandes",
+    "part": 3,
+    "episode": "3-09",
+    "first_seen": "3-09",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4015076",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides through the night to Casas Grandes, crosses the railroad embankment and asks at a cantina on Alameda Street for the doctor."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.01043,
+     30.244
+    ]
+   },
+   "properties": {
+    "id": "j4-san-diego-doctor",
+    "name": "Back to San Diego, in the doctor's car",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy",
+     "boyd"
+    ],
+    "journey": "J4",
+    "sequence": 41,
+    "place_ref": "place-hacienda-de-san-diego",
+    "part": 3,
+    "episode": "3-10",
+    "first_seen": "3-10",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3987333",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides back with the doctor in the doctor's old Dodge, south on the road and up the ejido road over the wooden bridge; the doctor treats Boyd and leaves at dawn."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.01043,
+     30.244
+    ]
+   },
+   "properties": {
+    "id": "j5-san-diego",
+    "name": "San Diego, leaving at dusk",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 1,
+    "place_ref": "place-hacienda-de-san-diego",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3987333",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Billy leaves the ejido at dusk to meet the girl at Santa Ana de Babícora, as Boyd asks, and rides south along the road through the riverside cottonwoods."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.02249,
+     30.17983
+    ]
+   },
+   "properties": {
+    "id": "j5-mata-ortiz",
+    "name": "Mata Ortiz",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 2,
+    "place_ref": "place-mata-ortiz",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975330",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He passes through Mata Ortiz the first night and sleeps in a grove off the road."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.98,
+     29.55
+    ]
+   },
+   "properties": {
+    "id": "j5-las-varas-night",
+    "name": "Within earshot of the Las Varas crossing",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 3,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "inferred",
+    "uncertainty_m": 10000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides all day, meets the workers' truck in the evening, and in the night hears a train whistle for the crossing at Las Varas. The circle is north-east of Las Varas, on the way to Boquilla."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.7227,
+     29.35876
+    ]
+   },
+   "properties": {
+    "id": "j5-boquilla",
+    "name": "Boquilla at noon",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 4,
+    "place_ref": "place-boquilla",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "8749710",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He reaches Boquilla at noon and takes the road south toward Santa Ana de Babícora."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.67134,
+     29.23067
+    ]
+   },
+   "properties": {
+    "id": "j5-la-pinta",
+    "name": "La Pinta by moonlight",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 5,
+    "place_ref": "place-la-pinta",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4000793",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides through La Pinta by moonlight, on the high juniper plain above the Santa María valley."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.47201,
+     29.03081
+    ]
+   },
+   "properties": {
+    "id": "j5-santa-ana",
+    "name": "Santa Ana de Babícora at midnight",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 6,
+    "place_ref": "place-santa-ana-de-babicora",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3984699",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He waters his horse in the alameda at midnight and takes the road west toward Namiquipa."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.51,
+     29.04
+    ]
+   },
+   "properties": {
+    "id": "j5-santa-maria-stream",
+    "name": "A stream of the Santa María headwaters",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 7,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "inferred",
+    "uncertainty_m": 6000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "An hour along the road west he sleeps beside a stream, one of the Santa María's headwaters, and in the morning the girl rides past on his mother's old horse. The circle is centred 4 km west of Santa Ana. The real Namiquipa lies north-north-east, not west (see docs/open-questions.md)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.47201,
+     29.03081
+    ]
+   },
+   "properties": {
+    "id": "j5-santa-ana-return",
+    "name": "Back through Santa Ana, with the girl",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 8,
+    "place_ref": "place-santa-ana-de-babicora",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3984699",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They ride back through Santa Ana near noon and eat in a grove north of the town, passing three girls on their way to Soto Máynez."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.7227,
+     29.35876
+    ]
+   },
+   "properties": {
+    "id": "j5-boquilla-return",
+    "name": "La Boquilla after dark",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 9,
+    "place_ref": "place-boquilla",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "8749710",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They reach La Boquilla after dark and pass the place where the manco fell."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.86,
+     29.39
+    ]
+   },
+   "properties": {
+    "id": "j5-lake-camp",
+    "name": "Camp at the edge of the lake",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 10,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "inferred",
+    "uncertainty_m": 5000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They ride on west into the dark and camp at the edge of the lake. The circle is on the north-west shore of the Babícora lake (GeoNames 4017246), on the way to Las Varas."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.02556,
+     29.48083
+    ]
+   },
+   "properties": {
+    "id": "j5-las-varas",
+    "name": "Las Varas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 11,
+    "place_ref": "place-las-varas",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4006519",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "At noon they cross the wooden river bridge into Las Varas and meet the opera company's arriero, who tells what became of the troupe."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.04,
+     30.1
+    ]
+   },
+   "properties": {
+    "id": "j5-river-camp",
+    "name": "Camp on the river south of Mata Ortiz",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 12,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "inferred",
+    "uncertainty_m": 5000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They take the road north by the railroad; the ride to San Diego takes three days, and the last night they camp on a gravel bar on the river some miles south of Mata Ortiz while cranes fly south. The circle is about 9 km south of Mata Ortiz on the river."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.01043,
+     30.244
+    ]
+   },
+   "properties": {
+    "id": "j5-san-diego-feast",
+    "name": "San Diego, on a feast day",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 13,
+    "place_ref": "place-hacienda-de-san-diego",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3987333",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "They cross the plank bridge to the hacienda at noon on a feast day."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.86667,
+     28.4063
+    ]
+   },
+   "properties": {
+    "id": "j5-cuauhtemoc",
+    "name": "Cuauhtémoc, as far south as he rides",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 14,
+    "place_ref": "place-cuauhtemoc",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4012406",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Boyd and the girl are gone. Billy looks for them for weeks, riding as far south as Cuauhtémoc. The book gives the turning points of the search, not its roads."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.41282,
+     29.25064
+    ]
+   },
+   "properties": {
+    "id": "j5-namiquipa",
+    "name": "Namiquipa",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 15,
+    "place_ref": "place-namiquipa",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3995134",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides north again to Namiquipa, where no one owns to knowing the girl."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.45086,
+     29.6439
+    ]
+   },
+   "properties": {
+    "id": "j5-la-nortena",
+    "name": "La Norteña, as far west as he rides",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 16,
+    "place_ref": "place-la-nortena",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975183",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides as far west as La Norteña and the watershed."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.46078,
+     29.84348
+    ]
+   },
+   "properties": {
+    "id": "j5-buenaventura",
+    "name": "The crossroads at Buenaventura",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 17,
+    "place_ref": "place-san-buenaventura",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4016722",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "At dawn he sits his horse at the crossroads in Buenaventura, watching waterfowl over the river and the lagunas."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.56667,
+     29.75
+    ]
+   },
+   "properties": {
+    "id": "j5-alamo",
+    "name": "Álamo",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 18,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "inferred",
+    "uncertainty_m": 15000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He passes back north through the mesa hamlets of Álamo and Galeana, places he had come through before. Which Álamo is unresolved (docs/open-questions.md): the circle is centred on the best estimate, GeoNames 4018952, 15 km south-west of San Buenaventura, and covers El Álamo north-east of the town too."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.61632,
+     30.11348
+    ]
+   },
+   "properties": {
+    "id": "j5-galeana",
+    "name": "Galeana",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 19,
+    "place_ref": "place-galeana",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975370",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He passes back north through Galeana."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95202,
+     30.3775
+    ]
+   },
+   "properties": {
+    "id": "j5-casas-grandes",
+    "name": "Casas Grandes, December",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J5",
+    "sequence": 20,
+    "place_ref": "place-casas-grandes",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4015076",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "In the early days of December, two days without food, he reaches Casas Grandes past midnight in a cold rain and learns that the doctor is dead. Part III ends here; Part IV opens at the Columbus gate, and the book does not tell the ride north."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.96,
+     29.8
+    ]
+   },
+   "properties": {
+    "id": "j6-truck",
+    "name": "Boyd lifted onto the workers' truck",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "boyd",
+     "girl"
+    ],
+    "journey": "J6",
+    "sequence": 1,
+    "place_ref": null,
+    "part": 3,
+    "episode": "3-08",
+    "first_seen": "3-08",
+    "certainty": "reported",
+    "uncertainty_m": 8000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Billy sees the farmworkers lift Boyd onto their truck, which goes on north (3-08); from here Boyd's road is known only from what others tell Billy. The circle is the same as J4's."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.02249,
+     30.17983
+    ]
+   },
+   "properties": {
+    "id": "j6-mata-ortiz",
+    "name": "Mata Ortiz, the truck passing",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "boyd",
+     "girl"
+    ],
+    "journey": "J6",
+    "sequence": 2,
+    "place_ref": "place-mata-ortiz",
+    "part": 3,
+    "episode": "3-09",
+    "first_seen": "3-09",
+    "certainty": "reported",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975330",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Reported by the old woman at the blue tienda in Mata Ortiz: Boyd was alive when the truck passed her door, and people followed it to the edge of town."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.01043,
+     30.244
+    ]
+   },
+   "properties": {
+    "id": "j6-san-diego",
+    "name": "San Diego, the Muñoz house",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "boyd",
+     "girl"
+    ],
+    "journey": "J6",
+    "sequence": 3,
+    "place_ref": "place-hacienda-de-san-diego",
+    "part": 3,
+    "episode": "3-09",
+    "first_seen": "3-09",
+    "certainty": "reported",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3987333",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Reported by the Muñoz woman at the ejido: the truck brought Boyd there, the workers came back with gifts, and a curandera dressed his wound. He and the girl leave the ejido together in 3-14; Billy wakes to find them gone, and the book does not say which way."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.41282,
+     29.25064
+    ]
+   },
+   "properties": {
+    "id": "j6-namiquipa",
+    "name": "Namiquipa, the girl's mother",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "boyd",
+     "girl"
+    ],
+    "journey": "J6",
+    "sequence": 4,
+    "place_ref": "place-namiquipa",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "reported",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3995134",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Reported, and only as a likelihood: Boyd said in 3-03 that the girl wanted to go to her mother at Namiquipa. When Billy gets there in 3-14 no one owns to knowing her, and in 4-05 the townspeople say her mother has moved away. The book never shows the pair there."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.25402,
+     28.765
+    ]
+   },
+   "properties": {
+    "id": "j6-bachiniva",
+    "name": "Bachíniva, in the corrido",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "boyd",
+     "girl"
+    ],
+    "journey": "J6",
+    "sequence": 5,
+    "place_ref": "place-bachiniva",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "reported",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4017791",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Reported by the singer, a girl shelling pecans at the Camino Recto hotel in Casas Grandes (4-05): in her corrido six armed riders come to the pueblo of Bachíniva in April, and the güerito and his sweetheart die together there. Quijada's account, the next stops, differs."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.61632,
+     30.11348
+    ]
+   },
+   "properties": {
+    "id": "j6-galeana",
+    "name": "Galeana, two men killed",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "boyd",
+     "girl"
+    ],
+    "journey": "J6",
+    "sequence": 6,
+    "place_ref": "place-galeana",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "reported",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3975370",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Reported by Quijada (4-05): Boyd killed two men at Galeana, for no reason anyone knows, and they did not work for the Babícora."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.0761,
+     29.81424
+    ]
+   },
+   "properties": {
+    "id": "j6-san-lorenzo",
+    "name": "San Lorenzo, where Boyd fell",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "boyd",
+     "girl"
+    ],
+    "journey": "J6",
+    "sequence": 7,
+    "place_ref": "place-san-lorenzo-chihuahua",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "reported",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3985741",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Reported by Quijada (4-05): Boyd was shot dead at San Lorenzo, not at Ignacio Zaragoza as rumour had it. The girl was carried off covered in blood; she may have gone back to her family. Billy repeats San Lorenzo to the American in 4-07."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.46078,
+     29.84348
+    ]
+   },
+   "properties": {
+    "id": "j6-san-buenaventura",
+    "name": "San Buenaventura, the grave",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "boyd",
+     "girl"
+    ],
+    "journey": "J6",
+    "sequence": 8,
+    "place_ref": "place-san-buenaventura",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "reported",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4016722",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Reported first by a woman at the wake in Namiquipa and then by Quijada (4-05): Boyd is buried in the cemetery at San Buenaventura, under a board."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.64002,
+     31.8276
+    ]
+   },
+   "properties": {
+    "id": "j7-columbus",
+    "name": "The border at Columbus",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 1,
+    "place_ref": "place-columbus",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "897342",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Billy crosses back into the United States at the Columbus gate, and the guard tells him the country is at war."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.75864,
+     32.2687
+    ]
+   },
+   "properties": {
+    "id": "j7-deming",
+    "name": "Deming at midnight",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 2,
+    "place_ref": "place-deming",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920584",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He rides north all day on the long straight road to Deming, crosses the low foothills of the Florida Mountains at evening, and reaches Deming at midnight; the sergeant at the armory finds a heart murmur and turns him down."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.48861,
+     31.75917
+    ]
+   },
+   "properties": {
+    "id": "j7-el-paso",
+    "name": "El Paso, the recruiting office",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 3,
+    "place_ref": "place-el-paso",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "wikidata",
+    "source_id": "Q16562",
+    "source_licence": "CC0",
+    "note_safe": "",
+    "reasoning": "He takes the bus east to El Paso, is turned down again before noon, eats at the Splendid Cafe and is back in Deming before dark. The book names no road; the line is a curve."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.75864,
+     32.2687
+    ]
+   },
+   "properties": {
+    "id": "j7-deming-2",
+    "name": "Back to Deming",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 4,
+    "place_ref": "place-deming",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920584",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He is back in Deming by bus before dark and works at a stable on the highway."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.89142,
+     34.0584
+    ]
+   },
+   "properties": {
+    "id": "j7-socorro",
+    "name": "Past Socorro at nightfall",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 5,
+    "place_ref": "place-socorro",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "938832",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "On a Sunday he takes the bus north; night falls just north of Socorro, with waterfowl over the river marshes beside the highway."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.65114,
+     35.08449
+    ]
+   },
+   "properties": {
+    "id": "j7-albuquerque",
+    "name": "Albuquerque, rejected again",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 6,
+    "place_ref": "place-albuquerque",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "928679",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He sleeps at the YMCA and is turned down a third time next morning."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.75864,
+     32.2687
+    ]
+   },
+   "properties": {
+    "id": "j7-deming-3",
+    "name": "Deming at three in the morning",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 7,
+    "place_ref": "place-deming",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920584",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He is on the bus south before noon and reaches Deming at three in the morning; the book names no place on the way back, so the line is a curve."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95198,
+     31.85093
+    ]
+   },
+   "properties": {
+    "id": "j7-hermanas",
+    "name": "Hermanas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 8,
+    "place_ref": "place-hermanas",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "899669",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He takes his horse from the stable and rides the old road south toward Hermanas and Hachita from sunup into the night, sleeping on the high plain."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.32032,
+     31.91815
+    ]
+   },
+   "properties": {
+    "id": "j7-hachita",
+    "name": "Hachita, leaving the road",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 9,
+    "place_ref": "place-hachita",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920609",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He leaves the road just west of Hachita."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.45362,
+     31.84157
+    ]
+   },
+   "properties": {
+    "id": "j7-little-hatchets",
+    "name": "The Little Hatchet foothills",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 10,
+    "place_ref": "place-little-hatchet-mountains",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920632",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He rides through the foothills of the Little Hatchet Mountains and crosses the railroad that runs from the Phelps Dodge smelter."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.58,
+     31.84
+    ]
+   },
+   "properties": {
+    "id": "j7-salt-lake",
+    "name": "The shallow salt lake",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 11,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "inferred",
+    "uncertainty_m": 6000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "At sunset he reaches a shallow salt lake his horse will not cross, rides south along the flats with snow on Gillespie Mountain and the Animas Peaks beyond, and camps by an old fence. The lake is Playas Lake (GNIS 893357, 31.88 N, 108.59 W), the salt flat west of the Little Hatchets; the circle is its southern end."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.7,
+     31.86
+    ]
+   },
+   "properties": {
+    "id": "j7-playas-road",
+    "name": "The old Playas road over the mountains",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 12,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "inferred",
+    "uncertainty_m": 8000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "In the morning they cross the lake, strike the old Playas road before noon and follow it west into the mountains, with snow in the pass. The book does not name the pass; the circle is in the Animas Mountains west of the lake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.80728,
+     31.94898
+    ]
+   },
+   "properties": {
+    "id": "j7-animas",
+    "name": "Animas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 13,
+    "place_ref": "place-animas",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "885759",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He rides down into the Animas Valley and takes the road south from Animas."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9,
+     31.545
+    ]
+   },
+   "properties": {
+    "id": "j7-sanders",
+    "name": "Sanders' (the SK Bar)",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 14,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "inferred",
+    "uncertainty_m": 4000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He reaches the Sanders ranch two hours after dark, eats supper and will not stay the night. In 4-02 it is called the SK Bar. No source names the ranch (docs/open-questions.md); the circle is the same estimate as J3's, nine miles north of the Parham house."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.82,
+     31.45
+    ]
+   },
+   "properties": {
+    "id": "j7-animas-plain",
+    "name": "Camp on the Animas Plain",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 15,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "inferred",
+    "uncertainty_m": 10000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He camps that night on the broad Animas Plain and sees lightning far to the south beyond the Hatchet Mountains. The circle is on the open plain south-east of the Sanders estimate."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.69736,
+     35.02419
+    ]
+   },
+   "properties": {
+    "id": "j7-winslow",
+    "name": "Winslow, paid off from the Hashknife linecamp",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 16,
+    "place_ref": "place-winslow",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "13930",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Told in summary: he works for the Hashknives at a linecamp on the Little Colorado, and when paid in March goes into the town the book calls Window (Winslow) to the post office and the bars on First Street. The book does not tell how he got there; the Hashknife ranch has no point."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.24393,
+     34.11673
+    ]
+   },
+   "properties": {
+    "id": "j7-magdalena",
+    "name": "Magdalena",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 17,
+    "place_ref": "place-magdalena",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "908353",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "After nine more months he rides south across the high plains west of Socorro, through Magdalena."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.25089,
+     33.87533
+    ]
+   },
+   "properties": {
+    "id": "j7-san-agustin",
+    "name": "The plains of San Agustín",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 18,
+    "place_ref": "place-plains-of-san-agustin",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "923769",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He crosses the plains the book calls Saint Augustine, riding south."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.28033,
+     32.77007
+    ]
+   },
+   "properties": {
+    "id": "j7-silver-city",
+    "name": "Silver City, Christmas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 19,
+    "place_ref": "place-silver-city",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920706",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He reaches Silver City in snow, takes a room at the Palace Hotel and finds it is Christmas Day."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.24393,
+     34.11673
+    ]
+   },
+   "properties": {
+    "id": "j7-magdalena-ranch",
+    "name": "A small ranch out of Magdalena",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 20,
+    "place_ref": "place-magdalena",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "908353",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Told in summary: he drifts to the Texas panhandle (the Matadors, the T Diamond; outside the map) and back, and in the spring of the war's third year works until March on a small ranch out of Magdalena. The pin is the town."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9895,
+     32.22925
+    ]
+   },
+   "properties": {
+    "id": "j7-steins",
+    "name": "East of Steins, the last blacktop",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 21,
+    "place_ref": "place-steins",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "899927",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He rides south with a packhorse and crosses the last blacktop highway just east of Steins."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.9,
+     31.545
+    ]
+   },
+   "properties": {
+    "id": "j7-sk-bar",
+    "name": "The SK Bar gate",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 22,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "inferred",
+    "uncertainty_m": 4000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Two days later he reaches the SK Bar gate, learns that Miller died on Kwajalein, and stays the night in the rain. The circle is the J3 estimate (docs/open-questions.md)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.53013,
+     31.33286
+    ]
+   },
+   "properties": {
+    "id": "j7-el-berrendo",
+    "name": "Mexican customs at Berendo",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 23,
+    "place_ref": "place-el-berrendo",
+    "part": 4,
+    "episode": "4-03",
+    "first_seen": "4-03",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4010957",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He signs the horses through Mexican customs at Berendo (El Berrendo, opposite Antelope Wells) and rides south. The book does not tell the ride from the SK Bar to the gate."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.19331,
+     30.88867
+    ]
+   },
+   "properties": {
+    "id": "j7-janos",
+    "name": "Janos",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 24,
+    "place_ref": "place-janos",
+    "part": 4,
+    "episode": "4-03",
+    "first_seen": "4-03",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4004116",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "After two days' riding on an old rutted wagon road, with the western Sierras and the Pilares in view, he comes down to the lights of Janos, 59 km from El Berrendo (pyproj, WGS 84)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95202,
+     30.3775
+    ]
+   },
+   "properties": {
+    "id": "j7-casas-grandes",
+    "name": "Casas Grandes",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 25,
+    "place_ref": "place-casas-grandes",
+    "part": 4,
+    "episode": "4-04",
+    "first_seen": "4-04",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4015076",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides south all day and passes through Casas Grandes in the evening."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.01043,
+     30.244
+    ]
+   },
+   "properties": {
+    "id": "j7-san-diego",
+    "name": "San Diego, the families gone",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 26,
+    "place_ref": "place-hacienda-de-san-diego",
+    "part": 4,
+    "episode": "4-04",
+    "first_seen": "4-04",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3987333",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He takes the road south he rode with Boyd past the ruins, and at San Diego finds the Muñoz house empty."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.02556,
+     29.48083
+    ]
+   },
+   "properties": {
+    "id": "j7-las-varas",
+    "name": "Las Varas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 27,
+    "place_ref": "place-las-varas",
+    "part": 4,
+    "episode": "4-04",
+    "first_seen": "4-04",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4006519",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Two days later he passes Las Varas and turns east toward La Boquilla."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.8,
+     29.38
+    ]
+   },
+   "properties": {
+    "id": "j7-lake-camp",
+    "name": "Camp on the plain by the lake, the red plane",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 28,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-04",
+    "first_seen": "4-04",
+    "certainty": "inferred",
+    "uncertainty_m": 8000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "On the road east toward La Boquilla a north wind blows dust off Babícora beyond the lake, a red plane flies in from the west, and he camps on the plain. The circle is north-east of the Babícora lake."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.74795,
+     29.25069
+    ]
+   },
+   "properties": {
+    "id": "j7-babicora",
+    "name": "Babícora",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 29,
+    "place_ref": "place-la-babicora",
+    "part": 4,
+    "episode": "4-04",
+    "first_seen": "4-04",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3986261",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Next day he rides through Babícora. The pin is the Hacienda de San José de Babícora, the Hearst ranch headquarters (see the place's reasoning)."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.47201,
+     29.03081
+    ]
+   },
+   "properties": {
+    "id": "j7-santa-ana",
+    "name": "Santa Ana de Babícora",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 30,
+    "place_ref": "place-santa-ana-de-babicora",
+    "part": 4,
+    "episode": "4-04",
+    "first_seen": "4-04",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3984699",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides through Santa Ana de Babícora and takes the road north to Namiquipa."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.41282,
+     29.25064
+    ]
+   },
+   "properties": {
+    "id": "j7-namiquipa",
+    "name": "Namiquipa, now a mining camp",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 31,
+    "place_ref": "place-namiquipa",
+    "part": 4,
+    "episode": "4-04",
+    "first_seen": "4-04",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3995134",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He camps below the town in the river willows. At a wake (4-05) a woman tells him the girl is hunted and that his brother's bones lie at San Buenaventura."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.83018,
+     28.95376
+    ]
+   },
+   "properties": {
+    "id": "j7-temosachic",
+    "name": "Temósachic",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 32,
+    "place_ref": "place-temosachic",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3982082",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides that country for weeks asking after the girl; in a bodega in the mountain town of Temósachic he first hears the corrido of the güero."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.14334,
+     29.19269
+    ]
+   },
+   "properties": {
+    "id": "j7-madera",
+    "name": "Madera, the late April fair",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 33,
+    "place_ref": "place-madera",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3996956",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "In late April he walks through a fair beyond the railtracks at Madera and sees the opera company's old caravan, then takes the road south out of Madera toward Temósachic."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.74795,
+     29.25069
+    ]
+   },
+   "properties": {
+    "id": "j7-babicora-2",
+    "name": "Babícora before dawn",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 34,
+    "place_ref": "place-la-babicora",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "approximate",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "3986261",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "A week later he rides through Babícora again in the early-morning dark and follows the freshly graded road north, sleeping at a ciénega."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95202,
+     30.3775
+    ]
+   },
+   "properties": {
+    "id": "j7-casas-grandes-2",
+    "name": "Casas Grandes, the Camino Recto hotel",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 35,
+    "place_ref": "place-casas-grandes",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4015076",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "On 15 May he takes a room at the Camino Recto hotel, where a girl shelling pecans sings him the corrido of Bachíniva. The book gives no distance from Babícora."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.85,
+     29.3
+    ]
+   },
+   "properties": {
+    "id": "j7-babicora-high-country",
+    "name": "The high country of the Babícora",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 36,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "inferred",
+    "uncertainty_m": 20000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "For days he camps in the swales of the Babícora high country and watches vaqueros working whiteface cattle on mules. The circle covers the plains around the lake and the ranch headquarters."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.65,
+     29.45
+    ]
+   },
+   "properties": {
+    "id": "j7-quijada-cabin",
+    "name": "Quijada's cabin",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 37,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "inferred",
+    "uncertainty_m": 15000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "One evening he follows a road west toward a gap in the mountains and after dark reaches a lone weatherboard cabin on the plain, where Quijada, still manager of the Nahuerichic division, tells him where Boyd fell and lies. Next day he rides north all day to San Buenaventura, so the circle is about a day's ride (47 km) south-south-west of it. It is 57 km from Nahuerachi, the open-questions pick for the division's name."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.46078,
+     29.84348
+    ]
+   },
+   "properties": {
+    "id": "j7-san-buenaventura",
+    "name": "San Buenaventura",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 38,
+    "place_ref": "place-san-buenaventura",
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4016722",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He rides north all day in rain and enters San Buenaventura in the evening, past the alameda and the church."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.4442,
+     29.8435
+    ]
+   },
+   "properties": {
+    "id": "j7-boyds-grave",
+    "name": "Boyd's grave, on the Gallego road",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 39,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "inferred",
+    "uncertainty_m": 1000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "The cemetery is on a bench in the low hills east of town, a mile or so up the old road to Gallego, with the Sierra del Nido in sight. He finds the board cross by the south wall and digs all day. The circle is centred 1.6 km due east of the town point."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.8,
+     30.4
+    ]
+   },
+   "properties": {
+    "id": "j7-past-casas-grandes",
+    "name": "Past the lights of Casas Grandes, to the west",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 40,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "inferred",
+    "uncertainty_m": 10000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Near midnight he leaves with the bones on the packhorse, crosses the highway and heads across country with the polestar to his right. In two nights' riding he passes the lights of Casas Grandes off to the west, so he is east of the town; the circle is 15 km east of it."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.9,
+     30.62
+    ]
+   },
+   "properties": {
+    "id": "j7-casas-grandes-river",
+    "name": "The Casas Grandes River, across the Guzmán road",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 41,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "inferred",
+    "uncertainty_m": 8000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He crosses the old road coming down from Guzmán and Sabinal, strikes the Casas Grandes River and takes the trail north along its bank. The circle is on the river south of Corralitos."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.94292,
+     30.69886
+    ]
+   },
+   "properties": {
+    "id": "j7-corralitos",
+    "name": "Corralitos before dawn",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 42,
+    "place_ref": "place-corralitos",
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "geonames",
+    "source_id": "4012754",
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He passes through the half-ruined town before full light, past slagheaps, and crosses the railroad tracks."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.93,
+     30.75
+    ]
+   },
+   "properties": {
+    "id": "j7-attack",
+    "name": "The attack on the river trail, and the gypsies' camp",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 43,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "inferred",
+    "uncertainty_m": 4000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "An hour north of the town four riders stop him on the trail, cut open the bones and stab Niño; the next day gypsies hauling an old airplane north camp with him by the river and doctor the horse (4-06, 4-07). An hour's ride is about 6 km; the circle is centred 5.8 km north of Corralitos."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.85,
+     31.784
+    ]
+   },
+   "properties": {
+    "id": "j7-dog-springs",
+    "name": "The border, west of Dog Springs",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 44,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "inferred",
+    "uncertainty_m": 10000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Four days later he sets out north along the river with the bones on a travois; it takes three days to reach the border, where he passes the first boundary obelisk west of Dog Springs and an old dry reservoir. No Dog Springs is known on the line (docs/open-questions.md); the circle is the best estimate, the boundary south of Hermanas."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.95198,
+     31.85093
+    ]
+   },
+   "properties": {
+    "id": "j7-hermanas-2",
+    "name": "Hermanas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 45,
+    "place_ref": "place-hermanas",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "899669",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "Next day he rides through Hermanas and along the dusty road west."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.32032,
+     31.91815
+    ]
+   },
+   "properties": {
+    "id": "j7-hachita-2",
+    "name": "Hachita, the crossroads store",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 46,
+    "place_ref": "place-hachita",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920609",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "That evening he sits his horse at the crossroads by the store in Hachita, the book's Hatchita, and looks south-west to the Animas Peaks."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.80728,
+     31.94898
+    ]
+   },
+   "properties": {
+    "id": "j7-animas-2",
+    "name": "Animas, Ash Wednesday",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 47,
+    "place_ref": "place-animas",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "885759",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He crosses the Animas Valley all day with the travois and reaches Animas next morning, which the book calls Ash Wednesday."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.81,
+     31.935
+    ]
+   },
+   "properties": {
+    "id": "j7-cemetery",
+    "name": "The little cemetery south of Animas",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 48,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "inferred",
+    "uncertainty_m": 2000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He buys a spade and goes south from the town to a little cemetery, where he buries Boyd; the sheriff tells him to report at Lordsburg. GNIS lists no cemetery here; the circle is just south of the town."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.28033,
+     32.77007
+    ]
+   },
+   "properties": {
+    "id": "j7-silver-city-2",
+    "name": "Silver City",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 49,
+    "place_ref": "place-silver-city",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920706",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He rides north to Silver City."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.10534,
+     32.72146
+    ]
+   },
+   "properties": {
+    "id": "j7-duncan",
+    "name": "Duncan, Arizona",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 50,
+    "place_ref": "place-duncan",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "4189",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He rides west to Duncan."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.88312,
+     33.31673
+    ]
+   },
+   "properties": {
+    "id": "j7-glenwood",
+    "name": "Glenwood",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 51,
+    "place_ref": "place-glenwood",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "923604",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He rides north through the mountains to Glenwood."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.75784,
+     33.71311
+    ]
+   },
+   "properties": {
+    "id": "j7-reserve",
+    "name": "Reserve",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 52,
+    "place_ref": "place-reserve",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "923657",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He rides on to Reserve. He works for the Carrizozos and the GS outfits; the book tells this in summary and the ranches have no point."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.28033,
+     32.77007
+    ]
+   },
+   "properties": {
+    "id": "j7-silver-city-3",
+    "name": "Silver City, July",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 53,
+    "place_ref": "place-silver-city",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920706",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "In July he drifts south to Silver City again. The months between are told in summary."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.06087,
+     32.80369
+    ]
+   },
+   "properties": {
+    "id": "j7-santa-rita",
+    "name": "The Santa Rita mines",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 54,
+    "place_ref": "place-santa-rita-mines",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920698",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He takes the old road east past the Santa Rita mines."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.92004,
+     32.81008
+    ]
+   },
+   "properties": {
+    "id": "j7-san-lorenzo",
+    "name": "San Lorenzo, New Mexico",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 55,
+    "place_ref": "place-san-lorenzo-new-mexico",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "located",
+    "uncertainty_m": null,
+    "method": "gazetteer",
+    "source": "gnis",
+    "source_id": "920693",
+    "source_licence": "Public domain",
+    "note_safe": "",
+    "reasoning": "He rides through San Lorenzo on the old road east."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.7667,
+     32.91007
+    ]
+   },
+   "properties": {
+    "id": "j7-black-range",
+    "name": "Over the Black Range",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 56,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "inferred",
+    "uncertainty_m": 3000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "He crosses the Black Range on the old road east. The book names no pass; the road from San Lorenzo crosses the range at Emory Pass (GNIS 906157), where the circle is centred."
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.52,
+     32.92
+    ]
+   },
+   "properties": {
+    "id": "j7-waystation",
+    "name": "The ruined waystation by the blacktop",
+    "kind": "stop",
+    "role": "stop",
+    "characters": [
+     "billy"
+    ],
+    "journey": "J7",
+    "sequence": 57,
+    "place_ref": null,
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "inferred",
+    "uncertainty_m": 10000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "",
+    "reasoning": "Beyond the range he crosses a plain of catclaw and creosote, strikes the blacktop a few miles on, sees the Organ Mountains about eighty miles off, and turns back along the highway to three ruined adobes with a rusted gas pump, once a waystation. There he drives off the crippled dog, and wakes to the false dawn (4-09). The circle is on the plain east of Hillsboro; its centre is 112 km (70 miles) straight-line from the Organ Mountains point (GNIS 920657, pyproj, WGS 84), and Emory Pass is 131 km (81 miles), so the book's eighty miles fits the range's eastern foot."
+   }
   }
  ]
 }

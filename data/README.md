@@ -6,7 +6,7 @@ Each layer has a row below with its source and licence.
 
 | File | Contents | Licence |
 | --- | --- | --- |
-| `places.geojson`, `stops.geojson`, `areas.geojson`, `journeys.geojson` | Places, stops, inferred areas and route segments for the journeys drawn so far (J1–J4: Parts I and II), plus context towns. Built by `crossing.build_story` | Our own work CC BY 4.0; each feature's `source_licence` gives its source's terms (GNIS public domain, GeoNames CC BY 4.0, Wikidata CC0, USGS NHD, Census TIGER and Natural Earth public domain) |
+| `places.geojson`, `stops.geojson`, `areas.geojson`, `journeys.geojson` | Places, stops, inferred areas and route segments for all seven journeys (J1–J7, Parts I to IV), plus context towns. Each route segment's `travel` says how the leg was made (null for horseback; foot, truck, car, bus, train, or reported). Built by `crossing.build_story` | Our own work CC BY 4.0; each feature's `source_licence` gives its source's terms (GNIS public domain, GeoNames CC BY 4.0, Wikidata CC0, USGS NHD, Census TIGER and Natural Earth public domain) |
 | `elsewhere.json` | Places the book names that lie outside the story box, listed in the panel rather than mapped | CC BY 4.0 |
 | `raised/*.geojson` | The same story layers as drawn in the map's Raised view: every point moved north by twice its height above the lowest ground of the first two journeys' corridor (decision 0018), and only J1 and J2 in `raised/journeys.geojson`. Built by `crossing.plan_oblique`; use the files above for analysis | As the files above; heights from Copernicus DEM GLO-30 (notice below) |
 | `episodes.json` | The novel's 41 episodes: opening words and length | CC BY 4.0 |

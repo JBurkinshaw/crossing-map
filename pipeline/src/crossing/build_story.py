@@ -11,6 +11,7 @@ A route segment follows the line its snap names, where the book names the road o
   tiger-road   a US Census TIGER road by its full name (shapefile, feature)
   ne-river     a Natural Earth river by name: the line the map itself draws for Mexican rivers
 Elsewhere it is a gentle curve between the stops.
+A segment's `travel` is its arriving stop's: empty for horseback, or foot, truck, car, bus, train or reported.
 """
 
 import csv
@@ -21,7 +22,7 @@ from pathlib import Path
 
 from pyproj import Geod
 from shapely import line_merge
-from shapely.geometry import MultiLineString, Point, shape
+from shapely.geometry import LineString, MultiLineString, Point, shape
 from shapely.ops import substring
 
 REPO = Path(__file__).resolve().parents[3]
@@ -31,17 +32,21 @@ GEOD = Geod(ellps="WGS84")
 LICENCE = {"wikidata": "CC0", "gnis": "Public domain", "geonames": "CC BY 4.0", "this-site": "CC BY 4.0",
            "usgs-nhd": "Public domain", "census-tiger": "Public domain", "natural-earth": "Public domain"}
 SNAP_SOURCES = {"nhd": "usgs-nhd", "tiger-road": "census-tiger", "ne-river": "natural-earth"}
+# The widest gap bridged between pieces of a named line, in degrees (about 1 km).
+GAP_DEG = 0.01
 # The story box (plan section 7): tale places outside it are listed, not mapped.
 STORY_BOX = (-113, 27, -104, 36)
 # Each batch's stops and snaps, its journeys, and where its sign-off checklist goes.
 BATCHES = [
-    {"stops": "part1-stops.csv", "snaps": "part1-snaps.csv", "parts": "1", "title": "Stage 1 place checklist",
+    {"stops": "part1-stops.csv", "snaps": "part1-snaps.csv", "parts": {"1"}, "title": "Stage 1 place checklist",
      "checklist": REPO / "review" / "stage-1" / "checklist.md"},
-    {"stops": "part2-stops.csv", "snaps": "part2-snaps.csv", "parts": "2", "title": "Stage 4, batch A (Part II) place checklist",
+    {"stops": "part2-stops.csv", "snaps": "part2-snaps.csv", "parts": {"2"}, "title": "Stage 4, batch A (Part II) place checklist",
      "checklist": REPO / "review" / "stage-4" / "batch-a" / "checklist.md"},
+    {"stops": "part3-4-stops.csv", "snaps": "part3-4-snaps.csv", "parts": {"3", "4"},
+     "title": "Stage 4, batch B (Parts III and IV) place checklist", "checklist": REPO / "review" / "stage-4" / "batch-b" / "checklist.md"},
 ]
 # Parts whose places are built; the seeds of later Parts wait for their batch.
-PARTS_BUILT = {"1", "2"}
+PARTS_BUILT = {"1", "2", "3", "4"}
 # A pin for a long or wide feature stands in for it; a pin for a town or pass is the thing itself.
 LOCATED_KINDS = {"town", "city", "locale", "county", "pass", "summit"}
 CHARACTERS = {"J1": ["wolf"], "J2": ["billy", "wolf"], "J3": ["billy"], "J4": ["billy", "boyd"], "J5": ["billy"],
@@ -87,21 +92,37 @@ def curve(a: tuple[float, float], b: tuple[float, float], side: int) -> list[lis
 
 
 def named_lines(snap: dict) -> list:
-    """The lines a snap names, in WGS 84: an NHD flowline, Natural Earth river or TIGER road by name."""
-    path = REPO / snap["shapefile"]
-    layer = path.name.removesuffix(".zip").removesuffix(".shp")
+    """The lines a snap names, in WGS 84: an NHD flowline, Natural Earth river or TIGER road by name.
+
+    A road that crosses a county line names one TIGER file per county, separated by semicolons.
+    """
     field = {"nhd": "gnis_name", "ne-river": "name", "tiger-road": "FULLNAME"}[snap["source"]]
-    sql = f"SELECT * FROM {'NHDFlowline' if snap['source'] == 'nhd' else layer} WHERE {field} = '{snap['feature']}'"
-    target = f"/vsizip/{path}" if path.suffix == ".zip" else str(path)
-    out = subprocess.run(["ogr2ogr", "-f", "GeoJSON", "-t_srs", "EPSG:4326", "-dim", "XY", "-sql", sql, "/vsistdout/", target],
-                         check=True, capture_output=True, text=True).stdout
-    return [shape(f["geometry"]) for f in json.loads(out)["features"]]
+    lines = []
+    for name in snap["shapefile"].split(";"):
+        path = REPO / name
+        layer = path.name.removesuffix(".zip").removesuffix(".shp")
+        sql = f"SELECT * FROM {'NHDFlowline' if snap['source'] == 'nhd' else layer} WHERE {field} = '{snap['feature']}'"
+        target = f"/vsizip/{path}" if path.suffix == ".zip" else str(path)
+        out = subprocess.run(["ogr2ogr", "-f", "GeoJSON", "-t_srs", "EPSG:4326", "-dim", "XY", "-sql", sql, "/vsistdout/", target],
+                             check=True, capture_output=True, text=True).stdout
+        lines += [shape(f["geometry"]) for f in json.loads(out)["features"]]
+    return lines
 
 
 def snapped(snap: dict, a: tuple[float, float], b: tuple[float, float]) -> list[list[float]]:
     """The stretch of the snap's line between stops a and b (lon, lat), joined to both stops."""
-    lines = named_lines(snap)
-    merged = line_merge(MultiLineString([g for line in lines for g in getattr(line, "geoms", [line])]))
+    lines = [g for line in named_lines(snap) for g in getattr(line, "geoms", [line])]
+    # TIGER breaks some roads with gaps of a few hundred metres: join loose ends of different lines in pairs,
+    # closest first, if they are within about a kilometre.
+    ends = [(i, c) for i, g in enumerate(lines) for c in (g.coords[0], g.coords[-1])]
+    loose = [(i, c) for i, c in ends if sum(c == d for _, d in ends) == 1]
+    pairs = sorted((Point(c).distance(Point(d)), c, d) for k, (i, c) in enumerate(loose) for j, d in loose[k + 1:] if j != i)
+    used, bridges = set(), []
+    for dist, c, d in pairs:
+        if dist < GAP_DEG and c not in used and d not in used:
+            used |= {c, d}
+            bridges.append(LineString([c, d]))
+    merged = line_merge(MultiLineString(lines + bridges))
     # Use the merged piece that passes closest to the two stops together.
     pieces = list(getattr(merged, "geoms", [merged]))
     line = min(pieces, key=lambda g: g.distance(Point(a)) + g.distance(Point(b)))
@@ -188,7 +209,7 @@ def main() -> None:
             note_safe="", reasoning=s["reasoning"] or None,
         )
         stops.append(feature(point(lat, lon), **props))
-        by_journey.setdefault(s["journey"], []).append(props | {"lat": lat, "lon": lon})
+        by_journey.setdefault(s["journey"], []).append(props | {"lat": lat, "lon": lon, "travel": s.get("travel") or None})
         if s["radius_km"]:
             area = props | {"id": f"area-{s['id']}", "kind": "inferred-area",
                             "role": None, "sequence": None}
@@ -210,22 +231,26 @@ def main() -> None:
                            source_licence=LICENCE[source], reasoning=snap["reasoning"])
             else:
                 coords = curve((a["lon"], a["lat"]), (b["lon"], b["lat"]), 1 if i % 2 else -1)
-                how = dict(certainty="inferred", method="schematic", source="this-site", source_licence=LICENCE["this-site"],
-                           reasoning="A gentle curve between consecutive stops; the book names no road or river for this stretch.")
+                reported = b["certainty"] == "reported"
+                how = dict(certainty="reported" if reported else "inferred", method="schematic", source="this-site",
+                           source_licence=LICENCE["this-site"],
+                           reasoning="A gentle curve between consecutive stops; the book " +
+                           ("only reports this leg, through someone's account (see the stop)." if reported
+                            else "names no road or river for this stretch."))
             journeys.append(feature(
                 {"type": "LineString", "coordinates": coords},
                 id=f"{jid.lower()}-seg-{i:02d}", name=f"{a['name']} to {b['name']}", kind="route-segment",
                 characters=CHARACTERS[jid], journey=jid, sequence=i, part=int(b["first_seen"][0]), episode=b["first_seen"],
-                first_seen=b["first_seen"], note_safe="", **how,
+                first_seen=b["first_seen"], travel=b["travel"], note_safe="", **how,
             ))
     write("journeys.geojson", journeys)
     # Part I's seeds include a few places first named later; they stay on the stage 1 list.
     def in_batch(place: dict, batch: dict) -> bool:
         first = place["properties"]["id"].removeprefix("place-") in part1_ids
-        return first if batch["parts"] == "1" else not first and place["properties"]["episode"][0] == batch["parts"]
+        return first if batch["parts"] == {"1"} else not first and place["properties"]["episode"][0] in batch["parts"]
 
     for batch in BATCHES:
-        write_checklist(batch, [f for f in stops if f["properties"]["episode"][0] == batch["parts"]],
+        write_checklist(batch, [f for f in stops if f["properties"]["episode"][0] in batch["parts"]],
                         [f for f in places if in_batch(f, batch)])
 
 
