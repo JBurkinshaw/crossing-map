@@ -165,7 +165,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         }}
         paint={{
           'text-color': tokens.ink,
-          'text-opacity': ['match', ['get', 'role'], 'context', 0.6, 1],
+          'text-opacity': ['match', ['get', 'role'], 'context', 0.75, 1],
           'text-halo-color': tokens.paper,
           'text-halo-width': 1.5,
         }}

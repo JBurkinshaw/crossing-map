@@ -5,6 +5,8 @@ export type Palette = {
   paper: string
   paperMexico: string
   water: string
+  // River and creek labels: the water a shade darker, for 4.5:1 against the paper on both sides of the line.
+  waterLabel: string
   ink: string
   inkFaint: string
   routeWolf: string
@@ -30,6 +32,7 @@ export const palette: Palette = {
   paper: '#e4ddcc',
   paperMexico: '#d9cfbb',
   water: '#5f7480',
+  waterLabel: '#465a65',
   ink: '#2b2118',
   inkFaint: 'rgba(43, 33, 24, 0.35)',
   routeWolf: '#4a5560',

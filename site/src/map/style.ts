@@ -130,7 +130,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
           'text-font': [fonts.italic],
           'text-size': 11.5,
         },
-        paint: { 'text-color': tokens.water, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
+        paint: { 'text-color': tokens.waterLabel, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },
       {
         id: 'river-label',
@@ -145,7 +145,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
           'text-size': 13,
           'text-letter-spacing': 0.1,
         },
-        paint: { 'text-color': tokens.water, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
+        paint: { 'text-color': tokens.waterLabel, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },
     ]
   // Hillshade sits on the paper; hachures under the water and lines; glyphs, then vignettes, above the lines and
