@@ -1,21 +1,22 @@
 import type { LayerSpecification, StyleSpecification } from 'maplibre-gl'
 import { reliefLayers, reliefSources } from './relief'
 import { fonts, palette as tokens, SPRITE } from './tokens'
+import type { Units } from '../units'
 
 // The literary base: everything drawn from base.pmtiles, the paper, and relief. Satellite mode hides these.
 export const BASE_LAYERS = [
   'paper', 'mexico', 'lake', 'county-line', 'state-line', 'creek', 'river-minor', 'river',
   'road', 'railroad', 'railroad-ties', 'creek-label', 'river-label',
-  'relief-tint', 'relief-paper', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy',
+  'relief-tint', 'relief-paper', 'hillshade', 'contour', 'contour-label', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy',
   'mountain-glyph', 'vignette-leader', 'vignette',
 ]
 
 // The literary basemap (docs/plan.md, section 5.1): ink on caliche paper, the
 // Mexico side a shade darker, rivers in blue-grey ink, and a dash-dot
 // international line as on the 1850s-1880s survey sheets.
-export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: string): StyleSpecification {
+export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: string, units: Units): StyleSpecification {
   const base = 'base'
-  const r = reliefLayers(tokens)
+  const r = reliefLayers(tokens, units)
   const layers: LayerSpecification[] = [
       { id: 'paper', type: 'background', paint: { 'background-color': tokens.paper } },
       {

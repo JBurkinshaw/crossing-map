@@ -1,5 +1,6 @@
 import type { ExpressionSpecification, LayerSpecification, SourceSpecification } from 'maplibre-gl'
 import { fonts, type Palette } from './tokens'
+import { heightLabel, type Units } from '../units'
 
 // Relief (docs/plan.md, section 5.2; decision 0016, "S5"): an Imhof desert tint below zoom 10, then
 // near-white paper, a light grey hillshade, 50 m contours and short sepia hachures from relief.pmtiles,
@@ -17,9 +18,42 @@ export function reliefSources(tilesBase: string, dataBase: string): Record<strin
   }
 }
 
-function glyphs(p: Palette): LayerSpecification[] {
+// Named summits from medium size up, and every named pass (passes are all small), with their height.
+export function glyphText(units: Units): ExpressionSpecification {
+  const named: ExpressionSpecification = ['all', ['!=', ['get', 'name'], 'Unnamed summit'], ['!=', ['get', 'name'], 'Unnamed pass'],
+    ['any', ['!=', ['get', 'size'], 'small'], ['==', ['get', 'landform'], 'pass']]]
+  return ['case', named,
+    ['case', ['!=', ['get', 'elevation_m'], null], ['concat', ['get', 'name'], '\n', heightLabel(['get', 'elevation_m'], units)], ['get', 'name']],
+    '']
+}
+
+// Heights on the heavier contours (every 200 m), in feet rounded to 10, since the lines are drawn in metres.
+export function contourText(units: Units): ExpressionSpecification {
+  return heightLabel(['get', 'Ele'], units, 10)
+}
+
+function glyphs(p: Palette, units: Units): LayerSpecification[] {
   const size: ExpressionSpecification = ['*', ['match', ['get', 'size'], 'large', 0.85, 'medium', 0.65, 0.5], ['get', 'glyph_scale']]
   return [
+    {
+      id: 'contour-label',
+      type: 'symbol',
+      source: 'contours',
+      'source-layer': 'contour',
+      minzoom: 11,
+      filter: ['==', ['%', ['get', 'Ele'], 200], 0],
+      layout: {
+        'symbol-placement': 'line',
+        'symbol-spacing': 350,
+        'text-field': contourText(units),
+        'text-font': [fonts.italic],
+        'text-size': 10,
+        // Contours traced from a 30 m model wiggle; a strict angle limit leaves almost nowhere to put a label.
+        'text-max-angle': 80,
+        'text-padding': 4,
+      },
+      paint: { 'text-color': p.contour, 'text-halo-color': p.paperShown, 'text-halo-width': 1.5 },
+    },
     {
       id: 'mountain-glyph',
       type: 'symbol',
@@ -49,9 +83,7 @@ function glyphs(p: Palette): LayerSpecification[] {
         'symbol-sort-key': ['case', ['==', ['get', 'landform'], 'pass'],
           ['-', ['case', ['==', ['get', 'name'], 'Unnamed pass'], 200000, 100000], ['get', 'prominence_m']],
           ['-', 0, ['coalesce', ['get', 'prominence_m'], 99999]]],
-        // Named summits from medium size up; every named pass, since passes are all small.
-        'text-field': ['case', ['all', ['!=', ['get', 'name'], 'Unnamed summit'], ['!=', ['get', 'name'], 'Unnamed pass'],
-          ['any', ['!=', ['get', 'size'], 'small'], ['==', ['get', 'landform'], 'pass']]], ['get', 'name'], ''],
+        'text-field': glyphText(units),
         'text-font': [fonts.italic],
         'text-size': 11,
         'text-anchor': 'top',
@@ -195,10 +227,10 @@ function s5Lines(p: Palette): LayerSpecification[] {
 }
 
 // The relief layers in the palette; literaryStyle places each group at its depth.
-export function reliefLayers(p: Palette): {
+export function reliefLayers(p: Palette, units: Units): {
   hillshade: LayerSpecification[]; hachures: LayerSpecification[]; glyphs: LayerSpecification[]; vignettes: LayerSpecification[]
 } {
-  return { hillshade: s5Ground(p), hachures: s5Lines(p), glyphs: glyphs(p), vignettes: vignettes(p) }
+  return { hillshade: s5Ground(p), hachures: s5Lines(p), glyphs: glyphs(p, units), vignettes: vignettes(p) }
 }
 
 // The Raised view (plan oblique relief): line work from oblique-<n>.pmtiles in which every point has moved north

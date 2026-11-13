@@ -5,8 +5,10 @@ import type { Elsewhere, StoryProps } from '../data/story'
 import type { Translation } from '../data/translations'
 import { Drawer, type DrawerHeight } from './Drawer'
 import { TranslationList } from './TranslationList'
+import { distance, type Units } from '../units'
 
 type Props = {
+  units: Units
   // The reading-progress badge, at the top of the panel.
   header: ReactNode
   // The search box, and the card for whatever was picked on the map or in search.
@@ -36,7 +38,7 @@ type Props = {
 export function Panel(props: Props) {
   const { header, search, card, failed, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
   const { spokenOnRoad, onShowRoad } = props
-  const { phone, drawer, onDrawer } = props
+  const { phone, drawer, onDrawer, units } = props
   const stop = stops[stopIndex]
 
   const links = (
@@ -75,7 +77,7 @@ export function Panel(props: Props) {
         <summary>How this was placed</summary>
         <div className="meta">
           {stop.properties.certainty}
-          {stop.properties.uncertainty_m ? `, within about ${stop.properties.uncertainty_m / 1000} km` : ''} ·{' '}
+          {stop.properties.uncertainty_m ? `, within about ${distance(stop.properties.uncertainty_m, units)}` : ''} ·{' '}
           {stop.properties.source}
           {stop.properties.source_id ? ` ${stop.properties.source_id}` : ''}
         </div>

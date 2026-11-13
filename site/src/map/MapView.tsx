@@ -11,10 +11,11 @@ import ClassicUnderlay from './ClassicUnderlay'
 import { LayerKey } from './LayerKey'
 import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
-import { RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
+import { contourText, glyphText, RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
 import { BASE_LAYERS, literaryStyle } from './style'
 import { palette, storyBounds } from './tokens'
 import { layerFilterUpTo, PROGRESS_LAYERS, styleUpTo } from '../spoiler/filter'
+import type { Units } from '../units'
 
 // MapLibre 6 looks for its worker beside its own module file. Bundling moves
 // that module into an app chunk, so point MapLibre at the copy Vite emits.
@@ -36,10 +37,11 @@ const TERRAIN_TILT = 40
 
 // Base layers that cannot move with the terrain, hidden in the Raised view; raisedLayers() redraws the
 // boundaries, roads, streams and the Mexico side from raised copies.
-const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'hachure-coarse', 'hachure-coarse-copy',
+const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'contour-label', 'hachure-coarse', 'hachure-coarse-copy',
   'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy', 'mountain-glyph', 'county-line', 'state-line', 'country-line', 'creek',
   'river-minor', 'river', 'creek-label', 'river-label', 'road', 'railroad', 'railroad-ties', 'vignette-leader', 'vignette'])
-const literary = () => literaryStyle(tilesBase, fontsBase, dataBase)
+// The units only change label text, which MapView sets on the map when they change.
+const literary = (units: Units = 'metric') => literaryStyle(tilesBase, fontsBase, dataBase, units)
 const RAISED_GROUPS = raisedLayers(literary().layers, palette)
 
 type Basemap = 'literary' | 'satellite' | 'compare'
@@ -75,6 +77,9 @@ type Props = {
   reached: string
   // Talk on the road: the route segment to outline as a corridor, with its label.
   corridor: Corridor | null
+  // Miles and feet, or kilometres and metres: the scale bar, and heights on summits, passes and contours.
+  units: Units
+  onUnits: (units: Units) => void
 }
 
 // A row of switches, one of which is on: a radio group, one tab stop, with the arrow keys moving the choice.
@@ -155,12 +160,13 @@ function HomeControl({ onHome }: { onHome: () => void }) {
 
 export function MapView(props: Props) {
   const { mapRef, story, stops, stopIndex, onSelectStop, onSelectFeature, selectedId, aheadFrom, onHome, onView, reached } = props
-  const { corridor } = props
+  const { corridor, units, onUnits } = props
   const [basemap, setBasemap] = useState<Basemap>('literary')
-  // Built once with the progress at first render; later changes go through setFilter below.
-  const [style] = useState(() => styleUpTo(literary(), reached))
+  // Built once with the progress and units at first render; later changes go through setFilter and
+  // setLayoutProperty below.
+  const [style] = useState(() => styleUpTo(literary(units), reached))
   // Compare mode's classic underlay gets its own copy: a map may change the style object it is given.
-  const underlayStyle = useMemo(() => styleUpTo(literary(), reached), [reached])
+  const underlayStyle = useMemo(() => styleUpTo(literary(units), reached), [reached, units])
   const [unavailable, setUnavailable] = useState(false)
   // Once created, the satellite map stays (hidden on the literary basemap): MapTiler counts each new map as a session.
   const [satelliteStarted, setSatelliteStarted] = useState(false)
@@ -195,6 +201,13 @@ export function MapView(props: Props) {
       if (map.getLayer(id)) map.setFilter(id, layerFilterUpTo(id, base, reached))
     }
   }, [reached, loaded, mapRef])
+
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (!map || !loaded) return
+    map.setLayoutProperty('mountain-glyph', 'text-field', glyphText(units))
+    map.setLayoutProperty('contour-label', 'text-field', contourText(units))
+  }, [units, loaded, mapRef])
 
   const onUnavailable = useCallback(() => {
     setUnavailable(true)
@@ -314,8 +327,7 @@ export function MapView(props: Props) {
         >
           <NavigationControl position="top-left" showCompass={false} />
           <HomeControl onHome={onHome} />
-          {/* Miles, the book's own unit. */}
-          <ScaleControl position="bottom-left" unit="imperial" maxWidth={140} />
+          <ScaleControl position="bottom-left" unit={units} maxWidth={140} />
           {/* Added after the scale, so MapLibre stacks it above. Each archive brings its own credit (the terrain
               lines wherever the hillshade shows); the Credits page has the rest. */}
           <AttributionControl position="bottom-left" compact customAttribution='<a href="#/credits">Credits</a>' />
@@ -362,6 +374,15 @@ export function MapView(props: Props) {
           options={VIEWS.map((v) => ({ ...v, disabled: basemap !== 'literary' }))}
           value={view}
           onChange={setView}
+        />
+        <Switch
+          label="Units"
+          options={[
+            { id: 'imperial', label: 'mi', title: 'Miles and feet', disabled: false },
+            { id: 'metric', label: 'km', title: 'Kilometres and metres', disabled: false },
+          ]}
+          value={units}
+          onChange={onUnits}
         />
         <label className="land-colour-toggle" title={view === 'raised' ? 'Not available in the Raised view' : 'Faint satellite colour under the map'}>
           <input

@@ -16,6 +16,7 @@ import { useRoute } from './route'
 import { shownAt, storyUpTo, translationsUpTo } from './spoiler/filter'
 import { reachedEpisode, spoilersHidden, useEpisodes, useProgress } from './spoiler/progress'
 import { ReadingProgress } from './spoiler/ReadingProgress'
+import { distance, useUnits } from './units'
 
 // The About, How it's built, Data and Credits pages, loaded the first time one opens.
 const Pages = lazy(() => import('./pages/Pages'))
@@ -134,6 +135,7 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, { journey: 'J1', stopIndex: 0, stepping: false })
   const [selection, setSelection] = useState<Selection>(null)
   const [translationId, setTranslationId] = useState<string | null>(null)
+  const [units, setUnits] = useUnits()
   // Phones: the panel is a bottom drawer. It opens half way, so the reading-progress badge and search show.
   const phone = usePhone()
   const [drawer, setDrawer] = useState<DrawerHeight>('half')
@@ -285,10 +287,11 @@ export default function App() {
   const card = road ? (
     <PlaceCard
       feature={road}
+      units={units}
       title={roadLabel(flat, road)}
       spoken={spokenAt.get(road.properties.id) ?? []}
       spokenTitle="Spoken on this road"
-      spokenNote="The book does not say where these lines were spoken. The episode travels this road, so this site places them along it: the map outlines the route with 2 km either side."
+      spokenNote={`The book does not say where these lines were spoken. The episode travels this road, so this site places them along it: the map outlines the route with ${distance(2000, units)} either side.`}
       currentTranslation={translationId}
       onClose={() => {
         setSelection(null)
@@ -298,6 +301,7 @@ export default function App() {
   ) : selected ? (
     <PlaceCard
       feature={selected}
+      units={units}
       spoken={spokenAt.get(selected.properties.id) ?? []}
       currentTranslation={translationId}
       onClose={() => setSelection(null)}
@@ -339,8 +343,11 @@ export default function App() {
         onView={setView}
         reached={reached}
         corridor={corridor}
+        units={units}
+        onUnits={setUnits}
       />
       <Panel
+        units={units}
         header={<ReadingProgress progress={progress} isSet={isSet} episodes={episodes} onSet={setProgress} />}
         search={<SearchBox places={flat?.places.features ?? []} stops={flat?.stops.features ?? []} translations={translations} onPick={onPick} />}
         card={card}
