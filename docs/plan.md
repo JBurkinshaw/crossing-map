@@ -624,7 +624,7 @@ Inside a stage Claude Code works on its own; it stops early only for a blocking 
 
 Settled: satellite provider (MapTiler), UI (React), illustrations (vignettes plus mountain glyphs), formats (GeoJSON for story data, PMTiles for the basemap, GeoParquet as a download), hosting (GitHub Pages in P1).
 
-- [ ] **Translation permission.** Will you write to the Society and Lt. Campbell? Blocks the public build of stage 5's translations otherwise.
+- [x] **Translation permission.** Decided 12 November 2026: no request. The site writes its own translations and links each to its guide page with credit (sections 3 and 8).
 - [ ] **Relief tool (P2).** Hachures in P1; is $100 for Eduard acceptable later if a test on the Peloncillos looks much better?
 - [ ] **Vignette drawing.** Will you draw or trace, or commission an illustrator for a consistent set of 30?
 - [ ] **Name and domain.** "Map Enough" (from the trilogy's last line) or "The Crossing: A Reading Map"; custom domain or `username.github.io/crossing-map`.
