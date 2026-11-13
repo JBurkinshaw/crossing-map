@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, type RefObject } from 'react'
 import type { MapRef } from '@vis.gl/react-maplibre'
 import type { Position } from 'geojson'
 import type { Story } from '../data/story'
-import { journeyInks, palettes, storyBounds, type Theme } from './tokens'
+import { journeyInks, palette as tokens, storyBounds } from './tokens'
 
 // The overview map (docs/plan.md, section 9): a small inset of the whole story region, shown once the reader
 // has zoomed in, with the journeys reached so far and a box where the view is. In the Tilted view the box is
@@ -66,12 +66,9 @@ type Props = {
   // The story the map draws, already filtered to the reader's progress.
   story: Story | null
   journey: string
-  // The map's theme: the inset is drawn in the same palette.
-  theme: Theme
 }
 
-export function OverviewInset({ mapRef, story, journey, theme }: Props) {
-  const tokens = palettes[theme]
+export function OverviewInset({ mapRef, story, journey }: Props) {
   const journeyInk = journeyInks(tokens)
   // The view's corners on the ground, in inset px; null while the view is wide enough to need no inset.
   const [footprint, setFootprint] = useState<[number, number][] | null>(null)

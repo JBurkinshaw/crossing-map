@@ -11,17 +11,6 @@
   background: var(--paper);
 }
 
-/* By lamplight (plan 5.1): the same page in warm light ink on near-black paper. The map's colours are in
-   src/map/tokens.ts. */
-:root[data-theme='lamplight'] {
-  --paper: #1d1915;
-  --ink: #e6d9c0;
-  --ink-faint: rgba(230, 217, 192, 0.55);
-  --alert: #e0907a;
-  --veil: rgba(0, 0, 0, 0.55);
-  color-scheme: dark;
-}
-
 html,
 body,
 #root {
@@ -528,27 +517,6 @@ select {
   left: 100px;
 }
 
-/* By lamplight, MapLibre's own controls take the paper, and their dark icons turn light. */
-[data-theme='lamplight'] .maplibregl-ctrl-group,
-[data-theme='lamplight'] .maplibregl-ctrl.maplibregl-ctrl-attrib,
-[data-theme='lamplight'] .maplibregl-ctrl-scale {
-  background: var(--paper);
-  color: var(--ink);
-}
-
-[data-theme='lamplight'] .maplibregl-ctrl-attrib a {
-  color: inherit;
-}
-
-[data-theme='lamplight'] .maplibregl-ctrl-group button + button {
-  border-top-color: var(--ink-faint);
-}
-
-[data-theme='lamplight'] .maplibregl-ctrl-icon,
-[data-theme='lamplight'] .maplibregl-ctrl-attrib.maplibregl-compact::after {
-  filter: invert(0.88);
-}
-
 /* Land colour: the imagery, brightened, saturated and faded over white, tints the classic map multiplied
    over it. Bright imagery darkens the map very little, so the tint adds colour without murk, and ink and
    water keep nearly their own colour. Only the imagery fades; the MapTiler logo and attribution stay at
@@ -566,21 +534,7 @@ select {
   mix-blend-mode: multiply;
 }
 
-/* By lamplight the same idea inverted: the imagery, darkened, tints the dark map screened over it. */
-[data-theme='lamplight'] .land-colour .satellite {
-  background: #000;
-}
-
-[data-theme='lamplight'] .land-colour .satellite .maplibregl-canvas {
-  filter: saturate(1.4) brightness(0.55) contrast(0.95);
-}
-
-[data-theme='lamplight'] .land-colour .literary .maplibregl-canvas {
-  mix-blend-mode: screen;
-}
-
-.land-colour-toggle,
-.theme-toggle {
+.land-colour-toggle {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -590,11 +544,6 @@ select {
   background: var(--paper);
   font-size: 0.85rem;
   cursor: pointer;
-}
-
-.theme-toggle[aria-pressed='true'] {
-  color: var(--paper);
-  background: var(--ink);
 }
 
 .land-colour-toggle:has(input:disabled) {

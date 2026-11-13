@@ -1,6 +1,6 @@
 import type { LayerSpecification, StyleSpecification } from 'maplibre-gl'
 import { reliefLayers, reliefSources } from './relief'
-import { fonts, palettes, spriteName, type Theme } from './tokens'
+import { fonts, palette as tokens, SPRITE } from './tokens'
 
 // The literary base: everything drawn from base.pmtiles, the paper, and relief. Satellite mode hides these.
 export const BASE_LAYERS = [
@@ -12,10 +12,9 @@ export const BASE_LAYERS = [
 
 // The literary basemap (docs/plan.md, section 5.1): ink on caliche paper, the
 // Mexico side a shade darker, rivers in blue-grey ink, and a dash-dot
-// international line as on the 1850s-1880s survey sheets. By lamplight, the same lines in light ink on dark paper.
-export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: string, theme: Theme): StyleSpecification {
+// international line as on the 1850s-1880s survey sheets.
+export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: string): StyleSpecification {
   const base = 'base'
-  const tokens = palettes[theme]
   const r = reliefLayers(tokens)
   const layers: LayerSpecification[] = [
       { id: 'paper', type: 'background', paint: { 'background-color': tokens.paper } },
@@ -157,16 +156,11 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
   return {
     version: 8,
     glyphs: `${fontsBase}{fontstack}/{range}.pbf`,
-    sprite: spriteUrl(tilesBase, theme),
+    sprite: `${tilesBase.replace(/tiles\/$/, '')}sprites/${SPRITE}`,
     sources: {
       [base]: { type: 'vector', url: `pmtiles://${tilesBase}base.pmtiles` },
       ...reliefSources(tilesBase, dataBase),
     },
     layers,
   }
-}
-
-// The theme's sprite sheet; MapView swaps it with the theme.
-export function spriteUrl(tilesBase: string, theme: Theme): string {
-  return `${tilesBase.replace(/tiles\/$/, '')}sprites/${spriteName[theme]}`
 }

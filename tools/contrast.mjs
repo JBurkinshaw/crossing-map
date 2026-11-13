@@ -1,4 +1,4 @@
-// WCAG 2 contrast ratios for the lamplight review (review/stage-6/lamplight). Each colour is composited over
+// WCAG 2 contrast ratios for the site's text colours. Each colour is composited over
 // its background at the given opacity first.
 // Usage: node contrast.mjs '[["name", "#fg", "#bg", opacity, needed], ...]'
 //        node contrast.mjs mix <colour> <background> <opacity>   (the colour shown)

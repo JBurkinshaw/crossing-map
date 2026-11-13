@@ -5,7 +5,7 @@ import type { Feature, FeatureCollection, Geometry, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
 import { CLUSTER_MAX_ZOOM, CLUSTER_RADIUS, expandCluster, inZone, useZoneClusters, ZONE_CLUSTERS, ZONE_SOURCE, ZONE_STOPS } from './cluster'
 import { corridor, midpoint } from './corridor'
-import { fonts, journeyInks, palettes, type Theme } from './tokens'
+import { fonts, journeyInks, palette as tokens } from './tokens'
 
 // Talk on the road: the route segment a picked line was spoken on, and its label ("on the road between X and Y").
 export type Corridor = { segment: Feature<Geometry, StoryProps>; label: string }
@@ -21,15 +21,13 @@ type Props = {
   selectedId: string | null
   // In step-through, the sequence of the current stop: the road from there on fades (data dimming, plan 9).
   aheadFrom: number | null
-  // The palette the layers are drawn in: the map's theme on the classic basemap.
-  theme: Theme
   // The corridor to outline, when the line picked was spoken on the road.
   corridor: Corridor | null
 }
 
 const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, theme, corridor: road }: Props) {
+export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, corridor: road }: Props) {
   const { current: mapRef } = useMap()
   // The places and the journey's stops around Cloverdale and the Peloncillos go to the clustered source; the
   // current stop stays out of it, so the stop being read always shows.
@@ -64,7 +62,6 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
     }
   }, [road])
 
-  const tokens = palettes[theme]
   const journeyInk = journeyInks(tokens)
   const inkByJourney = ['match', ['get', 'journey'], ...Object.entries(journeyInk).flat(), tokens.ink] as unknown as ExpressionSpecification
   const journey = stops[0]?.properties.journey ?? ''

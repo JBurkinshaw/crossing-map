@@ -194,7 +194,7 @@ function s5Lines(p: Palette): LayerSpecification[] {
   ]
 }
 
-// The relief layers in a theme's palette; literaryStyle places each group at its depth.
+// The relief layers in the palette; literaryStyle places each group at its depth.
 export function reliefLayers(p: Palette): {
   hillshade: LayerSpecification[]; hachures: LayerSpecification[]; glyphs: LayerSpecification[]; vignettes: LayerSpecification[]
 } {
