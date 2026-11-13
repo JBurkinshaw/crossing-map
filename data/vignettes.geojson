@@ -6,8 +6,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.72,
-     30.62
+     -108.5,
+     30.6
     ]
    },
    "properties": {
@@ -25,7 +25,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "A pregnant wolf comes up out of the Sonoran mountains alone, crosses the Bavispe and walks north towards the line and the Animas country.",
-    "reasoning": "The plan anchors her in the Peloncillos or the Animas Valley, but that is the most crowded stretch of the map (every J1 and J2 stop from Foster Draw to Cloverdale). The drawing goes instead beside the long empty leg of her route from the Bavispe crossing to the border at 108°30′ W, in the open country west of the Llanos de Carretas, east of the line her route takes, so it does not cover it. The anchor is 88 km from Crossing of the Bavispe, bearing 40 degrees; the nearest stop or place, Bavispe, is 26 km away (pyproj, WGS 84).",
+    "reasoning": "The plan anchors her in the Peloncillos or the Animas Valley, but that is the most crowded stretch of the map (every J1 and J2 stop from Foster Draw to Cloverdale). The drawing goes instead beside the long empty leg of her route from the Bavispe crossing to the border at 108°30′ W, out on the southern Llanos de Carretas east of the line her route takes, so it covers neither the route nor the labels of the Bavispe towns, the Llanos and Janos at zoom 7. The anchor is 102 km from Crossing of the Bavispe, bearing 50 degrees; the nearest stop or place, The eastern rim of the escarpment at sunrise, is 28 km away (pyproj, WGS 84).",
     "vignette": "vignette-she-wolf",
     "min_zoom": 6.0,
     "max_zoom": 11.0,
@@ -68,8 +68,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.08,
-     31.33333
+     -109.09,
+     31.31
     ]
    },
    "properties": {
@@ -87,7 +87,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "From the red hills south of the line Billy sees one of the white boundary obelisks standing alone in the desert to the east.",
-    "reasoning": "The book sets this sighting just after the crossing south of the volcanic plain, with the obelisk to the east of him, so the drawing stands on the line itself, east of that crossing and short of the Guadalupe pass stops. The plan's anchor at 108°30′ W is where the wolf crosses, but the book does not mention an obelisk there. No leader: the data has no located monument to point to. The anchor is 11 km from The boundary, a monument in sight, bearing 91 degrees; the nearest stop or place, Ranch house on the volcanic plain, is 8 km away (pyproj, WGS 84).",
+    "reasoning": "The book sets this sighting just after the crossing south of the volcanic plain, with the obelisk to the east of him, so the drawing stands just south of the line, east of that crossing and short of the Guadalupe pass stops, below the Guadalupe Mountains label rather than on it. The plan's anchor at 108°30′ W is where the wolf crosses, but the book does not mention an obelisk there. No leader: the data has no located monument to point to. The anchor is 11 km from The boundary, a monument in sight, bearing 105 degrees; the nearest stop or place, Ranch house on the volcanic plain, is 10 km away (pyproj, WGS 84).",
     "vignette": "vignette-obelisk",
     "min_zoom": 8.0,
     "max_zoom": 13.0,
@@ -151,7 +151,7 @@
     "note_safe": "In a ruined, nearly empty town on the upper Bavispe Billy meets an old man living in the broken church, who tells him a long tale.",
     "reasoning": "Huisiachepic is not in any gazetteer and its circle is an estimate on the upper Bavispe, with the escarpment and Huachinera stops to the west and north. The drawing goes east, into the empty sierra between the circle and Mesa Tres Ríos. No leader: the town is inferred. The anchor is 16 km from Huisiachepic, the heretic's town, bearing 76 degrees; the nearest stop or place, Las Ramadas, is 16 km away (pyproj, WGS 84).",
     "vignette": "vignette-ruined-church",
-    "min_zoom": 7.0,
+    "min_zoom": 8.0,
     "max_zoom": 12.0,
     "priority": 1
    }
@@ -318,7 +318,7 @@
     "note_safe": "South of Las Varas the brothers come on the travelling opera company again, its gaudy caravan wagons halted in a field beside the road.",
     "reasoning": "The troupe's camp is inferred a few kilometres south of Las Varas, between the Las Varas, river-camp and wagon-road stops. The drawing goes west of the road, onto the empty slopes of the sierra. No leader: the camp is inferred. The anchor is 16 km from The opera company stranded on the Madera road, bearing 263 degrees; the nearest stop or place, Camps by the river, is 15 km away (pyproj, WGS 84).",
     "vignette": "vignette-opera-caravan",
-    "min_zoom": 7.0,
+    "min_zoom": 8.0,
     "max_zoom": 12.0,
     "priority": 2
    }
