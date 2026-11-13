@@ -28,7 +28,8 @@ ground just outside the area can hide ground inside it.
 
 Inputs: the short strokes cached by crossing.hachures (fine tiles), the Copernicus tiles, INEGI's 1:50,000
 river network for Mexico, USGS NHD flowlines for the US, and the Natural Earth and Census layers that
-tiles/build_base.py uses. Writes tiles/out/oblique.pmtiles, zoom 9-12, one layer `oblique` whose `kind` is
+tiles/build_base.py uses. Writes tiles/out/oblique-<n>.pmtiles (split by strips to stay under 100 MB each;
+data/raised/archives.json lists them), zoom 9-12, one layer `oblique` whose `kind` is
   stroke (Slope, Aspect and Rand, as in relief.pmtiles), contour (200 m form lines), crest,
   ridge (`rel`, relief in metres), stream (`ord`, Strahler order or a stand-in; `name` on the US side),
   country, state, county, road, railroad (lines) and mexico (the Mexico side, a polygon),
@@ -62,7 +63,7 @@ from crossing.hachures import COPERNICUS, CRS, DEM_TILES, OUT, REPO, SCALES, cor
 
 FINE = OUT / SCALES["fine"]["folder"]
 TILE = SCALES["fine"]["tile"]
-RAISED_JOURNEYS = ("J1", "J2", "J3", "J4")
+RAISED_JOURNEYS = ("J1", "J2", "J3", "J4", "J5", "J6", "J7")
 CELL = 30
 STEP = 8  # metres between samples along a line
 STORY_STEP = 60  # metres between samples along the story's lines and area edges
@@ -78,7 +79,10 @@ BASEMAP = REPO / "private" / "cache" / "basemap"
 DATA = REPO / "data"
 RAISED_DATA = DATA / "raised"
 STORY = ("stops", "places", "areas", "journeys")
-ARCHIVE = REPO / "tiles" / "out" / "oblique.pmtiles"
+TILES_OUT = REPO / "tiles" / "out"
+SITE_TILES = REPO / "site" / "public" / "tiles"
+# Archives over this size are split, by groups of whole strips, to stay under the plan's 100 MB per file.
+MAX_ARCHIVE_MB = 95
 # Shown in the map's attribution while the Raised view is on.
 ATTRIBUTION = ("Streams: Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0; USGS National Hydrography Dataset "
                f"courtesy of the U.S. Geological Survey; county lines courtesy of the U.S. Census Bureau (TIGER); {COPERNICUS}")
@@ -211,19 +215,26 @@ def base_lines(bbox: tuple[float, ...], tmp: Path) -> tuple[list[tuple[str, dict
 
 
 def strips() -> list[dict]:
-    """One strip per column of fine tiles in the corridor: its core (UTM), the tiles in it, and its DEM's bounds."""
+    """One strip per unbroken column of fine tiles in the corridor: its core (UTM), its tiles, and its DEM's bounds."""
     region = corridor(RAISED_JOURNEYS).intersection(coverage().buffer(-60))
     columns: dict[float, list] = {}
     for name, core in tiles(region, TILE):
         columns.setdefault(core.bounds[0], []).append((name, core.bounds))
     out = []
+    snap = lambda v, up: (math.ceil if up else math.floor)(v / CELL) * CELL  # noqa: E731
     for x0, cells in sorted(columns.items()):
-        y0, y1 = min(b[1] for _, b in cells), max(b[3] for _, b in cells)
-        if len(cells) * TILE != y1 - y0:
-            raise ValueError(f"tiles at {x0:.0f} E do not form one column")
-        snap = lambda v, up: (math.ceil if up else math.floor)(v / CELL) * CELL  # noqa: E731
-        out.append({"name": f"{round(x0 / 1000)}e", "core": (x0, y0, x0 + TILE, y1), "tiles": cells,
-                    "bounds": (snap(x0 - PAD, False), snap(y0 - SOUTH, False), snap(x0 + TILE + PAD, True), snap(y1 + PAD, True))})
+        # A column can hold separate stretches of the corridor; each unbroken run of tiles is its own strip.
+        # The gaps are whole tiles, far more than the ground a ridge can hide, and each DEM reaches SOUTH below its run.
+        runs: list[list] = []
+        for cell in sorted(cells, key=lambda c: c[1][1]):
+            if runs and runs[-1][-1][1][3] == cell[1][1]:
+                runs[-1].append(cell)
+            else:
+                runs.append([cell])
+        for run in runs:
+            y0, y1 = run[0][1][1], run[-1][1][3]
+            out.append({"name": f"{round(x0 / 1000)}e-{round(y0 / 1000)}n", "core": (x0, y0, x0 + TILE, y1), "tiles": run,
+                        "bounds": (snap(x0 - PAD, False), snap(y0 - SOUTH, False), snap(x0 + TILE + PAD, True), snap(y1 + PAD, True))})
     return out
 
 
@@ -475,17 +486,40 @@ def main() -> None:
         print(", ".join(f"{k} {n:,}" for k, n in sorted(counts.items())) + f"; after {time.monotonic() - started:.0f} s", flush=True)
         story = raise_story(Heights(list(zip(area, dems)), base, tmp))
         print("data/raised/: " + ", ".join(f"{k} {n}" for k, n in story.items()), flush=True)
-        # Relative names keep local paths out of the archive's metadata.
-        layers = [arg for s in area for arg in ("-L", f"oblique:{s['name']}.geojsonl")]
-        subprocess.run(["tippecanoe", "-q", "-f", "-o", "oblique.pmtiles", "-Z9", "-z12", "--no-line-simplification",
-                        "--no-tile-size-limit", "--no-feature-limit", "-n", "The Crossing: raised relief, journeys 1 and 2",
-                        "-A", ATTRIBUTION, *layers], check=True, cwd=tmp)
-        ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
-        shutil.move(tmp / "oblique.pmtiles", ARCHIVE)
-    shutil.copy(ARCHIVE, REPO / "site" / "public" / "tiles" / "oblique.pmtiles")
-    print(f"Wrote {ARCHIVE.relative_to(REPO)} ({ARCHIVE.stat().st_size / 1e6:.1f} MB) and copied it to site/public/tiles/; "
+        archives = write_archives(area, tmp)
+    print(f"Wrote {', '.join(f'{n} ({mb:.1f} MB)' for n, mb in archives)} to tiles/out/ and site/public/tiles/; "
           f"{time.monotonic() - started:.0f} s in all")
 
+
+def write_archives(area: list[dict], tmp: Path) -> list[tuple[str, float]]:
+    """oblique-<n>.pmtiles, each from a run of neighbouring strips and under MAX_ARCHIVE_MB, and their list in
+    data/raised/archives.json for the app. A group that comes out too big is halved and built again."""
+    groups, done, built = [area], [], 0
+    while groups:
+        group = groups.pop(0)
+        built += 1
+        out = tmp / f"part-{built}.pmtiles"
+        # Relative names keep local paths out of the archive's metadata.
+        subprocess.run(["tippecanoe", "-q", "-f", "-o", out.name, "-Z9", "-z12", "--no-line-simplification",
+                        "--no-tile-size-limit", "--no-feature-limit", "-n", "The Crossing: raised relief",
+                        "-A", ATTRIBUTION, *[a for s in group for a in ("-L", f"oblique:{s['name']}.geojsonl")]], check=True, cwd=tmp)
+        if out.stat().st_size / 1e6 > MAX_ARCHIVE_MB and len(group) > 1:
+            half = len(group) // 2
+            groups[:0] = [group[:half], group[half:]]
+        else:
+            done.append((min(s["bounds"][0] for s in group), out))
+    for folder in (TILES_OUT, SITE_TILES):
+        folder.mkdir(parents=True, exist_ok=True)
+        for old in folder.glob("oblique*.pmtiles"):
+            old.unlink()
+    names = []
+    for i, (_, out) in enumerate(sorted(done), start=1):
+        name = f"oblique-{i}.pmtiles"
+        shutil.move(out, TILES_OUT / name)
+        shutil.copy(TILES_OUT / name, SITE_TILES / name)
+        names.append((name, (TILES_OUT / name).stat().st_size / 1e6))
+    (RAISED_DATA / "archives.json").write_text(json.dumps([n for n, _ in names]) + "\n", encoding="utf-8")
+    return names
 
 if __name__ == "__main__":
     main()

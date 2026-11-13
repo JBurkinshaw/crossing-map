@@ -170,13 +170,13 @@ export function reliefLayers(): { hillshade: LayerSpecification[]; hachures: Lay
   return { hillshade: s5Ground(), hachures: s5Lines(), glyphs: glyphs() }
 }
 
-// The Raised view (plan oblique relief): line work from oblique.pmtiles in which every point has moved north
-// by its height, so ranges stand up and hide the ground behind them. It covers the corridor of the journeys
-// in RAISED_JOURNEYS in crossing.plan_oblique, so far J1 to J4 (decision 0018); the map's layers that cannot move with the terrain are hidden by MapView.
-export const RAISED_BOUNDS: [number, number, number, number] = [-109.9, 29.62, -107.74, 32.53]
+// The Raised view (plan oblique relief): line work from oblique-<n>.pmtiles in which every point has moved north
+// by its height, so ranges stand up and hide the ground behind them. It covers the corridor of the stretches
+// ridden or walked in every journey (decisions 0018 and 0019); the map's layers that cannot move with the terrain are hidden by MapView.
+export const RAISED_BOUNDS: [number, number, number, number] = [-109.9, 28.23, -106.66, 34.0]
 export const RAISED_MIN_ZOOM = 9
 
-// Classic base layers drawn again from the raised copies of their lines, by the `kind` in oblique.pmtiles.
+// Classic base layers drawn again from the raised copies of their lines, by the `kind` in the oblique archives.
 const RAISED_BASE: Record<string, string> = {
   mexico: 'mexico', 'county-line': 'county', 'state-line': 'state', 'country-line': 'country', road: 'road',
   railroad: 'railroad', 'railroad-ties': 'railroad', 'creek-label': 'stream',

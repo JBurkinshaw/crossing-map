@@ -1,5 +1,6 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState, type RefObject } from 'react'
 import * as maplibregl from 'maplibre-gl'
+import type { LayerSpecification } from 'maplibre-gl'
 import { Map, NavigationControl, Popup, ScaleControl, type MapRef } from '@vis.gl/react-maplibre'
 import { Protocol } from 'pmtiles'
 import 'maplibre-gl/dist/maplibre-gl.css'
@@ -36,7 +37,6 @@ const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'ha
   'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy', 'mountain-glyph', 'county-line', 'state-line', 'country-line', 'creek',
   'river-minor', 'river', 'creek-label', 'river-label', 'road', 'railroad', 'railroad-ties'])
 const RAISED_GROUPS = raisedLayers(literaryStyle(tilesBase, fontsBase, dataBase).layers)
-const RAISED_IDS = RAISED_GROUPS.flatMap((g) => g.layers.map((l) => l.id))
 
 type Picked = { lon: number; lat: number; props: StoryProps }
 type Basemap = 'literary' | 'satellite' | 'compare'
@@ -80,6 +80,14 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView 
   // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
   // tiles are loading, and 'load' fires only once.
   const [loaded, setLoaded] = useState(false)
+  // The Raised view's archives, fetched the first time the reader turns it on.
+  const [raisedArchives, setRaisedArchives] = useState<string[] | null>(null)
+  useEffect(() => {
+    if (view !== 'raised' || raisedArchives) return
+    fetch(`${dataBase}raised/archives.json`)
+      .then((r) => (r.ok ? r.json() : []))
+      .then(setRaisedArchives, () => setRaisedArchives([]))
+  }, [view, raisedArchives])
 
   useEffect(() => onView(view), [view, onView])
 
@@ -95,21 +103,28 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView 
     const map = mapRef.current?.getMap()
     if (!map || !loaded) return
     const raised = view === 'raised'
-    if (raised && !map.getSource('oblique')) {
-      map.addSource('oblique', { type: 'vector', url: `pmtiles://${tilesBase}oblique.pmtiles` })
-      for (const group of RAISED_GROUPS) for (const layer of group.layers) map.addLayer(layer, group.before)
+    // The raised line work comes in several archives (each under 100 MB), listed in data/raised/archives.json;
+    // every raised layer is drawn once per archive.
+    if (raised && raisedArchives && !map.getSource('oblique-1')) {
+      raisedArchives.forEach((file, i) => {
+        const source = `oblique-${i + 1}`
+        map.addSource(source, { type: 'vector', url: `pmtiles://${tilesBase}${file}` })
+        for (const group of RAISED_GROUPS) {
+          for (const layer of group.layers) map.addLayer({ ...layer, id: `${layer.id}-${i + 1}`, source } as LayerSpecification, group.before)
+        }
+      })
     }
     // The international line is not a base layer (it stays over satellite imagery), but it is raised.
     for (const id of new Set([...BASE_LAYERS, ...NOT_RAISED])) {
       const hidden = (basemap !== 'literary' && BASE_LAYERS.includes(id)) || (raised && NOT_RAISED.has(id))
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', hidden ? 'none' : 'visible')
     }
-    for (const id of RAISED_IDS) {
-      if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', raised ? 'visible' : 'none')
+    for (const layer of map.getStyle().layers) {
+      if (layer.id.startsWith('raised-')) map.setLayoutProperty(layer.id, 'visibility', raised ? 'visible' : 'none')
     }
     // Below the raised line work's first zoom the view would be bare paper.
     map.setMinZoom(raised ? RAISED_MIN_ZOOM : MIN_ZOOM)
-    // The raised data covers the corridor of Parts I and II's journeys, from zoom 9: from outside it, go to its middle;
+    // The raised data covers the corridor of the stretches ridden or walked, from zoom 9: from outside it, go to its middle;
     // from too far out, close in where the view is, enough to see the line work.
     const [w, s, e, n] = RAISED_BOUNDS
     const { lng, lat } = map.getCenter()
@@ -118,7 +133,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView 
       map.flyTo({ center: inside ? [lng, lat] : [(w + e) / 2, (s + n) / 2], zoom: Math.max(map.getZoom(), 11.5),
         duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1600 })
     }
-  }, [basemap, view, loaded, mapRef])
+  }, [basemap, view, loaded, raisedArchives, mapRef])
 
   useEffect(() => {
     const map = mapRef.current?.getMap()
@@ -259,7 +274,7 @@ export function MapView({ mapRef, story, stops, stopIndex, onSelectStop, onView 
         </label>
       </div>
       {view === 'raised' && (
-        <p className="notice" role="status">The Raised view covers the journeys of Parts I and II for now.</p>
+        <p className="notice" role="status">The Raised view covers the country the journeys ride through; bus rides and reported journeys stay flat.</p>
       )}
       {unavailable && <p className="notice" role="status">Satellite imagery is unavailable right now. The classic map works as normal.</p>}
       <div className="cartouche" aria-hidden="true">
