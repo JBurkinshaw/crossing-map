@@ -106,7 +106,7 @@ export function Panel(props: Props) {
       </button>
       {stop && (
         <div className="stepper-stop">
-          <span className="stop-count">
+          <span className="stop-count" aria-live="polite">
             Stop {stopIndex + 1} of {stops.length}
           </span>
           {phone && (

@@ -435,7 +435,6 @@ Full map with an info panel docked right on desktop (about 380 px) and a bottom 
 | Layer list + legend | One key: journeys by character, passing places, tale places, inferred areas, conversations, vignettes |
 | Feature selection + MapTip | Tap to select; hover names on desktop |
 | Search | Places and translations in one box |
-| Extent-driven content | The panel's "In view" list follows the map |
 | Overview map | Inset of the whole region when zoomed in; off-map arrows for far places |
 | Cluster marker | Only around Cloverdale and the Peloncillos |
 | Home button | Back to the whole journey |

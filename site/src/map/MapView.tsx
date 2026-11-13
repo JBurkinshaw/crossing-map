@@ -86,7 +86,8 @@ type Props = {
 // A row of switches, one of which is on: a radio group, one tab stop, with the arrow keys moving the choice.
 function Switch<T extends string>(props: {
   label: string
-  options: { id: T; label: string; title?: string; disabled: boolean }[]
+  // ariaLabel names a switch whose label is an abbreviation.
+  options: { id: T; label: string; title?: string; ariaLabel?: string; disabled: boolean }[]
   value: T
   onChange: (value: T) => void
 }) {
@@ -113,6 +114,7 @@ function Switch<T extends string>(props: {
           tabIndex={value === o.id ? 0 : -1}
           disabled={o.disabled}
           title={o.title}
+          aria-label={o.ariaLabel}
           onClick={() => onChange(o.id)}
         >
           {o.label}
@@ -167,7 +169,7 @@ export function MapView(props: Props) {
   // setLayoutProperty below.
   const [style] = useState(() => styleUpTo(literary(units), reached))
   // Compare mode's classic underlay gets its own copy: a map may change the style object it is given.
-  const underlayStyle = useMemo(() => styleUpTo(literary(units), reached), [reached, units])
+  const underlayStyle = useMemo(() => styleUpTo(literary(), reached), [reached])
   const [unavailable, setUnavailable] = useState(false)
   // Once created, the satellite map stays (hidden on the literary basemap): MapTiler counts each new map as a session.
   const [satelliteStarted, setSatelliteStarted] = useState(false)
@@ -294,7 +296,7 @@ export function MapView(props: Props) {
           />
         </Suspense>
       )}
-      {basemap === 'compare' && <ClassicUnderlay main={mapRef} style={underlayStyle} split={split} />}
+      {basemap === 'compare' && <ClassicUnderlay main={mapRef} style={underlayStyle} split={split} units={units} />}
       <div className="literary">
         <Map
           ref={mapRef}
@@ -380,8 +382,8 @@ export function MapView(props: Props) {
         <Switch
           label="Units"
           options={[
-            { id: 'imperial', label: 'mi', title: 'Miles and feet', disabled: false },
-            { id: 'metric', label: 'km', title: 'Kilometres and metres', disabled: false },
+            { id: 'imperial', label: 'mi', title: 'Miles and feet', ariaLabel: 'Miles and feet', disabled: false },
+            { id: 'metric', label: 'km', title: 'Kilometres and metres', ariaLabel: 'Kilometres and metres', disabled: false },
           ]}
           value={units}
           onChange={onUnits}
