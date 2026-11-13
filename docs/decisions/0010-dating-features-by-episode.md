@@ -19,7 +19,7 @@ The spoiler filter hides every feature whose `first_seen` episode is later than 
 
 ## Alternatives
 
-- Guessing from summaries: a first pass did this, and it dated De Baca County and Ascensión to Part I when the text first names them in Part IV.
+- Guessing from summaries: it misses names the summaries leave out. Searching the text needs care too: a first search dated Ascensión and De Baca County to Part IV, missing a variant spelling (Ascención, 1-09) and a passing mention (De Baca, 1-08), which Bell 2000 caught in stage 7.
 - Dating every feature to the start of its Part: safe for the filter, but useless for step-by-step reading.
 
 ## Consequences
