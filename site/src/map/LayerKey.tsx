@@ -5,7 +5,8 @@ import { journeyInk, tokens } from './tokens'
 
 // The layer key (legend, plan section 9) for the classic map: one row per kind of mark the map draws, from
 // the story it is given. That story is already filtered to the reader's progress, so a journey, a region or
-// the false dawn appears in the key only once it can appear on the map.
+// the false dawn appears in the key only once it can appear on the map; so does the vignettes' row, from the
+// vignettes reached.
 
 // The mountain glyph families, drawn from the map's own sprite sheet (art/glyphs/make_glyphs.py).
 const GLYPHS: [string, string][] = [
@@ -17,10 +18,22 @@ const GLYPHS: [string, string][] = [
   ['cone', 'Cone'],
   ['pass', 'Pass'],
 ]
-// The sheet is 1024 by 512 at 1x; the @2x copy keeps the key sharp, drawn at this fraction of map size.
-const SHEET = [1024, 512]
+// Glyphs at this fraction of their map size, vignettes smaller. The @2x sheet keeps the key sharp.
 const GLYPH_SCALE = 0.6
-type Sprite = Record<string, { x: number; y: number; width: number; height: number }>
+const VIGNETTE_SCALE = 0.4
+type Sprite = { icons: Record<string, { x: number; y: number; width: number; height: number }>; width: number; height: number }
+type Vignette = { vignette: string; first_seen: string; priority: number }
+
+const sheet = (name: string) => `${import.meta.env.BASE_URL}sprites/${name}`
+
+// The sprite index and the 1x sheet's size, which the @2x sheet is scaled down to.
+async function loadSprite(): Promise<Sprite> {
+  const icons = await fetch(sheet('glyphs.json')).then((r) => r.json())
+  const image = new Image()
+  image.src = sheet('glyphs.png')
+  await image.decode()
+  return { icons, width: image.naturalWidth, height: image.naturalHeight }
+}
 
 function Line({ colour, dash, width = 2.5, opacity = 1 }: { colour: string; dash?: string; width?: number; opacity?: number }) {
   return (
@@ -47,33 +60,49 @@ function Area({ colour }: { colour: string }) {
   )
 }
 
-function Glyph({ name, sprite }: { name: string; sprite: Sprite | null }) {
-  const s = sprite?.[`${name}-01`]
-  if (!s) return <span className="key-glyph" />
+function Icon({ name, sprite, scale }: { name: string; sprite: Sprite | null; scale: number }) {
+  const s = sprite?.icons[name]
+  if (!sprite || !s) return <span className="key-glyph" />
   return (
     <span
       className="key-glyph"
       aria-hidden="true"
       style={{
-        width: s.width * GLYPH_SCALE,
-        height: s.height * GLYPH_SCALE,
-        backgroundImage: `url(${import.meta.env.BASE_URL}sprites/glyphs@2x.png)`,
-        backgroundSize: `${SHEET[0] * GLYPH_SCALE}px ${SHEET[1] * GLYPH_SCALE}px`,
-        backgroundPosition: `${-s.x * GLYPH_SCALE}px ${-s.y * GLYPH_SCALE}px`,
+        width: s.width * scale,
+        height: s.height * scale,
+        backgroundImage: `url(${sheet('glyphs@2x.png')})`,
+        backgroundSize: `${sprite.width * scale}px ${sprite.height * scale}px`,
+        backgroundPosition: `${-s.x * scale}px ${-s.y * scale}px`,
       }}
     />
   )
 }
 
-export function LayerKey({ story, journey }: { story: Story | null; journey: string }) {
+type Props = {
+  story: Story | null
+  journey: string
+  // The latest episode whose features may show (spoiler mode).
+  reached: string
+}
+
+export function LayerKey({ story, journey, reached }: Props) {
   const [open, setOpen] = useState(false)
   const [sprite, setSprite] = useState<Sprite | null>(null)
+  const [vignettes, setVignettes] = useState<Vignette[]>([])
   useEffect(() => {
     if (!open || sprite) return
-    fetch(`${import.meta.env.BASE_URL}sprites/glyphs.json`)
-      .then((r) => (r.ok ? r.json() : null))
-      .then(setSprite, () => setSprite(null))
+    loadSprite().then(setSprite, () => setSprite(null))
+    fetch(`${import.meta.env.BASE_URL}data/vignettes.geojson`)
+      .then((r) => (r.ok ? r.json() : { features: [] }))
+      .then((fc: { features: { properties: Vignette & { kind: string } }[] }) =>
+        setVignettes(fc.features.map((f) => f.properties).filter((p) => p.kind === 'vignette' && p.vignette)),
+      )
+      .catch(() => setVignettes([]))
   }, [open, sprite])
+  // The first vignette the reader has reached stands for them all.
+  const vignette = vignettes
+    .filter((v) => v.first_seen <= reached)
+    .sort((a, b) => a.first_seen.localeCompare(b.first_seen) || a.priority - b.priority)[0]
 
   const shown = useMemo(() => {
     const journeys = new Map<string, string>()
@@ -172,11 +201,22 @@ export function LayerKey({ story, journey }: { story: Story | null; journey: str
         <ul className="key-glyphs">
           {GLYPHS.map(([name, label]) => (
             <li key={name}>
-              <Glyph name={name} sprite={sprite} />
+              <Icon name={`${name}-01`} sprite={sprite} scale={GLYPH_SCALE} />
               {label}
             </li>
           ))}
         </ul>
+        {vignette && (
+          <>
+            <h3>Drawings</h3>
+            <ul>
+              <li data-first-seen={vignette.first_seen}>
+                <Icon name={vignette.vignette} sprite={sprite} scale={VIGNETTE_SCALE} />
+                A scene from the book, near where it happens; a fine line may lead to the place
+              </li>
+            </ul>
+          </>
+        )}
       </div>
     </details>
   )

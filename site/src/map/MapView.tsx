@@ -331,7 +331,7 @@ export function MapView(props: Props) {
           Land colour
         </label>
       </div>
-      {basemap === 'literary' && <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} />}
+      {basemap === 'literary' && <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} />}
       {view === 'raised' && (
         <p className="notice" role="status">The Raised view covers the country the journeys ride through; bus rides and reported journeys stay flat.</p>
       )}

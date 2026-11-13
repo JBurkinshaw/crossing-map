@@ -830,13 +830,14 @@ a {
   color: var(--ink);
 }
 
-/* The layer key, bottom left on the classic map. */
+/* The layer key, under the zoom and Home buttons, clear of the attribution, which can span the foot of the map. */
 .layer-key {
   position: absolute;
-  bottom: 34px;
+  z-index: 3;
+  top: 118px;
   left: 10px;
   max-width: min(300px, calc(100% - 20px));
-  max-height: calc(100% - 140px);
+  max-height: calc(100% - 128px);
   overflow-y: auto;
   border: 1px solid var(--ink);
   background: var(--paper);
@@ -907,11 +908,3 @@ a {
   background-repeat: no-repeat;
 }
 
-/* On a phone the attribution spans the foot of the map, so the key sits under the zoom and Home buttons. */
-@media (max-width: 720px) {
-  .layer-key {
-    top: 118px;
-    bottom: auto;
-    max-height: calc(100% - 128px);
-  }
-}
