@@ -25,7 +25,8 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
   - Inferred areas are still circles, waiting for the QGIS redraw in decision 0008.
   - The episode summaries are drafts for you to edit.
 - **Stage 2.**
-  - Rivers (`tiles-v7`): where INEGI's network breaks, a traced river still falls back to Natural Earth's straight line for a stretch, as on the Río Batepito above Colonia Morelos (7.8 km). `tiles/check_rivers.py` (uncommitted, not yet run to the end) would measure every river against the valley floor and list these breaks.
+  - Rivers: where INEGI's or NHD's network breaks, a traced river runs along Natural Earth's line for a stretch. The base build now prints the total (816 km, mostly the Fuerte, Rio Grande and Colorado, far from the story) and the worst rivers. Joining broken channel ends was measured and dropped (1.6% less). The Río Batepito's 7.8 km above Colonia Morelos remains. `tiles/check_rivers.py` (uncommitted) would also measure height above the valley floor.
+  - Streams cross the Babícora lake; clip creeks by lakes? (`review/stage-8/tiles-v8/`)
   - 60 fps on a mid-range phone is not measured.
   - The state names in IM Fell small capitals are not drawn.
   - The Cloverdale Creek road leg is not snapped to a road.
@@ -84,6 +85,7 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
   - the Ash Wednesday date
   - the Soto Máynez and Santa Ana label overlap
   - corrections to plan 2.2 (applied 13 November 2026)
+- **14 November packets** (`review/stage-8/`): the interface open questions (the desktop switch box can cover a stop in the top-right corner; "Satellite tint" or "Ground colour"; should a click on a stop's town also open the town's card), the hillshade questions (is "Pronounced" right beside the journeys, and does decision 0016 need a line; build and release the 76 MB sharper terrain; add localhost to the MapTiler key; publish the lab), the Wheeler questions (paper, hachure ink, spot heights, lettering landforms the book never names, roads), and a hachure seam near 109.3° W, 32.0° N at zoom 10.
 - **Modelled routes.** Decided 13 November 2026 and recorded in plan stage 8; to build after a rerun with the river fix.
 - **Stage 7 calls 2 to 17**, which the app now lists as open questions.
 - **Vignettes.**

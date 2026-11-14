@@ -691,6 +691,10 @@ Two independent readings of the book's geography, used to confirm, correct and a
   - check the preview
   - soft launch to a few readers, then post on r/cormacmccarthy with the draft in `private/launch/reddit-post.md`
   - send the message to Joe Hazelton
+- Done 14 November 2026 (packets in `review/stage-8/`):
+  - **Interface** (`ui/`): one framed set of map controls, Compare between Classic and Satellite (Flat and Tilted), "Satellite tint" for Land colour, Imperial and Metric, the key in the cartouche with the railroad, the inset's "Where you are" box, the Home button named, the panel reordered, "How this was placed" kept open, map clicks that go to a stop, and the road lines in their own block.
+  - **Creeks** (`streams/`, `tiles/creeks.py`): INEGI and NHD streams by one rule, shown by Strahler order and zoom. River names follow a smoothed `river_label` layer. Needs `tiles-v8`.
+  - **Lab** (`site/lab.html`, dev server only): a Hillshade section with presets (`lab-hillshade/`; the "Pronounced" preset is now the default) and a Wheeler section with seven toggles and the learnings from two Wheeler sheets (`wheeler/`). A sharper terrain archive at tile zoom 11 is ready to build (`tiles/build_terrain_hi.py`, about 76 MB) but needs a release and a site change.
 - **Modelled routes** (owner, 13 November 2026; decided, not built). The least-cost experiment is in `review/experiments/least-cost/`:
   - Modelled paths replace the schematic curves on the sierra and valley legs. The flat legs and the summary legs (weeks told as turning points) stay curves.
   - A modelled leg is drawn as a line, like the others. How it's built explains the model (the cost surface, Tobler's function for a horse, ford and canyon costs, the border gates) and its uncertainty.

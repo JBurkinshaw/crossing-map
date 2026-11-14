@@ -56,6 +56,9 @@ GAP = 0.003
 FALLBACK = 4
 # Only the network within this distance of a river's line (degrees, about 15 km) is searched.
 SEARCH = 0.15
+# A traced river meanders too tightly for a name to fit along it, so names follow a copy simplified to this
+# tolerance (degrees, about 400 m) and rounded (smooth()).
+LABEL_SIMPLIFY = 0.004
 
 
 def read(source: str, sql: str, bbox: list[str], tmp: Path, name: str, latin1: bool = False) -> list[dict]:
@@ -105,8 +108,12 @@ def inegi(bbox: list[str], tmp: Path) -> tuple[list[shapely.Geometry], list[tupl
 
 def strahler(lines: list[shapely.LineString]) -> np.ndarray:
     """The Strahler order of each line of a network digitised downstream: 1 at a source; where lines meet, the
-    highest order coming in, plus one if two or more lines bring it. Lines in loops (braids, which are rare)
-    take the order of what flows into them."""
+    highest order coming in, plus one if two or more lines bring it from different sources. A stream that splits
+    and joins itself again keeps its order: NHD's braided channels, irrigation ditches and the few lines repeated
+    in two watersheds would otherwise add one at every rejoin, and orders reach the hundreds along the Rio Grande,
+    which would make those channels nearly free to the trace. Each order is tagged with the node where it was
+    reached; two equal orders meeting raise it only if they were reached at different nodes. Lines in loops take
+    the order of what flows into them."""
     ends = np.array([[g.coords[0], g.coords[-1]] for g in lines]).reshape(-1, 2)
     _, node = np.unique(np.round(ends / SNAP).astype(np.int64), axis=0, return_inverse=True)
     start, end = node.reshape(-1, 2).T
@@ -119,17 +126,24 @@ def strahler(lines: list[shapely.LineString]) -> np.ndarray:
         leaving[s].append(e)
     waiting = np.array([len(x) for x in incoming])
     order = np.zeros(len(lines), dtype=int)
+    origin = np.full(len(lines), -1)
     ready = list(np.flatnonzero(waiting == 0))
     done = np.zeros(n, dtype=bool)
     while True:
         while ready:
             v = ready.pop()
             done[v] = True
-            got = [order[e] for e in incoming[v]]
-            m = max(got, default=0)
-            o = 1 if m == 0 else m + (got.count(m) >= 2)
+            got = [(order[e], origin[e]) for e in incoming[v] if order[e]]
+            m = max((o for o, _ in got), default=0)
+            sources = {s for o, s in got if o == m}
+            if m == 0:
+                o, src = 1, v
+            elif len(sources) >= 2:
+                o, src = m + 1, v
+            else:
+                o, src = m, sources.pop()
             for e in leaving[v]:
-                order[e] = o
+                order[e], origin[e] = o, src
                 t = end[e]
                 waiting[t] -= 1
                 if waiting[t] == 0:
@@ -197,8 +211,9 @@ class Network:
         self.index = shapely.STRtree(geoms)
         self.tree = tree
 
-    def trace(self, river: shapely.LineString, name: str) -> shapely.Geometry | None:
-        """The channels that follow one connected Natural Earth line, end to end."""
+    def trace(self, river: shapely.LineString, name: str) -> tuple[shapely.LineString, float] | None:
+        """The channels that follow one connected Natural Earth line, end to end, and how much of the path
+        (degrees) is Natural Earth's own line, where the network had no way through."""
         near = self.index.query(river.buffer(SEARCH))
         if len(near) == 0:
             return None
@@ -254,11 +269,33 @@ class Network:
             if np.hypot(*(np.array(xy[0]) - pos[prev])) > np.hypot(*(np.array(xy[-1]) - pos[prev])):
                 xy.reverse()
             out += xy if not out else xy[1:]
-        return shapely.LineString(out)
+        fallback = sum(geoms[k].length for _, _, k in steps if len(near) <= k < first_tie)
+        return shapely.LineString(out), fallback
+
+
+def smooth(line: shapely.LineString, rounds: int = 2) -> shapely.LineString:
+    """Chaikin's corner cutting: each round replaces every corner with two points a quarter of the way along its
+    sides, keeping the ends."""
+    xy = np.array(line.coords)
+    for _ in range(rounds):
+        if len(xy) < 3:
+            break
+        a, b = xy[:-1], xy[1:]
+        cut = np.empty((2 * len(a), 2))
+        cut[0::2] = 0.75 * a + 0.25 * b
+        cut[1::2] = 0.25 * a + 0.75 * b
+        xy = np.vstack([xy[:1], cut, xy[-1:]])
+    return shapely.LineString(xy)
+
+
+def label_line(geom: shapely.Geometry) -> shapely.Geometry:
+    parts = [smooth(g) for g in segments(geom.simplify(LABEL_SIMPLIFY, preserve_topology=False)) if len(g.coords) > 1]
+    return shapely.MultiLineString(parts) if len(parts) != 1 else parts[0]
 
 
 def write_layers(bbox: list[str], tmp: Path) -> dict[str, Path]:
-    """river.geojson and river_minor.geojson in tmp, for tippecanoe."""
+    """river.geojson and river_minor.geojson in tmp, for tippecanoe, and river_label.geojson: every named river's
+    line, simplified and rounded for its name, with `rank` major (Natural Earth's main rivers) or minor."""
     mx_basins, mx_lines = inegi(bbox, tmp)
     us_basins, us_lines = nhd(bbox, tmp)
     coverage = unary_union(mx_basins + us_basins).buffer(0.001)
@@ -267,6 +304,7 @@ def write_layers(bbox: list[str], tmp: Path) -> dict[str, Path]:
     major, minor = ne_rivers("ne_10m_rivers_lake_centerlines", bbox, tmp), ne_rivers("ne_10m_rivers_north_america", bbox, tmp)
     layers: dict[str, list[dict]] = {"river": [], "river_minor": []}
     traced = Counter()
+    fallback = Counter()
     for layer, rivers in (("river", major), ("river_minor", minor)):
         for geom, props in rivers:
             rest = geom.difference(coverage)
@@ -279,13 +317,23 @@ def write_layers(bbox: list[str], tmp: Path) -> dict[str, Path]:
             for part in getattr(merged, "geoms", [merged]):
                 if part.geom_type != "LineString" or part.length < 0.02:
                     continue
-                if (path := network.trace(part, props["name"])) is not None:
+                if (result := network.trace(part, props["name"])) is not None:
+                    path, gap = result
+                    fallback[props["name"]] += gap * 100
                     layers[layer].append({"type": "Feature", "geometry": mapping(path), "properties": props | {"source": "traced"}})
                     traced[props["name"]] += 1
+    layers["river_label"] = [
+        {"type": "Feature", "geometry": mapping(label_line(shape(f["geometry"]))),
+         "properties": {"name": f["properties"]["name"], "rank": "major" if layer == "river" else "minor"}}
+        for layer in ("river", "river_minor") for f in layers[layer] if f["properties"].get("name")
+    ]
     out = {}
     for layer, features in layers.items():
         out[layer] = tmp / f"{layer}.geojson"
         out[layer].write_text(json.dumps({"type": "FeatureCollection", "features": features}))
-    print("rivers:", {k: dict(Counter(f["properties"]["source"] for f in v)) for k, v in layers.items()},
+    print("rivers:", {k: dict(Counter(f["properties"]["source"] for f in layers[k])) for k in ("river", "river_minor")},
           "traced:", dict(traced))
+    # Where the network breaks, a river runs along Natural Earth's line instead: the km it does so, by river.
+    print(f"rivers: {sum(fallback.values()):.0f} km on Natural Earth's line where the network breaks; most:",
+          ", ".join(f"{n} {km:.0f}" for n, km in fallback.most_common(8)))
     return out

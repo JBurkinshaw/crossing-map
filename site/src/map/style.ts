@@ -6,7 +6,7 @@ import type { Units } from '../units'
 // The literary base: everything drawn from base.pmtiles, the paper, and relief. Satellite mode hides these.
 export const BASE_LAYERS = [
   'paper', 'mexico', 'lake', 'county-line', 'state-line', 'creek', 'river-minor', 'river',
-  'road', 'railroad', 'railroad-ties', 'creek-label', 'river-label',
+  'road', 'railroad', 'railroad-ties', 'creek-label', 'river-minor-label', 'river-label',
   'relief-tint', 'relief-paper', 'hillshade', 'contour', 'contour-label', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy',
   'mountain-glyph', 'vignette-leader', 'vignette',
 ]
@@ -34,7 +34,8 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         type: 'fill',
         source: base,
         'source-layer': 'lake',
-        paint: { 'fill-color': tokens.water, 'fill-opacity': 0.25, 'fill-outline-color': tokens.water },
+        // Intermittent water bodies (`i`, from INEGI) are lighter: often a dry playa.
+        paint: { 'fill-color': tokens.water, 'fill-opacity': ['case', ['has', 'i'], 0.12, 0.25], 'fill-outline-color': tokens.water },
       },
       {
         id: 'county-line',
@@ -137,12 +138,30 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         },
         paint: { 'text-color': tokens.waterLabel, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },
+      // River names follow a simplified, rounded copy of each river (river_label): the traced lines meander too
+      // tightly for a name to fit along them.
+      {
+        id: 'river-minor-label',
+        type: 'symbol',
+        source: base,
+        'source-layer': 'river_label',
+        minzoom: 9,
+        filter: ['==', ['get', 'rank'], 'minor'],
+        layout: {
+          'symbol-placement': 'line',
+          'text-field': ['get', 'name'],
+          'text-font': [fonts.italic],
+          'text-size': 11.5,
+        },
+        paint: { 'text-color': tokens.waterLabel, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
+      },
       {
         id: 'river-label',
         type: 'symbol',
         source: base,
-        'source-layer': 'river',
+        'source-layer': 'river_label',
         minzoom: 7,
+        filter: ['==', ['get', 'rank'], 'major'],
         layout: {
           'symbol-placement': 'line',
           'text-field': ['get', 'name'],

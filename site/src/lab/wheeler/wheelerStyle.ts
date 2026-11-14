@@ -80,7 +80,7 @@ function hachure(layer: Layer, p: Params): Layer {
 // on the traced lines, whose meanders leave MapLibre no room for a name; here the names go on smoothed copies
 // (riverLines.ts) and the site's river label is hidden.
 function water(layer: Layer, halo: string): Layer {
-  if (layer.id === 'river-label') return { ...layer, layout: { ...layer.layout, visibility: 'none' } } as Layer
+  if (layer.id === 'river-label' || layer.id === 'river-minor-label') return { ...layer, layout: { ...layer.layout, visibility: 'none' } } as Layer
   if (layer.id === 'creek-label') {
     return {
       ...layer,

@@ -22,7 +22,7 @@ import shapely
 from shapely.geometry import mapping, shape
 from shapely.ops import unary_union
 
-from rivers import INEGI, NE, NHD, SNAP, read, segments
+from rivers import INEGI, NE, NHD, SNAP, read, segments, strahler
 
 # Added to NHD's computed order so that it compares with INEGI's (see the module docstring).
 NHD_SHIFT = 1
@@ -116,56 +116,6 @@ def name_streams(lines: list[shapely.LineString], order: np.ndarray, points: lis
             names[e] = name
             todo += [n for n in leaving.get(end[e], []) + arriving.get(start[e], []) if order[n] == order[e] and not names[n]]
     return names
-
-
-def strahler(lines: list[shapely.LineString]) -> np.ndarray:
-    """rivers.strahler, but a stream that splits and joins itself again keeps its order. NHD's braided channels,
-    irrigation ditches and the few lines repeated in two watersheds would otherwise add one at every rejoin,
-    and orders reach the hundreds along the Rio Grande (rivers.py only uses the order to favour main stems, where
-    that does no harm). Each order is tagged with the node where it was reached; two equal orders meeting raise
-    it only if they were reached at different nodes."""
-    ends = np.array([[g.coords[0], g.coords[-1]] for g in lines]).reshape(-1, 2)
-    _, node = np.unique(np.round(ends / SNAP).astype(np.int64), axis=0, return_inverse=True)
-    start, end = node.reshape(-1, 2).T
-    n = node.max() + 1
-    incoming = [[] for _ in range(n)]
-    for e, t in enumerate(end):
-        incoming[t].append(e)
-    leaving = [[] for _ in range(n)]
-    for e, s in enumerate(start):
-        leaving[s].append(e)
-    waiting = np.array([len(x) for x in incoming])
-    order = np.zeros(len(lines), dtype=int)
-    origin = np.full(len(lines), -1)
-    ready = list(np.flatnonzero(waiting == 0))
-    done = np.zeros(n, dtype=bool)
-    while True:
-        while ready:
-            v = ready.pop()
-            done[v] = True
-            got = [(order[e], origin[e]) for e in incoming[v] if order[e]]
-            m = max((o for o, _ in got), default=0)
-            sources = {s for o, s in got if o == m}
-            if m == 0:
-                o, src = 1, v
-            elif len(sources) >= 2:
-                o, src = m + 1, v
-            else:
-                o, src = m, sources.pop()
-            for e in leaving[v]:
-                order[e], origin[e] = o, src
-                t = end[e]
-                waiting[t] -= 1
-                if waiting[t] == 0:
-                    ready.append(t)
-        # A loop stops the walk; release its node with the highest order known so far coming in.
-        stuck = [v for v in np.flatnonzero(~done & (waiting > 0)) if any(order[e] for e in incoming[v])]
-        if not stuck:
-            break
-        v = max(stuck, key=lambda v: max(order[e] for e in incoming[v]))
-        waiting[v] = 0
-        ready.append(v)
-    return order
 
 
 def nhd(bbox: list[str], tmp: Path) -> list[tuple[shapely.LineString, int, bool, str]]:

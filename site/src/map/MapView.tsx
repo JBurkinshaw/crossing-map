@@ -40,7 +40,7 @@ const TERRAIN_TILT = 40
 // boundaries, roads, streams and the Mexico side from raised copies.
 const NOT_RAISED = new Set(['mexico', 'relief-tint', 'hillshade', 'contour', 'contour-label', 'hachure-coarse', 'hachure-coarse-copy',
   'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy', 'mountain-glyph', 'county-line', 'state-line', 'country-line', 'creek',
-  'river-minor', 'river', 'creek-label', 'river-label', 'road', 'railroad', 'railroad-ties', 'vignette-leader', 'vignette'])
+  'river-minor', 'river', 'creek-label', 'river-minor-label', 'river-label', 'road', 'railroad', 'railroad-ties', 'vignette-leader', 'vignette'])
 // The units only change label text, which MapView sets on the map when they change.
 const literary = (units: Units = 'metric') => literaryStyle(tilesBase, fontsBase, dataBase, units)
 const RAISED_GROUPS = raisedLayers(literary().layers, palette)

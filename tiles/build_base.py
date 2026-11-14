@@ -6,7 +6,8 @@ private/cache/basemap/, USGS NHD flowlines from private/cache/hydro/nhd/ and INE
 river network from private/cache/hydro/inegi/ (see review/stage-2/README.md for the
 download list), clips them to the story box, and tiles them with tippecanoe at
 zoom 4-11. The named rivers come from tiles/rivers.py, and the creeks (both countries' smaller streams, shown by
-Strahler order and zoom) from tiles/creeks.py; both use every NHD watershed and INEGI region in the cache.
+Strahler order and zoom) from tiles/creeks.py; both use every NHD watershed and INEGI region in the cache. The
+lakes come from tiles/lakes.py (INEGI's water bodies in Mexico).
 """
 
 import shutil
@@ -15,6 +16,7 @@ import tempfile
 from pathlib import Path
 
 import creeks
+import lakes
 from rivers import write_layers
 
 REPO = Path(__file__).resolve().parents[1]
@@ -34,7 +36,6 @@ LAYERS = {
     "county_line": ("cb_2023_us_county_500k",
                     "SELECT NAME AS name FROM cb_2023_us_county_500k WHERE STATEFP IN ('04', '35', '48')",
                     ["-nlt", "MULTILINESTRING"]),
-    "lake": ("ne_10m_lakes_north_america", "SELECT name FROM ne_10m_lakes_north_america", []),
     "railroad": ("ne_10m_railroads_north_america", "SELECT scalerank FROM ne_10m_railroads_north_america", []),
     "road": ("ne_10m_roads", "SELECT type, scalerank FROM ne_10m_roads WHERE continent = 'North America'", []),
 }
@@ -58,6 +59,7 @@ def main() -> None:
             args += ["-L", f"{layer}:{path.name}"]
         # Each creek carries its own first zoom (creeks.MIN_ZOOM), so no layer-wide filter is needed.
         args += ["-L", f"creek:{creeks.write_layer(BOX, Path(tmp), list(rivers.values())).name}"]
+        args += ["-L", f"lake:{lakes.write_layer(BOX, Path(tmp)).name}"]
         # Run inside the temporary folder with relative names: tippecanoe records its command line
         # in the archive's metadata, and the archive is published.
         subprocess.run(
