@@ -79,11 +79,12 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
   - Should "Show everything" confirm every time, as built, or once, as plan 9 says?
 - **Stage 4 questions.**
   - the J3 sierra loop
-  - the J4 loop back to Las Varas
+  - the J4 loop back to Las Varas: decided 13 November 2026, stay true to the text and flag the ride as possibly unrealistic (plan stage 8, Modelled routes)
   - Bachíniva in J6
   - the Ash Wednesday date
   - the Soto Máynez and Santa Ana label overlap
-  - corrections to plan 2.2
+  - corrections to plan 2.2 (applied 13 November 2026)
+- **Modelled routes.** Decided 13 November 2026 and recorded in plan stage 8; to build after a rerun with the river fix.
 - **Stage 7 calls 2 to 17**, which the app now lists as open questions.
 - **Vignettes.**
   - the she-wolf's position

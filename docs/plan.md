@@ -683,14 +683,21 @@ Two independent readings of the book's geography, used to confirm, correct and a
 **Stage 8. Out for scrutiny** (v5, owner, 13 November 2026: the site exists to discuss the routes, so it goes out for readers to check, and the remaining judgement calls are worked through as they come)
 
 - Done 13 November 2026:
-  - **Rivers.** Mexico's named rivers are drawn from INEGI's network, traced along Natural Earth's choice of rivers, with the Bavispe named down to the Aros. Needs `tiles-v6`.
-  - **The Bavispe crossing** is on the river, with its second crossing explained.
+  - **Rivers.** Every named river is traced through INEGI's 1:50,000 network (with its centre lines for wide channels) and the USGS NHD, along Natural Earth's choice of rivers and keeping to the main stem, with the Bavispe named down to the Aros (`tiles/rivers.py`). Needs `tiles-v7`. Where INEGI's network breaks, a river still falls back to Natural Earth's line for a stretch (the Río Batepito above Colonia Morelos).
+  - **The Bavispe crossing** is on the river's traced channel, with its second crossing explained.
   - **Open questions in the app.** `data/open-questions.json` holds the short form of each judgement call. Each shows on its features' cards from its own `first_seen`, and an Open questions page lists them all. Every card also has a "Suggest a correction" link to a prefilled GitHub issue (the reader-feedback item from the Phase 2 backlog, brought forward). The spoiler-leak test covers the page.
 - **Owner:**
   - publish `tiles-v6` and push
   - check the preview
   - soft launch to a few readers, then post on r/cormacmccarthy with the draft in `private/launch/reddit-post.md`
   - send the message to Joe Hazelton
+- **Modelled routes** (owner, 13 November 2026; decided, not built). The least-cost experiment is in `review/experiments/least-cost/`:
+  - Modelled paths replace the schematic curves on the sierra and valley legs. The flat legs and the summary legs (weeks told as turning points) stay curves.
+  - A modelled leg is drawn as a line, like the others. How it's built explains the model (the cost surface, Tobler's function for a horse, ford and canyon costs, the border gates) and its uncertainty.
+  - J4 legs 19 and 20 stay true to the story: the opera camp stays a few miles south of Las Varas, and the loop back north stays. A new open question and a note on the leg say the ride (about 100 km in a day, some 19 hours for a horse by the model) may not be realistic.
+  - Road corridors: INEGI's 1:50,000 dirt tracks and footpaths (*brechas* and *veredas*) as the cheap corridors for now. Period maps (US Army Map Service 1:250,000, USGS historical topographic maps on the US side) may check the important legs later.
+  - The J5 lake camp moves onto the shore of the Babícora lake, placed against INEGI's water-body outline (the `_ha` layers of the Red Hidrográfica) rather than Natural Earth's. At the next tile release the base map's lakes in Mexico switch to the same INEGI outlines, so the drawn lake matches the stop.
+  - The model reruns with the river fix (INEGI's centre lines) before any of this is built.
 - **Then, by demand:**
   - the stage 7 judgement calls (`review/stage-7/README.md`), as readers weigh in
   - the street-level places
