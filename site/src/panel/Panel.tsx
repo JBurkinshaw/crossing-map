@@ -47,6 +47,8 @@ export function Panel(props: Props) {
   const { spokenOnRoad, onShowRoad } = props
   const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement } = props
   const stop = stops[stopIndex]
+  // The stop the road from this one leads to.
+  const next = stops[stopIndex + 1]
 
   const links = (
     <nav className="site-links" aria-label="Pages">
@@ -98,10 +100,15 @@ export function Panel(props: Props) {
           <TranslationList key={stop.properties.id} items={spokenAtStop} current={currentTranslation} />
         </>
       )}
+      {/* Talk on the road to the next stop: its own block, so it does not run on from the stop's lines above,
+          and a button that opens the road's card (only that road's lines) and outlines the road on the map. */}
       {spokenOnRoad > 0 && (
-        <button type="button" className="text-button road-lines" onClick={onShowRoad}>
-          {spokenOnRoad === 1 ? '1 line' : `${spokenOnRoad} lines`} spoken on the road from this stop
-        </button>
+        <div className="road-ahead">
+          <h3>On the road{next ? ` to ${next.properties.name}` : ''}</h3>
+          <button type="button" className="road-lines" onClick={onShowRoad}>
+            Show the {spokenOnRoad === 1 ? 'line' : `${spokenOnRoad} lines`} spoken on this road, and the road on the map
+          </button>
+        </div>
       )}
     </section>
   )

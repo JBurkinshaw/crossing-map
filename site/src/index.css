@@ -1168,6 +1168,38 @@ a {
   margin: 2px 0;
 }
 
+/* Talk on the road from the current stop: ruled off from the stop's own lines, with a full-width button. */
+.road-ahead {
+  margin-top: 14px;
+  padding-top: 2px;
+  border-top: 1px solid var(--ink-faint);
+}
+
+.road-lines {
+  width: 100%;
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.road-lines:hover {
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+/* Lines grouped by episode, when a long list spans more than one. */
+.translation-group summary {
+  min-height: 32px;
+  padding: 6px 0;
+  box-sizing: border-box;
+  font-size: 0.85rem;
+  font-style: italic;
+  cursor: pointer;
+}
+
 .text-button {
   margin-top: 4px;
   padding: 4px 0;
