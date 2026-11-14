@@ -21,7 +21,7 @@ REPO = Path(__file__).resolve().parents[3]
 DATA = REPO / "data"
 OUT = DATA / "parquet"
 SCHEMA = DATA / "schema" / "story-layer.schema.json"
-LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs"]
+LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs", "vignettes"]
 GEOPARQUET_VERSION = "1.1.0"
 
 

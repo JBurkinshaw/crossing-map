@@ -10,7 +10,7 @@ import type { Plugin } from 'vite'
 const repo = fileURLToPath(new URL('../../', import.meta.url))
 const data = join(repo, 'data')
 const tiles = join(repo, 'site', 'public', 'tiles')
-const LAYERS = ['places', 'stops', 'areas', 'journeys', 'mountain_glyphs']
+const LAYERS = ['places', 'stops', 'areas', 'journeys', 'mountain_glyphs', 'vignettes']
 const ID = 'virtual:site-facts'
 
 type SchemaProp = { type?: string | string[]; enum?: unknown[]; description?: string; items?: { enum?: unknown[] } }

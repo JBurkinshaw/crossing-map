@@ -39,6 +39,19 @@ export function About() {
         The notes are our own words. The site does not reproduce the novel’s text. Page numbers refer to the Vintage edition.
       </p>
 
+      <h2>Further reading</h2>
+      <ul>
+        <li>
+          James Luther Bell, <cite>Contextualizing Cormac McCarthy’s Border Trilogy: An Annotative Approach</cite>, PhD
+          dissertation, Texas Tech University, 2000. A place-by-place companion to the trilogy, with local research
+          around Cloverdale.
+        </li>
+        <li>
+          <a href="https://www.gaiagps.com/public/QVoNQ0FcmpOf9KOEQVRqw6l4">Joe Hazelton’s map of <cite>The Crossing</cite></a>{' '}
+          on Gaia GPS, a reader’s own pins for the book’s places.
+        </li>
+      </ul>
+
       <h2>More</h2>
       <ul>
         <li>

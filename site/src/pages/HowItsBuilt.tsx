@@ -130,14 +130,6 @@ export function HowItsBuilt() {
             <th scope="row">Published data (data/, both formats)</th>
             <td className="num">{bytes(facts.dataBytes)}</td>
           </tr>
-          <tr>
-            <th scope="row">JavaScript bundle</th>
-            <td className="num">measured in CI</td>
-          </tr>
-          <tr>
-            <th scope="row">Lighthouse performance score</th>
-            <td className="num">measured in CI</td>
-          </tr>
         </tbody>
       </table>
 

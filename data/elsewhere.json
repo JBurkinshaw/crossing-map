@@ -24,6 +24,12 @@
   "role": "tale"
  },
  {
+  "id": "veracruz",
+  "name": "Veracruz",
+  "first_seen": "3-01",
+  "role": "tale"
+ },
+ {
   "id": "parral",
   "name": "Hidalgo del Parral",
   "first_seen": "3-09",
