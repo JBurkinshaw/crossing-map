@@ -190,13 +190,14 @@ def base_lines(bbox: tuple[float, ...], tmp: Path) -> tuple[list[tuple[str, dict
     edges = shapely.line_merge(unary_union([shape(f["geometry"]) for f in counties]))
     lines += [("county", {}, xy) for xy in parts(edges)]
 
-    # Streams: INEGI's on the Mexico side (Strahler order 3 and up), NHD's on the US side, each clipped to its
-    # own side of the border so that the two networks do not double along it.
+    # Streams: INEGI's on the Mexico side (Strahler order 3 and up, with the centre lines that INEGI uses for the
+    # channels of wide rivers), NHD's on the US side, each clipped to its own side of the border so that the two
+    # networks do not double along it.
     rivers = []
     for zip_path in sorted(INEGI.glob("*.zip")):
         for name in (n for n in zipfile.ZipFile(zip_path).namelist() if n.endswith("_hl.shp")):
             for f in ogr(f"/vsizip/{zip_path}/{name}", f"SELECT ORDER_1 FROM {Path(name).stem} "
-                         "WHERE ENTIDAD = 'CORRIENTE DE AGUA' AND ORDER_1 >= 3", bbox, tmp):
+                         "WHERE ENTIDAD IN ('CORRIENTE DE AGUA', 'LINEA CENTRAL') AND ORDER_1 >= 3", bbox, tmp):
                 rivers.append((shape(f["geometry"]), {"ord": f["properties"]["ORDER_1"]}, True))
     # NHD flowlines carry no stream order here, so the scale NHD shows a line from (visibility) stands in for
     # it: streams shown at 1:500,000 or smaller, about INEGI's order 3 and up, and every named stream.

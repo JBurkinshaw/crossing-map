@@ -95,14 +95,14 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
         link: 'https://www.inegi.org.mx/temas/hidrografia/',
-        use: 'The courses of named rivers in Sonora and Chihuahua on the classic map, and streams on the Mexico side in the Raised view.',
+        use: 'The courses of the named rivers on the Mexico side of the classic map, and streams on the Mexico side in the Raised view.',
         licence: 'INEGI free-use terms, attribution required',
         credit: 'Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
       },
       {
         name: 'USGS National Hydrography Dataset (NHD)',
         link: 'https://www.usgs.gov/national-hydrography',
-        use: 'Streams on the US side, and the rivers some routes follow.',
+        use: 'The courses of the named rivers on the US side of the classic map, streams on the US side, and the rivers some routes follow.',
         licence: 'Public domain',
         credit: 'USGS National Hydrography Dataset courtesy of the U.S. Geological Survey',
       },
@@ -116,7 +116,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'Natural Earth',
         link: 'https://www.naturalearthdata.com/',
-        use: 'Borders, the Mexican states, lakes, roads and railroads of the base map, and the rivers outside the basins INEGI’s network covers.',
+        use: 'Borders, the Mexican states, lakes, roads and railroads of the base map, and the choice of rivers, their names and their rank (their courses come from INEGI and NHD).',
         licence: 'Public domain; no credit required',
         credit: 'Made with Natural Earth',
       },

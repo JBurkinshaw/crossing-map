@@ -40,7 +40,7 @@
 ## Not done yet in stage 2
 
 - **60 fps on a mid-range phone.** Not measured yet.
-- **Mexican creeks beyond the border watersheds.** INEGI's 1:50,000 river network came through INEGI's downloads portal (see `TODO-prerequisites.md`). Since 13 November 2026 it draws Mexico's named rivers in the base map (`tiles/mexico_rivers.py`); the creeks and the Cajon Bonita leg are not done.
+- **Mexican creeks beyond the border watersheds.** INEGI's 1:50,000 river network came through INEGI's downloads portal (see `TODO-prerequisites.md`). Since 13 November 2026 it draws Mexico's named rivers in the base map (`tiles/rivers.py`); the creeks and the Cajon Bonita leg are not done.
 - **More snapped legs.** The Cloverdale Creek road is a road, not the creek; no road line for it exists yet.
 - **State names in small capitals.** The glyphs are built; the label points are not.
 - **Spoiler hiding.** Every label shows regardless of reading progress. That is stage 5.
@@ -52,6 +52,7 @@ Downloaded on 11 November 2026 into `private/cache/basemap/`:
 - Natural Earth 10m, public domain, from https://naciscdn.org/naturalearth/10m/: admin 0 boundary lines, admin 1 states and lines, rivers and lake centrelines (plus the North America supplement), lakes (plus the North America supplement), railroads (North America), roads, and populated places.
 - US Census cartographic boundary counties, 2023, 1:500k, public domain: https://www2.census.gov/geo/tiger/GENZ2023/shp/cb_2023_us_county_500k.zip
 - USGS NHD Best Resolution, HU8 units 13030201, 13030202, 15040006, 15080301, 15080302 and 15080303 (shapefiles, published December 2023), public domain: https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/HU8/Shape/
+- Added 13 November 2026, for the named rivers (`tiles/rivers.py`): USGS NHD Best Resolution, the 67 further HU8 units that Natural Earth's named rivers cross on the US side (11080001, 11080003, 11080006, 11080007, 11090104, 12050005, 13020101, 13020102, 13020201, 13020203, 13020204, 13020205, 13020207, 13020211, 13030101, 13030102, 13040100, 13040201, 13040203, 13040205, 13060001, 13060003, 13060004, 13060007, 13060010, 13060011, 13070001, 13070007, 14070006, 14080105, 14080106, 14080204, 15010001, 15010002, 15010003, 15010005, 15020001, 15020002, 15020003, 15020006, 15020007, 15020008, 15020013, 15020016, 15030201, 15030203, 15030204, 15040001, 15040002, 15040005, 15050100, 15050202, 15050203, 15050301, 15050303, 15050304, 15060101, 15060103, 15060106, 15060202, 15070101, 15070102, 15070103, 15070104, 15070201, 15070203, 15080103), same source and licence; and INEGI's Red Hidrográfica edición 2.0 for regions RH07 Río Colorado (702825006982), RH08 Sonora Norte (702825006983), RH10 Sinaloa (702825006985), RH24 Bravo-Conchos (702825006999) and RH35 Mapimí (702825007010), from `https://www.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/geografia/hidrogeolo/region_hidrografica/<product>_s.zip`. The creek layer still draws only the first six HU8 units.
 - IM Fell English, IM Fell English Italic, and IM Fell English SC, by Igino Marini, under the SIL Open Font License, from https://github.com/google/fonts
 
 ## Before this stage can deploy
