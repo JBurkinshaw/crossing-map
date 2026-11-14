@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'react'
 import { Layer, Marker, Source, useMap } from '@vis.gl/react-maplibre'
 import type { ExpressionSpecification } from 'maplibre-gl'
 import type { Feature, FeatureCollection, Geometry, Point } from 'geojson'
+import { useJson } from '../data/json'
 import type { Story, StoryProps } from '../data/story'
 import { CLUSTER_MAX_ZOOM, CLUSTER_RADIUS, expandCluster, inZone, useZoneClusters, ZONE_CLUSTERS, ZONE_SOURCE, ZONE_STOPS } from './cluster'
 import { corridor, midpoint } from './corridor'
@@ -24,6 +25,9 @@ type Props = {
   aheadFrom: number | null
   // The corridor to outline, when the line picked was spoken on the road.
   corridor: Corridor | null
+  // The classic map letters ranges and valleys along their axis (relief.ts, landform-label); their point labels
+  // then step aside. Off where the base map is hidden or replaced (satellite, the Raised view).
+  lineLabels: boolean
 }
 
 // The tale places' diamond, drawn once into the map's images: paper inside an ink edge, 11 px across.
@@ -46,8 +50,13 @@ function taleDiamond(): ImageData {
   return ctx.getImageData(0, 0, size, size)
 }
 
-export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, corridor: road }: Props) {
+export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, corridor: road, lineLabels }: Props) {
   const { current: mapRef } = useMap()
+  const landforms = useJson<FeatureCollection>('map/landforms.geojson', lineLabels)
+  const lined = useMemo(
+    () => (lineLabels ? (landforms.data?.features ?? []).map((f) => f.properties?.place_ref).filter((id): id is string => !!id) : []),
+    [landforms.data, lineLabels],
+  )
   // The places and the journey's stops around Cloverdale and the Peloncillos go to the clustered source; the
   // current stop stays out of it, so the stop being read always shows.
   const current = stops[stopIndex]?.properties.id
@@ -95,6 +104,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
     }
   }, [road])
 
+  const nameUnlessLined: ExpressionSpecification = ['case', ['in', ['get', 'id'], ['literal', lined]], '', ['get', 'name']]
   const journeyInk = journeyInks(tokens)
   const inkByJourney = ['match', ['get', 'journey'], ...Object.entries(journeyInk).flat(), tokens.ink] as unknown as ExpressionSpecification
   const journey = stops[0]?.properties.journey ?? ''
@@ -149,7 +159,8 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         {...(only ? { filter: only } : {})}
         layout={{
           // Towns the book never names are labelled only from zoom 9.
-          'text-field': ['step', ['zoom'], ['match', ['get', 'role'], 'context', '', ['get', 'name']], 9, ['get', 'name']],
+          // A place whose name the map sets along its landform's axis has no point label.
+          'text-field': ['step', ['zoom'], ['match', ['get', 'role'], 'context', '', nameUnlessLined], 9, nameUnlessLined],
           // Ranges, valleys and streams in spaced italic, as on the survey sheets, and so are tale places;
           // settlements in roman.
           'text-font': ['case',

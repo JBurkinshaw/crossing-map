@@ -136,16 +136,23 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'USGS Geographic Names Information System (GNIS)',
         link: 'https://www.usgs.gov/tools/geographic-names-information-system-gnis',
-        use: 'Names and locations of places, summits and passes in New Mexico and Arizona.',
+        use: 'Names and locations of places, summits and passes in New Mexico and Arizona, and the mouth-to-head lines that valley names are set along.',
         licence: 'Public domain',
         credit: 'Place names courtesy of the U.S. Geological Survey (GNIS)',
       },
       {
         name: 'GeoNames',
         link: 'https://www.geonames.org/',
-        use: 'Names and locations of places, summits and passes in Sonora and Chihuahua.',
+        use: 'Names and locations of places, summits and passes in Sonora and Chihuahua, and of the ranges and mesas lettered along their axes.',
         licence: 'CC BY 4.0',
         credit: 'GeoNames',
+      },
+      {
+        name: 'GMBA Mountain Inventory v2 (Global Mountain Biodiversity Assessment)',
+        link: 'https://www.earthenv.org/mountains',
+        use: 'Mountain range outlines in the United States, whose long axes the range names are set along.',
+        licence: 'CC BY 4.0',
+        credit: 'Snethlage, M.A. et al. (2022), GMBA Mountain Inventory v2, GMBA-EarthEnv',
       },
       {
         name: 'Wikidata',

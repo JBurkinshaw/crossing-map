@@ -10,6 +10,8 @@ export function reliefSources(tilesBase: string, dataBase: string): Record<strin
     // A trimmed copy of data/mountain_glyphs.geojson with only the properties drawn (scripts/copy-data.mjs).
     glyphs: { type: 'geojson', data: `${dataBase}map/mountain_glyphs.geojson` },
     vignettes: { type: 'geojson', data: `${dataBase}vignettes.geojson` },
+    // The landform name lines the map letters, trimmed and filtered by scripts/copy-data.mjs.
+    landforms: { type: 'geojson', data: `${dataBase}map/landforms.geojson` },
     terrain: { type: 'raster-dem', url: `pmtiles://${tilesBase}terrain.pmtiles`, encoding: 'terrarium', tileSize: 256 },
     relief: { type: 'vector', url: `pmtiles://${tilesBase}relief.pmtiles` },
     // Split from relief.pmtiles so each archive stays under 100 MB (design 5.2) and readers who stay zoomed out
@@ -100,6 +102,50 @@ function glyphs(p: Palette, units: Units): LayerSpecification[] {
       paint: { 'text-color': p.ink, 'text-opacity': 0.8, 'text-halo-color': p.paper, 'text-halo-width': 1.2 },
     },
   ]
+}
+
+// Landform names along each landform's long axis (data/landforms.geojson, decision 0023), in spaced roman capitals
+// as the Wheeler sheets letter TRINIDAD MESA or PELONCILLO RANGE, spread over about 80% of the axis at every zoom.
+// Each capital is taken as 0.8 em wide. Where the axis is short for the name at full size, the type shrinks (to
+// 9 px) before the letters close up to 0.15 em; past that MapLibre drops the label. Spacing tops out at 4 em.
+// Landforms the book names show from zoom 7, the gazetteer's from 10 (mesas from 10 too). The layer draws just over
+// the glyphs, so a long name is placed first and a glyph's optional text gives way to it.
+const LANDFORM_SIZE: Record<string, [number, number]> = { range: [12, 17], valley: [11, 15], plain: [11, 15], plateau: [11, 15], mesa: [10, 13] }
+function landformLabel(p: Palette): LayerSpecification {
+  const capEm = 0.8
+  const fill = 0.8
+  const zooms = [6, 7, 8, 9, 10, 11, 12, 13]
+  const size = (kind: string, z: number) => {
+    const [a, b] = LANDFORM_SIZE[kind]
+    return a + ((b - a) * Math.min(Math.max(z - 7, 0), 5)) / 5
+  }
+  const chars: ExpressionSpecification = ['length', ['get', 'name']]
+  // MapLibre's zoom 0 is one 512 px tile, so metres per pixel at zoom z = mpp0 / 2 / 2^z (mpp0 is for 256 px tiles).
+  const room = (z: number): ExpressionSpecification => ['*', fill, ['/', ['get', 'len_m'], ['/', ['get', 'mpp0'], 2 * 2 ** z]]]
+  const sizeAt = (z: number): ExpressionSpecification => ['max', 9, ['min',
+    ['match', ['get', 'kind'], ...Object.keys(LANDFORM_SIZE).flatMap((k) => [k, size(k, z)]), 12],
+    ['/', room(z), ['*', chars, capEm + 0.15]]]] as unknown as ExpressionSpecification
+  const spacingAt = (z: number): ExpressionSpecification => ['max', 0.15, ['min', 4,
+    ['/', ['-', ['/', room(z), sizeAt(z)], ['*', capEm, chars]], ['max', 1, ['-', chars, 1]]]]]
+  const named: ExpressionSpecification = ['!=', ['get', 'place_ref'], null]
+  return {
+    id: 'landform-label',
+    type: 'symbol',
+    source: 'landforms',
+    minzoom: 7,
+    filter: ['any', ['all', named, ['!=', ['get', 'kind'], 'mesa']], ['>=', ['zoom'], 10]],
+    layout: {
+      'symbol-placement': 'line-center',
+      'text-field': ['upcase', ['get', 'name']],
+      'text-font': [fonts.roman],
+      'text-size': ['interpolate', ['linear'], ['zoom'], ...zooms.flatMap((z) => [z, sizeAt(z)])] as ExpressionSpecification,
+      'text-letter-spacing': ['interpolate', ['linear'], ['zoom'], ...zooms.flatMap((z) => [z, spacingAt(z)])] as ExpressionSpecification,
+      'text-max-angle': 60,
+      'text-keep-upright': true,
+      'text-padding': 4,
+    },
+    paint: { 'text-color': p.ink, 'text-opacity': 0.78, 'text-halo-color': p.paper, 'text-halo-width': 1 },
+  }
 }
 
 // Vignettes (design section 10): drawings of the book's creatures, buildings and objects, each in empty country near
@@ -301,7 +347,7 @@ function s5Lines(p: Palette): LayerSpecification[] {
 export function reliefLayers(p: Palette, units: Units): {
   hillshade: LayerSpecification[]; hachures: LayerSpecification[]; glyphs: LayerSpecification[]; vignettes: LayerSpecification[]
 } {
-  return { hillshade: s5Ground(p), hachures: s5Lines(p), glyphs: glyphs(p, units), vignettes: vignettes(p) }
+  return { hillshade: s5Ground(p), hachures: s5Lines(p), glyphs: [...glyphs(p, units), landformLabel(p)], vignettes: vignettes(p) }
 }
 
 // The Raised view (plan oblique relief): line work from oblique-<n>.pmtiles in which every point has moved north

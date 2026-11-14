@@ -256,6 +256,7 @@ export function MapView(props: Props) {
               selectedId={selectedId}
               aheadFrom={aheadFrom}
               corridor={corridor}
+              lineLabels={basemap === 'literary' && view !== 'raised'}
             />
           )}
         </Map>

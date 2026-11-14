@@ -4,10 +4,11 @@ import { bytes, DATA_URL, layerLabel, REPO_URL } from './format'
 const LAYERS: Record<string, string> = {
   places: 'Named places with a known location: stops, places passed, places in tales, and context towns.',
   stops: 'Each stop of each journey, in order. A stop refers to the place or area it stands for.',
-  areas: 'Inferred places drawn as areas, each with its reasoning.',
-  journeys: 'Route segments between consecutive stops, for all seven journeys.',
+  areas: 'Inferred places drawn as areas, each with its reasoning and the rule that drew its outline.',
+  journeys: 'Route segments between consecutive stops, for all seven journeys: narrated paths, modelled paths and schematic curves.',
   mountain_glyphs: 'Summits and passes found in the Copernicus elevation model, named from GNIS and GeoNames.',
-  vignettes: 'Anchors for the map’s decorative drawings, each in empty country near what it stands for.',
+  landforms: 'Lines along the long axis of ranges, valleys, plains and mesas, for lettering their names.',
+  vignettes: 'Anchors for the map’s drawings, each in empty country near what it stands for, with its label and credit.',
 }
 
 // The other published files, by name.

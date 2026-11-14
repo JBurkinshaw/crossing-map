@@ -25,6 +25,7 @@ const layers = Object.fromEntries(
 const elsewhere = await read('elsewhere.json')
 const glyphs = (await read('mountain_glyphs.geojson')).features
 const vignettes = (await read('vignettes.geojson')).features
+const landforms = (await read('landforms.geojson')).features
 const translations = await read('translations.json')
 const episodes = await read('episodes.json')
 
@@ -292,6 +293,16 @@ for (const point of POINTS) {
     await idle(page)
     const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['mountain-glyph'] }).map((f) => [f.properties.name, f.properties.first_seen]))
     for (const [name, fs] of shown) if (fs > reached && fs > '1-01') leak(where, `glyph ${name} first seen ${fs}`)
+  }
+
+  // Landform names the book gives later than this point: go to the middle of each line and look for its label.
+  for (const l of landforms.filter((f) => f.properties.first_seen > reached)) {
+    const line = l.geometry.coordinates
+    const [lon, lat] = line[Math.floor(line.length / 2)]
+    await page.evaluate(([lo, la]) => window.__map.jumpTo({ center: [lo, la], zoom: 9 }), [lon, lat])
+    await idle(page)
+    const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['landform-label'] }).map((f) => [f.properties.name, f.properties.first_seen]))
+    for (const [name, fs] of shown) if (fs > reached) leak(where, `landform name ${name} first seen ${fs}`)
   }
 
   // Vignettes drawn later than this point: go to each, inside its zoom range, and look for it and its leader.
