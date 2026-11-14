@@ -17,6 +17,7 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | `place-overrides.csv` | Hand decisions, which win over a pick, each with its reasoning | Hand |
 | `stops.csv` | Every journey's stops, in order, with reasoning and `travel` | Hand |
 | `snaps.csv` | The road, river, or flowline each narrated segment follows | Hand |
+| `modeled-legs.csv` | The legs drawn as least-cost paths (decision 0021), with mode, corridor and a note | Hand |
 | `regions.geojson` | The Animas Valley and La Babícora outlines | `crossing.regions`, then hand edits in QGIS |
 | `areas.geojson` | Each inferred area's outline: the stop's circle cut by a rule (decision 0020) | `crossing.area_drafts`, then hand edits in `pipeline/qgis/areas.qgs` |
 | `vignettes.csv` | The vignette anchors | Hand |
@@ -33,6 +34,7 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | Episode list | `uv run --project pipeline python -m crossing.build_episodes` | `private/book/episodes.csv` | `data/episodes.json`, keeping summaries and page ranges | Yes |
 | Gazetteer | `uv run --project pipeline python -m crossing.gazetteer [ID ...]` | `places.csv`, GNIS, GeoNames, Wikidata (cached) | `place-picks.csv`. Without IDs it refreshes the seeds already picked and lists seeds with neither a pick nor an override; name a new seed's ID to add it | Yes |
 | Area drafts | `uv run --project pipeline python -m crossing.area_drafts [--force]` | `stops.csv`, `data/places.geojson`, the DEM, INEGI, NHD and TIGER | `pipeline/seeds/areas.geojson`, keeping areas marked `checked` with `--force`; a report in `private/review/areas/`. `--qgis` writes the QGIS project's layers | Yes |
+| Modelled legs | `uv run --project pipeline python -m crossing.least_cost` (optional: `build_story` calls it) | `modeled-legs.csv`, `data/stops.geojson`, the DEM, INEGI streams and road tracks, Natural Earth | Cached routes in `private/cache/least-cost/routes/`, and a line per leg printed | Yes |
 | Story layers | `uv run --project pipeline python -m crossing.build_story` | The seeds; snap shapefiles in `private/cache/` | `data/places.geojson`, `stops.geojson`, `areas.geojson`, `journeys.geojson`, `elsewhere.json`; the stage 4 checklists, keeping ticked rows | Yes |
 | Region drafts | `uv run --project pipeline python -m crossing.regions [--force]` | `data/places.geojson`, the DEM | `pipeline/seeds/regions.geojson`; refuses to overwrite without `--force` | Yes |
 | Vignette anchors | `uv run --project pipeline python -m crossing.build_vignettes` | `vignettes.csv`, `data/stops.geojson`, `data/places.geojson` | `data/vignettes.geojson` | No |

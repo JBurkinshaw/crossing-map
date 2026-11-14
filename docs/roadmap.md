@@ -93,7 +93,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - Inferred areas are drafts cut from each stop's circle by a rule (decision 0020), waiting for the hand finish in `pipeline/qgis/areas.qgs`. The four low-confidence drafts that miss their pins (the two escarpments, the river camps, the wagon-road crossing) want a look first.
   - The episode summaries are drafts for the owner to edit.
 - **Stage 2.**
-  - Where INEGI's or NHD's network breaks, a traced river runs along Natural Earth's line for a stretch. The base build prints the total (816 km, mostly the Fuerte, Rio Grande, and Colorado, far from the story). Joining broken channel ends was measured and dropped (1.6% less). The Río Batepito's 7.8 km above Colonia Morelos remains. A check of every river against the valley floor is drafted in the main checkout (`tiles/check_rivers.py`, not yet committed or run to the end).
+  - Where INEGI's or NHD's network breaks, a traced river runs along Natural Earth's line for a stretch. The base build prints the total (816 km, mostly the Fuerte, Rio Grande, and Colorado, far from the story). Joining broken channel ends was measured and dropped (1.6% less). The Río Batepito's 7.8 km above Colonia Morelos remains. A draft check of every river against the valley floor was never run to the end and is parked in `private/parked/check_rivers.py`.
   - 60 fps panning on a mid-range phone is measured only by a desktop proxy (`review/experiments/stage-2/README.md`, section 3): the CPU side has room to spare; a real phone GPU is untested.
 - **Stage 3.**
   - Landform weights need tuning (section 2).
@@ -102,7 +102,8 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
 - **Stage 4.**
   - The checklists are unsigned.
   - The Animas Valley and La Babícora regions are drafts from the DEM.
-  - Most Mexican legs are schematic curves, because INEGI's roads were not tried.
+  - **[research]** La Babícora's real outline. No online source has a georeferenced boundary of the Hearst estate. The best lead is a hand-drawn outline of the estate (Fig. 21, about 1:5,000,000) in Palomares Peña's 1987 UNAM thesis on land reform in three US-owned estates in Chihuahua (author's copyright: trace and cite, do not republish), checked against the ejido polygons of the Registro Agrario Nacional and the lake basin, and marked "approximate, after Palomares Peña 1987". The Diario Oficial of 17 January 1942 gives the nine lots' areas (361,390 ha in all) but no boundaries; the survey plans are in the Archivo General Agrario, by request only. Notes in `private/research/babicora/README.md`.
+  - The flat and summary legs in Mexico stay schematic curves by design; the sierra and valley legs are modelled (section 4).
 - **Stage 5.**
   - The 916 translation drafts are unreviewed. Decided 2026-11-13: crowd review, through a link on each line.
   - Speaker names are inconsistent; a pass is needed before the UI shows speakers.
@@ -115,15 +116,14 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
 - **Stage 7.** The open items in section 2, then `maxZoom` 15 for street-level places.
 - **Stage 8.** Section 1, the stage 7 calls, street-level places, the declutter, and analytics, each as demand shows.
 
-## 4. Modelled routes (decided 2026-11-13, not built)
+## 4. Modelled routes (built 2026-11-14, decision 0021)
 
-The least-cost experiment is in `review/experiments/least-cost/` (in the main checkout, not yet committed), reviewed in the dev server's local review mode (`?review=routes`).
+21 sierra and valley legs are least-cost paths (`pipeline/seeds/modeled-legs.csv`, cost model lc-0.4). Left to do:
 
-- Modelled paths replace the schematic curves on the sierra and valley legs. Flat legs and summary legs (weeks told as turning points) stay curves.
-- A modelled leg is drawn as a line like the others. How it's built explains the model (the cost surface, Tobler's function for a horse, ford and canyon costs, the border gates) and its uncertainty.
-- J4 legs 19 and 20 stay true to the story: the opera camp stays a few miles south of Las Varas, and the loop back north stays. A new open question and a note on the leg say the ride (about 100 km in a day, some 19 hours for a horse by the model) may not be realistic.
-- Road corridors: INEGI's 1:50,000 dirt tracks and footpaths (*brechas* and *veredas*) for now. Period maps (US Army Map Service 1:250,000, USGS historical topographic maps) may check the important legs later.
-- The model reruns with the river fix (INEGI's centre lines) before any of this is built.
+- **[decide]** Draw a modelled leg as a band (the spread between the full model and slope alone) to carry its doubt, if the line reads as too certain.
+- **[research]** Period roads from the Army Map Service 1:250,000 sheets or the USGS historical topographic maps, to replace today's INEGI tracks as the road corridors on the important legs.
+- **[decide]** `q-j4-one-day-ride`: the ride from San Diego to the opera camp, about 100 km in one day.
+- **[build]** The local review mode (`?review=routes`) still shows the lc-0.3 experiment's lines from `review/experiments/least-cost/` (not in git), not the built ones.
 
 ## 5. Build work, by size
 

@@ -14,6 +14,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - A GeoParquet copy of `vignettes`.
 - The wolf's crossing of the Río Bavispe moved 1.7 km east, onto the river's real channel.
 - The J5 camp at the edge of the Babícora lake moved 1.4 km onto the lake's north-west shore, as INEGI outlines it; it stood in the water.
+- 21 legs across the sierras and up the long valleys are modelled paths instead of schematic curves: the way of least effort over the ground for a rider at a walk (the wolf on foot in Part I), `method: modeled` with a `cost_model` (lc-0.4, decision 0021). An open question asks whether the brothers' ride from San Diego to the opera camp, about 100 km, fits in one day.
 - Inferred areas are drafts: each stop's circle cut by a written rule to the ground its reasoning describes (a river and its banks, a valley floor, a road's verge, a playa), which halves the ground they cover (14,566 to 7,322 km²). Each area's `outline_rule` gives the rule, and `straight_road` marks the nine where a straight line between towns stands in for an unmapped old road. Areas may be MultiPolygons. Nine stops moved onto their drafts, up to 7.3 km (Huisiachepic onto the upper Bavispe, San Simon onto its river).
 - The wolf's trap (J1 stop 13, J2 stop 2) moved from the Cloverdale Creek point in GNIS, east of Cloverdale, to the creek road 8 km west of the town, with a 2 km circle: Billy rides west up the road for about two hours to reach it. Robertson's crossfence moved onto the road about halfway back. Both J2 legs between them follow the road in Census TIGER 2023 and are drawn solid.
 
@@ -23,6 +24,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- Modelled legs are drawn in long dashes, with a key entry; their cards say "Modelled path, not the book's". How it's built explains the model and its uncertainty.
 - An inferred area's card says how it was drawn, by a rule from data rather than by hand from a source, and asks readers who know more to suggest a correction. How it's built explains the method and its limits.
 - The map's paper is cream, after the Wheeler Survey's 1877 sheet 70A, and the hachures are a brown-black that is darker on steep ground and fainter on gentle slopes. The main rivers are named in spaced roman capitals and drawn wider the more important they are. From zoom 10, unnamed and small summits show their height.
 - The mountain glyphs look hand-drawn: tapered pen strokes that wander a little, outlines that lift at the summit, and loose, sometimes broken hatching. The shapes, names and sizes are unchanged.

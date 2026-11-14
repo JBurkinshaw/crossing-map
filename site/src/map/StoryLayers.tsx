@@ -209,7 +209,8 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{ 'line-color': tokens.paper, 'line-width': ['case', inFocus, 6.5, 3.5], 'line-opacity': ['case', inFocus, 0.8, 0.5] }}
         />
-        {/* Solid where the book names the road or river followed; dashed where the path is not known. */}
+        {/* Solid where the book names the road or river followed; long dashes where the line is modelled over the
+            ground (decision 0021), a plausible way the book does not trace; short dashes where the way is not known. */}
         <Layer
           id="journeys-line"
           type="line"
@@ -224,13 +225,25 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         <Layer
           id="journeys-line-schematic"
           type="line"
-          filter={['all', ['!=', ['get', 'method'], 'narrated-path'], ['!=', ['get', 'kind'], 'sightline']]}
+          filter={['all', ['!', ['in', ['get', 'method'], ['literal', ['narrated-path', 'modeled']]]], ['!=', ['get', 'kind'], 'sightline']]}
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
             'line-width': ['case', inFocus, 3.5, 1.8],
             'line-opacity': routeOpacity,
             'line-dasharray': [3, 2],
+          }}
+        />
+        <Layer
+          id="journeys-line-modeled"
+          type="line"
+          filter={['==', ['get', 'method'], 'modeled']}
+          layout={{ 'line-cap': 'round', 'line-join': 'round' }}
+          paint={{
+            'line-color': inkByJourney,
+            'line-width': ['case', inFocus, 3, 1.5],
+            'line-opacity': routeOpacity,
+            'line-dasharray': [6, 1.5],
           }}
         />
         {/* Unseen and wide: what a click on a route hits (MapView), so the thin lines are easy to pick. */}

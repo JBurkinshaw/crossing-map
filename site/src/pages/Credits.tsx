@@ -101,6 +101,13 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         credit: 'Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
       },
       {
+        name: 'INEGI, Red Nacional de Caminos (RNC) 2024',
+        link: 'https://www.inegi.org.mx/app/biblioteca/ficha.html?upc=794551132166',
+        use: 'Its unpaved tracks and footpaths draw the modelled routes towards a road where the book has the rider on one (decision 0021). They are today’s tracks, standing in for the roads of the 1940s; the map does not draw them.',
+        licence: 'INEGI free-use terms, attribution required; transformed by this site',
+        credit: 'Fuente: INEGI, Red Nacional de Caminos (RNC) 2024',
+      },
+      {
         name: 'USGS National Hydrography Dataset (NHD)',
         link: 'https://www.usgs.gov/national-hydrography',
         use: 'The courses of the named rivers on the US side of the classic map, streams on the US side, and the rivers some routes follow.',

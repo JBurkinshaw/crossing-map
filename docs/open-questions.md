@@ -16,6 +16,12 @@ The reasoning for each pick is in `pipeline/seeds/place-overrides.csv`. The site
 | Sierra del Nido | The range east-south-east of San Buenaventura | The text sees it to the south | The text's direction may be loose; no change planned |
 | Namiquipa | The town | The text sends Billy west from Santa Ana to reach it; the real town is 25 km north-north-east | The text's own geography; no change planned |
 
+## Legs shown, with a doubt
+
+| Leg | Shown as | The doubt | What would settle it |
+| --- | --- | --- | --- |
+| J4, San Diego to the opera camp (legs 19 and 20) | The ride as told, in one day, the second leg modelled over the ground | About 100 km in a day, some 16 hours for a horse at a walk by the route model (decision 0021) | A reading that puts the troupe nearer San Diego, or a period account of a day's ride in that country |
+
 ## Stops shown as inferred areas around a best estimate
 
 | Place | Best estimate | Why |

@@ -120,6 +120,27 @@ export function HowItsBuilt() {
         reader brings more: each card has a link to suggest a correction (decision 0020).
       </p>
 
+      <h2>Modelled routes</h2>
+      <p>
+        The book seldom says which way a rider went between two stops. Where it names the road or river, the route
+        follows it. Where it does not, most legs are drawn as gentle curves, which say only that the way is unknown.
+        Across the sierras and up the long valleys a curve reads badly, so those legs are modelled: the line is the
+        way of least effort between the two stops over the ground, for a rider at a walk (or, on the first
+        journey, a wolf on foot). The model works on a 90 m grid of the Copernicus elevation model. A horse’s speed
+        falls with the slope by Tobler’s hiking function, about 6 km/h on the flat; steep ground and canyon walls
+        cost more; crossing a river costs a few minutes by its size; lakes are boggy; and where the book has the
+        rider on a road or a river trail, the line is drawn towards INEGI’s dirt tracks, the old railway, or the
+        river. A rider in Mexico crosses the border only where the book does.
+      </p>
+      <p>
+        A modelled line is a plausible way, not the one taken. The weights are judgements: on about a dozen legs a
+        different weighting moves the line by 5 km or more, and today’s tracks only stand in for the roads of the
+        1940s. Flat legs, and legs the book tells in a sentence as weeks of riding, stay curves, because the model
+        has nothing to add there. The model also checks the story: by its count, the ride the book gives the
+        brothers from San Diego to the opera camp in one day is about 100 km, some 16 hours at a walk, which is
+        listed as an open question (decision 0021).
+      </p>
+
       <h2>Numbers</h2>
       <table>
         <caption>Tile archives, from release {facts.tileRelease}</caption>

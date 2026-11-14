@@ -132,7 +132,10 @@ export function LayerKey({ story, journey, reached }: Props) {
     const roles = new Set(story?.places.features.map((f) => f.properties.role))
     const areaKinds = new Set(story?.areas.features.map((f) => f.properties?.kind))
     const sightline = story?.journeys.features.find((f) => f.properties?.kind === 'sightline')
-    return { journeys: [...journeys].sort(), roles, areaKinds, sightline }
+    const modeled = story?.journeys.features
+      .filter((f) => f.properties?.method === 'modeled')
+      .sort((a, b) => a.properties?.first_seen.localeCompare(b.properties?.first_seen))[0]
+    return { journeys: [...journeys].sort(), roles, areaKinds, sightline, modeled }
   }, [story])
   const ink = journeyInk[journey] ?? tokens.ink
 
@@ -154,6 +157,12 @@ export function LayerKey({ story, journey, reached }: Props) {
                 <Line colour={tokens.ink} />
                 The road or river the book names
               </li>
+              {shown.modeled && (
+                <li data-first-seen={shown.modeled.properties?.first_seen}>
+                  <Line colour={tokens.ink} dash="12 3" width={2} />
+                  A modelled way over the ground, not the book’s
+                </li>
+              )}
               <li>
                 <Line colour={tokens.ink} dash="5 3.5" />
                 The way is not known

@@ -8,8 +8,9 @@ const ARC_STEPS = 12 // points on each half circle at the ends and on each round
 
 // The outline of a line buffered by `metres`: offset curves on both sides, round on the outside of each bend
 // and at both ends, and mitred on the inside. Worked in metres on a local equirectangular plane, which over a
-// route segment of a few tens of kilometres is far more exact than the buffer itself. The schematic segments
-// are gentle curves; a bend sharper than the buffer can leave a small loop on its inside, which the fill covers.
+// route segment of a few tens of kilometres is far more exact than the buffer itself. Schematic segments
+// are gentle curves and modelled ones bend with the ground; a bend sharper than the buffer can leave a small loop
+// on its inside, which the fill covers.
 export function corridor(geometry: Geometry, metres = CORRIDOR_M): MultiPolygon | null {
   const parts = geometry.type === 'LineString' ? [geometry.coordinates] : geometry.type === 'MultiLineString' ? geometry.coordinates : []
   const rings = parts.filter((p) => p.length >= 2).map((p) => [bufferRing(p, metres)])

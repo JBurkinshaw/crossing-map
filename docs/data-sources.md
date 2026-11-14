@@ -33,6 +33,10 @@ Where each input to the pipeline and tile builds comes from, and where it is cac
 
 - **US Census TIGER 2023 roads**, public domain, by county: Cochise, Arizona (04003), and Grant (35017), Hidalgo (35023), Luna (35029), and Sierra (35051), New Mexico. From <https://www2.census.gov/geo/tiger/TIGER2023/ROADS/>.
 
+## Roads in Mexico (`private/cache/roads/inegi/`)
+
+- **INEGI Red Nacional de Caminos (RNC) 2024** (shapefile, 720 MB, product 794551132166), INEGI free-use terms, credit "Fuente: INEGI, Red Nacional de Caminos (RNC) 2024", from <https://www.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/geografia/caminos/2024/794551132166_s.zip>, in `raw/`. Layer `red_vial`, clipped to 110.4 to 106.3° W, 27.9 to 32.1° N into `tracks.geojson` with `kind` (`TIPO_VIAL` and surface, lower case) and `name`. `crossing.least_cost` uses the unpaved tracks (`camino, tierra`, `camino, grava`) and footpaths (`vereda`) as road corridors.
+
 ## Elevation (`private/cache/dem/`, `private/cache/terrain/`)
 
 - **Copernicus GLO-30 DEM**, 1° COG tiles from AWS open data, no login (decision 0011), in `dem/copernicus/` (the story box) and `dem/copernicus-region/` (the wider region). Fetched by `crossing.fetch_dem`.

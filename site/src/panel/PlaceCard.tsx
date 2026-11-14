@@ -48,7 +48,7 @@ export function PlaceCard({ feature, units, questions, spoken, currentTranslatio
       {/* Only the title is announced when a card opens: the whole card would be read out on every pick. */}
       <h2 aria-live="polite">{title ?? p.name}</h2>
       <div className="meta">
-        {KIND[p.kind ?? ''] ?? p.kind} · {p.certainty}
+        {p.method === 'modeled' ? 'Modelled path, not the book’s' : (KIND[p.kind ?? ''] ?? p.kind)} · {p.certainty}
         {p.uncertainty_m ? `, within about ${distance(p.uncertainty_m, units)}` : ''} · {p.source}
         {p.source_id ? ` ${p.source_id}` : ''}
       </div>

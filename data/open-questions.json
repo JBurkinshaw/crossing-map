@@ -273,5 +273,17 @@
   "shown": "The border south of Hermanas.",
   "other": "Bell and Joe Hazelton put it at the Dog Mountains, 66 km away.",
   "why": "From the Dog Mountains Billy could not reach Hachita by the next evening with his travois."
+ },
+ {
+  "id": "q-j4-one-day-ride",
+  "title": "Can the brothers ride from San Diego to the opera camp in a day?",
+  "first_seen": "3-01",
+  "features": [
+   "j4-seg-19",
+   "j4-seg-20"
+  ],
+  "shown": "The ride as the book tells it: south from San Diego all day, to the stranded troupe a few miles below Las Varas by evening.",
+  "other": "About 100 km in one day, some 16 hours for a horse at a walk by the route model, so either the book compresses the ride or the camp lies nearer San Diego.",
+  "why": "The map follows the story; the stops on either side are placed by other clues."
  }
 ]

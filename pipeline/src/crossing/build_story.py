@@ -28,6 +28,7 @@ from shapely import line_merge
 from shapely.geometry import LineString, MultiLineString, Point, shape
 from shapely.ops import substring
 
+from crossing import least_cost
 from crossing.paths import DATA, REPO, SEEDS, STORY_BOX
 
 GEOD = Geod(ellps="WGS84")
@@ -280,6 +281,7 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
     """A route segment between each pair of consecutive stops, and the false-dawn sightline."""
     journeys = []
     snaps = {(s["journey"], int(s["from_seq"])): s for s in rows(SEEDS / "snaps.csv")}
+    modeled = least_cost.legs()
     for jid, seq in by_journey.items():
         seq.sort(key=lambda p: p["sequence"])
         for i, (a, b) in enumerate(zip(seq, seq[1:], strict=False), start=1):
@@ -289,6 +291,18 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
                 source = SNAP_SOURCES[snap["source"]]
                 how = dict(certainty="approximate", method="narrated-path", source=source,
                            source_licence=LICENCE[source], reasoning=snap["reasoning"])
+            elif (jid, a["sequence"]) in modeled:
+                leg = modeled[(jid, a["sequence"])]
+                coords = least_cost.route((a["lon"], a["lat"]), (b["lon"], b["lat"]), leg)["coords"]
+                who = "a wolf on foot" if leg["mode"] == "wolf" else "a rider at a walk"
+                corridor = (", keeping near the roads and tracks" if leg.get("road")
+                            else ", keeping to the river trail" if leg.get("river") else "")
+                how = dict(certainty="inferred", method="modeled", source="this-site",
+                           source_licence=LICENCE["this-site"], cost_model=least_cost.MODEL,
+                           reasoning=f"A modelled path, not the book's: the book does not trace this stretch, so the "
+                                     f"line is the way of least effort for {who} between the two stops over the "
+                                     f"ground{corridor} (cost model {least_cost.MODEL}, decision 0021). It shows a "
+                                     f"plausible way, not the one taken." + (f" {leg['note']}" if leg["note"] else ""))
             else:
                 coords = curve((a["lon"], a["lat"]), (b["lon"], b["lat"]), 1 if i % 2 else -1)
                 reported = b["certainty"] == "reported"
