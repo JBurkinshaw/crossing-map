@@ -1,4 +1,4 @@
-// Design tokens for the literary map (docs/plan.md, section 5.1): ink on caliche paper. Each colour keeps its place in
+// Design tokens for the literary map (docs/design.md, section 5.1): ink on caliche paper. Each colour keeps its place in
 // the hierarchy: the Mexico side a shade darker than the paper, the paper above zoom 10 plainer than below,
 // the journeys' inks distinct from each other and from the base.
 export type Palette = {
@@ -59,7 +59,7 @@ export const fonts = {
   italic: 'IMFeENit28P',
 } as const
 
-// Route ink by journey, after its central figure (plan 5.1): the wolf in slate, Billy in oxblood (J2 with the wolf
+// Route ink by journey, after its central figure (design 5.1): the wolf in slate, Billy in oxblood (J2 with the wolf
 // beside him), Boyd in green for the brothers' ride (J4), and "the girl" in plum for the reported J6.
 export function journeyInks(p: Palette): Record<string, string> {
   return { J1: p.routeWolf, J2: p.routeBilly, J3: p.routeBilly, J4: p.routeBoyd, J5: p.routeBilly, J6: p.routeGirl, J7: p.routeBilly }

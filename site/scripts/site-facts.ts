@@ -1,7 +1,7 @@
 // Facts the About pages show, computed from the files at build time and served to the app as the virtual
 // module `virtual:site-facts`: counts by certainty, source and method from the story GeoJSON, each download's
-// size and columns, and the size of each tile archive in site/public/tiles (in CI, the release the deploy
-// downloads; locally, whatever archives are there).
+// size and columns, each tile archive the site reads with its size in site/public/tiles, and the commit built.
+import { execSync } from 'node:child_process'
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -11,6 +11,9 @@ const repo = fileURLToPath(new URL('../../', import.meta.url))
 const data = join(repo, 'data')
 const tiles = join(repo, 'site', 'public', 'tiles')
 const LAYERS = ['places', 'stops', 'areas', 'journeys', 'mountain_glyphs', 'vignettes']
+// Published files beside the layers, in the order the Data page lists them.
+const FILES = ['episodes.json', 'translations.json', 'open-questions.json', 'elsewhere.json']
+const SCHEMAS = ['story-layer.schema.json', 'episodes.schema.json', 'translations.schema.json']
 const ID = 'virtual:site-facts'
 
 type SchemaProp = { type?: string | string[]; enum?: unknown[]; description?: string; items?: { enum?: unknown[] } }
@@ -30,6 +33,26 @@ function dirBytes(dir: string): number {
 
 function size(path: string): number | null {
   return existsSync(path) ? statSync(path).size : null
+}
+
+// The tile archives the site reads: those the map's styles name (src/map/), and the Raised view's list. Anything
+// else in public/tiles, such as a local test archive, is not part of the site.
+function archivesUsed(): Set<string> {
+  const mapSource = join(repo, 'site', 'src', 'map')
+  const named = readdirSync(mapSource)
+    .flatMap((f) => [...readFileSync(join(mapSource, f), 'utf8').matchAll(/([\w-]+\.pmtiles)/g)].map((m) => m[1]))
+  const raised: string[] = JSON.parse(readFileSync(join(data, 'raised', 'archives.json'), 'utf8'))
+  return new Set([...named, ...raised])
+}
+
+// The commit this build is made from, so links into the repository match the deployed code. The deploy builds
+// each branch in its own checkout, so the commit is read from the checkout, not from the CI run.
+function commit(): string {
+  try {
+    return execSync('git rev-parse HEAD', { cwd: repo, encoding: 'utf8' }).trim()
+  } catch {
+    return 'main'
+  }
 }
 
 function facts() {
@@ -62,16 +85,15 @@ function facts() {
   })
   return {
     layers,
-    files: ['episodes.json', 'elsewhere.json'].map((file) => ({ file, bytes: size(join(data, file)) })),
+    files: FILES.map((file) => ({ file, bytes: size(join(data, file)) })),
+    schemas: SCHEMAS.filter((file) => existsSync(join(data, 'schema', file))),
+    commit: commit(),
     dataBytes: dirBytes(data),
     raisedBytes: dirBytes(join(data, 'raised')),
     tileRelease: readFileSync(join(repo, 'tiles', 'release.txt'), 'utf8').trim(),
-    tiles: existsSync(tiles)
-      ? readdirSync(tiles)
-          .filter((f) => f.endsWith('.pmtiles'))
-          .sort()
-          .map((file) => ({ file, bytes: statSync(join(tiles, file)).size }))
-      : [],
+    // A build that reads another build's tiles (VITE_TILES_BASE) has none of its own to measure: the sizes are
+    // then null and the page says so.
+    tiles: [...archivesUsed()].sort().map((file) => ({ file, bytes: size(join(tiles, file)) })),
   }
 }
 

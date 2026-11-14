@@ -3,12 +3,12 @@ import { REPO_URL } from './format'
 export function About() {
   return (
     <>
-      {/* The working blurb from the plan (section 1). */}
+      {/* The working blurb from docs/design.md (section 1). */}
       <p className="lede">
         I read <cite>All the Pretty Horses</cite> years ago, and only recently got to <cite>The Crossing</cite>. It left
         me wanting to know the country its characters travel through, and the geographer in me needed to see these
         places more closely. <cite>The Crossing</cite> moves through real
-        country: the Animas Valley, the Peloncillos, the Bavispe, the Babícora. This is a map of where Billy, Boyd,
+        country on both sides of the border. This is a map of where Billy, Boyd,
         “the girl” and the she-wolf went, built from real geographic data and marked honestly where the book leaves
         us guessing.
       </p>
@@ -44,7 +44,7 @@ export function About() {
         <li>
           James Luther Bell, <cite>Contextualizing Cormac McCarthy’s Border Trilogy: An Annotative Approach</cite>, PhD
           dissertation, Texas Tech University, 2000. A place-by-place companion to the trilogy, with local research
-          around Cloverdale.
+          in the New Mexico bootheel.
         </li>
         <li>
           <a href="https://www.gaiagps.com/public/QVoNQ0FcmpOf9KOEQVRqw6l4">Joe Hazelton’s map of <cite>The Crossing</cite></a>{' '}

@@ -1,6 +1,7 @@
 import type { ExpressionSpecification, LayerSpecification, StyleSpecification } from 'maplibre-gl'
+import { dataBase, fontsBase, TERRAIN_EXAGGERATION, tilesBase } from '../../map/setup'
 import { literaryStyle } from '../../map/style'
-import { fonts } from '../../map/tokens'
+import { fonts, palette } from '../../map/tokens'
 import { landforms } from './landforms'
 import { riverLines } from './riverLines'
 
@@ -37,10 +38,6 @@ const PAPERS: Record<Exclude<Paper, 'today'>, { low: string; mexico: string; hig
 // Wheeler's darkest ink, measured at #110600 to #221802 in the dense hachures, lifted a little for the screen.
 const WHEELER_INK = '#2e2010'
 
-const tilesBase = new URL(`${import.meta.env.BASE_URL}tiles/`, window.location.origin).href
-const fontsBase = new URL(`${import.meta.env.BASE_URL}fonts/`, window.location.origin).href
-const dataBase = new URL(`${import.meta.env.BASE_URL}data/`, window.location.origin).href
-
 type Layer = LayerSpecification & { paint?: Record<string, unknown>; layout?: Record<string, unknown>; 'source-layer'?: string }
 
 // Each output of a zoom curve (['interpolate', ..., ['zoom'], z, out, ...]) passed through f: a zoom expression
@@ -60,7 +57,7 @@ const lerp = (slope: [number, number], gentle: number, steep: number): Expressio
 // grows only a little: Wheeler's strokes keep one width and darken by packing, and ours are fewer and longer, so
 // wide steep strokes read as scattered sticks.
 function hachure(layer: Layer, p: Params): Layer {
-  if (!layer.id.startsWith('hachure-') && !layer.id.startsWith('raised-stroke')) return layer
+  if (!layer.id.startsWith('hachure-')) return layer
   const slope: [number, number] = layer['source-layer'] === 'coarse' ? [5, 25] : [10, 40]
   const t = p.contrast
   const paint: Record<string, unknown> = { ...layer.paint }
@@ -76,9 +73,9 @@ function hachure(layer: Layer, p: Params): Layer {
 
 // Wheeler sets a river's name in roman capitals spaced about one letter apart (PURGATORY RIVER, CANADIAN RIVER,
 // about 2.2 mm high at 1:253,440), following the river's general run rather than each bend; creeks and the
-// smaller rivers in italic upper and lower case, about two thirds the size, close-set. The site's river labels sit
-// on the traced lines, whose meanders leave MapLibre no room for a name; here the names go on smoothed copies
-// (riverLines.ts) and the site's river label is hidden.
+// smaller rivers in italic upper and lower case, about two thirds the size, close-set. The names go on the
+// study's own smoothed river lines (riverLines.ts), which also letter the smaller Natural Earth rivers, and the
+// site's river labels are hidden.
 function water(layer: Layer, halo: string): Layer {
   if (layer.id === 'river-label' || layer.id === 'river-minor-label') return { ...layer, layout: { ...layer.layout, visibility: 'none' } } as Layer
   if (layer.id === 'creek-label') {
@@ -115,7 +112,7 @@ function riverLabel(halo: string, ink: string): LayerSpecification {
 }
 
 // Line weight by rank: Natural Earth's scalerank (0 the most important) for the rivers, hairline creeks, and
-// intermittent creeks (NHD fcode 46003 and 46007) as a fine dotted line, as Wheeler draws dry washes.
+// intermittent creeks (`i` in the creek layer, from INEGI and NHD) as a fine dotted line, as Wheeler draws dry washes.
 function taper(layer: Layer): Layer {
   const byRank = (heavy: number, light: number): ExpressionSpecification =>
     ['interpolate', ['linear'], ['coalesce', ['get', 'scalerank'], 8], 2, heavy, 10, light]
@@ -131,7 +128,7 @@ function taper(layer: Layer): Layer {
       paint: {
         ...layer.paint,
         'line-width': ['interpolate', ['linear'], ['zoom'], 9, ['case', ['has', 'name'], 0.5, 0.3], 12, ['case', ['has', 'name'], 0.9, 0.5]],
-        'line-dasharray': ['match', ['get', 'fcode'], [46003, 46007], ['literal', [0.5, 2]], ['literal', [1, 0]]],
+        'line-dasharray': ['case', ['has', 'i'], ['literal', [0.5, 2]], ['literal', [1, 0]]],
       },
     } as Layer
   }
@@ -200,7 +197,7 @@ function paperLayer(layer: Layer, p: Params): Layer {
   if (p.paper === 'today') return layer
   const c = PAPERS[p.paper]
   if (layer.id === 'paper') return { ...layer, paint: { 'background-color': c.low } } as Layer
-  if (layer.id === 'mexico' || layer.id === 'raised-mexico') return { ...layer, paint: { ...layer.paint, 'fill-color': c.mexico } } as Layer
+  if (layer.id === 'mexico') return { ...layer, paint: { ...layer.paint, 'fill-color': c.mexico } } as Layer
   if (layer.id === 'relief-paper') {
     return { ...layer, paint: { ...layer.paint, 'color-relief-color': ['interpolate', ['linear'], ['elevation'], 0, c.high[0], 3000, c.high[1]] } } as Layer
   }
@@ -210,8 +207,8 @@ function paperLayer(layer: Layer, p: Params): Layer {
 // The classic style with the parameters applied. Units are imperial: the spot heights are in feet, as on the sheets.
 export function wheelerStyle(p: Params): StyleSpecification {
   const base = literaryStyle(tilesBase, fontsBase, dataBase, 'imperial')
-  const halo = p.paper === 'today' ? '#e4ddcc' : PAPERS[p.paper].halo
-  const waterInk = '#465a65'
+  const halo = p.paper === 'today' ? palette.paper : PAPERS[p.paper].halo
+  const waterInk = palette.waterLabel
   let layers = (base.layers as Layer[]).map((l) => {
     let out = paperLayer(l, p)
     out = hachure(out, p)
@@ -227,7 +224,7 @@ export function wheelerStyle(p: Params): StyleSpecification {
     ...layers.slice(0, glyph),
     ...(p.water ? [riverLabel(halo, waterInk)] : []),
     layers[glyph],
-    ...(p.landforms ? [landformLayer(halo, '#2b2118')] : []),
+    ...(p.landforms ? [landformLayer(halo, palette.ink)] : []),
     ...layers.slice(glyph + 1),
   ]
   return {
@@ -239,7 +236,7 @@ export function wheelerStyle(p: Params): StyleSpecification {
       // Its own source, as MapLibre recommends for 3D terrain, so the hillshade keeps its tiles.
       terrain3d: { type: 'raster-dem', url: `pmtiles://${tilesBase}terrain.pmtiles`, encoding: 'terrarium', tileSize: 256 },
     },
-    ...(p.tilted ? { terrain: { source: 'terrain3d', exaggeration: 1.5 } } : {}),
+    ...(p.tilted ? { terrain: { source: 'terrain3d', exaggeration: TERRAIN_EXAGGERATION } } : {}),
     layers,
   }
 }

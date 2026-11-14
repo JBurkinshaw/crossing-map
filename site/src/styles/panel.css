@@ -1,0 +1,550 @@
+/* Phones (Drawer.tsx, which uses the same width): the panel is a bottom drawer, peek (96 px, the stepper),
+   half or full height, over the foot of the map. The map stops at the drawer's top at peek and half height,
+   so its own controls and attribution stay clear of it; at full height it keeps its half-height size. */
+@media (max-width: 720px) {
+  .map-area {
+    inset: 0 0 50% 0;
+  }
+  .app[data-drawer='peek'] .map-area {
+    bottom: calc(96px + env(safe-area-inset-bottom));
+  }
+}
+
+.drawer {
+  z-index: 5;
+  top: auto;
+  left: 0;
+  width: auto;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  overflow: hidden;
+  border-left: 0;
+  border-top: 1px solid var(--ink);
+  box-shadow: 0 -2px 10px var(--veil);
+  transition: height 0.2s ease-out;
+}
+
+.drawer[data-height='peek'] {
+  height: calc(96px + env(safe-area-inset-bottom));
+}
+
+.drawer[data-height='full'] {
+  height: 92%;
+}
+
+.drawer.is-dragging {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer {
+    transition: none;
+  }
+}
+
+/* The handle: a full-width strip, 32 px tall, with a grip bar. */
+.drawer-handle {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: grab;
+  touch-action: none;
+}
+
+.drawer-handle span {
+  width: 44px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--ink-faint);
+}
+
+.drawer-peek {
+  flex: none;
+  padding: 4px 14px 16px;
+}
+
+.drawer .stepper {
+  margin: 0;
+}
+
+.drawer .stepper button {
+  flex: none;
+  min-width: 76px;
+}
+
+.stepper-stop {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  align-content: center;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.stepper-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drawer-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 18px 16px;
+}
+
+.drawer-body > * + * {
+  margin-top: 12px;
+}
+
+.journey-pick {
+  display: grid;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.journey-pick select {
+  padding: 6px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+}
+
+.stop h2 {
+  margin: 4px 0;
+  font-size: 1.35rem;
+  font-weight: normal;
+}
+
+.stop-count,
+.meta {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.stop p,
+.maplibregl-popup-content p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.stepper {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.stepper button {
+  flex: 1;
+  min-height: 44px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+
+.stepper button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.stop-list {
+  margin: 0;
+  padding-left: 1.6em;
+  font-size: 0.9rem;
+}
+
+.stop-list button {
+  padding: 3px 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.stop-list button[aria-current] {
+  text-decoration: underline;
+}
+
+.elsewhere {
+  font-size: 0.85rem;
+}
+
+/* Folded sections: the stop's placement, all stops, places named elsewhere. */
+details.more {
+  margin-top: 12px;
+  padding-top: 6px;
+  border-top: 1px solid var(--ink-faint);
+}
+
+/* All stops sits between the stepper and the stop: ruled off below too, so the stop reads as its own part. */
+details.all-stops {
+  margin-bottom: 12px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+details.more summary,
+.placement summary {
+  min-height: 32px;
+  padding: 6px 0;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.placement summary {
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+details.more summary:focus-visible,
+.placement summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.elsewhere ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+
+/* Links to the site's pages, at the foot of the panel. */
+.site-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 20px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--ink-faint);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+/* Reading progress: the badge at the top of the panel and its dialog. Nothing here moves. */
+.progress-badge {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  width: 100%;
+  min-height: 36px;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  text-align: left;
+  cursor: pointer;
+}
+
+.progress-dialog {
+  box-sizing: border-box;
+  width: min(480px, calc(100% - 24px));
+  padding: 20px 22px;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.progress-dialog::backdrop {
+  background: var(--veil);
+}
+
+.progress-dialog h2 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+  font-weight: normal;
+}
+
+.progress-dialog p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.progress-slider {
+  display: block;
+  width: 100%;
+  min-height: 32px;
+  margin: 4px 0 0;
+  accent-color: var(--ink);
+}
+
+.part-ticks {
+  position: relative;
+  height: 1.2em;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.part-ticks span {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.progress-choice {
+  min-height: 5.5em;
+  margin-top: 8px;
+}
+
+.progress-choice p {
+  margin: 4px 0 0;
+}
+
+.progress-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.progress-actions button {
+  min-height: 44px;
+  padding: 4px 12px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.progress-actions button.primary,
+.progress-confirm button:first-child {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.progress-badge:focus-visible,
+.progress-actions button:focus-visible,
+.progress-slider:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Search: one box for places, stops and the Spanish, with a Part filter. */
+.search {
+  margin-bottom: 12px;
+}
+
+.search-row {
+  display: flex;
+  gap: 6px;
+}
+
+.search-row input {
+  flex: 1;
+  min-width: 0;
+  min-height: 36px;
+  padding: 4px 8px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font: inherit;
+  color: inherit;
+}
+
+.search-row select {
+  padding: 4px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.search .meta[role='status'] {
+  margin: 6px 0 2px;
+}
+
+.search-results {
+  max-height: 40vh;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.search-results button {
+  display: block;
+  width: 100%;
+  min-height: 36px;
+  padding: 4px 2px;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+  background: none;
+  text-align: left;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.search-results button:hover,
+.search-results button:focus-visible {
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.search-row input:focus-visible,
+.search-row select:focus-visible,
+.search-results button:focus-visible,
+.place-card .close:focus-visible,
+.text-button:focus-visible,
+.layer-key summary:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+/* The Spanish in italic, as the book sets it; our English in roman. */
+.es {
+  font-style: italic;
+}
+
+/* The card for a place or area picked on the map or in search. */
+.place-card {
+  position: relative;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--ink);
+}
+
+.place-card h2 {
+  margin: 0 28px 4px 0;
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+
+.place-card p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.place-card .close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.place-card h3,
+.stop h3 {
+  margin: 12px 0 4px;
+  font-size: 0.95rem;
+}
+
+/* "Spoken here": each line's opening, our English, the episode and the guide's page. */
+.translations {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.translations li {
+  padding: 6px 0 6px 8px;
+  border-left: 2px solid transparent;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+}
+
+.translations li[aria-current] {
+  border-left-color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+
+.translations .en {
+  margin: 2px 0;
+}
+
+/* Talk on the road from the current stop: ruled off from the stop's own lines, with a full-width button. */
+.road-ahead {
+  margin-top: 14px;
+  padding-top: 2px;
+  border-top: 1px solid var(--ink-faint);
+}
+
+.road-lines {
+  width: 100%;
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.road-lines:hover {
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+/* Lines grouped by episode, when a long list spans more than one. */
+.translation-group summary {
+  min-height: 32px;
+  padding: 6px 0;
+  box-sizing: border-box;
+  font-size: 0.85rem;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.text-button {
+  margin-top: 4px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* An open question on a card or the Open questions page: what is shown, the other reading, and why. */
+.open-question {
+  margin: 10px 0;
+  padding: 6px 10px;
+  border-left: 3px solid var(--ink-faint);
+  font-size: 0.85rem;
+}
+
+.open-question h3 {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.open-question dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 2px 8px;
+  margin: 0;
+}
+
+.open-question dt {
+  color: var(--ink-faint);
+  font-style: italic;
+}
+
+.open-question dd {
+  margin: 0;
+}
+
+.correction {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  font-style: italic;
+}

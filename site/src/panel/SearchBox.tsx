@@ -1,14 +1,15 @@
-import { useId, useMemo, useRef, useState, type KeyboardEvent } from 'react'
-import MiniSearch from 'minisearch'
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react'
+import type MiniSearch from 'minisearch'
 import type { Feature, Point } from 'geojson'
 import type { StoryProps } from '../data/story'
 import type { Translation } from '../data/translations'
 import { episodeLabel, PART_NUMERALS } from '../spoiler/progress'
 
-// Search (docs/plan.md, sections 8 and 9): places, stops and translations in one box, accent- and
+// Search (docs/design.md, sections 8 and 9): places, stops and translations in one box, accent- and
 // case-insensitive, filtered by Part. It indexes only what it is given, and App gives it only what the
 // reader has reached, so spoiler mode holds here too. The Spanish is indexed by its opening words only:
-// the full spans are not published (plan section 3).
+// the full spans are not published (design section 3). MiniSearch and the index load the first time the reader
+// focuses the box, so the first paint of the map does not wait for them.
 
 export type SearchHit = {
   id: string
@@ -51,7 +52,17 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
   const list = useRef<HTMLUListElement>(null)
   const input = useRef<HTMLInputElement>(null)
 
+  const [active, setActive] = useState(false)
+  const [Search, setSearch] = useState<typeof MiniSearch | null>(null)
+  // A tab left open across a redeploy can no longer fetch the old chunk; say so instead of loading forever.
+  const [searchFailed, setSearchFailed] = useState(false)
+  useEffect(() => {
+    if (!active || Search || searchFailed) return
+    import('minisearch').then((m) => setSearch(() => m.default), () => setSearchFailed(true))
+  }, [active, Search, searchFailed])
+
   const index = useMemo(() => {
+    if (!Search) return null
     const docs: SearchHit[] = [
       ...places.map((f) => ({
         id: `place:${f.properties.id}`,
@@ -85,7 +96,7 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
         first_seen: t.first_seen,
       })),
     ]
-    const search = new MiniSearch<SearchHit>({
+    const search = new Search<SearchHit>({
       fields: ['title', 'en'],
       storeFields: ['kind', 'ref', 'title', 'en', 'detail', 'part', 'first_seen', 'role'],
       processTerm: (term) => fold(term),
@@ -100,10 +111,10 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
     })
     search.addAll(docs)
     return search
-  }, [places, stops, translations])
+  }, [Search, places, stops, translations])
 
   const hits = useMemo(() => {
-    if (!query.trim()) return []
+    if (!index || !query.trim()) return []
     return index.search(query, { filter: (r) => part === 0 || r.part === part }) as unknown as SearchHit[]
   }, [index, query, part])
 
@@ -132,6 +143,8 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
   }
 
   return (
+    // The keys are handled on the section so they move between the box and its results, which are buttons.
+    // oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <section className="search" role="search" onKeyDown={onKey}>
       <div className="search-row">
         <label htmlFor={`${id}-q`} className="visually-hidden">
@@ -148,8 +161,12 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
           onChange={(e) => {
             setQuery(e.target.value)
             setOpen(true)
+            setActive(true)
           }}
-          onFocus={() => setOpen(true)}
+          onFocus={() => {
+            setOpen(true)
+            setActive(true)
+          }}
         />
         <select aria-label="Part" value={part} onChange={(e) => setPart(Number(e.target.value))}>
           <option value={0}>All Parts</option>
@@ -163,7 +180,11 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
       {open && query.trim() && (
         <>
           <p className="meta" role="status">
-            {hits.length === 0
+            {searchFailed
+              ? 'Search could not load. Reload the page to try again.'
+              : !index
+              ? 'Loading search…'
+              : hits.length === 0
               ? 'Nothing found in what you have read so far.'
               : hits.length > MAX_SHOWN
                 ? `${hits.length} found; the first ${MAX_SHOWN} are shown.`

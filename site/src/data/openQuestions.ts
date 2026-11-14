@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useJson, type Loaded } from './json'
 
 // Judgement calls about where something is, in short (data/open-questions.json; the long form is
 // docs/open-questions.md and review/stage-7/README.md). Each is shown from its own first_seen, which is the
@@ -13,12 +13,4 @@ export type OpenQuestion = {
   why: string
 }
 
-export function useOpenQuestions(): OpenQuestion[] {
-  const [list, setList] = useState<OpenQuestion[]>([])
-  useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/open-questions.json`)
-      .then((r) => (r.ok ? r.json() : []))
-      .then(setList, () => setList([]))
-  }, [])
-  return list
-}
+export const useOpenQuestions = (): Loaded<OpenQuestion[]> => useJson<OpenQuestion[]>('open-questions.json')

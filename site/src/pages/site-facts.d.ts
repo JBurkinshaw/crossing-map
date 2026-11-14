@@ -21,10 +21,12 @@ declare module 'virtual:site-facts' {
       columns: Column[]
     }[]
     files: { file: string; bytes: number | null }[]
+    schemas: string[]
+    commit: string
     dataBytes: number
     raisedBytes: number
     tileRelease: string
-    tiles: { file: string; bytes: number }[]
+    tiles: { file: string; bytes: number | null }[]
   }
   export default facts
 }

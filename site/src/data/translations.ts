@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useJson, type Loaded } from './json'
 
-// The Spanish in the novel with this site's own English (data/translations.json; docs/plan.md, sections 3 and 8).
+// The Spanish in the novel with this site's own English (data/translations.json; docs/design.md, sections 3 and 8).
 // Only the opening words of each line are published; the Campbell guide is linked by page, never copied.
 export type Translation = {
   id: string
@@ -15,7 +15,7 @@ export type Translation = {
   listener: string | null
   // The stop, place or area where it was said, or the route segment for talk on the road; null when the text
   // does not pin it down. 'road' is this site's inference: the line has no place, and its episode travels that
-  // segment (review/stage-5/road-refs.csv).
+  // segment (pipeline/seeds/road-refs.csv).
   location_ref: string | null
   location_kind: 'stop' | 'place' | 'area' | 'road' | null
   first_seen: string
@@ -26,12 +26,6 @@ export const CAMPBELL_GUIDE =
   'https://d41cfaf2-ac52-4400-a6e1-aaf2dee170dc.filesusr.com/ugd/842cf5_fac7639eeb8e4ed0812f996b15164ccd.pdf'
 export const CAMPBELL_CREDIT = 'Campbell’s guide: Lt. Jim Campbell, cormacmccarthy.com'
 
-export function useTranslations(): Translation[] {
-  const [list, setList] = useState<Translation[]>([])
-  useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/translations.json`)
-      .then((r) => (r.ok ? r.json() : []))
-      .then(setList, () => setList([]))
-  }, [])
-  return list
-}
+// Fetched once `enabled` is first true: App holds it back until the story layers have arrived, so the map's own
+// data is not kept waiting behind it.
+export const useTranslations = (enabled: boolean): Loaded<Translation[]> => useJson<Translation[]>('translations.json', enabled)

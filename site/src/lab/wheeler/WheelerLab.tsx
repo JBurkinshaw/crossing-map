@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import * as maplibregl from 'maplibre-gl'
-import { Protocol } from 'pmtiles'
 import 'maplibre-gl/dist/maplibre-gl.css'
-import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
+import { closeAttribution, exposeForScripts, motion } from '../../map/setup'
 import { LEARNINGS, SHEETS, type Param } from './learnings'
 import { TODAY, WHEELER, wheelerStyle, type Paper, type Params } from './wheelerStyle'
 import './wheeler.css'
@@ -10,8 +9,6 @@ import './wheeler.css'
 // The lab section for the Wheeler Survey study (review/stage-8/wheeler/README.md): the classic map with a few
 // parameters that try what the 1870s survey sheets do, and the list of what was learned from them. The map is its
 // own MapLibre instance, so the section works on any page; the site's map module is not loaded here.
-maplibregl.setWorkerUrl(workerUrl)
-maplibregl.addProtocol('pmtiles', new Protocol({ metadata: true }).tile)
 
 // Places to compare with the sheets: zoom, centre.
 const PLACES: { id: string; label: string; zoom: number; center: [number, number] }[] = [
@@ -47,8 +44,6 @@ const PARAM_LABEL: Record<Param, string> = {
   paper: 'Paper',
 }
 
-const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
 export default function WheelerLab() {
   const box = useRef<HTMLDivElement>(null)
   const map = useRef<maplibregl.Map | null>(null)
@@ -73,10 +68,8 @@ export default function WheelerLab() {
     m.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left')
     m.addControl(new maplibregl.ScaleControl({ unit: 'imperial', maxWidth: 120 }), 'bottom-left')
     map.current = m
-    // MapLibre opens the compact attribution at first; it starts closed, behind its (i) button, as on the site.
-    m.once('idle', () => m.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show'))
-    // Scripted screenshots drive the map through this handle; only with ?debug.
-    if (new URLSearchParams(window.location.search).has('debug')) (window as unknown as { __wheelerMap: unknown }).__wheelerMap = m
+    closeAttribution(m)
+    exposeForScripts('__wheelerMap', m)
     return () => {
       m.remove()
       map.current = null
@@ -88,10 +81,10 @@ export default function WheelerLab() {
     if (!m) return
     m.setStyle(wheelerStyle(params))
     const pitch = params.tilted ? 50 : 0
-    if (m.getPitch() !== pitch) m.easeTo({ pitch, duration: reducedMotion() ? 0 : 800 })
+    if (m.getPitch() !== pitch) m.easeTo({ pitch, duration: motion(800) })
   }, [params])
 
-  const goTo = (center: [number, number], zoom: number) => map.current?.flyTo({ center, zoom, duration: reducedMotion() ? 0 : 1500 })
+  const goTo = (center: [number, number], zoom: number) => map.current?.flyTo({ center, zoom, duration: motion(1500) })
   const topics = [...new Set(LEARNINGS.map((l) => l.topic))]
 
   return (

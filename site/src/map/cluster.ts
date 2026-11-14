@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useMap } from '@vis.gl/react-maplibre'
 import type { GeoJSONSource, Map as MapLibreMap } from 'maplibre-gl'
 
-// Cluster markers (docs/plan.md, section 9) only where the map is crowded: around Cloverdale and the
+// Cluster markers (docs/design.md, section 9) only where the map is crowded: around Cloverdale and the
 // Peloncillos, where J1, J2, J3 and J7 all pass and stops sit on top of the places they stand for.
 // West, south, east, north; it takes in the Guadalupe and Peloncillo ranges, the Animas Valley and the SK Bar.
 export const CLUSTER_ZONE: [number, number, number, number] = [-109.25, 31.3, -108.7, 31.72]

@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react'
 import { CAMPBELL_CREDIT, CAMPBELL_GUIDE } from '../data/translations'
-import { REPO_URL } from './format'
+import { REPO_URL, repoUrl } from './format'
 
-// Every source the site uses, with the credit its terms ask for (plan section 3). `credit` is the wording
-// shown wherever the source appears; `todo` marks wording not yet checked against the source's own terms.
-type Credit = { name: string; link?: string; use: ReactNode; licence: string; credit?: string; todo?: string }
+// Every source the site uses, with the credit its terms ask for (design section 3). `credit` is the wording
+// shown wherever the source appears.
+type Credit = { name: string; link?: string; use: ReactNode; licence: string; credit?: string }
 
 const COPERNICUS =
   'produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved'
@@ -35,8 +35,8 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         name: 'James Luther Bell, Contextualizing Cormac McCarthy’s Border Trilogy: An Annotative Approach',
         use: (
           <>
-            PhD dissertation, Texas Tech University, 2000. Its index of the novel’s places, its local research around
-            Cloverdale and its map of Hidalgo County were used to check and correct places on this map. Notes that
+            PhD dissertation, Texas Tech University, 2000. Its index of the novel’s places, its local research in the
+            bootheel and its county map were used to check and correct places on this map. Notes that
             draw on it cite the page, in our own words.
           </>
         ),
@@ -50,10 +50,10 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
           <>
             A reader’s map of the novel’s places, shared on{' '}
             <a href="https://www.reddit.com/r/cormacmccarthy/comments/18wu63g/map_of_the_crossing/">r/cormacmccarthy</a>.
-            Its pins were compared with every place here; where they agree or led to a correction, the place says so.
+            Its pins were compared with every place here, and led to some corrections.
           </>
         ),
-        licence: 'Used with credit',
+        licence: 'Credited; permission not yet requested',
         credit: 'Joe Hazelton’s map',
       },
     ],
@@ -81,7 +81,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         use: (
           <>
             The script that draws the hachures, run in QGIS. An adapted copy is kept, under its own licence, in{' '}
-            <a href={`${REPO_URL}/tree/main/pipeline/relief/hachures`}>pipeline/relief/hachures/</a>, with a list of
+            <a href={repoUrl('pipeline/relief/hachures')}>pipeline/relief/hachures/</a>, with a list of
             every change. The lines it generates are this site’s data.
           </>
         ),
@@ -95,7 +95,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
         link: 'https://www.inegi.org.mx/temas/hidrografia/',
-        use: 'The courses of the named rivers on the Mexico side of the classic map, and streams on the Mexico side in the Raised view.',
+        use: 'The named rivers, the smaller streams and the lakes on the Mexico side of the classic map, and streams on the Mexico side in the Raised view.',
         licence: 'INEGI free-use terms, attribution required',
         credit: 'Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
       },
@@ -111,12 +111,12 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         link: 'https://www.census.gov/geographies/mapping-files.html',
         use: 'County lines (cartographic boundaries, 2023, 1:500,000), and the roads some routes follow (TIGER/Line).',
         licence: 'Public domain',
-        credit: 'County lines and roads courtesy of the U.S. Census Bureau (TIGER)',
+        credit: 'County lines and roads courtesy of the U.S. Census Bureau (cartographic boundary files and TIGER/Line)',
       },
       {
         name: 'Natural Earth',
         link: 'https://www.naturalearthdata.com/',
-        use: 'Borders, the Mexican states, lakes, roads and railroads of the base map, and the choice of rivers, their names and their rank (their courses come from INEGI and NHD).',
+        use: 'Borders, the Mexican states, lakes outside Mexico, roads and railroads of the base map, and the choice of rivers, their names and their rank (their courses come from INEGI and NHD).',
         licence: 'Public domain; no credit required',
         credit: 'Made with Natural Earth',
       },
@@ -187,7 +187,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         use: (
           <>
             The Wheeler Survey’s Atlas Sheet 83 (1876) and other period maps, studied for the hachure style; the{' '}
-            <a href={`${REPO_URL}/blob/main/docs/inspiration/rumsey.md`}>list</a> gives each one. Nothing from them is
+            <a href={repoUrl('docs/inspiration/rumsey.md')}>list</a> gives each one. Nothing from them is
             reproduced.
           </>
         ),
@@ -195,7 +195,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       },
       {
         name: 'Cartographers’ Guild',
-        link: `${REPO_URL}/blob/main/docs/inspiration/guild.md`,
+        link: repoUrl('docs/inspiration/guild.md'),
         use: 'Tutorials and threads read for the hand-drawn style; the index lists each one. Nothing from them is reproduced.',
         licence: 'Links only',
       },
@@ -222,7 +222,6 @@ export function Credits() {
                   {c.use}
                   <div className="meta">Licence: {c.licence}</div>
                   {c.credit && <blockquote>{c.credit}</blockquote>}
-                  {c.todo && <div className="todo">TODO: {c.todo}</div>}
                 </dd>
               </div>
             ))}

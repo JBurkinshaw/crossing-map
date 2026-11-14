@@ -3,7 +3,7 @@ import { JOURNEYS } from '../data/journeys'
 import type { Story } from '../data/story'
 import { journeyInks, palette as tokens, SPRITE } from './tokens'
 
-// The layer key (legend, plan section 9) for the classic map: one row per kind of mark the map draws, from
+// The layer key (legend, design section 9) for the classic map: one row per kind of mark the map draws, from
 // the story it is given. That story is already filtered to the reader's progress, so a journey, a region or
 // the false dawn appears in the key only once it can appear on the map; so does the vignettes' row, from the
 // vignettes reached.

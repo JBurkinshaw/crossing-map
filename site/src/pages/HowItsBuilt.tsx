@@ -1,11 +1,11 @@
 import facts from 'virtual:site-facts'
 import { Architecture } from './Architecture'
-import { bytes, DATA_URL, layerLabel, REPO_URL } from './format'
+import { bytes, DATA_URL, layerLabel, REPO_URL, repoUrl } from './format'
 import { Markdown } from './markdown'
 
-// The project's real decision log, read at build time (plan section 4.3). The pattern is relative because
+// The project's real decision log, read at build time (design section 4.3). The pattern is relative because
 // a leading / would mean site/, the app root.
-const files = import.meta.glob<string>('../../../docs/decisions/*.md', { query: '?raw', import: 'default', eager: true })
+const files = import.meta.glob<string>('../../../docs/decisions/[0-9]*.md', { query: '?raw', import: 'default', eager: true })
 
 type DecisionRecord = { number: string; title: string; status: string; body: string }
 
@@ -52,7 +52,8 @@ function CountTable({ by, caption }: { by: 'certainty' | 'source' | 'method'; ca
 }
 
 export function HowItsBuilt() {
-  const tileTotal = facts.tiles.reduce((sum, t) => sum + t.bytes, 0)
+  const measured = facts.tiles.every((t) => t.bytes !== null)
+  const tileTotal = facts.tiles.reduce((sum, t) => sum + (t.bytes ?? 0), 0)
   return (
     <>
       <p className="lede">
@@ -74,7 +75,7 @@ export function HowItsBuilt() {
       <p>
         Each decision is a short record: the problem, what was decided, what was rejected and why, and what follows.
         A record is not edited once accepted; a later one supersedes it. These are the {records.length} records in{' '}
-        <a href={`${REPO_URL}/tree/main/docs/decisions`}>docs/decisions</a>, as they stand in this build.
+        <a href={repoUrl('docs/decisions')}>docs/decisions</a>, as they stand in this build.
       </p>
       <div className="records">
         {records.map((r) => (
@@ -114,13 +115,15 @@ export function HowItsBuilt() {
               <th scope="row">
                 <code>{t.file}</code>
               </th>
-              <td className="num">{bytes(t.bytes)}</td>
+              <td className="num">{t.bytes === null ? 'not in this build' : bytes(t.bytes)}</td>
             </tr>
           ))}
-          <tr className="total">
-            <th scope="row">All tiles</th>
-            <td className="num">{bytes(tileTotal)}</td>
-          </tr>
+          {measured && (
+            <tr className="total">
+              <th scope="row">All tiles</th>
+              <td className="num">{bytes(tileTotal)}</td>
+            </tr>
+          )}
         </tbody>
       </table>
       <table>
@@ -136,7 +139,7 @@ export function HowItsBuilt() {
       <h2>Links</h2>
       <ul>
         <li>
-          <a href={REPO_URL}>The repository</a>, with the pipeline, the site and the plan.
+          <a href={REPO_URL}>The repository</a>, with the pipeline, the site and the design.
         </li>
         <li>
           <a href="#/data">The data downloads</a> and their <a href={`${DATA_URL}schema/story-layer.schema.json`}>JSON Schema</a>.

@@ -1,6 +1,6 @@
 import { useRef, useState, type FocusEvent, type KeyboardEvent, type PointerEvent, type ReactNode } from 'react'
 
-// The phone shell of the panel (docs/plan.md, section 9): a bottom sheet with three heights, peek (96 px, the
+// The phone shell of the panel (docs/design.md, section 9): a bottom sheet with three heights, peek (96 px, the
 // stepper only), half and full. The handle drags, taps (each tap raises it a step, from full back to peek) and
 // takes the arrow keys. The panel's own children go inside; Panel puts the stepper first so it shows at peek.
 
@@ -98,7 +98,9 @@ export function Drawer({ label, height, onHeight, peek, children }: Props) {
     onHeight('half')
   }
 
+  // Focus is watched on the whole sheet, so focus moving into the panel from anywhere raises it.
   return (
+    // oxlint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <aside
       ref={sheet}
       className={`panel drawer${dragged !== null ? ' is-dragging' : ''}`}

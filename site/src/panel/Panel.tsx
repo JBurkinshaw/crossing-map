@@ -18,7 +18,9 @@ type Props = {
   // The search box, and the card for whatever was picked on the map or in search.
   search: ReactNode
   card: ReactNode
+  // The story layers failed to load, and the other files that did (named for the reader).
   failed: boolean
+  failures: string[]
   journey: string
   // The journeys drawn so far, each with the episode it starts in, and the places named outside the map.
   journeys: { id: string; first_seen: string }[]
@@ -43,7 +45,7 @@ type Props = {
 }
 
 export function Panel(props: Props) {
-  const { header, search, card, failed, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
+  const { header, search, card, failed, failures, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
   const { spokenOnRoad, onShowRoad } = props
   const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement } = props
   const stop = stops[stopIndex]
@@ -76,10 +78,14 @@ export function Panel(props: Props) {
       !failed && <p className="meta">No journey has begun by this point in the book.</p>
     )
 
-  const failure = failed && <p role="alert">The story data could not be loaded. Try reloading the page.</p>
+  const failure = (failed || failures.length > 0) && (
+    <p role="alert">
+      {failed ? 'The story data could not be loaded.' : `Some data could not be loaded: ${failures.join(', ')}.`} Try reloading the page.
+    </p>
+  )
 
   const stopSection = stop && (
-    <section className="stop" aria-live="polite" data-first-seen={stop.properties.first_seen}>
+    <section className="stop" data-first-seen={stop.properties.first_seen}>
       <h2>{stop.properties.name}</h2>
       {(stop.properties.note_full || stop.properties.note_safe) && <p>{stop.properties.note_full || stop.properties.note_safe}</p>}
       {/* Open or closed as the reader last left it, from stop to stop and journey to journey. */}

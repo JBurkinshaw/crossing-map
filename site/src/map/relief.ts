@@ -2,16 +2,17 @@ import type { ExpressionSpecification, LayerSpecification, SourceSpecification }
 import { fonts, type Palette } from './tokens'
 import { heightLabel, type Units } from '../units'
 
-// Relief (docs/plan.md, section 5.2; decision 0016, "S5"): an Imhof desert tint below zoom 10, then
+// Relief (docs/design.md, section 5.2; decision 0016, "S5"): an Imhof desert tint below zoom 10, then
 // near-white paper, a light grey hillshade, 50 m contours and short sepia hachures from relief.pmtiles,
 // with mountain glyphs.
 export function reliefSources(tilesBase: string, dataBase: string): Record<string, SourceSpecification> {
   return {
-    glyphs: { type: 'geojson', data: `${dataBase}mountain_glyphs.geojson` },
+    // A trimmed copy of data/mountain_glyphs.geojson with only the properties drawn (scripts/copy-data.mjs).
+    glyphs: { type: 'geojson', data: `${dataBase}map/mountain_glyphs.geojson` },
     vignettes: { type: 'geojson', data: `${dataBase}vignettes.geojson` },
     terrain: { type: 'raster-dem', url: `pmtiles://${tilesBase}terrain.pmtiles`, encoding: 'terrarium', tileSize: 256 },
     relief: { type: 'vector', url: `pmtiles://${tilesBase}relief.pmtiles` },
-    // Split from relief.pmtiles so each archive stays under 100 MB (plan 5.2) and readers who stay zoomed out
+    // Split from relief.pmtiles so each archive stays under 100 MB (design 5.2) and readers who stay zoomed out
     // never fetch the dense strokes.
     'relief-dense': { type: 'vector', url: `pmtiles://${tilesBase}relief-dense.pmtiles` },
     contours: { type: 'vector', url: `pmtiles://${tilesBase}contours.pmtiles` },
@@ -94,12 +95,12 @@ function glyphs(p: Palette, units: Units): LayerSpecification[] {
   ]
 }
 
-// Vignettes (plan section 10): drawings of the book's creatures, buildings and objects, each in empty country near
+// Vignettes (design section 10): drawings of the book's creatures, buildings and objects, each in empty country near
 // what it stands for, from data/vignettes.geojson and the vignette-<id> drawings in the sprite (placeholders for now).
 // Each shows only in its own zoom range, which keeps them a few to a screen; symbol collision places the lowest
 // `priority` first, and the labels above them win any overlap. A located site (a ruin, a hacienda) also gets a
 // hairline leader from the drawing to the site; the leader still draws if its drawing loses a collision.
-// The spoiler filter by `first_seen` is not applied here yet.
+// Both layers are in PROGRESS_LAYERS (spoiler/filter.ts), so each vignette shows from its own first_seen.
 function vignettes(p: Palette): LayerSpecification[] {
   const inRange = (kind: string): ExpressionSpecification => ['all', ['==', ['get', 'kind'], kind],
     ['>=', ['zoom'], ['get', 'min_zoom']], ['<', ['zoom'], ['get', 'max_zoom']]]
@@ -133,77 +134,55 @@ function vignettes(p: Palette): LayerSpecification[] {
 // and hachures draw.
 const S5_SPLIT = 10
 
-// The hillshade's settings. The map lab (site/lab.html, Hillshade) edits the same shape; paste its "Copy settings"
-// output here.
-export type HillshadeMethod = 'standard' | 'basic' | 'combined' | 'igor' | 'multidirectional'
-// Which shade colours: the palette's Imhof colours below the fade and grey above it ('site'), either one at every
-// zoom, or MapTiler Topo's.
-export type ShadeColours = 'site' | 'imhof' | 'grey' | 'maptiler'
-// One side of the fade. Shadow and highlight are the alpha of their colours, 0 to 1.
+// The hillshade: one light, its colours fading over `fade` from the palette's chromatic Imhof shade (shadeLow)
+// below to a light grey (shadeHigh) above. The lab's Hillshade section (site/lab.html) edits a superset of these
+// settings; its "Copy settings" output pastes over HILLSHADE.
 export type ShadeSide = { exaggeration: number; shadow: number; highlight: number }
-export type HillshadeSettings = {
-  method: HillshadeMethod
+export type Hillshade = {
+  method: 'standard' | 'basic' | 'combined' | 'igor'
   // Where the light comes from, degrees clockwise from north (315: north-west), and how high it is (0 to 90; the
-  // standard and igor methods ignore it).
+  // standard and igor methods ignore it). Shadow and highlight are the alpha of their colours, 0 to 1.
   direction: number
   altitude: number
-  colours: ShadeColours
   // Below the fade (zoomed out) and above it (zoomed in).
   low: ShadeSide
   high: ShadeSide
-  // Multiplies every shade colour's alpha: a hillshade layer has no opacity of its own.
-  opacity: number
   // The zooms over which the low look (tint, chromatic shade) gives way to the high one (paper, grey shade).
   fade: [number, number]
-  // Multiplies the hachures' opacity.
-  hachures: number
 }
 // The lab's "Pronounced" preset (review/stage-8/lab-hillshade/): S5's method and colours, a lower sun and about
 // twice S5's shadow above the fade, so ranges read at zoom 10-13 as they do on MapTiler Topo.
-export const HILLSHADE: HillshadeSettings = {
+export const HILLSHADE: Hillshade = {
   method: 'combined',
   direction: 315,
   altitude: 35,
-  colours: 'site',
   low: { exaggeration: 0.75, shadow: 0.6, highlight: 0.4 },
   high: { exaggeration: 0.7, shadow: 0.45, highlight: 0.35 },
-  opacity: 1,
   fade: [9, 10],
-  hachures: 1,
 }
 
-type Shade = Palette['shadeLow']
-// MapTiler Topo's hillshade colours (its topo-v4 style): hsl(0, 0%, 50%), hsl(51, 12%, 83%), hsl(51, 67%, 56%).
-const MAPTILER_SHADE: Shade = { shadow: 'rgba(128, 128, 128, 1)', highlight: 'rgba(217, 214, 206, 1)', accent: 'rgba(218, 193, 68, 1)' }
-const alphaOf = (rgba: string) => Number(/([\d.]+)\)$/.exec(rgba)?.[1] ?? 1)
-const withAlpha = (rgba: string, a: number) =>
+export type Shade = Palette['shadeLow']
+export const alphaOf = (rgba: string) => Number(/([\d.]+)\)$/.exec(rgba)?.[1] ?? 1)
+export const withAlpha = (rgba: string, a: number) =>
   `rgba(${/\d+,\s*\d+,\s*\d+/.exec(rgba)?.[0] ?? '0, 0, 0'}, ${Math.round(Math.min(1, Math.max(0, a)) * 1000) / 1000})`
 
-// The hillshade layer's paint for settings `s` in palette `p`: each value fades from the low side to the high one.
-export function hillshadePaint(s: HillshadeSettings, p: Palette): Record<string, unknown> {
+// The hillshade layer's paint: each value fades from the low side to the high one.
+export function hillshadePaint(s: Hillshade, p: Palette): Record<string, unknown> {
   const [from, to] = s.fade
   const blend = (low: unknown, high: unknown) => ['interpolate', ['linear'], ['zoom'], from, low, to, high]
   const colour = (side: 'low' | 'high', key: keyof Shade) => {
-    const pick = s.colours === 'site' ? side : s.colours === 'imhof' ? 'low' : 'high'
-    const c = s.colours === 'maptiler' ? MAPTILER_SHADE : pick === 'low' ? p.shadeLow : p.shadeHigh
+    const c = side === 'low' ? p.shadeLow : p.shadeHigh
     // The accent (standard method only) darkens the steepest ground; it keeps its share of the shadow.
     const a = key === 'accent' ? (s[side].shadow * alphaOf(c.accent)) / alphaOf(c.shadow) : s[side][key]
-    return withAlpha(c[key], a * s.opacity)
+    return withAlpha(c[key], a)
   }
-  // Several lights: four, 45 degrees apart, around the chosen direction, as gdaldem -multidirectional does. Lists
-  // of colours cannot be interpolated by zoom, so each side's colours hold up to the middle of the fade.
-  const multi = s.method === 'multidirectional'
-  const four = (v: unknown) => [v, v, v, v]
-  const colours = (key: 'shadow' | 'highlight') => (multi
-    ? ['step', ['zoom'], ['literal', four(colour('low', key))], (from + to) / 2, ['literal', four(colour('high', key))]]
-    : blend(colour('low', key), colour('high', key)))
   return {
     'hillshade-method': s.method,
-    'hillshade-illumination-direction': multi ? [-90, -45, 0, 45].map((d) => (s.direction + d + 360) % 360) : s.direction,
-    'hillshade-illumination-altitude': multi ? four(s.altitude) : s.altitude,
+    'hillshade-illumination-direction': s.direction,
+    'hillshade-illumination-altitude': s.altitude,
     'hillshade-exaggeration': blend(s.low.exaggeration, s.high.exaggeration),
-    'hillshade-shadow-color': colours('shadow'),
-    'hillshade-highlight-color': colours('highlight'),
+    'hillshade-shadow-color': blend(colour('low', 'shadow'), colour('high', 'shadow')),
+    'hillshade-highlight-color': blend(colour('low', 'highlight'), colour('high', 'highlight')),
     'hillshade-accent-color': blend(colour('low', 'accent'), colour('high', 'accent')),
   }
 }
@@ -235,9 +214,11 @@ function s5Ground(p: Palette): LayerSpecification[] {
   ]
 }
 
-// Shade under a light from the north-west, 40 degrees up: 0 lit, 1 in full shade, from each line's Slope and Aspect.
+// Shade under the hachures' own light, from the north-west and 40 degrees up: 0 lit, 1 in full shade, from each
+// line's Slope and Aspect. It is tuned apart from the hillshade's (HILLSHADE.altitude), which shades the ground.
 const rad = Math.PI / 180
-const zenith = 50 * rad
+const HACHURE_LIGHT_ALTITUDE = 40
+const zenith = (90 - HACHURE_LIGHT_ALTITUDE) * rad
 const slopeRad: ExpressionSpecification = ['*', ['get', 'Slope'], rad]
 const shade: ExpressionSpecification = ['-', 1, ['max', 0, ['min', 1, ['+', ['*', Math.cos(zenith), ['cos', slopeRad]],
   ['*', Math.sin(zenith), ['*', ['sin', slopeRad], ['cos', ['-', 315 * rad, ['*', ['get', 'Aspect'], rad]]]]]]]]]
@@ -255,7 +236,7 @@ const FADE = {
 } as const
 function strokePaint(ink: string, slope: [number, number], copy: boolean, fade: keyof typeof FADE = 'none') {
   const w: ExpressionSpecification = ['*', 0.9, ['interpolate', ['linear'], ['get', 'Slope'], slope[0], 0.25, slope[1], 1.3], byShade(0.4)]
-  const o: ExpressionSpecification = ['*', (copy ? 0.4 : 1) * HILLSHADE.hachures,['min', 1, ['*', 0.65, byShade(0.6)]]]
+  const o: ExpressionSpecification = ['*', copy ? 0.4 : 1, ['min', 1, ['*', 0.65, byShade(0.6)]]]
   const stops = FADE[fade].flatMap((v, i) => (i % 2 ? [['min', 1, ['*', v, o]]] : [v]))
   return {
     'line-color': ink,

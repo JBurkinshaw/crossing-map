@@ -7,13 +7,12 @@ import type { Units } from '../units'
 
 // Compare mode: the classic base on its own map, clipped to the left of the swipe, between the satellite map
 // and the main map. The main map then draws only the story layers, across the whole width, as in satellite
-// mode. This map takes no input and follows the main map's camera.
+// mode. This map takes no input and follows the main map's camera. It shows left of the swipe's split, which
+// CompareSwipe keeps in the --split CSS variable on the map area.
 
 type Props = {
   main: RefObject<MapRef | null>
   style: StyleSpecification
-  // The classic base shows left of this split, in percent of the width.
-  split: number
   // Heights on summits and contours: set on the map in place, so a change of units does not rebuild it.
   units: Units
   // In the Tilted view, the same 3D terrain as the main map, so the base stays under the story layers.
@@ -25,7 +24,7 @@ function setUnits(map: maplibregl.Map, units: Units) {
   map.setLayoutProperty('contour-label', 'text-field', contourText(units))
 }
 
-export default function ClassicUnderlay({ main, style, split, units, terrain }: Props) {
+export default function ClassicUnderlay({ main, style, units, terrain }: Props) {
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
   // map.loaded() is false again whenever tiles load, so the first load is recorded here.
@@ -71,5 +70,5 @@ export default function ClassicUnderlay({ main, style, split, units, terrain }: 
     map.setTerrain(terrainUrl && exaggeration ? { source: 'terrain3d', exaggeration } : null)
   }, [terrainUrl, exaggeration, ready])
 
-  return <div ref={container} aria-hidden="true" style={{ position: 'absolute', inset: 0, clipPath: `inset(0 ${100 - split}% 0 0)` }} />
+  return <div ref={container} aria-hidden="true" style={{ position: 'absolute', inset: 0, clipPath: 'inset(0 calc(100% - var(--split, 50%)) 0 0)' }} />
 }

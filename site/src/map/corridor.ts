@@ -1,6 +1,6 @@
 import type { Geometry, MultiPolygon, Position } from 'geojson'
 
-// Talk on the road (docs/plan.md, section 8): a line spoken while travelling a route segment is shown as that
+// Talk on the road (docs/design.md, section 8): a line spoken while travelling a route segment is shown as that
 // segment buffered 2 km, a corridor rather than a point.
 export const CORRIDOR_M = 2000
 
