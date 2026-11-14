@@ -409,7 +409,7 @@ select {
 .overview {
   position: absolute;
   right: 12px;
-  bottom: 110px;
+  bottom: 136px;
   margin: 0;
   border: 1px solid var(--ink);
   outline: 1px solid var(--ink);
