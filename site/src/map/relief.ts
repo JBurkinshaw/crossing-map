@@ -129,10 +129,86 @@ function vignettes(p: Palette): LayerSpecification[] {
 }
 
 // S5 (decision 0016). Below zoom 10: Imhof's desert colours and chromatic hillshade, and no line work.
-// Over zoom 9 to 10 they fade into near-white paper and a light grey hillshade, and from 10 the contours
+// Over HILLSHADE.fade (zoom 9 to 10) they fade into near-white paper and a light grey hillshade, and from 10 the contours
 // and hachures draw.
 const S5_SPLIT = 10
-const s5Blend = <T,>(low: T, high: T) => ['interpolate', ['linear'], ['zoom'], S5_SPLIT - 1, low, S5_SPLIT, high] as never
+
+// The hillshade's settings. The map lab (site/lab.html, Hillshade) edits the same shape; paste its "Copy settings"
+// output here.
+export type HillshadeMethod = 'standard' | 'basic' | 'combined' | 'igor' | 'multidirectional'
+// Which shade colours: the palette's Imhof colours below the fade and grey above it ('site'), either one at every
+// zoom, or MapTiler Topo's.
+export type ShadeColours = 'site' | 'imhof' | 'grey' | 'maptiler'
+// One side of the fade. Shadow and highlight are the alpha of their colours, 0 to 1.
+export type ShadeSide = { exaggeration: number; shadow: number; highlight: number }
+export type HillshadeSettings = {
+  method: HillshadeMethod
+  // Where the light comes from, degrees clockwise from north (315: north-west), and how high it is (0 to 90; the
+  // standard and igor methods ignore it).
+  direction: number
+  altitude: number
+  colours: ShadeColours
+  // Below the fade (zoomed out) and above it (zoomed in).
+  low: ShadeSide
+  high: ShadeSide
+  // Multiplies every shade colour's alpha: a hillshade layer has no opacity of its own.
+  opacity: number
+  // The zooms over which the low look (tint, chromatic shade) gives way to the high one (paper, grey shade).
+  fade: [number, number]
+  // Multiplies the hachures' opacity.
+  hachures: number
+}
+// The lab's "Pronounced" preset (review/stage-8/lab-hillshade/): S5's method and colours, a lower sun and about
+// twice S5's shadow above the fade, so ranges read at zoom 10-13 as they do on MapTiler Topo.
+export const HILLSHADE: HillshadeSettings = {
+  method: 'combined',
+  direction: 315,
+  altitude: 35,
+  colours: 'site',
+  low: { exaggeration: 0.75, shadow: 0.6, highlight: 0.4 },
+  high: { exaggeration: 0.7, shadow: 0.45, highlight: 0.35 },
+  opacity: 1,
+  fade: [9, 10],
+  hachures: 1,
+}
+
+type Shade = Palette['shadeLow']
+// MapTiler Topo's hillshade colours (its topo-v4 style): hsl(0, 0%, 50%), hsl(51, 12%, 83%), hsl(51, 67%, 56%).
+const MAPTILER_SHADE: Shade = { shadow: 'rgba(128, 128, 128, 1)', highlight: 'rgba(217, 214, 206, 1)', accent: 'rgba(218, 193, 68, 1)' }
+const alphaOf = (rgba: string) => Number(/([\d.]+)\)$/.exec(rgba)?.[1] ?? 1)
+const withAlpha = (rgba: string, a: number) =>
+  `rgba(${/\d+,\s*\d+,\s*\d+/.exec(rgba)?.[0] ?? '0, 0, 0'}, ${Math.round(Math.min(1, Math.max(0, a)) * 1000) / 1000})`
+
+// The hillshade layer's paint for settings `s` in palette `p`: each value fades from the low side to the high one.
+export function hillshadePaint(s: HillshadeSettings, p: Palette): Record<string, unknown> {
+  const [from, to] = s.fade
+  const blend = (low: unknown, high: unknown) => ['interpolate', ['linear'], ['zoom'], from, low, to, high]
+  const colour = (side: 'low' | 'high', key: keyof Shade) => {
+    const pick = s.colours === 'site' ? side : s.colours === 'imhof' ? 'low' : 'high'
+    const c = s.colours === 'maptiler' ? MAPTILER_SHADE : pick === 'low' ? p.shadeLow : p.shadeHigh
+    // The accent (standard method only) darkens the steepest ground; it keeps its share of the shadow.
+    const a = key === 'accent' ? (s[side].shadow * alphaOf(c.accent)) / alphaOf(c.shadow) : s[side][key]
+    return withAlpha(c[key], a * s.opacity)
+  }
+  // Several lights: four, 45 degrees apart, around the chosen direction, as gdaldem -multidirectional does. Lists
+  // of colours cannot be interpolated by zoom, so each side's colours hold up to the middle of the fade.
+  const multi = s.method === 'multidirectional'
+  const four = (v: unknown) => [v, v, v, v]
+  const colours = (key: 'shadow' | 'highlight') => (multi
+    ? ['step', ['zoom'], ['literal', four(colour('low', key))], (from + to) / 2, ['literal', four(colour('high', key))]]
+    : blend(colour('low', key), colour('high', key)))
+  return {
+    'hillshade-method': s.method,
+    'hillshade-illumination-direction': multi ? [-90, -45, 0, 45].map((d) => (s.direction + d + 360) % 360) : s.direction,
+    'hillshade-illumination-altitude': multi ? four(s.altitude) : s.altitude,
+    'hillshade-exaggeration': blend(s.low.exaggeration, s.high.exaggeration),
+    'hillshade-shadow-color': colours('shadow'),
+    'hillshade-highlight-color': colours('highlight'),
+    'hillshade-accent-color': blend(colour('low', 'accent'), colour('high', 'accent')),
+  }
+}
+
+const s5Blend = <T,>(low: T, high: T) => ['interpolate', ['linear'], ['zoom'], HILLSHADE.fade[0], low, HILLSHADE.fade[1], high] as never
 
 function s5Ground(p: Palette): LayerSpecification[] {
   return [
@@ -155,19 +231,7 @@ function s5Ground(p: Palette): LayerSpecification[] {
         'color-relief-opacity': s5Blend(0, 0.7),
       },
     },
-    {
-      id: 'hillshade',
-      type: 'hillshade',
-      source: 'terrain',
-      paint: {
-        'hillshade-method': 'combined',
-        'hillshade-illumination-direction': 315,
-        'hillshade-exaggeration': s5Blend(0.65, 0.5),
-        'hillshade-shadow-color': s5Blend(p.shadeLow.shadow, p.shadeHigh.shadow),
-        'hillshade-highlight-color': s5Blend(p.shadeLow.highlight, p.shadeHigh.highlight),
-        'hillshade-accent-color': s5Blend(p.shadeLow.accent, p.shadeHigh.accent),
-      },
-    },
+    { id: 'hillshade', type: 'hillshade', source: 'terrain', paint: hillshadePaint(HILLSHADE, p) } as LayerSpecification,
   ]
 }
 
@@ -191,7 +255,7 @@ const FADE = {
 } as const
 function strokePaint(ink: string, slope: [number, number], copy: boolean, fade: keyof typeof FADE = 'none') {
   const w: ExpressionSpecification = ['*', 0.9, ['interpolate', ['linear'], ['get', 'Slope'], slope[0], 0.25, slope[1], 1.3], byShade(0.4)]
-  const o: ExpressionSpecification = ['*', copy ? 0.4 : 1, ['min', 1, ['*', 0.65, byShade(0.6)]]]
+  const o: ExpressionSpecification = ['*', (copy ? 0.4 : 1) * HILLSHADE.hachures,['min', 1, ['*', 0.65, byShade(0.6)]]]
   const stops = FADE[fade].flatMap((v, i) => (i % 2 ? [['min', 1, ['*', v, o]]] : [v]))
   return {
     'line-color': ink,

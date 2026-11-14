@@ -1,0 +1,227 @@
+/* The map lab (lab.html). */
+.lab {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.lab-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-bottom: 1px solid var(--veil);
+}
+
+.lab-header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.lab-header [role='tablist'] {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.lab-header [role='tab'] {
+  border: 1px solid var(--veil);
+  background: transparent;
+  padding: 0.2rem 0.8rem;
+  cursor: pointer;
+}
+
+.lab-header [role='tab'][aria-selected='true'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.lab-header a {
+  margin-left: auto;
+  color: inherit;
+}
+
+.lab button:focus-visible,
+.lab input:focus-visible,
+.lab select:focus-visible,
+.lab a:focus-visible {
+  outline: 2px solid var(--alert);
+  outline-offset: 2px;
+}
+
+.lab-panel {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.lab-placeholder {
+  padding: 2rem;
+  font-style: italic;
+}
+
+.lab-section {
+  display: flex;
+  height: 100%;
+}
+
+.lab-controls {
+  width: 320px;
+  flex: none;
+  overflow-y: auto;
+  padding: 0.5rem 0.8rem 2rem;
+  border-right: 1px solid var(--veil);
+  font-size: 0.9rem;
+}
+
+.lab-controls fieldset {
+  border: none;
+  border-top: 1px solid var(--veil);
+  margin: 0 0 0.5rem;
+  padding: 0.4rem 0 0;
+}
+
+.lab-controls legend {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  padding-right: 0.4rem;
+}
+
+.lab-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.lab-controls button {
+  border: 1px solid var(--veil);
+  background: rgba(255, 255, 255, 0.35);
+  padding: 0.15rem 0.5rem;
+  cursor: pointer;
+}
+
+.lab-controls button[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.lab-slider,
+.lab-select {
+  display: grid;
+  grid-template-columns: 1fr 3rem;
+  align-items: center;
+  column-gap: 0.4rem;
+  margin: 0.3rem 0;
+}
+
+.lab-slider span,
+.lab-select span {
+  grid-column: 1 / -1;
+}
+
+.lab-select select {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+.lab-slider output,
+.lab-sides output {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.lab-sides {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lab-sides th {
+  font-weight: normal;
+  text-align: left;
+}
+
+.lab-sides td {
+  white-space: nowrap;
+}
+
+.lab-sides input {
+  width: 5.5rem;
+  vertical-align: middle;
+}
+
+.lab-check {
+  display: block;
+  margin: 0.3rem 0;
+}
+
+.lab-note {
+  margin: 0.2rem 0 0.4rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.lab-json {
+  font-size: 0.75rem;
+  max-height: 14rem;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0.4rem;
+}
+
+.lab-maps {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  min-width: 0;
+}
+
+.lab-maps.two {
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--ink);
+}
+
+.lab-pane {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.lab-pane-label {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+}
+
+/* Phones: the controls under the maps, the two maps stacked. */
+@media (max-width: 700px) {
+  .lab-header {
+    flex-wrap: wrap;
+  }
+
+  .lab-section {
+    flex-direction: column-reverse;
+  }
+
+  .lab-controls {
+    width: auto;
+    height: 45%;
+    border-right: none;
+    border-top: 1px solid var(--veil);
+  }
+
+  .lab-maps {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .lab-maps.two {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
