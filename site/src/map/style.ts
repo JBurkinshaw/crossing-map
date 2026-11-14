@@ -1,4 +1,4 @@
-import type { LayerSpecification, StyleSpecification } from 'maplibre-gl'
+import type { ExpressionSpecification, LayerSpecification, StyleSpecification } from 'maplibre-gl'
 import { reliefLayers, reliefSources } from './relief'
 import { fonts, palette as tokens, SPRITE } from './tokens'
 import type { Units } from '../units'
@@ -10,6 +10,9 @@ export const BASE_LAYERS = [
   'relief-tint', 'relief-paper', 'hillshade', 'contour', 'contour-label', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy',
   'mountain-glyph', 'vignette-leader', 'vignette',
 ]
+
+// A creek of Strahler order `o` is drawn from this zoom on (creeks.MIN_ZOOM in tiles/creeks.py; order 7 and up from 7).
+const creekShown: ExpressionSpecification = ['>=', ['zoom'], ['match', ['get', 'o'], 2, 12, 3, 11, 4, 10, 5, 9, 6, 8, 7]]
 
 // The literary basemap (docs/plan.md, section 5.1): ink on caliche paper, the
 // Mexico side a shade darker, rivers in blue-grey ink, and a dash-dot
@@ -61,20 +64,20 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         },
       },
       {
-        // USGS NHD streams, US side only; intermittent and ephemeral ones (fcode 46003, 46007) dashed.
+        // Streams on both sides of the border (tiles/creeks.py): INEGI's in Mexico, NHD's in the US, each by its
+        // Strahler order `o`, shown from the zoom that order earns, wider with order. Intermittent ones (`i`), nearly
+        // all of them in this desert, are solid but lighter, so the few perennial streams stand out.
         id: 'creek',
         type: 'line',
         source: base,
         'source-layer': 'creek',
-        minzoom: 9,
-        // Named streams from zoom 9; the dense unnamed network only from zoom 10, and fainter.
-        filter: ['any', ['has', 'name'], ['>=', ['zoom'], 10]],
+        minzoom: 7,
+        filter: creekShown,
         layout: { 'line-cap': 'round', 'line-join': 'round' },
         paint: {
           'line-color': tokens.water,
-          'line-width': ['interpolate', ['linear'], ['zoom'], 9, 0.4, 12, 1],
-          'line-opacity': ['case', ['has', 'name'], 0.9, 0.35],
-          'line-dasharray': ['match', ['get', 'fcode'], [46003, 46007], ['literal', [3, 2]], ['literal', [1, 0]]],
+          'line-width': ['interpolate', ['linear'], ['zoom'], 8, ['*', 0.15, ['get', 'o']], 12, ['+', 0.35, ['*', 0.22, ['get', 'o']]]],
+          'line-opacity': ['case', ['has', 'i'], 0.65, 0.95],
         },
       },
       {
@@ -122,8 +125,10 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         type: 'symbol',
         source: base,
         'source-layer': 'creek',
-        minzoom: 10,
-        filter: ['has', 'name'],
+        minzoom: 11,
+        // Only on the creeks drawn at this zoom. The Raised view reuses this filter on its own streams, which
+        // carry no `o`, so they count as shown.
+        filter: ['all', ['has', 'name'], ['any', ['!', ['has', 'o']], creekShown]],
         layout: {
           'symbol-placement': 'line',
           'text-field': ['get', 'name'],
