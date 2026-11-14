@@ -52,11 +52,14 @@ const WHEELER_INK = '#2e2010'
 
 type Layer = LayerSpecification & { paint?: Record<string, unknown>; layout?: Record<string, unknown>; 'source-layer'?: string }
 
-// Each output of a zoom curve (['interpolate', ..., ['zoom'], z, out, ...]) passed through f: a zoom expression
-// can only sit at the top of a property, so a factor has to go inside each stop.
+// Each output of a zoom curve (['interpolate', ..., ['zoom'], z, out, ...] or ['step', ['zoom'], out, z, out, ...])
+// passed through f: a zoom expression can only sit at the top of a property, so a change has to go inside each stop.
 function perStop(value: unknown, f: (out: unknown) => unknown): unknown {
   const v = value as unknown[]
-  if (!Array.isArray(v) || v[0] !== 'interpolate' || JSON.stringify(v[2]) !== '["zoom"]') return f(value)
+  if (!Array.isArray(v) || JSON.stringify(v[v[0] === 'step' ? 1 : 2]) !== '["zoom"]') return f(value)
+  // ['step', ['zoom'], out0, z1, out1, ...] or ['interpolate', type, ['zoom'], z0, out0, ...]
+  if (v[0] === 'step') return [...v.slice(0, 2), f(v[2]), ...v.slice(3).map((x, i) => (i % 2 ? f(x) : x))]
+  if (v[0] !== 'interpolate') return f(value)
   return [...v.slice(0, 3), ...v.slice(3).map((x, i) => (i % 2 ? f(x) : x))]
 }
 
@@ -158,7 +161,7 @@ function spotHeights(layer: Layer): Layer {
     ...layer,
     layout: {
       ...layer.layout,
-      'text-field': ['case', bare, height, layer.layout?.['text-field'] as ExpressionSpecification],
+      'text-field': perStop(layer.layout?.['text-field'], (out) => ['case', bare, height, out]) as ExpressionSpecification,
       'text-size': ['case', bare, 9.5, 11],
     },
   } as Layer
