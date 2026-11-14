@@ -25,6 +25,7 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
   - Inferred areas are still circles, waiting for the QGIS redraw in decision 0008.
   - The episode summaries are drafts for you to edit.
 - **Stage 2.**
+  - Rivers (`tiles-v7`): where INEGI's network breaks, a traced river still falls back to Natural Earth's straight line for a stretch, as on the Río Batepito above Colonia Morelos (7.8 km). `tiles/check_rivers.py` (uncommitted, not yet run to the end) would measure every river against the valley floor and list these breaks.
   - 60 fps on a mid-range phone is not measured.
   - The state names in IM Fell small capitals are not drawn.
   - The Cloverdale Creek road leg is not snapped to a road.

@@ -10,6 +10,11 @@ Data releases are dated. Tile releases are named by the tag in `tiles/release.tx
 
 - Veracruz added to the places named elsewhere (3-01), read as the state, as Bell (2000) reads it.
 - A GeoParquet copy of `vignettes`.
+- The wolf's crossing of the Río Bavispe moved 1.7 km east, onto the river's real channel.
+
+### Tiles
+
+- `tiles-v7`: every named river is now traced through INEGI's 1:50,000 network in Mexico and the USGS NHD in the US, keeping to each river's main stem, so the lines follow their valleys instead of Natural Earth's generalised courses. The Raised view now draws the main stems of wide rivers, such as the Bavispe, which were missing.
 
 ### Site
 
