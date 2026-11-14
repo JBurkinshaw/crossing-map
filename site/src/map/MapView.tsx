@@ -16,6 +16,7 @@ import { BASE_LAYERS, literaryStyle } from './style'
 import { palette, storyBounds } from './tokens'
 import { layerFilterUpTo, PROGRESS_LAYERS, styleUpTo } from '../spoiler/filter'
 import type { Units } from '../units'
+import { usePhone } from '../panel/usePhone'
 
 // MapLibre 6 looks for its worker beside its own module file. Bundling moves
 // that module into an app chunk, so point MapLibre at the copy Vite emits.
@@ -206,10 +207,25 @@ export function MapView(props: Props) {
     if (next === 'compare' && chosenView === 'raised') setView('tilted')
     setBasemap(next)
   }
-  // Land colour: the satellite map, faded, under the literary map in the Flat and Tilted views. The Raised view's
-  // line work is shifted north, so imagery would not line up under it.
-  const [landColour, setLandColour] = useState(false)
-  const wash = landColour && !unavailable && basemap === 'literary' && view !== 'raised'
+  // Satellite tint: the satellite map, faded, under the literary map in the Flat and Tilted views. The Raised
+  // view's line work is shifted north, so imagery would not line up under it.
+  const [tint, setTint] = useState(false)
+  const tintAvailable = basemap === 'literary' && view !== 'raised' && !unavailable
+  const wash = tint && tintAvailable
+  // Phones: the map's switches fold into one Map button, so they do not cover the map.
+  const phone = usePhone()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuBox = useRef<HTMLDivElement>(null)
+  const menuButton = useRef<HTMLButtonElement>(null)
+  useEffect(() => {
+    if (!phone || !menuOpen) return
+    // A tap outside the menu closes it, as a tap on the map would otherwise leave it covering the map.
+    const outside = (e: PointerEvent) => {
+      if (!menuBox.current?.contains(e.target as Node)) setMenuOpen(false)
+    }
+    document.addEventListener('pointerdown', outside)
+    return () => document.removeEventListener('pointerdown', outside)
+  }, [phone, menuOpen])
   if ((basemap !== 'literary' || wash) && !satelliteStarted) setSatelliteStarted(true)
   // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
   // tiles are loading, and 'load' fires only once.
@@ -312,7 +328,7 @@ export function MapView(props: Props) {
   }
 
   return (
-    <div className={`map-area${basemap === 'literary' ? '' : ' has-satellite'}${wash ? ' land-colour' : ''}`}>
+    <div className={`map-area${basemap === 'literary' ? '' : ' has-satellite'}${wash ? ' satellite-tint' : ''}`}>
       {satelliteStarted && !unavailable && (
         <Suspense fallback={null}>
           <SatelliteMap
@@ -402,37 +418,83 @@ export function MapView(props: Props) {
           }}
         />
       )}
-      <div className="map-switches">
-        <Switch
-          label="Basemap"
-          options={BASEMAPS.map((b) => ({ ...b, disabled: b.id !== 'literary' && unavailable, paired: basemap === 'compare' && PAIRED.includes(b.id) }))}
-          value={basemap}
-          onChange={chooseBasemap}
-        />
-        <Switch
-          label="View of the classic map"
-          options={VIEWS.map((v) => ({ ...v, disabled: !(basemap === 'literary' || (basemap === 'compare' && v.id !== 'raised')) }))}
-          value={view}
-          onChange={setView}
-        />
-        <Switch
-          label="Units"
-          options={[
-            { id: 'imperial', label: 'Imperial', title: 'Miles and feet', ariaLabel: 'Imperial: miles and feet', disabled: false },
-            { id: 'metric', label: 'Metric', title: 'Kilometres and metres', ariaLabel: 'Metric: kilometres and metres', disabled: false },
-          ]}
-          value={units}
-          onChange={onUnits}
-        />
-        <label className="land-colour-toggle" title={view === 'raised' ? 'Not available in the Raised view' : 'Faint satellite colour under the map'}>
-          <input
-            type="checkbox"
-            checked={landColour}
-            disabled={basemap !== 'literary' || view === 'raised' || unavailable}
-            onChange={(e) => setLandColour(e.target.checked)}
-          />
-          Land colour
-        </label>
+      <div className="map-controls-box" ref={menuBox} onKeyDown={(e) => {
+        if (phone && menuOpen && e.key === 'Escape') {
+          setMenuOpen(false)
+          menuButton.current?.focus()
+        }
+      }}>
+        {phone && (
+          <button
+            ref={menuButton}
+            type="button"
+            className="map-menu-button"
+            aria-expanded={menuOpen}
+            aria-controls="map-controls"
+            aria-label="Map options"
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.4">
+              <path d="M10 3 L18 7 L10 11 L2 7 Z" />
+              <path d="M2 10.5 L10 14.5 L18 10.5" />
+              <path d="M2 14 L10 18 L18 14" />
+            </svg>
+            Map
+          </button>
+        )}
+        {/* One family of switches. View and Ground hang under the basemap switch, ruled off with it, because
+            they change the classic map (and View the compare mode); on Satellite and Topo they fade out. */}
+        <div className="map-controls" id="map-controls" hidden={phone && !menuOpen}>
+          <div className="control-row">
+            <span className="control-label" aria-hidden="true">Map</span>
+            <Switch
+              label="Map"
+              options={BASEMAPS.map((b) => ({ ...b, disabled: b.id !== 'literary' && unavailable, paired: basemap === 'compare' && PAIRED.includes(b.id) }))}
+              value={basemap}
+              onChange={chooseBasemap}
+            />
+          </div>
+          <div className="control-sub" data-off={basemap === 'satellite' || basemap === 'topo' || undefined}>
+            <div className="control-row">
+              <span className="control-label" aria-hidden="true">View</span>
+              <Switch
+                label="View of the classic map"
+                options={VIEWS.map((v) => ({ ...v, disabled: !(basemap === 'literary' || (basemap === 'compare' && v.id !== 'raised')) }))}
+                value={view}
+                onChange={setView}
+              />
+            </div>
+            <div className="control-row">
+              <span className="control-label" aria-hidden="true">Ground</span>
+              <Switch
+                label="Ground of the classic map"
+                options={[
+                  { id: 'paper', label: 'Paper', title: 'The paper colour of the map', disabled: !tintAvailable },
+                  {
+                    id: 'tint',
+                    label: 'Satellite tint',
+                    title: tintAvailable ? 'Faint colour from satellite imagery under the map' : 'Classic map in Flat or Tilted only',
+                    disabled: !tintAvailable,
+                  },
+                ]}
+                value={tint ? 'tint' : 'paper'}
+                onChange={(v) => setTint(v === 'tint')}
+              />
+            </div>
+          </div>
+          <div className="control-row">
+            <span className="control-label" aria-hidden="true">Units</span>
+            <Switch
+              label="Units"
+              options={[
+                { id: 'imperial', label: 'Imperial', title: 'Miles and feet', ariaLabel: 'Imperial: miles and feet', disabled: false },
+                { id: 'metric', label: 'Metric', title: 'Kilometres and metres', ariaLabel: 'Metric: kilometres and metres', disabled: false },
+              ]}
+              value={units}
+              onChange={onUnits}
+            />
+          </div>
+        </div>
       </div>
       {basemap === 'literary' && <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} />}
       {loaded && view !== 'raised' && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}

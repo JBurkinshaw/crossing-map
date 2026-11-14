@@ -446,20 +446,86 @@ select {
   background: var(--paper);
 }
 
-.map-switches {
+/* The map's switches: one framed box, top right, with the cartouche's and the inset's double rule. Each row
+   has a small italic label; View and Ground hang under Map on a ruled branch, as they change the classic map. */
+.map-controls-box {
   position: absolute;
+  z-index: 4;
   top: 10px;
   right: 10px;
+}
+
+.map-controls {
+  display: grid;
+  gap: 5px;
+  padding: 6px 8px;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+  background: var(--paper);
+}
+
+.map-controls[hidden] {
+  display: none;
+}
+
+.control-row {
   display: flex;
+  align-items: center;
   gap: 6px;
 }
 
-/* On phones the switches run onto a second line, clear of the zoom buttons. */
+.control-label {
+  flex: none;
+  width: 3.7rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.control-sub {
+  display: grid;
+  gap: 5px;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid var(--ink);
+}
+
+.control-sub .control-label {
+  width: calc(3.7rem - 21px);
+}
+
+.control-sub[data-off] .control-label {
+  opacity: 0.45;
+}
+
+/* Phones: one Map button, the switches below it when open. */
+.map-menu-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  margin-left: auto;
+  padding: 4px 10px;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+  background: var(--paper);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.map-menu-button[aria-expanded='true'] {
+  color: var(--paper);
+  background: var(--ink);
+}
+
 @media (max-width: 720px) {
-  .map-switches {
-    left: 50px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+  .map-controls-box {
+    top: max(10px, env(safe-area-inset-top));
+    display: grid;
+    justify-items: end;
+    gap: 8px;
   }
 }
 
@@ -504,9 +570,10 @@ select {
   cursor: default;
 }
 
+/* Under the map's switches. */
 .notice {
   position: absolute;
-  top: 48px;
+  top: 186px;
   right: 10px;
   max-width: 260px;
   margin: 0;
@@ -516,63 +583,40 @@ select {
   font-size: 0.8rem;
 }
 
-/* Phones: the switches stack down the right edge, clear of the zoom buttons. */
+/* On phones the notices sit under the Map button. */
 @media (max-width: 720px) {
-  .map-switches {
-    top: max(10px, env(safe-area-inset-top));
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-  }
-  .basemap-switch button,
-  .map-switches .land-colour-toggle {
-    min-height: 30px;
-    padding: 2px 8px;
-    font-size: 0.8rem;
+  .basemap-switch button {
+    min-height: 36px;
+    padding: 2px 9px;
   }
   .notice {
-    top: 120px;
+    top: 58px;
+    left: 50px;
+    max-width: none;
   }
 }
 
 /* Clear the MapTiler logo, which the satellite map draws bottom left. */
 .has-satellite .literary .maplibregl-ctrl-bottom-left,
-.land-colour .literary .maplibregl-ctrl-bottom-left {
+.satellite-tint .literary .maplibregl-ctrl-bottom-left {
   left: 100px;
 }
 
-/* Land colour: the imagery, brightened, saturated and faded over white, tints the classic map multiplied
+/* Satellite tint: the imagery, brightened, saturated and faded over white, tints the classic map multiplied
    over it. Bright imagery darkens the map very little, so the tint adds colour without murk, and ink and
    water keep nearly their own colour. Only the imagery fades; the MapTiler logo and attribution stay at
    full strength. */
-.land-colour .satellite {
+.satellite-tint .satellite {
   background: #fff;
 }
 
-.land-colour .satellite .maplibregl-canvas {
+.satellite-tint .satellite .maplibregl-canvas {
   opacity: 0.25;
   filter: saturate(1.4) brightness(1.45) contrast(0.95);
 }
 
-.land-colour .literary .maplibregl-canvas {
+.satellite-tint .literary .maplibregl-canvas {
   mix-blend-mode: multiply;
-}
-
-.land-colour-toggle {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 32px;
-  padding: 4px 10px;
-  border: 1px solid var(--ink);
-  background: var(--paper);
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-
-.land-colour-toggle:has(input:disabled) {
-  opacity: 0.4;
-  cursor: default;
 }
 
 .elsewhere {

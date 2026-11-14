@@ -153,7 +153,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'MapTiler',
         link: 'https://www.maptiler.com/copyright/',
-        use: 'Satellite imagery for the Satellite, Compare and Land colour views, and the Topo basemap, on MapTiler’s free plan. The MapTiler logo shows on the map whenever either does.',
+        use: 'Satellite imagery for the Satellite and Compare views and the Satellite tint, and the Topo basemap, on MapTiler’s free plan. The MapTiler logo shows on the map whenever either does.',
         licence: 'MapTiler terms (non-commercial free plan)',
         credit: '© MapTiler © OpenStreetMap contributors',
       },

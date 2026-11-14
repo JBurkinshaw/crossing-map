@@ -12,7 +12,7 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
 1. **[you]** Publish `tiles-v6`. It holds the new base archive (Mexico's rivers from INEGI) and the six unchanged archives. Then push `stage/4-rest-of-book`.
 2. **[you]** **Merge into main.** `main` and the public root still show stage 2 with `tiles-v2`, and stages 3 and 4 were never merged. Either merge `stage/4-rest-of-book` to main through a PR, or launch on `/preview/`.
 3. **[you]** Check the preview, which localhost cannot test:
-   - the MapTiler logo, Satellite, Topo, Compare and Land colour (the key's allowed domains)
+   - the MapTiler logo, Satellite, Topo, Compare and Satellite tint (the key's allowed domains)
    - a one-handed phone test
 4. **[you]** Sign off the stage 4 place checklists (`review/stage-4/batch-a/checklist.md` and `batch-b/checklist.md`) and tick the acceptance criteria in plan section 11.
 5. **[you]** Send the permission message to Joe Hazelton. A courtesy note to James Bell is optional.
@@ -102,7 +102,7 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
   - Thinning pass labels.
   - Glyph thresholds.
   - Raised details.
-  - The name of "Land colour".
+  - The name of "Land colour": stage 8 proposes "Satellite tint" (review/stage-8/ui/README.md, item 4).
 - **CI.** The spoiler-leak test, bundle size and Lighthouse in the deploy workflow.
 - **Analytics.** Cookie-free (GoatCounter or Cloudflare) or Google.
 
