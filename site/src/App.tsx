@@ -141,6 +141,8 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, { journey: 'J1', stopIndex: 0, stepping: false })
   const [selection, setSelection] = useState<Selection>(null)
   const [translationId, setTranslationId] = useState<string | null>(null)
+  // "How this was placed" stays open or closed as the reader left it, whichever stop shows.
+  const [placementOpen, setPlacementOpen] = useState(false)
   const [units, setUnits] = useUnits()
   // Phones: the panel is a bottom drawer. It opens half way, so the reading-progress badge and search show.
   const phone = usePhone()
@@ -381,6 +383,8 @@ export default function App() {
           currentTranslation={translationId}
           onJourney={(journey) => dispatch({ type: 'journey', journey })}
           onStop={goToStop}
+          placementOpen={placementOpen}
+          onPlacement={setPlacementOpen}
           phone={phone}
           drawer={drawer}
           onDrawer={setDrawer}

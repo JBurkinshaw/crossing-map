@@ -33,6 +33,9 @@ type Props = {
   currentTranslation: string | null
   onJourney: (journey: string) => void
   onStop: (index: number) => void
+  // Whether "How this was placed" is open: App holds it, so it stays as the reader left it between stops.
+  placementOpen: boolean
+  onPlacement: (open: boolean) => void
   // On phones the panel is a bottom drawer (Drawer.tsx) at this height.
   phone: boolean
   drawer: DrawerHeight
@@ -42,7 +45,7 @@ type Props = {
 export function Panel(props: Props) {
   const { header, search, card, failed, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
   const { spokenOnRoad, onShowRoad } = props
-  const { phone, drawer, onDrawer, units, questions } = props
+  const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement } = props
   const stop = stops[stopIndex]
 
   const links = (
@@ -77,8 +80,8 @@ export function Panel(props: Props) {
     <section className="stop" aria-live="polite" data-first-seen={stop.properties.first_seen}>
       <h2>{stop.properties.name}</h2>
       {(stop.properties.note_full || stop.properties.note_safe) && <p>{stop.properties.note_full || stop.properties.note_safe}</p>}
-      {/* Keyed by stop, so it closes again at the next stop. */}
-      <details key={stop.properties.id} className="placement">
+      {/* Open or closed as the reader last left it, from stop to stop and journey to journey. */}
+      <details className="placement" open={placementOpen} onToggle={(e) => onPlacement(e.currentTarget.open)}>
         <summary>How this was placed</summary>
         <div className="meta">
           {stop.properties.certainty}
