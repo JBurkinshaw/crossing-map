@@ -652,6 +652,13 @@ details.more {
   border-top: 1px solid var(--ink-faint);
 }
 
+/* All stops sits between the stepper and the stop: ruled off below too, so the stop reads as its own part. */
+details.all-stops {
+  margin-bottom: 12px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
 details.more summary,
 .placement summary {
   min-height: 32px;

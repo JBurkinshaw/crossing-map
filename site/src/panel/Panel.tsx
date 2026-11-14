@@ -132,7 +132,7 @@ export function Panel(props: Props) {
   )
 
   const stopList = stops.length > 0 && (
-    <details className="more">
+    <details className="more all-stops">
       <summary>All stops ({stops.length})</summary>
       <ol className="stop-list">
         {stops.map((f, i) => (
@@ -160,18 +160,21 @@ export function Panel(props: Props) {
     </details>
   )
 
-  // Phones: the controls a thumb needs most come first, nearest the bottom of the screen at peek and half
-  // height (the stepper, then the journey and search); the page links go last.
+  // The panel reads from the general to the particular: reading progress and search, which govern the whole
+  // map; then the way through a journey (which journey, Back and Next, all its stops); then what is in focus
+  // (the card for a pick on the map or in search, and the current stop); then places beyond the map and the
+  // page links. Phones put the stepper in the drawer's peek row, nearest the thumb, and the journey and its
+  // stops straight under it; search and progress follow, as the drawer opens half way.
   if (phone) {
     return (
       <Drawer label="Journey" height={drawer} onHeight={onDrawer} peek={stepper}>
         {journeyPick}
+        {stopList}
         {search}
         {header}
-        {card}
         {failure}
+        {card}
         {stopSection}
-        {stopList}
         {elsewhereList}
         {links}
       </Drawer>
@@ -185,9 +188,9 @@ export function Panel(props: Props) {
       {journeyPick}
       {failure}
       {stepper}
+      {stopList}
       {card}
       {stopSection}
-      {stopList}
       {elsewhereList}
       {links}
     </aside>
