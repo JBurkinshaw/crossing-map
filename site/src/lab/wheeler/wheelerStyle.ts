@@ -5,6 +5,7 @@ import { fonts, palette } from '../../map/tokens'
 import { landforms } from './landforms'
 import { riverLines } from './riverLines'
 import { addPlaces, PLACES_OFF, PLACES_ON, type PlacesParams } from './subset/places'
+import { historicRoads } from './subset/roads'
 
 // The Wheeler study's parameters (review/stage-8/wheeler/README.md). Each one, at its "today" value, leaves the
 // classic style exactly as the site draws it, so the lab can show the map before and after one change at a time.
@@ -26,10 +27,12 @@ export type Params = {
   tilted: boolean
   // Stage 9, test area: water sources and stations, the graticule and the frame (subset/places.ts).
   places: PlacesParams
+  // Card "roads" (subset/roads.ts): the hand-traced historic roads of the test area, with the book's mileages.
+  roads: boolean
 }
 
-export const TODAY: Params = { water: false, spotHeights: false, landforms: false, contrast: 0, darkInk: false, taper: false, paper: 'today', tilted: false, places: PLACES_OFF }
-export const WHEELER: Params = { water: true, spotHeights: true, landforms: true, contrast: 1, darkInk: true, taper: true, paper: 'cream', tilted: false, places: PLACES_ON }
+export const TODAY: Params = { water: false, spotHeights: false, landforms: false, contrast: 0, darkInk: false, taper: false, paper: 'today', tilted: false, places: PLACES_OFF, roads: false }
+export const WHEELER: Params = { water: true, spotHeights: true, landforms: true, contrast: 1, darkInk: true, taper: true, paper: 'cream', tilted: false, places: PLACES_ON, roads: true }
 
 // The two papers measured on the sheets (median of the blank ground inside the neatline, review README): sheet 70A's
 // cream under-tint and sheet 83's light grey one, each a little darkened so the sepia hachures still read on screen.
@@ -230,7 +233,7 @@ export function wheelerStyle(p: Params): StyleSpecification {
     ...(p.landforms ? [landformLayer(halo, palette.ink)] : []),
     ...layers.slice(glyph + 1),
   ]
-  return addPlaces({
+  const style: StyleSpecification = {
     ...base,
     sources: {
       ...base.sources,
@@ -241,5 +244,6 @@ export function wheelerStyle(p: Params): StyleSpecification {
     },
     ...(p.tilted ? { terrain: { source: 'terrain3d', exaggeration: TERRAIN_EXAGGERATION } } : {}),
     layers,
-  }, p.places, halo)
+  }
+  return addPlaces(p.roads ? historicRoads(style, halo, palette.ink) : style, p.places, halo)
 }

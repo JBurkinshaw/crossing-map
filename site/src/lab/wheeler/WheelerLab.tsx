@@ -29,12 +29,13 @@ const PAPERS: { id: Paper; label: string }[] = [
   { id: 'grey', label: 'Grey (83)' },
 ]
 
-const TOGGLES: { id: Exclude<Param, 'contrast' | 'paper'>; label: string }[] = [
+const TOGGLES: { id: Exclude<Param, 'contrast' | 'paper'> | 'roads'; label: string }[] = [
   { id: 'water', label: 'River lettering' },
   { id: 'spotHeights', label: 'Spot heights' },
   { id: 'landforms', label: 'Landform names along axis' },
   { id: 'taper', label: 'Drainage by rank' },
   { id: 'darkInk', label: 'Hachures in brown-black' },
+  { id: 'roads', label: 'Historic roads (test area)' },
 ]
 
 const PARAM_LABEL: Record<Param, string> = {
