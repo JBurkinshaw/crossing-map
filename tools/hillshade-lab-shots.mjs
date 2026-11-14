@@ -7,7 +7,7 @@
 import { mkdir } from 'node:fs/promises'
 import path from 'node:path'
 import { parseArgs } from 'node:util'
-import { chromium } from 'playwright'
+import { collectProblems, launch, newPage, report } from './lib/browser.mjs'
 
 const { values } = parseArgs({ options: {
   out: { type: 'string' }, presets: { type: 'string', default: 'site' }, sharper: { type: 'boolean', default: false },
@@ -25,13 +25,11 @@ const LABELS = { site: 'Site today', s5: 'S5 as built', maptiler: 'MapTiler-like
 const W = 800
 const H = 600
 
-const browser = await chromium.launch()
-const context = await browser.newContext({ viewport: { width: 1400, height: 900 }, userAgent: 'crossing-map-research/0.1' })
+const browser = await launch()
 // Not started: only the land shows, as for a new reader.
-await context.addInitScript(() => localStorage.setItem('crossing-map.progress', 'none'))
-const page = await context.newPage()
-const problems = []
-page.on('pageerror', (e) => problems.push(e.message))
+const page = await newPage(browser, { progress: 'none', userAgent: 'crossing-map-research/0.1' })
+// MapTiler refuses localhost (403); the Topo shots come from the published preview instead.
+const problems = collectProblems(page, { ignore: /maptiler|403/i })
 
 const clipAround = async (selector) => {
   const box = await page.locator(selector).first().boundingBox()
@@ -70,5 +68,5 @@ if (values.topo) {
 }
 
 await browser.close()
-if (problems.length) console.log(problems.join('\n'))
+report(problems)
 console.log(`Wrote shots to ${out}`)

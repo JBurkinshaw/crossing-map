@@ -1,0 +1,11 @@
+# Lints the pipeline, tile, art and tool scripts. Run from the repo root:
+#   uv run --project pipeline ruff check
+line-length = 120
+target-version = "py312"
+extend-exclude = ["pipeline/relief/hachures", "site", "private", "review/experiments", "**/node_modules"]
+
+[lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[lint.isort]
+known-first-party = ["crossing"]

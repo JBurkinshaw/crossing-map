@@ -1,8 +1,7 @@
 import { useSyncExternalStore } from 'react'
+import { PHONE_QUERY } from '../map/setup'
 
-// The width below which the panel becomes the drawer; index.css uses the same.
-const PHONE = '(max-width: 720px)'
-const phoneQuery = () => window.matchMedia(PHONE)
+const phoneQuery = () => window.matchMedia(PHONE_QUERY)
 export function usePhone(): boolean {
   return useSyncExternalStore(
     (onChange) => {

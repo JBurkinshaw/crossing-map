@@ -2,7 +2,7 @@
 
 Run with QGIS's Python (QGIS 4), not the uv pipeline:
   PYTHONPATH=$QGIS/share/qgis/python QT_QPA_PLATFORM=offscreen \\
-    $QGIS/bin/python3.14 pipeline/relief/run_hachures.py DEM.tif OUT_PREFIX \\
+    $QGIS/bin/python3.N pipeline/relief/run_hachures.py DEM.tif OUT_PREFIX \\
     [--min-spacing 3] [--max-spacing 8] [--min-slope 10] [--max-slope 40] \\
     [--contour-interval 10] [--seed 1994] [--split]
 
@@ -29,7 +29,6 @@ from qgis.core import (
     QgsVectorFileWriter,
 )
 
-REPO = Path(__file__).resolve().parents[2]
 SCRIPT = Path(__file__).resolve().parent / "hachures" / "hachure_generator.py"
 
 
@@ -71,7 +70,7 @@ def main() -> None:
 
     Processing.initialize()
     import qgis.utils
-    from qgis import processing
+    from qgis import processing  # noqa: F401  (loaded before the generator runs, as the QGIS console does)
 
     dem = QgsRasterLayer(a.dem, "DEM")
     if not dem.isValid():
@@ -92,7 +91,8 @@ def main() -> None:
         # The generator is written for the QGIS Python console, which pre-imports qgis.core, Qt and
         # processing and predefines `iface`; it relies on all of these before its own imports.
         console = {"__name__": "__main__", "SETTINGS": settings}
-        exec("from qgis.core import *\nfrom qgis.PyQt.QtCore import *\nfrom qgis.PyQt.QtGui import *\nfrom qgis import processing", console)
+        exec("from qgis.core import *\nfrom qgis.PyQt.QtCore import *\nfrom qgis.PyQt.QtGui import *\n"
+             "from qgis import processing", console)
         console["iface"] = qgis.utils.iface
         exec(compile(SCRIPT.read_text(encoding="utf-8"), str(SCRIPT), "exec"), console)
         print(f"Script ran in {time.monotonic() - started:.0f} s")
@@ -108,7 +108,9 @@ def main() -> None:
             out = f"{a.out_prefix}-{suffix}.geojson"
             opts.ct = QgsCoordinateTransform(layers[0].crs(), wgs84, QgsProject.instance())
             err = QgsVectorFileWriter.writeAsVectorFormatV3(layers[0], out, QgsCoordinateTransformContext(), opts)
-            print(f"{out}: {layers[0].featureCount()} features ({err[0]})")
+            if err[0] != QgsVectorFileWriter.NoError:
+                sys.exit(f"Could not write {out}: {err[1]}")
+            print(f"{out}: {layers[0].featureCount()} features")
     finally:
         app.exitQgis()
 

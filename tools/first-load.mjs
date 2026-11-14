@@ -1,7 +1,7 @@
-// First load of the built site on a throttled phone connection (docs/plan.md, stage 6 performance pass):
+// First load of the built site on a throttled phone connection (the performance criteria in docs/design.md, section 11):
 // the time to a drawn map, and what was fetched to draw it, by kind.
 //
-// Usage, after `cd site && npm run build`:
+// Usage, after `cd site && VITE_DEBUG=1 npm run build` (the script waits for the window.__map handle):
 //   cd tools && node first-load.mjs [runs]
 // It serves site/dist itself, gzipped as GitHub Pages does (archives unzipped, with range requests), and
 // loads it as a first visit (no reading progress stored) at two settings:
@@ -11,11 +11,12 @@
 // "Map ready" is MapLibre's load event (style, sprites and first tiles in); "map drawn" is the first moment
 // every tile of the opening view has loaded and the map is idle. Medians of the runs (default 3).
 import { createServer } from 'node:http'
-import { readFile, stat } from 'node:fs/promises'
+import { open, readFile, stat } from 'node:fs/promises'
 import { gzipSync } from 'node:zlib'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { chromium, devices } from 'playwright'
+import { devices } from 'playwright'
+import { launch, newPage } from './lib/browser.mjs'
 
 const runs = Number(process.argv[2] ?? 3)
 const dist = fileURLToPath(new URL('../site/dist/', import.meta.url))
@@ -36,7 +37,6 @@ const server = createServer(async (req, res) => {
   const type = TYPES[ext] ?? 'application/octet-stream'
   const range = req.headers.range?.match(/bytes=(\d+)-(\d*)/)
   if (range) {
-    const { open } = await import('node:fs/promises')
     const start = Number(range[1])
     const end = range[2] ? Math.min(Number(range[2]), info.size - 1) : info.size - 1
     const fh = await open(file)
@@ -70,10 +70,11 @@ const kind = (url) => {
 }
 
 async function once(profile) {
-  const browser = await chromium.launch()
-  const context = await browser.newContext(profile === 'phone' ? devices['iPhone 14'] : { viewport: { width: 1280, height: 800 } })
-  const page = await context.newPage()
-  const cdp = await context.newCDPSession(page)
+  const browser = await launch()
+  // A first visit: no reading progress stored.
+  const options = profile === 'phone' ? { device: devices['iPhone 14'] } : { viewport: { width: 1280, height: 800 } }
+  const page = await newPage(browser, { ...options, progress: null })
+  const cdp = await page.context().newCDPSession(page)
   await cdp.send('Network.enable')
   await cdp.send('Network.setCacheDisabled', { cacheDisabled: true })
   if (profile === 'phone') {

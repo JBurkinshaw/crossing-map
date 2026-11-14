@@ -8,8 +8,8 @@
 node_modules/
 dist/
 site/.env.local
-site/public/data/
-site/public/tiles/
+/site/public/data
+/site/public/tiles
 # Python
 .venv/
 __pycache__/
@@ -21,5 +21,6 @@ __pycache__/
 playwright-report/
 test-results/
 .DS_Store
-# Landform sheet intermediate; tools/landform-sheet.mjs rebuilds it
-review/*/landforms/*.html
+# Review screenshots belong in private/review/ or a release, not in git history
+review/**/*.png
+review/**/*.jpg

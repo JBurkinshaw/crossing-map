@@ -11,17 +11,16 @@ keeps its type.
 
 import json
 import sys
-from pathlib import Path
 
 import pyarrow as pa
 import pyarrow.parquet as pq
 import shapely
 
-REPO = Path(__file__).resolve().parents[3]
-DATA = REPO / "data"
+from crossing.paths import DATA, REPO
+from crossing.validate import LAYERS
+
 OUT = DATA / "parquet"
 SCHEMA = DATA / "schema" / "story-layer.schema.json"
-LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs", "vignettes"]
 GEOPARQUET_VERSION = "1.1.0"
 
 
@@ -48,7 +47,8 @@ def layer_table(name: str, props_schema: dict) -> pa.Table:
         columns += [k for k in f["properties"] if k not in columns]
     fields = [pa.field(c, arrow_type(props_schema[c])) for c in columns]
     geoms = [shapely.geometry.shape(f["geometry"]) for f in features]
-    arrays = [pa.array([f["properties"].get(c) for f in features], type=fld.type) for c, fld in zip(columns, fields)]
+    arrays = [pa.array([f["properties"].get(c) for f in features], type=fld.type)
+              for c, fld in zip(columns, fields, strict=True)]
     arrays.append(pa.array(shapely.to_wkb(geoms, output_dimension=2), type=pa.binary()))
     fields.append(pa.field("geometry", pa.binary()))
     xmin, ymin, xmax, ymax = shapely.total_bounds(geoms)
@@ -77,7 +77,8 @@ def main() -> None:
         path = OUT / f"{name}.parquet"
         if check:
             current = pq.read_table(path) if path.exists() else None
-            if current is None or not current.equals(table) or current.schema.metadata.get(b"geo") != table.schema.metadata[b"geo"]:
+            same_geo = current is not None and current.schema.metadata.get(b"geo") == table.schema.metadata[b"geo"]
+            if current is None or not current.equals(table) or not same_geo:
                 stale.append(path.relative_to(REPO))
             continue
         pq.write_table(table, path, compression="zstd")

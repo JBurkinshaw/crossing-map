@@ -1,15 +1,15 @@
 // The landform review sheet (stage 3): the glyph families, and the map where
 // crossing.landforms finds clusters of mesas, domes and ridges, with the chosen
-// relief treatment. Saves review/stage-3/landforms/{glyphs.png,<view>.jpg}.
+// relief treatment. Saves private/review/landforms/{glyphs.png,<view>.jpg}, out of git.
 // Usage: node landform-sheet.mjs [base-url]   (needs the built site served, e.g. npm run preview in site/)
 import { mkdir, readdir, writeFile } from 'node:fs/promises'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import path from 'node:path'
-import { chromium } from 'playwright'
+import { collectProblems, gotoMap, launch, newPage, report } from './lib/browser.mjs'
 
 const baseUrl = process.argv[2] ?? 'http://localhost:4173/'
 const repo = fileURLToPath(new URL('..', import.meta.url))
-const out = path.join(repo, 'review', 'stage-3', 'landforms')
+const out = path.join(repo, 'private', 'review', 'landforms')
 const svgDir = path.join(repo, 'art', 'glyphs', 'svg')
 const families = ['peak', 'dome', 'mesa', 'butte', 'cone', 'ridge', 'pass']
 // Centres of the densest clusters of non-peak glyphs in data/mountain_glyphs.geojson, named for the
@@ -23,12 +23,9 @@ const views = {
 }
 
 await mkdir(out, { recursive: true })
-const browser = await chromium.launch()
-const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 })
-// Spoiler mode would open its dialog over every view; these screenshots show the whole book.
-await page.addInitScript(() => localStorage.setItem('crossing-map.progress', 'all'))
-const problems = []
-page.on('console', (m) => m.type() === 'error' && problems.push(m.text().slice(0, 160)))
+const browser = await launch()
+const page = await newPage(browser, { viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 })
+const problems = collectProblems(page)
 
 // The families: each shape and its mirrored twin, at twice their map size.
 const files = new Set(await readdir(svgDir))
@@ -49,12 +46,10 @@ await page.setViewportSize({ width: 1440, height: 900 })
 console.log('Glyphs: glyphs.png')
 
 for (const [name, v] of Object.entries(views)) {
-  await page.goto('about:blank')
-  await page.goto(`${baseUrl}#map=9.5/${v.lat}/${v.lon}`, { waitUntil: 'load' })
-  await page.waitForSelector('canvas.maplibregl-canvas')
+  await gotoMap(page, baseUrl, { zoom: 9.5, ...v })
   await page.waitForTimeout(3500)
   await page.screenshot({ path: path.join(out, `${name}.jpg`), type: 'jpeg', quality: 88 })
   console.log(`View: ${name}.jpg`)
 }
 await browser.close()
-console.log(problems.length ? `Problems:\n${[...new Set(problems)].join('\n')}` : 'No console errors.')
+report(problems)

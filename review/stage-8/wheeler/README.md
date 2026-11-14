@@ -18,9 +18,9 @@ The links are catalogue searches by list number. The collection puts a bot check
 
 At its printed size, sheet 83 is about our zoom 10 on a 96 dpi screen, and sheet 70A about zoom 11.
 
-**How to see it.** The lab section is a default export with no props. It mounts in the lab shell another agent is building. To view it on its own:
-1. Create `site/wheeler-dev.html`, a few lines that render `<WheelerLab />` after importing `src/index.css`. It is a throwaway page and is not committed.
-2. Run `cd site && npm run dev -- --port 5193` and open `/wheeler-dev.html`.
+**How to see it.** The section is the Wheeler tab of the lab page:
+1. Run `cd site && npm run dev -- --port 5193`.
+2. Open `/lab.html#wheeler`.
 
 Screenshots are in `shots/`, made with `tools/wheeler-shots.mjs`:
 - `now-*`: the site today.
@@ -276,4 +276,4 @@ Historic roads of the story's years (1939 to 1944) or earlier, both sides of the
 - `site/src/lab/wheeler/landforms.ts` and `riverLines.ts`: generated demo data, from `review/stage-8/wheeler/landform_axes.py` and `river_label_lines.py`.
 - `site/src/lab/wheeler/wheeler.css`: the section's styles, prefixed `wheeler-`.
 - `tools/wheeler-shots.mjs`: the screenshots.
-- Not committed: `site/wheeler-dev.html` (dev page), `private/inspiration/rumsey/` (the scans).
+- Not committed: `private/inspiration/rumsey/` (the scans).

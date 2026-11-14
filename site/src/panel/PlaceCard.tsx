@@ -30,7 +30,7 @@ type Props = {
 }
 
 // The card for a place or area picked on the map or in search, or for the road a line was spoken on: what it
-// is, how it was placed, and what was said there in Spanish ("Spoken here", plan section 8).
+// is, how it was placed, and what was said there in Spanish ("Spoken here", design section 8).
 export function PlaceCard({ feature, units, questions, spoken, currentTranslation, onClose, title, spokenTitle = 'Spoken here', spokenNote }: Props) {
   const p = feature.properties
   const card = useRef<HTMLElement>(null)
@@ -41,11 +41,12 @@ export function PlaceCard({ feature, units, questions, spoken, currentTranslatio
     card.current?.scrollIntoView({ block: marksLine ? 'nearest' : 'start' })
   }, [p.id, marksLine])
   return (
-    <section ref={card} className="place-card" aria-live="polite" data-first-seen={p.first_seen} data-role={p.role ?? undefined}>
+    <section ref={card} className="place-card" data-first-seen={p.first_seen} data-role={p.role ?? undefined}>
       <button type="button" className="close" aria-label="Close" onClick={onClose}>
         ×
       </button>
-      <h2>{title ?? p.name}</h2>
+      {/* Only the title is announced when a card opens: the whole card would be read out on every pick. */}
+      <h2 aria-live="polite">{title ?? p.name}</h2>
       <div className="meta">
         {KIND[p.kind ?? ''] ?? p.kind} · {p.certainty}
         {p.uncertainty_m ? `, within about ${distance(p.uncertainty_m, units)}` : ''} · {p.source}

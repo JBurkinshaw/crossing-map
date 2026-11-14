@@ -13,19 +13,15 @@ or place stops the build: at zoom 9 that is about 30 px, under half a drawing's 
 
 import csv
 import json
-from pathlib import Path
 
 from pyproj import Geod
 
-REPO = Path(__file__).resolve().parents[3]
-SEED = REPO / "pipeline" / "seeds" / "vignettes.csv"
-DATA = REPO / "data"
+from crossing.build_story import r5, write
+from crossing.paths import DATA, SEEDS
+
+SEED = SEEDS / "vignettes.csv"
 GEOD = Geod(ellps="WGS84")
 CLEAR_KM = 8
-
-
-def r5(x: float) -> float:
-    return round(x, 5)
 
 
 def main() -> None:
@@ -44,17 +40,19 @@ def main() -> None:
         nearest = min(((GEOD.inv(x, y, lon, lat)[2], n) for n, x, y in points.values()))
         if nearest[0] < CLEAR_KM * 1000:
             problems.append(f"{s['id']}: {nearest[0] / 1000:.1f} km from {nearest[1]}, under {CLEAR_KM} km")
-        measured = (f" The anchor is {dist / 1000:.0f} km from {ref_name}, bearing {azimuth % 360:.0f} degrees; the nearest "
-                    f"stop or place, {nearest[1]}, is {nearest[0] / 1000:.0f} km away (pyproj, WGS 84).")
+        measured = (f" The anchor is {dist / 1000:.0f} km from {ref_name}, bearing {azimuth % 360:.0f} degrees; "
+                    f"the nearest stop or place, {nearest[1]}, is {nearest[0] / 1000:.0f} km away (pyproj, WGS 84).")
         props = dict(
             id=f"vignette-{s['id']}", name=s["name"], kind="vignette", stands_for=s["stands_for"], place_ref=s["ref"],
             part=int(s["first_seen"][0]), episode=s["first_seen"], first_seen=s["first_seen"],
-            certainty="approximate", method="hand-drawn", source="this-site", source_id=None, source_licence="CC BY 4.0",
+            certainty="approximate", method="hand-drawn", source="this-site", source_id=None,
+            source_licence="CC BY 4.0",
             note_safe=s["note"], reasoning=s["reasoning"] + measured,
             vignette=f"vignette-{s['id']}", min_zoom=float(s["min_zoom"]), max_zoom=float(s["max_zoom"]),
             priority=int(s["priority"]),
         )
-        features.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [r5(lon), r5(lat)]}, "properties": props})
+        point = {"type": "Point", "coordinates": [r5(lon), r5(lat)]}
+        features.append({"type": "Feature", "geometry": point, "properties": props})
         if s["leader"] == "yes":
             leader = props | {"id": f"vignette-{s['id']}-leader", "kind": "vignette-leader",
                               "reasoning": f"A hairline from the drawing to {ref_name}, a located site."}
@@ -62,10 +60,8 @@ def main() -> None:
                 "type": "LineString", "coordinates": [[r5(lon), r5(lat)], [r5(ref_lon), r5(ref_lat)]]}})
     if problems:
         raise SystemExit("Anchors too close to a stop or place:\n  " + "\n  ".join(problems))
-    path = DATA / "vignettes.geojson"
-    path.write_text(json.dumps({"type": "FeatureCollection", "features": features}, ensure_ascii=False, indent=1) + "\n",
-                    encoding="utf-8")
-    print(f"vignettes.geojson: {len(seeds)} vignettes, {len(features) - len(seeds)} leaders")
+    write("vignettes.geojson", features)
+    print(f"{len(seeds)} vignettes, {len(features) - len(seeds)} leaders")
 
 
 if __name__ == "__main__":

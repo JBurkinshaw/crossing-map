@@ -1,5 +1,6 @@
 # Checks the repo, then deploys one GitHub Pages site holding two builds:
 # `main` at the root, and the newest stage/* branch under /preview/.
+# Actions are pinned to commit SHAs (tag in the comment); Dependabot keeps them current.
 name: Check and deploy
 
 on:
@@ -9,8 +10,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -20,32 +19,103 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Nothing under private/ is tracked
         run: |
           if [ -n "$(git ls-files private)" ]; then
             echo "::error::Files under private/ are tracked:"; git ls-files private; exit 1
           fi
-      - uses: astral-sh/setup-uv@v10.3.3
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      - name: Lint the Python
+        run: uv run --project pipeline ruff check
+      - name: Test the pipeline
+        working-directory: pipeline
+        run: uv run pytest
       - name: Validate data against schemas
         run: uv run --project pipeline python -m crossing.validate
       - name: GeoParquet downloads match the GeoJSON
         run: uv run --project pipeline python -m crossing.downloads --check
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Lint and test the site
+        working-directory: site
+        run: |
+          npm ci --no-audit --no-fund --ignore-scripts
+          npm run lint
+          npm test
+
+  # The pushed commit, built with the map handle (VITE_DEBUG=1) and served locally, must show nothing past each
+  # reading position (tools/spoiler-leak.mjs).
+  spoiler-leak:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            site/package-lock.json
+            tools/package-lock.json
+      - name: Download the tiles
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "$(tr -d '[:space:]' < tiles/release.txt)" \
+            --pattern '*.pmtiles' --dir site/public/tiles
+      - name: Build the site with the map handle
+        working-directory: site
+        env:
+          VITE_DEBUG: '1'
+        run: |
+          npm ci --no-audit --no-fund --ignore-scripts
+          npm run build
+      - name: Install Playwright
+        working-directory: tools
+        run: |
+          npm ci --no-audit --no-fund --ignore-scripts
+          echo "PLAYWRIGHT_VERSION=$(node -p "require('playwright/package.json').version")" >> "$GITHUB_ENV"
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ env.PLAYWRIGHT_VERSION }}
+      - name: Install Chromium
+        working-directory: tools
+        run: |
+          if [ "${{ steps.playwright-cache.outputs.cache-hit }}" = true ]; then
+            npx playwright install-deps chromium
+          else
+            npx playwright install --with-deps chromium
+          fi
+      - name: Run the spoiler-leak test
+        # Four reading positions take about seven minutes; run all ten locally before a release.
+        env:
+          SPOILER_POINTS: unset,1-08,3-08,all
+        run: |
+          (cd site && npx vite preview --port 5185 --strictPort) &
+          for _ in $(seq 60); do curl -sf -o /dev/null http://localhost:5185/ && break; sleep 1; done
+          cd tools && node spoiler-leak.mjs http://localhost:5185/
 
   build:
-    needs: check
+    needs: [check, spoiler-leak]
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ github.token }}
       # Public by design: the key ships in the browser bundle and MapTiler restricts it by origin.
       VITE_MAPTILER_KEY: ${{ vars.VITE_MAPTILER_KEY }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: 22
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: site/package-lock.json
       - name: Pick the preview branch
         id: preview
         # Always the newest stage branch, whichever push started the run: the runs queue
@@ -55,11 +125,32 @@ jobs:
             --format='%(refname:lstrip=3)' 'refs/remotes/origin/stage/')
           echo "branch=$branch" >> "$GITHUB_OUTPUT"
           echo "Preview branch: ${branch:-none}"
-      - name: Build main at the root
+      - name: Check out main and the preview
+        env:
+          # Passed through the environment: a branch name may contain shell syntax.
+          PREVIEW_BRANCH: ${{ steps.preview.outputs.branch }}
         run: |
           git worktree add ../main origin/main
+          if [ -n "$PREVIEW_BRANCH" ]; then git worktree add ../preview "origin/$PREVIEW_BRANCH"; fi
+      - name: Download each tile release once
+        id: tiles
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag_of() { [ -f "$1/tiles/release.txt" ] && tr -d '[:space:]' < "$1/tiles/release.txt"; }
+          main_tag=$(tag_of ../main || true)
+          preview_tag=$(tag_of ../preview || true)
+          for tag in $(printf '%s\n' "$main_tag" "$preview_tag" | sort -u); do
+            [ -n "$tag" ] && gh release download "$tag" --pattern '*.pmtiles' --dir "$RUNNER_TEMP/tiles/$tag"
+          done
+          echo "main=$main_tag" >> "$GITHUB_OUTPUT"
+          echo "preview=$preview_tag" >> "$GITHUB_OUTPUT"
+      - name: Build main at the root
+        env:
+          TAG: ${{ steps.tiles.outputs.main }}
+        run: |
           if [ -f ../main/site/package.json ]; then
-            tools/build-site.sh ../main /crossing-map/ _site
+            tools/build-site.sh ../main /crossing-map/ _site "$RUNNER_TEMP/tiles/$TAG"
           else
             # Before the first stage merges, main has no app to build.
             mkdir -p _site
@@ -68,21 +159,25 @@ jobs:
       - name: Build the preview
         if: steps.preview.outputs.branch != ''
         env:
-          # Passed through the environment: a branch name may contain shell syntax.
-          PREVIEW_BRANCH: ${{ steps.preview.outputs.branch }}
+          TAG: ${{ steps.tiles.outputs.preview }}
+          SAME_TILES: ${{ steps.tiles.outputs.main == steps.tiles.outputs.preview }}
         run: |
-          git worktree add ../preview "origin/$PREVIEW_BRANCH"
-          tools/build-site.sh ../preview /crossing-map/preview/ _site/preview
-      - uses: actions/upload-pages-artifact@v5
+          # With the same release as main, the preview reads the root's tiles instead of shipping a second copy.
+          if [ "$SAME_TILES" = true ] && [ -f ../main/site/package.json ]; then export VITE_TILES_BASE=/crossing-map/tiles/; fi
+          tools/build-site.sh ../preview /crossing-map/preview/ _site/preview "$RUNNER_TEMP/tiles/$TAG"
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: _site
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

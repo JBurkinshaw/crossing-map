@@ -1,4 +1,9 @@
+import facts from 'virtual:site-facts'
+
 export const REPO_URL = 'https://github.com/JBurkinshaw/crossing-map'
+
+// A file or folder in the repository at the commit this site was built from, so the link matches the code.
+export const repoUrl = (path: string) => `${REPO_URL}/tree/${facts.commit}/${path}`
 
 // A new GitHub issue with its title and body filled in: how readers send corrections.
 export function issueUrl(title: string, body: string): string {

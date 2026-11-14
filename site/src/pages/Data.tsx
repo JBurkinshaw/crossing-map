@@ -4,12 +4,21 @@ import { bytes, DATA_URL, layerLabel, REPO_URL } from './format'
 const LAYERS: Record<string, string> = {
   places: 'Named places with a known location: stops, places passed, places in tales, and context towns.',
   stops: 'Each stop of each journey, in order. A stop refers to the place or area it stands for.',
-  areas: 'Inferred places drawn as areas (cabins, camps, graves, unnamed settlements), each with its reasoning.',
+  areas: 'Inferred places drawn as areas, each with its reasoning.',
   journeys: 'Route segments between consecutive stops, for all seven journeys.',
   mountain_glyphs: 'Summits and passes found in the Copernicus elevation model, named from GNIS and GeoNames.',
+  vignettes: 'Anchors for the map’s decorative drawings, each in empty country near what it stands for.',
 }
 
-// What each shared property means (plan section 6); the schema's own descriptions are used where it has them.
+// The other published files, by name.
+const FILES: Record<string, string> = {
+  'episodes.json': 'the novel’s episodes, with their opening words and length.',
+  'translations.json': 'the Spanish lines, by their opening words, with this site’s English and where each was said.',
+  'open-questions.json': 'the judgement calls about where something is, each with the other reading.',
+  'elsewhere.json': 'places the book names that lie beyond the map.',
+}
+
+// What each shared property means (design section 6); the schema's own descriptions are used where it has them.
 const FIELDS: Record<string, string> = {
   id: 'Stable identifier.',
   name: 'Name used on the map.',
@@ -94,10 +103,7 @@ export function Data() {
             <a href={`${DATA_URL}${f.file}`} download>
               {f.file}
             </a>{' '}
-            <span className="meta">{bytes(f.bytes)}</span>:{' '}
-            {f.file === 'episodes.json'
-              ? 'the novel’s 41 episodes, with their opening words and length.'
-              : 'places the book names that lie beyond the map.'}
+            <span className="meta">{bytes(f.bytes)}</span>: {FILES[f.file]}
           </li>
         ))}
         <li>
@@ -105,9 +111,14 @@ export function Data() {
           <a href={`${DATA_URL}LICENSE`}>LICENSE</a>: CC BY 4.0.
         </li>
         <li>
-          <a href={`${DATA_URL}schema/story-layer.schema.json`}>story-layer.schema.json</a> and{' '}
-          <a href={`${DATA_URL}schema/episodes.schema.json`}>episodes.schema.json</a>: the JSON Schemas every
-          file is checked against.
+          The JSON Schemas the files are checked against:{' '}
+          {facts.schemas.map((file, i) => (
+            <span key={file}>
+              {i > 0 && ', '}
+              <a href={`${DATA_URL}schema/${file}`}>{file}</a>
+            </span>
+          ))}
+          .
         </li>
         <li>
           <code>raised/</code> <span className="meta">{bytes(facts.raisedBytes)}</span>: the story layers as drawn in

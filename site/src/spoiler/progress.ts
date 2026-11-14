@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
+import { useJson, type Loaded } from '../data/json'
 
 // Reading progress: how far the reader has read, by episode (data/episodes.json). Spoiler mode hides every
-// feature first seen after it (docs/plan.md, sections 6 and 9).
+// feature first seen after it (docs/design.md, sections 6 and 9).
 
 export type Episode = { episode: string; part: number; opening: string; summary: string }
 
@@ -45,7 +46,8 @@ export function reachedEpisode(progress: Progress): string {
 // Spoiler mode is on unless the reader has read the last episode.
 export function spoilersHidden(progress: Progress, episodes: Episode[]): boolean {
   const last = episodes.at(-1)?.episode
-  return progress !== 'all' && (!last || progress < last)
+  // Compared as episode ids: 'none' itself sorts after every id, so it goes through reachedEpisode.
+  return progress !== 'all' && (!last || reachedEpisode(progress) < last)
 }
 
 export const PART_NUMERALS = ['', 'I', 'II', 'III', 'IV']
@@ -65,12 +67,4 @@ export function episodeLabel(episode: string): string {
   return `Part ${PART_NUMERALS[part] ?? part}, episode ${n}`
 }
 
-export function useEpisodes(): Episode[] {
-  const [list, setList] = useState<Episode[]>([])
-  useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/episodes.json`)
-      .then((r) => (r.ok ? r.json() : []))
-      .then(setList, () => setList([]))
-  }, [])
-  return list
-}
+export const useEpisodes = (): Loaded<Episode[]> => useJson<Episode[]>('episodes.json')

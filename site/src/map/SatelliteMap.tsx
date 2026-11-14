@@ -30,7 +30,14 @@ export default function SatelliteMap({ literary, hidden, topo, terrain, onUnavai
     terrainRef.current = terrain
   }, [terrain])
 
+  // The map is made once per mount: a new handler must not tear it down, as MapTiler counts each map as a session.
+  const unavailable = useRef(onUnavailable)
   useEffect(() => {
+    unavailable.current = onUnavailable
+  }, [onUnavailable])
+
+  useEffect(() => {
+    const onUnavailable = () => unavailable.current()
     const top = literary.current?.getMap()
     const key = import.meta.env.VITE_MAPTILER_KEY
     if (!container.current || !top || !key) {
@@ -78,7 +85,7 @@ export default function SatelliteMap({ literary, hidden, topo, terrain, onUnavai
       satRef.current = null
       setLoaded(false)
     }
-  }, [literary, onUnavailable])
+  }, [literary])
 
   // A new style drops the terrain, so it goes back on once the style has loaded.
   useEffect(() => {

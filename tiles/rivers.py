@@ -1,26 +1,19 @@
 """The base map's river layers: each named river traced through the national 1:50,000 and 1:24,000 networks.
 
-Called by tiles/build_base.py. Natural Earth's rivers are a 1:10 million generalisation: they cross contours and
+Called by tiles.build_base. Natural Earth's rivers are a 1:10 million generalisation: they cross contours and
 miss valleys at the zooms the map is read at, and in Sonora some names are wrong (the Bavispe below La Angostura is
 labelled "Yaqui", though the Yaqui only begins where the Aros joins it, at 29.53 N 109.24 W; GeoNames 4017237 and
 4018306; Wikipedia, "Bavispe River"). So Natural Earth only decides which rivers are shown, how strongly and under
-what name; the line itself comes from a detailed network wherever one covers the ground:
-  - Mexico: INEGI's Red Hidrográfica 1:50,000 (edición 2.0), one zip per hydrological region. Its lines carry
-    no names; ORDER_1 is the Strahler order. The channel of a wide river is a centre line (`LINEA CENTRAL`),
-    kept with the ordinary streams (`CORRIENTE DE AGUA`): without it the main stems are missing.
-  - The US: USGS NHD High Resolution, one zip per HU8 watershed, streams and the artificial paths through lakes
-    and wide channels (ftype 460 and 558), with their GNIS names. Its value-added table (NHDFlowlineVAA) ships
-    empty, so the Strahler order is computed here from how the lines join, as they are digitised downstream.
-Each named Natural Earth river, its names corrected first, is traced through the combined network as the cheapest
-path between its two ends. The cost favours the main stem (high Strahler order, and on NHD a GNIS name that
-matches) and stays near Natural Earth's line without being tied to it. Natural Earth's own line is the fallback
-where the network breaks, as at reservoirs.
+what name; the line itself comes from a detailed network (crossing.hydro: INEGI in Mexico, NHD in the US)
+wherever one covers the ground. Each named Natural Earth river, its names corrected first, is traced through the
+combined network as the cheapest path between its two ends. The cost favours the main stem (high Strahler order,
+and on NHD a GNIS name that matches) and stays near Natural Earth's line without being tied to it. Natural Earth's
+own line is the fallback where the network breaks, as at reservoirs.
 """
 
 import json
-import subprocess
-import zipfile
 from collections import Counter
+from collections.abc import Sequence
 from pathlib import Path
 
 import numpy as np
@@ -28,15 +21,13 @@ import shapely
 from scipy.sparse import coo_matrix
 from scipy.sparse.csgraph import dijkstra
 from scipy.spatial import cKDTree
-from shapely.geometry import box, mapping, shape
+from shapely.geometry import mapping, shape
 from shapely.ops import linemerge, unary_union
 
-REPO = Path(__file__).resolve().parents[1]
-INEGI = REPO / "private" / "cache" / "hydro" / "inegi"
-NHD = REPO / "private" / "cache" / "hydro" / "nhd"
-NE = REPO / "private" / "cache" / "basemap"
-# The Aros-Bavispe confluence: Natural Earth's "Yaqui" north of it is the Bavispe.
-YAQUI_STARTS = 29.53
+from crossing.basemap import BASEMAP, corrected_names
+from crossing.hydro import SNAP, Hydro
+from crossing.vector import chaikin, read, segments
+
 # Channels of this Strahler order and up form the network the rivers are traced through.
 MIN_ORDER = 3
 # A channel this far from Natural Earth's line (degrees, about 2 km) costs twice its length; the cost grows with
@@ -47,8 +38,6 @@ HOLD = 0.02
 ORDER_PREFERENCE = 2.0
 # On NHD, a channel whose GNIS name contains the river's name costs this much (a fraction) of what it would.
 NAME_PREFERENCE = 0.5
-# Endpoints closer than this (degrees, about 10 m) are one node of the network.
-SNAP = 1e-4
 # Dangling channel ends are joined to nodes this close (degrees, about 300 m).
 GAP = 0.003
 # Natural Earth's own line costs this many times its length at MIN_ORDER, so a traced river leaves the
@@ -57,121 +46,19 @@ FALLBACK = 4
 # Only the network within this distance of a river's line (degrees, about 15 km) is searched.
 SEARCH = 0.15
 # A traced river meanders too tightly for a name to fit along it, so names follow a copy simplified to this
-# tolerance (degrees, about 400 m) and rounded (smooth()).
+# tolerance (degrees, about 400 m) and rounded (crossing.vector.chaikin).
 LABEL_SIMPLIFY = 0.004
 
 
-def read(source: str, sql: str, bbox: list[str], tmp: Path, name: str, latin1: bool = False) -> list[dict]:
-    out = tmp / f"{name}.geojson"
-    # INEGI's attribute tables are Latin-1; GeoJSON comes out as UTF-8.
-    encoding = ["--config", "SHAPE_ENCODING", "ISO-8859-1"] if latin1 else []
-    subprocess.run(["ogr2ogr", *encoding, "-f", "GeoJSON", "-t_srs", "EPSG:4326", "-spat", *bbox, "-dialect", "OGRSQL",
-                    "-sql", sql, "-dim", "XY", str(out), source], check=True, capture_output=True)
-    return [f for f in json.loads(out.read_text())["features"] if f["geometry"]]
-
-
-def ne_rivers(layer: str, bbox: list[str], tmp: Path) -> list[tuple[shapely.Geometry, dict]]:
+def ne_rivers(layer: str, bbox: Sequence, tmp: Path) -> list[tuple[shapely.Geometry, dict]]:
     """A Natural Earth river layer with the Bavispe named down to the Aros."""
     out = []
-    for f in read(str(NE / layer / f"{layer}.shp"), f"SELECT name, scalerank FROM {layer}", bbox, tmp, layer):
-        geom, props = shape(f["geometry"]), f["properties"]
-        if props.get("name") == "Yaqui":
-            north = box(-180, YAQUI_STARTS, 180, 90)
-            for part, name in ((geom.intersection(north), "Bavispe"), (geom.difference(north), "Yaqui")):
-                if not part.is_empty:
-                    out.append((part, props | {"name": name}))
-        else:
-            out.append((geom, props))
+    sql = f"SELECT name, scalerank FROM {layer}"
+    for f in read(BASEMAP / layer / f"{layer}.shp", sql, bbox, tmp / f"{layer}.geojson"):
+        props = f["properties"]
+        for part, name in corrected_names(shape(f["geometry"]), props.get("name")):
+            out.append((part, props if name == props.get("name") else props | {"name": name}))
     return out
-
-
-def segments(geom: shapely.Geometry) -> list[shapely.LineString]:
-    return [g for g in getattr(geom, "geoms", [geom]) if g.geom_type == "LineString" and len(g.coords) > 1]
-
-
-def inegi(bbox: list[str], tmp: Path) -> tuple[list[shapely.Geometry], list[tuple[shapely.LineString, int, str]]]:
-    """INEGI's sub-basins in the box, and its channels of MIN_ORDER and up as (line, order, name '')."""
-    basins, lines = [], []
-    for i, zip_path in enumerate(sorted(INEGI.glob("*.zip"))):
-        names = [n for n in zipfile.ZipFile(zip_path).namelist() if n.endswith(("_subc.shp", "_hl.shp"))]
-        for j, name in enumerate(names):
-            layer, source = Path(name).stem, f"/vsizip/{zip_path}/{name}"
-            if name.endswith("_subc.shp"):
-                basins += [shape(f["geometry"]).buffer(0) for f in read(source, f"SELECT CVE_SUBC FROM {layer}", bbox, tmp, f"ib{i}-{j}", latin1=True)]
-            else:
-                sql = (f"SELECT ORDER_1 FROM {layer} WHERE ENTIDAD IN ('CORRIENTE DE AGUA', 'LINEA CENTRAL') "
-                       f"AND ORDER_1 >= {MIN_ORDER}")
-                for f in read(source, sql, bbox, tmp, f"ih{i}-{j}", latin1=True):
-                    lines += [(g, int(f["properties"]["ORDER_1"]), "") for g in segments(shape(f["geometry"]))]
-    return basins, lines
-
-
-def strahler(lines: list[shapely.LineString]) -> np.ndarray:
-    """The Strahler order of each line of a network digitised downstream: 1 at a source; where lines meet, the
-    highest order coming in, plus one if two or more lines bring it from different sources. A stream that splits
-    and joins itself again keeps its order: NHD's braided channels, irrigation ditches and the few lines repeated
-    in two watersheds would otherwise add one at every rejoin, and orders reach the hundreds along the Rio Grande,
-    which would make those channels nearly free to the trace. Each order is tagged with the node where it was
-    reached; two equal orders meeting raise it only if they were reached at different nodes. Lines in loops take
-    the order of what flows into them."""
-    ends = np.array([[g.coords[0], g.coords[-1]] for g in lines]).reshape(-1, 2)
-    _, node = np.unique(np.round(ends / SNAP).astype(np.int64), axis=0, return_inverse=True)
-    start, end = node.reshape(-1, 2).T
-    n = node.max() + 1
-    incoming = [[] for _ in range(n)]
-    for e, t in enumerate(end):
-        incoming[t].append(e)
-    leaving = [[] for _ in range(n)]
-    for e, s in enumerate(start):
-        leaving[s].append(e)
-    waiting = np.array([len(x) for x in incoming])
-    order = np.zeros(len(lines), dtype=int)
-    origin = np.full(len(lines), -1)
-    ready = list(np.flatnonzero(waiting == 0))
-    done = np.zeros(n, dtype=bool)
-    while True:
-        while ready:
-            v = ready.pop()
-            done[v] = True
-            got = [(order[e], origin[e]) for e in incoming[v] if order[e]]
-            m = max((o for o, _ in got), default=0)
-            sources = {s for o, s in got if o == m}
-            if m == 0:
-                o, src = 1, v
-            elif len(sources) >= 2:
-                o, src = m + 1, v
-            else:
-                o, src = m, sources.pop()
-            for e in leaving[v]:
-                order[e], origin[e] = o, src
-                t = end[e]
-                waiting[t] -= 1
-                if waiting[t] == 0:
-                    ready.append(t)
-        # A loop stops the walk; release its node with the highest order known so far coming in.
-        stuck = [v for v in np.flatnonzero(~done & (waiting > 0)) if any(order[e] for e in incoming[v])]
-        if not stuck:
-            break
-        v = max(stuck, key=lambda v: max(order[e] for e in incoming[v]))
-        waiting[v] = 0
-        ready.append(v)
-    return order
-
-
-def nhd(bbox: list[str], tmp: Path) -> tuple[list[shapely.Geometry], list[tuple[shapely.LineString, int, str]]]:
-    """NHD's HU8 watersheds in the box, and its streams of MIN_ORDER and up as (line, order, GNIS name)."""
-    basins, flowlines = [], []
-    for i, shp_dir in enumerate(sorted(NHD.glob("*/Shape"))):
-        basins += [shape(f["geometry"]).buffer(0) for f in read(str(shp_dir / "WBDHU8.shp"), "SELECT huc8 FROM WBDHU8", bbox, tmp, f"nb{i}")]
-        # Every stream is read, not only the larger ones, as the order depends on the whole network upstream.
-        for f in read(str(shp_dir / "NHDFlowline.shp"), "SELECT gnis_name FROM NHDFlowline WHERE ftype IN (460, 558)",
-                      bbox, tmp, f"nf{i}"):
-            flowlines += [(g, f["properties"]["gnis_name"] or "") for g in segments(shape(f["geometry"]))]
-    if not flowlines:
-        return basins, []
-    order = strahler([g for g, _ in flowlines])
-    lines = [(g, int(o), name) for (g, name), o in zip(flowlines, order) if o >= MIN_ORDER]
-    return basins, lines
 
 
 class Network:
@@ -273,35 +160,23 @@ class Network:
         return shapely.LineString(out), fallback
 
 
-def smooth(line: shapely.LineString, rounds: int = 2) -> shapely.LineString:
-    """Chaikin's corner cutting: each round replaces every corner with two points a quarter of the way along its
-    sides, keeping the ends."""
-    xy = np.array(line.coords)
-    for _ in range(rounds):
-        if len(xy) < 3:
-            break
-        a, b = xy[:-1], xy[1:]
-        cut = np.empty((2 * len(a), 2))
-        cut[0::2] = 0.75 * a + 0.25 * b
-        cut[1::2] = 0.25 * a + 0.75 * b
-        xy = np.vstack([xy[:1], cut, xy[-1:]])
-    return shapely.LineString(xy)
-
-
 def label_line(geom: shapely.Geometry) -> shapely.Geometry:
-    parts = [smooth(g) for g in segments(geom.simplify(LABEL_SIMPLIFY, preserve_topology=False)) if len(g.coords) > 1]
+    simple = segments(geom.simplify(LABEL_SIMPLIFY, preserve_topology=False))
+    parts = [shapely.LineString(chaikin(g.coords)) for g in simple]
     return shapely.MultiLineString(parts) if len(parts) != 1 else parts[0]
 
 
-def write_layers(bbox: list[str], tmp: Path) -> dict[str, Path]:
+def write_layers(hydro: Hydro, bbox: Sequence, tmp: Path) -> dict[str, Path]:
     """river.geojson and river_minor.geojson in tmp, for tippecanoe, and river_label.geojson: every named river's
     line, simplified and rounded for its name, with `rank` major (Natural Earth's main rivers) or minor."""
-    mx_basins, mx_lines = inegi(bbox, tmp)
-    us_basins, us_lines = nhd(bbox, tmp)
-    coverage = unary_union(mx_basins + us_basins).buffer(0.001)
+    # Only channels of MIN_ORDER and up form the network the rivers are traced through.
+    mx_lines = [(g, o, "") for g, o, _ in hydro.inegi_lines if o >= MIN_ORDER]
+    us_lines = [(g, o, name) for g, o, _, name in hydro.nhd_lines if o >= MIN_ORDER]
+    coverage = unary_union(hydro.inegi_basins + hydro.nhd_basins).buffer(0.001)
     network = Network(mx_lines + us_lines)
     print(f"rivers: network of {len(mx_lines)} INEGI and {len(us_lines)} NHD channels")
-    major, minor = ne_rivers("ne_10m_rivers_lake_centerlines", bbox, tmp), ne_rivers("ne_10m_rivers_north_america", bbox, tmp)
+    major = ne_rivers("ne_10m_rivers_lake_centerlines", bbox, tmp)
+    minor = ne_rivers("ne_10m_rivers_north_america", bbox, tmp)
     layers: dict[str, list[dict]] = {"river": [], "river_minor": []}
     traced = Counter()
     fallback = Counter()
@@ -309,7 +184,8 @@ def write_layers(bbox: list[str], tmp: Path) -> dict[str, Path]:
         for geom, props in rivers:
             rest = geom.difference(coverage)
             if not rest.is_empty:
-                layers[layer].append({"type": "Feature", "geometry": mapping(rest), "properties": props | {"source": "ne"}})
+                feature = {"type": "Feature", "geometry": mapping(rest), "properties": props | {"source": "ne"}}
+                layers[layer].append(feature)
             inside = geom.intersection(coverage)
             if inside.is_empty or not props.get("name"):
                 continue
@@ -320,7 +196,8 @@ def write_layers(bbox: list[str], tmp: Path) -> dict[str, Path]:
                 if (result := network.trace(part, props["name"])) is not None:
                     path, gap = result
                     fallback[props["name"]] += gap * 100
-                    layers[layer].append({"type": "Feature", "geometry": mapping(path), "properties": props | {"source": "traced"}})
+                    props_traced = props | {"source": "traced"}
+                    layers[layer].append({"type": "Feature", "geometry": mapping(path), "properties": props_traced})
                     traced[props["name"]] += 1
     layers["river_label"] = [
         {"type": "Feature", "geometry": mapping(label_line(shape(f["geometry"]))),

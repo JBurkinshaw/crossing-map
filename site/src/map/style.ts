@@ -3,18 +3,21 @@ import { reliefLayers, reliefSources } from './relief'
 import { fonts, palette as tokens, SPRITE } from './tokens'
 import type { Units } from '../units'
 
-// The literary base: everything drawn from base.pmtiles, the paper, and relief. Satellite mode hides these.
-export const BASE_LAYERS = [
-  'paper', 'mexico', 'lake', 'county-line', 'state-line', 'creek', 'river-minor', 'river',
-  'road', 'railroad', 'railroad-ties', 'creek-label', 'river-minor-label', 'river-label',
-  'relief-tint', 'relief-paper', 'hillshade', 'contour', 'contour-label', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy',
-  'mountain-glyph', 'vignette-leader', 'vignette',
-]
+// Every layer literaryStyle draws is part of the literary base, which satellite, topo and compare modes hide,
+// except the international line, which stays over the imagery.
+const OVER_IMAGERY = new Set(['country-line'])
+// The Raised view hides the base layers that cannot move with the terrain (raisedLayers in relief.ts redraws
+// the boundaries, roads, streams and the Mexico side from raised copies). The paper, the paper tint above zoom
+// 10 and the lakes stay.
+const KEPT_IN_RAISED = new Set(['paper', 'relief-paper', 'lake'])
+
+export const baseLayerIds = (style: StyleSpecification) => style.layers.map((l) => l.id).filter((id) => !OVER_IMAGERY.has(id))
+export const notRaisedIds = (style: StyleSpecification) => style.layers.map((l) => l.id).filter((id) => !KEPT_IN_RAISED.has(id))
 
 // A creek of Strahler order `o` is drawn from this zoom on (creeks.MIN_ZOOM in tiles/creeks.py; order 7 and up from 7).
 const creekShown: ExpressionSpecification = ['>=', ['zoom'], ['match', ['get', 'o'], 2, 12, 3, 11, 4, 10, 5, 9, 6, 8, 7]]
 
-// The literary basemap (docs/plan.md, section 5.1): ink on caliche paper, the
+// The literary basemap (docs/design.md, section 5.1): ink on caliche paper, the
 // Mexico side a shade darker, rivers in blue-grey ink, and a dash-dot
 // international line as on the 1850s-1880s survey sheets.
 export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: string, units: Units): StyleSpecification {
@@ -181,7 +184,8 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
   return {
     version: 8,
     glyphs: `${fontsBase}{fontstack}/{range}.pbf`,
-    sprite: `${tilesBase.replace(/tiles\/$/, '')}sprites/${SPRITE}`,
+    // The sprite sits beside the fonts in this build; the tiles may come from another build (setup.ts).
+    sprite: `${fontsBase.replace(/fonts\/$/, '')}sprites/${SPRITE}`,
     sources: {
       [base]: { type: 'vector', url: `pmtiles://${tilesBase}base.pmtiles` },
       ...reliefSources(tilesBase, dataBase),

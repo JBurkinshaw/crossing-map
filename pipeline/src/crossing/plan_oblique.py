@@ -1,4 +1,4 @@
-"""The Raised view (decisions 0017 and 0018): plan oblique relief over the corridor of the journeys in RAISED_JOURNEYS.
+"""The Raised view (decisions 0017 to 0019): plan oblique relief over the corridor of the journeys.
 
 Run from the repo root, after crossing.hachures:
     uv run --project pipeline python -m crossing.plan_oblique
@@ -20,20 +20,21 @@ The strokes of one hachure meet end to end, so once stretched by the shift they 
 and where the shift squeezes a slope nearly flat, strokes from neighbouring slopes cross. So each stroke loses
 TRIM of its length at each end, and strokes are dropped where the ground is squeezed below FOLD of its depth.
 
-The area is every fine hachure tile of the corridor of RAISED_JOURNEYS, with one lowest height for all of it.
+The area is every fine hachure tile of the corridor, with one lowest height for all of it.
 The horizon runs along each north-south column of the grid, so columns are independent: the area is built in
 strips, one per column of tiles, in parallel. Each strip has its own smoothed DEM (hachures.prepare_dem),
 reaching PAD further east, west and north for gradients, contours and ridges, and SOUTH further south, so that
 ground just outside the area can hide ground inside it.
 
-Inputs: the short strokes cached by crossing.hachures (fine tiles), the Copernicus tiles, INEGI's 1:50,000
-river network for Mexico, USGS NHD flowlines for the US, and the Natural Earth and Census layers that
-tiles/build_base.py uses. Writes tiles/out/oblique-<n>.pmtiles (split by strips to stay under 100 MB each;
+Inputs: the short strokes cached by crossing.hachures (fine tiles, with each tile's smoothed DEM), the Copernicus
+tiles, INEGI's 1:50,000 river network for Mexico, USGS NHD flowlines for the US, and the Natural Earth and Census
+layers of crossing.basemap. Writes tiles/out/oblique-<n>.pmtiles (split by strips to stay under 100 MB each;
 data/raised/archives.json lists them), zoom 9-12, one layer `oblique` whose `kind` is
-  stroke (Slope, Aspect and Rand, as in relief.pmtiles), contour (200 m form lines), crest,
-  ridge (`rel`, relief in metres), stream (`ord`, Strahler order or a stand-in; `name` on the US side),
-  country, state, county, road, railroad (lines) and mexico (the Mexico side, a polygon),
-copies it to site/public/tiles/, and writes the story layers shifted by the same rule to data/raised/.
+  stroke (Slope, Aspect and Rand, computed by crossing.hachures.stroke_properties exactly as in relief.pmtiles),
+  contour (200 m form lines), crest, ridge (`rel`, relief in metres), stream (`ord`, Strahler order or a
+  stand-in; `name` on the US side), country, state, county, road, railroad (lines) and mexico (the Mexico side,
+  a polygon), and writes the story layers shifted by the same rule to data/raised/. `python -m tiles.install`
+copies the archives into the local site.
 """
 
 import json
@@ -44,7 +45,6 @@ import subprocess
 import tempfile
 import time
 import zipfile
-import zlib
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
 
@@ -59,11 +59,16 @@ from scipy.spatial import cKDTree
 from shapely import LineString, Polygon, box, unary_union
 from shapely.geometry import mapping, shape
 
-from crossing.hachures import COPERNICUS, CRS, DEM_TILES, OUT, REPO, SCALES, corridor, coverage, prepare_dem, tiles
+from crossing import basemap, dem
+from crossing.hachures import ATTRIBUTION as RELIEF_ATTRIBUTION
+from crossing.hachures import CRS, OUT, SCALES, corridor, coverage, prepare_dem, sampler, stroke_properties, tiles
+from crossing.hydro import INEGI, NHD
+from crossing.paths import DATA, TILES_OUT
+from crossing.tiling import tippecanoe
+from crossing.vector import read
 
 FINE = OUT / SCALES["fine"]["folder"]
 TILE = SCALES["fine"]["tile"]
-RAISED_JOURNEYS = ("J1", "J2", "J3", "J4", "J5", "J6", "J7")
 CELL = 30
 STEP = 8  # metres between samples along a line
 STORY_STEP = 60  # metres between samples along the story's lines and area edges
@@ -73,19 +78,15 @@ FOLD = 0.5  # smallest north-south stretch at which strokes are kept
 FORM_INTERVAL = 200  # metres between form lines
 PAD = 20 * CELL  # covers the ridges' 1 km relief window and the smoothing's edge
 SOUTH = 6_000  # ground this far south of the area can still hide ground in it: shifts reach about 4.8 km
-INEGI = REPO / "private" / "cache" / "hydro" / "inegi"
-NHD = REPO / "private" / "cache" / "hydro" / "nhd"
-BASEMAP = REPO / "private" / "cache" / "basemap"
-DATA = REPO / "data"
 RAISED_DATA = DATA / "raised"
 STORY = ("stops", "places", "areas", "journeys")
-TILES_OUT = REPO / "tiles" / "out"
-SITE_TILES = REPO / "site" / "public" / "tiles"
-# Archives over this size are split, by groups of whole strips, to stay under the plan's 100 MB per file.
+# Archives over this size are split, by groups of whole strips, to stay under the design's 100 MB per file.
 MAX_ARCHIVE_MB = 95
 # Shown in the map's attribution while the Raised view is on.
-ATTRIBUTION = ("Streams: Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0; USGS National Hydrography Dataset "
-               f"courtesy of the U.S. Geological Survey; county lines courtesy of the U.S. Census Bureau (TIGER); {COPERNICUS}")
+ATTRIBUTION = ("Streams: Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0; "
+               "USGS National Hydrography Dataset courtesy of the U.S. Geological Survey; "
+               "county lines courtesy of the U.S. Census Bureau (cartographic boundary files); "
+               f"Made with Natural Earth; {RELIEF_ATTRIBUTION}")
 
 to_utm = Transformer.from_crs("EPSG:4326", CRS, always_xy=True).transform
 to_wgs = Transformer.from_crs(CRS, "EPSG:4326", always_xy=True).transform
@@ -129,10 +130,12 @@ def ridges(Z: np.ndarray, x0: float, y0: float) -> list[tuple[np.ndarray, int]]:
     with tempfile.TemporaryDirectory() as tmp:
         for k, theta in enumerate(np.radians([0, 45, 90, 135])):
             c, s = math.cos(theta), math.sin(theta)
-            along = np.where(ok & (np.abs(np.cos(across - theta)) >= math.cos(math.radians(30))), zx * c + zy * s, np.nan)
+            facing = np.abs(np.cos(across - theta)) >= math.cos(math.radians(30))
+            along = np.where(ok & facing, zx * c + zy * s, np.nan)
             raster, lines = Path(tmp) / f"d{k}.tif", Path(tmp) / f"d{k}.geojson"
-            with rasterio.open(raster, "w", driver="GTiff", width=Z.shape[1], height=Z.shape[0], count=1, dtype="float32",
-                               crs=CRS, nodata=np.nan, transform=from_origin(x0, y0 + Z.shape[0] * CELL, CELL, CELL)) as dst:
+            transform = from_origin(x0, y0 + Z.shape[0] * CELL, CELL, CELL)
+            with rasterio.open(raster, "w", driver="GTiff", width=Z.shape[1], height=Z.shape[0], count=1,
+                               dtype="float32", crs=CRS, nodata=np.nan, transform=transform) as dst:
                 dst.write(along[::-1].astype("float32"), 1)
             subprocess.run(["gdal_contour", "-q", "-fl", "0", "-f", "GeoJSON", str(raster), str(lines)], check=True)
             for f in json.loads(lines.read_text())["features"]:
@@ -156,37 +159,24 @@ def parts(geom) -> list[np.ndarray]:
     return [xy for g in getattr(geom, "geoms", []) for xy in parts(g)]
 
 
-def ogr(source: str, sql: str, bbox: tuple[float, ...], tmp: Path, extra: tuple[str, ...] = ()) -> list[dict]:
-    """Features of a vector source inside a lon/lat box, in UTM, as GeoJSON dicts. Every source here is in
-    longitude and latitude, so the box needs no reprojection (ogr2ogr allows none alongside -sql)."""
-    out = tmp / f"{abs(hash((source, sql)))}.geojson"
-    subprocess.run(["ogr2ogr", "-f", "GeoJSON", "-t_srs", CRS, "-spat", *map(str, bbox),
-                    "-dialect", "OGRSQL", "-sql", sql, "-dim", "XY", *extra, str(out), source],
-                   check=True, capture_output=True)
-    return [f for f in json.loads(out.read_text())["features"] if f["geometry"]]
+def ogr(source: str | Path, sql: str, bbox: tuple[float, ...], tmp: Path, extra: tuple[str, ...] = ()) -> list[dict]:
+    """Features of a vector source inside a lon/lat box, in UTM, as GeoJSON dicts."""
+    return read(source, sql, bbox, tmp / f"{abs(hash((str(source), sql)))}.geojson", crs=CRS, extra=extra)
 
 
 def base_lines(bbox: tuple[float, ...], tmp: Path) -> tuple[list[tuple[str, dict, np.ndarray]], Polygon]:
-    """The base map's lines in UTM as (kind, properties, coordinates), from the sources tiles/build_base.py uses,
-    and the Mexico side as a polygon."""
-    shp = lambda name: str(BASEMAP / name / f"{name}.shp")  # noqa: E731
-    mexico = unary_union([shape(f["geometry"]) for f in ogr(
-        shp("ne_10m_admin_1_states_provinces"), "SELECT name FROM ne_10m_admin_1_states_provinces WHERE adm0_a3 = 'MEX'",
-        bbox, tmp)]).buffer(0)
+    """The base map's lines in UTM as (kind, properties, coordinates), from the base map's own sources
+    (crossing.basemap), and the Mexico side as a polygon. Only the geometry is kept."""
+    mexico = basemap.mexico(bbox, tmp, crs=CRS)
     lines = []
-    sources = {
-        "country": ("ne_10m_admin_0_boundary_lines_land", "SELECT featurecla FROM ne_10m_admin_0_boundary_lines_land", ()),
-        "state": ("ne_10m_admin_1_states_provinces_lines",
-                  "SELECT adm0_a3 FROM ne_10m_admin_1_states_provinces_lines WHERE adm0_a3 IN ('USA', 'MEX')", ()),
-        "road": ("ne_10m_roads", "SELECT type FROM ne_10m_roads WHERE continent = 'North America'", ()),
-        "railroad": ("ne_10m_railroads_north_america", "SELECT scalerank FROM ne_10m_railroads_north_america", ()),
-    }
-    for kind, (name, sql, extra) in sources.items():
-        for f in ogr(shp(name), sql, bbox, tmp, extra):
+    kinds = (("country", "country_line"), ("state", "state_line"), ("road", "road"), ("railroad", "railroad"))
+    for kind, layer in kinds:
+        name, sql, extra = basemap.LAYERS[layer]
+        for f in ogr(basemap.shapefile(name), sql, bbox, tmp, extra):
             lines += [(kind, {}, xy) for xy in parts(shape(f["geometry"]))]
     # County outlines share their edges, so the outlines are merged to draw each edge once.
-    counties = ogr(shp("cb_2023_us_county_500k"), "SELECT NAME FROM cb_2023_us_county_500k WHERE STATEFP IN ('04', '35', '48')",
-                   bbox, tmp, ("-nlt", "MULTILINESTRING"))
+    name, sql, extra = basemap.LAYERS["county_line"]
+    counties = ogr(basemap.shapefile(name), sql, bbox, tmp, extra)
     edges = shapely.line_merge(unary_union([shape(f["geometry"]) for f in counties]))
     lines += [("county", {}, xy) for xy in parts(edges)]
 
@@ -210,14 +200,14 @@ def base_lines(bbox: tuple[float, ...], tmp: Path) -> tuple[list[tuple[str, dict
             rivers.append((shape(f["geometry"]), props, False))
     geoms = shapely.intersection([g for g, _, _ in rivers], mexico)
     outside = shapely.difference([g for g, _, _ in rivers], mexico)
-    for (_, props, in_mexico), inside_part, outside_part in zip(rivers, geoms, outside):
+    for (_, props, in_mexico), inside_part, outside_part in zip(rivers, geoms, outside, strict=True):
         lines += [("stream", props, xy) for xy in parts(inside_part if in_mexico else outside_part)]
     return lines, mexico
 
 
 def strips() -> list[dict]:
     """One strip per unbroken column of fine tiles in the corridor: its core (UTM), its tiles, and its DEM's bounds."""
-    region = corridor(RAISED_JOURNEYS).intersection(coverage().buffer(-60))
+    region = corridor().intersection(coverage().buffer(-60))
     columns: dict[float, list] = {}
     for name, core in tiles(region, TILE):
         columns.setdefault(core.bounds[0], []).append((name, core.bounds))
@@ -234,8 +224,10 @@ def strips() -> list[dict]:
                 runs.append([cell])
         for run in runs:
             y0, y1 = run[0][1][1], run[-1][1][3]
-            out.append({"name": f"{round(x0 / 1000)}e-{round(y0 / 1000)}n", "core": (x0, y0, x0 + TILE, y1), "tiles": run,
-                        "bounds": (snap(x0 - PAD, False), snap(y0 - SOUTH, False), snap(x0 + TILE + PAD, True), snap(y1 + PAD, True))})
+            bounds = (snap(x0 - PAD, False), snap(y0 - SOUTH, False),
+                      snap(x0 + TILE + PAD, True), snap(y1 + PAD, True))
+            name = f"{round(x0 / 1000)}e-{round(y0 / 1000)}n"
+            out.append({"name": name, "core": (x0, y0, x0 + TILE, y1), "tiles": run, "bounds": bounds})
     return out
 
 
@@ -276,7 +268,7 @@ class Grid:
 def runs(x, yp, shown, kind, props, out):
     """Append each run of shown points, as (kind, properties, x, shifted y), to `out`."""
     edges = np.flatnonzero(np.diff(np.concatenate([[0], shown.astype(np.int8), [0]])))
-    for start, stop in zip(edges[::2], edges[1::2]):
+    for start, stop in zip(edges[::2], edges[1::2], strict=True):
         if stop - start >= 2:
             out.append((kind, props, x[start:stop], yp[start:stop]))
 
@@ -288,23 +280,18 @@ def build_strip(strip: dict, dem_path: Path, base: float, lines: list, mexico: P
     found: list = []
 
     # Short hachure strokes, trimmed, and dropped where the ground is squeezed. Each tile keeps the strokes
-    # on its own core, so where cached tiles overlap no stroke is drawn twice.
-    gy, gx = np.gradient(g.dem, g.t.e, g.t.a)
+    # on its own core, so where cached tiles overlap no stroke is drawn twice. Each stroke's Slope, Aspect and
+    # Rand come from its tile's own DEM, as crossing.hachures gives them in the flat view.
     for tile, tile_core in strip["tiles"]:
         doc = json.loads((FINE / f"{tile}-split.geojson").read_text())["features"]
         if not doc:
             continue
+        sample = sampler(FINE / f"{tile}.tif")
         coords = [np.asarray(f["geometry"]["coordinates"])[:, :2] for f in doc]
         ex, ey = to_utm(*np.concatenate(coords).T)
         for xy in np.split(np.column_stack([ex, ey]), np.cumsum([len(c) for c in coords])[:-1]):
+            props, _ = stroke_properties(sample, LineString(xy))
             x, y = densify(xy)
-            mx, my = x[len(x) // 2], y[len(y) // 2]
-            cols, rows = ~g.t * (mx, my)
-            r, c = min(max(int(rows), 0), gx.shape[0] - 1), min(max(int(cols), 0), gx.shape[1] - 1)
-            sx, sy = gx[r, c], gy[r, c]
-            props = {"Slope": round(math.degrees(math.atan(math.hypot(sx, sy)))),
-                     "Aspect": round(math.degrees(math.atan2(-sx, -sy))) // 5 * 5 % 360,
-                     "Rand": zlib.crc32(json.dumps([round(v, 1) for v in xy[0]]).encode()) % 10}
             k = int(len(x) * TRIM)
             if len(x) - 2 * k >= 2:
                 x, y = x[k:len(x) - k], y[k:len(y) - k]
@@ -314,7 +301,8 @@ def build_strip(strip: dict, dem_path: Path, base: float, lines: list, mexico: P
     # Form lines and the base map's lines.
     with tempfile.TemporaryDirectory() as folder:
         form = Path(folder) / "f.geojson"
-        subprocess.run(["gdal_contour", "-q", "-i", str(FORM_INTERVAL), "-f", "GeoJSON", str(dem_path), str(form)], check=True)
+        subprocess.run(["gdal_contour", "-q", "-i", str(FORM_INTERVAL), "-f", "GeoJSON", str(dem_path), str(form)],
+                       check=True)
         form_lines = [np.array(f["geometry"]["coordinates"]) for f in json.loads(form.read_text())["features"]]
     for xy in form_lines:
         x, y = densify(xy)
@@ -330,10 +318,12 @@ def build_strip(strip: dict, dem_path: Path, base: float, lines: list, mexico: P
     falling = np.gradient(margin, axis=0) < 0
     with tempfile.TemporaryDirectory() as folder:
         raster, contour = Path(folder) / "m.tif", Path(folder) / "c.geojson"
-        with rasterio.open(raster, "w", driver="GTiff", width=len(g.xs), height=len(g.ys), count=1, dtype="float32", crs=CRS,
+        with rasterio.open(raster, "w", driver="GTiff", width=len(g.xs), height=len(g.ys), count=1, dtype="float32",
+                           crs=CRS,
                            transform=from_origin(g.x0, g.y0 + len(g.ys) * CELL, CELL, CELL)) as dst:
             dst.write(margin[::-1], 1)  # rows north to south, as GeoTIFF expects
-        subprocess.run(["gdal_contour", "-q", "-fl", str(-CELL / 2), "-f", "GeoJSON", str(raster), str(contour)], check=True)
+        subprocess.run(["gdal_contour", "-q", "-fl", str(-CELL / 2), "-f", "GeoJSON", str(raster), str(contour)],
+                       check=True)
         crests = json.loads(contour.read_text())["features"]
     outline = []
     for f in crests:
@@ -361,16 +351,18 @@ def build_strip(strip: dict, dem_path: Path, base: float, lines: list, mexico: P
     side = mexico.intersection(box(*core))
     for poly in getattr(side, "geoms", [side]):
         if isinstance(poly, Polygon) and not poly.is_empty:
-            sides.append(shapely.transform(poly.segmentize(STORY_STEP),
-                                           lambda xy: np.column_stack([xy[:, 0], xy[:, 1] + (g.height(xy[:, 0], xy[:, 1]) - base) * LEAN])))
+            def lift(xy):
+                return np.column_stack([xy[:, 0], xy[:, 1] + (g.height(xy[:, 0], xy[:, 1]) - base) * LEAN])
+            sides.append(shapely.transform(poly.segmentize(STORY_STEP), lift))
 
     # One projection back to longitude and latitude for the whole strip.
     lon, lat = to_wgs(np.concatenate([[], *(r[2] for r in found)]), np.concatenate([[], *(r[3] for r in found)]))
     ends = np.cumsum([len(r[2]) for r in found])
     counts: dict[str, int] = {}
     with out_path.open("w") as out:
-        for (kind, props, _, _), start, stop in zip(found, np.concatenate([[0], ends[:-1]]), ends):
-            coords = [(round(a, 5), round(b, 5)) for a, b in zip(lon[start:stop].tolist(), lat[start:stop].tolist())]
+        for (kind, props, _, _), start, stop in zip(found, np.concatenate([[0], ends[:-1]]), ends, strict=False):
+            pairs = zip(lon[start:stop].tolist(), lat[start:stop].tolist(), strict=True)
+            coords = [(round(a, 5), round(b, 5)) for a, b in pairs]
             feature = {"type": "Feature", "properties": {"kind": kind, **props},
                        "geometry": {"type": "LineString", "coordinates": coords}}
             # Below zoom 12 the style draws 70% of the strokes, so the rest are tiled only at 12.
@@ -395,20 +387,19 @@ class Heights:
             with rasterio.open(dem_path) as src:
                 self.strips.append((strip["core"], src.read(1).astype(float), src.transform))
         self.base = base
-        self.vrt = tmp / "copernicus.vrt"
-        subprocess.run(["gdalbuildvrt", "-q", str(self.vrt), *map(str, sorted(DEM_TILES.glob("*.tif")))], check=True)
+        self.vrt = dem.build_vrt(tmp / "copernicus.vrt", dem.tiles(dem.COPERNICUS))
 
     def __call__(self, x: np.ndarray, y: np.ndarray) -> np.ndarray:
         z = np.full(len(x), np.nan)
-        for core, dem, t in self.strips:
+        for core, heights, t in self.strips:
             inside = (x >= core[0]) & (x < core[2]) & (y >= core[1]) & (y < core[3])
             if inside.any():
                 cols, rows = ~t * (x[inside], y[inside])
-                z[inside] = map_coordinates(dem, [rows - 0.5, cols - 0.5], order=1, mode="nearest")
+                z[inside] = map_coordinates(heights, [rows - 0.5, cols - 0.5], order=1, mode="nearest")
         rest = np.isnan(z)
         if rest.any():
             with rasterio.open(self.vrt) as src:
-                found = np.array([v[0] for v in src.sample(zip(*to_wgs(x[rest], y[rest])))], dtype=float)
+                found = np.array([v[0] for v in src.sample(zip(*to_wgs(x[rest], y[rest]), strict=True))], dtype=float)
                 z[rest] = np.where(found == src.nodata, self.base, found) if src.nodata is not None else found
         return z
 
@@ -432,7 +423,8 @@ def raise_story(heights: Heights) -> dict[str, int]:
     def raised(geom: dict) -> dict:
         kind, c = geom["type"], geom["coordinates"]
         if kind == "Point":
-            return {"type": kind, "coordinates": [round(v, 5) for v in shift(*(np.array([v]) for v in to_utm(*c[:2])))[0]]}
+            point = shift(*(np.array([v]) for v in to_utm(*c[:2])))[0]
+            return {"type": kind, "coordinates": [round(v, 5) for v in point]}
         if kind == "LineString":
             return {"type": kind, "coordinates": line(c)}
         if kind in ("Polygon", "MultiLineString"):
@@ -445,11 +437,10 @@ def raise_story(heights: Heights) -> dict[str, int]:
     counts = {}
     for name in STORY:
         doc = json.loads((DATA / f"{name}.geojson").read_text(encoding="utf-8"))
-        if name == "journeys":
-            doc["features"] = [f for f in doc["features"] if f["properties"].get("journey") in RAISED_JOURNEYS]
         for f in doc["features"]:
             f["geometry"] = raised(f["geometry"])
-        (RAISED_DATA / f"{name}.geojson").write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        text = json.dumps(doc, ensure_ascii=False, indent=1) + "\n"
+        (RAISED_DATA / f"{name}.geojson").write_text(text, encoding="utf-8")
         counts[name] = len(doc["features"])
     return counts
 
@@ -467,28 +458,31 @@ def main() -> None:
             list(pool.map(prepare_dem, [s["bounds"] for s in area], [CELL] * len(area), dems))
             # One lowest height for the whole area, so the strips meet.
             lows = []
-            for s, dem in zip(area, dems):
-                with rasterio.open(dem) as src:
+            for s, dem_path in zip(area, dems, strict=True):
+                with rasterio.open(dem_path) as src:
                     window = from_bounds(*s["core"], transform=src.transform).round_offsets().round_lengths()
                     lows.append(float(src.read(1, window=window).min()))
             base = min(lows)
             lines, mexico = base_lines(bbox, tmp)
-            print(f"{len(area)} strips, lowest ground {base:.0f} m; base lines ready after {time.monotonic() - started:.0f} s", flush=True)
+            print(f"{len(area)} strips, lowest ground {base:.0f} m; "
+                  f"base lines ready after {time.monotonic() - started:.0f} s", flush=True)
             jobs = []
-            for s, dem in zip(area, dems):
+            for s, dem_path in zip(area, dems, strict=True):
                 x0, y0, x1, y1 = s["bounds"]
                 mine = [line for line in lines if line[2][:, 0].max() >= x0 and line[2][:, 0].min() <= x1
                         and line[2][:, 1].max() >= y0 and line[2][:, 1].min() <= y1]
-                jobs.append(pool.submit(build_strip, s, dem, base, mine, mexico.intersection(box(*s["core"])), tmp / f"{s['name']}.geojsonl"))
+                side = mexico.intersection(box(*s["core"]))
+                jobs.append(pool.submit(build_strip, s, dem_path, base, mine, side, tmp / f"{s['name']}.geojsonl"))
             counts: dict[str, int] = {}
             for job in jobs:
                 for kind, n in job.result().items():
                     counts[kind] = counts.get(kind, 0) + n
-        print(", ".join(f"{k} {n:,}" for k, n in sorted(counts.items())) + f"; after {time.monotonic() - started:.0f} s", flush=True)
-        story = raise_story(Heights(list(zip(area, dems)), base, tmp))
+        summary = ", ".join(f"{k} {n:,}" for k, n in sorted(counts.items()))
+        print(f"{summary}; after {time.monotonic() - started:.0f} s", flush=True)
+        story = raise_story(Heights(list(zip(area, dems, strict=True)), base, tmp))
         print("data/raised/: " + ", ".join(f"{k} {n}" for k, n in story.items()), flush=True)
         archives = write_archives(area, tmp)
-    print(f"Wrote {', '.join(f'{n} ({mb:.1f} MB)' for n, mb in archives)} to tiles/out/ and site/public/tiles/; "
+    print(f"Wrote {', '.join(f'{n} ({mb:.1f} MB)' for n, mb in archives)} to tiles/out/; "
           f"{time.monotonic() - started:.0f} s in all")
 
 
@@ -499,28 +493,25 @@ def write_archives(area: list[dict], tmp: Path) -> list[tuple[str, float]]:
     while groups:
         group = groups.pop(0)
         built += 1
-        out = tmp / f"part-{built}.pmtiles"
-        # Relative names keep local paths out of the archive's metadata.
-        subprocess.run(["tippecanoe", "-q", "-f", "-o", out.name, "-Z9", "-z12", "--no-line-simplification",
-                        "--no-tile-size-limit", "--no-feature-limit", "-n", "The Crossing: raised relief",
-                        "-A", ATTRIBUTION, *[a for s in group for a in ("-L", f"oblique:{s['name']}.geojsonl")]], check=True, cwd=tmp)
+        layers = [("oblique", f"{s['name']}.geojsonl") for s in group]
+        out = tippecanoe(tmp, f"part-{built}.pmtiles", layers, zooms=(9, 12), name="The Crossing: raised relief",
+                         attribution=ATTRIBUTION, extra=("--no-line-simplification", "--no-feature-limit"))
         if out.stat().st_size / 1e6 > MAX_ARCHIVE_MB and len(group) > 1:
             half = len(group) // 2
             groups[:0] = [group[:half], group[half:]]
         else:
             done.append((min(s["bounds"][0] for s in group), out))
-    for folder in (TILES_OUT, SITE_TILES):
-        folder.mkdir(parents=True, exist_ok=True)
-        for old in folder.glob("oblique*.pmtiles"):
-            old.unlink()
+    TILES_OUT.mkdir(parents=True, exist_ok=True)
+    for old in TILES_OUT.glob("oblique*.pmtiles"):
+        old.unlink()
     names = []
     for i, (_, out) in enumerate(sorted(done), start=1):
         name = f"oblique-{i}.pmtiles"
         shutil.move(out, TILES_OUT / name)
-        shutil.copy(TILES_OUT / name, SITE_TILES / name)
         names.append((name, (TILES_OUT / name).stat().st_size / 1e6))
     (RAISED_DATA / "archives.json").write_text(json.dumps([n for n, _ in names]) + "\n", encoding="utf-8")
     return names
+
 
 if __name__ == "__main__":
     main()

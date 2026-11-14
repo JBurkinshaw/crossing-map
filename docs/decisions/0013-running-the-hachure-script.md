@@ -1,6 +1,6 @@
 # 0013. Running the hachure script unmodified
 
-Status: accepted (2026-11-11)
+Status: accepted (2026-11-11); superseded by 0015
 Phase: P1
 
 ## Context

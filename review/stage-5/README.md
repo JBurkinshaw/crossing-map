@@ -1,28 +1,28 @@
 # Stage 5 review: translations groundwork
 
-This folder holds the first pass at the site's own translations of the Spanish in the novel. It covers the pipeline and data only; there is no UI yet. Nothing here is published until you review it.
+The first pass at the site's own translations of the Spanish in the novel: the method, the files, and the questions still open. The hand-edited inputs live in `pipeline/seeds/`; this folder keeps the gap list the build writes.
 
 ## Files
 
 | File | What it is |
 | --- | --- |
-| `translations-review.csv` | Every Spanish span found, with its incipit, our draft English, confidence, note, speaker, listener, place and guide page. Edit this file. |
-| `translation-gaps.csv` | The spans that have no entry in the Campbell guide (the gap list from plan section 8). |
-| `road-refs.csv` | Runs of lines judged by hand to be spoken on one route segment (talk on the road). |
-| `where-spoken.csv` | Single lines judged by hand: where each was spoken (stop, place, area or segment), or left null, with a reason in our own words. |
-| `../../data/translations.json` | The published record, built from the two sources below. Schema: `data/schema/translations.schema.json`. |
+| `pipeline/seeds/translations.csv` | Every Spanish span found, with its incipit, our draft English, confidence, note, speaker, listener, place and guide page. Edit this file. |
+| `review/stage-5/translation-gaps.csv` | The spans that have no entry in the Campbell guide (the gap list from design section 8). |
+| `pipeline/seeds/road-refs.csv` | Runs of lines judged by hand to be spoken on one route segment (talk on the road). |
+| `pipeline/seeds/where-spoken.csv` | Single lines judged by hand: where each was spoken (stop, place, area or segment), or left null, with a reason in our own words. |
+| `data/translations.json` | The published record, built from the spans and the files above. Schema: `data/schema/translations.schema.json`. |
 
-Private working files (git-ignored, under `private/translations/`): `spans.json` (each full Spanish span and its context), `guide-entries.json` (the guide's pages and Spanish openings), `drafts/` (the draft translations by batch), `es-search.json` (accent-folded full spans).
+Private working files (git-ignored, under `private/translations/`): `spans.json` (each full Spanish span and its context), `drafts/` (the draft translations by batch). The guide is parsed again on each run, not stored.
 
 Rebuild from the repo root:
 
-```
-uv run --project pipeline python -m crossing.translations find    # private text and guide -> private/translations/spans.json
-uv run --project pipeline python -m crossing.translations build   # spans + drafts + this CSV -> data/translations.json and the CSVs
+```bash
+uv run --project pipeline --extra translations python -m crossing.translations find    # private text and guide -> private/translations/spans.json
+uv run --project pipeline --extra translations python -m crossing.translations build   # spans + drafts + seeds -> data/translations.json and the CSVs
 uv run --project pipeline python -m crossing.validate
 ```
 
-`build` keeps your edits: any non-empty cell in `translations-review.csv` wins over the draft. Span ids (`tr-<episode>-<nnn>`) are numbered in reading order within each episode. Do not run `find` again with changed detection settings after you start editing, or the ids can shift.
+`build` keeps your edits: any non-empty cell in `pipeline/seeds/translations.csv` wins over the draft. Span ids (`tr-<episode>-<nnn>`) are numbered in reading order within each episode. Do not run `find` again with changed detection settings after you start editing, or the ids can shift.
 
 ## Method
 
@@ -30,7 +30,7 @@ uv run --project pipeline python -m crossing.validate
 2. **Spanish in the text.** Each paragraph of the 41 episode files is split into sentences. A trailing English dialogue tag ("he said", "the old man wheezed") is cut off, and the rest is language-identified with lingua (English against Spanish only). A clause counts as Spanish when the model is confident and few of its words are English dictionary words. Consecutive Spanish sentences in one paragraph form one span, even with a dialogue tag between them. Inside English sentences, single Spanish words (and short runs such as "hermanos en armas") are found from the dictionary, the model and the guide's one-word entries. A word that recurs in the narration ("alguacil", "carretero") is glossed once, where it first appears; the `occurrences` column says how often it recurs. A bare "No." is dropped, because it reads the same in English.
 3. **Guide matching.** Text is accent- and case-folded. Each guide entry is matched to the best span within 6 pages of its printed page, by rapidfuzz partial ratio of at least 85. Entries of one or two words must appear as whole words. A span can hold several guide entries, because the guide often splits one speech; `guide_page` is the page of the first.
 4. **Pages.** The ebook has no print pages. 132 long guide entries that matched with a score of 92 or more became page anchors (offset in the text, guide page). The anchors were kept in order (longest increasing chain), and pages between them are interpolated. Episode start pages come out at Part II 128, Part III 214 and Part IV 333, against the guide's 131, 215 and 342. Treat every `page` as approximate, within about 2 pages where anchors are dense and worse in the gaps the plan lists (for example Part One 51 to 69). The Part IV figure may be early because the guide's first Part IV entry is not on the Part's first page.
-5. **Where it was spoken.** `location_ref` is the stop of the same episode whose place name the text gave most recently before the line. If no stop is named, a place first named in that episode (as a stop or in passing) is used. Otherwise it is null. Descriptive stops ("The girl, at a fire in an oak grove") cannot be found by name, so their talk is often null or points to the town named just before. This is a heuristic: check it. Two hand-made files correct it, both read by the same step in the build (`load_hand_refs`). `road-refs.csv` lists runs of lines, judged from the episode's stops and segments, that are spoken while travelling one route segment (talk on the road, plan section 8); a run fills only lines the heuristic left without a place. `where-spoken.csv` lists single lines (`id`, `ref`, `kind`, `why`) and replaces the heuristic. An empty `ref` records a line the text does not place and changes nothing. A row whose `why` starts with "Checked:" repeats the heuristic's own ref: the line was read in context and the heuristic was right. A segment reference has `location_kind` `road`; every other reference has the kind of its layer (`stop`, `place`, `area`). The build stops if a ref does not exist with the stated kind, is first seen after the line, or is a segment not travelled in the line's episode, or if a line is in both files. A hand edit in `translations-review.csv` still wins over both; a cell that only repeats the heuristic does not count as an edit. See `patterns.md`.
+5. **Where it was spoken.** `location_ref` is the stop of the same episode whose place name the text gave most recently before the line. If no stop is named, a place first named in that episode (as a stop or in passing) is used. Otherwise it is null. Descriptive stops ("The girl, at a fire in an oak grove") cannot be found by name, so their talk is often null or points to the town named just before. This is a heuristic: check it. Two hand-made files correct it, both read by the same step in the build (`load_hand_refs`). `pipeline/seeds/road-refs.csv` lists runs of lines, judged from the episode's stops and segments, that are spoken while travelling one route segment (talk on the road, design section 8); a run fills only lines the heuristic left without a place. `pipeline/seeds/where-spoken.csv` lists single lines (`id`, `ref`, `kind`, `why`) and replaces the heuristic. An empty `ref` records a line the text does not place and changes nothing. A row whose `why` starts with "Checked:" repeats the heuristic's own ref: the line was read in context and the heuristic was right. A segment reference has `location_kind` `road`; every other reference has the kind of its layer (`stop`, `place`, `area`). The build stops if a ref does not exist with the stated kind, is first seen after the line, or is a segment not travelled in the line's episode, or if a line is in both files. A hand edit in `pipeline/seeds/translations.csv` still wins over both; a cell that only repeats the heuristic does not count as an edit. See `patterns.md`.
 6. **Drafts.** The English is ours. It was drafted from the Spanish and its context, without reference to the guide, in plain and faithful wording. Each line has a confidence and, where useful, a note on northern Mexican or rural usage or on a scan error in the ebook (the ebook has OCR errors such as "to" for "lo"). Speaker and listener are slugs (`billy`, `boyd`, `father`, or a role such as `old-man`), filled in only when the context makes them clear.
 
 ## Counts
@@ -56,19 +56,19 @@ Where it was spoken, for the 916 published entries:
 | | Placed at a stop, place or area | On the road | No place |
 | --- | --- | --- | --- |
 | Name heuristic only | 661 | 0 | 255 |
-| After `road-refs.csv` (previous pass) | 661 | 52 | 203 |
-| After `where-spoken.csv`, pass 1 | 847 | 67 | 2 |
-| After `where-spoken.csv`, pass 2 (this pass) | 829 | 85 | 2 |
+| After `pipeline/seeds/road-refs.csv` (previous pass) | 661 | 52 | 203 |
+| After `pipeline/seeds/where-spoken.csv`, pass 1 | 847 | 67 | 2 |
+| After `pipeline/seeds/where-spoken.csv`, pass 2 (this pass) | 829 | 85 | 2 |
 
 By kind, the 916 are now 767 `stop`, 62 `place`, 85 `road` and 2 null. No line rests on the name heuristic alone any more:
 
 | Source of `location_ref` | Lines |
 | --- | --- |
-| Placed by hand in `where-spoken.csv`, pass 1 | 241 |
-| Corrected by hand in `where-spoken.csv`, pass 2 | 315 |
+| Placed by hand in `pipeline/seeds/where-spoken.csv`, pass 1 | 241 |
+| Corrected by hand in `pipeline/seeds/where-spoken.csv`, pass 2 | 315 |
 | Heuristic checked and confirmed ("Checked:" rows), pass 2 | 306 |
-| Runs in `road-refs.csv` | 52 |
-| Null (2 empty rows in `where-spoken.csv`) | 2 |
+| Runs in `pipeline/seeds/road-refs.csv` | 52 |
+| Null (2 empty rows in `pipeline/seeds/where-spoken.csv`) | 2 |
 | Heuristic, not checked | 0 |
 
 ### Pass 2: checking the heuristic
@@ -110,7 +110,7 @@ Lines inside a song or a tale (the corrido in the hotel garden in 4-05, the here
 - 4-05, `tr-4-05-041` to `-054`: the ciénega is north of Babícora, after he rode through it; kept at `j7-babicora-2`.
 - 4-06, `tr-4-06-036` to `-070`: the gypsies' camp is a day after the attack in the same grove; both use `j7-attack`.
 
-### Pass 1: `where-spoken.csv`
+### Pass 1: `pipeline/seeds/where-spoken.csv`
 
 Each of the 203 lines with no place was read in context. 201 now have a place and 2 are left null, both in 3-14: a charm he looks at during weeks of searching, and a word said of two hamlets together. Most of the rest are said at one stop:
 
@@ -125,7 +125,7 @@ Each of the 203 lines with no place was read in context. 201 now have a place an
 | 3-12 | 6 | Leaving San Diego at dusk (`j5-san-diego`). |
 | Others | 19 | One stop each: the heretic's town (2-02), Bacerac (2-08), the river camps (3-02), Las Varas (3-04), Boquilla (3-06), the dry camp (3-08), the doctor's house in Casas Grandes (3-10), Buenaventura (3-14), Berendo (4-03), Namiquipa (4-05), the gypsies' camp (4-07). |
 
-**1-09 corrections.** The heuristic had put 32 lines after the Cabellera passes at the Sierra de la Cabellera stop, because no later place is named until Morelos. The text puts them elsewhere, and `where-spoken.csv` now says so:
+**1-09 corrections.** The heuristic had put 32 lines after the Cabellera passes at the Sierra de la Cabellera stop, because no later place is named until Morelos. The text puts them elsewhere, and `pipeline/seeds/where-spoken.csv` now says so:
 
 - `tr-1-09-064` to `-076` (13 lines): the deputies stop Billy on the gravel bar after he swims the wolf across the Bavispe. Now `j2-colonia-oaxaca`, the river crossing stop.
 - `tr-1-09-077` to `-111` (12 lines): the alguacil questions him in the mud-house settlement, and the carretero takes the wolf from there. Now `j2-mud-settlement`.
@@ -133,12 +133,12 @@ Each of the 203 lines with no place was read in context. 201 now have a place an
 
 The next 8 lines (`tr-1-09-125` to `-134`) pointed at Colonia Morelos only because the pilgrims had just named it. They are the same walk and the pilgrims' camp in a meadow on the way, so they are on `j2-seg-10` too. Talk on the road is now 67 lines on two segments.
 
-## Guardrails (plan section 3)
+## Guardrails (design section 3)
 
 - **Incipits only.** Committed files hold at most the first five words of each Spanish span (`es_incipit`, with "…" when cut). `crossing.validate` fails on a longer incipit. For a span of five words or fewer, the incipit is the whole span; for one-word glosses this cannot be avoided.
-- **`es_search` is not published.** The plan's record has `es_search` (the accent-folded full span, for the search index). Published in full, it would put the novel's Spanish passages in the repo and the site, which section 3 rules out. It is kept out of `data/translations.json` and the schema forbids it. The folded spans are written to `private/translations/es-search.json` only. The search agent can index `es_incipit` (folded) and our English. Accent-insensitive search on the incipit still finds most lines by their opening.
-- **The guide is not copied.** We hold only its page numbers (`guide_page`). Our English was drafted without the guide. Each entry with a `guide_page` can link to the guide with the credit "Campbell's guide: Lt. Jim Campbell, cormacmccarthy.com" (plan section 3).
-- **No passages.** The acceptance criterion "No passage of the novel is in the repo or the built site" (plan section 11) is checked by `uv run --project pipeline python -m crossing.echo_check`. It reports any run of 8 consecutive words shared between the private text and a tracked file or `site/dist/`, and exits 1 on a match (see `data/README.md`). It needs `private/book/text/`, so it skips in CI. In the guardrail pass, 29 rows in the stop seeds, the place overrides and `where-spoken.csv` closely followed the text's own directions; they were reworded with the same facts. The check now finds no run in the seeds, `data/` or `review/`. `docs/plan.md` still has 5 runs (12 overlapping 8-word matches) in its journey descriptions, left for the owner.
+- **`es_search` is not published.** The plan's record has `es_search` (the accent-folded full span, for the search index). Published in full, it would put the novel's Spanish passages in the repo and the site, which section 3 rules out. It is kept out of `data/translations.json` and the schema forbids it. The folded spans are not written anywhere. The search can index `es_incipit` (folded) and our English. Accent-insensitive search on the incipit still finds most lines by their opening.
+- **The guide is not copied.** We hold only its page numbers (`guide_page`). Our English was drafted without the guide. Each entry with a `guide_page` can link to the guide with the credit "Campbell's guide: Lt. Jim Campbell, cormacmccarthy.com" (design section 3).
+- **No passages.** The acceptance criterion "No passage of the novel is in the repo or the built site" (design section 11) is checked by `uv run --project pipeline python -m crossing.echo_check`. It reports any run of 8 consecutive words shared between the private text and a tracked file or `site/dist/`, and exits 1 on a match (see `data/README.md`). It needs `private/book/text/`, so it skips in CI. In the guardrail pass, 29 rows in the stop seeds, the place overrides and `pipeline/seeds/where-spoken.csv` closely followed the text's own directions; they were reworded with the same facts. The check now finds no run in the seeds, `data/` or `review/`.
 - **Spoilers.** Each line's `first_seen` is its own episode. `location_ref` never points at a feature first seen later, and validate checks this.
 
 ## How guide links work
@@ -147,23 +147,23 @@ The guide is one 15-page PDF with no anchors, so a link cannot go to an entry. T
 
 ## What to review
 
-1. **Draft English** in `translations-review.csv`: start with `confidence` low and medium, then the notes. Put `yes` in `reviewed` when a line is done. Ideally a speaker who knows northern Mexican usage reads the whole file (plan section 8).
+1. **Draft English** in `pipeline/seeds/translations.csv`: start with `confidence` low and medium, then the notes. Put `yes` in `reviewed` when a line is done. Ideally a speaker who knows northern Mexican usage reads the whole file (design section 8).
 2. **False positives:** set `skip` to `yes` for anything that is not Spanish. 12 are already marked, mostly proper names said in English. They stay in the CSV but are left out of `translations.json`.
 3. **Missed Spanish:** the gap list covers spans we found. Spanish we did not find shows up as an unmatched guide entry (47, listed in the private working files) or not at all. Sentences that mix English and Spanish words fifty-fifty are the likely misses.
-4. **`location_ref`:** every line now has a reason in `where-spoken.csv` or a run in `road-refs.csv`. Corrections are the rows without "Checked:"; start with the spot-check list under "Pass 2". To change a line, change its `ref` there. The pass 1 suspects (1-10 pit, 3-10 doctor's gate, 2-01 El Tigre) are corrected. Still open:
+4. **`location_ref`:** every line now has a reason in `pipeline/seeds/where-spoken.csv` or a run in `pipeline/seeds/road-refs.csv`. Corrections are the rows without "Checked:"; start with the spot-check list under "Pass 2". To change a line, change its `ref` there. The pass 1 suspects (1-10 pit, 3-10 doctor's gate, 2-01 El Tigre) are corrected. Still open:
    - `j3-colonia-oaxaca` (2-03) says the alguacil's house is at Colonia Oaxaca, but in 1-09 the alguacil questions Billy in the mud-house settlement (`j2-mud-settlement`), the stop after the river crossing. One of the two stops needs a look.
-   - Writing `none` in `translations-review.csv` clears a line for one build only: the build writes the cleared cell back as empty, so the next build restores the heuristic. This pass therefore made no line null (question 10).
+   - Writing `none` in `pipeline/seeds/translations.csv` clears a line for one build only: the build writes the cleared cell back as empty, so the next build restores the heuristic. This pass therefore made no line null (question 10).
 5. **Speaker and listener slugs:** check them against the characters the site will name. People the text has not named yet are given roles, and the drafts were made in seven batches, so the slugs are not fully consistent. For example, `woman` and `girl` each stand for more than one person, and the old man in 1-07 is `old-man`, not a name. A pass to make them consistent is needed before the UI shows speakers.
 
 ## Open questions for the owner
 
 1. Is a whole short line acceptable as its "incipit" when the line has five words or fewer? The plan's rule allows an opening phrase. For short lines the opening phrase is the whole line, but each line is still only a few words.
 2. Should a recurring word in the narration have one glossary entry (as now) or one entry per Part?
-3. Should a run of short lines in one exchange be grouped into one entry ("exchange", plan section 6)? The data now has one entry per line, as the guide does. Grouping would cut the count by about half and make each card more useful.
-4. `conversations.geojson` (plan section 6) is not built. Its points could come from `location_ref`. Talk on the road now points at a route segment, and the map draws the 2 km corridor itself (see `patterns.md`).
+3. Should a run of short lines in one exchange be grouped into one entry ("exchange", design section 6)? The data now has one entry per line, as the guide does. Grouping would cut the count by about half and make each card more useful.
+4. `conversations.geojson` (design section 6) is not built. Its points could come from `location_ref`. Talk on the road now points at a route segment, and the map draws the 2 km corridor itself (see `patterns.md`).
 5. The page model could also fill `pages` in `episodes.json`, which is null now. This was not done here, because that file is out of scope for this stage.
 6. Lines inside a tale told in the story (the blind man's wife's tale in 3-09, 32 lines) now point at the place where the tale is told, not at the tale's own places, which are not on the map. Is that what you want, or should they stay null?
 7. Two lines in 3-14 stay null: the text does not place them. Should they get the nearest stop of the search (for example Buenaventura), or stay null?
 8. The 7 lines in 3-11 and 3-13 point at the place `place-hacienda-de-san-diego`, because neither episode has a stop. Would you rather they took a San Diego stop (for example `j4-san-diego-doctor`, the last one before them)?
 9. The ranch where the old Mexican sews the wolf's leg is reached at the end of 1-08, but its stop `j2-volcanic-plain-ranch` has `first_seen` 1-09. Its 8 lines (`tr-1-08-007` to `-014`) take `j2-guadalupe-pass` for now. Should the stop's `first_seen` move to 1-08, so they can point at it?
-10. Should an empty `ref` in `where-spoken.csv` clear the heuristic (make the line null)? Now it changes nothing, and the `none` cell in `translations-review.csv` does not survive a second build. This pass needed no nulls, but a later review may.
+10. Should an empty `ref` in `pipeline/seeds/where-spoken.csv` clear the heuristic (make the line null)? Now it changes nothing, and the `none` cell in `pipeline/seeds/translations.csv` does not survive a second build. This pass needed no nulls, but a later review may.

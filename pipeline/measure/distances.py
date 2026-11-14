@@ -1,4 +1,4 @@
-"""Distances quoted in docs/plan.md, computed so anyone can rerun them.
+"""Distances quoted in docs/design.md, computed so anyone can rerun them.
 
 Run from the repo root: uv run --project pipeline python pipeline/measure/distances.py
 
@@ -8,7 +8,10 @@ lines, not travel distances. Coordinates are Wikidata P625 values, read
 11 November 2026; their precision is noted where it limits the answer.
 """
 
-from pyproj import Geod, __version__ as pyproj_version, proj_version_str
+from pyproj import Geod, proj_version_str
+from pyproj import __version__ as pyproj_version
+
+from crossing.paths import STORY_BOX
 
 GEOD = Geod(ellps="WGS84")
 
@@ -19,7 +22,7 @@ POINTS = {
                    "given to 0.01 deg, so about 1 km; a stand-in for the Black Range crest"),
     "casas_grandes": (30.3822, -107.9569, "Wikidata Q3867357, Casas Grandes (town)", ""),
     "mata_ortiz": (30.181111111111, -108.02277777778, "Wikidata Q4284456, Mata Ortiz", ""),
-    # Part I candidates quoted in pipeline/seeds/part1-stops.csv
+    # Part I candidates quoted in pipeline/seeds/stops.csv
     "foster_hidalgo": (31.50815, -108.86894, "GNIS 889164, Foster Draw, Hidalgo County NM", ""),
     "foster_grant": (32.92802, -108.77058, "GNIS 889163, Foster Draw, Grant County NM", ""),
     "foster_socorro": (33.81634, -107.55638, "GNIS 906343, Foster Draw, Socorro County NM", ""),
@@ -62,8 +65,8 @@ PAIRS = [
     ("bavispe_crossing", "villa_hidalgo", "Part I: wolf crossing to Villa Hidalgo"),
 ]
 
-# The story box from plan section 7, step 3: 104-113 W, 27-36 N.
-BOX = {"west": -113.0, "east": -104.0, "south": 27.0, "north": 36.0}
+# The story box from design section 7, step 3: 104-113 W, 27-36 N.
+BOX = dict(zip(("west", "south", "east", "north"), STORY_BOX, strict=True))
 
 
 def geodesic(a: str, b: str) -> tuple[float, float]:

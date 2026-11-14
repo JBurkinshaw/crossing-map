@@ -1,0 +1,478 @@
+.stop-marker {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1.5px solid;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.stop-marker.is-visited {
+  opacity: 0.55;
+}
+
+.stop-marker.is-current {
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+/* Stops at one spot: a single badge holding each stop's number. */
+.stop-group {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 4px;
+  border: 1.5px solid;
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.stop-group .stop-marker {
+  width: auto;
+  min-width: 16px;
+  height: 20px;
+  padding: 0 2px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.stop-group .stop-marker + .stop-marker::before {
+  content: '·';
+  margin-right: 4px;
+  color: var(--ink);
+  opacity: 0.6;
+}
+
+.stop-group.has-current {
+  height: 28px;
+  background: var(--ink);
+}
+
+.stop-group.has-current .stop-marker {
+  color: var(--paper);
+}
+
+.stop-group .stop-marker.is-current {
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.stop-group.has-current .stop-marker + .stop-marker::before {
+  color: var(--paper);
+}
+
+/* A cluster around Cloverdale and the Peloncillos (design 9): a double ring with the count, opened by a click,
+   Enter or zooming in. */
+.cluster-marker {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  border: 1.5px solid var(--ink);
+  border-radius: 15px;
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: zoom-in;
+}
+
+.cluster-marker:focus-visible {
+  outline-width: 2px;
+}
+
+.maplibregl-popup-content {
+  background: var(--paper);
+  font-family: inherit;
+}
+
+/* The title cartouche, bottom right, with the layer key folded under the title. Opened, the key grows the
+   cartouche upwards, over the inset, and the cartouche scrolls if the map is short. */
+.cartouche {
+  position: absolute;
+  z-index: 3;
+  right: 12px;
+  bottom: 28px;
+  /* Clear of the map's switches, top right. */
+  max-height: calc(100% - 228px);
+  overflow-y: auto;
+  max-width: min(320px, calc(100% - 30px));
+  box-sizing: border-box;
+  padding: 8px 14px 4px;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  background: var(--paper);
+}
+
+.cartouche-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cartouche-title {
+  font-size: 1.15rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cartouche-sub {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.north {
+  color: var(--ink);
+  font-family: inherit;
+}
+
+.maplibregl-ctrl-scale {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+  font-family: inherit;
+}
+
+/* Phones: the title alone, smaller, so the cartouche stays a small corner holding the key. */
+@media (max-width: 720px) {
+  .cartouche {
+    right: 10px;
+    bottom: 10px;
+    max-height: calc(100% - 66px);
+    padding: 4px 10px 2px;
+    outline-offset: 2px;
+  }
+  .cartouche .north,
+  .cartouche-sub {
+    display: none;
+  }
+  .cartouche-title {
+    font-size: 0.85rem;
+  }
+}
+
+/* The overview inset (OverviewInset.tsx): above the cartouche. */
+.overview {
+  position: absolute;
+  right: 12px;
+  bottom: 136px;
+  margin: 0;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+  background: var(--paper);
+  /* Its title is the tooltip that explains it; the inset is small, so taking pointer events costs little map. */
+  cursor: help;
+}
+
+.overview figcaption {
+  padding: 1px 4px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.overview svg {
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .overview {
+    right: 10px;
+    bottom: 76px;
+  }
+}
+
+.literary {
+  position: absolute;
+  inset: 0;
+}
+
+.swipe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--split, 50%);
+  width: 4px;
+  margin-left: -2px;
+  background: var(--ink);
+  cursor: ew-resize;
+  touch-action: none;
+}
+
+.swipe::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+/* The map's switches: one framed box, top right, with the cartouche's and the inset's double rule. Each row
+   has a small italic label; View and Ground hang under Map on a ruled branch, as they change the classic map. */
+.map-controls-box {
+  position: absolute;
+  z-index: 4;
+  top: 10px;
+  right: 10px;
+}
+
+.map-controls {
+  display: grid;
+  gap: 5px;
+  padding: 6px 8px;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+  background: var(--paper);
+}
+
+.map-controls[hidden] {
+  display: none;
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.control-label {
+  flex: none;
+  width: 3.7rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+.control-sub {
+  display: grid;
+  gap: 5px;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid var(--ink);
+}
+
+.control-sub .control-label {
+  width: calc(3.7rem - 21px);
+}
+
+.control-sub[data-off] .control-label {
+  opacity: 0.45;
+}
+
+/* Phones: one Map button, the switches below it when open. */
+.map-menu-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  margin-left: auto;
+  padding: 4px 10px;
+  border: 1px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+  background: var(--paper);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.map-menu-button[aria-expanded='true'] {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .map-controls-box {
+    top: max(10px, env(safe-area-inset-top));
+    display: grid;
+    justify-items: end;
+    gap: 8px;
+  }
+}
+
+.basemap-switch {
+  display: flex;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.basemap-switch button {
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 0;
+  background: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.basemap-switch button[aria-checked='true'] {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+/* Compare: a narrow icon button between the two maps it compares. */
+.basemap-switch button[data-narrow] {
+  display: grid;
+  place-items: center;
+  padding: 4px 6px;
+  border-left: 1px solid var(--ink-faint);
+  border-right: 1px solid var(--ink-faint);
+}
+
+/* In compare mode the two maps compared are half chosen: a light ink wash with an ink rule under the word,
+   so they read as part of the choice but stay lighter than the Compare button, which is on. */
+.basemap-switch button[data-paired] {
+  background: color-mix(in srgb, var(--ink) 14%, transparent);
+  box-shadow: inset 0 -3px 0 var(--ink);
+}
+
+.basemap-switch button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Under the map's switches. */
+.notice {
+  position: absolute;
+  top: 186px;
+  right: 10px;
+  max-width: 260px;
+  margin: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-size: 0.8rem;
+}
+
+/* On phones the notices sit under the Map button. */
+@media (max-width: 720px) {
+  .basemap-switch button {
+    min-height: 36px;
+    padding: 2px 9px;
+  }
+  .notice {
+    top: 58px;
+    left: 50px;
+    max-width: none;
+  }
+}
+
+/* Clear the MapTiler logo, which the satellite map draws bottom left. */
+.has-satellite .literary .maplibregl-ctrl-bottom-left,
+.satellite-tint .literary .maplibregl-ctrl-bottom-left {
+  left: 100px;
+}
+
+/* Satellite tint: the imagery, brightened, saturated and faded over white, tints the classic map multiplied
+   over it. Bright imagery darkens the map very little, so the tint adds colour without murk, and ink and
+   water keep nearly their own colour. Only the imagery fades; the MapTiler logo and attribution stay at
+   full strength. */
+.satellite-tint .satellite {
+  background: #fff;
+}
+
+.satellite-tint .satellite .maplibregl-canvas {
+  opacity: 0.25;
+  filter: saturate(1.4) brightness(1.45) contrast(0.95);
+}
+
+.satellite-tint .literary .maplibregl-canvas {
+  mix-blend-mode: multiply;
+}
+/* The Home button sits with the zoom buttons. */
+.home-button {
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+}
+
+/* The layer key, folded in the cartouche under its title, behind a thin rule. */
+.layer-key {
+  margin-top: 6px;
+  border-top: 1px solid var(--ink-faint);
+  font-size: 0.82rem;
+}
+
+.layer-key summary {
+  min-height: 30px;
+  padding: 5px 0;
+  box-sizing: border-box;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.layer-key-body {
+  padding: 0 0 6px;
+}
+
+.layer-key h3 {
+  margin: 6px 0 2px;
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.layer-key ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.layer-key li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 20px;
+}
+
+.layer-key li svg {
+  flex: none;
+}
+
+.key-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+}
+
+.key-stop {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 10px;
+}
+
+.key-glyphs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+}
+
+.key-glyph {
+  display: inline-block;
+  flex: none;
+  min-width: 20px;
+  background-repeat: no-repeat;
+}

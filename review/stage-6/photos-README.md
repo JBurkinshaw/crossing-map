@@ -1,6 +1,6 @@
 # Stage 6 review: photo candidates from Wikimedia Commons
 
-`photos.csv` lists candidate photos for the places and stops, up to five a place, ranked. Nothing is in the app or the data layers yet: you pick first (plan section 11, stage 6).
+`photos.csv` lists candidate photos for the places and stops, up to five a place, ranked. Nothing is in the app or the data layers yet: you pick first (`docs/roadmap.md`, stage 6).
 
 **The search is finished** (13 November 2026, evening): every one of the 139 places and stops in the story box is searched. Commons rate-limited the first runs (see "Requests" below); the last run asked once every 15 seconds and waited out each refusal, starting at a minute and doubling.
 
@@ -16,8 +16,8 @@ uv run --project pipeline python -m crossing.photos --offline  # write the CSV f
 
 1. **What is searched.** Every place in `data/places.geojson`, and every stop in `data/stops.geojson` that has no `place_ref` (a stop with a `place_ref` shares its place's photos; the CSV lists its id under `stop_ids`). Not searched: tale places outside the story box (104°–113° W, 27°–36° N), and inferred or reported stops with a radius over 3 km, because a photo "near" a 10 km circle says nothing. That gives 135 places to search and 49 skipped stops.
 2. **Wikidata.** The Wikidata item is the feature's own Wikidata id, or the one item that carries its GeoNames id (P1566) or GNIS id (P590). The links come from the Wikidata entities the gazetteer already cached in `private/cache/wikidata/`, with no new request. 80 of the 135 places link this way, 52 of them with an image (P18) and 47 with a Commons category (P373). Where two items claim one id, none is taken.
-3. **Commons, in plan order (section 10).** The item's image (P18), then up to 20 files in its Commons category (P373), then Commons geosearch for files within 5 km of the point (up to 30). One API call per step returns each file's licence, author, date, categories, coordinates and an 800 px thumbnail URL (`extmetadata`). No image is downloaded.
-4. **Licences (plan section 3).** Kept: public domain, CC0, CC BY and CC BY-SA, any version. Dropped: NC, ND, non-free, GFDL-only and anything unlabelled.
+3. **Commons, in design order (section 10).** The item's image (P18), then up to 20 files in its Commons category (P373), then Commons geosearch for files within 5 km of the point (up to 30). One API call per step returns each file's licence, author, date, categories, coordinates and an 800 px thumbnail URL (`extmetadata`). No image is downloaded.
+4. **Licences (design section 3).** Kept: public domain, CC0, CC BY and CC BY-SA, any version. Dropped: NC, ND, non-free, GFDL-only and anything unlabelled.
 5. **What a file shows**, roughly, from its categories and title: `landscape`, `building`, `wildlife` or `other`. Maps, coats of arms, flags and drawings are dropped, and so are aerial views (astronaut photos from the ISS and USDA orthophoto tiles), because the map already has satellite imagery.
 6. **Rank.** The Wikidata image first; then landscape views, nearest first; then other, building and wildlife files, nearest first. Category files have no distance unless they carry coordinates, so they come after the geosearch files of their kind.
 
@@ -53,7 +53,7 @@ Files seen with an allowed licence: 1,611; dropped as aerial views: 372; dropped
 
 ## Requests
 
-Plan section 11 asks before any network batch. This run was in the overnight plan you approved (step 13), so it went ahead at one request a second with the User-Agent `crossing-map-pipeline/0.1 (reading-guide map; contact via repository)`, and every answer is cached in `private/cache/photos/`.
+The project asks before any network batch (`CLAUDE.md`). This run was in the overnight plan you approved (step 13), so it went ahead at one request a second with the User-Agent `crossing-map-pipeline/0.1 (reading-guide map; contact via repository)`, and every answer is cached in `private/cache/photos/`.
 
 1. The Wikidata Query Service answered 429 to the second SPARQL query: it was rate-limiting everyone to one request a minute during an outage (Retry-After 1,000 s). The run stopped using it and took the Wikidata links from the gazetteer's cache instead (step 2 above).
 2. The Commons API answered 429 after 6 requests (Retry-After 7 s). After a 5-minute pause, one more try at one request every 3 seconds got a second 429 after 11 requests. The run then stopped asking, as decided, and wrote the CSV from the 21 cached answers.
@@ -81,7 +81,7 @@ A rerun on another day needs about 219 requests (`--dry-run` gives the current c
 }
 ```
 
-   `title`, `author`, `source` and `licence` (with `licence_url`) are the four TASL fields, shown under the photo and on the Credits page. `modified` becomes `true` if the photo is cropped, and the credit then says "cropped from the original". `alt` and the "today" caption (plan section 10) are written by hand.
+   `title`, `author`, `source` and `licence` (with `licence_url`) are the four TASL fields, shown under the photo and on the Credits page. `modified` becomes `true` if the photo is cropped, and the credit then says "cropped from the original". `alt` and the "today" caption (design section 10) are written by hand.
 2. A script reads the picks, writes `data/photos.json`, fetches each picked file once at 800 px, converts it to WebP in `site/public/photos/`, and fills each feature's existing `photo_ids` list (already in `data/schema/story-layer.schema.json`).
 3. A JSON Schema for `photos.json` makes the four TASL fields required, and `crossing.validate` checks the licence against the allowed list and that every `photo_ids` entry exists.
 

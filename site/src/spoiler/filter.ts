@@ -2,7 +2,7 @@ import type { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'ge
 import type { ExpressionSpecification, FilterSpecification, StyleSpecification } from 'maplibre-gl'
 import type { Story } from '../data/story'
 
-// The spoiler filter (docs/plan.md, section 6): hides features first seen after the reader's progress, cuts
+// The spoiler filter (docs/design.md, section 6): hides features first seen after the reader's progress, cuts
 // each journey at the last stop reached, and, while spoiler mode is on, keeps only the spoiler-safe note.
 
 // Context towns are never named in the book; the schema shows them at every reading position.

@@ -1,7 +1,10 @@
 """Find significant peaks and write data/mountain_glyphs.geojson (plan section 5.2, layer 2).
 
 Run from the repo root: uv run --project pipeline python -m crossing.peaks
-Then run crossing.landforms, which adds each glyph's landform.
+Then run crossing.landforms, which adds each glyph's landform; crossing.validate fails until it has.
+
+Inputs besides the DEM and gazetteers: data/places.geojson (passes the story layer already marks are left out)
+and the previous data/mountain_glyphs.geojson, whose ids nearby glyphs keep (see keep_ids).
 
 Method. Mosaic the Copernicus GLO-30 tiles at GRID_M in UTM 12N, keeping each
 cell's highest 30 m elevation ("max" resampling) so summits survive. Compute
@@ -24,11 +27,10 @@ lie on a key col, then unnamed key cols of the most prominent summits where the
 ground rises on both sides, as a mountain pass rather than a basin divide.
 
 Each glyph gets a stable variation seeded by the peak's id: which of the
-GLYPHS shapes, a horizontal flip, a scale jitter of +/-15% and a rotation of
+SHAPES_PER_FAMILY shapes, a horizontal flip, a scale jitter of +/-15% and a rotation of
 +/-3 degrees. Size class follows prominence.
 """
 
-import csv
 import hashlib
 import json
 import re
@@ -41,14 +43,14 @@ import numpy as np
 import rasterio
 from pyproj import Transformer
 
+from crossing import dem as copernicus
 from crossing import landforms
+from crossing.gazetteer import geonames_rows, gnis_rows
+from crossing.glyphs import SHAPES_PER_FAMILY
+from crossing.paths import DATA
+from crossing.paths import UTM_CRS as CRS
 
-REPO = Path(__file__).resolve().parents[3]
-DEM_TILES = REPO / "private" / "cache" / "dem" / "copernicus"
-GNIS_FILES = [REPO / f"private/cache/gazetteer/DomesticNames_{s}_Text/Text/DomesticNames_{s}.txt" for s in ("NM", "AZ")]
-GEONAMES = REPO / "private" / "cache" / "gazetteer" / "MX" / "MX.txt"
-OUT = REPO / "data" / "mountain_glyphs.geojson"
-CRS = "EPSG:32612"
+OUT = DATA / "mountain_glyphs.geojson"
 GRID_M = 200
 # Not below about 150 m: the 200 m grid smooths cols, so lower prominences are mostly noise.
 MIN_PROMINENCE_M = 200
@@ -80,16 +82,23 @@ UNNAMED_PASS_MIN_COL_M = 600
 PASS_RING_M = 1600
 PASS_RING_RELIEF_M = 150
 PASS_CLEAR_M = 3000
-GLYPHS = 12
-# Summits the book names, with the episode that first names them (from crossing.extract; the book says
-# "the Animas Peaks"). Always kept, at their GNIS position. Other summits are plain geography, shown from 1-01.
-BOOK_SUMMITS = {"Animas Peak": "2-05", "Gillespie Mountain": "4-01", "Black Point": "1-03"}
+LICENCES = {"copernicus-glo30": "Copernicus WorldDEM-30 licence", "gnis": "Public domain", "geonames": "CC BY 4.0"}
+# The number of drawn shapes per landform family; art/glyphs/make_glyphs.py draws the same number.
+# Summits the book names, by GNIS feature id, with the episode that first names them (from crossing.extract;
+# the book says "the Animas Peaks"). Keyed by id, not name: Arizona has another Gillespie Mountain. Always kept,
+# at their GNIS position. Other summits are plain geography, shown from 1-01.
+BOOK_SUMMITS = {"899504": "2-05", "920601": "4-01", "886444": "1-03"}
+
+
+def book_episode(code: str | None, sid: str | None) -> str | None:
+    """The episode that first names this summit, if the book names it."""
+    return BOOK_SUMMITS.get(sid) if code and code.startswith("gnis:") else None
 
 
 def mosaic() -> tuple[np.ndarray, rasterio.Affine]:
     with tempfile.TemporaryDirectory() as tmp:
-        vrt, out = Path(tmp) / "m.vrt", Path(tmp) / "m.tif"
-        subprocess.run(["gdalbuildvrt", "-q", str(vrt), *map(str, sorted(DEM_TILES.glob("*.tif")))], check=True)
+        vrt = copernicus.build_vrt(Path(tmp) / "m.vrt", copernicus.tiles(copernicus.COPERNICUS))
+        out = Path(tmp) / "m.tif"
         # -tap pins the grid to multiples of GRID_M, so adding DEM tiles does not move every summit.
         subprocess.run(["gdalwarp", "-q", "-t_srs", CRS, "-tr", str(GRID_M), str(GRID_M), "-tap", "-r", "max",
                         "-dstnodata", "-9999", str(vrt), str(out)], check=True)
@@ -142,28 +151,25 @@ def prominence(dem: np.ndarray) -> list[tuple[int, int, float, float, int]]:
     return peaks
 
 
-def gazetteer(to_utm: Transformer, gnis_classes: set[str], geonames_codes: set[str]) -> list[tuple[str, str, str, str, float, float]]:
+def gazetteer(to_utm: Transformer, gnis_classes: set[str],
+              geonames_codes: set[str]) -> list[tuple[str, str, str, str, float, float]]:
     """(name, source, source_id, code, x, y) for named features; code is "gnis:<class>" or a GeoNames code."""
     found = []
-    for path in GNIS_FILES:
-        with path.open(encoding="utf-8-sig", newline="") as f:
-            for r in csv.DictReader(f, delimiter="|"):
-                if r["feature_class"] in gnis_classes and r["prim_lat_dec"]:
-                    x, y = to_utm.transform(float(r["prim_long_dec"]), float(r["prim_lat_dec"]))
-                    found.append((r["feature_name"], "gnis", r["feature_id"], f"gnis:{r['feature_class']}", x, y))
-    with GEONAMES.open(encoding="utf-8") as f:
-        for line in f:
-            r = line.split("\t")
-            if r[7] in geonames_codes:
-                x, y = to_utm.transform(float(r[5]), float(r[4]))
-                found.append((r[1], "geonames", r[0], r[7], x, y))
+    for r in gnis_rows():
+        if r["feature_class"] in gnis_classes and r["prim_lat_dec"]:
+            x, y = to_utm.transform(float(r["prim_long_dec"]), float(r["prim_lat_dec"]))
+            found.append((r["feature_name"], "gnis", r["feature_id"], f"gnis:{r['feature_class']}", x, y))
+    for r in geonames_rows():
+        if r[7] in geonames_codes:
+            x, y = to_utm.transform(float(r[5]), float(r[4]))
+            found.append((r[1], "geonames", r[0], r[7], x, y))
     return found
 
 
 def variation(peak_id: str) -> dict:
     h = hashlib.sha256(peak_id.encode()).digest()
     return {
-        "glyph": h[0] % GLYPHS + 1,
+        "glyph": h[0] % SHAPES_PER_FAMILY + 1,
         "flip": bool(h[1] % 2),
         "glyph_scale": round(0.85 + 0.30 * h[2] / 255, 2),
         "glyph_rotate": round(-3 + 6 * h[3] / 255, 1),
@@ -198,18 +204,21 @@ def keep_ids(feats: list[dict], to_utm: Transformer) -> int:
 
     Ids come from coordinates, which move a little whenever the mosaic grid
     changes; carrying the old id keeps each glyph's shape, flip and size jitter.
+    Without a previous file every glyph is fresh. Fresh ids can collide (two
+    summits in one thousandth of a degree), so each repeat takes a suffix.
     Returns how many ids carried over.
     """
-    if not OUT.exists():
-        return 0
-    old = json.loads(OUT.read_text(encoding="utf-8"))["features"]
+    old = json.loads(OUT.read_text(encoding="utf-8"))["features"] if OUT.exists() else []
     old_ids = [f["properties"]["id"] for f in old]
     old_kinds = np.array([f["properties"]["kind"] for f in old])
-    old_xy = np.array([to_utm.transform(*f["geometry"]["coordinates"]) for f in old])
+    old_xy = np.array([to_utm.transform(*f["geometry"]["coordinates"]) for f in old]).reshape(-1, 2)
     claimed: set[int] = set()
     used: set[str] = set()
     fresh = []
     for f in feats:  # biggest first, so they claim first
+        if not old:
+            fresh.append(f)
+            continue
         x, y = to_utm.transform(*f["geometry"]["coordinates"])
         d = np.hypot(old_xy[:, 0] - x, old_xy[:, 1] - y)
         d[list(claimed)] = np.inf
@@ -249,12 +258,13 @@ def main() -> None:
     def add(x, y, elev, prom, name, src, sid, code=None, kind="peak"):
         lon, lat = to_wgs.transform(x, y)
         pid = f"{kind}-{round(abs(lat) * 1000)}-{round(abs(lon) * 1000)}"  # thousandths of a degree N and W
+        first_seen = book_episode(code, sid) or "1-01"
         props = {
             "id": pid, "name": name or f"Unnamed {'pass' if kind == 'pass' else 'summit'}", "kind": kind, "role": None,
-            "part": int(BOOK_SUMMITS.get(name, "1-01")[0]), "first_seen": BOOK_SUMMITS.get(name, "1-01"),
+            "part": int(first_seen[0]), "first_seen": first_seen,
             "certainty": "located", "method": "generated",
             "source": src, "source_id": sid,
-            "source_licence": "Copernicus WorldDEM-30 licence" if src == "copernicus-glo30" else ("Public domain" if src == "gnis" else "CC BY 4.0"),
+            "source_licence": LICENCES.get(src, "CC BY 4.0"),
             "note_safe": "", "elevation_m": round(float(elev)),
             # None where the key col lies outside the mosaic, so prominence is unknown. For a pass, the
             # prominence of the summit whose key col it is.
@@ -264,7 +274,8 @@ def main() -> None:
             "name_code": code,
         }
         props |= variation(props["id"])
-        feats.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [round(lon, 5), round(lat, 5)]}, "properties": props})
+        point = {"type": "Point", "coordinates": [round(lon, 5), round(lat, 5)]}
+        feats.append({"type": "Feature", "geometry": point, "properties": props})
 
     for r, c, elev, prom, _ in sorted(big, key=lambda p: -p[3]):
         x, y = transform * (c + 0.5, r + 0.5)
@@ -277,10 +288,11 @@ def main() -> None:
         add(x, y, elev, prom, named[0] if named else None, "copernicus-glo30", named[2] if named else None,
             named[3] if named else None)
     kept = {f["properties"]["name"] for f in feats}
+    kept_ids = {f["properties"]["source_id"] for f in feats}
     small = [p for p in all_peaks if SHAPE_MIN_PROMINENCE_M <= p[3] < MIN_PROMINENCE_M]
     small_xy = np.array([transform * (c + 0.5, r + 0.5) for r, c, *_ in small])
     used = set()  # local summits already given to a named shape
-    for name, src, sid, code, x, y in names:
+    for name, _src, sid, code, x, y in names:
         if name in kept or not (code in SHAPE_CODES or SHAPE_WORDS.search(name)):
             continue
         d = np.hypot(small_xy[:, 0] - x, small_xy[:, 1] - y)
@@ -292,11 +304,11 @@ def main() -> None:
             used.add(j)
     print(f"{len(used)} named mesas, buttes and cones added below {MIN_PROMINENCE_M} m prominence")
     for name, src, sid, code, x, y in names:
-        if name in BOOK_SUMMITS and name not in kept:
+        if book_episode(code, sid) and sid not in kept_ids:
             c, r = ~transform * (x, y)
             elev = dem[int(r), int(c)] if 0 <= int(r) < dem.shape[0] and 0 <= int(c) < dem.shape[1] else 0
             add(x, y, elev, 0, name, src, sid, code)
-            kept.add(name)
+            kept_ids.add(sid)
 
     # Unnamed mesas and tablelands that the landform rules can see in the DEM.
     cfg = tomllib.loads(landforms.CONFIG.read_text(encoding="utf-8"))
@@ -304,8 +316,7 @@ def main() -> None:
     glyph_xy = [to_utm.transform(*f["geometry"]["coordinates"]) for f in feats]
     mesas = 0
     with tempfile.TemporaryDirectory() as tmp:
-        vrt = Path(tmp) / "dem.vrt"
-        subprocess.run(["gdalbuildvrt", "-q", str(vrt), *map(str, sorted(DEM_TILES.glob("*.tif")))], check=True)
+        vrt = copernicus.build_vrt(Path(tmp) / "dem.vrt", copernicus.tiles(copernicus.COPERNICUS))
         with rasterio.open(vrt) as src:
             for j, (r, c, elev, prom, _) in sorted(enumerate(small), key=lambda p: -p[1][3]):
                 x, y = transform * (c + 0.5, r + 0.5)
@@ -316,7 +327,8 @@ def main() -> None:
                     continue
                 result = landforms.score({"name": "Unnamed summit"}, metrics, cfg)
                 if (result["landform"] in detect["landforms"] and result["margin"] >= detect["min_margin"]
-                        and metrics["top_slope"] <= detect["max_top_slope"] and metrics["top_share"] >= detect["min_top_share"]):
+                        and metrics["top_slope"] <= detect["max_top_slope"]
+                        and metrics["top_share"] >= detect["min_top_share"]):
                     add(x, y, elev, prom, None, "copernicus-glo30", None)
                     glyph_xy.append((x, y))
                     mesas += 1
@@ -336,7 +348,8 @@ def main() -> None:
     def clear(x: float, y: float) -> bool:
         return not pass_xy or np.hypot(*(np.array(pass_xy) - (x, y)).T).min() >= PASS_CLEAR_M
 
-    story_names = {f["properties"]["name"] for f in json.loads((REPO / "data" / "places.geojson").read_text(encoding="utf-8"))["features"]}
+    places = json.loads((DATA / "places.geojson").read_text(encoding="utf-8"))["features"]
+    story_names = {f["properties"]["name"] for f in places}
     named_passes = []
     for name, src, sid, code, x, y in gazetteer(to_utm, PASS_GNIS_CLASSES, PASS_GEONAMES_CODES):
         if name in story_names:  # the story layer already marks and labels it
@@ -364,10 +377,12 @@ def main() -> None:
     print(f"passes: {named_count} named (of {len(named_passes)} on a key col), {unnamed_count} unnamed")
 
     print(f"{keep_ids(feats, to_utm)} ids carried over from the previous {OUT.name}")
-    OUT.write_text(json.dumps({"type": "FeatureCollection", "features": feats}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    doc = {"type": "FeatureCollection", "features": feats}
+    OUT.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     named_count = sum(1 for f in feats if not f["properties"]["name"].startswith("Unnamed "))
     print(f"{OUT.name}: {len(feats)} glyphs, {named_count} named; sizes "
-          + ", ".join(f"{s} {sum(1 for f in feats if f['properties']['size'] == s)}" for s in ("large", "medium", "small")))
+          + ", ".join(f"{s} {sum(1 for f in feats if f['properties']['size'] == s)}"
+                      for s in ("large", "medium", "small")))
 
 
 if __name__ == "__main__":

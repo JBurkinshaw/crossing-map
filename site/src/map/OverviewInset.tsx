@@ -5,7 +5,7 @@ import type { Position } from 'geojson'
 import type { Story } from '../data/story'
 import { journeyInks, palette as tokens, storyBounds } from './tokens'
 
-// The overview map (docs/plan.md, section 9): a small inset of the whole story region, shown once the reader
+// The overview map (docs/design.md, section 9): a small inset of the whole story region, shown once the reader
 // has zoomed in, with the journeys reached so far and a box where the view is. In the Tilted view the box is
 // the view's footprint on the ground. MapView leaves it out of the Raised view, whose line work is shifted
 // north and would not sit under the box.

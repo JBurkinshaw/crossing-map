@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type RefObject } fro
 import type { MapRef } from '@vis.gl/react-maplibre'
 import type { Feature, FeatureCollection, Geometry, LineString, MultiLineString, Position } from 'geojson'
 import type { GeoJSONSource, Map as MapLibre } from 'maplibre-gl'
+import { palette } from '../map/tokens'
 import { parseCsv, toCsv } from './csv'
 import './review.css'
 
@@ -25,8 +26,8 @@ const VERDICTS: { id: Verdict; label: string; key: string }[] = [
 ]
 // Drawn above the story layers, in colours the story does not use: the modelled path blue on a paper casing.
 const LAYERS = [
-  { id: 'review-journey', source: 'review-journey', color: '#2b2118', width: 1.5, dash: [1, 2], opacity: 0.5, toggle: 'review-journey' },
-  { id: 'review-schematic', source: 'review-schematic', color: '#2b2118', width: 2.5, dash: [3, 2], opacity: 0.95, toggle: 'review-schematic' },
+  { id: 'review-journey', source: 'review-journey', color: palette.ink, width: 1.5, dash: [1, 2], opacity: 0.5, toggle: 'review-journey' },
+  { id: 'review-schematic', source: 'review-schematic', color: palette.ink, width: 2.5, dash: [3, 2], opacity: 0.95, toggle: 'review-schematic' },
   { id: 'review-plain', source: 'review-plain', color: '#d9831f', width: 3, dash: [0.6, 1.6], opacity: 1, toggle: 'review-plain' },
   { id: 'review-modeled-casing', source: 'review-modeled', color: '#f4efe3', width: 7, dash: undefined, opacity: 0.9, toggle: 'review-modeled' },
   { id: 'review-modeled', source: 'review-modeled', color: '#0b5fd0', width: 3.5, dash: undefined, opacity: 1, toggle: 'review-modeled' },

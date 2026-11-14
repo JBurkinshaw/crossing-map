@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Episodes",
-  "description": "The novel's 41 scene-level episodes, the site's unit for chapters and spoiler progress. See docs/plan.md, section 2.1.",
+  "description": "The novel's 41 scene-level episodes, the site's unit for chapters and spoiler progress. See docs/design.md, section 2.1.",
   "type": "array",
   "items": {
     "type": "object",

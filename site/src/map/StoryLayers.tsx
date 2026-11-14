@@ -5,6 +5,7 @@ import type { Feature, FeatureCollection, Geometry, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
 import { CLUSTER_MAX_ZOOM, CLUSTER_RADIUS, expandCluster, inZone, useZoneClusters, ZONE_CLUSTERS, ZONE_SOURCE, ZONE_STOPS } from './cluster'
 import { corridor, midpoint } from './corridor'
+import { prefersReducedMotion } from './setup'
 import { fonts, journeyInks, palette as tokens } from './tokens'
 
 // Talk on the road: the route segment a picked line was spoken on, and its label ("on the road between X and Y").
@@ -19,13 +20,11 @@ type Props = {
   halo: boolean
   // The place or area picked on the map or in search, outlined.
   selectedId: string | null
-  // In step-through, the sequence of the current stop: the road from there on fades (data dimming, plan 9).
+  // In step-through, the sequence of the current stop: the road from there on fades (data dimming, design 9).
   aheadFrom: number | null
   // The corridor to outline, when the line picked was spoken on the road.
   corridor: Corridor | null
 }
-
-const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 // The tale places' diamond, drawn once into the map's images: paper inside an ink edge, 11 px across.
 const TALE_ICON = 'tale-diamond'
@@ -295,7 +294,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
             onClick={(e) => {
               e.stopPropagation()
               const map = mapRef?.getMap()
-              if (map) void expandCluster(map, c, reducedMotion())
+              if (map) void expandCluster(map, c, prefersReducedMotion())
             }}
           >
             +{c.count}

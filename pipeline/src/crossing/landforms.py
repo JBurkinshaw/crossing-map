@@ -17,7 +17,6 @@ every measurement, rule and score to review/stage-3/landforms.csv.
 import csv
 import json
 import re
-import subprocess
 import tempfile
 import tomllib
 import unicodedata
@@ -29,10 +28,11 @@ from pyproj import Geod
 from rasterio.windows import from_bounds
 from scipy import ndimage
 
-REPO = Path(__file__).resolve().parents[3]
-CONFIG = REPO / "pipeline" / "seeds" / "landforms.toml"
-GLYPHS = REPO / "data" / "mountain_glyphs.geojson"
-DEM_TILES = REPO / "private" / "cache" / "dem" / "copernicus"
+from crossing import dem as copernicus
+from crossing.paths import DATA, REPO, SEEDS
+
+CONFIG = SEEDS / "landforms.toml"
+GLYPHS = DATA / "mountain_glyphs.geojson"
 REPORT = REPO / "review" / "stage-3" / "landforms.csv"
 SUMMIT_SEARCH_M = 300  # peaks sit on a 200 m grid; look this far for the 30 m summit
 METRICS = ["relief_m", "top_share", "top_slope", "rim_slope", "flank_slope", "top_width", "elongation"]
@@ -44,7 +44,8 @@ def words(name: str) -> list[str]:
     return re.findall(r"[a-z]+", plain)
 
 
-def measure(src: rasterio.DatasetReader, lon: float, lat: float, prominence: float | None, dem_cfg: dict) -> dict | None:
+def measure(src: rasterio.DatasetReader, lon: float, lat: float, prominence: float | None,
+            dem_cfg: dict) -> dict | None:
     """The DEM measurements around one summit, or None where the DEM has no data or too little relief."""
     lo, hi = dem_cfg["radius_m"]
     radius = min(max(4 * prominence, lo), hi) if prominence else hi
@@ -152,8 +153,7 @@ def main() -> None:
     doc = json.loads(GLYPHS.read_text(encoding="utf-8"))
     rows = []
     with tempfile.TemporaryDirectory() as tmp:
-        vrt = Path(tmp) / "dem.vrt"
-        subprocess.run(["gdalbuildvrt", "-q", str(vrt), *map(str, sorted(DEM_TILES.glob("*.tif")))], check=True)
+        vrt = copernicus.build_vrt(Path(tmp) / "dem.vrt", copernicus.tiles(copernicus.COPERNICUS))
         with rasterio.open(vrt) as src:
             for f in doc["features"]:
                 p = f["properties"]

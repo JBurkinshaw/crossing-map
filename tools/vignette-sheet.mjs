@@ -1,11 +1,11 @@
-// The vignette review shots (plan section 10, stage 6): the classic map at zooms 7, 9 and 11 over three areas,
+// The vignette review shots (docs/design.md, section 10): the classic map at zooms 7, 9 and 11 over three areas,
 // with the vignettes drawn in each, then a check that they hide over satellite and in the Raised view, and a
 // console check. Saves review/stage-6/vignettes/<area>-z<zoom>.png and prints what each shot shows.
 // Usage: node vignette-sheet.mjs [base-url]   (needs the site served, e.g. npx vite in site/)
 import { mkdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
-import { chromium } from 'playwright'
+import { collectProblems, gotoMap, launch, newPage, report, settle as settleMap } from './lib/browser.mjs'
 
 const baseUrl = process.argv[2] ?? 'http://localhost:5183/'
 const repo = fileURLToPath(new URL('..', import.meta.url))
@@ -19,21 +19,12 @@ const areas = {
 const ZOOMS = [7, 9, 11]
 
 await mkdir(out, { recursive: true })
-const browser = await chromium.launch()
-const page = await browser.newPage({ viewport: { width: 1200, height: 800 } })
-const problems = []
+const browser = await launch()
+const page = await newPage(browser, { viewport: { width: 1200, height: 800 } })
 // MapTiler refuses localhost (403), which the satellite map reports; that is expected here.
-const expected = (t) => /maptiler|403/i.test(t)
-page.on('console', (m) => m.type() === 'error' && !expected(m.text()) && problems.push(m.text().slice(0, 200)))
-page.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`))
+const problems = collectProblems(page, { ignore: /maptiler|403/i })
 
-const settle = async () => {
-  await page.waitForFunction(() => {
-    const map = window.__map
-    return map && !map.isMoving() && map.areTilesLoaded()
-  }, null, { timeout: 30000 })
-  await page.waitForTimeout(800)
-}
+const settle = () => settleMap(page)
 const shown = () => page.evaluate(() => {
   const map = window.__map
   const names = map.queryRenderedFeatures({ layers: ['vignette'] }).map((f) => f.properties.id.replace('vignette-', ''))
@@ -47,9 +38,7 @@ for (const [name, p] of Object.entries(areas)) {
   const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
   for (const z of ZOOMS) {
     const c = z === 11 ? p.z11 : p
-    await page.goto('about:blank')
-    await page.goto(`${baseUrl}?debug#map=${z}/${c.lat}/${c.lon}`, { waitUntil: 'load' })
-    await page.waitForFunction(() => window.__map)
+    await gotoMap(page, baseUrl, { zoom: z, ...c }, { debug: true })
     await settle()
     await map.screenshot({ path: path.join(out, `${slug}-z${z}.png`) })
     console.log(`${name}, zoom ${z}: ${(await shown()).join(', ') || 'none'}`)
@@ -75,4 +64,4 @@ await settle()
 console.log(`Flat: glyph and vignette layers ${await visibility()}`)
 
 await browser.close()
-console.log(problems.length ? `Console errors:\n${problems.join('\n')}` : 'No console errors.')
+report(problems)

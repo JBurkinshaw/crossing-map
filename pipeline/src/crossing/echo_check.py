@@ -14,22 +14,15 @@ import argparse
 import re
 import subprocess
 import sys
-import unicodedata
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[3]
-BOOK = REPO / "private" / "book" / "text"
+from crossing.paths import PRIVATE, REPO
+from crossing.text import fold_prose as fold
+
+BOOK = PRIVATE / "book" / "text"  # written by crossing.extract
 DIST = REPO / "site" / "dist"
 WORDS = 8
-APOSTROPHES = re.compile(r"(?<=\w)['’ʼ](?=\w)")
 WORD = re.compile(r"[a-z0-9]+")
-
-
-def fold(text: str) -> str:
-    """Lower case, accents dropped, and apostrophes inside words removed ("don’t" -> "dont")."""
-    text = unicodedata.normalize("NFKD", text)
-    text = "".join(c for c in text if not unicodedata.combining(c))
-    return APOSTROPHES.sub("", text.lower())
 
 
 def words(text: str) -> list[tuple[str, int]]:

@@ -1,6 +1,6 @@
 # 0011. Elevation: Terrain Tiles for display, Copernicus for analysis
 
-Status: accepted (2026-11-11)
+Status: accepted (2026-11-11); the hillshade method is superseded by 0016
 Phase: P1
 
 ## Context

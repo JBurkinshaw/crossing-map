@@ -19,8 +19,8 @@ function suggestion(t: Translation): string {
   )
 }
 
-// Lines of Spanish with this site's English (plan sections 3 and 8): the opening words only, our English, the
-// episode, and the Campbell guide's page where it lists the line, with the credit the plan asks for on each.
+// Lines of Spanish with this site's English (design sections 3 and 8): the opening words only, our English, the
+// episode, and the Campbell guide's page where it lists the line, with the credit the design asks for on each.
 // A long list that spans several episodes is grouped by episode, in the order the lines come: the first group
 // starts open, and so does the one holding the line picked in search.
 export function TranslationList({ items, current }: Props) {

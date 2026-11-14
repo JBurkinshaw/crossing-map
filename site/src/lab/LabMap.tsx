@@ -2,22 +2,14 @@ import { useMemo, type ReactNode, type RefObject } from 'react'
 import * as maplibregl from 'maplibre-gl'
 import type { StyleSpecification } from 'maplibre-gl'
 import { AttributionControl, Map, NavigationControl, ScaleControl, type MapRef } from '@vis.gl/react-maplibre'
-import { Protocol } from 'pmtiles'
 import 'maplibre-gl/dist/maplibre-gl.css'
-import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
+import { closeAttribution, dataBase, exposeForScripts, fontsBase, tilesBase } from '../map/setup'
 import { literaryStyle } from '../map/style'
 import { reachedEpisode, useProgress } from '../spoiler/progress'
 import { styleUpTo } from '../spoiler/filter'
 
 // The lab's map: the site's classic map, built by the same style builder from the same tiles, so whatever a
-// lab section shows on it is what the site would show. The lab page does not load MapView, so the worker and
-// the pmtiles protocol are set up here as MapView does.
-maplibregl.setWorkerUrl(workerUrl)
-maplibregl.addProtocol('pmtiles', new Protocol({ metadata: true }).tile)
-
-const tilesBase = new URL(`${import.meta.env.BASE_URL}tiles/`, window.location.origin).href
-const fontsBase = new URL(`${import.meta.env.BASE_URL}fonts/`, window.location.origin).href
-const dataBase = new URL(`${import.meta.env.BASE_URL}data/`, window.location.origin).href
+// lab section shows on it is what the site would show.
 
 export type LabView = { center: [number, number]; zoom: number }
 
@@ -66,15 +58,9 @@ export function LabMap({ styleOverrides, initialView, mapRef, onLoad, onMove, la
       style={{ position: 'absolute', inset: 0 }}
       attributionControl={false}
       onLoad={(e) => {
-        // MapLibre opens the compact credits at first; they start closed behind their (i) button, as on the site.
-        const close = () => e.target.getContainer().querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show')
-        close()
-        e.target.once('idle', close)
+        closeAttribution(e.target)
         onLoad?.(e.target)
-        // Scripted review (Playwright) drives the map through this handle; only with ?debug.
-        if (new URLSearchParams(window.location.search).has('debug')) {
-          ;(window as unknown as { __labMap: unknown }).__labMap = e.target
-        }
+        exposeForScripts('__labMap', e.target)
       }}
       onMove={(e) => onMove?.(e.target)}
     >

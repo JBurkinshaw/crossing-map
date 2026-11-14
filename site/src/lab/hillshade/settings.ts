@@ -1,14 +1,15 @@
 import type { ExpressionSpecification, LayerSpecification, StyleSpecification } from 'maplibre-gl'
-import { HILLSHADE, hillshadePaint, type HillshadeMethod, type HillshadeSettings } from '../../map/relief'
 import { palette } from '../../map/tokens'
+import { labHillshadePaint, SITE, type HillshadeMethod, type HillshadeSettings } from './paint'
 
 // The hillshade lab's presets, and how its settings change the classic style. The site's relief (relief.ts, decision
 // 0016) has two looks either side of a zoom fade: below it a chromatic Imhof hillshade over the desert tint, above
 // it a light grey hillshade over near-white paper, with the hachures and contours. Light, method and fade are
-// shared; strength is set for each side. The settings are relief.ts's HillshadeSettings, so the lab's JSON can be
-// pasted over HILLSHADE there.
+// shared; strength is set for each side. The settings extend relief.ts's Hillshade (paint.ts), so the lab's JSON,
+// less the lab-only options, can be pasted over HILLSHADE there.
 
 export type { HillshadeSettings }
+export { SITE }
 export type Side = HillshadeSettings['low']
 
 export const METHODS: { id: HillshadeMethod; label: string; note: string }[] = [
@@ -20,15 +21,12 @@ export const METHODS: { id: HillshadeMethod; label: string; note: string }[] = [
 ]
 export const usesAltitude = (m: HillshadeMethod) => m === 'basic' || m === 'combined' || m === 'multidirectional'
 
-// What the site draws now: HILLSHADE in relief.ts.
-export const SITE: HillshadeSettings = HILLSHADE
-
 export const PRESETS: { id: string; label: string; note: string; settings: HillshadeSettings }[] = [
   { id: 'site', label: 'Site today', note: 'What the site draws now (HILLSHADE in relief.ts).', settings: SITE },
   {
     id: 's5',
     label: 'S5 as built',
-    note: 'The light hillshade of decision 0016, before the lab: a faint grey above zoom 10.',
+    note: 'The light hillshade decision 0016 describes: a faint grey above zoom 10.',
     settings: { ...SITE, method: 'combined', direction: 315, altitude: 45, colours: 'site',
       low: { exaggeration: 0.65, shadow: 0.5, highlight: 0.35 }, high: { exaggeration: 0.5, shadow: 0.22, highlight: 0.3 } },
   },
@@ -80,7 +78,7 @@ function scaleStops(e: unknown, k: number): unknown {
 const SHARPER_FROM = 10
 
 // The classic style with these settings: the hillshade's paint, the tint and paper fading over `fade`, the
-// hachures scaled (relative to HILLSHADE, which the style was built with), and, with `sharper`, the hillshade
+// hachures scaled (relative to the site's, which the style was built with), and, with `sharper`, the hillshade
 // drawn from the test archive of tile zoom 11-12 from map zoom 10.
 export function applySettings(style: StyleSpecification, s: HillshadeSettings, sharper: string | null): StyleSpecification {
   const [from, to] = s.fade
@@ -90,11 +88,11 @@ export function applySettings(style: StyleSpecification, s: HillshadeSettings, s
     const l = { ...layer, paint: { ...('paint' in layer ? layer.paint : {}) } } as LayerSpecification & { paint: Record<string, unknown> }
     if (l.id === 'relief-tint') l.paint['color-relief-opacity'] = fade(0.9, 0)
     if (l.id === 'relief-paper') l.paint['color-relief-opacity'] = fade(0, 0.7)
-    if (l.id.startsWith('hachure-') && s.hachures !== HILLSHADE.hachures) {
-      l.paint['line-opacity'] = scaleStops(l.paint['line-opacity'], s.hachures / HILLSHADE.hachures)
+    if (l.id.startsWith('hachure-') && s.hachures !== SITE.hachures) {
+      l.paint['line-opacity'] = scaleStops(l.paint['line-opacity'], s.hachures / SITE.hachures)
     }
     if (l.id === 'hillshade') {
-      Object.assign(l.paint, hillshadePaint(s, palette))
+      Object.assign(l.paint, labHillshadePaint(s, palette))
       if (sharper) {
         layers.push({ ...l, maxzoom: SHARPER_FROM } as LayerSpecification, { ...l, id: 'hillshade-sharper', source: 'terrain-sharper', minzoom: SHARPER_FROM } as LayerSpecification)
         continue

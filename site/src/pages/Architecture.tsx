@@ -1,4 +1,4 @@
-// The system's shape (plan section 4.1), drawn in the map's ink: three places the work lives, and what
+// The system's shape (design section 4.1), drawn in the map's ink: three places the work lives, and what
 // moves between them.
 
 type BoxProps = { x: number; y: number; w: number; h: number; title: string; lines: string[] }
