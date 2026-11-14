@@ -22,7 +22,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0005 Satellite through MapTiler SDK JS | accepted |
 | 0006 React, TypeScript, Vite, and MapLibre | accepted |
 | 0007 Python pipeline with uv | accepted |
-| 0008 Inferred areas drawn by hand | accepted |
+| 0008 Inferred areas drawn by hand | accepted; amended by 0020 |
 | 0009 Downloads as GeoJSON and GeoParquet | accepted |
 | 0010 Dating features by episode | accepted |
 | 0011 Elevation: Terrain Tiles for display, Copernicus for analysis | accepted; hillshade method superseded by 0016 |
@@ -34,6 +34,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0017 Views of the literary map | accepted; Raised area superseded by 0018 and 0019 |
 | 0018 Raised over the first two journeys | accepted; area and archive size superseded by 0019 |
 | 0019 Raised over every journey | accepted |
+| 0020 Inferred areas drafted by rule from the stop's circle | accepted |
 
 ## Template
 

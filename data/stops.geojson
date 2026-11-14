@@ -741,8 +741,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.14,
-     30.78
+     -109.11039,
+     30.79161
     ]
    },
    "properties": {
@@ -767,7 +767,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Unnamed. Between the crossing at Colonia Oaxaca and Colonia Morelos."
+    "reasoning": "Unnamed. Between the crossing at Colonia Oaxaca and Colonia Morelos. The pin is on the Bavispe's valley floor, the ground the area is drawn on."
    }
   },
   {
@@ -1042,8 +1042,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.835,
-     30.025
+     -108.78567,
+     30.07476
     ]
    },
    "properties": {
@@ -1067,7 +1067,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "No gazetteer or source has Huisiachepic (see docs/open-questions.md). The text puts it across a ford on the upper Bavispe, reached by riding north along the river, and several days upriver (south) of Tamichopa. The estimate is the midpoint of the river reach between Mesa Tres Ríos and Huachinera, 28.2 km straight-line south of Tamichopa."
+    "reasoning": "No gazetteer or source has Huisiachepic (see docs/open-questions.md). The text puts it across a ford on the upper Bavispe, reached by riding north along the river, and several days upriver (south) of Tamichopa. The pin is on the upper Bavispe's main stem (INEGI), at the point of the river nearest the midpoint of the reach between Mesa Tres Ríos and Huachinera; that midpoint is 28.2 km straight-line south of Tamichopa."
    }
   },
   {
@@ -1306,8 +1306,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.02,
-     31.45
+     -108.99391,
+     31.44817
     ]
    },
    "properties": {
@@ -1331,7 +1331,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names carved in the rock, and looks down on the Animas Plain at dusk. The book does not name the pass; the circle is where a road east from Douglas toward Cloverdale crosses the range, north of the low pass of J2."
+    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names carved in the rock, and looks down on the Animas Plain at dusk. The book does not name the pass; the circle is where a road east from Douglas toward Cloverdale crosses the range, north of the low pass of J2. The pin is by the road over the range (Geronimo Trail in Census TIGER 2023), which the area follows."
    }
   },
   {
@@ -1572,8 +1572,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.15,
-     32.27
+     -109.18592,
+     32.23951
     ]
    },
    "properties": {
@@ -1598,7 +1598,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They cross a low range and descend into the San Simon Valley where it comes down from the north, and noon at the river under cottonwoods. GNIS pins the valley 54 km north of Bowie, so the stop is a point on the San Simon River between the state line and San Simon town (see the place's reasoning)."
+    "reasoning": "They cross a low range and descend into the San Simon Valley where it comes down from the north, and noon at the river under cottonwoods. GNIS pins the valley 54 km north of Bowie, so the stop is a point on the San Simon River between the state line and San Simon town (see the place's reasoning). The pin is on the river itself (NHD)."
    }
   },
   {
@@ -2354,8 +2354,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -107.81,
-     29.4
+     -107.79613,
+     29.40415
     ]
    },
    "properties": {
@@ -2380,7 +2380,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Next morning two young vaqueros drive their own horses up from a high-country laguna south of the road, and the brothers rope Niño and Bailey. The laguna is the Babícora lake (GeoNames 4017246, 29.35 N, 107.83 W); the circle is on the road north of it."
+    "reasoning": "Next morning two young vaqueros drive their own horses up from a high-country laguna south of the road, and the brothers rope Niño and Bailey. The laguna is the Babícora lake (GeoNames 4017246, 29.35 N, 107.83 W); the circle is on the road north of it, and the pin on the line of the road (a straight line from Las Varas to La Boquilla stands in for the old road)."
    }
   },
   {
@@ -4721,8 +4721,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -107.8,
-     29.38
+     -107.78051,
+     29.36723
     ]
    },
    "properties": {
@@ -4746,7 +4746,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "On the road east toward La Boquilla a north wind blows dust off Babícora beyond the lake, a red plane flies in from the west, and he camps on the plain. The circle is north-east of the Babícora lake."
+    "reasoning": "On the road east toward La Boquilla a north wind blows dust off Babícora beyond the lake, a red plane flies in from the west, and he camps on the plain. The circle is north-east of the Babícora lake. The pin is on the flat ground by the road."
    }
   },
   {
@@ -5150,8 +5150,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -107.9,
-     30.62
+     -107.91788,
+     30.61816
     ]
    },
    "properties": {
@@ -5175,7 +5175,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He crosses the old road that runs down from Guzmán and Sabinal, reaches the Casas Grandes River and follows a trail north beside it. The circle is on the river south of Corralitos."
+    "reasoning": "He crosses the old road that runs down from Guzmán and Sabinal, reaches the Casas Grandes River and follows a trail north beside it. The circle is on the river south of Corralitos, and the pin on the river itself (INEGI)."
    }
   },
   {
@@ -5216,8 +5216,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -107.93,
-     30.75
+     -107.9124,
+     30.7588
     ]
    },
    "properties": {
@@ -5241,7 +5241,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "An hour north of the town four riders stop him on the trail, cut open the bones and stab Niño; the next day gypsies hauling an old airplane north camp with him by the river and doctor the horse (4-06, 4-07). An hour's ride is about 6 km; the circle is centred 5.8 km north of Corralitos."
+    "reasoning": "An hour north of the town four riders stop him on the trail, cut open the bones and stab Niño; the next day gypsies hauling an old airplane north camp with him by the river and doctor the horse (4-06, 4-07). An hour's ride is about 6 km; the pin is on the river trail beside the Casas Grandes River (INEGI), 7.3 km north of Corralitos (pyproj, WGS 84)."
    }
   },
   {
@@ -5678,8 +5678,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -107.52,
-     32.92
+     -107.52361,
+     32.93699
     ]
    },
    "properties": {
@@ -5703,7 +5703,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Beyond the range he crosses a plain of catclaw and creosote, strikes the blacktop a few miles on, sees the Organ Mountains about eighty miles off, and turns back along the highway to three ruined adobes with a rusted gas pump, once a waystation. There he drives off the crippled dog, and wakes to the false dawn (4-09). The circle is on the plain east of Hillsboro; its centre is 112 km (70 miles) straight-line from the Organ Mountains point (GNIS 920657, pyproj, WGS 84), and Emory Pass is 131 km (81 miles), so the book's eighty miles fits the range's eastern foot."
+    "reasoning": "Beyond the range he crosses a plain of catclaw and creosote, strikes the blacktop a few miles on, sees the Organ Mountains about eighty miles off, and turns back along the highway to three ruined adobes with a rusted gas pump, once a waystation. There he drives off the crippled dog, and wakes to the false dawn (4-09). The circle is on the plain east of Hillsboro; the pin, by the highway, is 113 km (70 miles) straight-line from the Organ Mountains point (GNIS 920657, pyproj, WGS 84), and Emory Pass is 131 km (81 miles), so the book's eighty miles fits the range's eastern foot."
    }
   }
  ]

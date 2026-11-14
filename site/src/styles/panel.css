@@ -543,6 +543,25 @@ details.more summary:focus-visible,
   margin: 0;
 }
 
+/* How an inferred area was drawn: a quieter note than an open question, in the same frame. */
+.area-outline {
+  margin: 10px 0;
+  padding: 6px 10px;
+  border-left: 3px dotted var(--ink-faint);
+  font-size: 0.85rem;
+}
+
+.area-outline h3 {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.area-outline p {
+  margin: 0 0 4px;
+}
+
 .correction {
   margin: 8px 0 0;
   font-size: 0.8rem;

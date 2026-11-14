@@ -90,7 +90,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
 ## 3. Unfinished stages
 
 - **Stage 1.**
-  - Inferred areas are still circles, waiting for the QGIS redraw in decision 0008.
+  - Inferred areas are drafts cut from each stop's circle by a rule (decision 0020), waiting for the hand finish in `pipeline/qgis/areas.qgs`. The four low-confidence drafts that miss their pins (the two escarpments, the river camps, the wagon-road crossing) want a look first.
   - The episode summaries are drafts for the owner to edit.
 - **Stage 2.**
   - Where INEGI's or NHD's network breaks, a traced river runs along Natural Earth's line for a stretch. The base build prints the total (816 km, mostly the Fuerte, Rio Grande, and Colorado, far from the story). Joining broken channel ends was measured and dropped (1.6% less). The Río Batepito's 7.8 km above Colonia Morelos remains. A check of every river against the valley floor is drafted in the main checkout (`tiles/check_rivers.py`, not yet committed or run to the end).
@@ -140,7 +140,7 @@ The least-cost experiment is in `review/experiments/least-cost/` (in the main ch
   - a screen-reader test
   - the combined Soto Máynez label
   - the corridor-edge fade
-  - the QGIS redraw of the regions and areas
+  - the hand finish of the regions and the drafted areas in QGIS
 - **Large:**
   - street-level places (lookups, `maxZoom` 15)
   - shipping full-region relief and Raised (hosting)

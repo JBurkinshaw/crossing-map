@@ -53,13 +53,26 @@
         }
       }
     },
+    "multiPolygon": {
+      "type": "object",
+      "required": ["type", "coordinates"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {"const": "MultiPolygon"},
+        "coordinates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "array", "minItems": 1, "items": {"type": "array", "minItems": 4, "items": {"$ref": "#/$defs/position"}}}
+        }
+      }
+    },
     "feature": {
       "type": "object",
       "required": ["type", "geometry", "properties"],
       "additionalProperties": false,
       "properties": {
         "type": {"const": "Feature"},
-        "geometry": {"oneOf": [{"$ref": "#/$defs/point"}, {"$ref": "#/$defs/lineString"}, {"$ref": "#/$defs/polygon"}]},
+        "geometry": {"oneOf": [{"$ref": "#/$defs/point"}, {"$ref": "#/$defs/lineString"}, {"$ref": "#/$defs/polygon"}, {"$ref": "#/$defs/multiPolygon"}]},
         "properties": {"$ref": "#/$defs/properties"}
       }
     },
@@ -145,6 +158,14 @@
         "note_safe": {"type": "string"},
         "note_full": {"type": ["string", "null"]},
         "reasoning": {"type": ["string", "null"]},
+        "outline_rule": {
+          "type": ["string", "null"],
+          "description": "Inferred areas: how the outline was drawn. A draft is the stop's circle (uncertainty_m about the pin) cut by a rule to the ground its reasoning describes (crossing.area_drafts, decision 0020); null for a plain circle."
+        },
+        "straight_road": {
+          "type": "boolean",
+          "description": "Inferred areas: the outline follows a straight line between towns, standing in for an old road no source maps yet."
+        },
         "photo_ids": {"type": "array", "items": {"type": "string"}},
         "vignette": {"type": ["string", "null"], "description": "Vignettes: the drawing's name in the map sprite."},
         "stands_for": {"type": "string", "description": "Vignettes: what the drawing stands for in the book."},
@@ -255,7 +276,7 @@
           "features": {
             "items": {
               "properties": {
-                "geometry": {"$ref": "#/$defs/polygon"},
+                "geometry": {"oneOf": [{"$ref": "#/$defs/polygon"}, {"$ref": "#/$defs/multiPolygon"}]},
                 "properties": {
                   "required": ["journey", "place_ref", "uncertainty_m"],
                   "properties": {"kind": {"enum": ["inferred-area", "region"]}}

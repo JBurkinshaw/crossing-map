@@ -106,6 +106,20 @@ export function HowItsBuilt() {
         Copernicus elevation model for summits, and this site’s own reading, marked <code>this-site</code>.
       </p>
 
+      <h2>Inferred areas</h2>
+      <p>
+        Where the book gives no name, a stop gets a circle as wide as the clues allow. Most circles are then cut to
+        the ground the stop’s reasoning describes: a river and its banks, a valley floor, a road’s verge, the flat
+        of a playa, the side of a border line. Each cut is a short rule run on open data (the Copernicus elevation
+        model, INEGI and USGS rivers, Census roads), written out on the area’s card. A rule is not a surveyor: it
+        draws the ground the clue points to, not the place itself, and an escarpment or a ridge comes out in broken
+        pieces. No area grows beyond its circle. No open map of the 1940s roads in Chihuahua and Sonora was found, so
+        where the book puts a camp on an old road there, a straight line between the towns stands in for the road;
+        the old roads need a historical source. La Babícora is drawn from the elevation model, not from the
+        estate’s real boundary, until a period map of the Hearst ranch is found. Any area can be redrawn when a
+        reader brings more: each card has a link to suggest a correction (decision 0020).
+      </p>
+
       <h2>Numbers</h2>
       <table>
         <caption>Tile archives, from release {facts.tileRelease}</caption>

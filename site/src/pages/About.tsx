@@ -31,7 +31,7 @@ export function About() {
       <p>
         Routes follow a road or river where the text names one, and are drawn as gentle curves where it does not.
         Inferred areas are drawn no smaller than the evidence allows: a large honest area is better than a precise
-        wrong pin.
+        wrong pin. Most are drafts, cut from a circle by a rule, and any of them can be redrawn when a reader knows more.
       </p>
 
       <h2>What is here and what is not</h2>

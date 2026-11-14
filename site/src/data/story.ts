@@ -24,6 +24,10 @@ export type StoryProps = {
   episode?: string | null
   // Stops: the place the stop stands at, if it is a named one.
   place_ref?: string | null
+  // Inferred areas: the rule that cut the stop's circle to the ground its reasoning describes (null for a plain
+  // circle), and whether a straight line between towns stands in for an unmapped old road.
+  outline_rule?: string | null
+  straight_road?: boolean
 }
 
 export type Story = {

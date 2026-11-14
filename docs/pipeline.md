@@ -18,6 +18,7 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | `stops.csv` | Every journey's stops, in order, with reasoning and `travel` | Hand |
 | `snaps.csv` | The road, river, or flowline each narrated segment follows | Hand |
 | `regions.geojson` | The Animas Valley and La Babícora outlines | `crossing.regions`, then hand edits in QGIS |
+| `areas.geojson` | Each inferred area's outline: the stop's circle cut by a rule (decision 0020) | `crossing.area_drafts`, then hand edits in `pipeline/qgis/areas.qgs` |
 | `vignettes.csv` | The vignette anchors | Hand |
 | `landforms.toml` | Every weight and threshold of the landform rules, with comments | Hand |
 | `translations.csv` | Our English for each Spanish line; a non-empty cell wins over the draft | `crossing.translations build`, then hand edits |
@@ -31,16 +32,18 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | Episodes and mentions | `uv run --project pipeline python -m crossing.extract` | `private/book/the-crossing.epub`, `places.csv` | `private/book/episodes.csv`, `mentions.csv`, and `text/<episode>.txt` | Yes |
 | Episode list | `uv run --project pipeline python -m crossing.build_episodes` | `private/book/episodes.csv` | `data/episodes.json`, keeping summaries and page ranges | Yes |
 | Gazetteer | `uv run --project pipeline python -m crossing.gazetteer [ID ...]` | `places.csv`, GNIS, GeoNames, Wikidata (cached) | `place-picks.csv`. Without IDs it refreshes the seeds already picked and lists seeds with neither a pick nor an override; name a new seed's ID to add it | Yes |
+| Area drafts | `uv run --project pipeline python -m crossing.area_drafts [--force]` | `stops.csv`, `data/places.geojson`, the DEM, INEGI, NHD and TIGER | `pipeline/seeds/areas.geojson`, keeping areas marked `checked` with `--force`; a report in `private/review/areas/`. `--qgis` writes the QGIS project's layers | Yes |
 | Story layers | `uv run --project pipeline python -m crossing.build_story` | The seeds; snap shapefiles in `private/cache/` | `data/places.geojson`, `stops.geojson`, `areas.geojson`, `journeys.geojson`, `elsewhere.json`; the stage 4 checklists, keeping ticked rows | Yes |
 | Region drafts | `uv run --project pipeline python -m crossing.regions [--force]` | `data/places.geojson`, the DEM | `pipeline/seeds/regions.geojson`; refuses to overwrite without `--force` | Yes |
 | Vignette anchors | `uv run --project pipeline python -m crossing.build_vignettes` | `vignettes.csv`, `data/stops.geojson`, `data/places.geojson` | `data/vignettes.geojson` | No |
 | State labels | `uv run --project pipeline python -m tiles.state_labels` | Natural Earth admin 1 states, the story layers in `data/` | `site/public/labels/states.geojson`: label points clear of the story | Yes |
 
-Order matters in three places:
+Order matters in four places:
 
 1. A first build runs `crossing.build_story` (it skips a missing regions file), then `crossing.regions`, then `crossing.build_story` again, because the region drafts sit on place pins.
 2. `crossing.build_vignettes` and `tiles.state_labels` follow `crossing.build_story`.
-3. `crossing.validate` checks that `data/raised/` holds the same features, first seen at the same episodes, as the flat layers. After a `build_story` change that adds, removes, or redates a feature, rerun `crossing.plan_oblique` (section 5, hours) before committing, or CI fails.
+3. After a change to a stop's pin or radius, run `crossing.area_drafts --force` before `crossing.build_story`, which stops if a draft lies outside its stop's circle.
+4. `crossing.validate` checks that `data/raised/` holds the same features, first seen at the same episodes, as the flat layers. After a `build_story` change that adds, removes, or redates a feature, rerun `crossing.plan_oblique` (section 5, hours) before committing, or CI fails.
 
 ## 2. Summits
 

@@ -212,6 +212,10 @@ def build_stops(pins: dict[str, tuple]) -> tuple[list[dict], list[dict], dict[st
     """The stops, the inferred area around each stop with a radius, and each journey's stops for the routes."""
     stops, areas = [], []
     by_journey: dict[str, list[dict]] = {}
+    # The drafted outlines (crossing.area_drafts, decision 0020); a stop without one keeps its circle.
+    path = SEEDS / "areas.geojson"
+    drafts = {f["properties"]["id"]: f for f in json.loads(path.read_text(encoding="utf-8"))["features"]} \
+        if path.exists() else {}
     for s in rows(SEEDS / "stops.csv"):
         place = s["place"]
         if s["lat"]:
@@ -238,7 +242,19 @@ def build_stops(pins: dict[str, tuple]) -> tuple[list[dict], list[dict], dict[st
         if s["radius_km"]:
             area = props | {"id": f"area-{s['id']}", "kind": "inferred-area",
                             "role": None, "sequence": None}
-            areas.append(feature(circle(lat, lon, float(s["radius_km"])), **area))
+            ring = circle(lat, lon, float(s["radius_km"]))
+            draft = drafts.get(area["id"])
+            # A "kept" draft is the circle itself: nothing in the evidence cut it.
+            if draft is None or draft["properties"]["draft_confidence"] == "kept":
+                areas.append(feature(ring, **area, outline_rule=None, straight_road=False))
+                continue
+            # A draft is the circle cut down, so one reaching outside it was drafted around an older pin or radius.
+            if not shape(draft["geometry"]).difference(shape(ring).buffer(0.002)).is_empty:
+                sys.exit(f"{area['id']}: the draft in areas.geojson lies outside the stop's circle; "
+                         "rerun crossing.area_drafts --force")
+            areas.append(feature(draft["geometry"], **(area | {"method": "computed"}),
+                                 outline_rule=draft["properties"]["draft_rule"],
+                                 straight_road=draft["properties"]["straight_road"]))
     return stops, areas, by_journey
 
 

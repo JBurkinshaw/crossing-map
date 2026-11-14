@@ -54,6 +54,7 @@ export function PlaceCard({ feature, units, questions, spoken, currentTranslatio
       </div>
       {(p.note_full || p.note_safe) && <p>{p.note_full || p.note_safe}</p>}
       {p.reasoning && <p>{p.reasoning}</p>}
+      {p.kind === 'inferred-area' && <AreaOutline rule={p.outline_rule ?? null} straightRoad={p.straight_road ?? false} />}
       <FeatureQuestions id={p.id} name={title ?? p.name} questions={questions} />
       {spoken.length > 0 && (
         <>
@@ -63,5 +64,30 @@ export function PlaceCard({ feature, units, questions, spoken, currentTranslatio
         </>
       )}
     </section>
+  )
+}
+
+// How an inferred area's outline was made, said plainly: a rule applied to data, not a drawing from a source,
+// and open to change (decision 0020). The correction link itself is in FeatureQuestions, below on the card.
+function AreaOutline({ rule, straightRoad }: { rule: string | null; straightRoad: boolean }) {
+  return (
+    <aside className="area-outline">
+      <h3>How this area was drawn</h3>
+      {rule ? (
+        <p>
+          A draft: the circle around the stop, cut by a rule to the ground the reasoning describes. It was made by the rule from
+          elevation, river and road data, not drawn by hand from a historical source. The rule: {rule}
+        </p>
+      ) : (
+        <p>A circle around the stop, as wide as the reasoning allows. Nothing in the book or the data narrows it further.</p>
+      )}
+      {straightRoad && (
+        <p>
+          No source we have maps the old roads here, so a straight line between the towns stands in for the road. A historical
+          map of the roads would improve this area.
+        </p>
+      )}
+      <p>If you know more, such as a page of the book, an old map or the ground itself, the area can be redrawn. Suggest a correction below.</p>
+    </aside>
   )
 }
