@@ -116,7 +116,9 @@ async function idle(page) {
 // Every line a list holds: open its episode groups (TranslationList), then click each "Show all".
 async function showAllLines(page, scope) {
   await page.evaluate((s) => document.querySelectorAll(`${s} details.translation-group`).forEach((d) => (d.open = true)), scope)
-  for (const more of await page.locator(`${scope} .translations + .text-button`).all()) await more.click()
+  // Each click removes its button, so click the first left until none is.
+  const more = page.locator(`${scope} .translations + .text-button`)
+  while (await more.count()) await more.first().click()
 }
 
 const browser = await chromium.launch()
