@@ -1,14 +1,19 @@
-"""Wheeler-style hachures for a test box (review/stage-9/wheeler-hachures/README.md).
+"""Wheeler-style hachures, for a test box or for the journeys corridor (review/stage-9/wheeler-hachures/README.md,
+review/stage-9/wheeler-hachures-corridor/README.md, decision 0024).
 
 Run from the repo root, with QGIS_ENV set as for crossing.hachures:
     QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures \
         --style wheeler --bbox -109.6 30.5 -108.4 31.6 --out private/cache/relief/wheeler-test
+    QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures \
+        --style wheeler --region corridor --out private/cache/relief/wheeler --jobs 9
+The corridor is the fine scale's region (crossing.hachures.fine_region), so the site draws these strokes in place of
+the fine and dense ones and keeps the coarse ones outside.
 
 The Wheeler Survey sheets (review/stage-8/wheeler/README.md, "Relief (hachures)") darken steep ground by packing
 short strokes closer, not by widening them, leave every crest, spur and summit as a thin white parting, keep mesa
 tops and valley floors as blank paper, and draw an escarpment as one comb of wedge strokes hanging from the rim.
-This builds that look for one box, on the production tile grid (crossing.hachures.tiles), and never writes to the
-production cache:
+This builds that look for one region, on the production tile grid (crossing.hachures.tiles), and never writes to
+the production cache:
   1. The vendored generator runs on each 40 km tile at the WHEELER settings (closer at the steep end, sparser at
      the gentle end, and down to MIN_SLOPE), writing whole fall lines ("main").
   2. Each fall line, taken downhill, is cut into strokes STROKE_MM long (gentle to steep ground), one per row. Rows
@@ -22,7 +27,9 @@ Lengths and widths are set in millimetres at DESIGN_ZOOM on a 96 dpi screen and 
 with px_m(): MapLibre's zoom z is 512 px tiles, so one CSS pixel is 78,271.52 m * cos(latitude) / 2^z, and one
 pixel is 25.4 / 96 = 0.2646 mm.
 
-Writes, in the --out folder: tiles/ (the generator's tiles and smoothed DEMs), hachure.geojson (strokes: Slope,
+Writes, in the --out folder: tiles/ (the generator's tiles and smoothed DEMs, cached: delete a tile's
+<name>-main.geojson to run it again; a tile's files depend only on the tile and the WHEELER settings, so another
+folder's tiles can be copied in), hachure.geojson (strokes: Slope,
 Aspect, Rand as in crossing.hachures, plus `cls`: flat, gentle, moderate or steep, from Slope), rim.geojson (wedge
 polygons) and stats.json (run time, stroke counts by class, ink cover by class).
 """
@@ -54,7 +61,8 @@ from crossing import hachures as h
 from crossing.paths import DATA
 
 # The design zoom and latitude: zoom 11 is where the lab's shared type scale is set; 31 N is the middle of the
-# bootheel and Bavispe test box.
+# bootheel and Bavispe test box. The corridor build keeps the same ground sizes, so between 28 and 34 N the strokes
+# are within about 5% of their design size on screen.
 DESIGN_ZOOM = 11
 DESIGN_LAT = 31.05
 MM_PER_PX = 25.4 / 96
@@ -338,7 +346,7 @@ def ground_classes(g: Ground, comb: np.ndarray) -> np.ndarray:
 
 
 def tile_strokes(name: str, core: Polygon, area: Polygon, folder: Path, glyphs: np.ndarray) -> dict:
-    """The tile's strokes and wedges inside `area` (its core within the box) as GeoJSON features, and the
+    """The tile's strokes and wedges inside `area` (its core within the region) as GeoJSON features, and the
     tallies for the ink cover: ground area of each class, stroke lengths by the class under their middle."""
     g = Ground(folder / f"{name}.tif")
     ridge_near = g.distance(ridge_network(g))
@@ -419,13 +427,18 @@ def ink_cover(lengths: dict[str, list[float]], ground: dict[str, float], wedge_a
     return out
 
 
-def build(bbox: tuple[float, float, float, float], out: Path, jobs: int, qgis_env: Path) -> None:
-    """Hachures for the box `bbox` (west, south, east, north in degrees) into the folder `out`."""
+def bbox_region(bbox: tuple[float, float, float, float]) -> Polygon:
+    """The box (west, south, east, north in degrees) in UTM, where the DEM covers it."""
+    return h.reproject(h.to_utm, box(*bbox).segmentize(0.01)).intersection(h.coverage().buffer(-60))
+
+
+def build(region: Polygon, extent: object, out: Path, jobs: int, qgis_env: Path) -> None:
+    """Hachures for `region` (UTM) into the folder `out`; `extent` names the region in stats.json (the box, or
+    "corridor")."""
     started = time.monotonic()
     out.mkdir(parents=True, exist_ok=True)
     folder = (out / "tiles").resolve()
     s = WHEELER | {"folder": folder}
-    region = h.reproject(h.to_utm, box(*bbox).segmentize(0.01)).intersection(h.coverage().buffer(-60))
     grid = h.tiles(region, s["tile"])
     print(f"wheeler: {len(grid)} tiles of {s['tile'] // 1000} km over {region.area / 1e6:,.0f} km2", flush=True)
     with ThreadPoolExecutor(jobs) as pool:
@@ -441,7 +454,7 @@ def build(bbox: tuple[float, float, float, float], out: Path, jobs: int, qgis_en
     ground = {k: sum(r["ground"][k] for r in results) for k in GROUNDS}
     lengths = {k: [v for r in results for v in r["lengths"][k]] for k in GROUNDS}
     stats = {
-        "bbox": bbox, "tiles": len(grid), "area_km2": round(region.area / 1e6),
+        "extent": extent, "tiles": len(grid), "area_km2": round(region.area / 1e6),
         "seconds": {"generator": round(generated), "total": round(time.monotonic() - started)},
         "strokes": {**{c: sum(f["properties"]["cls"] == c for f in strokes) for c in GROUNDS[:-1]},
                     "rim_wedges": len(wedges), "all": len(strokes)},
