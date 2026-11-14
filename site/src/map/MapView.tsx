@@ -462,7 +462,7 @@ export function MapView(props: Props) {
           <div className="control-row">
             <span className="control-label" aria-hidden="true">Map</span>
             <Switch
-              label="Map"
+              label="Basemap"
               options={BASEMAPS.map((b) => ({ ...b, disabled: b.id !== 'literary' && unavailable, paired: basemap === 'compare' && PAIRED.includes(b.id) }))}
               value={basemap}
               onChange={chooseBasemap}
