@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type RefObject } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from 'react'
 import * as maplibregl from 'maplibre-gl'
 import type { IControl, LayerSpecification } from 'maplibre-gl'
 import { AttributionControl, Map, NavigationControl, ScaleControl, useControl, type MapRef } from '@vis.gl/react-maplibre'
@@ -16,6 +16,7 @@ import { BASE_LAYERS, literaryStyle } from './style'
 import { palette, storyBounds } from './tokens'
 import { layerFilterUpTo, PROGRESS_LAYERS, styleUpTo } from '../spoiler/filter'
 import type { Units } from '../units'
+import { usePhone } from '../panel/usePhone'
 
 // MapLibre 6 looks for its worker beside its own module file. Bundling moves
 // that module into an app chunk, so point MapLibre at the copy Vite emits.
@@ -45,12 +46,33 @@ const literary = (units: Units = 'metric') => literaryStyle(tilesBase, fontsBase
 const RAISED_GROUPS = raisedLayers(literary().layers, palette)
 
 type Basemap = 'literary' | 'satellite' | 'topo' | 'compare'
-const BASEMAPS: { id: Basemap; label: string; title?: string }[] = [
+// Compare sits between the two maps it compares, as a narrow button with a split-frame icon.
+const COMPARE_ICON = (
+  <svg viewBox="0 0 18 14" width="18" height="14" aria-hidden="true">
+    <rect x="1" y="1" width="16" height="12" fill="none" stroke="currentColor" strokeWidth="1.3" />
+    <rect x="1" y="1" width="8" height="12" fill="currentColor" opacity="0.45" />
+    <line x1="9" y1="0" x2="9" y2="14" stroke="currentColor" strokeWidth="1.6" />
+  </svg>
+)
+const BASEMAPS: { id: Basemap; label: ReactNode; title?: string; ariaLabel?: string; narrow?: boolean }[] = [
   { id: 'literary', label: 'Classic' },
+  {
+    id: 'compare',
+    label: COMPARE_ICON,
+    title: 'Compare: the classic map and satellite, side by side',
+    ariaLabel: 'Compare the classic map and satellite, side by side',
+    narrow: true,
+  },
   { id: 'satellite', label: 'Satellite' },
   { id: 'topo', label: 'Topo', title: 'MapTiler Topo: roads, places and contours of today' },
-  { id: 'compare', label: 'Compare', title: 'The classic map and satellite, side by side' },
 ]
+// In compare mode the two maps it compares show as paired, in a lighter way than the switch that is on.
+const PAIRED: Basemap[] = ['literary', 'satellite']
+// A story feature under a click: a place, an area, or a route segment (with its journey and sequence).
+export type MapPick = { layer: 'places' | 'areas' | 'journeys'; id: string; journey: string | null; sequence: number | null }
+// The layers a click can pick, and which story layer each draws.
+const CLICKABLE: Record<string, MapPick['layer']> = { 'places-point': 'places', 'zone-places-point': 'places', 'areas-fill': 'areas', 'journeys-hit': 'journeys' }
+
 // Views of the literary map: flat (the default), tilted (live 3D terrain) and raised (plan oblique relief).
 export type View = 'flat' | 'tilted' | 'raised'
 const VIEWS: { id: View; label: string; title: string }[] = [
@@ -66,8 +88,9 @@ type Props = {
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
   onSelectStop: (index: number) => void
-  // A place or area picked on the map (null: a click on empty map), and the one now picked, outlined.
-  onSelectFeature: (pick: { layer: 'places' | 'areas'; id: string } | null) => void
+  // A click on the map: the story features under it, topmost first (none: a click on empty map), and where it
+  // fell. App decides what it opens. selectedId is the place or area now picked, outlined.
+  onMapClick: (picks: MapPick[], at: [number, number]) => void
   selectedId: string | null
   // In step-through, the current stop's sequence: the road ahead of it fades.
   aheadFrom: number | null
@@ -86,8 +109,9 @@ type Props = {
 // A row of switches, one of which is on: a radio group, one tab stop, with the arrow keys moving the choice.
 function Switch<T extends string>(props: {
   label: string
-  // ariaLabel names a switch whose label is an abbreviation.
-  options: { id: T; label: string; title?: string; ariaLabel?: string; disabled: boolean }[]
+  // ariaLabel spells out what a short label means; it starts with the label, so speech input can use the label.
+  // A narrow option holds an icon; a paired one shows as half chosen (the two maps compare mode shows).
+  options: { id: T; label: ReactNode; title?: string; ariaLabel?: string; disabled: boolean; narrow?: boolean; paired?: boolean }[]
   value: T
   onChange: (value: T) => void
 }) {
@@ -110,6 +134,8 @@ function Switch<T extends string>(props: {
           type="button"
           role="radio"
           data-id={o.id}
+          data-narrow={o.narrow || undefined}
+          data-paired={o.paired || undefined}
           aria-checked={value === o.id}
           tabIndex={value === o.id ? 0 : -1}
           disabled={o.disabled}
@@ -128,7 +154,8 @@ function Switch<T extends string>(props: {
 const BASE_FILTERS = Object.fromEntries(literary().layers
   .filter((l) => l.id in PROGRESS_LAYERS).map((l) => [l.id, 'filter' in l ? l.filter : undefined]))
 
-// The Home button (plan section 9), under the zoom buttons.
+// The Home button (plan section 9), under the zoom buttons: it frames the whole journey in focus. A house says
+// "home page" to many readers, so the icon is a frame around a winding route, and the title names the action.
 class HomeButton implements IControl {
   private box = document.createElement('div')
   constructor(onClick: () => void) {
@@ -136,10 +163,12 @@ class HomeButton implements IControl {
     const button = document.createElement('button')
     button.type = 'button'
     button.className = 'home-button'
-    button.title = 'Back to the whole journey'
-    button.setAttribute('aria-label', 'Back to the whole journey')
+    button.title = 'Show the whole journey'
+    button.setAttribute('aria-label', 'Show the whole journey')
     button.innerHTML =
-      '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M3 10 L10 3 L17 10 M5.5 8.5 V16 H14.5 V8.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
+      '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor">' +
+      '<path d="M2.5 7 V2.5 H7 M13 2.5 H17.5 V7 M17.5 13 V17.5 H13 M7 17.5 H2.5 V13" stroke-width="1.6"/>' +
+      '<path d="M6 14 C8 12 7 9 10 8.5 S12.5 6 14 6" stroke-width="1.4" stroke-dasharray="2.2 1.4"/></svg>'
     button.addEventListener('click', onClick)
     this.box.append(button)
   }
@@ -162,7 +191,7 @@ function HomeControl({ onHome }: { onHome: () => void }) {
 }
 
 export function MapView(props: Props) {
-  const { mapRef, story, stops, stopIndex, onSelectStop, onSelectFeature, selectedId, aheadFrom, onHome, onView, reached } = props
+  const { mapRef, story, stops, stopIndex, onSelectStop, onMapClick, selectedId, aheadFrom, onHome, onView, reached } = props
   const { corridor, units, onUnits } = props
   const [basemap, setBasemap] = useState<Basemap>('literary')
   // Built once with the progress and units at first render; later changes go through setFilter and
@@ -175,17 +204,39 @@ export function MapView(props: Props) {
   const [satelliteStarted, setSatelliteStarted] = useState(false)
   // Compare mode: the classic base shows left of this split, in percent of the width.
   const [split, setSplit] = useState(50)
-  // The views apply to the classic basemap only; satellite and compare modes are always flat.
+  // The views apply to the classic basemap, and Flat and Tilted to compare mode too (the Raised view's line work
+  // is shifted north, so it would not line up with the imagery); satellite and topo are always flat.
   const [chosenView, setView] = useState<View>('flat')
-  const view: View = basemap === 'literary' ? chosenView : 'flat'
-  // Land colour: the satellite map, faded, under the literary map in the Flat and Tilted views. The Raised view's
-  // line work is shifted north, so imagery would not line up under it.
-  const [landColour, setLandColour] = useState(false)
-  const wash = landColour && !unavailable && basemap === 'literary' && view !== 'raised'
+  const view: View = basemap === 'literary' || (basemap === 'compare' && chosenView !== 'raised') ? chosenView : 'flat'
+  // Compare from the Raised view keeps the relief standing up, as Tilted.
+  const chooseBasemap = (next: Basemap) => {
+    if (next === 'compare' && chosenView === 'raised') setView('tilted')
+    setBasemap(next)
+  }
+  // Satellite tint: the satellite map, faded, under the literary map in the Flat and Tilted views. The Raised
+  // view's line work is shifted north, so imagery would not line up under it.
+  const [tint, setTint] = useState(false)
+  const tintAvailable = basemap === 'literary' && view !== 'raised' && !unavailable
+  const wash = tint && tintAvailable
+  // Phones: the map's switches fold into one Map button, so they do not cover the map.
+  const phone = usePhone()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuBox = useRef<HTMLDivElement>(null)
+  const menuButton = useRef<HTMLButtonElement>(null)
+  useEffect(() => {
+    if (!phone || !menuOpen) return
+    // A tap outside the menu closes it, as a tap on the map would otherwise leave it covering the map.
+    const outside = (e: PointerEvent) => {
+      if (!menuBox.current?.contains(e.target as Node)) setMenuOpen(false)
+    }
+    document.addEventListener('pointerdown', outside)
+    return () => document.removeEventListener('pointerdown', outside)
+  }, [phone, menuOpen])
   if ((basemap !== 'literary' || wash) && !satelliteStarted) setSatelliteStarted(true)
   // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
   // tiles are loading, and 'load' fires only once.
   const [loaded, setLoaded] = useState(false)
+  const [hovering, setHovering] = useState(false)
   // The Raised view's archives, fetched the first time the reader turns it on.
   const [raisedArchives, setRaisedArchives] = useState<string[] | null>(null)
   useEffect(() => {
@@ -284,19 +335,27 @@ export function MapView(props: Props) {
   }
 
   return (
-    <div className={`map-area${basemap === 'literary' ? '' : ' has-satellite'}${wash ? ' land-colour' : ''}`}>
+    <div className={`map-area${basemap === 'literary' ? '' : ' has-satellite'}${wash ? ' satellite-tint' : ''}`}>
       {satelliteStarted && !unavailable && (
         <Suspense fallback={null}>
           <SatelliteMap
             literary={mapRef}
             hidden={basemap === 'literary' && !wash}
             topo={basemap === 'topo'}
-            terrain={wash && view === 'tilted' ? TERRAIN_EXAGGERATION : null}
+            terrain={(wash || basemap === 'compare') && view === 'tilted' ? TERRAIN_EXAGGERATION : null}
             onUnavailable={onUnavailable}
           />
         </Suspense>
       )}
-      {basemap === 'compare' && <ClassicUnderlay main={mapRef} style={underlayStyle} split={split} units={units} />}
+      {basemap === 'compare' && (
+        <ClassicUnderlay
+          main={mapRef}
+          style={underlayStyle}
+          split={split}
+          units={units}
+          terrain={view === 'tilted' ? { url: `pmtiles://${tilesBase}terrain.pmtiles`, exaggeration: TERRAIN_EXAGGERATION } : null}
+        />
+      )}
       <div className="literary">
         <Map
           ref={mapRef}
@@ -310,11 +369,18 @@ export function MapView(props: Props) {
           locale={{ 'Map.Title': 'Map. Arrow keys pan, plus and minus zoom', 'AttributionControl.ToggleAttribution': 'Show or hide the map credits' }}
           hash="map"
           attributionControl={false}
-          interactiveLayerIds={['places-point', 'zone-places-point', 'areas-fill']}
+          interactiveLayerIds={Object.keys(CLICKABLE)}
           onClick={(e) => {
-            const f = e.features?.[0]
-            onSelectFeature(f ? { layer: f.layer.id === 'areas-fill' ? 'areas' : 'places', id: (f.properties as StoryProps).id } : null)
+            const picks = (e.features ?? []).map((f) => {
+              const p = f.properties as StoryProps
+              return { layer: CLICKABLE[f.layer.id], id: p.id, journey: p.journey ?? null, sequence: p.sequence ?? null }
+            })
+            onMapClick(picks, [e.lngLat.lng, e.lngLat.lat])
           }}
+          // A pointer over what a click would open.
+          cursor={hovering ? 'pointer' : undefined}
+          onMouseEnter={() => setHovering(true)}
+          onMouseLeave={() => setHovering(false)}
           style={{ position: 'absolute', inset: 0 }}
           onLoad={(e) => {
             setLoaded(true)
@@ -366,53 +432,105 @@ export function MapView(props: Props) {
           }}
         />
       )}
-      <div className="map-switches">
-        <Switch
-          label="Basemap"
-          options={BASEMAPS.map((b) => ({ ...b, disabled: b.id !== 'literary' && unavailable }))}
-          value={basemap}
-          onChange={setBasemap}
-        />
-        <Switch
-          label="View of the classic map"
-          options={VIEWS.map((v) => ({ ...v, disabled: basemap !== 'literary' }))}
-          value={view}
-          onChange={setView}
-        />
-        <Switch
-          label="Units"
-          options={[
-            { id: 'imperial', label: 'mi', title: 'Miles and feet', ariaLabel: 'Miles and feet', disabled: false },
-            { id: 'metric', label: 'km', title: 'Kilometres and metres', ariaLabel: 'Kilometres and metres', disabled: false },
-          ]}
-          value={units}
-          onChange={onUnits}
-        />
-        <label className="land-colour-toggle" title={view === 'raised' ? 'Not available in the Raised view' : 'Faint satellite colour under the map'}>
-          <input
-            type="checkbox"
-            checked={landColour}
-            disabled={basemap !== 'literary' || view === 'raised' || unavailable}
-            onChange={(e) => setLandColour(e.target.checked)}
-          />
-          Land colour
-        </label>
+      <div className="map-controls-box" ref={menuBox} onKeyDown={(e) => {
+        if (phone && menuOpen && e.key === 'Escape') {
+          setMenuOpen(false)
+          menuButton.current?.focus()
+        }
+      }}>
+        {phone && (
+          <button
+            ref={menuButton}
+            type="button"
+            className="map-menu-button"
+            aria-expanded={menuOpen}
+            aria-controls="map-controls"
+            aria-label="Map options"
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.4">
+              <path d="M10 3 L18 7 L10 11 L2 7 Z" />
+              <path d="M2 10.5 L10 14.5 L18 10.5" />
+              <path d="M2 14 L10 18 L18 14" />
+            </svg>
+            Map
+          </button>
+        )}
+        {/* One family of switches. View and Ground hang under the basemap switch, ruled off with it, because
+            they change the classic map (and View the compare mode); on Satellite and Topo they fade out. */}
+        <div className="map-controls" id="map-controls" hidden={phone && !menuOpen}>
+          <div className="control-row">
+            <span className="control-label" aria-hidden="true">Map</span>
+            <Switch
+              label="Basemap"
+              options={BASEMAPS.map((b) => ({ ...b, disabled: b.id !== 'literary' && unavailable, paired: basemap === 'compare' && PAIRED.includes(b.id) }))}
+              value={basemap}
+              onChange={chooseBasemap}
+            />
+          </div>
+          <div className="control-sub" data-off={basemap === 'satellite' || basemap === 'topo' || undefined}>
+            <div className="control-row">
+              <span className="control-label" aria-hidden="true">View</span>
+              <Switch
+                label="View of the classic map"
+                options={VIEWS.map((v) => ({ ...v, disabled: !(basemap === 'literary' || (basemap === 'compare' && v.id !== 'raised')) }))}
+                value={view}
+                onChange={setView}
+              />
+            </div>
+            <div className="control-row">
+              <span className="control-label" aria-hidden="true">Ground</span>
+              <Switch
+                label="Ground of the classic map"
+                options={[
+                  { id: 'paper', label: 'Paper', title: 'The paper colour of the map', disabled: !tintAvailable },
+                  {
+                    id: 'tint',
+                    label: 'Satellite tint',
+                    title: tintAvailable ? 'Faint colour from satellite imagery under the map' : 'Classic map in Flat or Tilted only',
+                    disabled: !tintAvailable,
+                  },
+                ]}
+                value={tint ? 'tint' : 'paper'}
+                onChange={(v) => setTint(v === 'tint')}
+              />
+            </div>
+          </div>
+          <div className="control-row">
+            <span className="control-label" aria-hidden="true">Units</span>
+            <Switch
+              label="Units"
+              options={[
+                { id: 'imperial', label: 'Imperial', title: 'Miles and feet', ariaLabel: 'Imperial: miles and feet', disabled: false },
+                { id: 'metric', label: 'Metric', title: 'Kilometres and metres', ariaLabel: 'Metric: kilometres and metres', disabled: false },
+              ]}
+              value={units}
+              onChange={onUnits}
+            />
+          </div>
+        </div>
       </div>
-      {basemap === 'literary' && <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} />}
       {loaded && view !== 'raised' && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}
       {view === 'raised' && (
         <p className="notice" role="status">The Raised view covers the country the journeys ride through; bus rides and reported journeys stay flat.</p>
       )}
       {unavailable && <p className="notice" role="status">Satellite and Topo are unavailable right now. The classic map works as normal.</p>}
-      <div className="cartouche" aria-hidden="true">
-        <svg className="north" viewBox="0 0 24 48" width="14" height="28">
-          <path d="M12 2 L18 30 L12 24 L6 30 Z" fill="currentColor" />
-          <text x="12" y="45" textAnchor="middle" fontSize="12">N</text>
-        </svg>
-        <div>
-          <div className="cartouche-title">The Crossing</div>
-          <div className="cartouche-sub">Sonora, Chihuahua &amp; the New Mexico bootheel</div>
+      {/* The title cartouche holds the layer key, folded. The title itself is decoration: the page's heading
+          names the map for screen readers. The key describes the classic map, so it shows with it. */}
+      <div className="cartouche">
+        <div className="cartouche-head" aria-hidden="true">
+          <svg className="north" viewBox="0 0 24 48" width="14" height="28">
+            <path d="M12 2 L18 30 L12 24 L6 30 Z" fill="currentColor" />
+            <text x="12" y="45" textAnchor="middle" fontSize="12">N</text>
+          </svg>
+          <div>
+            <div className="cartouche-title">The Crossing</div>
+            <div className="cartouche-sub">Sonora, Chihuahua &amp; the New Mexico bootheel</div>
+          </div>
         </div>
+        {(basemap === 'literary' || basemap === 'compare') && (
+          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} />
+        )}
       </div>
     </div>
   )

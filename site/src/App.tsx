@@ -1,10 +1,10 @@
 import { lazy, Suspense, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import type { MapRef } from '@vis.gl/react-maplibre'
-import type { Feature, Geometry, Position } from 'geojson'
+import type { Feature, Geometry, Point, Position } from 'geojson'
 import { useOpenQuestions } from './data/openQuestions'
 import { useElsewhere, useStory, type Story, type StoryProps } from './data/story'
 import { useTranslations, type Translation } from './data/translations'
-import { MapView, type View } from './map/MapView'
+import { MapView, type MapPick, type View } from './map/MapView'
 import { corridor as corridorOf } from './map/corridor'
 import type { Corridor } from './map/StoryLayers'
 import type { DrawerHeight } from './panel/Drawer'
@@ -66,7 +66,7 @@ function bounds(features: Feature[]): [number, number, number, number] {
   return [Math.min(...lons), Math.min(...lats), Math.max(...lons), Math.max(...lats)]
 }
 
-// The whole of a journey: its stops, clear of the map's switches (top), zoom buttons and key (left), and the
+// The whole of a journey: its stops, clear of the map's switches (top right), the zoom buttons (left), and the
 // inset and cartouche (bottom right). Phones have no room to spare.
 function frameStops(map: MapRef | null, stops: Feature<Geometry, StoryProps>[]) {
   const padding = window.matchMedia('(max-width: 720px)').matches ? 30 : { top: 70, right: 130, bottom: 100, left: 80 }
@@ -141,6 +141,8 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, { journey: 'J1', stopIndex: 0, stepping: false })
   const [selection, setSelection] = useState<Selection>(null)
   const [translationId, setTranslationId] = useState<string | null>(null)
+  // "How this was placed" stays open or closed as the reader left it, whichever stop shows.
+  const [placementOpen, setPlacementOpen] = useState(false)
   const [units, setUnits] = useUnits()
   // Phones: the panel is a bottom drawer. It opens half way, so the reading-progress badge and search show.
   const phone = usePhone()
@@ -212,6 +214,51 @@ export default function App() {
     dispatch({ type: 'goto', journey: j, index, stepping: true })
     setSelection(null)
     flyTo(list[index] ?? f)
+  }
+
+  // A click on the map. A route or a place where a journey stops goes to that stop and steps on from there: in
+  // the journey in focus if it is one of the journeys there (several can share a road or a town), else in the
+  // journey of the topmost route clicked, else the first journey that stops there. On a route, the stop is the
+  // end of the clicked segment nearer the click. Only journeys and stops the reader has reached are drawn or
+  // listed (spoiler/filter.ts), so a click never jumps ahead in the book. Any other place or area opens its card.
+  const onMapClick = (picks: MapPick[], [lng, lat]: [number, number]) => {
+    setTranslationId(null)
+    const top = picks[0]
+    const all = (story?.stops.features ?? []) as Feature<Point, StoryProps>[]
+    const stopAt = (journey: string | null, sequence: number | null) =>
+      all.find((s) => s.properties.journey === journey && s.properties.sequence === sequence)
+    const far = (s: Feature<Point, StoryProps>) => {
+      const [x, y] = s.geometry.coordinates
+      return ((x - lng) * Math.cos((lat * Math.PI) / 180)) ** 2 + (y - lat) ** 2
+    }
+    let candidates: Feature<Point, StoryProps>[] = []
+    if (top?.layer === 'journeys') {
+      for (const p of picks.filter((x) => x.layer === 'journeys')) {
+        const ends = [stopAt(p.journey, p.sequence), stopAt(p.journey, p.sequence === null ? null : p.sequence + 1)]
+        const near = ends.filter((s) => s !== undefined).sort((a, b) => far(a) - far(b))[0]
+        if (near) candidates.push(near)
+      }
+    } else if (top?.layer === 'places') {
+      // In the order of the routes under the click, then of the journeys.
+      const order = picks.filter((x) => x.layer === 'journeys').map((x) => x.journey)
+      const rank = (s: Feature<Point, StoryProps>) => {
+        const at = order.indexOf(s.properties.journey)
+        return at < 0 ? order.length : at
+      }
+      candidates = all
+        .filter((s) => s.properties.place_ref === top.id)
+        .sort((a, b) => rank(a) - rank(b) || (a.properties.journey ?? '').localeCompare(b.properties.journey ?? ''))
+    }
+    const here = candidates.filter((s) => s.properties.journey === journey)
+    if (here.length > 0) {
+      // A journey that comes back to a place stops there more than once: the visit nearest the current stop.
+      const index = (s: Feature<Point, StoryProps>) => stops.findIndex((x) => x.properties.id === s.properties.id)
+      const nearest = here.map(index).sort((a, b) => Math.abs(a - stopIndex) - Math.abs(b - stopIndex))[0]
+      return goToStop(nearest)
+    }
+    if (candidates.length > 0) return showStop(candidates[0].properties.id)
+    setSelection(top && top.layer !== 'journeys' ? { layer: top.layer, id: top.id } : null)
+    if (top && drawer === 'peek') showDrawer()
   }
 
   const showFeature = (layer: 'places' | 'areas', id: string) => {
@@ -337,11 +384,7 @@ export default function App() {
         stops={stops}
         stopIndex={stopIndex}
         onSelectStop={goToStop}
-        onSelectFeature={(pick) => {
-          setSelection(pick)
-          setTranslationId(null)
-          if (pick && drawer === 'peek') showDrawer()
-        }}
+        onMapClick={onMapClick}
         selectedId={selected ? selected.properties.id : null}
         aheadFrom={state.stepping ? (stop?.properties.sequence ?? null) : null}
         onHome={() => {
@@ -381,6 +424,8 @@ export default function App() {
           currentTranslation={translationId}
           onJourney={(journey) => dispatch({ type: 'journey', journey })}
           onStop={goToStop}
+          placementOpen={placementOpen}
+          onPlacement={setPlacementOpen}
           phone={phone}
           drawer={drawer}
           onDrawer={setDrawer}

@@ -9,13 +9,13 @@ The relief reads as a flat pattern of strokes. Carl Churchill's plan oblique map
 
 ## Decision
 
-The literary map has three views, switched beside the basemap switch. Satellite and Compare always use Flat.
+The literary map has three views, switched beside the basemap switch. Satellite and Topo always use Flat. Compare uses Flat or Tilted (the Raised line work is shifted north, so it would not line up with the imagery); choosing Compare from Raised turns on Tilted.
 
 - **Flat**, the default: the map seen straight down.
 - **Tilted**: MapLibre's 3D terrain at 1.5 times exaggeration, tilted 40 degrees.
 - **Raised**: plan oblique line work from `oblique.pmtiles`, built by `crossing.plan_oblique`. Each point moves north by twice its height above the lowest ground. Ground hidden behind a nearer ridge is cut away, and the edges of the cut-away ground are drawn as crest outlines. Ridgelines are traced on the DEM, where the ground peaks across its strongest downward curvature, and drawn where they are not hidden and no crest outline runs. Hachure strokes are trimmed by a fifth at each end, so that once stretched they do not join into long lines. Strokes are dropped where the shift squeezes the ground to under half its depth.
 
-A **Land colour** option, for Flat and Tilted, puts the satellite map under the classic map: the imagery is brightened, saturated and faded over white, and the classic map is multiplied over it, so the paper takes the land's colour while ink and water keep theirs. In Tilted the satellite map turns on MapTiler's terrain so the imagery stays under the relief. **Compare** draws the classic base on a second, non-interactive map clipped left of the swipe, so the story layers run over both halves, as in Satellite.
+A **Satellite tint** option (the Ground switch: Paper or Satellite tint), for the classic map in Flat and Tilted, puts the satellite map under the classic map: the imagery is brightened, saturated and faded over white, and the classic map is multiplied over it, so the paper takes the land's colour while ink and water keep theirs. In Tilted the satellite map turns on MapTiler's terrain so the imagery stays under the relief. **Compare** draws the classic base on a second, non-interactive map clipped left of the swipe, so the story layers run over both halves, as in Satellite. In Tilted all three maps (satellite, classic base, story layers) share the same 3D terrain.
 
 Raised hides the base layers that cannot move with the terrain (hillshade, flat hachures, water, roads and glyphs) and the story's stops and areas. Only the journeys are shifted so far.
 
@@ -31,4 +31,4 @@ Raised hides the base layers that cannot move with the terrain (hillshade, flat 
 - Raised covers two test tiles around the Pilares (108.9 to 109.7 W, 30.7 to 31.1 N), about 5 MB. The whole corridor needs the shift run per tile, and the story layers need shifting in the pipeline.
 - The flat hillshade cannot be used in Raised. A pre-shifted shading layer would bring the tone back.
 - `oblique.pmtiles` ships in the tiles release, built by `crossing.plan_oblique`.
-- Land colour is a third way to create the MapTiler SDK map (decision 0005), so each reader who turns it on uses one session. Its terrain loads inside that session.
+- Satellite tint is a third way to create the MapTiler SDK map (decision 0005), so each reader who turns it on uses one session. Its terrain loads inside that session.

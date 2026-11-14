@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type RefObject } from 'react'
 import type { MapRef } from '@vis.gl/react-maplibre'
+import type { Map as MapLibreMap } from 'maplibre-gl'
 import type { Position } from 'geojson'
 import type { Story } from '../data/story'
 import { journeyInks, palette as tokens, storyBounds } from './tokens'
@@ -60,6 +61,9 @@ const BORDER_PATH = path([BORDER])
 
 // Shown once the view spans less than this share of the region's width.
 const ZOOMED_IN = 0.5
+// A box narrower or shorter than this, in inset px, shows as a small square around its centre instead.
+const SMALLEST = 4
+const SQUARE = 6
 
 type Props = {
   mapRef: RefObject<MapRef | null>
@@ -68,9 +72,27 @@ type Props = {
   journey: string
 }
 
+// The view's corners on the ground, in inset px, kept inside the inset's frame (less half the box's stroke), so
+// a view that runs past the region's edge, or a far edge in the Tilted view, still draws as a closed box.
+// Null while the view is wide enough to need no inset. MapLibre's minimum zoom keeps every view far narrower
+// than the world, but a span over 180 degrees (a view across the antimeridian) would hide the box too.
+function footprintOf(map: MapLibreMap): [number, number][] | null {
+  // The map's own box: the canvas container has no height of its own, as the canvas inside it is positioned.
+  const { clientWidth: w, clientHeight: h } = map.getContainer()
+  const corners = ([[0, 0], [w, 0], [w, h], [0, h]] as [number, number][]).map((c) => map.unproject(c))
+  if (corners.some((c) => !Number.isFinite(c.lng) || !Number.isFinite(c.lat))) return null
+  const lons = corners.map((c) => c.lng)
+  const span = Math.max(...lons) - Math.min(...lons)
+  if (span >= (EAST - WEST) * ZOOMED_IN || span > 180) return null
+  const clamp = (v: number, max: number) => Math.min(max - 0.75, Math.max(0.75, v))
+  return corners.map((c) => {
+    const [x, y] = project([c.lng, c.lat])
+    return [clamp(x, WIDTH), clamp(y, HEIGHT)]
+  })
+}
+
 export function OverviewInset({ mapRef, story, journey }: Props) {
   const journeyInk = journeyInks(tokens)
-  // The view's corners on the ground, in inset px; null while the view is wide enough to need no inset.
   const [footprint, setFootprint] = useState<[number, number][] | null>(null)
 
   useEffect(() => {
@@ -79,10 +101,7 @@ export function OverviewInset({ mapRef, story, journey }: Props) {
     let frame = 0
     const update = () => {
       frame = 0
-      const { clientWidth: w, clientHeight: h } = map.getCanvasContainer()
-      const corners = ([[0, 0], [w, 0], [w, h], [0, h]] as [number, number][]).map((c) => map.unproject(c))
-      const lons = corners.map((c) => c.lng)
-      setFootprint(Math.max(...lons) - Math.min(...lons) < (EAST - WEST) * ZOOMED_IN ? corners.map((c) => project([c.lng, c.lat])) : null)
+      setFootprint(footprintOf(map))
     }
     const onMove = () => {
       if (!frame) frame = requestAnimationFrame(update)
@@ -113,48 +132,51 @@ export function OverviewInset({ mapRef, story, journey }: Props) {
   }, [story, journey])
 
   if (!footprint) return null
-  // A view smaller than a few px shows as a small square around its centre.
+  // A view smaller than a few px, or one pressed flat against the frame (the view lies past the region's
+  // edge), shows as a small square around its centre.
   const xs = footprint.map((p) => p[0])
   const ys = footprint.map((p) => p[1])
-  const small = Math.max(...xs) - Math.min(...xs) < 4
-  const cx = (Math.max(...xs) + Math.min(...xs)) / 2
-  const cy = (Math.max(...ys) + Math.min(...ys)) / 2
+  const small = Math.max(...xs) - Math.min(...xs) < SMALLEST || Math.max(...ys) - Math.min(...ys) < SMALLEST
+  const cx = Math.min(WIDTH - SQUARE / 2, Math.max(SQUARE / 2, (Math.max(...xs) + Math.min(...xs)) / 2))
+  const cy = Math.min(HEIGHT - SQUARE / 2, Math.max(SQUARE / 2, (Math.max(...ys) + Math.min(...ys)) / 2))
 
   return (
-    <svg
-      className="overview"
-      width={WIDTH}
-      height={HEIGHT}
-      viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-      role="img"
-      aria-label="Overview of the whole region; the box shows where this view lies"
-    >
-      <rect width={WIDTH} height={HEIGHT} fill={tokens.water} fillOpacity={0.35} />
-      <path d={LAND_PATH} fill={tokens.paper} />
-      <path d={BORDER_PATH} fill="none" stroke={tokens.ink} strokeWidth={0.8} strokeDasharray="3 1.5" />
-      {routes.map(({ id, d }) => (
-        <path
-          key={id}
-          d={d}
-          fill="none"
-          stroke={journeyInk[id] ?? tokens.ink}
-          strokeWidth={id === journey ? 1.4 : 0.8}
-          strokeOpacity={id === journey ? 1 : 0.45}
-          strokeLinejoin="round"
-        />
-      ))}
-      {small ? (
-        <rect x={cx - 3} y={cy - 3} width={6} height={6} fill="none" stroke={tokens.ink} strokeWidth={1.5} />
-      ) : (
-        <polygon
-          points={footprint.map((p) => p.join(',')).join(' ')}
-          fill={tokens.ink}
-          fillOpacity={0.12}
-          stroke={tokens.ink}
-          strokeWidth={1.5}
-          strokeLinejoin="round"
-        />
-      )}
-    </svg>
+    <figure className="overview" title="Where you are: the whole story region, with a box around the part the map shows now">
+      <figcaption>Where you are</figcaption>
+      <svg
+        width={WIDTH}
+        height={HEIGHT}
+        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+        role="img"
+        aria-label="The whole story region and its journeys; the box marks the part the map shows now"
+      >
+        <rect width={WIDTH} height={HEIGHT} fill={tokens.water} fillOpacity={0.35} />
+        <path d={LAND_PATH} fill={tokens.paper} />
+        <path d={BORDER_PATH} fill="none" stroke={tokens.ink} strokeWidth={0.8} strokeDasharray="3 1.5" />
+        {routes.map(({ id, d }) => (
+          <path
+            key={id}
+            d={d}
+            fill="none"
+            stroke={journeyInk[id] ?? tokens.ink}
+            strokeWidth={id === journey ? 1.4 : 0.8}
+            strokeOpacity={id === journey ? 1 : 0.45}
+            strokeLinejoin="round"
+          />
+        ))}
+        {small ? (
+          <rect x={cx - SQUARE / 2} y={cy - SQUARE / 2} width={SQUARE} height={SQUARE} fill="none" stroke={tokens.ink} strokeWidth={1.5} />
+        ) : (
+          <polygon
+            points={footprint.map((p) => p.join(',')).join(' ')}
+            fill={tokens.ink}
+            fillOpacity={0.12}
+            stroke={tokens.ink}
+            strokeWidth={1.5}
+            strokeLinejoin="round"
+          />
+        )}
+      </svg>
+    </figure>
   )
 }

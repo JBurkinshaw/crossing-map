@@ -34,9 +34,12 @@ type Props = {
 export function PlaceCard({ feature, units, questions, spoken, currentTranslation, onClose, title, spokenTitle = 'Spoken here', spokenNote }: Props) {
   const p = feature.properties
   const card = useRef<HTMLElement>(null)
+  // The card's top, with its title: a card taller than the panel would otherwise show its foot. When the card
+  // marks a line picked in search, TranslationList scrolls to that line first, and 'nearest' leaves it in view.
+  const marksLine = spoken.some((t) => t.id === currentTranslation)
   useEffect(() => {
-    card.current?.scrollIntoView({ block: 'nearest' })
-  }, [p.id])
+    card.current?.scrollIntoView({ block: marksLine ? 'nearest' : 'start' })
+  }, [p.id, marksLine])
   return (
     <section ref={card} className="place-card" aria-live="polite" data-first-seen={p.first_seen} data-role={p.role ?? undefined}>
       <button type="button" className="close" aria-label="Close" onClick={onClose}>

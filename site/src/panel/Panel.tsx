@@ -33,6 +33,9 @@ type Props = {
   currentTranslation: string | null
   onJourney: (journey: string) => void
   onStop: (index: number) => void
+  // Whether "How this was placed" is open: App holds it, so it stays as the reader left it between stops.
+  placementOpen: boolean
+  onPlacement: (open: boolean) => void
   // On phones the panel is a bottom drawer (Drawer.tsx) at this height.
   phone: boolean
   drawer: DrawerHeight
@@ -42,8 +45,10 @@ type Props = {
 export function Panel(props: Props) {
   const { header, search, card, failed, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
   const { spokenOnRoad, onShowRoad } = props
-  const { phone, drawer, onDrawer, units, questions } = props
+  const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement } = props
   const stop = stops[stopIndex]
+  // The stop the road from this one leads to.
+  const next = stops[stopIndex + 1]
 
   const links = (
     <nav className="site-links" aria-label="Pages">
@@ -77,8 +82,8 @@ export function Panel(props: Props) {
     <section className="stop" aria-live="polite" data-first-seen={stop.properties.first_seen}>
       <h2>{stop.properties.name}</h2>
       {(stop.properties.note_full || stop.properties.note_safe) && <p>{stop.properties.note_full || stop.properties.note_safe}</p>}
-      {/* Keyed by stop, so it closes again at the next stop. */}
-      <details key={stop.properties.id} className="placement">
+      {/* Open or closed as the reader last left it, from stop to stop and journey to journey. */}
+      <details className="placement" open={placementOpen} onToggle={(e) => onPlacement(e.currentTarget.open)}>
         <summary>How this was placed</summary>
         <div className="meta">
           {stop.properties.certainty}
@@ -95,10 +100,15 @@ export function Panel(props: Props) {
           <TranslationList key={stop.properties.id} items={spokenAtStop} current={currentTranslation} />
         </>
       )}
+      {/* Talk on the road to the next stop: its own block, so it does not run on from the stop's lines above,
+          and a button that opens the road's card (only that road's lines) and outlines the road on the map. */}
       {spokenOnRoad > 0 && (
-        <button type="button" className="text-button road-lines" onClick={onShowRoad}>
-          {spokenOnRoad === 1 ? '1 line' : `${spokenOnRoad} lines`} spoken on the road from this stop
-        </button>
+        <div className="road-ahead">
+          <h3>On the road{next ? ` to ${next.properties.name}` : ''}</h3>
+          <button type="button" className="road-lines" onClick={onShowRoad}>
+            Show the {spokenOnRoad === 1 ? 'line' : `${spokenOnRoad} lines`} spoken on this road, and the road on the map
+          </button>
+        </div>
       )}
     </section>
   )
@@ -129,7 +139,7 @@ export function Panel(props: Props) {
   )
 
   const stopList = stops.length > 0 && (
-    <details className="more">
+    <details className="more all-stops">
       <summary>All stops ({stops.length})</summary>
       <ol className="stop-list">
         {stops.map((f, i) => (
@@ -157,18 +167,21 @@ export function Panel(props: Props) {
     </details>
   )
 
-  // Phones: the controls a thumb needs most come first, nearest the bottom of the screen at peek and half
-  // height (the stepper, then the journey and search); the page links go last.
+  // The panel reads from the general to the particular: reading progress and search, which govern the whole
+  // map; then the way through a journey (which journey, Back and Next, all its stops); then what is in focus
+  // (the card for a pick on the map or in search, and the current stop); then places beyond the map and the
+  // page links. Phones put the stepper in the drawer's peek row, nearest the thumb, and the journey and its
+  // stops straight under it; search and progress follow, as the drawer opens half way.
   if (phone) {
     return (
       <Drawer label="Journey" height={drawer} onHeight={onDrawer} peek={stepper}>
         {journeyPick}
+        {stopList}
         {search}
         {header}
-        {card}
         {failure}
+        {card}
         {stopSection}
-        {stopList}
         {elsewhereList}
         {links}
       </Drawer>
@@ -182,9 +195,9 @@ export function Panel(props: Props) {
       {journeyPick}
       {failure}
       {stepper}
+      {stopList}
       {card}
       {stopSection}
-      {stopList}
       {elsewhereList}
       {links}
     </aside>

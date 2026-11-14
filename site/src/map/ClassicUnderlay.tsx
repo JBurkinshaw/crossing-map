@@ -1,4 +1,4 @@
-import { useEffect, useRef, type RefObject } from 'react'
+import { useEffect, useRef, useState, type RefObject } from 'react'
 import * as maplibregl from 'maplibre-gl'
 import type { StyleSpecification } from 'maplibre-gl'
 import type { MapRef } from '@vis.gl/react-maplibre'
@@ -16,6 +16,8 @@ type Props = {
   split: number
   // Heights on summits and contours: set on the map in place, so a change of units does not rebuild it.
   units: Units
+  // In the Tilted view, the same 3D terrain as the main map, so the base stays under the story layers.
+  terrain: { url: string; exaggeration: number } | null
 }
 
 function setUnits(map: maplibregl.Map, units: Units) {
@@ -23,12 +25,11 @@ function setUnits(map: maplibregl.Map, units: Units) {
   map.setLayoutProperty('contour-label', 'text-field', contourText(units))
 }
 
-export default function ClassicUnderlay({ main, style, split, units }: Props) {
+export default function ClassicUnderlay({ main, style, split, units, terrain }: Props) {
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
-  const unitsRef = useRef(units)
   // map.loaded() is false again whenever tiles load, so the first load is recorded here.
-  const ready = useRef(false)
+  const [ready, setReady] = useState(false)
 
   useEffect(() => {
     const top = main.current?.getMap()
@@ -38,29 +39,37 @@ export default function ClassicUnderlay({ main, style, split, units }: Props) {
       style,
       center: top.getCenter(),
       zoom: top.getZoom(),
+      pitch: top.getPitch(),
       interactive: false,
       attributionControl: false,
     })
     mapRef.current = map
-    map.once('load', () => {
-      ready.current = true
-      setUnits(map, unitsRef.current)
-    })
+    map.once('load', () => setReady(true))
     const follow = () => map.jumpTo({ center: top.getCenter(), zoom: top.getZoom(), pitch: top.getPitch(), bearing: top.getBearing() })
     top.on('move', follow)
     return () => {
       top.off('move', follow)
       map.remove()
       mapRef.current = null
-      ready.current = false
+      setReady(false)
     }
   }, [main, style])
 
   useEffect(() => {
-    unitsRef.current = units
     const map = mapRef.current
-    if (map && ready.current) setUnits(map, units)
-  }, [units])
+    if (map && ready) setUnits(map, units)
+  }, [units, ready])
+
+  const terrainUrl = terrain?.url
+  const exaggeration = terrain?.exaggeration
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !ready) return
+    if (terrainUrl && !map.getSource('terrain3d')) {
+      map.addSource('terrain3d', { type: 'raster-dem', url: terrainUrl, encoding: 'terrarium', tileSize: 256 })
+    }
+    map.setTerrain(terrainUrl && exaggeration ? { source: 'terrain3d', exaggeration } : null)
+  }, [terrainUrl, exaggeration, ready])
 
   return <div ref={container} aria-hidden="true" style={{ position: 'absolute', inset: 0, clipPath: `inset(0 ${100 - split}% 0 0)` }} />
 }

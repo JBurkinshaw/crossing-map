@@ -234,6 +234,14 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
             'line-dasharray': [3, 2],
           }}
         />
+        {/* Unseen and wide: what a click on a route hits (MapView), so the thin lines are easy to pick. */}
+        <Layer
+          id="journeys-hit"
+          type="line"
+          filter={['!=', ['get', 'kind'], 'sightline']}
+          layout={{ 'line-cap': 'round', 'line-join': 'round' }}
+          paint={{ 'line-color': tokens.ink, 'line-width': 14, 'line-opacity': 0 }}
+        />
         {/* The false dawn: a direction, not a road, so dotted. */}
         <Layer
           id="journeys-sightline"

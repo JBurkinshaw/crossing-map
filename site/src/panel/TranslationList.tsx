@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type RefObject } from 'react'
 import { CAMPBELL_CREDIT, CAMPBELL_GUIDE, type Translation } from '../data/translations'
 import { issueUrl } from '../pages/format'
 import { episodeLabel } from '../spoiler/progress'
@@ -21,15 +21,34 @@ function suggestion(t: Translation): string {
 
 // Lines of Spanish with this site's English (plan sections 3 and 8): the opening words only, our English, the
 // episode, and the Campbell guide's page where it lists the line, with the credit the plan asks for on each.
+// A long list that spans several episodes is grouped by episode, in the order the lines come: the first group
+// starts open, and so does the one holding the line picked in search.
 export function TranslationList({ items, current }: Props) {
-  const [all, setAll] = useState(false)
-  const currentAt = items.findIndex((t) => t.id === current)
-  const shown = all || currentAt >= SHOWN_AT_FIRST ? items : items.slice(0, SHOWN_AT_FIRST)
   const marked = useRef<HTMLLIElement>(null)
   // Braces: scrollIntoView can return a promise, which an effect must not.
   useEffect(() => {
     marked.current?.scrollIntoView({ block: 'nearest' })
   }, [current])
+  const episodes = [...new Set(items.map((t) => t.episode))]
+  if (items.length <= SHOWN_AT_FIRST || episodes.length === 1) return <Lines items={items} current={current} marked={marked} />
+  return episodes.map((episode, i) => {
+    const lines = items.filter((t) => t.episode === episode)
+    return (
+      <details key={episode} className="translation-group" open={i === 0 || lines.some((t) => t.id === current)}>
+        <summary>
+          {episodeLabel(episode)} ({lines.length})
+        </summary>
+        <Lines items={lines} current={current} marked={marked} />
+      </details>
+    )
+  })
+}
+
+// The first few lines, then all of them at a click (or at once, if the line picked in search is further down).
+function Lines({ items, current, marked }: Props & { marked: RefObject<HTMLLIElement | null> }) {
+  const [all, setAll] = useState(false)
+  const currentAt = items.findIndex((t) => t.id === current)
+  const shown = all || currentAt >= SHOWN_AT_FIRST ? items : items.slice(0, SHOWN_AT_FIRST)
   return (
     <>
       <ul className="translations">

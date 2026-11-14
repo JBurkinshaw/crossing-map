@@ -113,6 +113,14 @@ async function idle(page) {
   )
 }
 
+// Every line a list holds: open its episode groups (TranslationList), then click each "Show all".
+async function showAllLines(page, scope) {
+  await page.evaluate((s) => document.querySelectorAll(`${s} details.translation-group`).forEach((d) => (d.open = true)), scope)
+  // Each click removes its button, so click the first left until none is.
+  const more = page.locator(`${scope} .translations + .text-button`)
+  while (await more.count()) await more.first().click()
+}
+
 const browser = await chromium.launch()
 for (const point of POINTS) {
   const reached = reachedOf(point)
@@ -166,12 +174,12 @@ for (const point of POINTS) {
     await page.selectOption('.journey-pick select', journey)
     const next = page.getByRole('button', { name: 'Next' })
     for (;;) {
-      for (const more of await page.locator('.stop .translations + .text-button').all()) await more.click()
+      await showAllLines(page, '.stop')
       await checkPanel(page, reached, `${where}, ${journey} step ${steps}`, later, lines)
       // Talk on the road from this stop: its road's card, every line, and the corridor on the map.
       if (await page.locator('.stop .road-lines').count()) {
         await page.locator('.stop .road-lines').click()
-        for (const more of await page.locator('.place-card .translations + .text-button').all()) await more.click()
+        await showAllLines(page, '.place-card')
         await checkPanel(page, reached, `${where}, ${journey} step ${steps} road`, later, lines)
         await checkMap(page, reached, `${where}, ${journey} step ${steps} road`)
         await page.locator('.place-card .close').click()
@@ -198,7 +206,7 @@ for (const point of POINTS) {
         await page.waitForTimeout(200)
         await checkPanel(page, reached, `${where}, search "${q}" picked`, later, lines)
         // Every line a card lists, not only the first few.
-        for (const more of await page.locator('.panel .translations + .text-button').all()) await more.click()
+        await showAllLines(page, '.panel')
         await checkPanel(page, reached, `${where}, search "${q}" picked, all lines`, later, lines)
       }
       searched++
