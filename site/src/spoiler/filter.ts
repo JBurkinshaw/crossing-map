@@ -17,8 +17,10 @@ function safeProps(props: GeoJsonProperties, reached: string, spoilers: boolean)
   if (!spoilers || !props) return props
   const { note_full: _dropped, ...rest } = props
   // Some reasoning cites the episode that confirms a place, which can be later than the place's first mention.
-  const reasoning = typeof rest.reasoning === 'string' ? rest.reasoning : null
-  if (reasoning && (reasoning.match(EPISODE_ID) ?? []).some((id) => id > reached)) rest.reasoning = REASONING_HIDDEN
+  const later = (text: unknown) => typeof text === 'string' && (text.match(EPISODE_ID) ?? []).some((id) => id > reached)
+  if (later(rest.reasoning)) rest.reasoning = REASONING_HIDDEN
+  // An inferred area's outline rule is reasoning too.
+  if (later(rest.outline_rule)) rest.outline_rule = REASONING_HIDDEN
   return rest
 }
 

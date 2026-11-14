@@ -139,6 +139,9 @@ def break_lines(lines: list[list[Point]], rng: random.Random, chance: float) -> 
         if rng.random() < chance:
             t, gap = rng.uniform(0.35, 0.65), rng.uniform(0.6, 1.2)
             d = math.hypot(b[0] - a[0], b[1] - a[1]) or 1.0
+            if d < 2 * gap:  # too short to skip: the two pieces would run past the ends
+                out.append([a, b])
+                continue
             g = gap / d / 2
             out += [[a, (a[0] + (b[0] - a[0]) * (t - g), a[1] + (b[1] - a[1]) * (t - g))],
                     [(a[0] + (b[0] - a[0]) * (t + g), a[1] + (b[1] - a[1]) * (t + g)), b]]

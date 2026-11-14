@@ -24,7 +24,7 @@ import sys
 from pathlib import Path
 
 from pyproj import Geod
-from shapely import line_merge
+from shapely import line_merge, make_valid
 from shapely.geometry import LineString, MultiLineString, Point, shape
 from shapely.ops import substring
 
@@ -250,9 +250,12 @@ def build_stops(pins: dict[str, tuple]) -> tuple[list[dict], list[dict], dict[st
                 areas.append(feature(ring, **area, outline_rule=None, straight_road=False))
                 continue
             # A draft is the circle cut down, so one reaching outside it was drafted around an older pin or radius.
-            if not shape(draft["geometry"]).difference(shape(ring).buffer(0.002)).is_empty:
-                sys.exit(f"{area['id']}: the draft in areas.geojson lies outside the stop's circle; "
-                         "rerun crossing.area_drafts --force")
+            # make_valid: an outline saved from QGIS can have a self-touching ring.
+            if not make_valid(shape(draft["geometry"])).difference(shape(ring).buffer(0.002)).is_empty:
+                fix = ("redraw it in pipeline/qgis/areas.qgs, or clear its 'checked' mark and rerun "
+                       "crossing.area_drafts --force" if draft["properties"]["draft_confidence"] == "checked"
+                       else "rerun crossing.area_drafts --force")
+                sys.exit(f"{area['id']}: the draft in areas.geojson lies outside the stop's circle; {fix}")
             areas.append(feature(draft["geometry"], **(area | {"method": "computed"}),
                                  outline_rule=draft["properties"]["draft_rule"],
                                  straight_road=draft["properties"]["straight_road"]))

@@ -572,8 +572,9 @@ def tidy(geom, F: Frame, keep: str):
     else:
         biggest = max(p.area for p in parts)
         parts = [p for p in parts if p.area >= 0.05 * biggest]
-    g = unary_union(parts).simplify(c / 2).intersection(F.bound)
-    return shapely.make_valid(g)
+    g = shapely.make_valid(unary_union(parts).simplify(c / 2).intersection(F.bound))
+    # make_valid can return a collection with a stray line or point where two parts touch; keep the area only.
+    return unary_union([p for p in getattr(g, "geoms", [g]) if isinstance(p, (Polygon, MultiPolygon))])
 
 
 def to_geojson(g, F: Frame) -> dict:
@@ -1144,7 +1145,8 @@ def build(only: list[str] | None, images: bool, force: bool) -> None:
                 draft, geometry = F.bound, circle
             else:
                 geometry = to_geojson(draft, F)
-        confidence = rule.confidence
+        # An uncut circle is "kept" whatever the rule hoped for, so build_story shows it as a circle.
+        confidence = rule.confidence if geometry is not circle else "kept"
         new_km2 = km2(geometry)
         if rule.cut is not None and new_km2 > 0.95 * old_km2:
             F.notes.append("the cut removed under 5% of the circle")
@@ -1186,6 +1188,9 @@ def build(only: list[str] | None, images: bool, force: bool) -> None:
         json.dumps({"type": "FeatureCollection", "features": features}, ensure_ascii=False, indent=1) + "\n",
         encoding="utf-8",
     )
+    if not records:  # every area was checked by hand: nothing drafted, nothing to report
+        print(f"Wrote {SEED.relative_to(REPO)}: {len(features)} areas, all checked by hand")
+        return
     with (REPORT / "areas-draft.csv").open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(records[0]))
         w.writeheader()

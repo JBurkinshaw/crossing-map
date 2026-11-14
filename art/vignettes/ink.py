@@ -17,7 +17,7 @@ import random
 import numpy as np
 import svgelements as se
 from shapely import affinity
-from shapely.geometry import LineString, MultiLineString, Polygon
+from shapely.geometry import LineString, Polygon
 
 from art import INK, PAPER
 from art.pen import PEN, break_lines, extend, ribbon, wobble
@@ -145,12 +145,13 @@ def _outline(d: str, w: float, rng: random.Random) -> str:
     width = w * PEN_WEIGHT
     out = []
     for pts, closed in subpaths(d):
-        line = wobble(pts, random.Random(rng.random()), PEN.wobble * SCALE, 20.0 * SCALE)
-        if not closed or len(line) < 8:
-            out.append(ribbon(line, width, PEN.end_w, PEN.taper, rng))
+        wander = random.Random(rng.random())
+        if not closed or len(pts) < 8:
+            out.append(ribbon(wobble(pts, wander, PEN.wobble * SCALE, 20.0 * SCALE), width, PEN.end_w, PEN.taper, rng))
             continue
-        top = min(range(len(line)), key=lambda i: line[i][1])
-        ring = line[top:] + line[1:top + 1]
+        # Start the ring at its top before the pen wanders, so the only join is where the strokes meet.
+        top = min(range(len(pts)), key=lambda i: pts[i][1])
+        ring = wobble(pts[top:] + pts[1:top + 1], wander, PEN.wobble * SCALE, 20.0 * SCALE)
         cut = len(ring) // 2 + rng.randint(-len(ring) // 8, len(ring) // 8)
         run_on = rng.uniform(0.3, 1.0) if rng.random() < 0.5 else -rng.uniform(0.15, 0.4)
         out.append(ribbon(extend(ring[:cut + 1], 0.0, run_on), width, PEN.end_w, PEN.taper, rng))
@@ -181,7 +182,8 @@ def _hatches(area, angle: float, pitch: float, w: float, rng: random.Random) -> 
         nx, ny = -dy, dx
         px, py = cx + nx * offset, cy + ny * offset
         cut = LineString([(px - dx * reach, py - dy * reach), (px + dx * reach, py + dy * reach)]).intersection(area)
-        pieces = cut.geoms if isinstance(cut, MultiLineString) else [cut] if isinstance(cut, LineString) else []
+        # A line that only grazes the region can come back as a collection with points in it.
+        pieces = [g for g in getattr(cut, "geoms", [cut]) if isinstance(g, LineString)]
         for piece in pieces:
             if piece.length < 0.8 or rng.random() > PEN.hatch_share:
                 continue

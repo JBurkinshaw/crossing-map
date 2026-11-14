@@ -260,6 +260,7 @@ export function Credits({ reached }: { reached: string }) {
         The vignettes are drawn for this site in one pen with the mountain glyphs. Some are traced from public-domain
         photographs; the rest are drawn by hand after references, whose licences allow it.
       </p>
+      {drawings.shown.length > 0 && (
       <dl className="credits">
         {drawings.shown.map((d) => (
           <div key={d.id}>
@@ -268,6 +269,7 @@ export function Credits({ reached }: { reached: string }) {
           </div>
         ))}
       </dl>
+      )}
       {drawings.hidden > 0 && <p className="meta">The credits for drawings further on in the book show once you reach them.</p>}
       <h2>This site</h2>
       <p>
