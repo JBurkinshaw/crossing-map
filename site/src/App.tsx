@@ -21,6 +21,9 @@ import { distance, useUnits } from './units'
 
 // The About, How it's built, Data and Credits pages, loaded the first time one opens.
 const Pages = lazy(() => import('./pages/Pages'))
+// The owner's review of the modelled routes (?review=routes). Dev server only: a production build drops it.
+const RouteReview = import.meta.env.DEV ? lazy(() => import('./review/RouteReview')) : null
+const reviewing = import.meta.env.DEV && new URLSearchParams(window.location.search).get('review') === 'routes'
 
 // `stepping` is true once the reader steps from stop to stop; the road ahead then fades (plan 9, data dimming).
 type State = { journey: string; stopIndex: number; stepping: boolean }
@@ -351,32 +354,38 @@ export default function App() {
         units={units}
         onUnits={setUnits}
       />
-      <Panel
-        units={units}
-        questions={questions}
-        header={<ReadingProgress progress={progress} isSet={isSet} episodes={episodes} onSet={setProgress} />}
-        search={<SearchBox places={flat?.places.features ?? []} stops={flat?.stops.features ?? []} translations={translations} onPick={onPick} />}
-        card={card}
-        failed={loaded === 'failed'}
-        journey={journey}
-        journeys={journeys}
-        elsewhere={elsewhere}
-        stops={stops}
-        stopIndex={stopIndex}
-        spokenAtStop={stop ? (spokenAt.get(stop.properties.id) ?? []) : []}
-        spokenOnRoad={roadAhead ? (spokenAt.get(roadAhead.properties.id)?.length ?? 0) : 0}
-        onShowRoad={() => {
-          if (!roadAhead) return
-          setTranslationId(null)
-          showRoad(roadAhead.properties.id)
-        }}
-        currentTranslation={translationId}
-        onJourney={(journey) => dispatch({ type: 'journey', journey })}
-        onStop={goToStop}
-        phone={phone}
-        drawer={drawer}
-        onDrawer={setDrawer}
-      />
+      {reviewing && RouteReview ? (
+        <Suspense fallback={null}>
+          <RouteReview mapRef={mapRef} />
+        </Suspense>
+      ) : (
+        <Panel
+          units={units}
+          questions={questions}
+          header={<ReadingProgress progress={progress} isSet={isSet} episodes={episodes} onSet={setProgress} />}
+          search={<SearchBox places={flat?.places.features ?? []} stops={flat?.stops.features ?? []} translations={translations} onPick={onPick} />}
+          card={card}
+          failed={loaded === 'failed'}
+          journey={journey}
+          journeys={journeys}
+          elsewhere={elsewhere}
+          stops={stops}
+          stopIndex={stopIndex}
+          spokenAtStop={stop ? (spokenAt.get(stop.properties.id) ?? []) : []}
+          spokenOnRoad={roadAhead ? (spokenAt.get(roadAhead.properties.id)?.length ?? 0) : 0}
+          onShowRoad={() => {
+            if (!roadAhead) return
+            setTranslationId(null)
+            showRoad(roadAhead.properties.id)
+          }}
+          currentTranslation={translationId}
+          onJourney={(journey) => dispatch({ type: 'journey', journey })}
+          onStop={goToStop}
+          phone={phone}
+          drawer={drawer}
+          onDrawer={setDrawer}
+        />
+      )}
       {route !== '/' && (
         <Suspense fallback={null}>
           <Pages route={route} questions={questions} />
