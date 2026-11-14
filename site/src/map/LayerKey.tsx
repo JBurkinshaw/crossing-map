@@ -43,6 +43,17 @@ function Line({ colour, dash, width = 2.5, opacity = 1 }: { colour: string; dash
   )
 }
 
+// The railroad as style.ts draws it: a thin ink line under 1 px cross-ties, 4 px tall and 13 px apart (a line
+// dash array scales with the line's width, so [0.25, 3] at width 4 gives 1 px ties and 12 px gaps).
+function Railroad() {
+  return (
+    <svg width="34" height="12" aria-hidden="true">
+      <line x1="2" y1="6" x2="32" y2="6" stroke={tokens.ink} strokeWidth={0.8} />
+      <line x1="4" y1="6" x2="32" y2="6" stroke={tokens.ink} strokeWidth={4} strokeDasharray="1 12" />
+    </svg>
+  )
+}
+
 function Dot({ r, fill, stroke, width = 1.2 }: { r: number; fill: string; stroke?: string; width?: number }) {
   return (
     <svg width="34" height="14" aria-hidden="true">
@@ -204,6 +215,13 @@ export function LayerKey({ story, journey, reached }: Props) {
               Region
             </li>
           )}
+        </ul>
+        <h3>The land</h3>
+        <ul>
+          <li>
+            <Railroad />
+            Railroad
+          </li>
         </ul>
         <h3>Mountains</h3>
         <ul className="key-glyphs">
