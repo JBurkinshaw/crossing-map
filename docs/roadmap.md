@@ -110,10 +110,10 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - The guide links have no deep page link: a lookup from Vintage page to PDF page is not built.
 - **Stage 6.**
   - No photos are picked, and the photo pipeline after the picks is not built (the proposal is in `review/stage-6/photos-README.md`).
-  - The vignette art is placeholder.
+  - The thirteen vignettes are research-based drawings in the glyphs' pen; the other candidates in design section 10 are not drawn.
   - Accessibility leftovers: the drawer handle at full height is out of thumb reach; no keyboard equivalent for hover names; no real screen-reader test.
 - **Stage 7.** The open items in section 2, then `maxZoom` 15 for street-level places.
-- **Stage 8.** Section 1, the stage 7 calls, street-level places, the declutter, research-based vignettes, and analytics, each as demand shows.
+- **Stage 8.** Section 1, the stage 7 calls, street-level places, the declutter, and analytics, each as demand shows.
 
 ## 4. Modelled routes (decided 2026-11-13, not built)
 
@@ -144,7 +144,7 @@ The least-cost experiment is in `review/experiments/least-cost/` (in the main ch
 - **Large:**
   - street-level places (lookups, `maxZoom` 15)
   - shipping full-region relief and Raised (hosting)
-  - real vignette art
+  - the remaining vignettes (design section 10)
   - hand-drawn glyphs
   - translation review by a speaker
   - road snaps for the Mexican legs
@@ -187,7 +187,7 @@ Pick by demand, not in order.
 - **Rumsey overlays** with the swipe.
 - **Story mode:** a pinned map with scrolling episodes.
 - **A Spanish interface.**
-- **Illustrator vignettes**, and research-based vignettes: drawings that look roughly as the text describes each subject, each with a short label giving its context. "The Trail of Blood Meridian" map is a style reference.
+- **Illustrator vignettes** for the remaining candidates.
 - **Speaker-reviewed translations.**
 - **A paid MapTiler month** around a traffic spike.
 - **Analytics** (section 2).

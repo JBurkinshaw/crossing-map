@@ -9,3 +9,7 @@ select = ["E", "F", "W", "I", "B", "UP"]
 
 [lint.isort]
 known-first-party = ["crossing"]
+
+[lint.per-file-ignores]
+# Hand-drawn SVG path data reads better on one line than split mid-coordinate.
+"art/vignettes/make_vignettes.py" = ["E501"]

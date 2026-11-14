@@ -46,7 +46,7 @@ tiles: ## Base, relief and terrain archives into tiles/out/
 
 art: ## Glyph and vignette SVGs, then the sprite (needs spreet)
 	$(PY) art.glyphs.make_glyphs
-	$(PY) art.vignettes.make_vignettes
+	uv run --project pipeline --extra art python -m art.vignettes.make_vignettes
 
 install-tiles: ## Copy tiles/out/ into the local site
 	$(PY) tiles.install

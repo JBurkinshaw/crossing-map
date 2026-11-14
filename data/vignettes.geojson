@@ -29,7 +29,9 @@
     "vignette": "vignette-she-wolf",
     "min_zoom": 6.0,
     "max_zoom": 11.0,
-    "priority": 1
+    "priority": 1,
+    "label": "She-wolf, out of Sonora",
+    "credit": "Traced from a Mexican wolf photograph, US Fish and Wildlife Service (public domain)"
    }
   },
   {
@@ -60,7 +62,9 @@
     "vignette": "vignette-steel-trap",
     "min_zoom": 8.0,
     "max_zoom": 12.0,
-    "priority": 2
+    "priority": 2,
+    "label": "Newhouse No. 4½ wolf trap",
+    "credit": "Drawn after Newhouse trap catalogue engravings, 1890s-1919 (public domain)"
    }
   },
   {
@@ -91,7 +95,9 @@
     "vignette": "vignette-obelisk",
     "min_zoom": 8.0,
     "max_zoom": 13.0,
-    "priority": 2
+    "priority": 2,
+    "label": "Boundary monument, 1890s line",
+    "credit": "Drawn after the International Boundary Commission's monument photographs, 1892-94 (public domain)"
    }
   },
   {
@@ -105,7 +111,7 @@
    },
    "properties": {
     "id": "vignette-hacienda-pit",
-    "name": "The hacienda gate and the dog pit",
+    "name": "The cockpit at the hacienda",
     "kind": "vignette",
     "stands_for": "The hacienda where the wolf is made to fight (J2)",
     "place_ref": "j2-hacienda",
@@ -122,7 +128,9 @@
     "vignette": "vignette-hacienda-pit",
     "min_zoom": 8.0,
     "max_zoom": 12.0,
-    "priority": 2
+    "priority": 2,
+    "label": "Cockpit at the hacienda fair",
+    "credit": "Drawn; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain)"
    }
   },
   {
@@ -153,7 +161,9 @@
     "vignette": "vignette-ruined-church",
     "min_zoom": 8.0,
     "max_zoom": 12.0,
-    "priority": 1
+    "priority": 1,
+    "label": "Ruined adobe church, upper Bavispe",
+    "credit": "Drawn after photographs of the Quarai mission ruin by suemruth (CC BY 2.0) and of Mission San Juan Capistrano about 1900, California Historical Society (public domain)"
    }
   },
   {
@@ -184,7 +194,9 @@
     "vignette": "vignette-paquime",
     "min_zoom": 8.0,
     "max_zoom": 12.0,
-    "priority": 2
+    "priority": 2,
+    "label": "Paquimé, adobe ruins, 1940s",
+    "credit": "Drawn after photographs by Gary Lee Todd and DiSchamelrider (CC0)"
    }
   },
   {
@@ -235,7 +247,7 @@
    },
    "properties": {
     "id": "vignette-san-diego-gate",
-    "name": "The San Diego gate, L. T.",
+    "name": "The San Diego house front, L. T.",
     "kind": "vignette",
     "stands_for": "The Hacienda de San Diego, Luis Terrazas's house (J4, J5)",
     "place_ref": "j4-san-diego",
@@ -247,19 +259,21 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "The brothers and the girl ride up to the hacienda of San Diego, whose gate carries its name over the initials of the old owner.",
+    "note_safe": "The brothers and the girl ride up to the hacienda of San Diego, whose house front carries its name in an arch over the initials of the old owner.",
     "reasoning": "The Hacienda de San Diego is a real, located site. Mata Ortiz lies just south of it and Colonia Juárez and the river just north, so the drawing goes west, onto the slopes towards the sierra, with a hairline leader back to the hacienda. The anchor is 15 km from The Hacienda de San Diego, bearing 260 degrees; the nearest stop or place, Colonia Juárez, is 13 km away (pyproj, WGS 84).",
     "vignette": "vignette-san-diego-gate",
     "min_zoom": 8.0,
     "max_zoom": 12.0,
-    "priority": 1
+    "priority": 1,
+    "label": "Hacienda de San Diego, Terrazas house",
+    "credit": "Drawn from the book's description; no reusable photograph found"
    }
   },
   {
    "type": "Feature",
    "properties": {
     "id": "vignette-san-diego-gate-leader",
-    "name": "The San Diego gate, L. T.",
+    "name": "The San Diego house front, L. T.",
     "kind": "vignette-leader",
     "stands_for": "The Hacienda de San Diego, Luis Terrazas's house (J4, J5)",
     "place_ref": "j4-san-diego",
@@ -271,7 +285,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "The brothers and the girl ride up to the hacienda of San Diego, whose gate carries its name over the initials of the old owner.",
+    "note_safe": "The brothers and the girl ride up to the hacienda of San Diego, whose house front carries its name in an arch over the initials of the old owner.",
     "reasoning": "A hairline from the drawing to The Hacienda de San Diego, a located site.",
     "vignette": "vignette-san-diego-gate",
     "min_zoom": 8.0,
@@ -320,7 +334,9 @@
     "vignette": "vignette-opera-caravan",
     "min_zoom": 8.0,
     "max_zoom": 12.0,
-    "priority": 2
+    "priority": 2,
+    "label": "Travelling opera wagons, 1940s",
+    "credit": "Drawn from the book's description; wagon form after circus wagon photographs, c. 1900-25 (public domain, CC0)"
    }
   },
   {
@@ -351,7 +367,9 @@
     "vignette": "vignette-blind-man",
     "min_zoom": 8.0,
     "max_zoom": 12.0,
-    "priority": 2
+    "priority": 2,
+    "label": "Blind man of the revolution",
+    "credit": "Drawn; hat and coat after a Fortepan photograph of a peasant with a cane (Fortepan 28839, CC BY-SA 3.0). This drawing is shared under CC BY-SA 3.0"
    }
   },
   {
@@ -382,7 +400,9 @@
     "vignette": "vignette-red-plane",
     "min_zoom": 8.0,
     "max_zoom": 12.0,
-    "priority": 3
+    "priority": 3,
+    "label": "Red Waco cabin biplane, 1930s",
+    "credit": "Drawn after photographs of a Waco YKS-6 by RuthAS (CC BY 3.0) and a Waco UEC by Armchair Aviator (CC BY 2.0)"
    }
   },
   {
@@ -413,7 +433,9 @@
     "vignette": "vignette-gypsy-plane",
     "min_zoom": 8.0,
     "max_zoom": 12.0,
-    "priority": 1
+    "priority": 1,
+    "label": "Gypsies' airplane, lost in 1915",
+    "credit": "Drawn; fuselage after a Curtiss JN-4B 3-view by Kaboldy (CC BY-SA 3.0), oxen after Giovanni Fattori's etching (CC0). This drawing is shared under CC BY-SA 3.0"
    }
   },
   {
@@ -444,7 +466,9 @@
     "vignette": "vignette-crippled-dog",
     "min_zoom": 7.0,
     "max_zoom": 12.0,
-    "priority": 1
+    "priority": 1,
+    "label": "Old dog at the roadside ruin",
+    "credit": "The traced she-wolf outline (US Fish and Wildlife Service, public domain), bent; the ruin drawn"
    }
   },
   {
@@ -475,7 +499,9 @@
     "vignette": "vignette-trinity-cloud",
     "min_zoom": 7.0,
     "max_zoom": 12.0,
-    "priority": 1
+    "priority": 1,
+    "label": "Trinity test, 16 July 1945",
+    "credit": "Cap traced from the Trinity test photograph, US government, 1945 (public domain)"
    }
   }
  ]

@@ -105,7 +105,7 @@ These write straight into `site/public/` and are committed, because CI has no Ru
 | Step | Command | Writes | Needs |
 | --- | --- | --- | --- |
 | Mountain glyphs | `uv run --project pipeline python -m art.glyphs.make_glyphs` | `art/glyphs/svg/`, then the sprite | `spreet` |
-| Vignette placeholders | `uv run --project pipeline python -m art.vignettes.make_vignettes` | Placeholder SVGs in `art/vignettes/svg/` (never a real drawing), then the sprite | `spreet` |
+| Vignettes | `uv run --project pipeline --extra art python -m art.vignettes.make_vignettes [ID ...]` | The 13 drawings in `art/vignettes/svg/`, from the subjects in the script and the traced outlines in `art/vignettes/traced/`, then the sprite | `spreet`, the `art` extra (svgelements) |
 | Sprite only | `uv run --project pipeline python -m art.build_sprite` | `site/public/sprites/` | `spreet` |
 | Map type | `tiles/build_glyphs.sh` | `site/public/fonts/` | `build_pbf_glyphs`, the IM Fell fonts in `private/cache/basemap/fonts/` |
 

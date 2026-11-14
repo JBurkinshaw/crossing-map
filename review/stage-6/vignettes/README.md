@@ -1,5 +1,7 @@
 # Stage 6: the first twelve vignettes (placement only)
 
+**The placeholders below were replaced on 14 November 2026** by research-based drawings in the mountain glyphs' pen (`review/experiments/vignettes/README.md`; `art/vignettes/make_vignettes.py`). The placement questions in this packet still stand.
+
 This packet is for checking where the vignettes go, not what they look like. It covers the plan's section 10: twelve of the candidate drawings, their anchors, and the map layer that draws them.
 
 **The drawings are placeholders.** Each one is a plain silhouette in the map's ink and paper, inside a dashed frame that marks it as provisional, on the plan's 96 by 96 grid. They exist only so that the anchors, sizes and collisions can be judged on the map. The real drawings will be the owner's or an illustrator's (design section 10; Phase 2 adds more by an illustrator). A real drawing replaces `art/vignettes/svg/vignette-<id>.svg` under the same name, and `art/build_sprite.py` rebuilds the sprite.

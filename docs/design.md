@@ -323,7 +323,7 @@ Avoid the kitchen sink (every layer on) and desert fog (an empty view with no cu
 
 On old maps the empty quarters hold drawings that are not to scale and not quite in place: a ship, a beast, a mission. Here they are the book's creatures, buildings, and objects, drawn in one ink style and placed near the thing they stand for. Each is tied to an episode, carries `first_seen`, and has a note.
 
-**Style.** A single-weight ink line (about 1.5 px at 1x), paper fill, light hatching on the south-east side only, no colour, drawn on a 96 × 96 grid and exported at 1x and 2x into the sprite with `spreet`. The light comes from the same direction as on the mountain glyphs.
+**Style.** Drawn with the mountain glyphs' pen (`art/pen.py`): tapered ink strokes that wander a little, outlines that lift and meet with a small gap or overshoot, and loose, sometimes broken hatching on the south-east side. Two inks only, ink and paper, with a paper halo round every stroke; drawn on a 96 × 96 grid (`art/vignettes/`) and exported at 1x and 2x into the sprite with `spreet`. The light comes from the same direction as on the mountain glyphs. Each drawing looks roughly as its subject did around 1940, after the references its credit names, and carries a short italic label under it (the seed's `label`), after "The Trail of Blood Meridian" map. The Credits page lists each drawing's `credit`, for the drawings the reader has reached.
 
 **Placement rules**
 
@@ -341,14 +341,14 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 | The boundary obelisk | the line near the wolf's crossing | I |
 | Antelope on the Animas Plains | Animas Plains | I |
 | Bird, Billy's horse | Cloverdale | I |
-| The hacienda gate and the dog pit | the hacienda near Colonia Morelos | I |
+| The cockpit at the hacienda | the hacienda near Colonia Morelos | I |
 | A brick Mormon storehouse | Colonia Morelos | I |
 | The ruined church | Huisiachepic | II |
 | An ox cart | Bavispe valley | II |
 | The one-eyed horse | Bacerac | II |
 | Paquimé's mud walls | Casas Grandes | II |
 | The Noroeste locomotive | Casas Grandes or Las Varas | II |
-| The San Diego gate, "L. T." | Hacienda de San Diego | III |
+| The San Diego house front, "L. T." | Hacienda de San Diego | III |
 | The opera caravan | the Madera road south of Las Varas | III |
 | A Babícora Hereford | the Babícora plains | III |
 | Sandhill cranes | the Chihuahua plains | III |

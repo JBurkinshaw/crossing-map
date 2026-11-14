@@ -162,6 +162,10 @@
           "type": ["string", "null"],
           "description": "Inferred areas: how the outline was drawn. A draft is the stop's circle (uncertainty_m about the pin) cut by a rule to the ground its reasoning describes (crossing.area_drafts, decision 0020); null for a plain circle."
         },
+        "cost_model": {
+          "type": "string",
+          "description": "Route segments with method modeled: the least-cost model version that drew the line (crossing.least_cost, decision 0021)."
+        },
         "straight_road": {
           "type": "boolean",
           "description": "Inferred areas: the outline follows a straight line between towns, standing in for an old road no source maps yet."
@@ -169,6 +173,8 @@
         "photo_ids": {"type": "array", "items": {"type": "string"}},
         "vignette": {"type": ["string", "null"], "description": "Vignettes: the drawing's name in the map sprite."},
         "stands_for": {"type": "string", "description": "Vignettes: what the drawing stands for in the book."},
+        "label": {"type": "string", "description": "Vignettes: the short caption drawn under the drawing."},
+        "credit": {"type": "string", "description": "Vignettes: how the drawing was made and from what sources, with their licences."},
         "min_zoom": {
           "type": "number",
           "minimum": 0,

@@ -96,7 +96,8 @@ function glyphs(p: Palette, units: Units): LayerSpecification[] {
 }
 
 // Vignettes (design section 10): drawings of the book's creatures, buildings and objects, each in empty country near
-// what it stands for, from data/vignettes.geojson and the vignette-<id> drawings in the sprite (placeholders for now).
+// what it stands for, from data/vignettes.geojson and the vignette-<id> drawings in the sprite, each
+// with its short italic label under it.
 // Each shows only in its own zoom range, which keeps them a few to a screen; symbol collision places the lowest
 // `priority` first, and the labels above them win any overlap. A located site (a ruin, a hacienda) also gets a
 // hairline leader from the drawing to the site; the leader still draws if its drawing loses a collision.
@@ -124,7 +125,16 @@ function vignettes(p: Palette): LayerSpecification[] {
         'icon-size': ['interpolate', ['linear'], ['zoom'], 6, 0.4, 9, 0.55, 12, 0.7],
         'icon-padding': 4,
         'symbol-sort-key': ['get', 'priority'],
+        // The caption sits under the drawing; it is optional, so a drawing still shows when its label collides.
+        'text-field': ['get', 'label'],
+        'text-font': [fonts.italic],
+        'text-size': ['interpolate', ['linear'], ['zoom'], 7, 10, 12, 12],
+        'text-anchor': 'top',
+        'text-offset': ['interpolate', ['linear'], ['zoom'], 7, ['literal', [0, 1.9]], 12, ['literal', [0, 2.8]]],
+        'text-max-width': 9,
+        'text-optional': true,
       },
+      paint: { 'text-color': p.ink, 'text-halo-color': p.paper, 'text-halo-width': 1.2 },
     },
   ]
 }

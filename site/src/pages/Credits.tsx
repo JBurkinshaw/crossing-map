@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { CAMPBELL_CREDIT, CAMPBELL_GUIDE } from '../data/translations'
+import { shownAt } from '../spoiler/filter'
 import { REPO_URL, repoUrl } from './format'
 
 // Every source the site uses, with the credit its terms ask for (design section 3). `credit` is the wording
@@ -203,7 +204,26 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
   },
 ]
 
-export function Credits() {
+type Drawing = { id: string; label: string; credit: string; first_seen: string }
+
+// The vignettes' sources, read from data/vignettes.geojson. Only the drawings the reader has reached are listed,
+// because a drawing's subject can give the story away.
+function useDrawings(reached: string): { shown: Drawing[]; hidden: number } {
+  const [all, setAll] = useState<Drawing[]>([])
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/vignettes.geojson`)
+      .then((r) => (r.ok ? r.json() : { features: [] }))
+      .then((fc: { features: { properties: Drawing & { kind: string } }[] }) =>
+        setAll(fc.features.map((f) => f.properties).filter((p) => p.kind === 'vignette' && p.credit)),
+      )
+      .catch(() => setAll([]))
+  }, [])
+  const shown = all.filter((d) => shownAt(d, reached)).sort((a, b) => a.first_seen.localeCompare(b.first_seen))
+  return { shown, hidden: all.length - shown.length }
+}
+
+export function Credits({ reached }: { reached: string }) {
+  const drawings = useDrawings(reached)
   return (
     <>
       <p className="lede">
@@ -228,6 +248,20 @@ export function Credits() {
           </dl>
         </section>
       ))}
+      <h2>Drawings</h2>
+      <p>
+        The vignettes are drawn for this site in one pen with the mountain glyphs. Some are traced from public-domain
+        photographs; the rest are drawn by hand after references, whose licences allow it.
+      </p>
+      <dl className="credits">
+        {drawings.shown.map((d) => (
+          <div key={d.id}>
+            <dt>{d.label}</dt>
+            <dd>{d.credit}</dd>
+          </div>
+        ))}
+      </dl>
+      {drawings.hidden > 0 && <p className="meta">The credits for drawings further on in the book show once you reach them.</p>}
       <h2>This site</h2>
       <p>
         The story data, notes and translations written for this site are CC BY 4.0. The code is MIT, except the

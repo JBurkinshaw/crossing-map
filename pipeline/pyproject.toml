@@ -25,6 +25,11 @@ translations = [
     "rapidfuzz>=3.14.6",
 ]
 
+# Only art.vignettes needs this: it reads the drawings' SVG paths.
+art = [
+    "svgelements>=1.9.6",
+]
+
 [dependency-groups]
 dev = [
     "pytest>=8",

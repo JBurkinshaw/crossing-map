@@ -49,13 +49,14 @@ def main() -> None:
             source_licence="CC BY 4.0",
             note_safe=s["note"], reasoning=s["reasoning"] + measured,
             vignette=f"vignette-{s['id']}", min_zoom=float(s["min_zoom"]), max_zoom=float(s["max_zoom"]),
-            priority=int(s["priority"]),
+            priority=int(s["priority"]), label=s["label"], credit=s["credit"],
         )
         point = {"type": "Point", "coordinates": [r5(lon), r5(lat)]}
         features.append({"type": "Feature", "geometry": point, "properties": props})
         if s["leader"] == "yes":
-            leader = props | {"id": f"vignette-{s['id']}-leader", "kind": "vignette-leader",
-                              "reasoning": f"A hairline from the drawing to {ref_name}, a located site."}
+            leader = {k: v for k, v in props.items() if k not in ("label", "credit")} | {
+                "id": f"vignette-{s['id']}-leader", "kind": "vignette-leader",
+                "reasoning": f"A hairline from the drawing to {ref_name}, a located site."}
             features.append({"type": "Feature", "properties": leader, "geometry": {
                 "type": "LineString", "coordinates": [[r5(lon), r5(lat)], [r5(ref_lon), r5(ref_lat)]]}})
     if problems:

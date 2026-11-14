@@ -220,7 +220,7 @@ export default function App() {
           }
         >
           <Suspense fallback={null}>
-            <Pages route={route} questions={questions} />
+            <Pages route={route} questions={questions} reached={reached} />
           </Suspense>
         </ChunkBoundary>
       )}

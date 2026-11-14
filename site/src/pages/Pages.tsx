@@ -17,8 +17,8 @@ const PAGES: { route: Exclude<Route, '/'>; label: string; title: string }[] = [
 
 // The site's pages, over the map (which stays loaded underneath, so returning to it is instant).
 // Loaded as their own chunk the first time a page opens.
-// `questions` are the open questions the reader has reached.
-export default function Pages({ route, questions }: { route: Exclude<Route, '/'>; questions: OpenQuestion[] }) {
+// `questions` are the open questions the reader has reached; `reached` is the latest episode that may show.
+export default function Pages({ route, questions, reached }: { route: Exclude<Route, '/'>; questions: OpenQuestion[]; reached: string }) {
   const page = PAGES.find((p) => p.route === route)!
   const scroller = useRef<HTMLDivElement>(null)
   const heading = useRef<HTMLHeadingElement>(null)
@@ -68,7 +68,7 @@ export default function Pages({ route, questions }: { route: Exclude<Route, '/'>
         {route === '/about/how-its-built' && <HowItsBuilt />}
         {route === '/open-questions' && <OpenQuestions questions={questions} />}
         {route === '/data' && <Data />}
-        {route === '/credits' && <Credits />}
+        {route === '/credits' && <Credits reached={reached} />}
       </article>
     </div>
   )

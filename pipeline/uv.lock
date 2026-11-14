@@ -66,6 +66,9 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
+art = [
+    { name = "svgelements" },
+]
 translations = [
     { name = "lingua-language-detector" },
     { name = "pypdf" },
@@ -91,8 +94,9 @@ requires-dist = [
     { name = "rasterio", specifier = ">=1.5.2" },
     { name = "scipy", specifier = ">=1.18.1" },
     { name = "shapely", specifier = ">=2.2.0" },
+    { name = "svgelements", marker = "extra == 'art'", specifier = ">=1.9.6" },
 ]
-provides-extras = ["translations"]
+provides-extras = ["translations", "art"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -915,6 +919,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/5b/00/feaeb392e96063717387ec09e6c8e38b29fe4088ddfe976470255c69792e/shapely-2.2.0-cp315-cp315t-win32.whl", hash = "sha256:778421a19085bef1fb38bc0699db1ee9b08fdd0e30a8768788d601a4371f2de0", size = 1675823, upload-time = "2026-10-07T09:17:55.022Z" },
     { url = "https://files.pythonhosted.org/packages/0e/30/0b77618f33fecbc2209c767cecca58bbf83947fc0018571542bf2b859865/shapely-2.2.0-cp315-cp315t-win_amd64.whl", hash = "sha256:287ec7602f7a114b862ae0123880e57160cebe059843a4c7028aaee9e74287f6", size = 1866197, upload-time = "2026-10-07T09:17:56.991Z" },
     { url = "https://files.pythonhosted.org/packages/06/2b/9837e94408335520f778b09067fced0a5d4b2feffa5ebf7119412eb18b00/shapely-2.2.0-cp315-cp315t-win_arm64.whl", hash = "sha256:e414c78bc81aadd76a429111a350f4ef3d05fc13019805617b524951258468e5", size = 1945749, upload-time = "2026-10-07T09:17:59.116Z" },
+]
+
+[[package]]
+name = "svgelements"
+version = "1.9.6"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/5d/29/1c93c94a2289675ba2ff898612f9c9a03f46d69f253bdf4da0dfc08a599d/svgelements-1.9.6.tar.gz", hash = "sha256:7c02ad6404cd3d1771fd50e40fbfc0550b0893933466f86a6eb815f3ba3f37f7", size = 162145, upload-time = "2023-08-17T02:01:51.822Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/48/2c/6c9bb53db56c8a12a736d2158a8b842a5993b96daabc29d90a098e840280/svgelements-1.9.6-py2.py3-none-any.whl", hash = "sha256:8a5cf2cc066d98e713d5b875b1d6e5eeb9b92e855e835ebd7caab2713ae1dcad", size = 137856, upload-time = "2023-08-17T02:01:48.76Z" },
 ]
 
 [[package]]
