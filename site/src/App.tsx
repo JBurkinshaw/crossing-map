@@ -66,7 +66,7 @@ function bounds(features: Feature[]): [number, number, number, number] {
   return [Math.min(...lons), Math.min(...lats), Math.max(...lons), Math.max(...lats)]
 }
 
-// The whole of a journey: its stops, clear of the map's switches (top), zoom buttons and key (left), and the
+// The whole of a journey: its stops, clear of the map's switches (top right), the zoom buttons (left), and the
 // inset and cartouche (bottom right). Phones have no room to spare.
 function frameStops(map: MapRef | null, stops: Feature<Geometry, StoryProps>[]) {
   const padding = window.matchMedia('(max-width: 720px)').matches ? 30 : { top: 70, right: 130, bottom: 100, left: 80 }

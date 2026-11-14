@@ -496,21 +496,27 @@ export function MapView(props: Props) {
           </div>
         </div>
       </div>
-      {basemap === 'literary' && <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} />}
       {loaded && view !== 'raised' && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}
       {view === 'raised' && (
         <p className="notice" role="status">The Raised view covers the country the journeys ride through; bus rides and reported journeys stay flat.</p>
       )}
       {unavailable && <p className="notice" role="status">Satellite and Topo are unavailable right now. The classic map works as normal.</p>}
-      <div className="cartouche" aria-hidden="true">
-        <svg className="north" viewBox="0 0 24 48" width="14" height="28">
-          <path d="M12 2 L18 30 L12 24 L6 30 Z" fill="currentColor" />
-          <text x="12" y="45" textAnchor="middle" fontSize="12">N</text>
-        </svg>
-        <div>
-          <div className="cartouche-title">The Crossing</div>
-          <div className="cartouche-sub">Sonora, Chihuahua &amp; the New Mexico bootheel</div>
+      {/* The title cartouche holds the layer key, folded. The title itself is decoration: the page's heading
+          names the map for screen readers. The key describes the classic map, so it shows with it. */}
+      <div className="cartouche">
+        <div className="cartouche-head" aria-hidden="true">
+          <svg className="north" viewBox="0 0 24 48" width="14" height="28">
+            <path d="M12 2 L18 30 L12 24 L6 30 Z" fill="currentColor" />
+            <text x="12" y="45" textAnchor="middle" fontSize="12">N</text>
+          </svg>
+          <div>
+            <div className="cartouche-title">The Crossing</div>
+            <div className="cartouche-sub">Sonora, Chihuahua &amp; the New Mexico bootheel</div>
+          </div>
         </div>
+        {(basemap === 'literary' || basemap === 'compare') && (
+          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} />
+        )}
       </div>
     </div>
   )
