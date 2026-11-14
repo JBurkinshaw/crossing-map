@@ -34,6 +34,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0017 Views of the literary map | accepted; Raised area superseded by 0018 and 0019 |
 | 0018 Raised over the first two journeys | accepted; area and archive size superseded by 0019 |
 | 0019 Raised over every journey | accepted |
+| 0020 Landform names along computed axes | proposed |
 
 ## Template
 

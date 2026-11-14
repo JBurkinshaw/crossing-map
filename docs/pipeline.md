@@ -20,6 +20,7 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | `regions.geojson` | The Animas Valley and La Babícora outlines | `crossing.regions`, then hand edits in QGIS |
 | `vignettes.csv` | The vignette anchors | Hand |
 | `landforms.toml` | Every weight and threshold of the landform rules, with comments | Hand |
+| `landform_axes.toml` | Hand edits to the landform label lines, each with a reason | Hand |
 | `translations.csv` | Our English for each Spanish line; a non-empty cell wins over the draft | `crossing.translations build`, then hand edits |
 | `road-refs.csv` | Runs of lines spoken while travelling one route segment | Hand |
 | `where-spoken.csv` | Single lines placed by hand, each with a reason | Hand |
@@ -48,8 +49,9 @@ Order matters in three places:
 | DEM tiles | `uv run --project pipeline python -m crossing.fetch_dem [--story-box]` | `data/journeys.geojson` | `private/cache/dem/copernicus/` (corridor); with `--story-box`, `copernicus-region/` | Yes (network) |
 | Peaks | `uv run --project pipeline python -m crossing.peaks` | The DEM, gazetteers, `data/places.geojson`, the previous `data/mountain_glyphs.geojson` | `data/mountain_glyphs.geojson` | Yes |
 | Landforms | `uv run --project pipeline python -m crossing.landforms` | `data/mountain_glyphs.geojson`, `landforms.toml`, the DEM | Landforms in `data/mountain_glyphs.geojson`; `review/stage-3/landforms.csv` | Yes |
+| Landform label lines | `uv run --project pipeline python -m crossing.landform_axes` | `data/places.geojson`, GNIS, GeoNames, GMBA (`private/cache/gmba/`), the DEM, `landform_axes.toml` | `data/landforms.geojson` | Yes |
 
-`crossing.landforms` must follow every `crossing.peaks` run: `crossing.validate` fails until it has. `crossing.peaks` keeps the ids of nearby glyphs from the previous file, so the committed file is also an input.
+`crossing.landforms` must follow every `crossing.peaks` run: `crossing.validate` fails until it has. `crossing.landform_axes` follows a change to the book's ranges, valleys or plains in `places.geojson`; `crossing.validate` fails if a line shows before its place. It downloads nothing: fetch the GMBA standard zip (`https://data.earthenv.org/mountains/standard/GMBA_Inventory_v2.0_standard.zip`) into `private/cache/gmba/` first. `crossing.peaks` keeps the ids of nearby glyphs from the previous file, so the committed file is also an input.
 
 ## 3. Translations
 
