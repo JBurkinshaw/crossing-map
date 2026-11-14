@@ -1,0 +1,25 @@
+# Dependabot opens pull requests; upgrades are merged deliberately, after a look at the preview (plan section 4.4).
+# Monthly and grouped, so a month's minor and patch bumps arrive as one pull request per ecosystem.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /site
+    schedule:
+      interval: monthly
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+  - package-ecosystem: uv
+    directory: /pipeline
+    schedule:
+      interval: monthly
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
