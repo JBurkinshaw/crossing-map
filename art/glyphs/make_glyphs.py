@@ -21,10 +21,12 @@ from pathlib import Path
 
 from art import INK, PAPER
 from art.build_sprite import build_sprite
+from art.pen import PEN, Pen, break_lines, extend, normals, ribbon, wobble
 from crossing.glyphs import SHAPES_PER_FAMILY
 
 SVG_DIR = Path(__file__).parent / "svg"
 Point = tuple[float, float]
+SPUR_SHARE = 1.0  # share of a peak's spur line drawn, from the summit down
 
 
 # Silhouettes. Each returns the outline from the left foot to the right foot, and
@@ -189,76 +191,145 @@ def edge_x(pts: list[Point], y: float, right: bool) -> float | None:
     return max(xs) if right else min(xs)
 
 
-def peak_marks(pts: list[Point], rng: random.Random, H: float) -> tuple[list[str], list[str]]:
-    """A peak's hatching, between a spur from the summit and the south-east flank, and the spur."""
+def peak_hatches(pts: list[Point], rng: random.Random, H: float, st: Pen) -> tuple[list[list[Point]], list[Point]]:
+    """Hatches between a spur from the summit and the south-east flank, and the spur's own line."""
     top = min(pts, key=lambda p: p[1])
     base = H - 3
-    # The spur: from the summit down and a little right, dividing lit and shaded flanks.
     spur_end = (top[0] + rng.uniform(4, 9), base - rng.uniform(0, 3))
     spur_mid = ((top[0] + spur_end[0]) / 2 + rng.uniform(-1.5, 1.5), (top[1] + spur_end[1]) / 2)
+    spur = [top, spur_mid, spur_end]
 
     def spur_x(y: float) -> float:
-        (x1, y1), (x2, y2) = ((top, spur_mid) if y <= spur_mid[1] else (spur_mid, spur_end))
+        (x1, y1), (x2, y2) = (top, spur_mid) if y <= spur_mid[1] else (spur_mid, spur_end)
         return x1 + (y - y1) * (x2 - x1) / (y2 - y1) if y2 != y1 else x1
 
-    hatches = []
-    y = top[1] + 4
-    while y < base - 1.5:
+    lines = []
+    y = top[1] + 4 + rng.uniform(-0.5, 0.5) * st.hatch_jitter
+    stop = top[1] + (base - 1.5 - top[1]) * st.hatch_reach
+    j = st.hatch_jitter
+    while y < stop:
         x1, x2 = spur_x(y) + 1, edge_x(pts, y, right=True)
-        if x2 is not None and x2 - x1 > 2.5:
-            length = (x2 - x1) * rng.uniform(0.55, 0.85)
-            # Strokes slope down to the right, roughly with the flank, as on the survey sheets.
-            hatches.append(f'<line x1="{x1:.1f}" y1="{y:.1f}" x2="{x1 + length:.1f}" y2="{y + length * 0.45:.1f}"/>')
-        y += 2.8
-    spur = f"M{top[0]:.1f},{top[1]:.1f} Q{spur_mid[0]:.1f},{spur_mid[1]:.1f} {spur_end[0]:.1f},{spur_end[1]:.1f}"
-    return hatches, [f'<path d="{spur}" stroke-width="1"/>']
+        if x2 is not None and x2 - x1 > 2.5 and rng.random() < st.hatch_share:
+            length = (x2 - x1) * rng.uniform(0.55, 0.85) * (1 + rng.uniform(-0.25, 0.15) * j)
+            slope = 0.45 + rng.uniform(-0.15, 0.15) * j
+            sx = x1 + rng.uniform(-0.4, 0.6) * j
+            lines.append([(sx, y), (sx + length, y + length * slope)])
+        y += st.hatch_gap * (1 + rng.uniform(-0.3, 0.3) * j)
+    return lines, spur
 
 
-def face_hatches(pts: list[Point], rng: random.Random, hang: bool) -> list[str]:
-    """Strokes running inward from every stretch of outline that falls to the right (faces south-east).
-
-    Strokes run up and to the left, the same lie as the peaks' strokes, or hang
-    down from the crest (`hang`), for shapes too thin to hold the first kind.
-    """
-    hatches = []
-    for (x1, y1), (x2, y2) in itertools.pairwise(pts):
+def face_hatches(pts: list[Point], rng: random.Random, hang: bool, st: Pen) -> list[list[Point]]:
+    """Strokes running inward from every stretch of outline that falls to the right (faces south-east)."""
+    j = st.hatch_jitter
+    top_y = min(y for _, y in pts)
+    base_y = max(y for _, y in pts)
+    lines = []
+    for (x1, y1), (x2, y2) in zip(pts, pts[1:], strict=False):
         seg = math.hypot(x2 - x1, y2 - y1)
-        # Only stretches that fall to the right; level ground and left-facing flanks are lit.
         if x2 < x1 or y2 - y1 < 0.25 * (x2 - x1) or seg < 1:
             continue
-        n = max(1, round(seg / 2.2))
+        n = max(1, round(seg / (st.hatch_gap * 0.8)))
         for k in range(n):
-            t = (k + rng.uniform(0.3, 0.7)) / n
+            t = (k + rng.uniform(0.5 - 0.2 - 0.2 * j, 0.5 + 0.2 + 0.2 * j)) / n
             x, y = x1 + (x2 - x1) * t, y1 + (y2 - y1) * t
+            if (y - top_y) > st.hatch_reach * (base_y - top_y) + 0.5 or rng.random() > st.hatch_share:
+                continue
             if hang:
-                length = rng.uniform(3, 7)
-                end = (x - length * 0.35, y + length)
+                length = rng.uniform(3, 7) * (1 + rng.uniform(-0.2, 0.2) * j)
+                lean = 0.35 + rng.uniform(-0.15, 0.15) * j
+                end = (x - length * lean, y + length)
             else:
-                length = rng.uniform(5, 11)
-                end = (x + 0.6 - length, y - length * 0.3)
-            hatches.append(f'<line x1="{x + 0.6:.1f}" y1="{y:.1f}" x2="{end[0]:.1f}" y2="{end[1]:.1f}"/>')
-    return hatches
+                length = rng.uniform(5, 11) * (1 + rng.uniform(-0.25, 0.15) * j)
+                lift = 0.3 + rng.uniform(-0.12, 0.12) * j
+                end = (x + 0.6 - length, y - length * lift)
+            lines.append([(x + 0.6, y), end])
+    return lines
 
 
-def svg(family: str, pts: list[Point], extras: list[list[Point]], rng: random.Random, W: float, H: float) -> str:
-    # Cones take the peaks' spur and hatching; the rest hatch their south-east faces.
-    if family in ("peak", "cone"):
-        hatches, marks = peak_marks(pts, rng, H)
+def split_outline(pts: list[Point], family: str, rng: random.Random) -> list[list[Point]]:
+    """Where the pen lifts: at the summit for single-summit shapes, at the rim corners of tablelands,
+    at one or two saddles of a ridge."""
+    top = min(range(len(pts)), key=lambda i: pts[i][1])
+    if family in ("mesa", "butte"):
+        cuts = [top]  # pts[top] is a rim point; the pen lifts once on the rim
+    elif family == "ridge":
+        saddles = [i for i in range(2, len(pts) - 2) if pts[i][1] > pts[i - 1][1] and pts[i][1] > pts[i + 1][1]]
+        cuts = sorted(rng.sample(saddles, min(len(saddles), 2))) if saddles else [top]
+    elif family == "pass":
+        cuts = [min(range(len(pts) // 3, 2 * len(pts) // 3), key=lambda i: -pts[i][1])]  # the col
     else:
-        hatches, marks = face_hatches(pts, rng, hang=family in ("ridge", "pass")), []
-    marks += [f'<polyline points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in line)}" stroke-width="0.8"/>'
-              for line in extras]
-    outline = " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)
+        cuts = [top]
+    pieces, last = [], 0
+    for c in cuts:
+        if 0 < c < len(pts) - 1:
+            pieces.append(pts[last:c + 1])
+            last = c
+    pieces.append(pts[last:])
+    return [p for p in pieces if len(p) >= 2]
+
+
+def svg(family: str, pts: list[Point], extras: list[list[Point]], rng: random.Random,
+          W: float, H: float, st: Pen) -> str:
+    # The paper fill and the hatch clip follow the wobbled outline drawn as one line.
+    centre = wobble(pts, random.Random(rng.random()), st.wobble)
+    strokes: list[str] = []
+    pieces = split_outline(centre, family, rng)
+    for i, piece in enumerate(pieces):
+        # Each meeting gets either a small overshoot (the pen runs on) or a small gap.
+        run_on = rng.uniform(0.3, 1.0) if rng.random() < 0.5 else -rng.uniform(0.15, 0.4)
+        start = 0.0 if i == 0 else rng.uniform(-0.1, 0.3)
+        end = 0.0 if i == len(pieces) - 1 else run_on
+        # Strokes start pressed (full width) at the summit and lift off at the feet.
+        strokes.append(ribbon(extend(piece, start, end), st.outline_w, st.end_w, st.taper, rng,
+                              start_w=0.75 if i > 0 else None))
+
+    if st.double and rng.random() < st.double:
+        # A second, thinner pass along part of the shaded (right) flank, a little inside it.
+        top = min(range(len(centre)), key=lambda i: centre[i][1])
+        flank = centre[top:]
+        if len(flank) > 8:
+            a = rng.randint(0, len(flank) // 3)
+            b = rng.randint(a + len(flank) // 3, len(flank) - 1)
+            part = flank[a:b]
+            ns = normals(part)
+            off = rng.uniform(0.6, 0.9)
+            part = [(x - nx * off, y - ny * off) for (x, y), (nx, ny) in zip(part, ns, strict=False)]
+            strokes.append(ribbon(wobble(part, rng, st.wobble * 0.6), st.outline_w * 0.4, 0.1, 0.35, rng))
+
+    marks: list[str] = []
+    if family in ("peak", "cone"):
+        hatch_lines, spur = peak_hatches(pts, rng, H, st)
+        curve = spur_curve(spur)
+        spur_line = wobble(curve[:max(2, round(len(curve) * SPUR_SHARE))], rng, st.wobble * 0.7)
+        marks.append(ribbon(spur_line, 1.0 * st.outline_w / 1.5, 0.35, 0.4, rng, start_w=0.9))
+    else:
+        hatch_lines = face_hatches(pts, rng, hang=family in ("ridge", "pass"), st=st)
+    for line in extras:  # the caprock under a tableland's rim
+        marks.append(ribbon(wobble(line, rng, st.wobble * 0.5), 0.8 * st.outline_w / 1.5, 0.4, 0.3, rng))
+
+    hatch_lines = break_lines(hatch_lines, rng, st.broken)
+    hatches = [ribbon(wobble(line, rng, st.wobble * 0.4, 6.0), st.hatch_w, 0.25, 0.45, rng, start_w=0.8)
+               for line in hatch_lines]
+
+    outline = " ".join(f"{x:.1f},{y:.1f}" for x, y in centre[::2] + centre[-1:])
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">'
         f'<defs><clipPath id="m"><polygon points="{outline}"/></clipPath></defs>'
         f'<polygon points="{outline}" fill="{PAPER}" stroke="none"/>'
-        f'<g fill="none" stroke="{INK}" stroke-linecap="round" stroke-linejoin="round">'
-        f'<polyline points="{outline}" stroke-width="1.5"/>'
-        f'{"".join(marks)}'
-        f'<g stroke-width="0.8" clip-path="url(#m)">{"".join(hatches)}</g>'
+        f'<g fill="{INK}" stroke="none">'
+        f'<path d="{"".join(strokes)}"/>'
+        f'<path d="{"".join(marks)}"/>'
+        f'<path clip-path="url(#m)" d="{"".join(hatches)}"/>'
         f"</g></svg>"
     )
+
+
+def spur_curve(spur: list[Point]) -> list[Point]:
+    """The spur: a quadratic curve from the summit through the control point."""
+    (x0, y0), (cx, cy), (x1, y1) = spur
+    ts = [k / 16 for k in range(17)]
+    return [((1 - t) ** 2 * x0 + 2 * (1 - t) * t * cx + t * t * x1,
+             (1 - t) ** 2 * y0 + 2 * (1 - t) * t * cy + t * t * y1) for t in ts]
 
 
 def mirror(line: list[Point], W: float) -> list[Point]:
@@ -273,11 +344,14 @@ def main() -> None:
         for i in range(1, SHAPES_PER_FAMILY + 1):
             # Peaks use their own seed names, so the peak set stays as published.
             seed = f"mountain-{i}" if family == "peak" else f"{family}-{i}"
-            hatch_seed = f"hatch-{i}" if family == "peak" else f"{family}-hatch-{i}"
+            # The pen's seed keeps the name it had in the glyph trial, so the set is the one the owner chose.
+            pen_seed = f"hand-B-{family}-{i}"
             pts, extras = shape(random.Random(seed), W, H)
-            (SVG_DIR / f"{family}-{i:02d}.svg").write_text(svg(family, pts, extras, random.Random(hatch_seed), W, H))
+            (SVG_DIR / f"{family}-{i:02d}.svg").write_text(
+                svg(family, pts, extras, random.Random(pen_seed), W, H, PEN))
             (SVG_DIR / f"{family}-{i:02d}-flip.svg").write_text(
-                svg(family, mirror(pts, W), [mirror(e, W) for e in extras], random.Random(hatch_seed), W, H))
+                svg(family, mirror(pts, W), [mirror(e, W) for e in extras], random.Random(pen_seed + "-flip"), W, H,
+                    PEN))
     print(f"{len(FAMILIES) * SHAPES_PER_FAMILY * 2} glyphs in {len(FAMILIES)} families")
     build_sprite()
 

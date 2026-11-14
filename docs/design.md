@@ -219,7 +219,7 @@ Relief is drawn as the 1850s–1880s survey maps drew it, with hachures, plus sm
 3. Each glyph takes a stable shape, flip, scale, and rotation from a seed made from the summit's id, so the result varies but does not change between builds. Size follows prominence. MapLibre cannot mirror an icon, so the sprite carries a mirrored twin of each shape.
 4. Glyphs draw over the hachures and knock them out with a paper-coloured fill inside each drawing.
 
-The glyph shapes are generated stand-ins until a hand-drawn set exists.
+The glyph families are still generated, now drawn with a pen treatment (`art/pen.py`, variant B of the glyph trial, chosen on 14 November 2026): each line is a tapered stroke whose width follows the pen's pressure and whose path wanders a little, the outline lifts and meets at the summit with a small gap or overshoot, and the hatching is loose and sometimes broken. The vignettes use the same pen, so the two read as one hand.
 
 **Hillshade and 3D terrain** (`terrain.pmtiles`, decision 0011). AWS Terrain Tiles for the story box at zoom 5–10, repacked into our own raster-dem archive. MapLibre shades it in the browser and uses it for the Tilted view.
 

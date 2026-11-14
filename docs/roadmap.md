@@ -97,7 +97,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - 60 fps panning on a mid-range phone is measured only by a desktop proxy (`review/experiments/stage-2/README.md`, section 3): the CPU side has room to spare; a real phone GPU is untested.
 - **Stage 3.**
   - Landform weights need tuning (section 2).
-  - The hand-drawn mountain glyphs are not done; the generated set stands in.
+  - The mountain glyphs are generated shapes with a pen treatment (`art/pen.py`); glyphs drawn wholly by hand remain open.
   - Full-region relief is not decided (section 2).
 - **Stage 4.**
   - The checklists are unsigned.

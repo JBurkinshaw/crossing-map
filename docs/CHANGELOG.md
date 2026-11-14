@@ -24,6 +24,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 #### Site
 
 - An inferred area's card says how it was drawn, by a rule from data rather than by hand from a source, and asks readers who know more to suggest a correction. How it's built explains the method and its limits.
+- The mountain glyphs look hand-drawn: tapered pen strokes that wander a little, outlines that lift at the summit, and loose, sometimes broken hatching. The shapes, names and sizes are unchanged.
 - The states are named in widely spaced small capitals from zoom 5, fading out by zoom 8.5, placed clear of the story.
 - Each translation has a "Suggest a better translation" link that opens a prefilled GitHub issue.
 - The map's controls are one framed set: Map (Classic, Compare, Satellite, Topo), View (Flat, Tilted, Raised), Ground (Paper or Satellite tint, formerly Land colour) and Units (Imperial or Metric). Compare sits between Classic and Satellite and works in Flat and Tilted. On phones the controls fold behind one button.
