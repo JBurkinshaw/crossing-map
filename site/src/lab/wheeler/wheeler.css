@@ -1,0 +1,156 @@
+/* The Wheeler lab section: controls beside the map on a wide screen, above it on a phone. */
+.wheeler-lab {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  line-height: 1.45;
+}
+
+.wheeler-intro,
+.wheeler-note {
+  max-width: 70ch;
+}
+
+.wheeler-note {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.wheeler-sheets {
+  padding-left: 1.2em;
+}
+
+.wheeler-workspace {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.wheeler-map {
+  position: relative;
+  height: 640px;
+  border: 1px solid var(--ink);
+}
+
+.wheeler-controls fieldset {
+  margin: 0 0 10px;
+  padding: 6px 10px 10px;
+  border: 1px solid var(--ink);
+}
+
+.wheeler-controls legend {
+  font-style: italic;
+}
+
+.wheeler-check,
+.wheeler-range,
+.wheeler-radio label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+}
+
+.wheeler-range {
+  flex-wrap: wrap;
+}
+
+.wheeler-range input {
+  width: 100%;
+  accent-color: var(--ink);
+}
+
+.wheeler-check input,
+.wheeler-radio input {
+  accent-color: var(--ink);
+}
+
+.wheeler-radio {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 12px;
+}
+
+.wheeler-radio-label {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.wheeler-row,
+.wheeler-places {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.wheeler-controls button {
+  min-height: 32px;
+  padding: 4px 8px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+  text-align: left;
+}
+
+.wheeler-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.wheeler-card {
+  padding: 10px 12px;
+  border: 1px solid var(--ink);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.wheeler-card h5 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  font-weight: normal;
+}
+
+.wheeler-card dl {
+  margin: 0;
+}
+
+.wheeler-card dt {
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.wheeler-card dd {
+  margin: 0 0 6px;
+  font-size: 0.92rem;
+}
+
+.wheeler-card-foot {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+.wheeler-topic h4 {
+  margin: 18px 0 6px;
+  font-weight: normal;
+  font-variant: small-caps;
+  letter-spacing: 0.08em;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 760px) {
+  .wheeler-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .wheeler-map {
+    height: 480px;
+  }
+
+  .wheeler-cards {
+    grid-template-columns: 1fr;
+  }
+}
