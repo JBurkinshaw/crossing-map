@@ -28,6 +28,8 @@ The records below come from search-engine results that quote the Rumsey catalogu
 | O. W. Gray, *New Mexico and Arizona* | 1874 (entered 1873) | ? | Stedman, Brown & Lyon | [detail](https://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~207022~3003101) | ? | ? |
 | General Land Office, *Territory of New Mexico* | 1879 (1882 reissue unchanged) | 1:1,013,760 | GLO under J. A. Williamson; Julius Bien, New York | not identified; the plan's 1891 edition was not found | ? | ? |
 
+Sheets 70 (A) (list no. 2738.076) and 83 (topographical issue, list no. 2738.097) were downloaded on 14 November 2026 and studied in full; the findings, measurements and proposals are in `review/stage-8/wheeler/README.md`.
+
 What to learn from each, tied to the design brief (plan 5.1 and 5.2):
 
 - **Wheeler Sheet 83.** The target style for Part I. Systematic hachures over a light grey under-tint, light from the north-west, flats left blank. Check how the Peloncillos, Animas and the bootheel ranges are hachured at this scale; it is the closest model for our DEM-driven hachures. Note the italic, spaced range names that follow the range axis, and how few towns there are.
