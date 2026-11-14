@@ -1,0 +1,134 @@
+/* The Wheeler sheet's frame and cartouche rule, for the lab map (frame.ts). Measured on sheet 70A's lower left
+   corner (review/stage-9/wheeler-places/README.md): from the outside in, a thin rule (0.2 mm), a gap (0.4 mm), a
+   heavy rule (1.3 mm), a gap, a thin rule, a margin band of about 5 mm that holds the graticule labels, and a thin
+   neatline round the map. At sheet 70A's printed scale (about zoom 11 on a 96 dpi screen) that is 1, 2, 5, 2, 1,
+   19 and 1 px; the heavy rule is cut to 4 px and the band rounded to 20 px so the frame does not crowd a screen.
+
+   Section A (the frame) is for a map container; section B (the cartouche) is written so its rules can replace the
+   border and outline of `.cartouche` in site/src/styles/map.css as they stand. */
+
+/* A. The frame, drawn over the map's edges so the map keeps its size. Inset box shadows stack from the outside in:
+   each paints a ring of its spread minus the one before. */
+.wp-framed {
+  --wp-thin: 1px;
+  --wp-gap: 2px;
+  --wp-heavy: 4px;
+  --wp-band: 20px;
+  /* The rule's full width: thin, gap, heavy, gap, thin (frame.ts sums the same parts to centre the labels). */
+  --wp-rule: calc(2 * var(--wp-thin) + 2 * var(--wp-gap) + var(--wp-heavy));
+  /* Wheeler's margin is lighter than the map's under-tint (70A: #f7f6e3 against #f9eecf); this is the site's paper
+     above zoom 10 (#f1ede2) a step lighter. */
+  --wp-margin: #f7f4ea;
+}
+
+.wp-frame,
+.wp-cartouche {
+  display: none;
+  /* Both sit inside the MapLibre container, which sets its own sans-serif; this is the page's face (base.css). */
+  font-family: 'IM Fell English', 'Iowan Old Style', Georgia, serif;
+}
+
+.wp-framed .wp-frame {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 var(--wp-thin) var(--ink),
+    inset 0 0 0 calc(var(--wp-thin) + var(--wp-gap)) var(--wp-margin),
+    inset 0 0 0 calc(var(--wp-thin) + var(--wp-gap) + var(--wp-heavy)) var(--ink),
+    inset 0 0 0 calc(var(--wp-rule) - var(--wp-thin)) var(--wp-margin),
+    inset 0 0 0 var(--wp-rule) var(--ink),
+    inset 0 0 0 calc(var(--wp-rule) + var(--wp-band)) var(--wp-margin),
+    inset 0 0 0 calc(var(--wp-rule) + var(--wp-band) + var(--wp-thin)) var(--ink);
+}
+
+/* The margin labels: small roman figures, centred on their line where it meets the band. */
+.wp-edge {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* The map's own controls move inside the neatline. */
+.wp-framed .maplibregl-ctrl-top-left,
+.wp-framed .maplibregl-ctrl-bottom-left,
+.wp-framed .maplibregl-ctrl-bottom-right {
+  margin: calc(var(--wp-rule) + var(--wp-band) + var(--wp-thin));
+}
+
+/* B. The cartouche: the site's cartouche (map.css) with a thin neatline inside a thin-thick rule in place of its
+   two thin rules (border plus outline). From the inside out: the neatline (the border), a 3 px gap, a 3 px heavy
+   rule, a 1.5 px gap and a 1 px thin rule, as outset box shadows; the paper of the gaps is the cartouche's own.
+   The rule reaches 8.5 px beyond the border where the outline reached 4 px, so the box sits 5 px further in. */
+.wp-framed .wp-cartouche {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  right: calc(var(--wp-rule) + var(--wp-band) + 17px);
+  bottom: calc(var(--wp-rule) + var(--wp-band) + 44px);
+  max-width: min(320px, calc(100% - 30px));
+  box-sizing: border-box;
+  padding: 8px 14px 4px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow:
+    0 0 0 3px var(--paper),
+    0 0 0 6px var(--ink),
+    0 0 0 7.5px var(--paper),
+    0 0 0 8.5px var(--ink);
+}
+
+.wp-cartouche-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wp-cartouche-title {
+  font-size: 1.15rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.wp-cartouche-sub {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+/* Phones: a narrower frame (1, 1, 3, 1, 1 px and a 15 px band), and the cartouche title alone, as on the site. */
+@media (max-width: 720px) {
+  .wp-framed {
+    --wp-gap: 1px;
+    --wp-heavy: 3px;
+    --wp-band: 15px;
+  }
+
+  .wp-edge {
+    font-size: 9px;
+  }
+
+  .wp-framed .wp-cartouche {
+    right: calc(var(--wp-rule) + var(--wp-band) + 14px);
+    bottom: calc(var(--wp-rule) + var(--wp-band) + 14px);
+    padding: 4px 10px 2px;
+    box-shadow:
+      0 0 0 2px var(--paper),
+      0 0 0 4px var(--ink),
+      0 0 0 5px var(--paper),
+      0 0 0 6px var(--ink);
+  }
+
+  .wp-cartouche .north,
+  .wp-cartouche-sub {
+    display: none;
+  }
+
+  .wp-cartouche-title {
+    font-size: 0.85rem;
+  }
+}
