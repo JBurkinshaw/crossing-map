@@ -1,7 +1,7 @@
 :root {
-  --paper: #e4ddcc;
+  --paper: #efe5c8;
   --ink: #2b2118;
-  /* 0.7 over the paper gives 5:1, for small italic text (WCAG AA). */
+  /* 0.7 over the cream paper gives 5.2:1, for small italic text (WCAG AA). */
   --ink-faint: rgba(43, 33, 24, 0.7);
   --alert: #8a2b1b;
   --veil: rgba(43, 33, 24, 0.35);

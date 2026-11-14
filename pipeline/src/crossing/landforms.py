@@ -6,7 +6,8 @@ Run from the repo root, after crossing.peaks:
 Every weight and threshold lives in pipeline/seeds/landforms.toml, which also
 explains each measurement. This module only applies them: each summit starts
 with the prior, gains points from words in its name, from its gazetteer feature
-code and from DEM rules, and takes the landform with the most points. Passes
+code and from DEM rules, and takes the landform with the most points. With `use_dem = false` in the weights
+file, only the name and the code score; the DEM measurements are still reported, as `dem_landform`. Passes
 are not summits: they keep the landform "pass" and are left out of the report.
 
 Writes `landform` and `landform_source` (name, dem or default: the evidence
@@ -131,10 +132,12 @@ def score(props: dict, metrics: dict | None, cfg: dict) -> dict:
     def best(points: dict[str, float]) -> str:
         return max(forms, key=lambda f: (points[f], -forms.index(f)))
 
-    scores = total({"prior", "name", "dem"})
+    # With use_dem off, the gazetteer decides: the DEM is measured and reported, but scores nothing.
+    scores = total({"prior", "name", "dem"} if cfg.get("use_dem", True) else {"prior", "name"})
     winner = best(scores)
     ranked = sorted(scores.values(), reverse=True)
-    by_group = {g: sum(pts.get(winner, 0) for gg, _, pts in evidence if gg == g) for g in ("name", "dem")}
+    groups = ("name", "dem") if cfg.get("use_dem", True) else ("name",)
+    by_group = {g: sum(pts.get(winner, 0) for gg, _, pts in evidence if gg == g) for g in groups}
     source = max(by_group, key=by_group.get) if max(by_group.values()) > 0 else "default"
     named = any(g == "name" for g, _, _ in evidence)
     return {

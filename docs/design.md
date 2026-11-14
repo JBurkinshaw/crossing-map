@@ -215,7 +215,7 @@ Relief is drawn as the 1850s–1880s survey maps drew it, with hachures, plus sm
 **Mountain glyphs** (`crossing.peaks`, `crossing.landforms`, `art/glyphs/`).
 
 1. Peaks come from the DEM by topographic prominence (the key-col method). Kept: summits with enough prominence, named mesas, buttes, and cones from a lower threshold, and every summit the book names.
-2. Each summit's landform family (peak, dome, mesa, butte, cone, ridge, pass) comes from points for words in its name, its gazetteer feature code, and DEM measurements. Every weight is in `pipeline/seeds/landforms.toml`, and `review/stage-3/landforms.csv` shows each summit's scores.
+2. Each summit's landform family (peak, dome, mesa, butte, cone, ridge, pass) comes from what the gazetteer calls it: points for words in its name (Mesa, Cerro, Peak, Butte, Sierra, Loma and others) and for its feature code. A summit the gazetteer says nothing about is a peak. The DEM is measured but does not score (`use_dem = false`, the owner's decision of 14 November 2026). Every weight is in `pipeline/seeds/landforms.toml`, and `review/stage-3/landforms.csv` shows each summit's scores and what the DEM alone would have chosen.
 3. Each glyph takes a stable shape, flip, scale, and rotation from a seed made from the summit's id, so the result varies but does not change between builds. Size follows prominence. MapLibre cannot mirror an icon, so the sprite carries a mirrored twin of each shape.
 4. Glyphs draw over the hachures and knock them out with a paper-coloured fill inside each drawing.
 

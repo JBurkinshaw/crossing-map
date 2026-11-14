@@ -95,7 +95,7 @@ function glyphs(p: Palette, units: Units): LayerSpecification[] {
           ['-', 0, ['coalesce', ['get', 'prominence_m'], 99999]]],
         'text-field': glyphText(units),
         'text-font': [fonts.italic],
-        'text-size': ['case', namedGlyph, 11, 9.5],
+        'text-size': ['case', namedGlyph, 12, 10.5],
         'text-anchor': 'top',
         'text-optional': true,
       },
@@ -144,7 +144,8 @@ function landformLabel(p: Palette): LayerSpecification {
       'text-keep-upright': true,
       'text-padding': 4,
     },
-    paint: { 'text-color': p.ink, 'text-opacity': 0.78, 'text-halo-color': p.paper, 'text-halo-width': 1 },
+    // A wider halo than other labels: the names cross the densest hachures.
+    paint: { 'text-color': p.ink, 'text-opacity': 0.78, 'text-halo-color': p.paper, 'text-halo-width': 1.5 },
   }
 }
 
@@ -181,7 +182,7 @@ function vignettes(p: Palette): LayerSpecification[] {
         // The caption sits under the drawing; it is optional, so a drawing still shows when its label collides.
         'text-field': ['get', 'label'],
         'text-font': [fonts.italic],
-        'text-size': ['interpolate', ['linear'], ['zoom'], 7, 10, 12, 12],
+        'text-size': ['interpolate', ['linear'], ['zoom'], 7, 11, 12, 13],
         'text-anchor': 'top',
         'text-offset': ['interpolate', ['linear'], ['zoom'], 7, ['literal', [0, 1.9]], 12, ['literal', [0, 2.8]]],
         'text-max-width': 9,

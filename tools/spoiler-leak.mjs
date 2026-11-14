@@ -296,13 +296,14 @@ for (const point of POINTS) {
   }
 
   // Landform names the book gives later than this point: go to the middle of each line and look for its label.
-  for (const l of landforms.filter((f) => f.properties.first_seen > reached)) {
+  // As with the glyphs, names first seen 1-01 are the land itself, named from gazetteers, and show at every position.
+  for (const l of landforms.filter((f) => f.properties.first_seen > reached && f.properties.first_seen > '1-01')) {
     const line = l.geometry.coordinates
     const [lon, lat] = line[Math.floor(line.length / 2)]
     await page.evaluate(([lo, la]) => window.__map.jumpTo({ center: [lo, la], zoom: 9 }), [lon, lat])
     await idle(page)
     const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['landform-label'] }).map((f) => [f.properties.name, f.properties.first_seen]))
-    for (const [name, fs] of shown) if (fs > reached) leak(where, `landform name ${name} first seen ${fs}`)
+    for (const [name, fs] of shown) if (fs > reached && fs > '1-01') leak(where, `landform name ${name} first seen ${fs}`)
   }
 
   // Vignettes drawn later than this point: go to each, inside its zoom range, and look for it and its leader.

@@ -21,18 +21,14 @@ const trimmed = {
 mkdirSync(new URL('map/', to), { recursive: true })
 writeFileSync(new URL('map/mountain_glyphs.geojson', to), JSON.stringify(trimmed))
 
-// The landform name lines the map letters (decision 0023): those the book names, and the gazetteer's where their axis
-// comes from an outline, a valley line or a clear DEM shape. Lines marked inferred that the book does not name (the
-// Sierra Madre, where the high ground runs on past any window) wait for a review before they are drawn.
+// The landform name lines the map letters (decision 0023), trimmed to the properties the style reads.
 const LANDFORM_PROPERTIES = ['name', 'kind', 'len_m', 'mpp0', 'first_seen', 'place_ref']
 const landforms = JSON.parse(readFileSync(new URL('landforms.geojson', from), 'utf8'))
 writeFileSync(new URL('map/landforms.geojson', to), JSON.stringify({
   type: 'FeatureCollection',
-  features: landforms.features
-    .filter((f) => f.properties.place_ref || f.properties.certainty !== 'inferred')
-    .map((f) => ({
-      type: 'Feature',
-      geometry: f.geometry,
-      properties: Object.fromEntries(LANDFORM_PROPERTIES.filter((k) => k in f.properties).map((k) => [k, f.properties[k]])),
-    })),
+  features: landforms.features.map((f) => ({
+    type: 'Feature',
+    geometry: f.geometry,
+    properties: Object.fromEntries(LANDFORM_PROPERTIES.filter((k) => k in f.properties).map((k) => [k, f.properties[k]])),
+  })),
 }))

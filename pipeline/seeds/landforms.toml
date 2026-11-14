@@ -10,9 +10,15 @@
 
 landforms = ["peak", "dome", "mesa", "butte", "cone", "ridge"]
 
-# Points every summit starts with, so a summit with no other evidence stays a peak.
+# Whether the DEM rules below score. Off (owner's decision, 14 November 2026): a glyph's shape comes from what
+# the gazetteer calls the feature, its name and its feature code, and a summit the gazetteer says nothing about
+# keeps the prior, a peak. The DEM is still measured, and the report shows what it would have chosen.
+use_dem = false
+
+# Points every summit starts with, so a summit with no other evidence stays a peak. Below the weakest name or code
+# (1 point), so any word or code the gazetteer gives wins over it.
 [prior]
-peak = 1.0
+peak = 0.5
 
 # Whole words in the name, matched without regard to case or accents.
 # A word that states the shape outright scores about 4, so it outweighs the DEM
@@ -27,6 +33,7 @@ needle = 3
 aguja = 3
 penasco = 2       # crag
 pena = 2
+cerro = 1.5       # hill or mountain: the Spanish generic, as weak as "peak"
 
 [names.dome]
 loma = 3
@@ -69,6 +76,7 @@ crest = 2
 espinazo = 3
 filo = 2
 cordon = 2
+sierra = 2        # a summit named for its range is drawn as a ridge
 
 # Feature codes of the matched name: GeoNames codes, or "gnis:<feature class>".
 # MT (mountain) and gnis:Summit say nothing about shape, so they are not listed.

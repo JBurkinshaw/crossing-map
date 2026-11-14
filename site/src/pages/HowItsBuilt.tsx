@@ -115,8 +115,8 @@ export function HowItsBuilt() {
         draws the ground the clue points to, not the place itself, and an escarpment or a ridge comes out in broken
         pieces. No area grows beyond its circle. No open map of the 1940s roads in Chihuahua and Sonora was found, so
         where the book puts a camp on an old road there, a straight line between the towns stands in for the road;
-        the old roads need a historical source. La Babícora is drawn from the elevation model, not from the
-        estate’s real boundary, until a period map of the Hearst ranch is found. Any area can be redrawn when a
+        the old roads need a historical source. One large region is drawn from the elevation model, not from its
+        real boundary, until a period map of it is found. Any area can be redrawn when a
         reader brings more: each card has a link to suggest a correction (decision 0020).
       </p>
 
@@ -136,9 +136,9 @@ export function HowItsBuilt() {
         A modelled line is a plausible way, not the one taken. The weights are judgements: on about a dozen legs a
         different weighting moves the line by 5 km or more, and today’s tracks only stand in for the roads of the
         1940s. Flat legs, and legs the book tells in a sentence as weeks of riding, stay curves, because the model
-        has nothing to add there. The model also checks the story: by its count, the ride the book gives the
-        brothers from San Diego to the opera camp in one day is about 100 km, some 16 hours at a walk, which is
-        listed as an open question (decision 0021).
+        has nothing to add there. The model also checks the story: on one leg, the book’s timing asks a horse
+        for about 100 km in a day, some 16 hours at a walk by the model, which is listed as an open question
+        (decision 0021).
       </p>
 
       <h2>Numbers</h2>

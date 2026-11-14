@@ -42,7 +42,6 @@ These were "open questions" in the build plan; they are project decisions, not q
   - Coarse relief and contours over the whole story box?
   - The corridor edge, where hachures stop in a hard line (Mesa Atravesada shows it): fade the last few kilometres, or wait for full-region relief?
   - Thinning pass labels, glyph thresholds, and Raised details.
-- **[decide] Landform weights** in `pipeline/seeds/landforms.toml`: do the mesas and ridges land where expected? `review/stage-3/landforms.csv` lists each summit's scores.
 
 ### Stage 4 questions
 
@@ -82,7 +81,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
 
 - **[decide] Interface** (`review/stage-8/ui/README.md`). The desktop controls box can cover a stop in the top-right corner: more padding in `frameStops`, or let the box fold on desktop too? "Satellite tint" or "Ground colour"? Should a click on a stop's town also open the town's card?
 - **[decide] Hillshade** (`review/stage-8/lab-hillshade/README.md`). Is "Pronounced" right beside the journeys, and does it need a new decision record after 0016? Build and release the 76 MB `terrain-hi.pmtiles` (tile zoom 11), then make the site change? Add localhost to the MapTiler key so the lab can show Topo? Publish the lab, or keep it dev-only?
-- **[decide] Wheeler study** (`review/stage-8/wheeler/README.md`; decision 0022 records what was adopted). Still open: spot-height format (Wheeler's bare feet, 7268, or the site's 7,268 ft), landform spelling (book or gazetteer) and whether to letter landforms the book never names, long valley names, and the test-area questions in `review/stage-9/`.
+- **[decide] Wheeler study** (`review/stage-8/wheeler/README.md`; decisions 0022 to 0024 record what was adopted). Still open: long valley names, and the test-area questions in `review/stage-9/`.
 - **[decide] Streams** (`review/stage-8/streams/README.md`). Zoom 12 density; the box for order 2 streams, or a corridor (which could hint at later journeys); fetching the missing US HU8 units for full creek coverage; the braid fix in `rivers.strahler`; Mexican stream labels from toponym points.
 - **[decide] Tiles v8** (`review/stage-8/tiles-v8/README.md`). Clip creeks by the lakes where they cross the Babícora lake? Capitalised, letter-spaced names for the major rivers, as on the Wheeler sheets?
 - **[research]** A hachure seam near 109.3° W, 32.0° N at zoom 10, west of the Peloncillos.
@@ -96,7 +95,6 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - Where INEGI's or NHD's network breaks, a traced river runs along Natural Earth's line for a stretch. The base build prints the total (816 km, mostly the Fuerte, Rio Grande, and Colorado, far from the story). Joining broken channel ends was measured and dropped (1.6% less). The Río Batepito's 7.8 km above Colonia Morelos remains. A draft check of every river against the valley floor was never run to the end and is parked in `private/parked/check_rivers.py`.
   - 60 fps panning on a mid-range phone is measured only by a desktop proxy (`review/experiments/stage-2/README.md`, section 3): the CPU side has room to spare; a real phone GPU is untested.
 - **Stage 3.**
-  - Landform weights need tuning (section 2).
   - The mountain glyphs are generated shapes with a pen treatment (`art/pen.py`); glyphs drawn wholly by hand remain open.
   - Full-region relief is not decided (section 2).
 - **Stage 4.**
@@ -180,6 +178,7 @@ Work does not wait for these. Where one is missing, the work builds up to that p
 
 Pick by demand, not in order.
 
+- **Historic roads, traced.** Trace the roads the book's riders use (about 30 to 60 lines) from the USGS 1:62,500 sheets of 1917 to 1923, as the Wheeler test area did for 9 roads (`review/stage-9/wheeler-roads/`). About 24 to 48 hours by hand in QGIS for the 12 core sheets; by agent, about 1 to 2.5 million tokens. Mexico has no usable period source yet. Shelved by the owner on 14 November 2026 as a later improvement.
 - **Land-cover marks** among the hachures (scrub stipple, tree marks) from a land-cover dataset such as ESA WorldCover, checking its licence.
 - **Cloudflare R2** for larger tiles.
 - **Blender or Eduard relief.**
