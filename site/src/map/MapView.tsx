@@ -86,7 +86,7 @@ type Props = {
 // A row of switches, one of which is on: a radio group, one tab stop, with the arrow keys moving the choice.
 function Switch<T extends string>(props: {
   label: string
-  // ariaLabel names a switch whose label is an abbreviation.
+  // ariaLabel spells out what a short label means; it starts with the label, so speech input can use the label.
   options: { id: T; label: string; title?: string; ariaLabel?: string; disabled: boolean }[]
   value: T
   onChange: (value: T) => void
@@ -382,8 +382,8 @@ export function MapView(props: Props) {
         <Switch
           label="Units"
           options={[
-            { id: 'imperial', label: 'mi', title: 'Miles and feet', ariaLabel: 'Miles and feet', disabled: false },
-            { id: 'metric', label: 'km', title: 'Kilometres and metres', ariaLabel: 'Kilometres and metres', disabled: false },
+            { id: 'imperial', label: 'Imperial', title: 'Miles and feet', ariaLabel: 'Imperial: miles and feet', disabled: false },
+            { id: 'metric', label: 'Metric', title: 'Kilometres and metres', ariaLabel: 'Metric: kilometres and metres', disabled: false },
           ]}
           value={units}
           onChange={onUnits}
