@@ -1,9 +1,9 @@
-"""Generate the mountain glyph SVGs and build the MapLibre sprite (plan section 5.2, layer 2).
+"""Generate the mountain glyph SVGs and build the MapLibre sprite (design section 5.2, layer 2).
 
-Run from the repo root: uv run --project pipeline python art/glyphs/make_glyphs.py
-Needs spreet (cargo install spreet). The sprite also holds the vignettes (art/build_sprite.py).
+Run from the repo root: uv run --project pipeline python -m art.glyphs.make_glyphs
+Needs spreet (cargo install spreet). The sprite also holds the vignettes (art.build_sprite).
 
-One family of COUNT shapes per landform (crossing.landforms), named
+One family of SHAPES_PER_FAMILY shapes per landform (crossing.landforms), named
 <landform>-<nn>.svg: peak, dome, mesa, butte, cone, ridge and pass. Each glyph is a
 profile in one ink weight, filled with paper so it knocks out the hachures
 behind it, and lit from the north-west. Peaks and cones have a spur line down
@@ -14,17 +14,16 @@ Each has a mirrored twin ("-flip") whose silhouette is reversed but whose
 hatching is redrawn on the right, so the light stays in the north-west.
 """
 
+import itertools
 import math
 import random
-import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from build_sprite import build_sprite  # noqa: E402  (art/build_sprite.py, shared with the vignettes)
+from art import INK, PAPER
+from art.build_sprite import build_sprite
+from crossing.glyphs import SHAPES_PER_FAMILY
 
 SVG_DIR = Path(__file__).parent / "svg"
-INK, PAPER = "#2b2118", "#e4ddcc"
-COUNT = 12  # shapes per family
 Point = tuple[float, float]
 
 
@@ -97,7 +96,8 @@ def tableland(rng: random.Random, W: float, H: float, width: float, top: float, 
     pts += [(rim_r, rim_y + rng.uniform(0, 1)), (foot_r, cliff_y)]
     right = left + width
     for f in (0.12, 0.35, 0.65):
-        pts.append((foot_r + (right - foot_r) * f, cliff_y + (base - cliff_y) * (1 - (1 - f) ** 2) + rng.uniform(-0.6, 0.6)))
+        y = cliff_y + (base - cliff_y) * (1 - (1 - f) ** 2) + rng.uniform(-0.6, 0.6)
+        pts.append((foot_r + (right - foot_r) * f, y))
     pts.append((right, base))
     caprock = [(rim_l + 1.2, rim_y + 2.6), (rim_r - 1.2, rim_y + 2.6 + rng.uniform(-0.4, 0.4))]
     return pts, [caprock]
@@ -163,7 +163,7 @@ def saddle(rng: random.Random, W: float, H: float) -> tuple[list[Point], list[li
     ts = [i / 28 for i in range(29)]
     lift = [bumps(t) - (bumps(0) + (bumps(1) - bumps(0)) * t) for t in ts]
     k = height / max(lift)
-    pts = [(left + width * t, base - k * v) for t, v in zip(ts, lift)]
+    pts = [(left + width * t, base - k * v) for t, v in zip(ts, lift, strict=True)]
     return pts, []
 
 
@@ -181,7 +181,7 @@ FAMILIES = {  # landform: (silhouette, canvas width, canvas height)
 def edge_x(pts: list[Point], y: float, right: bool) -> float | None:
     """x where the outline crosses height y, on the right or left flank."""
     xs = []
-    for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
+    for (x1, y1), (x2, y2) in itertools.pairwise(pts):
         if min(y1, y2) <= y <= max(y1, y2) and y1 != y2:
             xs.append(x1 + (y - y1) * (x2 - x1) / (y2 - y1))
     if not xs:
@@ -221,7 +221,7 @@ def face_hatches(pts: list[Point], rng: random.Random, hang: bool) -> list[str]:
     down from the crest (`hang`), for shapes too thin to hold the first kind.
     """
     hatches = []
-    for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
+    for (x1, y1), (x2, y2) in itertools.pairwise(pts):
         seg = math.hypot(x2 - x1, y2 - y1)
         # Only stretches that fall to the right; level ground and left-facing flanks are lit.
         if x2 < x1 or y2 - y1 < 0.25 * (x2 - x1) or seg < 1:
@@ -246,7 +246,8 @@ def svg(family: str, pts: list[Point], extras: list[list[Point]], rng: random.Ra
         hatches, marks = peak_marks(pts, rng, H)
     else:
         hatches, marks = face_hatches(pts, rng, hang=family in ("ridge", "pass")), []
-    marks += [f'<polyline points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in line)}" stroke-width="0.8"/>' for line in extras]
+    marks += [f'<polyline points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in line)}" stroke-width="0.8"/>'
+              for line in extras]
     outline = " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">'
@@ -269,15 +270,15 @@ def main() -> None:
     for old in SVG_DIR.glob("*.svg"):
         old.unlink()
     for family, (shape, W, H) in FAMILIES.items():
-        for i in range(1, COUNT + 1):
-            # Peaks keep the seeds they were first drawn with, so they do not change.
+        for i in range(1, SHAPES_PER_FAMILY + 1):
+            # Peaks use their own seed names, so the peak set stays as published.
             seed = f"mountain-{i}" if family == "peak" else f"{family}-{i}"
             hatch_seed = f"hatch-{i}" if family == "peak" else f"{family}-hatch-{i}"
             pts, extras = shape(random.Random(seed), W, H)
             (SVG_DIR / f"{family}-{i:02d}.svg").write_text(svg(family, pts, extras, random.Random(hatch_seed), W, H))
             (SVG_DIR / f"{family}-{i:02d}-flip.svg").write_text(
                 svg(family, mirror(pts, W), [mirror(e, W) for e in extras], random.Random(hatch_seed), W, H))
-    print(f"{len(FAMILIES) * COUNT * 2} glyphs in {len(FAMILIES)} families")
+    print(f"{len(FAMILIES) * SHAPES_PER_FAMILY * 2} glyphs in {len(FAMILIES)} families")
     build_sprite()
 
 

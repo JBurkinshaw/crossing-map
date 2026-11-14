@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Translations",
-  "description": "Spanish lines and words in the novel with this site's own English. Only the opening words (incipit) of each Spanish span are published, never the full span; the Campbell guide is linked by page, never copied. See docs/plan.md, sections 3 and 8.",
+  "description": "Spanish lines and words in the novel with this site's own English. Only the opening words (incipit) of each Spanish span are published, never the full span; the Campbell guide is linked by page, never copied. See docs/design.md, sections 3 and 8.",
   "type": "array",
   "items": {
     "type": "object",

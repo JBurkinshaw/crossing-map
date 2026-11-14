@@ -1,6 +1,6 @@
 """The base map's lake layer: INEGI's water bodies in Mexico, Natural Earth's lakes elsewhere.
 
-Called by tiles/build_base.py. Natural Earth's 1:10 million lakes are coarse outlines: the Laguna de Babícora's
+Called by tiles.build_base. Natural Earth's 1:10 million lakes are coarse outlines: the Laguna de Babícora's
 spills over the plain where the book's riders camp on its shore. In Mexico the lakes come from the water-body
 polygons of INEGI's Red Hidrográfica 1:50,000 (the `_ha` layers): every perennial body of at least MIN_PERENNIAL_KM2,
 and intermittent ones of at least MIN_INTERMITTENT_KM2 (smaller ones are mostly stock tanks), marked `i` so the
@@ -9,13 +9,15 @@ style can draw them lighter. Natural Earth's lakes are kept outside Mexico.
 
 import json
 import zipfile
+from collections.abc import Sequence
 from pathlib import Path
 
 import shapely
 from shapely.geometry import mapping, shape
 
-from creeks import mexico
-from rivers import INEGI, NE, read
+from crossing.basemap import shapefile
+from crossing.hydro import INEGI
+from crossing.vector import read
 
 MIN_PERENNIAL_KM2 = 0.1
 MIN_INTERMITTENT_KM2 = 1.0
@@ -36,19 +38,20 @@ def fill_holes(g: shapely.Geometry) -> shapely.Geometry:
     return shapely.MultiPolygon(polygons) if len(polygons) != 1 else polygons[0]
 
 
-def write_layer(bbox: list[str], tmp: Path) -> Path:
+def write_layer(bbox: Sequence, mexico: shapely.Geometry, tmp: Path) -> Path:
     """lake.geojson in tmp, for tippecanoe."""
-    land = mexico(bbox, tmp)
     features = []
-    for g in (shape(f["geometry"]) for f in read(str(NE / "ne_10m_lakes_north_america" / "ne_10m_lakes_north_america.shp"),
-                                                  "SELECT name FROM ne_10m_lakes_north_america", bbox, tmp, "ne-lakes")):
-        rest = g.difference(land)
+    ne = read(shapefile("ne_10m_lakes_north_america"), "SELECT name FROM ne_10m_lakes_north_america", bbox,
+              tmp / "ne-lakes.geojson")
+    for g in (shape(f["geometry"]) for f in ne):
+        rest = g.difference(mexico)
         if not rest.is_empty:
             features.append({"type": "Feature", "geometry": mapping(rest), "properties": {}})
     kept = {"perennial": 0, "intermittent": 0}
     for i, zip_path in enumerate(sorted(INEGI.glob("*.zip"))):
         for j, name in enumerate(n for n in zipfile.ZipFile(zip_path).namelist() if n.endswith("_ha.shp")):
-            for f in read(f"/vsizip/{zip_path}/{name}", f"SELECT CONDICION FROM {Path(name).stem}", bbox, tmp, f"ha{i}-{j}", latin1=True):
+            sql = f"SELECT CONDICION FROM {Path(name).stem}"
+            for f in read(f"/vsizip/{zip_path}/{name}", sql, bbox, tmp / f"ha{i}-{j}.geojson", latin1=True):
                 g = fill_holes(shape(f["geometry"]).buffer(0))
                 intermittent = "INTERMITENTE" in (f["properties"]["CONDICION"] or "")
                 if g.area * KM2 < (MIN_INTERMITTENT_KM2 if intermittent else MIN_PERENNIAL_KM2):

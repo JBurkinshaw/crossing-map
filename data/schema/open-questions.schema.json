@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Open questions",
+  "description": "Judgement calls about where something is: what the map shows, the other reading and why. Each names the features concerned and the episode from which it may be shown.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "title", "first_seen", "features", "shown", "other", "why"],
+    "properties": {
+      "id": {"type": "string", "pattern": "^q-[a-z0-9]+(-[a-z0-9]+)*$"},
+      "title": {"type": "string", "minLength": 1},
+      "first_seen": {
+        "type": "string",
+        "pattern": "^[1-4]-(0[1-9]|1[0-4])$",
+        "description": "The earliest episode at which the question gives nothing away; no earlier than any of its features."
+      },
+      "features": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "Ids of the story features the question concerns; empty when it concerns a place the map does not draw."
+      },
+      "shown": {"type": "string", "minLength": 1, "description": "What the map shows."},
+      "other": {"type": "string", "minLength": 1, "description": "The other reading."},
+      "why": {"type": "string", "minLength": 1, "description": "Why the map shows what it does."}
+    }
+  }
+}

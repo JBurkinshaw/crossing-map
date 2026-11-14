@@ -1,75 +1,58 @@
 """Build tiles/out/base.pmtiles: the literary basemap's vector layers.
 
-Run from the repo root: uv run --project pipeline python tiles/build_base.py
-Reads Natural Earth 10m and US Census cartographic boundary files from
-private/cache/basemap/, USGS NHD flowlines from private/cache/hydro/nhd/ and INEGI's
-river network from private/cache/hydro/inegi/ (see review/stage-2/README.md for the
-download list), clips them to the story box, and tiles them with tippecanoe at
-zoom 4-11. The named rivers come from tiles/rivers.py, and the creeks (both countries' smaller streams, shown by
-Strahler order and zoom) from tiles/creeks.py; both use every NHD watershed and INEGI region in the cache. The
-lakes come from tiles/lakes.py (INEGI's water bodies in Mexico).
+Run from the repo root: uv run --project pipeline python -m tiles.build_base
+Reads Natural Earth 10m and US Census cartographic boundary files from private/cache/basemap/ (crossing.basemap),
+USGS NHD flowlines from private/cache/hydro/nhd/ and INEGI's river network from private/cache/hydro/inegi/
+(crossing.hydro; docs/data-sources.md has the download list), clips them to the story box, and tiles them with
+tippecanoe at BASE_ZOOMS. Both stream networks are read once, then drawn three ways: the named rivers
+(tiles/rivers.py), the creeks, both countries' smaller streams shown by Strahler order and zoom (tiles/creeks.py),
+and, from INEGI's water bodies, Mexico's lakes (tiles/lakes.py).
 """
 
 import shutil
-import subprocess
 import tempfile
 from pathlib import Path
 
-import creeks
-import lakes
-from rivers import write_layers
+from crossing import basemap, hydro
+from crossing.paths import STORY_BOX_PADDED, TILES_OUT
+from crossing.tiling import tippecanoe
+from crossing.vector import ogr2geojson
+from tiles import BASE_ZOOMS, creeks, lakes, rivers
 
-REPO = Path(__file__).resolve().parents[1]
-SRC = REPO / "private" / "cache" / "basemap"
-OUT = REPO / "tiles" / "out" / "base.pmtiles"
-# The story box (plan section 7), widened by half a degree so lines run off the edge cleanly.
-BOX = ["-113.5", "26.5", "-103.5", "36.5"]
+OUT = TILES_OUT / "base.pmtiles"
+# Shown in the map's attribution; the Credits page and data/README.md list the same sources.
+ATTRIBUTION = ("Rivers, creeks and lakes in Mexico: Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0; "
+               "US streams: USGS National Hydrography Dataset courtesy of the U.S. Geological Survey; "
+               "county lines courtesy of the U.S. Census Bureau (cartographic boundary files); Made with Natural Earth")
 
-# layer name -> (source file, SQL selecting and renaming the fields we keep, extra ogr2ogr args)
-LAYERS = {
-    "mexico": ("ne_10m_admin_1_states_provinces",
-               "SELECT name FROM ne_10m_admin_1_states_provinces WHERE adm0_a3 = 'MEX'", []),
-    "country_line": ("ne_10m_admin_0_boundary_lines_land",
-                     "SELECT featurecla AS kind FROM ne_10m_admin_0_boundary_lines_land", []),
-    "state_line": ("ne_10m_admin_1_states_provinces_lines",
-                   "SELECT adm0_a3 AS country FROM ne_10m_admin_1_states_provinces_lines WHERE adm0_a3 IN ('USA', 'MEX')", []),
-    "county_line": ("cb_2023_us_county_500k",
-                    "SELECT NAME AS name FROM cb_2023_us_county_500k WHERE STATEFP IN ('04', '35', '48')",
-                    ["-nlt", "MULTILINESTRING"]),
-    "railroad": ("ne_10m_railroads_north_america", "SELECT scalerank FROM ne_10m_railroads_north_america", []),
-    "road": ("ne_10m_roads", "SELECT type, scalerank FROM ne_10m_roads WHERE continent = 'North America'", []),
-}
+
+def write_layers(tmp: Path) -> dict[str, Path]:
+    """Every layer of the archive as GeoJSON in tmp, by layer name."""
+    box = STORY_BOX_PADDED
+    layers = {}
+    for layer, (name, sql, extra) in basemap.LAYERS.items():
+        layers[layer] = ogr2geojson(basemap.shapefile(name), sql, box, tmp / f"{layer}.geojson",
+                                    extra=("-clipsrc", "spat_extent", "-lco", "COORDINATE_PRECISION=5", *extra))
+    streams = hydro.load(box, tmp)
+    mexico = basemap.mexico(box, tmp)
+    river_layers = rivers.write_layers(streams, box, tmp)
+    layers |= river_layers
+    # Each creek carries its own first zoom (creeks.MIN_ZOOM), so no layer-wide filter is needed.
+    layers["creek"] = creeks.write_layer(streams, mexico, tmp, list(river_layers.values()))
+    layers["lake"] = lakes.write_layer(box, mexico, tmp)
+    return layers
 
 
 def main() -> None:
-    OUT.parent.mkdir(exist_ok=True)
-    with tempfile.TemporaryDirectory() as tmp:
-        args = []
-        for layer, (name, sql, extra) in LAYERS.items():
-            dst = Path(tmp) / f"{layer}.geojson"
-            subprocess.run(
-                ["ogr2ogr", "-f", "GeoJSON", "-spat", *BOX, "-clipsrc", "spat_extent", "-t_srs", "EPSG:4326",
-                 "-lco", "COORDINATE_PRECISION=5", "-dialect", "OGRSQL", "-sql", sql, *extra,
-                 str(dst), str(SRC / name / f"{name}.shp")],
-                check=True,
-            )
-            args += ["-L", f"{layer}:{dst.name}"]
-        rivers = write_layers(BOX, Path(tmp))
-        for layer, path in rivers.items():
-            args += ["-L", f"{layer}:{path.name}"]
-        # Each creek carries its own first zoom (creeks.MIN_ZOOM), so no layer-wide filter is needed.
-        args += ["-L", f"creek:{creeks.write_layer(BOX, Path(tmp), list(rivers.values())).name}"]
-        args += ["-L", f"lake:{lakes.write_layer(BOX, Path(tmp)).name}"]
-        # Run inside the temporary folder with relative names: tippecanoe records its command line
-        # in the archive's metadata, and the archive is published.
-        subprocess.run(
-            ["tippecanoe", "-q", "-f", "-o", "base.pmtiles", "-Z4", "-z11", "--no-tile-size-limit",
-             "-n", "The Crossing: base", "-N", "Natural Earth, Census, NHD and INEGI layers for the literary map",
-             "-A", "Rivers: Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0; USGS National Hydrography Dataset",
-             "--detect-shared-borders", "--simplification=4", *args],
-            check=True, cwd=tmp,
-        )
-        shutil.move(Path(tmp) / "base.pmtiles", OUT)
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory() as folder:
+        tmp = Path(folder)
+        layers = write_layers(tmp)
+        tippecanoe(tmp, "base.pmtiles", [(layer, path.name) for layer, path in layers.items()], zooms=BASE_ZOOMS,
+                   name="The Crossing: base",
+                   description="Natural Earth, Census, NHD and INEGI layers for the literary map",
+                   attribution=ATTRIBUTION, extra=("--detect-shared-borders", "--simplification=4"))
+        shutil.move(tmp / "base.pmtiles", OUT)
     print(f"Wrote {OUT} ({OUT.stat().st_size / 1e6:.1f} MB)")
 
 

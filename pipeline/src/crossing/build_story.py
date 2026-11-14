@@ -1,10 +1,11 @@
-"""Build the story layers from the seeds, gazetteer picks, stops and snaps of every Part built so far.
+"""Build the story layers from the seeds in pipeline/seeds/.
 
 Run from the repo root: uv run --project pipeline python -m crossing.build_story
-Reads pipeline/seeds/ (part1*.csv, context.csv, parts2-4*.csv and the stops and snaps for each batch in BATCHES)
-and the gazetteer picks in review/stage-1/ and review/stage-2/.
+Reads places.csv (every place the book names, plus context towns), place-picks.csv (crossing.gazetteer's picks),
+place-overrides.csv (hand decisions, which win over a pick), stops.csv, snaps.csv and regions.geojson.
 Writes data/places.geojson, data/stops.geojson, data/areas.geojson, data/journeys.geojson, data/elsewhere.json
-(tale places outside the story box, listed in the panel rather than mapped) and one checklist per batch.
+(places outside the story box, listed in the panel rather than mapped) and the stage 4 sign-off checklists,
+keeping any row already ticked.
 
 A route segment follows the line its snap names, where the book names the road or river:
   nhd          a USGS NHD flowline by its GNIS name (shapefile, feature)
@@ -17,7 +18,9 @@ A segment's `travel` is its arriving stop's: empty for horseback, or foot, truck
 import csv
 import json
 import math
+import re
 import subprocess
+import sys
 from pathlib import Path
 
 from pyproj import Geod
@@ -25,17 +28,14 @@ from shapely import line_merge
 from shapely.geometry import LineString, MultiLineString, Point, shape
 from shapely.ops import substring
 
-REPO = Path(__file__).resolve().parents[3]
-SEEDS = REPO / "pipeline" / "seeds"
-DATA = REPO / "data"
+from crossing.paths import DATA, REPO, SEEDS, STORY_BOX
+
 GEOD = Geod(ellps="WGS84")
 LICENCE = {"wikidata": "CC0", "gnis": "Public domain", "geonames": "CC BY 4.0", "this-site": "CC BY 4.0",
            "usgs-nhd": "Public domain", "census-tiger": "Public domain", "natural-earth": "Public domain"}
 SNAP_SOURCES = {"nhd": "usgs-nhd", "tiger-road": "census-tiger", "ne-river": "natural-earth"}
 # The widest gap bridged between pieces of a named line, in degrees (about 1 km).
 GAP_DEG = 0.01
-# The story box (plan section 7): tale places outside it are listed, not mapped.
-STORY_BOX = (-113, 27, -104, 36)
 # The false dawn at the book's end (plan 2.4): the text names no place or event, but it is widely read as the
 # Trinity test, so the map draws a reported line of sight from Billy's last stop towards the Trinity Site
 # (Wikidata Q19842077), SIGHTLINE_KM long, rather than a point.
@@ -43,17 +43,14 @@ TRINITY = (-106.4754, 33.6773)
 # The light comes in the book's last episode, after the night at the waystation (4-08).
 FALSE_DAWN = "4-09"
 SIGHTLINE_KM = 30
-# Each batch's stops and snaps, its journeys, and where its sign-off checklist goes.
-BATCHES = [
-    {"stops": "part1-stops.csv", "snaps": "part1-snaps.csv", "parts": {"1"}, "title": "Stage 1 place checklist",
-     "checklist": REPO / "review" / "stage-1" / "checklist.md"},
-    {"stops": "part2-stops.csv", "snaps": "part2-snaps.csv", "parts": {"2"}, "title": "Stage 4, batch A (Part II) place checklist",
-     "checklist": REPO / "review" / "stage-4" / "batch-a" / "checklist.md"},
-    {"stops": "part3-4-stops.csv", "snaps": "part3-4-snaps.csv", "parts": {"3", "4"},
-     "title": "Stage 4, batch B (Parts III and IV) place checklist", "checklist": REPO / "review" / "stage-4" / "batch-b" / "checklist.md"},
+# The sign-off checklists still open: the stops and places first seen in these Parts. Places resolved through
+# the gazetteer (place-picks.csv) were signed off in stage 1 and are not listed again.
+CHECKLISTS = [
+    {"parts": {"2"}, "title": "Stage 4, batch A (Part II) place checklist",
+     "path": REPO / "review" / "stage-4" / "batch-a" / "checklist.md"},
+    {"parts": {"3", "4"}, "title": "Stage 4, batch B (Parts III and IV) place checklist",
+     "path": REPO / "review" / "stage-4" / "batch-b" / "checklist.md"},
 ]
-# Parts whose places are built; the seeds of later Parts wait for their batch.
-PARTS_BUILT = {"1", "2", "3", "4"}
 # A pin for a long or wide feature stands in for it; a pin for a town or pass is the thing itself.
 LOCATED_KINDS = {"town", "city", "locale", "county", "pass", "summit"}
 CHARACTERS = {"J1": ["wolf"], "J2": ["billy", "wolf"], "J3": ["billy"], "J4": ["billy", "boyd"], "J5": ["billy"],
@@ -76,7 +73,7 @@ def point(lat: float, lon: float) -> dict:
 def circle(lat: float, lon: float, radius_km: float) -> dict:
     n = 48
     lons, lats, _ = GEOD.fwd([lon] * n, [lat] * n, [i * 360 / n for i in range(n)], [radius_km * 1000] * n)
-    ring = [[r5(x), r5(y)] for x, y in zip(lons, lats)]
+    ring = [[r5(x), r5(y)] for x, y in zip(lons, lats, strict=True)]
     # RFC 7946: exterior rings run anticlockwise; fwd steps clockwise by azimuth.
     ring.reverse()
     return {"type": "Polygon", "coordinates": [ring + [ring[0]]]}
@@ -108,9 +105,11 @@ def named_lines(snap: dict) -> list:
     for name in snap["shapefile"].split(";"):
         path = REPO / name
         layer = path.name.removesuffix(".zip").removesuffix(".shp")
-        sql = f"SELECT * FROM {'NHDFlowline' if snap['source'] == 'nhd' else layer} WHERE {field} = '{snap['feature']}'"
+        value = snap["feature"].replace("'", "''")  # OGR SQL escapes a quote by doubling it
+        sql = f"SELECT * FROM {'NHDFlowline' if snap['source'] == 'nhd' else layer} WHERE {field} = '{value}'"
         target = f"/vsizip/{path}" if path.suffix == ".zip" else str(path)
-        out = subprocess.run(["ogr2ogr", "-f", "GeoJSON", "-t_srs", "EPSG:4326", "-dim", "XY", "-sql", sql, "/vsistdout/", target],
+        out = subprocess.run(["ogr2ogr", "-f", "GeoJSON", "-t_srs", "EPSG:4326", "-dim", "XY", "-sql", sql,
+                              "/vsistdout/", target],
                              check=True, capture_output=True, text=True).stdout
         lines += [shape(f["geometry"]) for f in json.loads(out)["features"]]
     return lines
@@ -123,7 +122,8 @@ def snapped(snap: dict, a: tuple[float, float], b: tuple[float, float]) -> list[
     # closest first, if they are within about a kilometre.
     ends = [(i, c) for i, g in enumerate(lines) for c in (g.coords[0], g.coords[-1])]
     loose = [(i, c) for i, c in ends if sum(c == d for _, d in ends) == 1]
-    pairs = sorted((Point(c).distance(Point(d)), c, d) for k, (i, c) in enumerate(loose) for j, d in loose[k + 1:] if j != i)
+    pairs = sorted((Point(c).distance(Point(d)), c, d)
+                   for k, (i, c) in enumerate(loose) for j, d in loose[k + 1:] if j != i)
     used, bridges = set(), []
     for dist, c, d in pairs:
         if dist < GAP_DEG and c not in used and d not in used:
@@ -143,70 +143,85 @@ def feature(geometry: dict, **props) -> dict:
     return {"type": "Feature", "geometry": geometry, "properties": props}
 
 
+def write_json(path: Path, doc) -> None:
+    path.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+
+
 def write(name: str, features: list[dict]) -> None:
-    path = DATA / name
-    path.write_text(json.dumps({"type": "FeatureCollection", "features": features}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    write_json(DATA / name, {"type": "FeatureCollection", "features": features})
     print(f"{name}: {len(features)} features")
 
 
-def main() -> None:
-    # Part I places, then the context towns the book never names (shown at every reading position).
-    seeds = {s["id"]: s for s in rows(SEEDS / "part1.csv") + rows(SEEDS / "context.csv")}
-    picks = {p["id"]: p for p in rows(REPO / "review" / "stage-1" / "places.csv") + rows(REPO / "review" / "stage-2" / "context-places.csv")}
-    overrides = {o["id"]: o for o in rows(SEEDS / "part1-place-overrides.csv")}
-    # Later Parts: every place was checked by hand, so the override is the pick ("use", "exclude" or "unresolved").
-    part1_ids = set(seeds)
-    later = {o["id"]: o for o in rows(SEEDS / "parts2-4-place-overrides.csv")}
-    overrides |= later
-    elsewhere = []
-    for seed in rows(SEEDS / "parts2-4.csv"):
-        override = later[seed["id"]]
-        if seed["first_seen"][0] not in PARTS_BUILT or override["action"] != "use":
-            continue
-        lon, lat = float(override["lon"]), float(override["lat"])
-        if not (STORY_BOX[0] <= lon <= STORY_BOX[2] and STORY_BOX[1] <= lat <= STORY_BOX[3]):
-            elsewhere.append({"id": seed["id"], "name": seed["name"], "first_seen": seed["first_seen"], "role": seed["role"]})
-            continue
-        seeds[seed["id"]] = seed
-        picks[seed["id"]] = override
+def in_box(lat: float, lon: float) -> bool:
+    return STORY_BOX[0] <= lon <= STORY_BOX[2] and STORY_BOX[1] <= lat <= STORY_BOX[3]
 
-    places, pins = [], {}
-    for sid, seed in seeds.items():
-        pick, override = picks[sid], overrides.get(sid)
-        if override and override["action"] == "exclude":
-            continue
-        src = override if override else pick
+
+def build_places(picks: dict[str, dict]) -> tuple[list[dict], dict[str, tuple], list[dict]]:
+    """Each place's pin: its override when there is one ("use", "exclude" or "unresolved"), else its gazetteer pick.
+
+    Returns the place features, the pins by seed id (for stops at a place), and the places outside the story box.
+    """
+    overrides = {o["id"]: o for o in rows(SEEDS / "place-overrides.csv")}
+    places, pins, elsewhere, unresolved = [], {}, [], []
+    for seed in rows(SEEDS / "places.csv"):
+        sid = seed["id"]
+        override, pick = overrides.get(sid), picks.get(sid)
+        if override:
+            if override["action"] == "unresolved":
+                unresolved.append(sid)
+            if override["action"] != "use":
+                continue
+            src = override
+        elif pick:
+            src = pick
+        else:
+            sys.exit(f"{sid}: no pick in place-picks.csv and no override in place-overrides.csv")
         if not src["lat"]:
             print(f"skipped {sid}: no candidate")
             continue
         lat, lon = float(src["lat"]), float(src["lon"])
+        if not in_box(lat, lon):
+            elsewhere.append({"id": sid, "name": seed["name"], "first_seen": seed["first_seen"], "role": seed["role"]})
+            continue
         pins[sid] = (lat, lon, src["source"], src["source_id"])
+        provisional = pick and pick["status"] == "review" and seed["role"] != "context"
         reasoning = override["reasoning"] if override else (
-            "Provisional pick from several candidates, awaiting review." if pick["status"] == "review" and seed["role"] != "context" else None)
+            "Provisional pick from several candidates, awaiting review." if provisional else None)
         journeys = [j for j in seed["journey"].split(";") if j]
+        # The book's own spellings, where they differ from the name, so translations can find the place in the text.
+        in_text = {"name_in_text": seed["text_names"]} if seed["text_names"] else {}
         places.append(feature(
             point(lat, lon),
-            id=f"place-{sid}", name=seed["name"], kind=seed["kind"], role=seed["role"],
+            id=f"place-{sid}", name=seed["name"], **in_text, kind=seed["kind"], role=seed["role"],
             characters=[c for c in seed["characters"].split(";") if c],
-            journey=journeys[0] if journeys else None, part=int(seed["first_seen"][0]), episode=seed["first_seen"], first_seen=seed["first_seen"],
+            journey=journeys[0] if journeys else None, part=int(seed["first_seen"][0]), episode=seed["first_seen"],
+            first_seen=seed["first_seen"],
             certainty="located" if seed["kind"] in LOCATED_KINDS else "approximate",
             method="gazetteer", source=src["source"], source_id=src["source_id"],
             source_licence=LICENCE[src["source"]], note_safe="", reasoning=reasoning,
         ))
-    write("places.geojson", places)
-    (DATA / "elsewhere.json").write_text(json.dumps(sorted(elsewhere, key=lambda e: e["first_seen"]), ensure_ascii=False, indent=1) + "\n",
-                                         encoding="utf-8")
+    if unresolved:
+        print(f"{len(unresolved)} places left unresolved in place-overrides.csv: {', '.join(unresolved)}")
+    return places, pins, sorted(elsewhere, key=lambda e: e["first_seen"])
 
-    stops, areas, journeys = [], [], []
+
+def build_stops(pins: dict[str, tuple]) -> tuple[list[dict], list[dict], dict[str, list[dict]]]:
+    """The stops, the inferred area around each stop with a radius, and each journey's stops for the routes."""
+    stops, areas = [], []
     by_journey: dict[str, list[dict]] = {}
-    for s in [s for batch in BATCHES for s in rows(SEEDS / batch["stops"])]:
+    for s in rows(SEEDS / "stops.csv"):
         place = s["place"]
         if s["lat"]:
             lat, lon = float(s["lat"]), float(s["lon"])
             source, source_id = "this-site", None
-        else:
+        elif place in pins:
             lat, lon, source, source_id = pins[place]
-        method = "computed" if s["certainty"] == "located" and not place else ("gazetteer" if source != "this-site" else "schematic")
+        else:
+            sys.exit(f"stop {s['id']}: no coordinates and place {place!r} has no pin")
+        if s["certainty"] == "located" and not place:
+            method = "computed"
+        else:
+            method = "gazetteer" if source != "this-site" else "schematic"
         props = dict(
             id=s["id"], name=s["name"], kind="stop", role="stop", characters=CHARACTERS[s["journey"]],
             journey=s["journey"], sequence=int(s["seq"]), place_ref=f"place-{place}" if place else None,
@@ -216,28 +231,39 @@ def main() -> None:
             note_safe="", reasoning=s["reasoning"] or None,
         )
         stops.append(feature(point(lat, lon), **props))
-        by_journey.setdefault(s["journey"], []).append(props | {"lat": lat, "lon": lon, "travel": s.get("travel") or None})
+        by_journey.setdefault(s["journey"], []).append(props | {"lat": lat, "lon": lon, "travel": s["travel"] or None})
         if s["radius_km"]:
             area = props | {"id": f"area-{s['id']}", "kind": "inferred-area",
                             "role": None, "sequence": None}
             areas.append(feature(circle(lat, lon, float(s["radius_km"])), **area))
-    write("stops.geojson", stops)
-    # The named regions, drafted by crossing.regions and checked by hand (decision 0008).
-    for f in json.loads((SEEDS / "regions.geojson").read_text(encoding="utf-8"))["features"]:
-        r = f["properties"]
-        areas.append(feature(f["geometry"], id=r["id"], name=r["name"], kind="region", role=None, characters=[], journey=None,
-                             sequence=None, place_ref=f"place-{r['place']}", part=int(r["first_seen"][0]), episode=r["first_seen"],
-                             first_seen=r["first_seen"], certainty="approximate", uncertainty_m=None, method="computed",
-                             source="this-site", source_id=None, source_licence=LICENCE["this-site"], note_safe="",
-                             reasoning=r["reasoning"]))
-    write("areas.geojson", areas)
+    return stops, areas, by_journey
 
-    # Part I's snaps predate the source column: all of them follow NHD flowlines.
-    snaps = {(s["journey"], int(s["from_seq"])): {"source": "nhd", "feature": s.get("feature_name")} | s
-             for batch in BATCHES for s in rows(SEEDS / batch["snaps"])}
+
+def regions() -> list[dict]:
+    """The named regions, drafted by crossing.regions and checked by hand (decision 0008)."""
+    out = []
+    path = SEEDS / "regions.geojson"
+    if not path.exists():  # a first build: crossing.regions drafts them from the places this build writes
+        print(f"no {path.name} yet: run crossing.regions, then build again")
+        return out
+    for f in json.loads(path.read_text(encoding="utf-8"))["features"]:
+        r = f["properties"]
+        out.append(feature(f["geometry"], id=r["id"], name=r["name"], kind="region", role=None, characters=[],
+                           journey=None, sequence=None, place_ref=f"place-{r['place']}", part=int(r["first_seen"][0]),
+                           episode=r["first_seen"],
+                           first_seen=r["first_seen"], certainty="approximate", uncertainty_m=None, method="computed",
+                           source="this-site", source_id=None, source_licence=LICENCE["this-site"], note_safe="",
+                           reasoning=r["reasoning"]))
+    return out
+
+
+def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
+    """A route segment between each pair of consecutive stops, and the false-dawn sightline."""
+    journeys = []
+    snaps = {(s["journey"], int(s["from_seq"])): s for s in rows(SEEDS / "snaps.csv")}
     for jid, seq in by_journey.items():
         seq.sort(key=lambda p: p["sequence"])
-        for i, (a, b) in enumerate(zip(seq, seq[1:]), start=1):
+        for i, (a, b) in enumerate(zip(seq, seq[1:], strict=False), start=1):
             snap = snaps.get((jid, a["sequence"]))
             if snap:
                 coords = snapped(snap, (a["lon"], a["lat"]), (b["lon"], b["lat"]))
@@ -255,7 +281,8 @@ def main() -> None:
             journeys.append(feature(
                 {"type": "LineString", "coordinates": coords},
                 id=f"{jid.lower()}-seg-{i:02d}", name=f"{a['name']} to {b['name']}", kind="route-segment",
-                characters=CHARACTERS[jid], journey=jid, sequence=i, part=int(b["first_seen"][0]), episode=b["first_seen"],
+                characters=CHARACTERS[jid], journey=jid, sequence=i, part=int(b["first_seen"][0]),
+                episode=b["first_seen"],
                 first_seen=b["first_seen"], travel=b["travel"], note_safe="", **how,
             ))
     last = max(by_journey["J7"], key=lambda p: p["sequence"])
@@ -266,24 +293,43 @@ def main() -> None:
         id="j7-false-dawn", name="The false dawn", kind="sightline", characters=["billy"], journey="J7", sequence=None,
         part=4, episode=FALSE_DAWN, first_seen=FALSE_DAWN, travel=None, note_safe="",
         certainty="reported", method="computed", source="this-site", source_licence=LICENCE["this-site"],
-        reasoning=f"In the last episode Billy wakes in the night to a light like desert noon, which fades; the true dawn "
-                  f"comes later. The book names no place, event or direction for that light; it is widely read as the Trinity "
-                  f"test of 16 July 1945. The line points from his last stop towards the "
-                  f"Trinity Site (Wikidata Q19842077), bearing {azimuth % 360:.0f} degrees (pyproj, WGS 84), and is {SIGHTLINE_KM} km long "
-                  f"only to show the direction."))
-    write("journeys.geojson", journeys)
-    # Part I's seeds include a few places first named later; they stay on the stage 1 list.
-    def in_batch(place: dict, batch: dict) -> bool:
-        first = place["properties"]["id"].removeprefix("place-") in part1_ids
-        return first if batch["parts"] == {"1"} else not first and place["properties"]["episode"][0] in batch["parts"]
+        reasoning=f"In the last episode Billy wakes in the night to a light like desert noon, which fades; the true "
+                  f"dawn comes later. The book names no place, event or direction for that light; it is widely read as "
+                  f"the Trinity test of 16 July 1945. The line points from his last stop towards the "
+                  f"Trinity Site (Wikidata Q19842077), bearing {azimuth % 360:.0f} degrees (pyproj, WGS 84), and is "
+                  f"{SIGHTLINE_KM} km long only to show the direction."))
+    return journeys
 
-    for batch in BATCHES:
-        write_checklist(batch, [f for f in stops if f["properties"]["episode"][0] in batch["parts"]],
-                        [f for f in places if in_batch(f, batch)])
+
+def main() -> None:
+    picks = {p["id"]: p for p in rows(SEEDS / "place-picks.csv")}
+    places, pins, elsewhere = build_places(picks)
+    write("places.geojson", places)
+    write_json(DATA / "elsewhere.json", elsewhere)
+    stops, areas, by_journey = build_stops(pins)
+    write("stops.geojson", stops)
+    write("areas.geojson", areas + regions())
+    write("journeys.geojson", build_routes(by_journey))
+    for checklist in CHECKLISTS:
+        listed = [f for f in places if f["properties"]["id"].removeprefix("place-") not in picks
+                  and f["properties"]["episode"][0] in checklist["parts"]]
+        write_checklist(checklist, [f for f in stops if f["properties"]["episode"][0] in checklist["parts"]], listed)
+
+
+TICKED = re.compile(r"^\| \[[xX]\] \| ([^|]*) \| ([^|]*) \|")
+
+
+def ticked(path: Path) -> set[tuple[str, str]]:
+    """The (label, name) of every row already ticked in a checklist, so a rebuild keeps the owner's sign-off."""
+    if not path.exists():
+        return set()
+    lines = path.read_text(encoding="utf-8").splitlines()
+    return {(m[1].strip(), m[2].strip()) for line in lines if (m := TICKED.match(line))}
 
 
 def write_checklist(batch: dict, stops: list[dict], places: list[dict]) -> None:
     """A batch's sign-off list: every feature, its evidence, and links to check it on imagery."""
+    done = ticked(batch["path"])
 
     def links(f: dict) -> str:
         lon, lat = f["geometry"]["coordinates"]
@@ -299,24 +345,28 @@ def write_checklist(batch: dict, stops: list[dict], places: list[dict]) -> None:
         p = f["properties"]
         source = p["source"] + (f" {p['source_id']}" if p.get("source_id") else "")
         flag = "**check**" if provisional(p) or p.get("place_ref") in unsure else ""
-        return f"| [ ] | {label} | {p['name']} | {p['certainty']} | {source} | {links(f)} | {flag} |"
+        box = "[x]" if (label, p["name"]) in done else "[ ]"
+        return f"| {box} | {label} | {p['name']} | {p['certainty']} | {source} | {links(f)} | {flag} |"
 
     lines = [
         f"# {batch['title']}",
         "",
-        "Generated by `pipeline/src/crossing/build_story.py`. Tick each row once the point sits where the book puts it.",
-        "Rows marked **check** are provisional picks among several candidates. Reasoning for every stop is in the app's panel.",
+        "Generated by `pipeline/src/crossing/build_story.py`, which keeps ticked rows. Tick each row once the point "
+        "sits where the book puts it.",
+        "Rows marked **check** are provisional picks among several candidates. Reasoning for every stop is in the "
+        "app's panel.",
         "",
         "| OK | # | Name | Certainty | Source | Look | |",
         "| --- | --- | --- | --- | --- | --- | --- |",
     ]
     for f in stops:
         lines.append(row(f, f"{f['properties']['journey']}.{f['properties']['sequence']}"))
-    lines += ["", "## Places named in passing", "", "| OK | # | Name | Certainty | Source | Look | |", "| --- | --- | --- | --- | --- | --- | --- |"]
+    lines += ["", "## Places named in passing", "", "| OK | # | Name | Certainty | Source | Look | |",
+              "| --- | --- | --- | --- | --- | --- | --- |"]
     for f in places:
         if f["properties"]["role"] == "passing":
             lines.append(row(f, ""))
-    path = batch["checklist"]
+    path = batch["path"]
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"{path.relative_to(REPO)}: {len(stops)} stops")

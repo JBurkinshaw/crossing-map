@@ -1,7 +1,12 @@
 """Resolve seed place names to coordinates from GNIS, GeoNames, and Wikidata.
 
 Run from the repo root:
-  uv run --project pipeline python -m crossing.gazetteer pipeline/seeds/part1.csv review/stage-1/places.csv
+  uv run --project pipeline python -m crossing.gazetteer              # refresh every pick in place-picks.csv
+  uv run --project pipeline python -m crossing.gazetteer ID [ID ...]  # resolve these seeds and add their picks
+
+Reads pipeline/seeds/places.csv and merges its answers into pipeline/seeds/place-picks.csv: rows for the
+seeds resolved are replaced, every other row is kept. Seeds whose place is decided by hand in
+place-overrides.csv need no pick.
 
 Inputs are cached in private/cache/. Download and unzip these into private/cache/gazetteer/:
   https://prd-tnm.s3.amazonaws.com/StagedProducts/GeographicNames/DomesticNames/DomesticNames_NM_Text.zip
@@ -15,27 +20,25 @@ one cluster (all within CLUSTER_KM of each other). Otherwise it is `review`,
 with the best-scoring candidate proposed. Nothing is decided silently.
 """
 
+import argparse
 import csv
 import hashlib
-import json
-import sys
-import time
-import unicodedata
-import urllib.parse
-import urllib.request
+from collections.abc import Iterator
 from dataclasses import dataclass
 from pathlib import Path
 
 from pyproj import Geod
 
-REPO = Path(__file__).resolve().parents[3]
-CACHE = REPO / "private" / "cache"
+from crossing.http import CachedClient, Refused
+from crossing.paths import CACHE, SEEDS, STORY_BOX
+from crossing.text import fold_name as fold
+
 GNIS_FILES = [CACHE / f"gazetteer/DomesticNames_{s}_Text/Text/DomesticNames_{s}.txt" for s in ("NM", "AZ")]
 GEONAMES_FILE = CACHE / "gazetteer/MX/MX.txt"
 WIKIDATA_CACHE = CACHE / "wikidata"
-USER_AGENT = "crossing-map-pipeline/0.1 (+https://github.com/JBurkinshaw/crossing-map)"
+WIKIDATA_API = "https://www.wikidata.org/w/api.php"
 
-WEST, SOUTH, EAST, NORTH = -113.0, 27.0, -104.0, 36.0  # story box, plan section 7
+WEST, SOUTH, EAST, NORTH = STORY_BOX
 CLUSTER_KM = 5.0
 GEOD = Geod(ellps="WGS84")
 
@@ -45,7 +48,8 @@ TYPES = {
     "stream": ({"Stream", "Arroyo"}, {"STM", "STMI", "STMS", "WAD"}),
     "valley": ({"Valley", "Basin", "Flat", "Plain"}, {"VAL", "PLN", "BSN", "FLT"}),
     "spring": ({"Spring"}, {"SPNG", "SPNT"}),
-    "populated": ({"Populated Place", "Locale"}, {"PPL", "PPLA", "PPLA2", "PPLA3", "PPLC", "PPLL", "PPLX", "LCTY", "RNCH"}),
+    "populated": ({"Populated Place", "Locale"},
+                  {"PPL", "PPLA", "PPLA2", "PPLA3", "PPLC", "PPLL", "PPLX", "LCTY", "RNCH"}),
     "admin": ({"Civil"}, {"ADM2"}),
     "pass": ({"Gap"}, {"PASS", "GAP"}),
     "summit": ({"Summit"}, {"MT", "PK", "HLL", "HLLS"}),
@@ -81,12 +85,6 @@ class Candidate:
         return f"{self.source}:{self.source_id} {self.name} [{self.feature}] {self.lat:.5f},{self.lon:.5f} {self.where}"
 
 
-def fold(s: str) -> str:
-    """Lower-case, strip accents and punctuation, collapse spaces."""
-    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
-    return " ".join("".join(c if c.isalnum() else " " for c in s).split())
-
-
 def in_box(lat: float, lon: float) -> bool:
     return SOUTH <= lat <= NORTH and WEST <= lon <= EAST
 
@@ -95,77 +93,83 @@ def km(a: Candidate, b: Candidate) -> float:
     return GEOD.inv(a.lon, a.lat, b.lon, b.lat)[2] / 1000
 
 
-def load_gnis(wanted: set[str]) -> dict[str, list[dict]]:
-    by_name: dict[str, list[dict]] = {}
+def gnis_rows() -> Iterator[dict]:
+    """Every row of the cached GNIS Domestic Names files (New Mexico, then Arizona)."""
     for path in GNIS_FILES:
         with path.open(encoding="utf-8-sig", newline="") as f:
-            for row in csv.DictReader(f, delimiter="|"):
-                key = fold(row["feature_name"])
-                if key in wanted:
-                    by_name.setdefault(key, []).append(row)
+            yield from csv.DictReader(f, delimiter="|")
+
+
+def geonames_rows() -> Iterator[list[str]]:
+    """Every row of the cached GeoNames Mexico dump, as its tab-separated fields."""
+    with GEONAMES_FILE.open(encoding="utf-8") as f:
+        for line in f:
+            yield line.rstrip("\n").split("\t")
+
+
+def load_gnis(wanted: set[str]) -> dict[str, list[dict]]:
+    by_name: dict[str, list[dict]] = {}
+    for row in gnis_rows():
+        key = fold(row["feature_name"])
+        if key in wanted:
+            by_name.setdefault(key, []).append(row)
     return by_name
 
 
 def load_geonames(wanted: set[str]) -> dict[str, list[list[str]]]:
     by_name: dict[str, list[list[str]]] = {}
-    with GEONAMES_FILE.open(encoding="utf-8") as f:
-        for line in f:
-            row = line.rstrip("\n").split("\t")
-            names = {fold(row[1]), fold(row[2])} | {fold(n) for n in row[3].split(",") if n}
-            for key in names & wanted:
-                by_name.setdefault(key, []).append(row)
+    for row in geonames_rows():
+        names = {fold(row[1]), fold(row[2])} | {fold(n) for n in row[3].split(",") if n}
+        for key in names & wanted:
+            by_name.setdefault(key, []).append(row)
     return by_name
 
 
-_last_request = 0.0
+def _wikidata_cache_name(url: str, params: dict) -> str:
+    """The cache file for a Wikidata call, named from its parameters (without the fixed format)."""
+    key = "_".join(f"{k}-{v}" for k, v in sorted(params.items()) if k != "format")
+    name = fold(key).replace(" ", "_")
+    if len(name) > 180:  # keep file names legal; the hash keeps distinct keys distinct
+        name = name[:160] + "_" + hashlib.sha1(key.encode()).hexdigest()[:16]
+    return name + ".json"
+
+
+_client = CachedClient(WIKIDATA_CACHE, 1.0, _wikidata_cache_name)
 
 
 def wikidata(params: dict) -> dict:
     """Call the Wikidata API through the on-disk cache, at most one request a second."""
-    global _last_request
-    key = "_".join(f"{k}-{v}" for k, v in sorted(params.items()))
-    name = fold(key).replace(" ", "_")
-    if len(name) > 180:  # keep file names legal; the hash keeps distinct keys distinct
-        name = name[:160] + "_" + hashlib.sha1(key.encode()).hexdigest()[:16]
-    path = WIKIDATA_CACHE / (name + ".json")
-    if path.exists():
-        return json.loads(path.read_text(encoding="utf-8"))
-    wait = 1.0 - (time.monotonic() - _last_request)
-    if wait > 0:
-        time.sleep(wait)
-    url = "https://www.wikidata.org/w/api.php?" + urllib.parse.urlencode({**params, "format": "json"})
-    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": USER_AGENT}), timeout=30) as r:
-        data = json.load(r)
-    _last_request = time.monotonic()
-    WIKIDATA_CACHE.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data), encoding="utf-8")
-    return data
+    return _client.get(WIKIDATA_API, {**params, "format": "json"})
 
 
 def wikidata_candidates(queries: list[str]) -> list[Candidate]:
     ids: list[str] = []
     for q in queries:
-        for hit in wikidata({"action": "wbsearchentities", "search": q, "language": "en", "limit": 7}).get("search", []):
+        hits = wikidata({"action": "wbsearchentities", "search": q, "language": "en", "limit": 7}).get("search", [])
+        for hit in hits:
             if hit["id"] not in ids:
                 ids.append(hit["id"])
     found = []
     for i in range(0, len(ids), 50):
         batch = "|".join(ids[i : i + 50])
-        entities = wikidata({"action": "wbgetentities", "ids": batch, "props": "claims|labels|descriptions", "languages": "en|es"})
+        entities = wikidata({"action": "wbgetentities", "ids": batch, "props": "claims|labels|descriptions",
+                             "languages": "en|es"})
         for qid, e in entities.get("entities", {}).items():
             for claim in e.get("claims", {}).get("P625", [])[:1]:
                 v = claim["mainsnak"].get("datavalue", {}).get("value")
                 if not v or not in_box(v["latitude"], v["longitude"]):
                     continue
                 label = (e.get("labels", {}).get("en") or e.get("labels", {}).get("es") or {}).get("value", qid)
-                desc = (e.get("descriptions", {}).get("en") or e.get("descriptions", {}).get("es") or {}).get("value", "")
+                descriptions = e.get("descriptions", {})
+                desc = (descriptions.get("en") or descriptions.get("es") or {}).get("value", "")
                 found.append(Candidate("wikidata", qid, label, desc[:60], v["latitude"], v["longitude"], "", False))
     return found
 
 
 def candidates(seed: dict, gnis: dict, geonames: dict) -> list[Candidate]:
     queries = [seed["name"]] + [n for n in seed["alt_names"].split(";") if n]
-    keys = {fold(q) for q in queries}
+    # A list, not a set: set order changes between runs, and candidates keep the order they are found in.
+    keys = list(dict.fromkeys(fold(q) for q in queries))
     regions = set(seed["region"].split(";"))
     gnis_classes, gn_codes = set(), set()
     for t in seed["expect"].split(";"):
@@ -178,9 +182,9 @@ def candidates(seed: dict, gnis: dict, geonames: dict) -> list[Candidate]:
             lat, lon = float(r["prim_lat_dec"] or 0), float(r["prim_long_dec"] or 0)
             if in_box(lat, lon):
                 region = GNIS_STATE.get(r["state_name"], r["state_name"])
+                where = f"{r['county_name']} County, {r['state_name']}"
                 cands.append(Candidate("gnis", r["feature_id"], r["feature_name"], r["feature_class"], lat, lon,
-                                       f"{r['county_name']} County, {r['state_name']}", r["feature_class"] in gnis_classes,
-                                       region, region in regions))
+                                       where, r["feature_class"] in gnis_classes, region, region in regions))
         for r in geonames.get(key, []):
             lat, lon = float(r[4]), float(r[5])
             if in_box(lat, lon):
@@ -210,13 +214,17 @@ def pick(cands: list[Candidate], anchor: tuple[float, float]) -> tuple[str, Cand
     pool = typed or [c for c in cands if c.region_match] or cands
     # A municipal seat (GeoNames PPLA*) outranks a minor place even when the minor place matches the name
     # exactly: GeoNames often adds the state to a seat's name, as in "Moctezuma (Sonora)".
-    best = max(pool, key=lambda c: (c.type_match, c.feature.startswith("PPLA"), c.exact, -round(dist(c) / 25), SOURCE_RANK[c.source]))
+    best = max(pool, key=lambda c: (c.type_match, c.feature.startswith("PPLA"), c.exact, -round(dist(c) / 25),
+                                    SOURCE_RANK[c.source]))
     certain = bool(typed) and all(km(best, c) <= CLUSTER_KM for c in typed)
     return ("resolved" if certain else "review"), best
 
 
-def main(seeds_path: str, out_path: str) -> None:
-    seeds = list(csv.DictReader(open(seeds_path, encoding="utf-8")))
+PICK_FIELDS = ["id", "name", "status", "source", "source_id", "lat", "lon", "map", "candidates"]
+
+
+def resolve(seeds: list[dict]) -> dict[str, dict]:
+    """A pick row for each seed, in seed order."""
     wanted = {fold(n) for s in seeds for n in [s["name"]] + s["alt_names"].split(";") if n}
     gnis, geonames = load_gnis(wanted), load_geonames(wanted)
 
@@ -244,28 +252,52 @@ def main(seeds_path: str, out_path: str) -> None:
             return DEFAULT_ANCHOR
         return sum(c.lat for c in near) / len(near), sum(c.lon for c in near) / len(near)
 
-    out = Path(out_path)
-    out.parent.mkdir(parents=True, exist_ok=True)
+    out: dict[str, dict] = {}
     counts: dict[str, int] = {}
-    with out.open("w", encoding="utf-8", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(["id", "name", "status", "source", "source_id", "lat", "lon", "map", "candidates"])
-        for i, seed in enumerate(seeds):
-            cands = found[seed["id"]]
-            status, best = pick(cands, anchor(i))
-            counts[status] = counts.get(status, 0) + 1
-            ordered = sorted(cands, key=lambda c: (not c.type_match, -SOURCE_RANK[c.source]))
-            row = [seed["id"], seed["name"], status]
-            if best:
-                link = f"https://www.openstreetmap.org/?mlat={best.lat:.5f}&mlon={best.lon:.5f}#map=12/{best.lat:.5f}/{best.lon:.5f}"
-                row += [best.source, best.source_id, f"{best.lat:.5f}", f"{best.lon:.5f}", link]
-            else:
-                row += ["", "", "", "", ""]
-            row.append(" || ".join(("* " if c.type_match else "") + c.summary() for c in ordered))
-            w.writerow(row)
-            print(f"{status:9} {seed['id']:26} {best.summary() if best else ''}")
+    for i, seed in enumerate(seeds):
+        cands = found[seed["id"]]
+        status, best = pick(cands, anchor(i))
+        counts[status] = counts.get(status, 0) + 1
+        ordered = sorted(cands, key=lambda c: (not c.type_match, -SOURCE_RANK[c.source]))
+        row = {"id": seed["id"], "name": seed["name"], "status": status}
+        if best:
+            lat, lon = f"{best.lat:.5f}", f"{best.lon:.5f}"
+            link = f"https://www.openstreetmap.org/?mlat={lat}&mlon={lon}#map=12/{lat}/{lon}"
+            row |= {"source": best.source, "source_id": best.source_id, "lat": lat, "lon": lon, "map": link}
+        row["candidates"] = " || ".join(("* " if c.type_match else "") + c.summary() for c in ordered)
+        out[seed["id"]] = row
+        print(f"{status:9} {seed['id']:26} {best.summary() if best else ''}")
     print(counts)
+    return out
+
+
+def main(argv: list[str] | None = None) -> None:
+    ap = argparse.ArgumentParser(description="Resolve seed place names to gazetteer picks.")
+    ap.add_argument("ids", nargs="*", help="seed ids to resolve (default: every id already in place-picks.csv)")
+    ap.add_argument("--seeds", type=Path, default=SEEDS / "places.csv")
+    ap.add_argument("--out", type=Path, default=SEEDS / "place-picks.csv")
+    a = ap.parse_args(argv)
+    existing = list(csv.DictReader(a.out.open(encoding="utf-8"))) if a.out.exists() else []
+    ids = set(a.ids) or {r["id"] for r in existing}
+    seeds = [s for s in csv.DictReader(a.seeds.open(encoding="utf-8")) if s["id"] in ids]
+    if missing := ids - {s["id"] for s in seeds}:
+        raise SystemExit(f"not in {a.seeds}: {', '.join(sorted(missing))}")
+    if not a.ids:
+        # A seed placed by place-overrides.csv needs no pick; any other seed without one is new.
+        overrides = SEEDS / "place-overrides.csv"
+        placed = {r["id"] for r in existing} | {r["id"] for r in csv.DictReader(overrides.open(encoding="utf-8"))}
+        if unpicked := [s["id"] for s in csv.DictReader(a.seeds.open(encoding="utf-8")) if s["id"] not in placed]:
+            print(f"Not resolved (name them to add them): {', '.join(unpicked)}")
+    try:
+        new = resolve(seeds)
+    except Refused as e:
+        raise SystemExit(f"Stopped: {e}. Responses so far are cached; rerun later.") from e
+    merged = [new.pop(r["id"], r) for r in existing] + list(new.values())
+    with a.out.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, PICK_FIELDS, restval="", lineterminator="\n")
+        w.writeheader()
+        w.writerows(merged)
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:3])
+    main()

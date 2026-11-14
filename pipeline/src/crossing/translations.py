@@ -1,20 +1,20 @@
 """Find the Spanish in the novel, match it to the Campbell guide, and build data/translations.json.
 
-Run from the repo root:
+Run from the repo root (the `translations` extra adds pypdf, lingua and rapidfuzz):
 
-    uv run --project pipeline python -m crossing.translations find
-    uv run --project pipeline python -m crossing.translations build
+    uv run --project pipeline --extra translations python -m crossing.translations find
+    uv run --project pipeline --extra translations python -m crossing.translations build
 
-`find` reads the private book text (private/book/text/<episode>.txt) and the cached
-Campbell guide PDF (private/cache/translations/), and writes private working files
-only: private/translations/spans.json holds each full Spanish span with its context,
-for drafting translations and for a future private search index.
+`find` reads the private book text (private/book/text/<episode>.txt, written by crossing.extract), the cached
+Campbell guide PDF (private/cache/translations/) and an English word list (/usr/share/dict/words, as on macOS;
+Debian and Ubuntu ship it in the `wamerican` package). It writes private working files only:
+private/translations/spans.json holds each full Spanish span with its context, for drafting translations.
 
-`build` joins those spans with our own English (review/stage-5/translations-review.csv,
-seeded from private/translations/drafts/*.json) and writes the committed files:
-data/translations.json and the two review CSVs. Committed files hold only an incipit
-(at most INCIPIT_WORDS words) of each Spanish span, never the full span, and nothing
-from the guide but its page numbers (see docs/plan.md, sections 3 and 8).
+`build` joins those spans with our own English (pipeline/seeds/translations.csv, seeded from
+private/translations/drafts/*.json) and the hand placements (pipeline/seeds/road-refs.csv and where-spoken.csv),
+and writes data/translations.json, pipeline/seeds/translations.csv and review/stage-5/translation-gaps.csv.
+Committed files hold only an incipit (at most INCIPIT_WORDS words) of each Spanish span, never the full span,
+and nothing from the guide but its page numbers (see docs/design.md, sections 3 and 8).
 """
 
 import csv
@@ -25,32 +25,31 @@ import unicodedata
 from bisect import bisect_right
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[3]
-TEXT = REPO / "private" / "book" / "text"
-GUIDE_PDF = REPO / "private" / "cache" / "translations" / "campbell-crossing.pdf"
+from crossing.paths import CACHE, DATA, PRIVATE, REPO, SEEDS
+from crossing.text import fold_search as fold
+from crossing.validate import INCIPIT_WORDS
+
+TEXT = PRIVATE / "book" / "text"
+GUIDE_PDF = CACHE / "translations" / "campbell-crossing.pdf"
 GUIDE_URL = (
     "https://d41cfaf2-ac52-4400-a6e1-aaf2dee170dc.filesusr.com/ugd/"
     "842cf5_fac7639eeb8e4ed0812f996b15164ccd.pdf"
 )
-WORK = REPO / "private" / "translations"
+WORK = PRIVATE / "translations"
 SPANS = WORK / "spans.json"
-GUIDE_JSON = WORK / "guide-entries.json"
 DRAFTS = WORK / "drafts"
-DATA = REPO / "data"
 OUT = DATA / "translations.json"
-REVIEW = REPO / "review" / "stage-5"
-REVIEW_CSV = REVIEW / "translations-review.csv"
-GAPS_CSV = REVIEW / "translation-gaps.csv"
-ROAD_CSV = REVIEW / "road-refs.csv"  # talk on the road: runs of lines judged to be spoken on one route segment
-WHERE_CSV = REVIEW / "where-spoken.csv"  # single lines judged by hand to be spoken at a stop, place, area or segment
+REVIEW_CSV = SEEDS / "translations.csv"  # our English for each line, edited by hand and rewritten by `build`
+ROAD_CSV = SEEDS / "road-refs.csv"  # talk on the road: runs of lines judged to be spoken on one route segment
+WHERE_CSV = SEEDS / "where-spoken.csv"  # single lines judged by hand to be spoken at a stop, place, area or segment
+GAPS_CSV = REPO / "review" / "stage-5" / "translation-gaps.csv"  # lines the guide does not list, for review
+WORDS_FILE = Path("/usr/share/dict/words")
 
-INCIPIT_WORDS = 5
 MATCH_MIN = 85  # rapidfuzz partial ratio for a guide match (plan, section 8)
 ANCHOR_MIN = 92  # stricter score for the page anchors
 ANCHOR_WORDS = 3  # an anchor entry must have at least this many Spanish words
 PAGE_WINDOW = 6  # a guide entry may match a span within this many pages of its estimate
 SPANISH_MIN = 0.75  # lingua confidence for a clause to count as Spanish
-PART_PAGES = {1: 1, 2: 131, 3: 215, 4: 342}  # first Vintage page of each Part, from the guide
 FIRST_PAGE = 3  # the text starts on Vintage page 3
 LAST_PAGE = 426
 
@@ -103,14 +102,6 @@ NOT_SPANISH = {"echols", "boyd", "billy", "parham", "quijada", "arnulfo"}
 EPISODE_FILE = re.compile(r"^([1-4])-(\d\d)\.txt$")
 
 
-def fold(s: str) -> str:
-    """Accent- and case-folded text with punctuation reduced to spaces, for matching and search."""
-    s = unicodedata.normalize("NFKD", s)
-    s = "".join(c for c in s if not unicodedata.combining(c)).lower()
-    s = s.replace("’", "'").replace("'", "")
-    return " ".join(re.sub(r"[^a-z0-9]+", " ", s).split())
-
-
 # A speech tag in the narration (", he said.", "? she said.", ", Billy said."): the incipit stops before it, so it
 # holds only the speaker's Spanish. A rare Spanish "he" (I have) after a comma is cut too, which only shortens it.
 # The text sometimes closes a line with a curly apostrophe where a comma belongs, so that counts as a break too.
@@ -160,8 +151,8 @@ def parse_guide(pdf: Path = GUIDE_PDF) -> list[dict]:
         depth = line.count("(") - line.count(")")
         if not fold(es):
             continue
-        entries.append({"n": len(entries), "page": page, "part": part, "es": es, "es_fold": fold(es.replace("...", " ")),
-                        "abbreviated": "..." in es or "…" in es})
+        entries.append({"n": len(entries), "page": page, "part": part, "es": es,
+                        "es_fold": fold(es.replace("...", " ")), "abbreviated": "..." in es or "…" in es})
     # The guide lists some pages out of order (Part Four's 353-357 come after 368, plan section 8).
     # Their printed page may be wrong, so they are not used as page anchors and match more loosely.
     top = 0
@@ -194,8 +185,10 @@ class Detector:
 
         self.es, self.en = Language.SPANISH, Language.ENGLISH
         self.model = LanguageDetectorBuilder.from_languages(self.en, self.es).with_preloaded_language_models().build()
-        words = Path("/usr/share/dict/words")
-        self.english = {w.strip().lower() for w in words.read_text().splitlines()} if words.exists() else set()
+        # Without the word list, English words read as Spanish and every span id after them shifts, so stop.
+        if not WORDS_FILE.exists():
+            sys.exit(f"Missing {WORDS_FILE}: install an English word list (wamerican on Debian and Ubuntu)")
+        self.english = {w.strip().lower() for w in WORDS_FILE.read_text().splitlines()}
         self.english |= ENGLISH_EXTRA
         self._cache: dict[str, float] = {}
 
@@ -348,7 +341,7 @@ def _word_runs(sentence: str, det: Detector) -> list[tuple[int, int]]:
 
 # ---------- guide matching and pages ----------
 
-def page_model(anchors: list[tuple[int, int]], total: int):
+def page_model(anchors: list[tuple[int, int]]):
     """Interpolate a Vintage page from a global character offset, between monotone (offset, page) anchors."""
     pts = sorted(anchors)
     if len(pts) < 2:
@@ -409,7 +402,7 @@ def match_guide(spans: list[dict], guide: list[dict], total: int) -> tuple[list[
         if len(scored) == 1:
             cands.append((scored[0][1]["offset"], g["page"]))
     anchors = [(0, FIRST_PAGE)] + longest_increasing(cands) + [(total, LAST_PAGE)]
-    page = page_model(anchors, total)
+    page = page_model(anchors)
     for s in spans:
         s["page"] = page(s["offset"])
 
@@ -470,6 +463,11 @@ def toponyms(*names: str | None) -> set[str]:
     return {n for n in out if len(n) >= 4}
 
 
+def in_text(place: dict) -> list[str]:
+    """The book's own spellings of a place (name_in_text, separated by semicolons)."""
+    return [n for n in (place.get("name_in_text") or "").split(";") if n]
+
+
 def load_places() -> tuple[dict[str, list[dict]], dict[str, str]]:
     """Candidate stops and places by episode, with names to look for; and every known id's first_seen."""
     layers = {}
@@ -482,12 +480,12 @@ def load_places() -> tuple[dict[str, list[dict]], dict[str, str]]:
     by_episode: dict[str, list[dict]] = {}
     for p in layers["stops"]:
         ref = place.get(p.get("place_ref") or "", {})
-        names = toponyms(p.get("name"), ref.get("name"), ref.get("name_in_text"))
+        names = toponyms(p.get("name"), ref.get("name"), *in_text(ref))
         if names and p.get("episode"):
             by_episode.setdefault(p["episode"], []).append({"id": p["id"], "rank": 0, "names": names})
     # A place first named in the episode, as a stop or in passing, stands in when no stop is named.
     for p in layers["places"]:
-        names = toponyms(p.get("name"), p.get("name_in_text"))
+        names = toponyms(p.get("name"), *in_text(p))
         if names and p.get("episode") and p.get("role") in ("stop", "passing"):
             by_episode.setdefault(p["episode"], []).append({"id": p["id"], "rank": 1, "names": names})
     return by_episode, first_seen
@@ -581,7 +579,6 @@ def cmd_find() -> None:
         sys.exit(f"No episode text in {TEXT}")
     WORK.mkdir(parents=True, exist_ok=True)
     guide = parse_guide()
-    GUIDE_JSON.write_text(json.dumps(guide, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     det = Detector({e["es_fold"] for e in guide if len(e["es_fold"].split()) == 1 and len(e["es_fold"]) >= 3})
     spans, heavy = find_spans(eps, det)
     total = eps[-1]["offset"] + len(eps[-1]["text"])
@@ -606,7 +603,6 @@ def cmd_find() -> None:
 REVIEW_FIELDS = ["id", "part", "episode", "page", "kind", "occurrences", "es_incipit", "words", "en", "confidence",
                  "note", "speaker", "listener", "location_ref", "location_kind", "guide_page", "skip", "reviewed"]
 GAP_FIELDS = ["id", "part", "episode", "page", "kind", "es_incipit", "words", "en", "confidence", "note"]
-ES_SEARCH = WORK / "es-search.json"  # accent-folded full spans: private, never published (see the README)
 TRUE = (True, "true", "yes", "1")
 
 
@@ -635,7 +631,7 @@ def cmd_build() -> None:
     drafts = load_drafts()
     features = load_features()
     hand = load_hand_refs(features, [s["id"] for s in spans])
-    records, review_rows, gap_rows, search = [], [], [], {}
+    records, review_rows, gap_rows = [], [], []
     for s in spans:
         d = drafts.get(s["id"], {})
         skip = d.get("skip") in TRUE
@@ -671,12 +667,10 @@ def cmd_build() -> None:
         if skip:
             continue  # not Spanish after all (marked by the translator or the owner)
         records.append(rec)
-        search[s["id"]] = s["es_fold"]
         if s.get("guide_page") is None:
             gap_rows.append({k: ("" if row.get(k) is None else row[k]) for k in GAP_FIELDS})
     OUT.write_text(json.dumps(records, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    ES_SEARCH.write_text(json.dumps(search, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
-    REVIEW.mkdir(parents=True, exist_ok=True)
+    GAPS_CSV.parent.mkdir(parents=True, exist_ok=True)
     for path, fields, rows in ((REVIEW_CSV, REVIEW_FIELDS, review_rows), (GAPS_CSV, GAP_FIELDS, gap_rows)):
         with path.open("w", encoding="utf-8", newline="") as fh:
             w = csv.DictWriter(fh, fieldnames=fields)

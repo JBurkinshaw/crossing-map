@@ -1,28 +1,30 @@
-"""Draw the PLACEHOLDER vignette SVGs and rebuild the map sprite (plan section 10).
+"""Draw the PLACEHOLDER vignette SVGs and rebuild the map sprite (design section 10).
 
-Run from the repo root: uv run --project pipeline python art/vignettes/make_vignettes.py
+Run from the repo root: uv run --project pipeline python -m art.vignettes.make_vignettes
 Needs spreet (cargo install spreet).
 
 These are not the vignettes. Each is a plain silhouette in the map's ink and paper, inside a dashed frame
-that marks it as provisional, on the plan's 96 x 96 grid, so that the anchors, sizes and collisions can be
-judged on the map. The real drawings will be the owner's or an illustrator's (plan section 10, and Phase 2
+that marks it as provisional, on the design's 96 x 96 grid, so that the anchors, sizes and collisions can be
+judged on the map. The real drawings will be the owner's or an illustrator's (design section 10, and Phase 2
 for more by an illustrator); each replaces the file of the same name in svg/, named vignette-<id> as in
-pipeline/seeds/vignettes.csv.
+pipeline/seeds/vignettes.csv. A file that no longer holds the placeholder frame is a real drawing and is never
+overwritten; only placeholders are redrawn.
 """
 
-import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from build_sprite import build_sprite  # noqa: E402  (art/build_sprite.py, shared with the mountain glyphs)
+from art import INK, PAPER
+from art.build_sprite import build_sprite
 
 SVG_DIR = Path(__file__).parent / "svg"
-INK, PAPER = "#2b2118", "#e4ddcc"
+# Every placeholder carries this frame; a real drawing has none.
+FRAME = 'stroke-dasharray="5 4"/>'
 
 # Each silhouette as SVG shapes on the 96 x 96 grid: filled with paper and stroked in ink at 1.5 px.
 SHAPES = {
     "she-wolf": [
-        '<path d="M18,50 C26,41 50,39 64,42 L70,36 L76,29 L78,22 L82,30 L90,35 L88,40 L78,42 L74,48 L72,62 L75,74 L70,74'
+        '<path d="M18,50 C26,41 50,39 64,42 L70,36 L76,29 L78,22 L82,30 L90,35 L88,40 L78,42 L74,48 L72,62'
+        ' L75,74 L70,74'
         ' L66,60 L58,56 L44,56 L36,60 L34,74 L29,74 L30,60 L26,55 C20,58 14,62 9,67 C11,60 14,54 18,50 Z"/>',
     ],
     "steel-trap": [
@@ -46,7 +48,8 @@ SHAPES = {
         '<path d="M22,78 L22,70 M34,74 L34,66 M48,72 L48,64 M62,74 L62,66 M74,78 L74,70" fill="none"/>',
     ],
     "ruined-church": [
-        '<path d="M18,86 L18,42 L32,42 L32,30 L42,24 L48,12 L54,24 L62,30 L62,42 L72,42 L76,54 L70,60 L78,68 L76,86 Z"/>',
+        '<path d="M18,86 L18,42 L32,42 L32,30 L42,24 L48,12 L54,24 L62,30 L62,42 L72,42 L76,54 L70,60 L78,68'
+        ' L76,86 Z"/>',
         '<path d="M40,86 L40,68 Q48,58 56,68 L56,86" fill="none"/>',
         '<path d="M45,34 L45,28 Q48,24 51,28 L51,34 Z" fill="none"/>',
         '<path d="M8,86 L88,86" fill="none"/>',
@@ -93,7 +96,8 @@ SHAPES = {
     ],
     "crippled-dog": [
         # Hindquarters dropped and one hind leg drawn up; the head tilted.
-        '<path d="M12,70 C16,58 34,50 52,48 L62,44 L68,40 L70,32 L75,38 L86,40 L84,47 L74,52 L70,58 L72,78 L67,78 L63,62'
+        '<path d="M12,70 C16,58 34,50 52,48 L62,44 L68,40 L70,32 L75,38 L86,40 L84,47 L74,52 L70,58 L72,78'
+        ' L67,78 L63,62'
         ' L50,62 L36,68 L30,80 L25,80 L27,72 L20,74 L14,72 Z"/>',
     ],
     "trinity-cloud": [
@@ -111,19 +115,33 @@ def svg(shapes: list[str]) -> str:
     return (
         '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">'
         # The dashed frame says "placeholder" on the map; a real drawing has none.
-        f'<rect x="1" y="1" width="94" height="94" rx="6" fill="none" stroke="{INK}" stroke-opacity="0.5" stroke-dasharray="5 4"/>'
+        f'<rect x="1" y="1" width="94" height="94" rx="6" fill="none" stroke="{INK}" stroke-opacity="0.5" '
+        'stroke-dasharray="5 4"/>'
         f'<g fill="{PAPER}" stroke="{INK}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">'
         f'{"".join(shapes)}</g></svg>'
     )
 
 
+def is_placeholder(path: Path) -> bool:
+    return FRAME in path.read_text()
+
+
 def main() -> None:
     SVG_DIR.mkdir(exist_ok=True)
+    wanted = {f"vignette-{name}.svg" for name in SHAPES}
+    # Placeholders for vignettes no longer in SHAPES go; real drawings stay whatever their name.
     for old in SVG_DIR.glob("*.svg"):
-        old.unlink()
+        if old.name not in wanted and is_placeholder(old):
+            old.unlink()
+    drawn = kept = 0
     for name, shapes in SHAPES.items():
-        (SVG_DIR / f"vignette-{name}.svg").write_text(svg(shapes))
-    print(f"{len(SHAPES)} placeholder vignettes")
+        path = SVG_DIR / f"vignette-{name}.svg"
+        if path.exists() and not is_placeholder(path):
+            kept += 1
+            continue
+        path.write_text(svg(shapes))
+        drawn += 1
+    print(f"{drawn} placeholder vignettes drawn, {kept} real drawings kept")
     build_sprite()
 
 

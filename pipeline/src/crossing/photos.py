@@ -20,8 +20,8 @@ INTERVAL_S seconds, so a rerun makes no requests. If an API refuses or rate-limi
 request, the run asks nothing more: it writes the CSV from the cache and
 lists the places not searched yet. Nothing retries around a refusal.
 
-The owner picks from review/stage-6/photos.csv; nothing here touches the
-app or the data layers.
+The owner picks from review/stage-6/photos.csv by filling its `pick` column; a rerun keeps every pick,
+including the row of a file the search no longer finds. Nothing here touches the app or the data layers.
 """
 
 import csv
@@ -30,26 +30,20 @@ import html
 import json
 import re
 import sys
-import time
-import urllib.error
 import urllib.parse
-import urllib.request
 from dataclasses import dataclass, field
-from pathlib import Path
 
 from pyproj import Geod
 
-from crossing.gazetteer import EAST, NORTH, SOUTH, WEST, in_box
+from crossing.gazetteer import EAST, NORTH, SOUTH, WEST, WIKIDATA_CACHE, in_box
+from crossing.http import CachedClient, Refused
+from crossing.paths import CACHE, DATA, REPO
 
-REPO = Path(__file__).resolve().parents[3]
-CACHE = REPO / "private" / "cache" / "photos"
 OUT = REPO / "review" / "stage-6" / "photos.csv"
-USER_AGENT = "crossing-map-pipeline/0.1 (reading-guide map; contact via repository)"
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
-WIKIDATA_CACHE = REPO / "private" / "cache" / "wikidata"  # the gazetteer's cache, read only
 
 RADIUS_M = 5000  # plan section 10: geosearch within 5 km
-INTERVAL_S = 3.0  # Commons sent a 429 at one request a second (12 November 2026)
+INTERVAL_S = 3.0  # Commons rate-limits (HTTP 429) at one request a second
 MAX_UNCERTAINTY_M = 3000  # stops inferred more loosely than this get no photo search
 GEO_LIMIT = 30
 CATEGORY_LIMIT = 20
@@ -77,54 +71,25 @@ KIND_WORDS = {
     "wildlife": ["inaturalist", "fauna", "flora", "birds of", "insects", "reptiles", "mammals", "plants"],
     "building": ["church", "chapel", "cathedral", "mission", "building", "house", "architecture", "hacienda",
                  "school", "store", "street", "plaza", "monument", "museum", "station", "hotel", "interior",
-                 "temple", "templo", "iglesia", "bridge", "cemetery", "ruins", "archaeological", "facade", "courthouse", "post office"],
+                 "temple", "templo", "iglesia", "bridge", "cemetery", "ruins", "archaeological", "facade", "courthouse",
+                 "post office"],
     "landscape": ["landscape", "mountain", "sierra", "river", "río", "rio ", "valley", "desert", "canyon", "cañón",
                   "creek", "hills", "peak", "range", "panorama", "scenery", "nature", "vegetation", "grassland",
-                  "lake", "laguna", "arroyo", "mesa", "pass", "puerto", "playa", "views of", "forest", "wilderness", "sky island"],
+                  "lake", "laguna", "arroyo", "mesa", "pass", "puerto", "playa", "views of", "forest", "wilderness",
+                  "sky island"],
 }
 
 
-class Refused(Exception):
-    """An API refused or rate-limited a request; the run stops."""
+def _cache_name(url: str, params: dict) -> str:
+    return hashlib.sha1((url + "?" + urllib.parse.urlencode(sorted(params.items()))).encode()).hexdigest() + ".json"
 
 
-_last_request = 0.0
-_requests = 0
-_offline = False  # cache only: --dry-run, --offline, or after a refusal
-_missing = 0
-
-
-def fetch(url: str, params: dict) -> dict:
-    """GET a JSON API through the on-disk cache, one request every INTERVAL_S seconds."""
-    global _last_request, _requests, _missing
-    key = url + "?" + urllib.parse.urlencode(sorted(params.items()))
-    path = CACHE / (hashlib.sha1(key.encode()).hexdigest() + ".json")
-    if path.exists():
-        return json.loads(path.read_text(encoding="utf-8"))
-    if _offline:
-        _missing += 1
-        return {}
-    wait = INTERVAL_S - (time.monotonic() - _last_request)
-    if wait > 0:
-        time.sleep(wait)
-    req = urllib.request.Request(key, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            data = json.load(r)
-    except urllib.error.HTTPError as e:
-        raise Refused(f"HTTP {e.code} from {url} (Retry-After: {e.headers.get('Retry-After')})") from e
-    finally:
-        _last_request = time.monotonic()
-        _requests += 1
-    if "error" in data:  # MediaWiki errors, maxlag among them, come back as 200
-        raise Refused(f"{url}: {data['error'].get('code')}: {data['error'].get('info')}")
-    CACHE.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps({"request": key, "response": data}), encoding="utf-8")
-    return {"request": key, "response": data}
+client = CachedClient(CACHE / "photos", INTERVAL_S, _cache_name, envelope=True)
 
 
 def commons(params: dict) -> dict:
-    return fetch(COMMONS_API, {**params, "format": "json", "formatversion": "2", "maxlag": "5"}).get("response", {})
+    answer = client.get(COMMONS_API, {**params, "format": "json", "formatversion": "2", "maxlag": "5"})
+    return answer.get("response", {})
 
 
 # --- The places to search ---------------------------------------------------
@@ -147,8 +112,8 @@ class Unit:
 
 def units() -> tuple[list[Unit], list[tuple[str, str]]]:
     """Places and stops to search, and the skipped ones with the reason."""
-    places = json.loads((REPO / "data/places.geojson").read_text(encoding="utf-8"))["features"]
-    stops = json.loads((REPO / "data/stops.geojson").read_text(encoding="utf-8"))["features"]
+    places = json.loads((DATA / "places.geojson").read_text(encoding="utf-8"))["features"]
+    stops = json.loads((DATA / "stops.geojson").read_text(encoding="utf-8"))["features"]
     found: dict[str, Unit] = {}
     skipped: list[tuple[str, str]] = []
     for f in places:
@@ -182,9 +147,8 @@ def link_wikidata(us: list[Unit]) -> None:
 
     Read from the Wikidata entities the gazetteer already cached, with no
     request: the item is the unit's own Wikidata source id, or the one item
-    whose GeoNames id (P1566) or GNIS id (P590) is the unit's source id. The
-    Wikidata Query Service was rate-limiting during an outage when this was
-    written (12 November 2026), so it is not called.
+    whose GeoNames id (P1566) or GNIS id (P590) is the unit's source id, so
+    the Wikidata Query Service is never called.
     """
     def values(claims: dict, prop: str) -> list[str]:
         return [c["mainsnak"]["datavalue"]["value"] for c in claims.get(prop, []) if "datavalue" in c["mainsnak"]]
@@ -349,11 +313,24 @@ def row(u: Unit, i: int, ph: Photo) -> dict:
     }
 
 
+def keep_picks(rows: list[dict]) -> list[dict]:
+    """Copy the owner's picks from the CSV on disk onto the new rows; keep a picked row the search lost."""
+    if not OUT.exists():
+        return rows
+    picked = {(r["place_id"], r["file_title"]): r for r in csv.DictReader(OUT.open(encoding="utf-8")) if r["pick"]}
+    for r in rows:
+        if old := picked.pop((r["place_id"], r["file_title"]), None):
+            r["pick"] = old["pick"]
+    for r in picked.values():
+        print(f"  kept the pick for {r['place_id']}: {r['file_title']}, which the search no longer finds",
+              file=sys.stderr)
+    return rows + [{k: r.get(k, "") for k in COLUMNS} for r in picked.values()]
+
+
 def main(argv: list[str]) -> int:
     """Search, rank and write the CSV. After a refusal, finish from the cache only."""
-    global _offline
     dry_run = "--dry-run" in argv
-    _offline = dry_run or "--offline" in argv
+    client.offline = dry_run or "--offline" in argv
     us, skipped = units()
     print(f"{len(us)} places and stops to search, {len(skipped)} skipped "
           f"(story box {WEST} to {EAST}, {SOUTH} to {NORTH})")
@@ -361,15 +338,15 @@ def main(argv: list[str]) -> int:
     rows: list[dict] = []
     stats = {"with": 0, "without": [], "unsearched": [], "dropped": {}, "licences": {}, "allowed": 0}
     for u in us:
-        missing = _missing
+        missing = client.missing
         try:
             photos, dropped = candidates(u)
         except Refused as e:
-            print(f"Stopped asking at {u.id}: {e}. {_requests} requests made; the rest comes from the cache only.",
-                  file=sys.stderr)
-            _offline = True
+            print(f"Stopped asking at {u.id}: {e}. {client.requests} requests made; "
+                  "the rest comes from the cache only.", file=sys.stderr)
+            client.offline = True
             photos, dropped = candidates(u)
-        if _missing > missing:
+        if client.missing > missing:
             stats["unsearched"].append(u)
             continue
         for k, n in dropped.items():
@@ -385,18 +362,19 @@ def main(argv: list[str]) -> int:
             stats["licences"][r["licence"]] = stats["licences"].get(r["licence"], 0) + 1
             rows.append(r)
     if dry_run:
-        print(f"Dry run: {_missing} uncached requests for {len(stats['unsearched'])} places "
+        print(f"Dry run: {client.missing} uncached requests for {len(stats['unsearched'])} places "
               "(category and continuation requests may add a few)")
         return 0
+    rows = keep_picks(rows)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, COLUMNS)
         w.writeheader()
         w.writerows(rows)
-    print(f"{_requests} requests made. Wrote {len(rows)} candidates to {OUT.relative_to(REPO)}")
+    print(f"{client.requests} requests made. Wrote {len(rows)} candidates to {OUT.relative_to(REPO)}")
     print(f"Searched: {len(us) - len(stats['unsearched'])}; with candidates: {stats['with']}; "
           f"without: {len(stats['without'])}; not searched yet: {len(stats['unsearched'])} "
-          f"({_missing} uncached requests); allowed files seen: {stats['allowed']}")
+          f"({client.missing} uncached requests); allowed files seen: {stats['allowed']}")
     print(f"Linked to Wikidata: {sum(1 for u in us if u.qid)}; with P18: {sum(1 for u in us if u.p18)}; "
           f"with P373: {sum(1 for u in us if u.commons_cat)}")
     print("Dropped:", json.dumps(stats["dropped"], ensure_ascii=False))

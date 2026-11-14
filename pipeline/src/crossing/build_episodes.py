@@ -2,16 +2,16 @@
 
 Run from the repo root: uv run --project pipeline python -m crossing.build_episodes
 Publishes only each episode's opening words, as the plan's episode list does,
-and its length in words. Summaries are written by hand and kept on rebuild.
+and its length in words. Summaries and page ranges are written by hand and kept on rebuild.
 """
 
 import csv
 import json
-from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[3]
-SOURCE = REPO / "private" / "book" / "episodes.csv"
-OUT = REPO / "data" / "episodes.json"
+from crossing.paths import DATA, PRIVATE, REPO
+
+SOURCE = PRIVATE / "book" / "episodes.csv"
+OUT = DATA / "episodes.json"
 # Capitalised words that stay capitalised when an opening is put in sentence case.
 PROPER = {"billy", "boyd"}
 
@@ -26,17 +26,15 @@ def sentence_case(opening: str) -> str:
 
 
 def main() -> None:
-    summaries = {}
-    if OUT.exists():
-        summaries = {e["episode"]: e["summary"] for e in json.loads(OUT.read_text(encoding="utf-8"))}
+    kept = {e["episode"]: e for e in json.loads(OUT.read_text(encoding="utf-8"))} if OUT.exists() else {}
     episodes = [
         {
             "episode": r["episode"],
             "part": int(r["part"]),
             "opening": sentence_case(r["opening"]),
             "words": int(r["words"]),
-            "pages": None,
-            "summary": summaries.get(r["episode"], ""),
+            "pages": kept.get(r["episode"], {}).get("pages"),
+            "summary": kept.get(r["episode"], {}).get("summary", ""),
         }
         for r in csv.DictReader(SOURCE.open(encoding="utf-8"))
     ]
