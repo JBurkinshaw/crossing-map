@@ -18,6 +18,7 @@ const PLACES: { id: string; label: string; zoom: number; center: [number, number
   { id: 'bavispe', label: 'Río Bavispe and the Pilares', zoom: 9.5, center: [-109.1, 30.4] },
   { id: 'tigre', label: 'Sierra el Tigre', zoom: 10, center: [-109.3, 30.65] },
   { id: 'babicora', label: 'Mesas by the Babícora', zoom: 11, center: [-107.5, 29.23] },
+  { id: 'subset', label: 'Test area: bootheel and Bavispe', zoom: 10, center: [-109.0, 31.05] },
 ]
 
 const PAPERS: { id: Paper; label: string }[] = [
@@ -32,6 +33,7 @@ const TOGGLES: { id: Exclude<Param, 'contrast' | 'paper'>; label: string }[] = [
   { id: 'landforms', label: 'Landform names along axis' },
   { id: 'taper', label: 'Drainage by rank' },
   { id: 'darkInk', label: 'Hachures in brown-black' },
+  { id: 'type', label: 'Type hierarchy (test area)' },
 ]
 
 const PARAM_LABEL: Record<Param, string> = {
@@ -42,6 +44,7 @@ const PARAM_LABEL: Record<Param, string> = {
   darkInk: 'Hachures in brown-black',
   taper: 'Drainage by rank',
   paper: 'Paper',
+  type: 'Type hierarchy (test area)',
 }
 
 export default function WheelerLab() {
