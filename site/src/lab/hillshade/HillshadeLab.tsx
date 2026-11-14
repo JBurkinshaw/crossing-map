@@ -128,6 +128,7 @@ export default function HillshadeLab() {
               <option value="site">As the site: Imhof blue zoomed out, grey zoomed in</option>
               <option value="imhof">Imhof blue and warm light at every zoom</option>
               <option value="grey">Neutral grey at every zoom</option>
+              <option value="maptiler">MapTiler Topo's grey, warm grey and yellow</option>
             </select>
           </label>
         </fieldset>
