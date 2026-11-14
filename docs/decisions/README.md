@@ -30,7 +30,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0013 Running the hachure script unmodified | superseded by 0015 |
 | 0014 The relief treatment | superseded by 0016 |
 | 0015 A vendored hachure generator | accepted |
-| 0016 The relief style (S5) | accepted; paper and hachure ink amended by 0022 |
+| 0016 The relief style (S5) | accepted; paper and hachure ink amended by 0022, hillshade by 0025 |
 | 0017 Views of the literary map | accepted; Raised area superseded by 0018 and 0019 |
 | 0018 Raised over the first two journeys | accepted; area and archive size superseded by 0019 |
 | 0019 Raised over every journey | accepted |
@@ -38,6 +38,8 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0021 Least-cost routes for the sierra and valley legs | accepted |
 | 0022 Paper, ink and lettering after the Wheeler Survey sheets | accepted |
 | 0023 Landform names along computed axes | proposed |
+| 0025 A MapTiler-like hillshade | accepted |
+| 0026 Vignettes beside their pins | accepted |
 
 ## Template
 

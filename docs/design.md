@@ -327,8 +327,8 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 
 **Placement rules**
 
-- Each vignette has an anchor, a zoom range (`min_zoom`, `max_zoom`), and a `priority`. Symbol collision and `symbol-sort-key` keep at most one per screen region, about 3–6 in view at any zoom.
-- A vignette never sits on a stop marker or a label. Its anchor is offset into empty country, with a hairline leader only when the thing is a real site.
+- Each vignette stands on the stop or place it is for, with a `side`, a zoom range (`min_zoom`, `max_zoom`), and a `priority` (decision 0026).
+- The drawing is set beside its pin on that side, a fixed gap away on screen, so it never covers the marker; no leader lines. Place labels draw over it, and its own label gives way. The key says its position is approximate.
 - Vignettes belong to the classic map only.
 - Spoiler mode hides those first seen after the reader's progress.
 

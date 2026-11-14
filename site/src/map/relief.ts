@@ -149,42 +149,70 @@ function landformLabel(p: Palette): LayerSpecification {
   }
 }
 
-// Vignettes (design section 10): drawings of the book's creatures, buildings and objects, each in empty country near
-// what it stands for, from data/vignettes.geojson and the vignette-<id> drawings in the sprite, each
-// with its short italic label under it.
-// Each shows only in its own zoom range, which keeps them a few to a screen; symbol collision places the lowest
-// `priority` first, and the labels above them win any overlap. A located site (a ruin, a hacienda) also gets a
-// hairline leader from the drawing to the site; the leader still draws if its drawing loses a collision.
-// Both layers are in PROGRESS_LAYERS (spoiler/filter.ts), so each vignette shows from its own first_seen.
+// Vignettes (design section 10): drawings of the book's creatures, buildings and objects, from data/vignettes.geojson
+// and the vignette-<id> drawings in the sprite, each with its short italic label under it. Each point is on the thing
+// the drawing stands for, and the drawing is set beside it on its `side`, a fixed gap away in screen space, so it
+// sits next to its pin at every zoom and never covers it. Each shows only in its own zoom range; its caption gives way
+// to other labels, the lowest `priority` placed first. The layer is in PROGRESS_LAYERS
+// (spoiler/filter.ts), so each vignette shows from its own first_seen.
+const VIGNETTE_HALF = 48 // half the 96 px drawing grid
+const VIGNETTE_GAP = 16 // between the pin and the drawing's nearest edge, in drawing pixels
+const VIGNETTE_SIZE: [number, number][] = [[6, 0.4], [9, 0.55], [12, 0.7]] // zoom, icon-size
+const VIGNETTE_TEXT: [number, number][] = [[6, 11], [9, 11.8], [12, 13]] // zoom, text-size
+// Each side: the icon anchor that puts the drawing on that side of the point, and the unit step towards it.
+const SIDES: Record<string, { anchor: string; dx: number; dy: number }> = {
+  n: { anchor: 'bottom', dx: 0, dy: -1 },
+  ne: { anchor: 'bottom-left', dx: Math.SQRT1_2, dy: -Math.SQRT1_2 },
+  e: { anchor: 'left', dx: 1, dy: 0 },
+  se: { anchor: 'top-left', dx: Math.SQRT1_2, dy: Math.SQRT1_2 },
+  s: { anchor: 'top', dx: 0, dy: 1 },
+  sw: { anchor: 'top-right', dx: -Math.SQRT1_2, dy: Math.SQRT1_2 },
+  w: { anchor: 'right', dx: -1, dy: 0 },
+  nw: { anchor: 'bottom-right', dx: -Math.SQRT1_2, dy: -Math.SQRT1_2 },
+}
+const bySide = (f: (side: { anchor: string; dx: number; dy: number }) => unknown, fallback: unknown): ExpressionSpecification =>
+  ['match', ['get', 'side'], ...Object.entries(SIDES).flatMap(([k, v]) => [k, f(v)]), fallback] as unknown as ExpressionSpecification
+
 function vignettes(p: Palette): LayerSpecification[] {
-  const inRange = (kind: string): ExpressionSpecification => ['all', ['==', ['get', 'kind'], kind],
-    ['>=', ['zoom'], ['get', 'min_zoom']], ['<', ['zoom'], ['get', 'max_zoom']]]
+  // A diagonal side moves the drawing's corner, not its middle, off the pin, so its centre is a half-drawing further
+  // out along each axis; a straight side moves its middle edge.
+  const centre = (v: { dx: number; dy: number }, size: number): [number, number] => {
+    const diagonal = v.dx !== 0 && v.dy !== 0
+    const reach = (d: number) => (d === 0 ? 0 : Math.sign(d) * (VIGNETTE_HALF + (diagonal ? VIGNETTE_GAP * Math.SQRT1_2 : VIGNETTE_GAP)))
+    return [reach(v.dx) * size, reach(v.dy) * size]
+  }
+  // The label's top sits just under the drawing: its centre, plus half a drawing and 2 px, in ems of the label.
+  const labelOffset = VIGNETTE_SIZE.flatMap(([z, size], k) => {
+    const text = VIGNETTE_TEXT[k][1]
+    return [z, bySide((v) => {
+      const [x, y] = centre(v, size)
+      return ['literal', [x / text, (y + VIGNETTE_HALF * size + 2) / text]]
+    }, ['literal', [0, (VIGNETTE_HALF * size + 2) / text]])]
+  })
   return [
-    {
-      id: 'vignette-leader',
-      type: 'line',
-      source: 'vignettes',
-      filter: inRange('vignette-leader'),
-      layout: { 'line-cap': 'round' },
-      paint: { 'line-color': p.ink, 'line-width': 0.6, 'line-opacity': 0.6 },
-    },
     {
       id: 'vignette',
       type: 'symbol',
       source: 'vignettes',
-      filter: inRange('vignette'),
+      filter: ['all', ['==', ['get', 'kind'], 'vignette'], ['>=', ['zoom'], ['get', 'min_zoom']], ['<', ['zoom'], ['get', 'max_zoom']]],
       layout: {
         'icon-image': ['get', 'vignette'],
         // Drawn on a 96 px grid: about 38 px across at zoom 6, 53 px at 9 and 67 px from 12.
-        'icon-size': ['interpolate', ['linear'], ['zoom'], 6, 0.4, 9, 0.55, 12, 0.7],
+        'icon-size': ['interpolate', ['linear'], ['zoom'], ...VIGNETTE_SIZE.flat()] as ExpressionSpecification,
+        'icon-anchor': bySide((v) => v.anchor, 'center'),
+        // In drawing pixels (scaled by icon-size): the gap between the pin and the drawing, along its side.
+        'icon-offset': bySide((v) => ['literal', [v.dx * VIGNETTE_GAP, v.dy * VIGNETTE_GAP]], ['literal', [0, 0]]),
         'icon-padding': 4,
+        // Next to a town the place labels would otherwise push the drawing off the map; it may sit under them (they
+        // draw on top), so every drawing shows in its zoom range.
+        'icon-allow-overlap': true,
         'symbol-sort-key': ['get', 'priority'],
         // The caption sits under the drawing; it is optional, so a drawing still shows when its label collides.
         'text-field': ['get', 'label'],
         'text-font': [fonts.italic],
-        'text-size': ['interpolate', ['linear'], ['zoom'], 7, 11, 12, 13],
+        'text-size': ['interpolate', ['linear'], ['zoom'], ...VIGNETTE_TEXT.flat()] as ExpressionSpecification,
         'text-anchor': 'top',
-        'text-offset': ['interpolate', ['linear'], ['zoom'], 7, ['literal', [0, 1.9]], 12, ['literal', [0, 2.8]]],
+        'text-offset': ['interpolate', ['linear'], ['zoom'], ...labelOffset] as ExpressionSpecification,
         'text-max-width': 9,
         'text-optional': true,
       },
@@ -198,8 +226,8 @@ function vignettes(p: Palette): LayerSpecification[] {
 // and hachures draw.
 const S5_SPLIT = 10
 
-// The hillshade: one light, its colours fading over `fade` from the palette's chromatic Imhof shade (shadeLow)
-// below to a light grey (shadeHigh) above. The lab's Hillshade section (site/lab.html) edits a superset of these
+// The hillshade: one light, its colours fading over `fade` from the palette's shadeLow below to its shadeHigh
+// above (today both are MapTiler Topo's colours, so only the strength fades). The lab's Hillshade section (site/lab.html) edits a superset of these
 // settings; its "Copy settings" output pastes over HILLSHADE.
 export type ShadeSide = { exaggeration: number; shadow: number; highlight: number }
 export type Hillshade = {
@@ -214,14 +242,15 @@ export type Hillshade = {
   // The zooms over which the low look (tint, chromatic shade) gives way to the high one (paper, grey shade).
   fade: [number, number]
 }
-// The lab's "Pronounced" preset (review/stage-8/lab-hillshade/): S5's method and colours, a lower sun and about
-// twice S5's shadow above the fade, so ranges read at zoom 10-13 as they do on MapTiler Topo.
+// The lab's "MapTiler-like" preset (review/stage-8/lab-hillshade/; decision 0025): MapTiler Topo's own hillshade,
+// the standard method with light from 335 degrees and opaque shade colours (tokens.ts). Stronger on our paper than
+// on their white.
 export const HILLSHADE: Hillshade = {
-  method: 'combined',
-  direction: 315,
+  method: 'standard',
+  direction: 335,
   altitude: 35,
-  low: { exaggeration: 0.75, shadow: 0.6, highlight: 0.4 },
-  high: { exaggeration: 0.7, shadow: 0.45, highlight: 0.35 },
+  low: { exaggeration: 0.45, shadow: 1, highlight: 1 },
+  high: { exaggeration: 0.45, shadow: 1, highlight: 1 },
   fade: [9, 10],
 }
 

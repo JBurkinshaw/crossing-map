@@ -14,7 +14,7 @@ export type Palette = {
   routeBilly: string
   routeBoyd: string
   routeGirl: string
-  // Relief (decision 0016, S5). Below zoom 10: an Imhof tint by elevation (metres, colour) and a chromatic
+  // Relief (decisions 0016 and 0025). Below zoom 10: an Imhof tint by elevation (metres, colour) and a MapTiler-like
   // hillshade. From zoom 10: a plain paper by elevation, laid over the paper at 70%, and a light grey hillshade.
   imhof: [number, string][]
   reliefPaper: [string, string]
@@ -46,9 +46,10 @@ export const palette: Palette = {
     [2700, '#d8bfa8'], [3200, '#e9e0d6']],
   reliefPaper: ['#f8f0d8', '#f4ead0'],
   paperShown: '#f5edd3',
-  // Imhof: blue-violet shadows and warm light; above the split, a light swisstopo grey.
-  shadeLow: { shadow: 'rgba(74, 88, 128, 0.5)', highlight: 'rgba(255, 240, 192, 0.35)', accent: 'rgba(74, 88, 128, 0.12)' },
-  shadeHigh: { shadow: 'rgba(74, 79, 92, 0.22)', highlight: 'rgba(255, 255, 255, 0.3)', accent: 'rgba(74, 79, 92, 0.05)' },
+  // MapTiler Topo's hillshade colours (its topo-v4 style: hsl(0, 0%, 50%), hsl(51, 12%, 83%), hsl(51, 67%, 56%)),
+  // the same either side of the zoom fade (decision 0025).
+  shadeLow: { shadow: 'rgba(128, 128, 128, 1)', highlight: 'rgba(217, 214, 206, 1)', accent: 'rgba(218, 193, 68, 1)' },
+  shadeHigh: { shadow: 'rgba(128, 128, 128, 1)', highlight: 'rgba(217, 214, 206, 1)', accent: 'rgba(218, 193, 68, 1)' },
   // Wheeler's brown-black (his darkest ink, #110600 to #221802, lifted a little for the screen).
   hachure: '#2e2010',
   contour: '#b0622e',

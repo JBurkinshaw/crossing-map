@@ -176,6 +176,7 @@
         "vignette": {"type": ["string", "null"], "description": "Vignettes: the drawing's name in the map sprite."},
         "stands_for": {"type": "string", "description": "Vignettes: what the drawing stands for in the book."},
         "label": {"type": "string", "description": "Vignettes: the short caption drawn under the drawing."},
+        "side": {"enum": ["n", "ne", "e", "se", "s", "sw", "w", "nw"], "description": "Vignettes: the side of the point the drawing is drawn on, beside the pin rather than on it."},
         "credit": {"type": "string", "description": "Vignettes: how the drawing was made and from what sources, with their licences."},
         "min_zoom": {
           "type": "number",

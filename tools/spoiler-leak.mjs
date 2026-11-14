@@ -306,14 +306,14 @@ for (const point of POINTS) {
     for (const [name, fs] of shown) if (fs > reached && fs > '1-01') leak(where, `landform name ${name} first seen ${fs}`)
   }
 
-  // Vignettes drawn later than this point: go to each, inside its zoom range, and look for it and its leader.
+  // Vignettes drawn later than this point: go to each, inside its zoom range, and look for it.
   for (const v of vignettes.filter((f) => f.properties.first_seen > reached)) {
     // Leader lines are LineStrings: go to where they start.
     const [lon, lat] = v.geometry.type === 'Point' ? v.geometry.coordinates : v.geometry.coordinates[0]
     const zoom = Math.max(v.properties.min_zoom, Math.min(9, v.properties.max_zoom - 0.5))
     await page.evaluate(([lo, la, z]) => window.__map.jumpTo({ center: [lo, la], zoom: z }), [lon, lat, zoom])
     await idle(page)
-    const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['vignette', 'vignette-leader'].filter((id) => window.__map.getLayer(id)) })
+    const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['vignette'].filter((id) => window.__map.getLayer(id)) })
       .map((f) => [f.properties.name, f.properties.first_seen]))
     for (const [name, fs] of shown) if (fs > reached) leak(where, `vignette ${name} first seen ${fs}`)
   }

@@ -247,7 +247,7 @@ export function LayerKey({ story, journey, reached }: Props) {
             <ul>
               <li data-first-seen={vignette.first_seen}>
                 <Icon name={vignette.vignette} sprite={sprite} scale={VIGNETTE_SCALE} />
-                A scene from the book, near where it happens; a fine line may lead to the place
+                A scene from the book, drawn beside where it happens: its position is approximate, not exact
               </li>
             </ul>
           </>

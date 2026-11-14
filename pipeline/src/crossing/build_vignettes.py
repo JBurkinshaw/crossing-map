@@ -1,27 +1,21 @@
-"""Build the vignette anchors (plan section 10) from pipeline/seeds/vignettes.csv.
+"""Build the vignette anchors (design section 10) from pipeline/seeds/vignettes.csv.
 
 Run from the repo root, after crossing.build_story: uv run --project pipeline python -m crossing.build_vignettes
 Reads the seed and data/stops.geojson and data/places.geojson (each vignette's `ref` is a stop or place id).
-Writes data/vignettes.geojson: one Point per vignette, at its anchor in empty country near the thing it stands
-for, and a hairline leader (a LineString, kind `vignette-leader`) from the anchor to the thing itself where the
-seed asks for one, which it does only for real, located sites.
-
-Each anchor's reasoning gets its distance and bearing from the thing it stands for and its distance from the
-nearest stop or place, measured on the WGS 84 ellipsoid with pyproj. An anchor closer than CLEAR_KM to any stop
-or place stops the build: at zoom 9 that is about 30 px, under half a drawing's width.
+Writes data/vignettes.geojson: one Point per vignette, on the thing it stands for, with the `side` the map draws
+the drawing on (site/src/map/relief.ts), so it sits beside its pin at every zoom and never covers it. A seed row
+with its own lon and lat stands for a place that is not one of the book's stops or places (the Trinity Site).
 """
 
 import csv
 import json
 
-from pyproj import Geod
-
 from crossing.build_story import r5, write
 from crossing.paths import DATA, SEEDS
 
 SEED = SEEDS / "vignettes.csv"
-GEOD = Geod(ellps="WGS84")
-CLEAR_KM = 8
+SIDES = {"n": "north", "ne": "north-east", "e": "east", "se": "south-east", "s": "south", "sw": "south-west",
+         "w": "west", "nw": "north-west"}
 
 
 def main() -> None:
@@ -30,39 +24,31 @@ def main() -> None:
         for f in json.loads((DATA / f"{name}.geojson").read_text(encoding="utf-8"))["features"]:
             points[f["properties"]["id"]] = (f["properties"]["name"], *f["geometry"]["coordinates"])
 
-    features, problems = [], []
+    features = []
     with SEED.open(encoding="utf-8", newline="") as f:
         seeds = list(csv.DictReader(f))
     for s in seeds:
-        lon, lat = float(s["lon"]), float(s["lat"])
-        ref_name, ref_lon, ref_lat = points[s["ref"]]
-        azimuth, _, dist = GEOD.inv(ref_lon, ref_lat, lon, lat)
-        nearest = min(((GEOD.inv(x, y, lon, lat)[2], n) for n, x, y in points.values()))
-        if nearest[0] < CLEAR_KM * 1000:
-            problems.append(f"{s['id']}: {nearest[0] / 1000:.1f} km from {nearest[1]}, under {CLEAR_KM} km")
-        measured = (f" The anchor is {dist / 1000:.0f} km from {ref_name}, bearing {azimuth % 360:.0f} degrees; "
-                    f"the nearest stop or place, {nearest[1]}, is {nearest[0] / 1000:.0f} km away (pyproj, WGS 84).")
+        ref_name, lon, lat = points[s["ref"]]
+        if s["lon"]:
+            lon, lat = float(s["lon"]), float(s["lat"])
+            where = "its own place"
+        else:
+            where = ref_name
+        placed = (f"The drawing is set on the {SIDES[s['side']]} side of {where}, beside the pin rather than on it; "
+                  "it is not to scale, and it shows roughly where the scene happens, not exactly.")
         props = dict(
             id=f"vignette-{s['id']}", name=s["name"], kind="vignette", stands_for=s["stands_for"], place_ref=s["ref"],
             part=int(s["first_seen"][0]), episode=s["first_seen"], first_seen=s["first_seen"],
             certainty="approximate", method="hand-drawn", source="this-site", source_id=None,
             source_licence="CC BY 4.0",
-            note_safe=s["note"], reasoning=s["reasoning"] + measured,
-            vignette=f"vignette-{s['id']}", min_zoom=float(s["min_zoom"]), max_zoom=float(s["max_zoom"]),
-            priority=int(s["priority"]), label=s["label"], credit=s["credit"],
+            note_safe=s["note"], reasoning=" ".join(x for x in (s["reasoning"], placed) if x),
+            vignette=f"vignette-{s['id']}", side=s["side"], min_zoom=float(s["min_zoom"]),
+            max_zoom=float(s["max_zoom"]), priority=int(s["priority"]), label=s["label"], credit=s["credit"],
         )
-        point = {"type": "Point", "coordinates": [r5(lon), r5(lat)]}
-        features.append({"type": "Feature", "geometry": point, "properties": props})
-        if s["leader"] == "yes":
-            leader = {k: v for k, v in props.items() if k not in ("label", "credit")} | {
-                "id": f"vignette-{s['id']}-leader", "kind": "vignette-leader",
-                "reasoning": f"A hairline from the drawing to {ref_name}, a located site."}
-            features.append({"type": "Feature", "properties": leader, "geometry": {
-                "type": "LineString", "coordinates": [[r5(lon), r5(lat)], [r5(ref_lon), r5(ref_lat)]]}})
-    if problems:
-        raise SystemExit("Anchors too close to a stop or place:\n  " + "\n  ".join(problems))
+        features.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [r5(lon), r5(lat)]},
+                         "properties": props})
     write("vignettes.geojson", features)
-    print(f"{len(seeds)} vignettes, {len(features) - len(seeds)} leaders")
+    print(f"{len(features)} vignettes")
 
 
 if __name__ == "__main__":
