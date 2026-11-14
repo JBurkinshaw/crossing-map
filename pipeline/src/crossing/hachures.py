@@ -3,6 +3,8 @@
 Run from the repo root, with QGIS_ENV set to the QGIS 4 environment:
     QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures \
         [--scale fine|coarse|dense|all] [--jobs 4]
+or, for the Wheeler test build of one box (crossing.wheeler_hachures; never writes to the production cache):
+    ... python -m crossing.hachures --style wheeler --bbox W S E N --out private/cache/relief/wheeler-test
 
 Three scales, each with absolute settings so that tiles match where they meet:
   fine    30 m DEM, inside the journeys corridor (journeys buffered CORRIDOR_HALF_M each side),
@@ -257,10 +259,23 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--scale", choices=[*SCALES, "all"], default="all")
     ap.add_argument("--jobs", type=int, default=4)
+    # The Wheeler test build (crossing.wheeler_hachures): one box, into its own folder. The default runs production.
+    ap.add_argument("--style", choices=["production", "wheeler"], default="production")
+    ap.add_argument("--bbox", type=float, nargs=4, metavar=("W", "S", "E", "N"), help="degrees; --style wheeler only")
+    ap.add_argument("--out", type=Path, help="output folder; --style wheeler only")
     a = ap.parse_args()
     if "QGIS_ENV" not in os.environ:
         sys.exit("Set QGIS_ENV to the QGIS 4 environment (the folder holding bin/python3.N).")
     qgis_env = Path(os.environ["QGIS_ENV"])
+    if a.style == "wheeler":
+        from crossing import wheeler_hachures  # imports this module, so it is loaded only when asked for
+
+        if not a.bbox or not a.out:
+            ap.error("--style wheeler needs --bbox and --out")
+        if a.out.resolve().is_relative_to(OUT.resolve()):
+            ap.error(f"--out must not be inside the production cache, {OUT.relative_to(REPO)}")
+        wheeler_hachures.build(tuple(a.bbox), a.out, a.jobs, qgis_env)
+        return
 
     cover = coverage()
     # Lines within two cells of the DEM's edge come from filled ground, so they are dropped.
