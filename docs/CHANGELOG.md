@@ -11,14 +11,24 @@ Data releases are dated. Tile releases are named by the tag in `tiles/release.tx
 - Veracruz added to the places named elsewhere (3-01), read as the state, as Bell (2000) reads it.
 - A GeoParquet copy of `vignettes`.
 - The wolf's crossing of the Río Bavispe moved 1.7 km east, onto the river's real channel.
+- The J5 camp at the edge of the Babícora lake moved 1.4 km onto the lake's north-west shore, as INEGI outlines it; it stood in the water.
 
 ### Tiles
 
+- `tiles-v8`: small streams on both sides of the border by one rule. Each stream appears from a zoom set by its Strahler order, widens with order, and intermittent streams are lighter rather than dashed, so drainage is as dense south of Colonia Morelos as north of it. Creek names show from zoom 11. River names show again: they follow a smoothed copy of each river, and minor rivers are named too. NHD's stream orders no longer climb along braided channels and ditches.
 - `tiles-v7`: every named river is now traced through INEGI's 1:50,000 network in Mexico and the USGS NHD in the US, keeping to each river's main stem, so the lines follow their valleys instead of Natural Earth's generalised courses. The Raised view now draws the main stems of wide rivers, such as the Bavispe, which were missing.
 
 ### Site
 
 - Each translation has a "Suggest a better translation" link that opens a prefilled GitHub issue.
+- The map's controls are one framed set: Map (Classic, Compare, Satellite, Topo), View (Flat, Tilted, Raised), Ground (Paper or Satellite tint, formerly Land colour) and Units (Imperial or Metric). Compare sits between Classic and Satellite and works in Flat and Tilted. On phones the controls fold behind one button.
+- The key is inside the title cartouche, folded until opened, and shows the railroad.
+- The overview inset says what it shows ("Where you are") and draws the current view as a proper box.
+- The Home button is named "Show the whole journey".
+- The panel runs: reading progress, search, journey, Back and Next, all stops, then the card. "How this was placed" stays open or closed as the reader left it.
+- Clicking a route or a stop on the map goes to that stop, staying in the current journey when it passes there.
+- The lines spoken on a road have their own block and open the road's card, grouped by episode when they span several.
+- The hillshade is more pronounced.
 
 ## 2026-11-13
 

@@ -3195,8 +3195,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -107.85881,
-     29.42853
+     -107.87276,
+     29.43201
     ]
    },
    "properties": {
@@ -3220,7 +3220,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They ride on west into the dark and camp at the edge of the lake. The circle is on the north-west shore of the Babícora lake (GeoNames 4017246), on the way to Las Varas."
+    "reasoning": "They ride on west into the dark and camp at the edge of the lake. The point is on the north-west shore of the Babícora lake (GeoNames 4017246), on INEGI's outline of it, on the way to Las Varas."
    }
   },
   {
