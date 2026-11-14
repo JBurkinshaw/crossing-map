@@ -1,2 +1,4 @@
-journey,from_seq,shapefile,feature_name,reasoning
-J1,4,private/cache/hydro/nhd/NHD_H_13030201_HU8_Shape/Shape/NHDFlowline.shp,Whitewater Creek,"The book says she followed Whitewater Creek west from the border toward the San Luis Mountains. The path follows the USGS NHD course of the creek (HU8 13030201) between the two stops."
+journey,from_seq,source,shapefile,feature_name,reasoning
+J1,4,nhd,private/cache/hydro/nhd/NHD_H_13030201_HU8_Shape/Shape/NHDFlowline.shp,Whitewater Creek,"The book says she followed Whitewater Creek west from the border toward the San Luis Mountains. The path follows the USGS NHD course of the creek (HU8 13030201) between the two stops."
+J2,1,tiger-road,private/cache/roads/tiger/tl_2023_35023_roads.zip,Cloverdale Rd C001;Co Rd C001;Co Rd C106,"From Cloverdale at first light Billy turns up the Cloverdale Creek road, the sun rising behind him, so west, up the creek. The route follows that road in Census TIGER 2023 (Hidalgo County), where its stretches are Cloverdale Rd C001, Co Rd C001 and Co Rd C106."
+J2,2,tiger-road,private/cache/roads/tiger/tl_2023_35023_roads.zip,Cloverdale Rd C001;Co Rd C001;Co Rd C106,"He leads the wolf back down the same road for an hour to the crossfence. The route follows the creek road in Census TIGER 2023 (Hidalgo County)."
