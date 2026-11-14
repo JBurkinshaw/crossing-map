@@ -1,4 +1,4 @@
-import type { LayerSpecification, StyleSpecification } from 'maplibre-gl'
+import type { ExpressionSpecification, LayerSpecification, StyleSpecification } from 'maplibre-gl'
 import { reliefLayers, reliefSources } from './relief'
 import { fonts, palette as tokens, SPRITE } from './tokens'
 import type { Units } from '../units'
@@ -8,8 +8,36 @@ export const BASE_LAYERS = [
   'paper', 'mexico', 'lake', 'county-line', 'state-line', 'creek', 'river-minor', 'river',
   'road', 'railroad', 'railroad-ties', 'creek-label', 'river-label',
   'relief-tint', 'relief-paper', 'hillshade', 'contour', 'contour-label', 'hachure-coarse', 'hachure-coarse-copy', 'hachure-fine', 'hachure-fine-copy', 'hachure-dense', 'hachure-dense-copy',
-  'mountain-glyph', 'vignette-leader', 'vignette',
+  'mountain-glyph', 'vignette-leader', 'vignette', 'state-label',
 ]
+
+// State names (tiles/state_labels.py): points placed where the lettering clears the story, each shown between its
+// min_zoom and max_zoom: one per state zoomed out, a few spread over it closer in. Small capitals, widely spaced
+// and faint, from zoom 5, fading out by 8.5. The size and spacing here are the ones tiles/state_labels.py measures with.
+const STATE_ZOOMS = [5, 5.5, 6, 6.5, 7, 7.5, 8]
+const stateName = (zoom: number): ExpressionSpecification =>
+  ['case', ['all', ['<=', ['get', 'min_zoom'], zoom], ['>', ['get', 'max_zoom'], zoom]], ['get', 'name'], '']
+const stateLabel = (source: string): LayerSpecification => ({
+  id: 'state-label',
+  type: 'symbol',
+  source,
+  minzoom: 5,
+  maxzoom: 8.5,
+  layout: {
+    'text-field': ['step', ['zoom'], stateName(5), ...STATE_ZOOMS.slice(1).flatMap((z) => [z, stateName(z)])] as ExpressionSpecification,
+    'text-font': [fonts.smallCaps],
+    'text-size': ['interpolate', ['linear'], ['zoom'], 5, 12, 8, 16],
+    'text-letter-spacing': 0.6,
+    'text-max-width': 40,
+    'text-padding': 4,
+  },
+  paint: {
+    'text-color': tokens.ink,
+    'text-opacity': ['interpolate', ['linear'], ['zoom'], 7.5, 0.55, 8.5, 0],
+    'text-halo-color': tokens.paper,
+    'text-halo-width': 1,
+  },
+})
 
 // The literary basemap (docs/plan.md, section 5.1): ink on caliche paper, the
 // Mexico side a shade darker, rivers in blue-grey ink, and a dash-dot
@@ -154,6 +182,8 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
   layers.splice(at('creek-label'), 0, ...r.glyphs, ...r.vignettes)
   layers.splice(at('county-line'), 0, ...r.hachures)
   layers.splice(at('lake'), 0, ...r.hillshade)
+  // Last of the base, so the story's labels (added above it) win any collision.
+  layers.push(stateLabel('state-labels'))
   return {
     version: 8,
     glyphs: `${fontsBase}{fontstack}/{range}.pbf`,
@@ -161,6 +191,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
     sources: {
       [base]: { type: 'vector', url: `pmtiles://${tilesBase}base.pmtiles` },
       ...reliefSources(tilesBase, dataBase),
+      'state-labels': { type: 'geojson', data: `${tilesBase.replace(/tiles\/$/, '')}labels/states.geojson` },
     },
     layers,
   }

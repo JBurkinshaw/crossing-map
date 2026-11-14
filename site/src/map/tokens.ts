@@ -57,6 +57,7 @@ export const palette: Palette = {
 export const fonts = {
   roman: 'IMFeENrm28P',
   italic: 'IMFeENit28P',
+  smallCaps: 'IMFeENsc28P',
 } as const
 
 // Route ink by journey, after its central figure (plan 5.1): the wolf in slate, Billy in oxblood (J2 with the wolf
