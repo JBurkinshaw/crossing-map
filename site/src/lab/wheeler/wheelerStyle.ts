@@ -7,6 +7,7 @@ import { riverLines } from './riverLines'
 import { addPlaces, PLACES_OFF, PLACES_ON, type PlacesParams } from './subset/places'
 import { historicRoads } from './subset/roads'
 import { addTypeHierarchy } from './subset/type'
+import { subsetHachures } from './subset/hachures'
 
 // The Wheeler study's parameters (review/stage-8/wheeler/README.md). Each one, at its "today" value, leaves the
 // classic style exactly as the site draws it, so the lab can show the map before and after one change at a time.
@@ -32,10 +33,12 @@ export type Params = {
   roads: boolean
   // Wheeler card "type": the shared type scale in three faces, in the test area only (subset/type.ts).
   type: boolean
+  // Test area: the Wheeler hachure build (subset/hachures.ts) in place of the site's hachures inside the box.
+  subsetHachures: boolean
 }
 
-export const TODAY: Params = { water: false, spotHeights: false, landforms: false, contrast: 0, darkInk: false, taper: false, paper: 'today', tilted: false, places: PLACES_OFF, roads: false, type: false }
-export const WHEELER: Params = { water: true, spotHeights: true, landforms: true, contrast: 1, darkInk: true, taper: true, paper: 'cream', tilted: false, places: PLACES_ON, roads: true, type: true }
+export const TODAY: Params = { water: false, spotHeights: false, landforms: false, contrast: 0, darkInk: false, taper: false, paper: 'today', tilted: false, places: PLACES_OFF, roads: false, type: false, subsetHachures: false }
+export const WHEELER: Params = { water: true, spotHeights: true, landforms: true, contrast: 1, darkInk: true, taper: true, paper: 'cream', tilted: false, places: PLACES_ON, roads: true, type: true, subsetHachures: false }
 
 // The two papers measured on the sheets (median of the blank ground inside the neatline, review README): sheet 70A's
 // cream under-tint and sheet 83's light grey one, each a little darkened so the sepia hachures still read on screen.
@@ -248,6 +251,7 @@ export function wheelerStyle(p: Params): StyleSpecification {
     ...(p.tilted ? { terrain: { source: 'terrain3d', exaggeration: TERRAIN_EXAGGERATION } } : {}),
     layers,
   }
-  const typed = p.type ? addTypeHierarchy(style, halo) : style
+  const hachured = p.subsetHachures ? subsetHachures(style) : style
+  const typed = p.type ? addTypeHierarchy(hachured, halo) : hachured
   return addPlaces(p.roads ? historicRoads(typed, halo, palette.ink) : typed, p.places, halo)
 }
