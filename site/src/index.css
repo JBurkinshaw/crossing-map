@@ -483,6 +483,22 @@ select {
   background: var(--ink);
 }
 
+/* Compare: a narrow icon button between the two maps it compares. */
+.basemap-switch button[data-narrow] {
+  display: grid;
+  place-items: center;
+  padding: 4px 6px;
+  border-left: 1px solid var(--ink-faint);
+  border-right: 1px solid var(--ink-faint);
+}
+
+/* In compare mode the two maps compared are half chosen: a light ink wash with an ink rule under the word,
+   so they read as part of the choice but stay lighter than the Compare button, which is on. */
+.basemap-switch button[data-paired] {
+  background: color-mix(in srgb, var(--ink) 14%, transparent);
+  box-shadow: inset 0 -3px 0 var(--ink);
+}
+
 .basemap-switch button:disabled {
   opacity: 0.4;
   cursor: default;

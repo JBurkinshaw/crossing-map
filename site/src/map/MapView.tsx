@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type RefObject } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from 'react'
 import * as maplibregl from 'maplibre-gl'
 import type { IControl, LayerSpecification } from 'maplibre-gl'
 import { AttributionControl, Map, NavigationControl, ScaleControl, useControl, type MapRef } from '@vis.gl/react-maplibre'
@@ -45,12 +45,28 @@ const literary = (units: Units = 'metric') => literaryStyle(tilesBase, fontsBase
 const RAISED_GROUPS = raisedLayers(literary().layers, palette)
 
 type Basemap = 'literary' | 'satellite' | 'topo' | 'compare'
-const BASEMAPS: { id: Basemap; label: string; title?: string }[] = [
+// Compare sits between the two maps it compares, as a narrow button with a split-frame icon.
+const COMPARE_ICON = (
+  <svg viewBox="0 0 18 14" width="18" height="14" aria-hidden="true">
+    <rect x="1" y="1" width="16" height="12" fill="none" stroke="currentColor" strokeWidth="1.3" />
+    <rect x="1" y="1" width="8" height="12" fill="currentColor" opacity="0.45" />
+    <line x1="9" y1="0" x2="9" y2="14" stroke="currentColor" strokeWidth="1.6" />
+  </svg>
+)
+const BASEMAPS: { id: Basemap; label: ReactNode; title?: string; ariaLabel?: string; narrow?: boolean }[] = [
   { id: 'literary', label: 'Classic' },
+  {
+    id: 'compare',
+    label: COMPARE_ICON,
+    title: 'Compare: the classic map and satellite, side by side',
+    ariaLabel: 'Compare the classic map and satellite, side by side',
+    narrow: true,
+  },
   { id: 'satellite', label: 'Satellite' },
   { id: 'topo', label: 'Topo', title: 'MapTiler Topo: roads, places and contours of today' },
-  { id: 'compare', label: 'Compare', title: 'The classic map and satellite, side by side' },
 ]
+// In compare mode the two maps it compares show as paired, in a lighter way than the switch that is on.
+const PAIRED: Basemap[] = ['literary', 'satellite']
 // Views of the literary map: flat (the default), tilted (live 3D terrain) and raised (plan oblique relief).
 export type View = 'flat' | 'tilted' | 'raised'
 const VIEWS: { id: View; label: string; title: string }[] = [
@@ -87,7 +103,8 @@ type Props = {
 function Switch<T extends string>(props: {
   label: string
   // ariaLabel spells out what a short label means; it starts with the label, so speech input can use the label.
-  options: { id: T; label: string; title?: string; ariaLabel?: string; disabled: boolean }[]
+  // A narrow option holds an icon; a paired one shows as half chosen (the two maps compare mode shows).
+  options: { id: T; label: ReactNode; title?: string; ariaLabel?: string; disabled: boolean; narrow?: boolean; paired?: boolean }[]
   value: T
   onChange: (value: T) => void
 }) {
@@ -110,6 +127,8 @@ function Switch<T extends string>(props: {
           type="button"
           role="radio"
           data-id={o.id}
+          data-narrow={o.narrow || undefined}
+          data-paired={o.paired || undefined}
           aria-checked={value === o.id}
           tabIndex={value === o.id ? 0 : -1}
           disabled={o.disabled}
@@ -178,9 +197,15 @@ export function MapView(props: Props) {
   const [satelliteStarted, setSatelliteStarted] = useState(false)
   // Compare mode: the classic base shows left of this split, in percent of the width.
   const [split, setSplit] = useState(50)
-  // The views apply to the classic basemap only; satellite and compare modes are always flat.
+  // The views apply to the classic basemap, and Flat and Tilted to compare mode too (the Raised view's line work
+  // is shifted north, so it would not line up with the imagery); satellite and topo are always flat.
   const [chosenView, setView] = useState<View>('flat')
-  const view: View = basemap === 'literary' ? chosenView : 'flat'
+  const view: View = basemap === 'literary' || (basemap === 'compare' && chosenView !== 'raised') ? chosenView : 'flat'
+  // Compare from the Raised view keeps the relief standing up, as Tilted.
+  const chooseBasemap = (next: Basemap) => {
+    if (next === 'compare' && chosenView === 'raised') setView('tilted')
+    setBasemap(next)
+  }
   // Land colour: the satellite map, faded, under the literary map in the Flat and Tilted views. The Raised view's
   // line work is shifted north, so imagery would not line up under it.
   const [landColour, setLandColour] = useState(false)
@@ -294,12 +319,20 @@ export function MapView(props: Props) {
             literary={mapRef}
             hidden={basemap === 'literary' && !wash}
             topo={basemap === 'topo'}
-            terrain={wash && view === 'tilted' ? TERRAIN_EXAGGERATION : null}
+            terrain={(wash || basemap === 'compare') && view === 'tilted' ? TERRAIN_EXAGGERATION : null}
             onUnavailable={onUnavailable}
           />
         </Suspense>
       )}
-      {basemap === 'compare' && <ClassicUnderlay main={mapRef} style={underlayStyle} split={split} units={units} />}
+      {basemap === 'compare' && (
+        <ClassicUnderlay
+          main={mapRef}
+          style={underlayStyle}
+          split={split}
+          units={units}
+          terrain={view === 'tilted' ? { url: `pmtiles://${tilesBase}terrain.pmtiles`, exaggeration: TERRAIN_EXAGGERATION } : null}
+        />
+      )}
       <div className="literary">
         <Map
           ref={mapRef}
@@ -372,13 +405,13 @@ export function MapView(props: Props) {
       <div className="map-switches">
         <Switch
           label="Basemap"
-          options={BASEMAPS.map((b) => ({ ...b, disabled: b.id !== 'literary' && unavailable }))}
+          options={BASEMAPS.map((b) => ({ ...b, disabled: b.id !== 'literary' && unavailable, paired: basemap === 'compare' && PAIRED.includes(b.id) }))}
           value={basemap}
-          onChange={setBasemap}
+          onChange={chooseBasemap}
         />
         <Switch
           label="View of the classic map"
-          options={VIEWS.map((v) => ({ ...v, disabled: basemap !== 'literary' }))}
+          options={VIEWS.map((v) => ({ ...v, disabled: !(basemap === 'literary' || (basemap === 'compare' && v.id !== 'raised')) }))}
           value={view}
           onChange={setView}
         />
