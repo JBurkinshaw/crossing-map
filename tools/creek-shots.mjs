@@ -1,10 +1,14 @@
 // Creek density screenshots: four places at zoom 9-12, desktop, as JPEG.
-// Usage: node creek-shots.mjs <out-dir> <prefix> [base-url]
+// Usage: node creek-shots.mjs <out-dir> <prefix> [base-url]   (ZOOMS=9,10 to choose zooms)
 import { mkdir } from 'node:fs/promises'
 import path from 'node:path'
-import { chromium } from 'playwright'
+import { gotoMap, launch, newPage } from './lib/browser.mjs'
 
 const [outDir, prefix, baseUrl = 'http://localhost:5194/'] = process.argv.slice(2)
+if (!outDir || !prefix) {
+  console.error('Usage: node creek-shots.mjs <out-dir> <prefix> [base-url]')
+  process.exit(1)
+}
 const places = {
   morelos: [-109.224, 30.827],
   peloncillos: [-109.013, 31.667],
@@ -13,17 +17,14 @@ const places = {
 }
 const zooms = (process.env.ZOOMS ?? '9,10,11,12').split(',').map(Number)
 await mkdir(outDir, { recursive: true })
-const browser = await chromium.launch()
-const context = await browser.newContext({ viewport: { width: 1400, height: 900 } })
-const page = await context.newPage()
-await page.addInitScript(() => localStorage.setItem('crossing-map.progress', 'all'))
+const browser = await launch()
+const page = await newPage(browser)
 for (const [name, [lon, lat]] of Object.entries(places)) {
-  for (const z of zooms) {
-    await page.goto('about:blank')
-    await page.goto(`${baseUrl}#map=${z}/${lat}/${lon}`, { waitUntil: 'load' })
-    await page.waitForSelector('canvas.maplibregl-canvas', { timeout: 15000 })
+  for (const zoom of zooms) {
+    await gotoMap(page, baseUrl, { zoom, lat, lon })
+    // Tiles stream in after the canvas appears; creeks are the last layer to fill in.
     await page.waitForTimeout(4000)
-    await page.screenshot({ path: path.join(outDir, `${prefix}-${name}-z${z}.jpg`), type: 'jpeg', quality: 78 })
+    await page.screenshot({ path: path.join(outDir, `${prefix}-${name}-z${zoom}.jpg`), type: 'jpeg', quality: 78 })
   }
 }
 await browser.close()

@@ -1,18 +1,20 @@
-// The spoiler-leak test (docs/plan.md, section 11, acceptance criteria): for several reading positions, load
+// The spoiler-leak test (docs/design.md, section 11, acceptance criteria): for several reading positions, load
 // the app and check that nothing first seen later shows anywhere: the story data given to the map, the
 // features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop and
 // the road card of each stop with talk on the road, "Named elsewhere"), mountain glyphs, vignettes,
-// search results and the cards they open (places and the translations "Spoken here"), the layer key, and the
-// same again in the Raised view.
+// search results and the cards they open (places and the translations "Spoken here"), the layer key, the
+// reading-progress dialog, every page (About, How it's built, Open questions, Data, Credits), the Tilted,
+// compare and Raised views, and the phone drawer at each height. A first visit straight to a page must leave
+// the page and the progress dialog usable.
 //
-// Usage, with the app running (cd site && npm run dev -- --port 5185, or npm run build && npx vite preview --port 5185):
-//   cd tools && npm run spoiler-leak -- [base-url]     (default http://localhost:5185/; about 10 minutes)
-// Exits 1 on any leak. CI could run it as a job after "Validate data against schemas" in deploy.yml: npm ci in
-// site/ and tools/, `npx playwright install --with-deps chromium`, build the site, start `npx vite preview
-// --port 5185 --strictPort` in the background, wait for the port, then run this script. The checks read the
-// story data, which ships with the site; whether they run without the release tiles is not yet tried.
+// Usage, with the app running on the dev server or a build made with VITE_DEBUG=1 (the map handle
+// window.__map needs one of them):
+//   cd site && npm run dev -- --port 5185
+//   cd tools && npm run spoiler-leak -- [base-url]     (default http://localhost:5185/; about 100 seconds per reading position)
+// Exits 1 on any leak. CI runs it against the pushed commit (.github/workflows/deploy.yml, job spoiler-leak).
 import { readFile } from 'node:fs/promises'
-import { chromium } from 'playwright'
+import { devices } from 'playwright'
+import { launch, newPage } from './lib/browser.mjs'
 
 const baseUrl = process.argv[2] ?? 'http://localhost:5185/'
 const dataDir = new URL('../data/', import.meta.url)
@@ -24,7 +26,7 @@ const elsewhere = await read('elsewhere.json')
 const glyphs = (await read('mountain_glyphs.geojson')).features
 const vignettes = (await read('vignettes.geojson')).features
 const translations = await read('translations.json')
-const KEY = 'crossing-map.progress'
+const episodes = await read('episodes.json')
 
 // null is a first visit (nothing stored); the rest are stored settings. Episode ids sort in reading order.
 // SPOILER_POINTS=1-08,3-12 runs only those ("unset" for a first visit).
@@ -41,10 +43,13 @@ function reachedNames(reached) {
   return new Set(all.filter((p) => allowed(p, reached)).map((p) => p.name))
 }
 
+// The map's title cartouche names these at every reading position (site/src/map/MapView.tsx).
+const ALWAYS_SHOWN = new Set(['Sonora', 'Chihuahua', 'New Mexico'])
+
 function laterOnlyNames(reached) {
   const all = [...Object.values(layers).flat().map((f) => f.properties), ...elsewhere, ...glyphs.map((f) => f.properties), ...vignettes.map((f) => f.properties)]
   const early = new Set(all.filter((p) => allowed(p, reached)).map((p) => p.name))
-  return new Set(all.filter((p) => !allowed(p, reached) && !early.has(p.name)).map((p) => p.name))
+  return new Set(all.filter((p) => !allowed(p, reached) && !early.has(p.name) && !ALWAYS_SHOWN.has(p.name)).map((p) => p.name))
 }
 
 // Translation text (our English, the Spanish opening) found only in lines first seen later. A line the reader
@@ -121,16 +126,87 @@ async function showAllLines(page, scope) {
   while (await more.count()) await more.first().click()
 }
 
-const browser = await chromium.launch()
+
+// The site's pages. A later name that is part of a reached one ("Madera" in "Sierra de la Madera", "Bavispe" in
+// "Crossing of the Bavispe") is already known to the reader, so it is not a leak.
+const PAGES = ['/about', '/about/how-its-built', '/open-questions', '/data', '/credits']
+
+async function checkPage(page, route, reached, where, later) {
+  await page.evaluate((r) => (window.location.hash = `#${r}`), route)
+  await page.waitForSelector('.page h1')
+  await page.waitForTimeout(300)
+  const pageText = await page.evaluate(() => ({
+    firstSeen: [...document.querySelectorAll('.page [data-first-seen]')].map((e) => [e.textContent.trim().slice(0, 60), e.dataset.firstSeen]),
+    text: document.querySelector('.page').innerText,
+  }))
+  for (const [label, first_seen] of pageText.firstSeen) if (!allowed({ first_seen }, reached)) leak(`${where}, ${route}`, `item first seen ${first_seen}: ${label}`)
+  const known = [...reachedNames(reached)]
+  for (const name of later) {
+    if (pageText.text.includes(name) && !known.some((k) => k.includes(name))) leak(`${where}, ${route}`, `later name shown: ${name}`)
+  }
+}
+
+// The reading-progress dialog: moved to the last episode, it must not summarise episodes past the stored
+// progress.
+async function checkProgressDialog(page, reached, where) {
+  if (!(await page.locator('dialog.progress-dialog[open]').count())) await page.locator('.progress-badge').click()
+  await page.locator('dialog[open] .progress-slider').focus()
+  await page.keyboard.press('End')
+  await page.waitForTimeout(200)
+  const text = await page.locator('dialog[open]').innerText()
+  for (const e of episodes) if (e.episode > reached && e.summary && text.includes(e.summary)) leak(where, `progress dialog summarises ${e.episode}`)
+  await page.keyboard.press('Escape')
+}
+
+// A first visit opened straight on a page: the page and the progress dialog must both be usable (nothing open
+// inside an inert subtree), and choosing a position must work.
+async function checkFirstVisitPages(browser, point) {
+  for (const route of PAGES) {
+    const where = `progress ${point ?? 'unset'}, first visit to ${route}`
+    const page = await newPage(browser, { viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce', progress: point })
+    page.on('pageerror', (e) => leak(where, `page error: ${e.message}`))
+    await page.goto(`${baseUrl}?debug#${route}`)
+    await page.waitForSelector('.page h1')
+    await page.waitForTimeout(500)
+    const blocked = await page.evaluate(() => [...document.querySelectorAll('dialog[open], .page')].filter((e) => e.closest('[inert]')).map((e) => e.className))
+    for (const c of blocked) leak(where, `${c} is inside an inert element`)
+    if (await page.locator('dialog[open]').count()) {
+      const choose = page.locator('dialog[open] button.primary')
+      if (await choose.count()) await choose.click({ timeout: 3000 }).catch(() => leak(where, 'progress dialog cannot be used'))
+    }
+    // The page's own links must answer too.
+    await page.locator('.page nav a', { hasText: 'Credits' }).click({ timeout: 3000 }).catch(() => leak(where, 'page links cannot be used'))
+    await page.context().close()
+  }
+}
+
+// The phone layout: the drawer at each height (Home is peek, End is full, ArrowUp steps), and its peek row.
+async function checkPhone(browser, point, reached, later, lines) {
+  const where = `progress ${point ?? 'unset'}, phone`
+  const page = await newPage(browser, { device: devices['iPhone 14'], reducedMotion: 'reduce', progress: point })
+  page.on('pageerror', (e) => leak(where, `page error: ${e.message}`))
+  await page.goto(`${baseUrl}?debug`)
+  await page.waitForFunction(() => window.__map?.getSource('places'), null, { timeout: 30000 })
+  if (await page.locator('dialog[open]').count()) await page.keyboard.press('Escape')
+  const handle = page.locator('.drawer-handle')
+  for (const [key, height] of [['Home', 'peek'], ['ArrowUp', 'half'], ['End', 'full']]) {
+    await handle.focus()
+    await page.keyboard.press(key)
+    await page.waitForTimeout(300)
+    await checkPanel(page, reached, `${where}, drawer ${height}`, later, lines)
+  }
+  await checkMap(page, reached, where)
+  await page.context().close()
+}
+
+const browser = await launch()
 for (const point of POINTS) {
   const reached = reachedOf(point)
   const later = laterOnlyNames(reached)
   const lines = laterOnlyLines(reached)
   const where = `progress ${point ?? 'unset'}`
-  const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce',
-  })
-  if (point !== null) await context.addInitScript(([k, v]) => localStorage.setItem(k, v), [KEY, point])
-  const page = await context.newPage()
+  await checkFirstVisitPages(browser, point)
+  const page = await newPage(browser, { viewport: { width: 1280, height: 800 }, reducedMotion: 'reduce', progress: point })
   page.on('pageerror', (e) => leak(where, `page error: ${e.message}`))
   await page.goto(`${baseUrl}?debug`)
   await page.waitForFunction(() => window.__map?.getSource('places'), null, { timeout: 30000 })
@@ -147,23 +223,11 @@ for (const point of POINTS) {
   const features = await checkMap(page, reached, `${where}, flat`)
   await checkPanel(page, reached, `${where}, panel`, later)
 
-  // The Open questions page lists only the questions reached.
-  await page.evaluate(() => (window.location.hash = '#/open-questions'))
-  await page.waitForSelector('.page h1')
-  await page.waitForTimeout(300)
-  const pageText = await page.evaluate(() => ({
-    firstSeen: [...document.querySelectorAll('.page [data-first-seen]')].map((e) => [e.textContent.trim().slice(0, 60), e.dataset.firstSeen]),
-    text: document.querySelector('.page').innerText,
-  }))
-  for (const [label, first_seen] of pageText.firstSeen) if (!allowed({ first_seen }, reached)) leak(`${where}, open questions`, `question first seen ${first_seen}: ${label}`)
-  // A later name that is part of a reached one ("Madera" in "Sierra de la Madera", "Bavispe" in "Crossing of the
-  // Bavispe") is already known to the reader, so it is not a leak.
-  const known = [...reachedNames(reached)]
-  for (const name of later) {
-    if (pageText.text.includes(name) && !known.some((k) => k.includes(name))) leak(`${where}, open questions`, `later name shown: ${name}`)
-  }
-  await page.goBack()
+  // Every page; the Open questions page lists only the questions reached.
+  for (const route of PAGES) await checkPage(page, route, reached, where, later)
+  await page.evaluate(() => (window.location.hash = ''))
   await page.waitForTimeout(500)
+  if (point !== null && point !== 'all') await checkProgressDialog(page, reached, `${where}, progress dialog`)
 
   // Every journey offered, stepped through stop by stop with Next.
   const options = await page.locator('.journey-pick option').evaluateAll((os) => os.map((o) => o.value))
@@ -242,9 +306,25 @@ for (const point of POINTS) {
     for (const [name, fs] of shown) if (fs > reached) leak(where, `vignette ${name} first seen ${fs}`)
   }
 
+  // The Tilted view, then compare mode when satellite is available (it needs the MapTiler key).
+  await page.getByRole('radio', { name: 'Tilted', exact: true }).click()
+  await page.waitForTimeout(500)
+  await idle(page)
+  await checkMap(page, reached, `${where}, tilted`)
+  await page.getByRole('radio', { name: 'Flat', exact: true }).click()
+  const compare = page.getByRole('radio', { name: /^Compare/ })
+  if (await compare.isEnabled()) {
+    await compare.click()
+    await page.waitForTimeout(1000)
+    await idle(page)
+    await checkMap(page, reached, `${where}, compare`)
+    await checkPanel(page, reached, `${where}, compare panel`, later, lines)
+    await page.getByRole('radio', { name: 'Classic', exact: true }).click()
+  }
+
   // The Raised view loads its own copies of the story layers.
   const raisedLoaded = page.waitForResponse((r) => r.url().includes('/data/raised/journeys.geojson'))
-  await page.getByRole('radio', { name: 'Raised' }).click()
+  await page.getByRole('radio', { name: 'Raised', exact: true }).click()
   await raisedLoaded
   await page.waitForTimeout(500)
   await idle(page)
@@ -252,7 +332,8 @@ for (const point of POINTS) {
   await checkPanel(page, reached, `${where}, raised panel`, later, lines)
 
   console.log(`${where}: ${features} map features checked, ${options.length} journeys offered, ${steps} panel steps, ${searched} searches`)
-  await context.close()
+  await page.context().close()
+  await checkPhone(browser, point, reached, later, lines)
 }
 await browser.close()
 

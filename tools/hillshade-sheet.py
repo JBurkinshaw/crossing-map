@@ -1,7 +1,8 @@
 """Contact sheets for the hillshade lab packet, from the shots of hillshade-lab-shots.mjs.
 
 Run from the repo root:
-    uv run --project pipeline python tools/hillshade-sheet.py <shots dir> <out.jpg> <place> <column,column,...> [--scale 0.5]
+    uv run --project pipeline python tools/hillshade-sheet.py \
+        <shots dir> <out.jpg> <place> <column,column,...> [--scale 0.5]
 One row per zoom (8, 10, 12), one column per shot suffix (a preset id, "topo", or "<preset>-sharper"), each
 labelled. Writes a JPEG under about 1 MB.
 """

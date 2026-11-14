@@ -1,10 +1,12 @@
 // Screenshots for a stage review packet: the same named views every stage,
-// desktop and phone, so one stage compares with the next.
+// desktop and phone, so one stage compares with the next. Screenshots stay out of git: they go to
+// private/review/stage-<n>/screenshots/.
 // Usage: node review-packet.mjs <stage-number> [base-url]
 import { mkdir, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
-import { chromium, devices } from 'playwright'
+import { devices } from 'playwright'
+import { collectProblems, gotoMap, launch, newPage } from './lib/browser.mjs'
 
 const stage = process.argv[2]
 const baseUrl = process.argv[3] ?? 'http://localhost:4173/'
@@ -13,46 +15,38 @@ if (!stage) {
   process.exit(1)
 }
 
-// [lon, lat, zoom], passed as `#map=zoom/lat/lon`. `whole` is the opening view.
+// `whole` is the opening view.
 const views = {
   whole: null,
-  bootheel: [-108.8, 31.6, 8.5],
-  bavispe: [-109.0, 30.6, 8.5],
-  'casas-grandes': [-107.95, 30.35, 9],
-  babicora: [-107.7, 29.3, 8.5],
+  bootheel: { zoom: 8.5, lat: 31.6, lon: -108.8 },
+  bavispe: { zoom: 8.5, lat: 30.6, lon: -109.0 },
+  'casas-grandes': { zoom: 9, lat: 30.35, lon: -107.95 },
+  babicora: { zoom: 8.5, lat: 29.3, lon: -107.7 },
 }
 const profiles = {
   desktop: { viewport: { width: 1440, height: 900 } },
-  phone: devices['iPhone 14'],
+  phone: { device: devices['iPhone 14'] },
 }
 
-const outDir = path.join(fileURLToPath(new URL('..', import.meta.url)), 'review', `stage-${stage}`, 'screenshots')
+const outDir = path.join(fileURLToPath(new URL('..', import.meta.url)), 'private', 'review', `stage-${stage}`, 'screenshots')
 await mkdir(outDir, { recursive: true })
 
-const browser = await chromium.launch()
+const browser = await launch()
 const problems = []
 for (const [profileName, profile] of Object.entries(profiles)) {
-  const context = await browser.newContext(profile)
-  const page = await context.newPage()
-  // Spoiler mode would open its dialog over every view; these screenshots show the whole book.
-  await page.addInitScript(() => localStorage.setItem('crossing-map.progress', 'all'))
-  page.on('console', (m) => m.type() === 'error' && problems.push(`${profileName}: console: ${m.text()}`))
-  page.on('pageerror', (e) => problems.push(`${profileName}: pageerror: ${e.message}`))
+  const page = await newPage(browser, profile)
+  collectProblems(page, { problems, label: profileName })
   page.on('requestfailed', (r) => {
     // MapLibre cancels tile requests the view no longer needs; that is not a failure.
     if (r.failure()?.errorText !== 'net::ERR_ABORTED') problems.push(`${profileName}: failed: ${r.url()} ${r.failure()?.errorText}`)
   })
   for (const [name, view] of Object.entries(views)) {
-    const hash = view ? `#map=${view[2]}/${view[1]}/${view[0]}` : ''
-    // A hash-only change does not reload the page, so navigate fresh each time.
-    await page.goto('about:blank')
-    await page.goto(baseUrl + hash, { waitUntil: 'load' })
-    await page.waitForSelector('canvas.maplibregl-canvas', { timeout: 15000 })
+    await gotoMap(page, baseUrl, view)
     // Tiles stream in after the canvas appears; a fixed pause is enough for a static site.
     await page.waitForTimeout(2500)
     await page.screenshot({ path: path.join(outDir, `${name}-${profileName}.png`) })
   }
-  await context.close()
+  await page.context().close()
 }
 await browser.close()
 

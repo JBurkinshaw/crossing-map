@@ -3,10 +3,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "review-packet": "node review-packet.mjs",
     "spoiler-leak": "node spoiler-leak.mjs",
-    "guild-browse": "node guild-browse/browse.mjs",
-    "guild-login": "node guild-browse/login.mjs"
+    "review-packet": "node review-packet.mjs",
+    "first-load": "node first-load.mjs",
+    "contrast": "node contrast.mjs",
+    "landform-sheet": "node landform-sheet.mjs",
+    "vignette-sheet": "node vignette-sheet.mjs",
+    "creek-shots": "node creek-shots.mjs",
+    "hillshade-lab-shots": "node hillshade-lab-shots.mjs",
+    "wheeler-shots": "node wheeler-shots.mjs"
   },
   "dependencies": {
     "playwright": "1.65.0"
