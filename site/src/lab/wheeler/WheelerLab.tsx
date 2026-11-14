@@ -4,6 +4,8 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import { closeAttribution, exposeForScripts, motion } from '../../map/setup'
 import { LEARNINGS, SHEETS, type Param } from './learnings'
 import { TODAY, WHEELER, wheelerStyle, type Paper, type Params } from './wheelerStyle'
+import { addFrame } from './subset/frame'
+import { addPlaceMarks, READING, type PlacesParams } from './subset/places'
 import './wheeler.css'
 
 // The lab section for the Wheeler Survey study (review/stage-8/wheeler/README.md): the classic map with a few
@@ -18,6 +20,7 @@ const PLACES: { id: string; label: string; zoom: number; center: [number, number
   { id: 'bavispe', label: 'Río Bavispe and the Pilares', zoom: 9.5, center: [-109.1, 30.4] },
   { id: 'tigre', label: 'Sierra el Tigre', zoom: 10, center: [-109.3, 30.65] },
   { id: 'babicora', label: 'Mesas by the Babícora', zoom: 11, center: [-107.5, 29.23] },
+  { id: 'subset', label: 'Test area: bootheel and Bavispe', zoom: 10, center: [-109.0, 31.05] },
 ]
 
 const PAPERS: { id: Paper; label: string }[] = [
@@ -49,6 +52,8 @@ export default function WheelerLab() {
   const map = useRef<maplibregl.Map | null>(null)
   const [params, setParams] = useState<Params>(WHEELER)
   const set = <K extends keyof Params>(key: K, value: Params[K]) => setParams((p) => ({ ...p, [key]: value }))
+  const setPlaces = <K extends keyof PlacesParams>(key: K, value: PlacesParams[K]) => setParams((p) => ({ ...p, places: { ...p.places, [key]: value } }))
+  const frame = useRef<ReturnType<typeof addFrame> | null>(null)
 
   // The parameters the map was made with; later changes go through setStyle below.
   const [first] = useState(params)
@@ -68,6 +73,9 @@ export default function WheelerLab() {
     m.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-left')
     m.addControl(new maplibregl.ScaleControl({ unit: 'imperial', maxWidth: 120 }), 'bottom-left')
     map.current = m
+    addPlaceMarks(m)
+    frame.current = addFrame(m)
+    frame.current.show(first.places.graticule)
     closeAttribution(m)
     exposeForScripts('__wheelerMap', m)
     return () => {
@@ -80,6 +88,7 @@ export default function WheelerLab() {
     const m = map.current
     if (!m) return
     m.setStyle(wheelerStyle(params))
+    frame.current?.show(params.places.graticule)
     const pitch = params.tilted ? 50 : 0
     if (m.getPitch() !== pitch) m.easeTo({ pitch, duration: motion(800) })
   }, [params])
@@ -148,6 +157,36 @@ export default function WheelerLab() {
                 </label>
               ))}
             </div>
+          </fieldset>
+          <fieldset>
+            <legend>Test area (stage 9)</legend>
+            <label className="wheeler-check">
+              <input type="checkbox" checked={params.places.water} onChange={(e) => setPlaces('water', e.target.checked)} />
+              Water and stations (test area)
+            </label>
+            <label className="wheeler-check">
+              <input type="checkbox" checked={params.places.graticule} onChange={(e) => setPlaces('graticule', e.target.checked)} />
+              Graticule and frame
+            </label>
+            <label className="wheeler-check">
+              <input type="checkbox" checked={params.places.lineLabels} onChange={(e) => setPlaces('lineLabels', e.target.checked)} />
+              Graticule labels on the lines
+            </label>
+            <label className="wheeler-range">
+              Read up to{' '}
+              <span aria-hidden="true">
+                {params.places.reached === '0-00' ? 'not started' : params.places.reached === '9-99' ? 'the end' : params.places.reached}
+              </span>
+              <input
+                type="range"
+                min={0}
+                max={READING.length - 1}
+                step={1}
+                value={READING.indexOf(params.places.reached)}
+                aria-valuetext={params.places.reached}
+                onChange={(e) => setPlaces('reached', READING[Number(e.target.value)])}
+              />
+            </label>
           </fieldset>
           <fieldset>
             <legend>View</legend>
