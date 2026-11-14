@@ -388,11 +388,26 @@ select {
   position: absolute;
   right: 12px;
   bottom: 110px;
+  margin: 0;
   border: 1px solid var(--ink);
   outline: 1px solid var(--ink);
   outline-offset: 2px;
   background: var(--paper);
-  pointer-events: none;
+  /* Its title is the tooltip that explains it; the inset is small, so taking pointer events costs little map. */
+  cursor: help;
+}
+
+.overview figcaption {
+  padding: 1px 4px;
+  border-bottom: 1px solid var(--ink);
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.overview svg {
+  display: block;
 }
 
 @media (max-width: 720px) {
