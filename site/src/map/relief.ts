@@ -158,13 +158,15 @@ export type HillshadeSettings = {
   // Multiplies the hachures' opacity.
   hachures: number
 }
+// The lab's "Pronounced" preset (review/stage-8/lab-hillshade/): S5's method and colours, a lower sun and about
+// twice S5's shadow above the fade, so ranges read at zoom 10-13 as they do on MapTiler Topo.
 export const HILLSHADE: HillshadeSettings = {
   method: 'combined',
   direction: 315,
-  altitude: 45,
+  altitude: 35,
   colours: 'site',
-  low: { exaggeration: 0.65, shadow: 0.5, highlight: 0.35 },
-  high: { exaggeration: 0.5, shadow: 0.22, highlight: 0.3 },
+  low: { exaggeration: 0.75, shadow: 0.6, highlight: 0.4 },
+  high: { exaggeration: 0.7, shadow: 0.45, highlight: 0.35 },
   opacity: 1,
   fade: [9, 10],
   hachures: 1,

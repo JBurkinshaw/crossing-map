@@ -26,6 +26,13 @@ export const SITE: HillshadeSettings = HILLSHADE
 export const PRESETS: { id: string; label: string; note: string; settings: HillshadeSettings }[] = [
   { id: 'site', label: 'Site today', note: 'What the site draws now (HILLSHADE in relief.ts).', settings: SITE },
   {
+    id: 's5',
+    label: 'S5 as built',
+    note: 'The light hillshade of decision 0016, before the lab: a faint grey above zoom 10.',
+    settings: { ...SITE, method: 'combined', direction: 315, altitude: 45, colours: 'site',
+      low: { exaggeration: 0.65, shadow: 0.5, highlight: 0.35 }, high: { exaggeration: 0.5, shadow: 0.22, highlight: 0.3 } },
+  },
+  {
     id: 'maptiler',
     label: 'MapTiler-like',
     note: 'MapTiler Topo\'s own hillshade (topo-v4): the standard method, light from 335°, opaque mid-grey shadows, '
