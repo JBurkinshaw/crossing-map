@@ -8,7 +8,7 @@ Three Phase 1 patterns from the plan: talk on the road (section 8), the "In view
 
 **Data.** Of the 255 lines that had no `location_ref`, 52 now point at a route segment. All 52 are in episode 1-09 (`tr-1-09-003` to `tr-1-09-062`): Billy is on the Cajón Bonita trail south with the wolf, and talks with a man at three ruined houses, a mule train and two women, and five armed riders, before the Cabellera passes. They point at `j2-seg-07` (Cajón Bonito to the Sierra de la Cabellera passes).
 
-The runs are judged by hand and listed in `road-refs.csv` (first line, last line, segment, why, in our own words). The build step applies them only to lines with no place, and stops if a run crosses episodes or its segment is not travelled in the same episode. Every reference now has a `location_kind` (`stop`, `place`, `area` or `road`); `road` marks the inferred ones. `crossing.validate` checks that the kind matches the layer the id is in and that the segment is not first seen after the line. To take a line off the road, write `none` in its `location_ref` cell in `translations-review.csv`.
+The runs are judged by hand and listed in `pipeline/seeds/road-refs.csv` (first line, last line, segment, why, in our own words). The build step applies them only to lines with no place, and stops if a run crosses episodes or its segment is not travelled in the same episode. Every reference now has a `location_kind` (`stop`, `place`, `area` or `road`); `road` marks the inferred ones. `crossing.validate` checks that the kind matches the layer the id is in and that the segment is not first seen after the line. To take a line off the road, write `none` in its `location_ref` cell in `pipeline/seeds/translations.csv`.
 
 The other 203 stay null. I left them because they are not spoken while travelling:
 
@@ -48,6 +48,6 @@ Only in a box around Cloverdale and the Peloncillos (108.70° to 109.25° W, 31.
 
 ## Questions for the owner
 
-1. The 150 null lines that are clearly at one stop (3-09 blind man's house, 4-04 Janos, 1-10 hacienda, 3-01 opera camp) could get those stops by hand in `translations-review.csv`. Should I fill them in?
+1. The 150 null lines that are clearly at one stop (3-09 blind man's house, 4-04 Janos, 1-10 hacienda, 3-01 opera camp) could get those stops by hand in `pipeline/seeds/translations.csv`. Should I fill them in?
 2. Should clicking a route on the map also open its segment card? Now only a line or the stop link opens it.
 3. The cluster box is a rectangle chosen by eye. Is it the right extent, or should it grow with more Part IV stops near the SK Bar?

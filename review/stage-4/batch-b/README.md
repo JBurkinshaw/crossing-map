@@ -4,9 +4,9 @@ All seven journeys are now drawn. This batch adds the rest of J4 from the Hacien
 
 ## What was built
 
-- **Stops.** `pipeline/seeds/part3-4-stops.csv`, from the plan's journeys (section 2.2), the picks in `parts2-4-place-overrides.csv` and a full reading of Parts III and IV. Every stop carries its reasoning in paraphrase; inferred stops are circles sized to the doubt. The file has a new column, `travel`: how the leg arriving at the stop was made (empty for horseback, or foot, truck, car, bus, train, reported).
+- **Stops.** J4 to J7's rows in `pipeline/seeds/stops.csv`, from the plan's journeys (section 2.2), the picks in `pipeline/seeds/place-overrides.csv` and a full reading of Parts III and IV. Every stop carries its reasoning in paraphrase; inferred stops are circles sized to the doubt. The file has a new column, `travel`: how the leg arriving at the stop was made (empty for horseback, or foot, truck, car, bus, train, reported).
 - **Travel.** Each route segment carries `travel` from its arriving stop (`null` for horseback), and `data/schema/story-layer.schema.json` allows it. J6 is reported throughout: its stops and segments have certainty `reported`, travel `reported`, and each stop names who tells it.
-- **Snaps.** `pipeline/seeds/part3-4-snaps.csv`, eight segments of J7, all Census TIGER 2023 roads in New Mexico. The table gives each snap's straight-line distance, route length and longest step (pyproj, WGS 84):
+- **Snaps.** Parts III and IV's rows in `pipeline/seeds/snaps.csv`, eight segments of J7, all Census TIGER 2023 roads in New Mexico. The table gives each snap's straight-line distance, route length and longest step (pyproj, WGS 84):
 
 | Segment | Road (TIGER full name) | Straight | Route | Longest step |
 | --- | --- | --- | --- | --- |
@@ -57,7 +57,3 @@ Downloads: TIGER 2023 roads for Luna (35029), Grant (35017), Hidalgo (35023) and
 - 2.2, J7: the Namiquipa woman (4-05), before Temósachic, is the first to say the bones lie at San Buenaventura; Quijada confirms it later.
 - 2.2, J7: the road from Santa Ana to Namiquipa runs north in 4-04, where 3-12 had it west.
 - 11, stage 4: the regions (La Babícora, the Animas Valley) and the false-dawn arrow are not in this batch.
-
-## Note on the tiles
-
-`crossing.plan_oblique` copies its archive to `site/public/tiles/oblique.pmtiles`. In this worktree that path was a symlink to the main checkout's `tiles/out/`, so the first run overwrote the main checkout's `tiles/out/oblique.pmtiles` with this branch's build. Rebuild it there if it matters; the symlink is now a plain copy.

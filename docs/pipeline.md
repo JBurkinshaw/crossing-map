@@ -1,0 +1,118 @@
+# Pipeline
+
+How to rebuild the published data, the tiles, and the drawings, in order. [`design.md`](design.md), section 7, explains the method; [`data-sources.md`](data-sources.md) lists every input to download first. Publishing tiles is in [`releasing-tiles.md`](releasing-tiles.md).
+
+Run every command from the repo root. Each module's docstring has the detail and any flags not listed here. The `Makefile` groups the common runs (`make help` lists them); `make check` runs the same checks as CI.
+
+**Private** in the tables means the step reads `private/`: the owner's copy of the novel or the downloaded caches. Those steps run only on the owner's machine. CI runs only the lint, the tests, `crossing.validate`, `crossing.downloads --check`, and the spoiler-leak test.
+
+## Seeds
+
+The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only the gazetteer, `crossing.regions --force`, and `crossing.translations build` write back to them.
+
+| File | Holds | Written by |
+| --- | --- | --- |
+| `places.csv` | Every place the book names, plus context towns, with the book's spellings and first episode | Hand |
+| `place-picks.csv` | The gazetteer's pick and candidates for each place | `crossing.gazetteer` |
+| `place-overrides.csv` | Hand decisions, which win over a pick, each with its reasoning | Hand |
+| `stops.csv` | Every journey's stops, in order, with reasoning and `travel` | Hand |
+| `snaps.csv` | The road, river, or flowline each narrated segment follows | Hand |
+| `regions.geojson` | The Animas Valley and La Babícora outlines | `crossing.regions`, then hand edits in QGIS |
+| `vignettes.csv` | The vignette anchors | Hand |
+| `landforms.toml` | Every weight and threshold of the landform rules, with comments | Hand |
+| `translations.csv` | Our English for each Spanish line; a non-empty cell wins over the draft | `crossing.translations build`, then hand edits |
+| `road-refs.csv` | Runs of lines spoken while travelling one route segment | Hand |
+| `where-spoken.csv` | Single lines placed by hand, each with a reason | Hand |
+
+## 1. Story data
+
+| Step | Command | Reads | Writes | Private |
+| --- | --- | --- | --- | --- |
+| Episodes and mentions | `uv run --project pipeline python -m crossing.extract` | `private/book/the-crossing.epub`, `places.csv` | `private/book/episodes.csv`, `mentions.csv`, and `text/<episode>.txt` | Yes |
+| Episode list | `uv run --project pipeline python -m crossing.build_episodes` | `private/book/episodes.csv` | `data/episodes.json`, keeping summaries and page ranges | Yes |
+| Gazetteer | `uv run --project pipeline python -m crossing.gazetteer [ID ...]` | `places.csv`, GNIS, GeoNames, Wikidata (cached) | `place-picks.csv`. Without IDs it refreshes the seeds already picked and lists seeds with neither a pick nor an override; name a new seed's ID to add it | Yes |
+| Story layers | `uv run --project pipeline python -m crossing.build_story` | The seeds; snap shapefiles in `private/cache/` | `data/places.geojson`, `stops.geojson`, `areas.geojson`, `journeys.geojson`, `elsewhere.json`; the stage 4 checklists, keeping ticked rows | Yes |
+| Region drafts | `uv run --project pipeline python -m crossing.regions [--force]` | `data/places.geojson`, the DEM | `pipeline/seeds/regions.geojson`; refuses to overwrite without `--force` | Yes |
+| Vignette anchors | `uv run --project pipeline python -m crossing.build_vignettes` | `vignettes.csv`, `data/stops.geojson`, `data/places.geojson` | `data/vignettes.geojson` | No |
+
+Order matters in three places:
+
+1. A first build runs `crossing.build_story` (it skips a missing regions file), then `crossing.regions`, then `crossing.build_story` again, because the region drafts sit on place pins.
+2. `crossing.build_vignettes` follows `crossing.build_story`.
+3. `crossing.validate` checks that `data/raised/` holds the same features, first seen at the same episodes, as the flat layers. After a `build_story` change that adds, removes, or redates a feature, rerun `crossing.plan_oblique` (section 5, hours) before committing, or CI fails.
+
+## 2. Summits
+
+| Step | Command | Reads | Writes | Private |
+| --- | --- | --- | --- | --- |
+| DEM tiles | `uv run --project pipeline python -m crossing.fetch_dem [--story-box]` | `data/journeys.geojson` | `private/cache/dem/copernicus/` (corridor); with `--story-box`, `copernicus-region/` | Yes (network) |
+| Peaks | `uv run --project pipeline python -m crossing.peaks` | The DEM, gazetteers, `data/places.geojson`, the previous `data/mountain_glyphs.geojson` | `data/mountain_glyphs.geojson` | Yes |
+| Landforms | `uv run --project pipeline python -m crossing.landforms` | `data/mountain_glyphs.geojson`, `landforms.toml`, the DEM | Landforms in `data/mountain_glyphs.geojson`; `review/stage-3/landforms.csv` | Yes |
+
+`crossing.landforms` must follow every `crossing.peaks` run: `crossing.validate` fails until it has. `crossing.peaks` keeps the ids of nearby glyphs from the previous file, so the committed file is also an input.
+
+## 3. Translations
+
+The `translations` extra installs pypdf, lingua, and rapidfuzz.
+
+| Step | Command | Reads | Writes | Private |
+| --- | --- | --- | --- | --- |
+| Find | `uv run --project pipeline --extra translations python -m crossing.translations find` | `private/book/text/`, the cached guide PDF, `/usr/share/dict/words` | `private/translations/spans.json` | Yes |
+| Build | `uv run --project pipeline --extra translations python -m crossing.translations build` | Spans, drafts, `translations.csv`, `road-refs.csv`, `where-spoken.csv` | `data/translations.json`, `translations.csv`, `review/stage-5/translation-gaps.csv` | Yes |
+
+Span ids (`tr-<episode>-<nnn>`) number the lines in reading order. Do not rerun `find` with changed detection settings after editing has started, or the ids can shift. On Linux, install the `wamerican` package for the word list.
+
+## 4. Photos
+
+| Step | Command | Reads | Writes | Private |
+| --- | --- | --- | --- | --- |
+| Candidates | `uv run --project pipeline python -m crossing.photos [--dry-run \| --offline]` | Places and stops, cached Wikidata entities, Commons (cached) | `review/stage-6/photos.csv`, keeping every pick | Yes (network) |
+
+`--dry-run` counts the requests still needed. `--offline` writes the CSV from the cache only.
+
+## 5. Relief and the Raised view
+
+These need QGIS 4. Set `QGIS_ENV` to its micromamba environment.
+
+| Step | Command | Reads | Writes | Private |
+| --- | --- | --- | --- | --- |
+| Hachures | `QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures [--scale fine\|coarse\|dense\|all] [--jobs 4]` | The DEM, `data/journeys.geojson` | `private/cache/relief/production/` | Yes |
+| Full-region run (optional) | `QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.full_region [--jobs 10]` | `copernicus-region/` | The same tile cache; a report in `private/overnight/full-region.md` | Yes |
+| Raised view | `uv run --project pipeline python -m crossing.plan_oblique` | The hachure cache, the DEM, INEGI, NHD, Natural Earth, Census | `tiles/out/oblique-<n>.pmtiles`, `data/raised/*.geojson`, `data/raised/archives.json` | Yes |
+
+Hachure tiles are cached one file per tile. Delete a tile's file to run it again. `crossing.full_region` sizes a whole-region run and does not change the production build.
+
+## 6. Tiles
+
+| Step | Command | Reads | Writes | Private |
+| --- | --- | --- | --- | --- |
+| Base map | `uv run --project pipeline python -m tiles.build_base` | Natural Earth, Census, NHD, INEGI | `tiles/out/base.pmtiles` | Yes |
+| Relief | `uv run --project pipeline python -m tiles.build_relief` | The hachure cache | `tiles/out/relief.pmtiles`, `relief-dense.pmtiles`, `contours.pmtiles` | Yes |
+| Terrain | `uv run --project pipeline python -m tiles.build_terrain` | AWS Terrain Tiles (cached in `private/cache/terrain/`) | `tiles/out/terrain.pmtiles` | Yes (network once) |
+| Sharper terrain (not released) | `uv run --project pipeline python -m tiles.build_terrain_hi [--estimate N] [--zooms MIN MAX] [--bbox W S E N] [--quantum M] [--out PATH]` | The Copernicus tiles | `tiles/out/terrain-hi.pmtiles` | Yes |
+| Into the local site | `uv run --project pipeline python -m tiles.install` | `tiles/out/` | `site/public/tiles/`, removing Raised archives that `archives.json` no longer lists | No |
+
+Each archive must stay under 100 MB. `tiles.build_relief` and `crossing.plan_oblique` split their output to keep under it.
+
+## 7. Drawings and type
+
+These write straight into `site/public/` and are committed, because CI has no Rust.
+
+| Step | Command | Writes | Needs |
+| --- | --- | --- | --- |
+| Mountain glyphs | `uv run --project pipeline python -m art.glyphs.make_glyphs` | `art/glyphs/svg/`, then the sprite | `spreet` |
+| Vignette placeholders | `uv run --project pipeline python -m art.vignettes.make_vignettes` | Placeholder SVGs in `art/vignettes/svg/` (never a real drawing), then the sprite | `spreet` |
+| Sprite only | `uv run --project pipeline python -m art.build_sprite` | `site/public/sprites/` | `spreet` |
+| Map type | `tiles/build_glyphs.sh` | `site/public/fonts/` | `build_pbf_glyphs`, the IM Fell fonts in `private/cache/basemap/fonts/` |
+
+Install the Rust tools with `cargo install spreet build_pbf_glyphs`.
+
+## 8. Publish and check
+
+| Step | Command | Private |
+| --- | --- | --- |
+| GeoParquet copies | `uv run --project pipeline python -m crossing.downloads` (`--check` writes nothing and fails on any mismatch) | No |
+| Validate | `uv run --project pipeline python -m crossing.validate` | No |
+| Echo check | `uv run --project pipeline python -m crossing.echo_check [--words N] [PATH ...]` | Yes; skips without the text |
+
+Run `crossing.downloads` after any change to a story layer, then `crossing.validate`, then `crossing.echo_check`. A full data rebuild is sections 1 to 4 in order, then section 8.

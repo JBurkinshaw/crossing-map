@@ -1,6 +1,6 @@
 # David Rumsey Map Collection references
 
-Period maps studied for the literary map's style (plan section 5.4, phase 1). The [David Rumsey Map Collection](https://www.davidrumsey.com/) licenses its images CC BY-NC-SA. That fits a free, non-commercial site with attribution, and it means anything derived from them (a traced overlay, a cropped detail) must be shared under the same licence. So no image, crop or tracing from these maps goes in this MIT repository. Preview images, when downloaded, stay in `private/inspiration/rumsey/`, which is git-ignored.
+Period maps studied for the literary map's style (design section 5.4, phase 1). The [David Rumsey Map Collection](https://www.davidrumsey.com/) licenses its images CC BY-NC-SA. That fits a free, non-commercial site with attribution, and it means anything derived from them (a traced overlay, a cropped detail) must be shared under the same licence. So no image, crop or tracing from these maps goes in this MIT repository. Preview images, when downloaded, stay in `private/inspiration/rumsey/`, which is git-ignored.
 
 ## How this list was made, and what is not yet checked
 
@@ -14,7 +14,7 @@ The records below come from search-engine results that quote the Rumsey catalogu
 
 **Geo** column: *yes* means a Rumsey Georeferencer record was seen in search results; *?* means not checked.
 
-## Shortlist (plan section 5.4)
+## Shortlist (design section 5.4)
 
 | Map | Date | Scale | Author or publisher | Record | List no. | Geo |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -30,7 +30,7 @@ The records below come from search-engine results that quote the Rumsey catalogu
 
 Sheets 70 (A) (list no. 2738.076) and 83 (topographical issue, list no. 2738.097) were downloaded on 14 November 2026 and studied in full; the findings, measurements and proposals are in `review/stage-8/wheeler/README.md`.
 
-What to learn from each, tied to the design brief (plan 5.1 and 5.2):
+What to learn from each, tied to the design brief (design 5.1 and 5.2):
 
 - **Wheeler Sheet 83.** The target style for Part I. Systematic hachures over a light grey under-tint, light from the north-west, flats left blank. Check how the Peloncillos, Animas and the bootheel ranges are hachured at this scale; it is the closest model for our DEM-driven hachures. Note the italic, spaced range names that follow the range axis, and how few towns there are.
 - **Wheeler 84 (B) and (C).** Same base, with land classes in flat tints (grazing, timber, arable). Study how a tint sits under hachures without muddying them; this is the model for the P2 land-cover stipple on the Animas and Playas plains.
@@ -67,6 +67,6 @@ P2 shows period maps as raster overlays through the same swipe as satellite. Fro
 
 - Rumsey Georeferencer records were seen for *Southwestern New Mexico* (1883) and Boundary sheet No. 16. Stanford publishes a georeferenced copy of Boundary sheet No. 3 (CC BY-NC-SA).
 - Wheeler Sheet 83 has an Old Maps Online footprint (rumsey/2738.088), which suggests but does not prove a georeferenced version. Check its record for a Georeferencer link.
-- For any map without one, georeference in QGIS (plan 5.4).
+- For any map without one, georeference in QGIS (design 5.4).
 
 Any overlay, being derived from a CC BY-NC-SA scan, is shared under CC BY-NC-SA and credited to the David Rumsey Map Collection, David Rumsey Map Center, Stanford Libraries.

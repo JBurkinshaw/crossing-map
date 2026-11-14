@@ -1,6 +1,6 @@
 # 0014. The relief treatment: soft hachures over a sepia hillshade
 
-Status: accepted (2026-11-11)
+Status: accepted (2026-11-11); superseded by 0016
 Phase: P1
 
 ## Context

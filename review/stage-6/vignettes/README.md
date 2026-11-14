@@ -2,7 +2,7 @@
 
 This packet is for checking where the vignettes go, not what they look like. It covers the plan's section 10: twelve of the candidate drawings, their anchors, and the map layer that draws them.
 
-**The drawings are placeholders.** Each one is a plain silhouette in the map's ink and paper, inside a dashed frame that marks it as provisional, on the plan's 96 by 96 grid. They exist only so that the anchors, sizes and collisions can be judged on the map. The real drawings will be the owner's or an illustrator's (plan section 10; Phase 2 adds more by an illustrator). A real drawing replaces `art/vignettes/svg/vignette-<id>.svg` under the same name, and `art/build_sprite.py` rebuilds the sprite.
+**The drawings are placeholders.** Each one is a plain silhouette in the map's ink and paper, inside a dashed frame that marks it as provisional, on the plan's 96 by 96 grid. They exist only so that the anchors, sizes and collisions can be judged on the map. The real drawings will be the owner's or an illustrator's (design section 10; Phase 2 adds more by an illustrator). A real drawing replaces `art/vignettes/svg/vignette-<id>.svg` under the same name, and `art/build_sprite.py` rebuilds the sprite.
 
 ## What was built
 
@@ -17,7 +17,7 @@ This packet is for checking where the vignettes go, not what they look like. It 
 | `site/src/map/relief.ts`, `style.ts` | The `vignette` symbol layer and the `vignette-leader` line layer, between the mountain glyphs and the labels |
 | `tools/vignette-sheet.mjs` | Takes the screenshots below and checks the layer's visibility and the console |
 
-Rebuild: `uv run --project pipeline python -m crossing.build_vignettes`, then `uv run --project pipeline python art/vignettes/make_vignettes.py`.
+Rebuild: `uv run --project pipeline python -m crossing.build_vignettes`, then `uv run --project pipeline python -m art.vignettes.make_vignettes`.
 
 ## The twelve, and why
 

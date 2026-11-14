@@ -11,7 +11,8 @@ so the axis comes from the DEM around the point:
      the valley between. Mesas: keep the flat cells (under FLAT_DEG) within MESA_DROP_M of the top near the point.
      Plains: the flat cells lower than base + SHARE * (top - base), base the window's 20th percentile.
   3. Of those cells, keep the connected region that contains (or lies nearest to) the gazetteer point.
-  4. The principal axis of that region (PCA of the cell positions in metres, weighted by height) gives the label's direction; the
+  4. The principal axis of that region (PCA of the cell positions in metres, weighted by height) gives the label's
+     direction; the
      label line runs through the region's centroid, AXIS_SPAN standard deviations each way along the major axis.
 GNIS valleys also carry a source point (the head) beside the primary point (the mouth); for those the axis is
 simply the line from one to the other, which is what a cartographer would set the name along.
@@ -23,6 +24,7 @@ Every feature keeps its source and licence: GNIS is public domain; GeoNames is C
 import csv
 import json
 import math
+import tempfile
 from pathlib import Path
 
 import numpy as np
@@ -31,10 +33,11 @@ from rasterio.enums import Resampling
 from rasterio.windows import from_bounds
 from scipy import ndimage
 
-REPO = Path(__file__).resolve().parents[3]
-PRIVATE = Path('/Users/jb/repos/crossing-map/private') if not (REPO / 'private').exists() else REPO / 'private'
-DEM = PRIVATE / 'cache' / 'least-cost' / 'dem.vrt'
-GAZ = PRIVATE / 'cache' / 'gazetteer'
+from crossing.dem import COPERNICUS, COPERNICUS_REGION, build_vrt, tiles
+from crossing.paths import CACHE, DATA, REPO
+
+GAZ = CACHE / 'gazetteer'
+# The lab's data module: the generated file is committed with the lab.
 OUT = REPO / 'site' / 'src' / 'lab' / 'wheeler' / 'landforms.ts'
 CELL_M = {'range': 150, 'mesa': 90, 'plain': 150}
 RADIUS_KM = {'range': 30, 'mesa': 12, 'plain': 30}
@@ -83,7 +86,8 @@ def gnis():
                 if not (BOX[0] <= lon <= BOX[2] and BOX[1] <= lat <= BOX[3]):
                     continue
                 src = (float(r['source_long_dec'] or 0), float(r['source_lat_dec'] or 0))
-                out.setdefault((r['feature_name'], r['feature_class']), (lon, lat, src if src[0] else None, r['feature_id']))
+                hit = (lon, lat, src if src[0] else None, r['feature_id'])
+                out.setdefault((r['feature_name'], r['feature_class']), hit)
     return out
 
 
@@ -125,7 +129,8 @@ def axis(dem, lon, lat, kind):
         base = 0
         z = rel
     else:
-        # A mesa top: the flat ground within MESA_DROP_M (or a share of the relief, if larger) of the top near the point.
+        # A mesa top: the flat ground within MESA_DROP_M (or a share of the relief, if larger) of the top near the
+        # point.
         mask = z > top - max(MESA_DROP_M, (1 - SHARE[kind]) * (top - base))
     if kind in FLAT_DEG:
         mask &= slope < FLAT_DEG[kind]
@@ -169,7 +174,7 @@ MESA_MIN_ELONG = 1.6
 
 
 def glyph_mesas():
-    glyphs = json.loads((REPO / 'data' / 'mountain_glyphs.geojson').read_text())['features']
+    glyphs = json.loads((DATA / 'mountain_glyphs.geojson').read_text())['features']
     for f in glyphs:
         p = f['properties']
         if p['landform'] == 'mesa' and not p['name'].startswith('Unnamed'):
@@ -183,7 +188,8 @@ def main():
     feats = []
     wanted = [(n, s, c, k, None) for n, s, c, k in WANTED]
     wanted += [(n, s, 'MESA', 'mesa', hit) for n, s, hit in glyph_mesas()]
-    with rasterio.open(DEM) as dem:
+    with tempfile.TemporaryDirectory() as tmp, \
+            rasterio.open(build_vrt(Path(tmp) / 'dem.vrt', tiles(COPERNICUS, COPERNICUS_REGION))) as dem:
         for name, source, code, kind, hit in wanted:
             hit = hit or (g if source == 'gnis' else m).get((name, code))
             if not hit:
@@ -208,13 +214,15 @@ def main():
                     continue
                 method = 'principal axis of the DEM region around the gazetteer point'
             props = {
-                'name': name, 'kind': kind, 'len_m': round(length), 'mpp0': round(156543.03 * math.cos(math.radians(lat))),
+                'name': name, 'kind': kind, 'len_m': round(length),
+                'mpp0': round(156543.03 * math.cos(math.radians(lat))),
                 'source': f'{"USGS GNIS" if source == "gnis" else "GeoNames"} {fid}',
                 'licence': 'public domain' if source == 'gnis' else 'CC BY 4.0', 'method': method,
             }
             if elong:
                 props['elongation'] = round(elong, 2)
-            feats.append({'type': 'Feature', 'geometry': {'type': 'LineString', 'coordinates': line}, 'properties': props})
+            geometry = {'type': 'LineString', 'coordinates': line}
+            feats.append({'type': 'Feature', 'geometry': geometry, 'properties': props})
             print(f'{name:28s} {kind:6s} {length / 1000:6.1f} km  elong {elong or 0:.1f}')
     body = json.dumps({'type': 'FeatureCollection', 'features': feats}, ensure_ascii=False, indent=1)
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -222,7 +230,8 @@ def main():
         '// Generated by review/stage-8/wheeler/landform_axes.py: a label line along each demo landform, from GNIS\n'
         '// (public domain) and GeoNames (CC BY 4.0) names, the axis from the gazetteer or the Copernicus DEM.\n'
         "import type { FeatureCollection, LineString } from 'geojson'\n\n"
-        'export type LandformProps = { name: string; kind: string; len_m: number; mpp0: number; source: string; licence: string; '
+        'export type LandformProps = { name: string; kind: string; len_m: number; mpp0: number; source: string; '
+        'licence: string; '
         'method: string; elongation?: number }\n\n'
         f'export const landforms: FeatureCollection<LineString, LandformProps> = {body}\n'
     )

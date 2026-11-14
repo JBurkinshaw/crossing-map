@@ -62,7 +62,7 @@ North and south of Morelos now agree within 10% at every zoom. Across all seven 
 ## Size and build
 
 - `base.pmtiles`: **15.0 MB** (tiles-v7: 6.0 MB). Three things keep it under 20 MB. First, order 2 streams (drawn only at zoom 12) are kept only inside `FINEST_ORDER_BOX` (110.75-106.25 W, 28.25-33.25 N, the journeys' country from the Sonora river towns to the Babícora, Silver City and Lordsburg). Second, the pieces of one stream are joined into one line. Third, lines are simplified to 30 m (a pixel at zoom 12). Without the box, order 2 everywhere took the creek layer alone to 24 MB. Without joining and simplifying, it was 36 MB.
-- `uv run --project pipeline python tiles/build_base.py` now takes about 20 minutes, up from about 6, because it reads both full networks (1.5 million INEGI lines and 860,000 NHD lines).
+- `uv run --project pipeline python -m tiles.build_base` now takes about 20 minutes, up from about 6, because it reads both full networks (1.5 million INEGI lines and 860,000 NHD lines).
 - **Needs tiles-v8.** Only `base.pmtiles` changes. `tiles/release.txt` is unchanged (still tiles-v7). The style commit reads the new `o` and `i` attributes, so with the tiles-v7 base the creeks disappear and old NHD names would still label. Release tiles-v8 with this base before deploying the style.
 
 ## Screenshots
@@ -84,4 +84,4 @@ Compare `before-morelos-z10.jpg` with `after-morelos-z10.jpg`, and `before-bavis
 3. **US coverage.** The NHD cache covers only the 73 HU8s that the named rivers cross, so parts of New Mexico and Arizona inside the story box (for example around Magdalena and north of the Gila) have no creeks. Fetching the missing HU8s would close the gaps and lengthen the build.
 4. **`rivers.strahler`.** Should it take the same braid fix? It would change the order weights the river tracer uses (orders above about 8 on NHD). The traced rivers would need comparing before and after.
 5. **Labels.** Mexican names come from toponym points, so a name can stop short of a stream's full length or, rarely, land on a neighbour. Spot-checked near Morelos (Arroyo Cajón Bonito, Arroyo la Aguaja). The names are geography, not story, so they are not spoiler-filtered, as before.
-6. **Plan and stage 2 notes.** The plan's backlog note on creeks and the stage 2 README ("the creeks ... are not done") could be updated once this is accepted.
+6. **Roadmap notes.** The roadmap's creek items (the Phase 2 backlog and stage 2) could be updated once this is accepted.

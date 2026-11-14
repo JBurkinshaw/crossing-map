@@ -2,23 +2,24 @@
 
 Changes that readers and data users can see: the map, the published data in `data/`, and the tile releases. Code-only changes are in the git history. Corrections sent in by readers are listed with credit, unless the sender asks otherwise.
 
-Data releases are dated. Tile releases are named by the tag in `tiles/release.txt`.
+A change is **released** when it is merged to `main`, which the public site serves. Until then it is listed under Unreleased, in sections dated by when it reached the preview at `/preview/`. Tile releases are named by their tag; `tiles/release.txt` pins the one a branch uses.
 
 ## Unreleased
 
-### Data
+### 2026-11-14
+
+#### Data
 
 - Veracruz added to the places named elsewhere (3-01), read as the state, as Bell (2000) reads it.
 - A GeoParquet copy of `vignettes`.
 - The wolf's crossing of the Río Bavispe moved 1.7 km east, onto the river's real channel.
 - The J5 camp at the edge of the Babícora lake moved 1.4 km onto the lake's north-west shore, as INEGI outlines it; it stood in the water.
 
-### Tiles
+#### Tiles
 
-- `tiles-v8`: small streams on both sides of the border by one rule. Each stream appears from a zoom set by its Strahler order, widens with order, and intermittent streams are lighter rather than dashed, so drainage is as dense south of Colonia Morelos as north of it. Creek names show from zoom 11. River names show again: they follow a smoothed copy of each river, and minor rivers are named too. NHD's stream orders no longer climb along braided channels and ditches.
-- `tiles-v7`: every named river is now traced through INEGI's 1:50,000 network in Mexico and the USGS NHD in the US, keeping to each river's main stem, so the lines follow their valleys instead of Natural Earth's generalised courses. The Raised view now draws the main stems of wide rivers, such as the Bavispe, which were missing.
+- `tiles-v8`: small streams on both sides of the border by one rule. Each stream appears from a zoom set by its Strahler order, widens with order, and intermittent streams are lighter rather than dashed, so drainage is as dense south of Colonia Morelos as north of it. Creek names show from zoom 11. River names show again: they follow a smoothed copy of each river, and minor rivers are named too. NHD's stream orders no longer climb along braided channels and ditches. Lakes in Mexico follow INEGI's water-body outlines, so the Babícora lake has its real shape.
 
-### Site
+#### Site
 
 - Each translation has a "Suggest a better translation" link that opens a prefilled GitHub issue.
 - The map's controls are one framed set: Map (Classic, Compare, Satellite, Topo), View (Flat, Tilted, Raised), Ground (Paper or Satellite tint, formerly Land colour) and Units (Imperial or Metric). Compare sits between Classic and Satellite and works in Flat and Tilted. On phones the controls fold behind one button.
@@ -30,31 +31,31 @@ Data releases are dated. Tile releases are named by the tag in `tiles/release.tx
 - The lines spoken on a road have their own block and open the road's card, grouped by episode when they span several.
 - The hillshade is more pronounced.
 
-## 2026-11-13
+### 2026-11-13
 
-### Data
+#### Data
 
 - `open-questions.json`: 22 judgement calls, each with what the map shows, the other reading and why. Shown on the cards they concern and on the Open questions page.
 - Places checked against James Bell's dissertation (2000) and Joe Hazelton's Gaia GPS map. Pilares Teras and Skeleton Creek moved; Hidalgo County, Cochise County, Taylor's Draw and Cañón la Cabellera added; first sightings of Animas Peak, Ascensión and De Baca County corrected.
 - The wolf's Río Bavispe crossing moved onto the river's western arm.
 - A vignette for the Trinity test (4-09).
 
-### Tiles
+#### Tiles
 
+- `tiles-v7`: every named river is now traced through INEGI's 1:50,000 network in Mexico and the USGS NHD in the US, keeping to each river's main stem, so the lines follow their valleys instead of Natural Earth's generalised courses. The Raised view now draws the main stems of wide rivers, such as the Bavispe, which were missing.
 - `tiles-v6`: Mexico's named rivers traced through INEGI's 1:50,000 network, and the Bavispe named down to its confluence with the Aros. Natural Earth labels that stretch "Yaqui".
 - `tiles-v5`: the S5 relief style at zoom 12 density, and Raised over every journey.
 - `tiles-v4`: the S5 relief style and the first Raised preview.
 
-## 2026-11-12
+### 2026-11-12
 
-### Data
+#### Data
 
 - Parts II to IV: every journey, stop, area and place, and the Spanish translations.
 
-### Tiles
+#### Tiles
 
 - `tiles-v3`: production hachures.
-- `tiles-v2`: the base map with creeks, and terrain.
 
 ## 2026-11-11
 
@@ -64,5 +65,6 @@ Data releases are dated. Tile releases are named by the tag in `tiles/release.tx
 
 ### Tiles
 
+- `tiles-v2`: the base map with creeks, and terrain.
 - `tiles-v1`: the literary base map, first look.
 - `tiles-v0`: a test archive.

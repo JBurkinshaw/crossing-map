@@ -2,7 +2,7 @@
 
 This packet covers the eleven interface changes you asked for. Each item has its own commit (one extra fix commit for item 6, and one to keep a name two tools use). Screenshots are in `before/` and `after/`. Desktop shots are 1400 x 900; phone shots are 390 x 844 at 3x, saved at CSS size. The reading progress was "Finished" and the units Imperial for all of them.
 
-**Satellite on localhost.** The MapTiler key does not allow localhost (see `review/outstanding.md`), so Satellite and Compare fail with a 403 on the dev server. For the Compare screenshots, the test browser answered MapTiler's style request with a plain green style. The green half in those shots stands for the imagery. Check Compare with real imagery on the preview.
+**Satellite on localhost.** The MapTiler key does not allow localhost (see `docs/roadmap.md`), so Satellite and Compare fail with a 403 on the dev server. For the Compare screenshots, the test browser answered MapTiler's style request with a plain green style. The green half in those shots stands for the imagery. Check Compare with real imagery on the preview.
 
 ## Commits
 
@@ -57,7 +57,7 @@ The switch read "mi" and "km". It now reads **Imperial** and **Metric**. Each bu
 
 - The four separate boxes (three switches and a checkbox) are now **one framed box**, top right, with the double ink rule of the cartouche and the inset. It has four rows, each a segmented switch with a small italic label: **Map**, **View**, **Ground**, **Units** (`after/item4-desktop.jpg`).
 - **View** and **Ground** hang under Map on a ruled branch, because they change the classic map (View changes compare mode too). On Satellite and Topo their buttons are disabled and their labels fade, so their link to Classic is visible.
-- **Land colour is now "Satellite tint"**, chosen on the Ground row: **Paper | Satellite tint**. "Land colour" was easy to read as the relief tint the map already has. "Satellite tint" says where the colour comes from and that it is faint. "Ground colour" was the other candidate; it says what changes but not that it comes from imagery, so a reader would not expect it to need the satellite service. Decision 0017, the Credits page and `review/outstanding.md` use the new name.
+- **Land colour is now "Satellite tint"**, chosen on the Ground row: **Paper | Satellite tint**. "Land colour" was easy to read as the relief tint the map already has. "Satellite tint" says where the colour comes from and that it is faint. "Ground colour" was the other candidate; it says what changes but not that it comes from imagery, so a reader would not expect it to need the satellite service. Decision 0017, the Credits page and the roadmap (`docs/roadmap.md`) use the new name.
 - **Phones:** the box folds behind one **Map** button (layers icon, `aria-expanded`), so the switches no longer cover a third of the map (`after/item4-phone-closed.jpg`). Tapped, the box opens below the button (`after/item4-phone-open.jpg`). Escape closes it and returns focus to the button, and a tap outside closes it too. Checked at 390 x 844 with the keyboard: Enter opens it, Tab reaches the switches, the arrow keys change them, and Escape closes it.
 
 ## 5. The inset map

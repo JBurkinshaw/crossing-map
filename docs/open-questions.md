@@ -2,7 +2,7 @@
 
 Places and readings that the evidence so far does not settle. Each entry says what is shown now and what would settle it. A place listed here says so on its card on the site, with a link to suggest a correction.
 
-The reasoning for each pick is in `pipeline/seeds/parts2-4-place-overrides.csv` and `pipeline/seeds/part1-place-overrides.csv`. The site shows a short form of each question, and the stage 7 judgement calls, from `data/open-questions.json`: on the cards of the features concerned and on its Open questions page. Keep the two in step.
+The reasoning for each pick is in `pipeline/seeds/place-overrides.csv`. The site shows a short form of each question, and the stage 7 judgement calls, from `data/open-questions.json`: on the cards of the features concerned and on its Open questions page. Keep the two in step. Published reasoning in `data/` cites this file, so it keeps its path.
 
 ## Places shown, with a doubt
 

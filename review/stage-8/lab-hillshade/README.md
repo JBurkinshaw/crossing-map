@@ -18,7 +18,7 @@ The lab is dev-server only: `npm run build` keeps `index.html` as its only entry
 To try the sharper terrain locally (git-ignored, about 30 MB, 20 s):
 
 ```
-uv run --project pipeline python tiles/build_terrain_hi.py --bbox -109.6 29.0 -107.6 31.9 --out site/public/tiles/terrain-hi.pmtiles
+uv run --project pipeline python -m tiles.build_terrain_hi --bbox -109.6 29.0 -107.6 31.9 --out site/public/tiles/terrain-hi.pmtiles
 ```
 
 Then tick "Sharper terrain from zoom 10" in the lab. The box covers all four test places.
@@ -38,9 +38,9 @@ Then tick "Sharper terrain from zoom 10" in the lab. The box covers all four tes
 - **Compare**: MapTiler Topo beside the map (the site's own `SatelliteMap`, on the same camera), and the sharper test terrain if built.
 - **Copy settings**: the JSON to paste over `HILLSHADE` in `site/src/map/relief.ts`. The lab's settings are exactly that type, so a paste is all a change takes.
 
-**MapTiler Topo does not load on localhost.** The key answers 403 from `localhost:5192` (plan section 7 says localhost should be among its allowed origins; it is not now, or not on this port). The lab notices, says so in the Compare box and shows the classic map alone. The Topo images in this packet come from the published preview, where the key works.
+**MapTiler Topo does not load on localhost.** The key answers 403 from `localhost:5192` (localhost is not among its allowed origins). The lab notices, says so in the Compare box and shows the classic map alone. The Topo images in this packet come from the published preview, where the key works.
 
-**Wheeler** is the placeholder `site/src/lab/wheeler/WheelerLab.tsx` ("Wheeler study: coming from the research branch"); the research branch replaces it. A section is any default-exported component with no props. `LabMap` (`site/src/lab/LabMap.tsx`) documents its props in a comment: `styleOverrides` (gets a copy of the classic style, returns the style to draw; MapLibre applies only the difference), `initialView`, `mapRef`, `onLoad`, `onMove`, `label`, and `children` for react-maplibre overlays.
+**Wheeler** is `site/src/lab/wheeler/WheelerLab.tsx`, the Wheeler study's section (`review/stage-8/wheeler/README.md`). A section is any default-exported component with no props. `LabMap` (`site/src/lab/LabMap.tsx`) documents its props in a comment: `styleOverrides` (gets a copy of the classic style, returns the style to draw; MapLibre applies only the difference), `initialView`, `mapRef`, `onLoad`, `onMove`, `label`, and `children` for react-maplibre overlays.
 
 Phone layout (390 x 844): the maps stack above the controls, which scroll.
 
@@ -119,7 +119,7 @@ The journeys' core country (110-107° W, 29-32° N) at 1 m: 12 MB at zoom 11, 31
 **Recommended now:** tile zoom 11 for the whole story box, one archive of about 76 MB, under the project's 100 MB cap:
 
 ```
-uv run --project pipeline python tiles/build_terrain_hi.py --zooms 11 11
+uv run --project pipeline python -m tiles.build_terrain_hi --zooms 11 11
 # writes tiles/out/terrain-hi.pmtiles; publish it with the next tiles release
 ```
 
@@ -129,7 +129,7 @@ Gain: the hillshade is sharp at map zoom 10 and 2 times sharper at 11-13 (65 m i
 
 ## Files
 
-- `site/lab.html`, `site/src/lab/` (LabApp, LabMap, `hillshade/`, `wheeler/WheelerLab.tsx` placeholder, `lab.css`)
+- `site/lab.html`, `site/src/lab/` (LabApp, LabMap, `hillshade/`, `wheeler/`, `lab.css`)
 - `site/src/map/relief.ts`: `HILLSHADE`, `HillshadeSettings`, `hillshadePaint()`; the new default
 - `tiles/build_terrain_hi.py`: the sharper terrain builder (estimate, bbox and zoom options)
 - `tools/hillshade-lab-shots.mjs`, `tools/hillshade-sheet.py`: the shots and sheets in this packet

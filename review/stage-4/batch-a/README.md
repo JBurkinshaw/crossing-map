@@ -5,9 +5,9 @@ Part II's journeys are drawn: J3, Billy alone in the Sierras and home (19 stops)
 ## What was built
 
 - **Builder.** `crossing.build_part1` is now `crossing.build_story`. It reads each batch's stops and snaps and the Parts built so far (`BATCHES`, `PARTS_BUILT`). Part I's output is unchanged byte for byte.
-- **Stops.** `pipeline/seeds/part2-stops.csv`, from the plan's journeys (section 2.2), the picks in `parts2-4-place-overrides.csv` and the text. Every stop carries its reasoning; inferred stops are circles sized to the doubt.
-- **Snaps.** `pipeline/seeds/part2-snaps.csv`. Where the text names the way, the route follows it: the Bavispe through the river towns (J3 from Huisiachepic to Colonia Oaxaca; J4 from Colonia Morelos up to Bacerac), and route 666, today's US 191, from Elfrida to Douglas (Census TIGER). Elsewhere a route is a gentle curve between stops, marked `schematic`.
-- **App.** Journey inks for J3–J7 (Billy oxblood, Boyd green, "the girl" plum, per plan 5.1), the journey list shows only journeys with data, and a "Named elsewhere" list in the panel (so far only Mexico City).
+- **Stops.** J3 and J4's rows in `pipeline/seeds/stops.csv`, from the plan's journeys (section 2.2), the picks in `pipeline/seeds/place-overrides.csv` and the text. Every stop carries its reasoning; inferred stops are circles sized to the doubt.
+- **Snaps.** Part II's rows in `pipeline/seeds/snaps.csv`. Where the text names the way, the route follows it: the Bavispe through the river towns (J3 from Huisiachepic to Colonia Oaxaca; J4 from Colonia Morelos up to Bacerac), and route 666, today's US 191, from Elfrida to Douglas (Census TIGER). Elsewhere a route is a gentle curve between stops, marked `schematic`.
+- **App.** Journey inks for J3–J7 (Billy oxblood, Boyd green, "the girl" plum, per design 5.1), the journey list shows only journeys with data, and a "Named elsewhere" list in the panel (so far only Mexico City).
 - **Raised.** `data/raised/` now includes J3 and J4's stops and places; their routes are not raised yet (decision 0018).
 
 ## Decisions I made alone
