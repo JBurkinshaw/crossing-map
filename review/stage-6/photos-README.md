@@ -2,7 +2,7 @@
 
 `photos.csv` lists candidate photos for the places and stops, up to five a place, ranked. Nothing is in the app or the data layers yet: you pick first (plan section 11, stage 6).
 
-**The search is not finished.** Commons rate-limited the run twice (see "Requests" below), and a polite retry at 3:33 am on 13 November was refused again after a few requests, so 20 of 135 places are searched. The other 115 wait for a rerun, listed in `TODO-prerequisites.md`.
+**The search is finished** (13 November 2026, evening): every one of the 139 places and stops in the story box is searched. Commons rate-limited the first runs (see "Requests" below); the last run asked once every 15 seconds and waited out each refusal, starting at a minute and doubling.
 
 ## Method
 
@@ -40,21 +40,16 @@ One row per candidate. Fill in `pick` (for example `y`) on the rows you want; le
 
 | | Places |
 | --- | --- |
-| To search | 135 |
-| Searched | 20 |
-| With candidates | 5 (19 rows) |
-| Searched, no candidate | 15 |
-| Not searched yet (rate limit) | 115 |
+| To search | 139 |
+| Searched | 139 |
+| With candidates | 87 (330 rows) |
+| Searched, no candidate | 52 |
 
-Files seen with an allowed licence: 36; dropped as aerial views: 62; dropped as not a photo: 1. No file in the searched places was dropped for its licence.
+Files seen with an allowed licence: 1,611; dropped as aerial views: 372; dropped as not a photo: 95; dropped for their licence ("No restrictions" or "Copyrighted free use", which need checking by hand): 17. Linked to Wikidata: 84 places, 54 of them with an image (P18) and 49 with a Commons category (P373).
 
-**Licences in the CSV:** CC0 10, CC BY-SA 3.0 4, CC BY 2.0 2, CC BY-SA 4.0 1, CC BY 4.0 1, public domain 1.
+**Licences in the CSV:** CC0 70, CC BY-SA 3.0 65, CC BY-SA 4.0 52, public domain 34, CC BY 2.0 32, CC BY-SA 2.0 29, CC BY 4.0 26, CC BY 3.0 17, CC BY-SA 2.5 3, CC BY-SA 3.0 IGO 2. **Kinds:** landscape 137, building 46, wildlife 5, other 142.
 
-**Searched, no candidate** (geosearch found only aerial views here): Sierra de la Madera, Animas Mountains, Peloncillo Mountains, Foster Draw, Skeleton Creek, Starvation Canyon, Hog Canyon Spring, Clanton Draw, Cloverdale Creek, Cloverdale, Cajón Bonito, Sierra de la Cabellera, Colonia Oaxaca, Colonia Morelos, Sierra de los Pilares de Teras. All are stop places in Part I's country, where Commons has few ground photos.
-
-**With candidates:** San Luis Mountains (3, views from the Puerto San Luis), Whitewater Creek (1, a kangaroo rat), Animas Valley (5, Lordsburg Mesa views), Casas Grandes (5, led by its Wikidata image of the town sign), Guadalupe Mountains (5).
-
-**Not searched yet:** the other 115 places, from Cloverdale to Fort Sumner, and the stops `j1-border-108-30`, `j1-clanton-foster`, `j3-websters`, `j4-lordsburg`, `j7-boyds-grave`, `j7-cemetery` and `j7-black-range`. The script prints the full list.
+**Searched, no candidate** (52, mostly back-country stops, where geosearch finds only aerial views): the Part I stop places from the Sierra de la Madera to the Pilares de Teras, and Ascensión, the San Luis Pass, Black Point, Taylor's Draw, Cañón la Cabellera, Esqueda, Villa Hidalgo, the Llanos de Carretas, Tamichopa, Ojito, Animas Peak, the Dos Cabezas Mountains, Colonia Juárez, La Babícora, the Hacienda de San Diego, the Río Piedras Verdes, Las Varas, Mata Ortiz, La Boquilla, San José, La Norteña, La Pinta, the Hatchet Mountains, the Sierra del Nido, Corralitos, Duncan, nine places from the tales, and the stops `j1-clanton-foster` and `j7-boyds-grave`.
 
 ## Requests
 
@@ -98,6 +93,6 @@ A rerun on another day needs about 219 requests (`--dry-run` gives the current c
 
 ## Questions for you
 
-1. Rerun the remaining 219 or so Commons requests on another day, at one request every 3 seconds?
+1. (Done: the search finished on 13 November.)
 2. Drop aerial views (as now), or keep the USDA orthophotos and ISS photos as a last resort for the back-country places?
 3. Should places with no Wikidata link (55 of 135) get one by a Wikidata search later, to reach their P18 and category files?
