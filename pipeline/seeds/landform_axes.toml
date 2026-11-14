@@ -22,10 +22,10 @@ reason = "GMBA's outline runs 190 km north to the Gila; the book's Peloncillos a
 
 [[edit]]
 id = "landform-animas-mountains"
-centre = [-108.74, 31.55]
-length = 45
+centre = [-108.75, 31.59]
+length = 42
 rotate = 80
-reason = "The GNIS point is on Animas Peak and the DEM finds only the round high core; the range runs about 45 km north from the San Luis Pass country."
+reason = "The GNIS point is on Animas Peak and the DEM finds only the round high core; the range runs about 42 km north from San Luis Pass."
 
 [[edit]]
 id = "landform-sierra-el-tigre-3981619"
