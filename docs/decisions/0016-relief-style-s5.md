@@ -1,6 +1,6 @@
 # 0016. The relief style: Imhof at low zoom, light hachures and contours above (S5)
 
-Status: accepted (2026-11-12); not yet built. Supersedes the style in 0014; the generator settings in 0015 change as below.
+Status: accepted (2026-11-12); built in `tiles-v4` (2026-11-13), except focus mode, which is not built. Supersedes the style in 0014; the generator settings in 0015 change as below.
 Phase: P1
 
 ## Context
@@ -23,7 +23,7 @@ The soft hachures of 0014 looked weak once published: most lines were thinner th
 - From zoom 9 to 10: a fade to a near-white paper, a light grey hillshade ("combined" method) and the line work.
 - Hachures: short strokes (generator spacing 2–4.5 cells, minimum slope 10°, split at 10 m), in sepia `#6e5443` at weight 0.9 and opacity 0.65. Strokes on slopes facing away from the light are darker. A second stroke offset 0.35 px at 40% opacity adds body. Only 70% of strokes draw below zoom 12, and opacity rises from 55% at zoom 10 to full at 13.
 - Contours: orange-brown `#b0622e`, 50 m with a heavier line every 200 m, at 45% opacity.
-- A paper halo under the journeys clears the relief around the story. Focus mode (relief at 55%) applies when a journey is selected.
+- A paper halo under the journeys clears the relief around the story. Focus mode (relief at 55% when a journey is selected) is planned and not built.
 
 ## Consequences
 

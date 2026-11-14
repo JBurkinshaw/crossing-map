@@ -16,7 +16,7 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
    - a one-handed phone test
 4. **[you]** Sign off the stage 4 place checklists (`review/stage-4/batch-a/checklist.md` and `batch-b/checklist.md`) and tick the acceptance criteria in plan section 11.
 5. **[you]** Send the permission message to Joe Hazelton. A courtesy note to James Bell is optional.
-6. **[decide]** How readers discuss. The options are in the 13 November conversation. Recommended: Cusdis comments on the Open questions page, with the GitHub issue link kept for corrections.
+6. **[decide]** How readers discuss. Cusdis is archived (July 2026), so it is out. The options are Giscus (needs a GitHub account to post), Hyvor Talk (guest comments, about €50 a year), or a Tally form beside Giscus. The GitHub issue link stays for corrections.
 7. **[you]** Soft launch to a few readers. Then post on r/cormacmccarthy (draft in `private/launch/reddit-post.md`, which needs the link and two screenshots), and reply in the 2024 Gaia-map thread.
 
 ## 2. Stages not finished
@@ -50,7 +50,7 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
 - **Stage 7.**
   - Judgement calls 2 to 17 in `review/stage-7/README.md` are open. Item 8, De Baca County, was applied on 13 November.
   - Not built: the `leads` field, the `bell-2000` and `reddit-gaia` source ids, and "Also placed by" on cards.
-  - Not done: maxZoom 15 for street-level places, and Bell in the About page's further reading.
+  - Not done: maxZoom 15 for street-level places.
 - **Stage 8.** Section 1 above, then the stage 7 calls, street-level places, the declutter, research-based vignettes and analytics, each as demand shows.
 
 ## 3. Decisions waiting on you
@@ -103,18 +103,10 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
   - The name of "Land colour".
 - **CI.** The spoiler-leak test, bundle size and Lighthouse in the deploy workflow.
 - **Analytics.** Cookie-free (GoatCounter or Cloudflare) or Google.
-- **Guardrail.** Five 8-word runs shared with the novel in plan section 2.2 (lines 69, 75, 81 and 108) need rewording.
 
 ## 4. Build work, by size
 
-- **Small:**
-  - Bell in the About page's further reading
-  - Veracruz in Named elsewhere
-  - a vignettes GeoParquet file
-  - real or removed "measured in CI" numbers
-  - Dependabot (plan 4.4 and decision 0012 rely on it)
-  - a CHANGELOG (the plan relies on it for corrections and data versions)
-  - README.md still says "at an early stage"
+- **Small:** done on 13 November 2026 (Bell and Hazelton in Further reading, Veracruz, the vignettes GeoParquet file, the "measured in CI" rows removed, Dependabot, `docs/CHANGELOG.md`, the README).
 - **Medium:**
   - the stage 7 data model and card lines
   - the stage 7 moves once decided
@@ -164,15 +156,4 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
 
 ## 6. Stale or contradictory documents
 
-- **Plan section 12.** "Launch" still says to send the Cormac McCarthy Society a permission request; the 12 November decision was not to ask.
-- **Plan 5.4.** It says Rumsey pages can be fetched normally; they cannot (robots.txt and a bot check).
-- **Plan 2.2.** J6 still lists the blind man's wife as a source, and the other stage 4 batch B corrections are not applied.
-- **Plan stage 7.** It promises a public `review/stage-7/second-sources.csv`; the findings stayed private because they quote Bell. This README and `review/stage-7/README.md` stand in for it.
-- **Decision 0016.** It still reads "not yet built", and its focus-mode note is unverified.
-- **Decision 0009.** It names ogr2ogr; the downloads use pyarrow.
-- **`TODO-prerequisites.md`.** It keeps a moot Part I prototype line, and its photo count (122 places left) disagrees with the photos README (115).
-- **`private/follow-ups.md`.** It is stale on the Bavispe crossing and the 12 provisional picks.
-- **Review packets from before 13 November.** They still show lamplight and the In view list.
-- **`docs/open-questions.md` and `data/open-questions.json`.** The SK Bar is its own entry in the doc and folded into the Parham house question in the app.
-- **Launch readiness.** It says the tile set is about 400 MB per build; `tiles/out` is about 275 MB.
-- **Agent worktrees.** 17 remain under `.claude/worktrees/` and can be removed.
+Fixed on 13 November 2026: the plan (launch, 5.4, 2.2, stage 7, the "Numbers" on How it's built, the five 8-word runs), decisions 0009 and 0016, `TODO-prerequisites.md`, `private/follow-ups.md`, `docs/open-questions.md`, launch readiness, and dated notes on the stage 2, 3, 5 and 6 packets. The 16 agent worktrees under `.claude/worktrees/` remain: each has uncommitted files, so they need a look before removal.

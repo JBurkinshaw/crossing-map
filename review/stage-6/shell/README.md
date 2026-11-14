@@ -1,5 +1,7 @@
 # Stage 5 and 6 review: the interface shell
 
+> **Since this packet (13 November 2026).** The lamplight theme and the "In view" list have been removed; the screenshots that show them are out of date.
+
 This packet covers the phone drawer, the overview inset, and the accessibility and performance passes (plan sections 9, 11 and 12). Screenshots are an iPhone 14 viewport (390 x 844) in Playwright, with reading progress set to the end of the book.
 
 ## Phone drawer

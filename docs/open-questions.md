@@ -21,7 +21,7 @@ The reasoning for each pick is in `pipeline/seeds/parts2-4-place-overrides.csv` 
 | Place | Best estimate | Why |
 | --- | --- | --- |
 | Huisiachepic | The upper Bavispe, about 28 km south of Tamichopa | No gazetteer or source has the name; it may be invented or lost |
-| The SK Bar | About 14 km north of Cloverdale | No source names the ranch; the text puts it nine miles from the Parham house |
+| The SK Bar | About 14 km north of Cloverdale | No source names the ranch; the text puts it nine miles from the Parham house. In the app it is part of the Parham house question |
 | Dog Springs | The boundary south of Hermanas | No Dog Springs is known on the border; the only GNIS one is in Socorro County |
 | Álamo | Near Galeana | Two Álamos lie near San Buenaventura, and neither is between it and Galeana |
 

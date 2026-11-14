@@ -1,5 +1,7 @@
 # Stage 5: three map patterns
 
+> **Since this packet (13 November 2026).** The "In view" list has been removed: it added clutter for little use.
+
 Three Phase 1 patterns from the plan: talk on the road (section 8), the "In view" list and cluster markers (section 9). Screenshots are in `patterns/`, taken at reading progress "Part I, episode 10".
 
 ## Talk on the road

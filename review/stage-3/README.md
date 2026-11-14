@@ -1,5 +1,7 @@
 # Stage 3 review packet: the relief experiment
 
+> **Since this packet (13 November 2026).** The glyph counts here are from the first run: there are now 1,004 glyphs at 200 m prominence, in seven families. The lamplight theme has been removed.
+
 ## What was built
 
 - **Elevation.** 13 Copernicus GLO-30 tiles (493 MB) under the journeys corridor and the Casas Grandes–Babícora country, and AWS Terrain Tiles repacked to `terrain.pmtiles` (decision 0011).

@@ -11,7 +11,7 @@ Checked overnight on 13 November 2026 against `stage/4-rest-of-book`, and update
 | GeoJSON downloads validate against the schemas and open in QGIS | Met | `crossing.validate` passes on every file; every GeoJSON and GeoParquet file opens in GDAL (`ogrinfo`), which is what QGIS uses. |
 | The literary map works with MapTiler unreachable | Met | Locally MapTiler always refuses (403); the classic map, every view, search and pages work, and the satellite options switch off with a notice. |
 | Panel and drawer pass a one-handed phone test and keyboard-only use | Mostly met | 33 of 34 keyboard checks pass (the Compare swipe needs satellite). Open: the drawer handle at full height is out of thumb reach; no keyboard equivalent for hover names; no real screen-reader test. A hands-on phone test is the owner's. |
-| $0 a month at 10,000 visits; satellite pauses rather than bills | Met by design | GitHub Pages and release assets are free; MapTiler's free plan pauses at its limits (decision 0005). The tile set is about 400 MB per build; Pages' 1 GB limit counts main and the preview. |
+| $0 a month at 10,000 visits; satellite pauses rather than bills | Met by design | GitHub Pages and release assets are free; MapTiler's free plan pauses at its limits (decision 0005). The tile set is about 275 MB per build; Pages' 1 GB limit counts main and the preview. |
 
 ## Open questions in section 12
 

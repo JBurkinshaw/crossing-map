@@ -40,7 +40,7 @@
 ## Not done yet in stage 2
 
 - **60 fps on a mid-range phone.** Not measured yet.
-- **Mexican creeks beyond the border watersheds.** INEGI's 1:50,000 river network has no direct download; it comes through INEGI's interactive downloads portal (see `TODO-prerequisites.md`). The Cajon Bonita leg stays schematic until then.
+- **Mexican creeks beyond the border watersheds.** INEGI's 1:50,000 river network came through INEGI's downloads portal (see `TODO-prerequisites.md`). Since 13 November 2026 it draws Mexico's named rivers in the base map (`tiles/mexico_rivers.py`); the creeks and the Cajon Bonita leg are not done.
 - **More snapped legs.** The Cloverdale Creek road is a road, not the creek; no road line for it exists yet.
 - **State names in small capitals.** The glyphs are built; the label points are not.
 - **Spoiler hiding.** Every label shows regardless of reading progress. That is stage 5.
