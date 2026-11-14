@@ -68,6 +68,11 @@ const BASEMAPS: { id: Basemap; label: ReactNode; title?: string; ariaLabel?: str
 ]
 // In compare mode the two maps it compares show as paired, in a lighter way than the switch that is on.
 const PAIRED: Basemap[] = ['literary', 'satellite']
+// A story feature under a click: a place, an area, or a route segment (with its journey and sequence).
+export type MapPick = { layer: 'places' | 'areas' | 'journeys'; id: string; journey: string | null; sequence: number | null }
+// The layers a click can pick, and which story layer each draws.
+const CLICKABLE: Record<string, MapPick['layer']> = { 'places-point': 'places', 'zone-places-point': 'places', 'areas-fill': 'areas', 'journeys-hit': 'journeys' }
+
 // Views of the literary map: flat (the default), tilted (live 3D terrain) and raised (plan oblique relief).
 export type View = 'flat' | 'tilted' | 'raised'
 const VIEWS: { id: View; label: string; title: string }[] = [
@@ -83,8 +88,9 @@ type Props = {
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
   onSelectStop: (index: number) => void
-  // A place or area picked on the map (null: a click on empty map), and the one now picked, outlined.
-  onSelectFeature: (pick: { layer: 'places' | 'areas'; id: string } | null) => void
+  // A click on the map: the story features under it, topmost first (none: a click on empty map), and where it
+  // fell. App decides what it opens. selectedId is the place or area now picked, outlined.
+  onMapClick: (picks: MapPick[], at: [number, number]) => void
   selectedId: string | null
   // In step-through, the current stop's sequence: the road ahead of it fades.
   aheadFrom: number | null
@@ -185,7 +191,7 @@ function HomeControl({ onHome }: { onHome: () => void }) {
 }
 
 export function MapView(props: Props) {
-  const { mapRef, story, stops, stopIndex, onSelectStop, onSelectFeature, selectedId, aheadFrom, onHome, onView, reached } = props
+  const { mapRef, story, stops, stopIndex, onSelectStop, onMapClick, selectedId, aheadFrom, onHome, onView, reached } = props
   const { corridor, units, onUnits } = props
   const [basemap, setBasemap] = useState<Basemap>('literary')
   // Built once with the progress and units at first render; later changes go through setFilter and
@@ -230,6 +236,7 @@ export function MapView(props: Props) {
   // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
   // tiles are loading, and 'load' fires only once.
   const [loaded, setLoaded] = useState(false)
+  const [hovering, setHovering] = useState(false)
   // The Raised view's archives, fetched the first time the reader turns it on.
   const [raisedArchives, setRaisedArchives] = useState<string[] | null>(null)
   useEffect(() => {
@@ -362,11 +369,18 @@ export function MapView(props: Props) {
           locale={{ 'Map.Title': 'Map. Arrow keys pan, plus and minus zoom', 'AttributionControl.ToggleAttribution': 'Show or hide the map credits' }}
           hash="map"
           attributionControl={false}
-          interactiveLayerIds={['places-point', 'zone-places-point', 'areas-fill']}
+          interactiveLayerIds={Object.keys(CLICKABLE)}
           onClick={(e) => {
-            const f = e.features?.[0]
-            onSelectFeature(f ? { layer: f.layer.id === 'areas-fill' ? 'areas' : 'places', id: (f.properties as StoryProps).id } : null)
+            const picks = (e.features ?? []).map((f) => {
+              const p = f.properties as StoryProps
+              return { layer: CLICKABLE[f.layer.id], id: p.id, journey: p.journey ?? null, sequence: p.sequence ?? null }
+            })
+            onMapClick(picks, [e.lngLat.lng, e.lngLat.lat])
           }}
+          // A pointer over what a click would open.
+          cursor={hovering ? 'pointer' : undefined}
+          onMouseEnter={() => setHovering(true)}
+          onMouseLeave={() => setHovering(false)}
           style={{ position: 'absolute', inset: 0 }}
           onLoad={(e) => {
             setLoaded(true)
