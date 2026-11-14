@@ -17,6 +17,34 @@ export const notRaisedIds = (style: StyleSpecification) => style.layers.map((l) 
 // A creek of Strahler order `o` is drawn from this zoom on (creeks.MIN_ZOOM in tiles/creeks.py; order 7 and up from 7).
 const creekShown: ExpressionSpecification = ['>=', ['zoom'], ['match', ['get', 'o'], 2, 12, 3, 11, 4, 10, 5, 9, 6, 8, 7]]
 
+// State names (tiles/state_labels.py): points placed where the lettering clears the story, each shown between its
+// min_zoom and max_zoom: one per state zoomed out, a few spread over it closer in. Small capitals, widely spaced
+// and faint, from zoom 5, fading out by 8.5. The size and spacing here are the ones tiles/state_labels.py measures with.
+const STATE_ZOOMS = [5, 5.5, 6, 6.5, 7, 7.5, 8]
+const stateName = (zoom: number): ExpressionSpecification =>
+  ['case', ['all', ['<=', ['get', 'min_zoom'], zoom], ['>', ['get', 'max_zoom'], zoom]], ['get', 'name'], '']
+const stateLabel = (source: string): LayerSpecification => ({
+  id: 'state-label',
+  type: 'symbol',
+  source,
+  minzoom: 5,
+  maxzoom: 8.5,
+  layout: {
+    'text-field': ['step', ['zoom'], stateName(5), ...STATE_ZOOMS.slice(1).flatMap((z) => [z, stateName(z)])] as ExpressionSpecification,
+    'text-font': [fonts.smallCaps],
+    'text-size': ['interpolate', ['linear'], ['zoom'], 5, 12, 8, 16],
+    'text-letter-spacing': 0.6,
+    'text-max-width': 40,
+    'text-padding': 4,
+  },
+  paint: {
+    'text-color': tokens.ink,
+    'text-opacity': ['interpolate', ['linear'], ['zoom'], 7.5, 0.55, 8.5, 0],
+    'text-halo-color': tokens.paper,
+    'text-halo-width': 1,
+  },
+})
+
 // The literary basemap (docs/design.md, section 5.1): ink on caliche paper, the
 // Mexico side a shade darker, rivers in blue-grey ink, and a dash-dot
 // international line as on the 1850s-1880s survey sheets.
@@ -181,6 +209,8 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
   layers.splice(at('creek-label'), 0, ...r.glyphs, ...r.vignettes)
   layers.splice(at('county-line'), 0, ...r.hachures)
   layers.splice(at('lake'), 0, ...r.hillshade)
+  // Last of the base, so the story's labels (added above it) win any collision.
+  layers.push(stateLabel('state-labels'))
   return {
     version: 8,
     glyphs: `${fontsBase}{fontstack}/{range}.pbf`,
@@ -189,6 +219,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
     sources: {
       [base]: { type: 'vector', url: `pmtiles://${tilesBase}base.pmtiles` },
       ...reliefSources(tilesBase, dataBase),
+      'state-labels': { type: 'geojson', data: `${tilesBase.replace(/tiles\/$/, '')}labels/states.geojson` },
     },
     layers,
   }

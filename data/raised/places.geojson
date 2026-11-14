@@ -313,6 +313,7 @@
    "properties": {
     "id": "place-clanton-draw",
     "name": "Clanton Draw",
+    "name_in_text": "Clanton",
     "kind": "valley",
     "role": "stop",
     "characters": [
@@ -404,6 +405,7 @@
    "properties": {
     "id": "place-guadalupe-mountains",
     "name": "Guadalupe Mountains",
+    "name_in_text": "Guadalupes",
     "kind": "range",
     "role": "stop",
     "characters": [
@@ -435,6 +437,7 @@
    "properties": {
     "id": "place-cajon-bonito",
     "name": "Cajón Bonito",
+    "name_in_text": "Cajon Bonita",
     "kind": "stream",
     "role": "stop",
     "characters": [
@@ -559,6 +562,7 @@
    "properties": {
     "id": "place-pilares-de-teras",
     "name": "Sierra de los Pilares de Teras",
+    "name_in_text": "Pilares Teras",
     "kind": "range",
     "role": "stop",
     "characters": [
@@ -729,6 +733,7 @@
    "properties": {
     "id": "place-ascension",
     "name": "Ascensión",
+    "name_in_text": "Ascención;Ascensión",
     "kind": "town",
     "role": "passing",
     "characters": [],
@@ -841,6 +846,7 @@
    "properties": {
     "id": "place-hidalgo-county",
     "name": "Hidalgo County",
+    "name_in_text": "Hidalgo",
     "kind": "county",
     "role": "passing",
     "characters": [],
@@ -899,6 +905,7 @@
    "properties": {
     "id": "place-taylor-draw",
     "name": "Taylor's Draw",
+    "name_in_text": "Taylor's Draw",
     "kind": "valley",
     "role": "passing",
     "characters": [
@@ -929,6 +936,7 @@
    "properties": {
     "id": "place-cabellera-canyon",
     "name": "Cañón la Cabellera",
+    "name_in_text": "Cabellera Canyon",
     "kind": "canyon",
     "role": "passing",
     "characters": [
@@ -1410,6 +1418,7 @@
    "properties": {
     "id": "place-llanos-de-carretas",
     "name": "Llanos de Carretas",
+    "name_in_text": "Carretas Plain",
     "kind": "plain",
     "role": "passing",
     "characters": [
@@ -1593,6 +1602,7 @@
    "properties": {
     "id": "place-animas-peak",
     "name": "Animas Peak",
+    "name_in_text": "Animas Peaks",
     "kind": "summit",
     "role": "passing",
     "characters": [
@@ -1685,6 +1695,7 @@
    "properties": {
     "id": "place-dos-cabezas-mountains",
     "name": "Dos Cabezas Mountains",
+    "name_in_text": "Dos Cabezas",
     "kind": "range",
     "role": "stop",
     "characters": [
@@ -1871,6 +1882,7 @@
    "properties": {
     "id": "place-la-babicora",
     "name": "La Babícora",
+    "name_in_text": "Babicora",
     "kind": "ranch",
     "role": "stop",
     "characters": [
@@ -1934,6 +1946,7 @@
    "properties": {
     "id": "place-rio-piedras-verdes",
     "name": "Río Piedras Verdes",
+    "name_in_text": "Piedras Verdes",
     "kind": "river",
     "role": "passing",
     "characters": [
@@ -2057,6 +2070,7 @@
    "properties": {
     "id": "place-boquilla",
     "name": "La Boquilla",
+    "name_in_text": "Boquilla y Anexas;Boquilla",
     "kind": "town",
     "role": "stop",
     "characters": [
@@ -2240,6 +2254,7 @@
    "properties": {
     "id": "place-san-buenaventura",
     "name": "San Buenaventura",
+    "name_in_text": "Buenaventura",
     "kind": "town",
     "role": "stop",
     "characters": [
@@ -2511,6 +2526,7 @@
    "properties": {
     "id": "place-hachita",
     "name": "Hachita",
+    "name_in_text": "Hatchita",
     "kind": "town",
     "role": "passing",
     "characters": [
@@ -2601,6 +2617,7 @@
    "properties": {
     "id": "place-hatchet-mountains",
     "name": "Big Hatchet Mountains",
+    "name_in_text": "Hatchet Mountains",
     "kind": "range",
     "role": "passing",
     "characters": [
@@ -2631,6 +2648,7 @@
    "properties": {
     "id": "place-winslow",
     "name": "Winslow",
+    "name_in_text": "Window",
     "kind": "city",
     "role": "stop",
     "characters": [
@@ -2691,6 +2709,7 @@
    "properties": {
     "id": "place-plains-of-san-agustin",
     "name": "Plains of San Agustin",
+    "name_in_text": "plains of Saint Augustine",
     "kind": "plain",
     "role": "passing",
     "characters": [
@@ -2781,6 +2800,7 @@
    "properties": {
     "id": "place-el-berrendo",
     "name": "El Berrendo",
+    "name_in_text": "Berendo",
     "kind": "crossing",
     "role": "stop",
     "characters": [
@@ -2841,6 +2861,7 @@
    "properties": {
     "id": "place-madera",
     "name": "Madera",
+    "name_in_text": "Madero",
     "kind": "town",
     "role": "stop",
     "characters": [
@@ -2871,6 +2892,7 @@
    "properties": {
     "id": "place-temosachic",
     "name": "Temósachic",
+    "name_in_text": "Temosachic",
     "kind": "town",
     "role": "stop",
     "characters": [
@@ -3051,6 +3073,7 @@
    "properties": {
     "id": "place-santa-rita-mines",
     "name": "Santa Rita",
+    "name_in_text": "Santa Rita",
     "kind": "locale",
     "role": "passing",
     "characters": [
@@ -3199,6 +3222,7 @@
    "properties": {
     "id": "place-batepito",
     "name": "Batepito",
+    "name_in_text": "Batopite",
     "kind": "town",
     "role": "tale",
     "characters": [],
@@ -3339,6 +3363,7 @@
    "properties": {
     "id": "place-soto-maynez",
     "name": "Soto Máynez",
+    "name_in_text": "Soto Maynez",
     "kind": "town",
     "role": "tale",
     "characters": [],
@@ -3451,6 +3476,7 @@
    "properties": {
     "id": "place-ignacio-zaragoza",
     "name": "Ignacio Zaragoza",
+    "name_in_text": "Ignacio Zaragosa",
     "kind": "town",
     "role": "tale",
     "characters": [],
@@ -3479,6 +3505,7 @@
    "properties": {
     "id": "place-bachiniva",
     "name": "Bachíniva",
+    "name_in_text": "Bachiniva",
     "kind": "town",
     "role": "tale",
     "characters": [],
@@ -3535,6 +3562,7 @@
    "properties": {
     "id": "place-guzman",
     "name": "Guzmán",
+    "name_in_text": "Guzman",
     "kind": "locale",
     "role": "tale",
     "characters": [],
@@ -3591,6 +3619,7 @@
    "properties": {
     "id": "place-palomas",
     "name": "Puerto Palomas",
+    "name_in_text": "Palomas",
     "kind": "town",
     "role": "tale",
     "characters": [],
@@ -3619,6 +3648,7 @@
    "properties": {
     "id": "place-mesa-tres-rios",
     "name": "Mesa Tres Ríos",
+    "name_in_text": "Mesa Tres Rios",
     "kind": "locale",
     "role": "tale",
     "characters": [],
@@ -3731,6 +3761,7 @@
    "properties": {
     "id": "place-tonichi",
     "name": "Tónichi",
+    "name_in_text": "Tonichi",
     "kind": "town",
     "role": "tale",
     "characters": [],
@@ -3787,6 +3818,7 @@
    "properties": {
     "id": "place-san-nicolas",
     "name": "San Nicolás",
+    "name_in_text": "San Nicolas",
     "kind": "town",
     "role": "tale",
     "characters": [],
@@ -3815,6 +3847,7 @@
    "properties": {
     "id": "place-yecora",
     "name": "Yécora",
+    "name_in_text": "Yecora",
     "kind": "town",
     "role": "tale",
     "characters": [],
@@ -3843,6 +3876,7 @@
    "properties": {
     "id": "place-flores-magon",
     "name": "Flores Magón",
+    "name_in_text": "Flores Magon",
     "kind": "town",
     "role": "tale",
     "characters": [],
@@ -3871,6 +3905,7 @@
    "properties": {
     "id": "place-fort-sumner",
     "name": "Fort Sumner",
+    "name_in_text": "Fort Summer",
     "kind": "town",
     "role": "tale",
     "characters": [],

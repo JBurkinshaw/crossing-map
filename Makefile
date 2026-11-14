@@ -23,6 +23,7 @@ story: ## Episode list, story layers and vignette anchors; run `make raised` aft
 	$(PY) crossing.build_episodes
 	$(PY) crossing.build_story
 	$(PY) crossing.build_vignettes
+	$(PY) tiles.state_labels
 
 summits: ## Peaks, then landforms; landforms must follow every peaks run (needs private/)
 	$(PY) crossing.peaks

@@ -98,15 +98,18 @@ def curve(a: tuple[float, float], b: tuple[float, float], side: int) -> list[lis
 def named_lines(snap: dict) -> list:
     """The lines a snap names, in WGS 84: an NHD flowline, Natural Earth river or TIGER road by name.
 
-    A road that crosses a county line names one TIGER file per county, separated by semicolons.
+    A road that crosses a county line names one TIGER file per county, separated by semicolons. A road whose
+    stretches carry different names in TIGER (a county road that changes number) names each, also separated by
+    semicolons.
     """
     field = {"nhd": "gnis_name", "ne-river": "name", "tiger-road": "FULLNAME"}[snap["source"]]
+    # OGR SQL escapes a quote by doubling it.
+    names = ", ".join("'{}'".format(n.replace("'", "''")) for n in snap["feature"].split(";"))
     lines = []
     for name in snap["shapefile"].split(";"):
         path = REPO / name
         layer = path.name.removesuffix(".zip").removesuffix(".shp")
-        value = snap["feature"].replace("'", "''")  # OGR SQL escapes a quote by doubling it
-        sql = f"SELECT * FROM {'NHDFlowline' if snap['source'] == 'nhd' else layer} WHERE {field} = '{value}'"
+        sql = f"SELECT * FROM {'NHDFlowline' if snap['source'] == 'nhd' else layer} WHERE {field} IN ({names})"
         target = f"/vsizip/{path}" if path.suffix == ".zip" else str(path)
         out = subprocess.run(["ogr2ogr", "-f", "GeoJSON", "-t_srs", "EPSG:4326", "-dim", "XY", "-sql", sql,
                               "/vsistdout/", target],

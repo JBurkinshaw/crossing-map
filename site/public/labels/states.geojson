@@ -1,0 +1,293 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.4953,
+     32.7926
+    ]
+   },
+   "properties": {
+    "name": "Arizona",
+    "country": "USA",
+    "min_zoom": 5,
+    "max_zoom": 6.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.4953,
+     32.8681
+    ]
+   },
+   "properties": {
+    "name": "Arizona",
+    "country": "USA",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.8996,
+     35.3959
+    ]
+   },
+   "properties": {
+    "name": "Arizona",
+    "country": "USA",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.6987,
+     34.1786
+    ]
+   },
+   "properties": {
+    "name": "Arizona",
+    "country": "USA",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.0911,
+     29.238
+    ]
+   },
+   "properties": {
+    "name": "Sonora",
+    "country": "MEX",
+    "min_zoom": 5.5,
+    "max_zoom": 6.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -111.2258,
+     29.8632
+    ]
+   },
+   "properties": {
+    "name": "Sonora",
+    "country": "MEX",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.6538,
+     27.539
+    ]
+   },
+   "properties": {
+    "name": "Sonora",
+    "country": "MEX",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -112.5733,
+     31.5239
+    ]
+   },
+   "properties": {
+    "name": "Sonora",
+    "country": "MEX",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.5546,
+     35.579
+    ]
+   },
+   "properties": {
+    "name": "New Mexico",
+    "country": "USA",
+    "min_zoom": 5,
+    "max_zoom": 6.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.9258,
+     32.9814
+    ]
+   },
+   "properties": {
+    "name": "New Mexico",
+    "country": "USA",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.2071,
+     35.4327
+    ]
+   },
+   "properties": {
+    "name": "New Mexico",
+    "country": "USA",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.9021,
+     35.5059
+    ]
+   },
+   "properties": {
+    "name": "New Mexico",
+    "country": "USA",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.4811,
+     27.4991
+    ]
+   },
+   "properties": {
+    "name": "Chihuahua",
+    "country": "MEX",
+    "min_zoom": 5,
+    "max_zoom": 6.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.3133,
+     27.7379
+    ]
+   },
+   "properties": {
+    "name": "Chihuahua",
+    "country": "MEX",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.3913,
+     30.5231
+    ]
+   },
+   "properties": {
+    "name": "Chihuahua",
+    "country": "MEX",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.6489,
+     27.7379
+    ]
+   },
+   "properties": {
+    "name": "Chihuahua",
+    "country": "MEX",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -104.8431,
+     31.4647
+    ]
+   },
+   "properties": {
+    "name": "Texas",
+    "country": "USA",
+    "min_zoom": 5.5,
+    "max_zoom": 6.5
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -104.8431,
+     31.4647
+    ]
+   },
+   "properties": {
+    "name": "Texas",
+    "country": "USA",
+    "min_zoom": 6.5,
+    "max_zoom": 8.5
+   }
+  }
+ ]
+}

@@ -402,8 +402,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.9145,
-     31.40872
+     -108.99695,
+     31.45106
     ]
    },
    "properties": {
@@ -420,14 +420,14 @@
     "part": 1,
     "episode": "1-08",
     "first_seen": "1-08",
-    "certainty": "approximate",
-    "uncertainty_m": null,
-    "method": "gazetteer",
-    "source": "gnis",
-    "source_id": "887693",
-    "source_licence": "Public domain",
+    "certainty": "inferred",
+    "uncertainty_m": 2000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": "Where the trap was set: the vaqueros' noon fire, off the Cloverdale Creek road. In episode 1-08 Billy rides out of Cloverdale at dawn, turns west up the creek road and leaves it about two hours later to cross a pasture to the fire. At a horse's walk that is some 8 to 12 km. In Census TIGER 2023 the road follows the creek for 7 km from Cloverdale, to where Co Rd C106 branches west, and ends 9.6 km out; the point is on the road 8 km from Cloverdale and the circle covers its upper reach and the pastures either side. The GNIS point for Cloverdale Creek (887693) lies downstream, east of Cloverdale, which the ride west rules out."
    }
   },
   {
@@ -469,8 +469,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.9145,
-     31.40872
+     -108.99695,
+     31.45106
     ]
    },
    "properties": {
@@ -488,14 +488,14 @@
     "part": 1,
     "episode": "1-08",
     "first_seen": "1-08",
-    "certainty": "approximate",
-    "uncertainty_m": null,
-    "method": "gazetteer",
-    "source": "gnis",
-    "source_id": "887693",
-    "source_licence": "Public domain",
+    "certainty": "inferred",
+    "uncertainty_m": 2000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": "The same trap site as the wolf's last stop (J1, stop 13; the reasoning is there): about two hours' ride west up the creek road from Cloverdale."
    }
   },
   {
@@ -503,8 +503,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.96,
-     31.39
+     -108.96525,
+     31.43001
     ]
    },
    "properties": {
@@ -523,13 +523,13 @@
     "episode": "1-08",
     "first_seen": "1-08",
     "certainty": "inferred",
-    "uncertainty_m": 4000.0,
+    "uncertainty_m": 1500.0,
     "method": "schematic",
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Between the Cloverdale Creek road and the Guadalupe pass. The Robertson family ran the Cloverdale Ranch from the early 1900s (Range Magazine, winter 2000, rangemagazine.com/archives/stories/winter00/bootheel.htm), so the fence is likely theirs. GNIS has no Robertson ranch and the ranch's bounds are not known here; the circle covers the ground between the road and the pass."
+    "reasoning": "On the creek road: leading the wolf back down it, Billy stops at the crossfence after an hour, with Cloverdale an hour's ride further on, so about halfway, 4 km from Cloverdale by the road (Census TIGER 2023). From there he turns south across open country. The Robertson family ran the Cloverdale Ranch from the early 1900s (Range Magazine, winter 2000, rangemagazine.com/archives/stories/winter00/bootheel.htm), so the fence is likely theirs. GNIS has no Robertson ranch; the circle covers the stretch of road the halfway estimate could miss by."
    }
   },
   {

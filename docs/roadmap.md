@@ -94,9 +94,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - The episode summaries are drafts for the owner to edit.
 - **Stage 2.**
   - Where INEGI's or NHD's network breaks, a traced river runs along Natural Earth's line for a stretch. The base build prints the total (816 km, mostly the Fuerte, Rio Grande, and Colorado, far from the story). Joining broken channel ends was measured and dropped (1.6% less). The Río Batepito's 7.8 km above Colonia Morelos remains. A check of every river against the valley floor is drafted in the main checkout (`tiles/check_rivers.py`, not yet committed or run to the end).
-  - 60 fps panning on a mid-range phone is not measured.
-  - State names in IM Fell small capitals are not drawn.
-  - The Cloverdale Creek road leg is not snapped to a road.
+  - 60 fps panning on a mid-range phone is measured only by a desktop proxy (`review/experiments/stage-2/README.md`, section 3): the CPU side has room to spare; a real phone GPU is untested.
 - **Stage 3.**
   - Landform weights need tuning (section 2).
   - The hand-drawn mountain glyphs are not done; the generated set stands in.
@@ -140,7 +138,6 @@ The least-cost experiment is in `review/experiments/least-cost/` (in the main ch
   - drawer thumb reach and swipe-down
   - a keyboard equivalent for hover names
   - a screen-reader test
-  - state labels
   - the combined Soto Máynez label
   - the corridor-edge fade
   - the QGIS redraw of the regions and areas

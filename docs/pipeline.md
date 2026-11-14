@@ -34,11 +34,12 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | Story layers | `uv run --project pipeline python -m crossing.build_story` | The seeds; snap shapefiles in `private/cache/` | `data/places.geojson`, `stops.geojson`, `areas.geojson`, `journeys.geojson`, `elsewhere.json`; the stage 4 checklists, keeping ticked rows | Yes |
 | Region drafts | `uv run --project pipeline python -m crossing.regions [--force]` | `data/places.geojson`, the DEM | `pipeline/seeds/regions.geojson`; refuses to overwrite without `--force` | Yes |
 | Vignette anchors | `uv run --project pipeline python -m crossing.build_vignettes` | `vignettes.csv`, `data/stops.geojson`, `data/places.geojson` | `data/vignettes.geojson` | No |
+| State labels | `uv run --project pipeline python -m tiles.state_labels` | Natural Earth admin 1 states, the story layers in `data/` | `site/public/labels/states.geojson`: label points clear of the story | Yes |
 
 Order matters in three places:
 
 1. A first build runs `crossing.build_story` (it skips a missing regions file), then `crossing.regions`, then `crossing.build_story` again, because the region drafts sit on place pins.
-2. `crossing.build_vignettes` follows `crossing.build_story`.
+2. `crossing.build_vignettes` and `tiles.state_labels` follow `crossing.build_story`.
 3. `crossing.validate` checks that `data/raised/` holds the same features, first seen at the same episodes, as the flat layers. After a `build_story` change that adds, removes, or redates a feature, rerun `crossing.plan_oblique` (section 5, hours) before committing, or CI fails.
 
 ## 2. Summits

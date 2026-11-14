@@ -14,6 +14,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - A GeoParquet copy of `vignettes`.
 - The wolf's crossing of the Río Bavispe moved 1.7 km east, onto the river's real channel.
 - The J5 camp at the edge of the Babícora lake moved 1.4 km onto the lake's north-west shore, as INEGI outlines it; it stood in the water.
+- The wolf's trap (J1 stop 13, J2 stop 2) moved from the Cloverdale Creek point in GNIS, east of Cloverdale, to the creek road 8 km west of the town, with a 2 km circle: Billy rides west up the road for about two hours to reach it. Robertson's crossfence moved onto the road about halfway back. Both J2 legs between them follow the road in Census TIGER 2023 and are drawn solid.
 
 #### Tiles
 
@@ -21,6 +22,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- The states are named in widely spaced small capitals from zoom 5, fading out by zoom 8.5, placed clear of the story.
 - Each translation has a "Suggest a better translation" link that opens a prefilled GitHub issue.
 - The map's controls are one framed set: Map (Classic, Compare, Satellite, Topo), View (Flat, Tilted, Raised), Ground (Paper or Satellite tint, formerly Land colour) and Units (Imperial or Metric). Compare sits between Classic and Satellite and works in Flat and Tilted. On phones the controls fold behind one button.
 - The key is inside the title cartouche, folded until opened, and shows the railroad.
