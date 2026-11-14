@@ -11,6 +11,10 @@ Data releases are dated. Tile releases are named by the tag in `tiles/release.tx
 - Veracruz added to the places named elsewhere (3-01), read as the state, as Bell (2000) reads it.
 - A GeoParquet copy of `vignettes`.
 
+### Site
+
+- Each translation has a "Suggest a better translation" link that opens a prefilled GitHub issue.
+
 ## 2026-11-13
 
 ### Data

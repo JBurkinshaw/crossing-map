@@ -1,4 +1,9 @@
 export const REPO_URL = 'https://github.com/JBurkinshaw/crossing-map'
+
+// A new GitHub issue with its title and body filled in: how readers send corrections.
+export function issueUrl(title: string, body: string): string {
+  return `${REPO_URL}/issues/new?${new URLSearchParams({ title, body })}`
+}
 // The published data, as copied into the site by scripts/copy-data.mjs.
 export const DATA_URL = `${import.meta.env.BASE_URL}data/`
 

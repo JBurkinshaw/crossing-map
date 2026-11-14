@@ -1,5 +1,5 @@
 import type { OpenQuestion } from '../data/openQuestions'
-import { REPO_URL } from '../pages/format'
+import { issueUrl } from '../pages/format'
 
 // One judgement call: what the map shows, the other reading, and why.
 // `label` goes before the title on cards; the Open questions page leaves it out.
@@ -23,10 +23,10 @@ export function OpenQuestionNote({ q, label }: { q: OpenQuestion; label?: string
 // correction: a GitHub issue form with the feature named.
 export function FeatureQuestions({ id, name, questions }: { id: string; name: string; questions: OpenQuestion[] }) {
   const mine = questions.filter((q) => q.features.includes(id))
-  const issue = `${REPO_URL}/issues/new?${new URLSearchParams({
-    title: `Correction: ${name}`,
-    body: `Feature: ${id} (${name})\n\nWhat is wrong, and how do you know? A page of the book, a map or a source helps.\n`,
-  })}`
+  const issue = issueUrl(
+    `Correction: ${name}`,
+    `Feature: ${id} (${name})\n\nWhat is wrong, and how do you know? A page of the book, a map or a source helps.\n`,
+  )
   return (
     <>
       {mine.map((q) => (

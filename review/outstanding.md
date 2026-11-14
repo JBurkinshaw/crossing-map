@@ -37,7 +37,7 @@ Compiled on 13 November 2026 from the plan, every review packet, the decision re
   - The Animas Valley and La Babícora regions are drafts from the DEM.
   - Most Mexican legs are schematic curves, because INEGI roads were not tried.
 - **Stage 5.**
-  - The 916 translation drafts are unreviewed.
+  - The 916 translation drafts are unreviewed. Decided 13 November 2026: crowd review, through a link on each line.
   - Speaker names are inconsistent.
   - `conversations.geojson` is not built.
   - `episodes.json` has no page ranges.
