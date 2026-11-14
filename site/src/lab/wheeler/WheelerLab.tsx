@@ -36,6 +36,7 @@ const TOGGLES: { id: Exclude<Param, 'contrast' | 'paper'> | 'roads'; label: stri
   { id: 'taper', label: 'Drainage by rank' },
   { id: 'darkInk', label: 'Hachures in brown-black' },
   { id: 'roads', label: 'Historic roads (test area)' },
+  { id: 'type', label: 'Type hierarchy (test area)' },
 ]
 
 const PARAM_LABEL: Record<Param, string> = {
@@ -46,6 +47,7 @@ const PARAM_LABEL: Record<Param, string> = {
   darkInk: 'Hachures in brown-black',
   taper: 'Drainage by rank',
   paper: 'Paper',
+  type: 'Type hierarchy (test area)',
 }
 
 export default function WheelerLab() {

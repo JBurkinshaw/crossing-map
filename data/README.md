@@ -15,6 +15,7 @@ Every file is validated against its schema in `schema/` by `crossing.validate`, 
 | `journeys.geojson` | 165 route segments between stops, each with its `travel` | `story-layer` |
 | `areas.geojson` | 59 inferred areas and named regions, each with its reasoning | `story-layer` |
 | `vignettes.geojson` | 13 anchors for the map's drawings, and 2 hairline leaders to real sites | `story-layer` |
+| `landforms.geojson` | 313 label lines along ranges, valleys, plains, mesas and plateaus, for names set along the landform (decision 0023) | `story-layer` |
 | `mountain_glyphs.geojson` | 836 summits and 168 passes found in the Copernicus DEM, each with its landform | `story-layer` |
 | `episodes.json` | The novel's 41 episodes: opening words, length, and a spoiler-safe summary | `episodes` |
 | `translations.json` | 916 Spanish lines: an incipit of at most five words, our English, and where each was spoken | `translations` |
@@ -36,6 +37,7 @@ Our own data, notes, and translations are CC BY 4.0 (`LICENSE`). Each feature's 
 | GeoNames | Places, summits, and passes in Mexico | CC BY 4.0 | "GeoNames" |
 | USGS GNIS | Places, summits, and passes in the US | Public domain | Courtesy of the U.S. Geological Survey (GNIS) |
 | Wikidata | A few place locations | CC0 | Courtesy link |
+| GMBA Mountain Inventory v2 | The axes of US ranges in `landforms.geojson` | CC BY 4.0 | "GMBA Mountain Inventory v2 (Snethlage et al. 2022), GMBA and EarthEnv" |
 | Copernicus DEM GLO-30 | Summits, passes, hachures, contours, and the Raised view | Copernicus DEM licence | The notice below |
 | AWS Terrain Tiles | The hillshade and the Tilted view | Public domain (USGS); INEGI free-use terms | "3DEP, SRTM and GMTED2010 terrain data courtesy of the U.S. Geological Survey. Source: INEGI, Continental relief, 2016." |
 | INEGI Red Hidrográfica 1:50,000, edición 2.0 | Rivers, creeks, and lakes in Mexico; Mexican streams in the Raised view | INEGI free-use terms | "Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0" |

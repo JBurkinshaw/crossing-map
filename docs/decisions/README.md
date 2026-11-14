@@ -37,6 +37,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0020 Inferred areas drafted by rule from the stop's circle | accepted |
 | 0021 Least-cost routes for the sierra and valley legs | accepted |
 | 0022 Paper, ink and lettering after the Wheeler Survey sheets | accepted |
+| 0023 Landform names along computed axes | proposed |
 
 ## Template
 

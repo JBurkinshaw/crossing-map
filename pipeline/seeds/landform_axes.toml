@@ -1,0 +1,38 @@
+# Hand edits to the landform label lines that crossing.landform_axes writes to data/landforms.geojson.
+# Applied last, after the GMBA, GNIS and DEM axes. Each [[edit]] names one line by its id and gives a reason.
+#
+#   id      the line's id in data/landforms.geojson
+#   rotate  degrees, anticlockwise, about the line's middle
+#   length  the new length in km, about the middle
+#   centre  [lon, lat]: move the line's middle here
+#   curve   bend into an arc: its rise at the middle as a share of the length, positive to the left of the
+#           reading direction (left to right on the map, so positive bows the middle north)
+#   drop    true to remove the line
+#   keep    true to keep a line the count rules left out (its id is landform-<name>-<gazetteer id>)
+#   reason  one line: why the computed line is wrong
+#
+# Rerun after editing: uv run --project pipeline python -m crossing.landform_axes
+
+[[edit]]
+id = "landform-peloncillo-mountains"
+centre = [-109.0, 31.85]
+length = 50
+rotate = -28
+reason = "GMBA's outline runs 190 km north to the Gila; the book's Peloncillos are the southern ridge above the bootheel, which runs a little east of north."
+
+[[edit]]
+id = "landform-animas-mountains"
+centre = [-108.75, 31.59]
+length = 42
+rotate = 80
+reason = "The GNIS point is on Animas Peak and the DEM finds only the round high core; the range runs about 42 km north from San Luis Pass."
+
+[[edit]]
+id = "landform-sierra-el-tigre-3981619"
+keep = true
+reason = "The range over the El Tigre mine, a stop of the book; the spacing rule gave its ground to the Pilares de Teras."
+
+[[edit]]
+id = "landform-sierra-san-luis-13604842"
+keep = true
+reason = "The Mexican body of the San Luis massif; without it only the small US end carries a name."

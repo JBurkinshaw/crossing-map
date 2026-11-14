@@ -6,6 +6,7 @@ import { landforms } from './landforms'
 import { riverLines } from './riverLines'
 import { addPlaces, PLACES_OFF, PLACES_ON, type PlacesParams } from './subset/places'
 import { historicRoads } from './subset/roads'
+import { addTypeHierarchy } from './subset/type'
 
 // The Wheeler study's parameters (review/stage-8/wheeler/README.md). Each one, at its "today" value, leaves the
 // classic style exactly as the site draws it, so the lab can show the map before and after one change at a time.
@@ -29,10 +30,12 @@ export type Params = {
   places: PlacesParams
   // Card "roads" (subset/roads.ts): the hand-traced historic roads of the test area, with the book's mileages.
   roads: boolean
+  // Wheeler card "type": the shared type scale in three faces, in the test area only (subset/type.ts).
+  type: boolean
 }
 
-export const TODAY: Params = { water: false, spotHeights: false, landforms: false, contrast: 0, darkInk: false, taper: false, paper: 'today', tilted: false, places: PLACES_OFF, roads: false }
-export const WHEELER: Params = { water: true, spotHeights: true, landforms: true, contrast: 1, darkInk: true, taper: true, paper: 'cream', tilted: false, places: PLACES_ON, roads: true }
+export const TODAY: Params = { water: false, spotHeights: false, landforms: false, contrast: 0, darkInk: false, taper: false, paper: 'today', tilted: false, places: PLACES_OFF, roads: false, type: false }
+export const WHEELER: Params = { water: true, spotHeights: true, landforms: true, contrast: 1, darkInk: true, taper: true, paper: 'cream', tilted: false, places: PLACES_ON, roads: true, type: true }
 
 // The two papers measured on the sheets (median of the blank ground inside the neatline, review README): sheet 70A's
 // cream under-tint and sheet 83's light grey one, each a little darkened so the sepia hachures still read on screen.
@@ -245,5 +248,6 @@ export function wheelerStyle(p: Params): StyleSpecification {
     ...(p.tilted ? { terrain: { source: 'terrain3d', exaggeration: TERRAIN_EXAGGERATION } } : {}),
     layers,
   }
-  return addPlaces(p.roads ? historicRoads(style, halo, palette.ink) : style, p.places, halo)
+  const typed = p.type ? addTypeHierarchy(style, halo) : style
+  return addPlaces(p.roads ? historicRoads(typed, halo, palette.ink) : typed, p.places, halo)
 }

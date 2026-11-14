@@ -26,7 +26,7 @@ export const SHEETS: Sheet[] = [
   },
 ]
 
-export type Param = 'water' | 'spotHeights' | 'landforms' | 'contrast' | 'darkInk' | 'taper' | 'paper'
+export type Param = 'water' | 'spotHeights' | 'landforms' | 'contrast' | 'darkInk' | 'taper' | 'paper' | 'type'
 export type Learning = { topic: string; title: string; wheeler: string; ours: string; proposal: string; param?: Param; sheets: string[] }
 
 export const LEARNINGS: Learning[] = [
@@ -77,6 +77,7 @@ export const LEARNINGS: Learning[] = [
       'Measured cap heights: landform and range names 1.9 to 2.6 mm; big rivers 2.2 mm; county towns and peaks 1.2 to 1.5 mm (roman, bold-ish, mixed case, or capitals for the larger towns: TRINIDAD); ranches, stations and springs about 1 mm italic (Arm’s R., Crow Cr. Sta., Chicoso Spr.); spot heights 0.9 mm. Passes are in roman capitals along the road through them (RATON PASS, MANCO BURRO PASS, RAILROAD PASS).',
     ours: 'Settlements in roman, landforms and water in italic, at 11 to 14 px: a narrower range of sizes (about 1.3 to 1) than Wheeler’s (about 2.8 to 1).',
     proposal: 'Widen the range: landform and river capitals at about 2× the spot-height size, towns at about 1.4×; passes in small capitals along the pass.',
+    param: 'type',
     sheets: ['70A', '83'],
   },
   {

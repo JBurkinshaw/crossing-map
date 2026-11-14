@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Story layer",
-  "description": "A GeoJSON FeatureCollection of story features: places, stops, areas, journeys, mountain glyphs or vignettes. Every feature shares the properties in $defs/properties; $defs/layers adds what each layer requires. crossing.validate checks each file against its layer. See docs/design.md, section 6.",
+  "description": "A GeoJSON FeatureCollection of story features: places, stops, areas, journeys, mountain glyphs, vignettes or landform label lines. Every feature shares the properties in $defs/properties; $defs/layers adds what each layer requires. crossing.validate checks each file against its layer. See docs/design.md, section 6.",
   "type": "object",
   "required": ["type", "features"],
   "additionalProperties": false,
@@ -106,10 +106,12 @@
             "crossing",
             "inferred-area",
             "locale",
+            "mesa",
             "military",
             "pass",
             "peak",
             "plain",
+            "plateau",
             "ranch",
             "range",
             "region",
@@ -213,6 +215,26 @@
         "landform_source": {
           "enum": ["name", "dem", "default"],
           "description": "Mountain glyphs: the evidence that gave the landform the most points."
+        },
+        "name_source": {
+          "type": "string",
+          "pattern": "^(gnis|geonames|gmba|wikidata|this-site):.+$",
+          "description": "Landforms: the gazetteer record the name and anchor point come from, as source:id."
+        },
+        "axis": {
+          "enum": ["gmba", "gnis", "dem"],
+          "description": "Landforms: how the line was found: the long axis of the GMBA outline, a GNIS valley's mouth and head, or the long axis of the ground around the point in the Copernicus DEM (decision 0020)."
+        },
+        "elongation": {
+          "type": ["number", "null"],
+          "minimum": 1,
+          "description": "Landforms: how much longer than wide the landform is (1 for round); null for GNIS valleys."
+        },
+        "len_m": {"type": "integer", "minimum": 0, "description": "Landforms: the label line's length in metres."},
+        "mpp0": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Landforms: metres per pixel at zoom 0 (256 px tiles) at the line's middle, for spacing the letters to fill the line."
         }
       }
     },
@@ -329,6 +351,22 @@
                     "landform_source"
                   ],
                   "properties": {"kind": {"enum": ["peak", "pass"]}}
+                }
+              }
+            }
+          }
+        }
+      },
+      "landforms": {
+        "description": "A label line along each range, valley, plain, mesa and plateau, for its name in spaced capitals (crossing.landform_axes).",
+        "properties": {
+          "features": {
+            "items": {
+              "properties": {
+                "geometry": {"$ref": "#/$defs/lineString"},
+                "properties": {
+                  "required": ["place_ref", "name_source", "axis", "elongation", "len_m", "mpp0"],
+                  "properties": {"kind": {"enum": ["range", "valley", "plain", "mesa", "plateau"]}}
                 }
               }
             }

@@ -34,6 +34,9 @@ def layers():
                                        geometry=line)),
         "mountain_glyphs": collection(),
         "vignettes": collection(),
+        "landforms": collection(feature("landform-a", kind="range", geometry=line, place_ref="place-a",
+                                        name_source="gnis:1", axis="dem", elongation=2.0, len_m=1000,
+                                        mpp0=134000)),
     }
 
 
@@ -124,3 +127,8 @@ def test_check_sprites_reports_missing_icons():
         "no sprite icon 'mesa-03-flip' in glyphs.json",
         "no sprite icon 'wolf' in glyphs.json",
     ]
+
+
+def test_landform_may_not_show_before_its_place(layers):
+    layers["places"]["features"][0]["properties"]["first_seen"] = "1-02"
+    assert any("before its place" in e for e in validate.check_references(layers))
