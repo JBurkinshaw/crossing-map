@@ -14,6 +14,9 @@ const KEPT_IN_RAISED = new Set(['paper', 'relief-paper', 'lake'])
 export const baseLayerIds = (style: StyleSpecification) => style.layers.map((l) => l.id).filter((id) => !OVER_IMAGERY.has(id))
 export const notRaisedIds = (style: StyleSpecification) => style.layers.map((l) => l.id).filter((id) => !KEPT_IN_RAISED.has(id))
 
+const byRank = (heavy: number, light: number): ExpressionSpecification =>
+  ['interpolate', ['linear'], ['coalesce', ['get', 'scalerank'], 8], 2, heavy, 10, light]
+
 // A creek of Strahler order `o` is drawn from this zoom on (creeks.MIN_ZOOM in tiles/creeks.py; order 7 and up from 7).
 const creekShown: ExpressionSpecification = ['>=', ['zoom'], ['match', ['get', 'o'], 2, 12, 3, 11, 4, 10, 5, 9, 6, 8, 7]]
 
@@ -118,15 +121,17 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         source: base,
         'source-layer': 'river_minor',
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': tokens.water, 'line-width': ['interpolate', ['linear'], ['zoom'], 5, 0.5, 10, 1.2] },
+        paint: { 'line-color': tokens.water, 'line-width': ['interpolate', ['linear'], ['zoom'], 5, 0.4, 10, 0.9, 13, 1.3] },
       },
       {
+        // Wider the more important the river (Natural Earth's scalerank, 0 the most), as the Wheeler sheets draw
+        // a main river heavier than its tributaries.
         id: 'river',
         type: 'line',
         source: base,
         'source-layer': 'river',
         layout: { 'line-cap': 'round', 'line-join': 'round' },
-        paint: { 'line-color': tokens.water, 'line-width': ['interpolate', ['linear'], ['zoom'], 5, 0.9, 10, 2] },
+        paint: { 'line-color': tokens.water, 'line-width': ['interpolate', ['linear'], ['zoom'], 5, byRank(1.3, 0.7), 10, byRank(2.8, 1.4), 13, byRank(3.6, 1.8)] },
       },
       {
         id: 'road',
@@ -165,7 +170,8 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
           'symbol-placement': 'line',
           'text-field': ['get', 'name'],
           'text-font': [fonts.italic],
-          'text-size': 11.5,
+          'text-size': ['interpolate', ['linear'], ['zoom'], 11, 10.5, 12, 11.5],
+          'text-letter-spacing': 0.04,
         },
         paint: { 'text-color': tokens.waterLabel, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },
@@ -193,12 +199,16 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         'source-layer': 'river_label',
         minzoom: 7,
         filter: ['==', ['get', 'rank'], 'major'],
+        // The main rivers in spaced roman capitals, as the Wheeler sheets letter PURGATORY RIVER: about one letter's
+        // space between letters, once or twice along the river's general run.
         layout: {
           'symbol-placement': 'line',
-          'text-field': ['get', 'name'],
-          'text-font': [fonts.italic],
-          'text-size': 13,
-          'text-letter-spacing': 0.1,
+          'text-field': ['upcase', ['get', 'name']],
+          'text-font': [fonts.roman],
+          'text-size': ['interpolate', ['linear'], ['zoom'], 7, 11, 10, 14, 12, 16],
+          'text-letter-spacing': ['interpolate', ['linear'], ['zoom'], 7, 0.45, 11, 0.9],
+          'text-max-angle': 30,
+          'symbol-spacing': 500,
         },
         paint: { 'text-color': tokens.waterLabel, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },

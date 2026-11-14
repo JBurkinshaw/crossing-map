@@ -20,12 +20,19 @@ export function reliefSources(tilesBase: string, dataBase: string): Record<strin
 }
 
 // Named summits from medium size up, and every named pass (passes are all small), with their height.
+// Named medium and large summits and named passes: the name over the height. Unnamed and small summits: from zoom 10
+// (about the scale of Wheeler Survey sheet 83), the height alone as a smaller spot height, as the sheets print them
+// (review/stage-8/wheeler/README.md); below it they crowd the map.
+const namedGlyph: ExpressionSpecification = ['all', ['!=', ['get', 'name'], 'Unnamed summit'], ['!=', ['get', 'name'], 'Unnamed pass'],
+  ['any', ['!=', ['get', 'size'], 'small'], ['==', ['get', 'landform'], 'pass']]]
+const spotHeight: ExpressionSpecification = ['all', ['!=', ['get', 'landform'], 'pass'], ['!=', ['get', 'elevation_m'], null]]
+
 export function glyphText(units: Units): ExpressionSpecification {
-  const named: ExpressionSpecification = ['all', ['!=', ['get', 'name'], 'Unnamed summit'], ['!=', ['get', 'name'], 'Unnamed pass'],
-    ['any', ['!=', ['get', 'size'], 'small'], ['==', ['get', 'landform'], 'pass']]]
-  return ['case', named,
-    ['case', ['!=', ['get', 'elevation_m'], null], ['concat', ['get', 'name'], '\n', heightLabel(['get', 'elevation_m'], units)], ['get', 'name']],
-    '']
+  const name: ExpressionSpecification =
+    ['case', ['!=', ['get', 'elevation_m'], null], ['concat', ['get', 'name'], '\n', heightLabel(['get', 'elevation_m'], units)], ['get', 'name']]
+  return ['step', ['zoom'],
+    ['case', namedGlyph, name, ''],
+    10, ['case', namedGlyph, name, spotHeight, heightLabel(['get', 'elevation_m'], units), '']]
 }
 
 // Heights on the heavier contours (every 200 m), in feet rounded to 10, since the lines are drawn in metres.
@@ -86,7 +93,7 @@ function glyphs(p: Palette, units: Units): LayerSpecification[] {
           ['-', 0, ['coalesce', ['get', 'prominence_m'], 99999]]],
         'text-field': glyphText(units),
         'text-font': [fonts.italic],
-        'text-size': 11,
+        'text-size': ['case', namedGlyph, 11, 9.5],
         'text-anchor': 'top',
         'text-optional': true,
       },
@@ -244,9 +251,18 @@ const FADE = {
   out: [10, 0.55, 12, 0.85, 12.6, 0],
   in: [12, 0, 12.6, 0.94, 13, 1],
 } as const
+// Contrast after the Wheeler sheets: their hachures run from a faint broken stipple on gentle ground (about 5% ink)
+// to a near-solid mass on steep slopes (40 to 50%). At HACHURE_CONTRAST t, a stroke's width is scaled by 1 + t * k
+// with k from -0.4 on gentle ground to +0.25 on steep, and its opacity by 1 + t * k with k from -0.6 to +0.45. Width
+// grows only a little, because Wheeler's strokes darken by packing, not width.
+const HACHURE_CONTRAST = 0.5
+const bySlope = (slope: [number, number], gentle: number, steep: number): ExpressionSpecification =>
+  ['+', 1, ['*', HACHURE_CONTRAST, ['interpolate', ['linear'], ['get', 'Slope'], slope[0], gentle, slope[1], steep]]]
+
 function strokePaint(ink: string, slope: [number, number], copy: boolean, fade: keyof typeof FADE = 'none') {
-  const w: ExpressionSpecification = ['*', 0.9, ['interpolate', ['linear'], ['get', 'Slope'], slope[0], 0.25, slope[1], 1.3], byShade(0.4)]
-  const o: ExpressionSpecification = ['*', copy ? 0.4 : 1, ['min', 1, ['*', 0.65, byShade(0.6)]]]
+  const w: ExpressionSpecification = ['*', 0.9, ['interpolate', ['linear'], ['get', 'Slope'], slope[0], 0.25, slope[1], 1.3], byShade(0.4),
+    bySlope(slope, -0.4, 0.25)]
+  const o: ExpressionSpecification = ['*', copy ? 0.4 : 1, ['min', 1, ['*', 0.65, byShade(0.6), bySlope(slope, -0.6, 0.45)]]]
   const stops = FADE[fade].flatMap((v, i) => (i % 2 ? [['min', 1, ['*', v, o]]] : [v]))
   return {
     'line-color': ink,

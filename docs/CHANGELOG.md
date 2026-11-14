@@ -24,6 +24,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 #### Site
 
 - An inferred area's card says how it was drawn, by a rule from data rather than by hand from a source, and asks readers who know more to suggest a correction. How it's built explains the method and its limits.
+- The map's paper is cream, after the Wheeler Survey's 1877 sheet 70A, and the hachures are a brown-black that is darker on steep ground and fainter on gentle slopes. The main rivers are named in spaced roman capitals and drawn wider the more important they are. From zoom 10, unnamed and small summits show their height.
 - The mountain glyphs look hand-drawn: tapered pen strokes that wander a little, outlines that lift at the summit, and loose, sometimes broken hatching. The shapes, names and sizes are unchanged.
 - The thirteen vignettes are real drawings, in the same pen as the mountain glyphs and two inks: each looks roughly as its subject did around 1940, after public-domain or openly licensed references, and has a short italic label under it. The Credits page lists how each was made, for the drawings reached. `vignettes.geojson` gains `label` and `credit`; two drawings are renamed for what the book describes (the San Diego house front, the cockpit at the hacienda).
 - The states are named in widely spaced small capitals from zoom 5, fading out by zoom 8.5, placed clear of the story.

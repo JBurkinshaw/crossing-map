@@ -1,4 +1,5 @@
-// Design tokens for the literary map (docs/design.md, section 5.1): ink on caliche paper. Each colour keeps its place in
+// Design tokens for the literary map (docs/design.md, section 5.1): ink on cream paper, after the Wheeler Survey's
+// sheet 70A (1877; review/stage-8/wheeler/README.md). Each colour keeps its place in
 // the hierarchy: the Mexico side a shade darker than the paper, the paper above zoom 10 plainer than below,
 // the journeys' inks distinct from each other and from the base.
 export type Palette = {
@@ -29,8 +30,8 @@ export type Palette = {
 type Shade = { shadow: string; highlight: string; accent: string }
 
 export const palette: Palette = {
-  paper: '#e4ddcc',
-  paperMexico: '#d9cfbb',
+  paper: '#efe5c8',
+  paperMexico: '#e6d9b9',
   water: '#5f7480',
   waterLabel: '#465a65',
   ink: '#2b2118',
@@ -43,12 +44,13 @@ export const palette: Palette = {
   // the high sierra, paler summits. The region runs from 0 to about 3,000 m.
   imhof: [[0, '#d3d7c4'], [600, '#dedbbf'], [1100, '#e6dcbb'], [1600, '#e9d9b1'], [1950, '#e0c498'], [2300, '#d3ae88'],
     [2700, '#d8bfa8'], [3200, '#e9e0d6']],
-  reliefPaper: ['#f7f4ec', '#f3eee2'],
-  paperShown: '#f1ede2',
+  reliefPaper: ['#f8f0d8', '#f4ead0'],
+  paperShown: '#f5edd3',
   // Imhof: blue-violet shadows and warm light; above the split, a light swisstopo grey.
   shadeLow: { shadow: 'rgba(74, 88, 128, 0.5)', highlight: 'rgba(255, 240, 192, 0.35)', accent: 'rgba(74, 88, 128, 0.12)' },
   shadeHigh: { shadow: 'rgba(74, 79, 92, 0.22)', highlight: 'rgba(255, 255, 255, 0.3)', accent: 'rgba(74, 79, 92, 0.05)' },
-  hachure: '#6e5443',
+  // Wheeler's brown-black (his darkest ink, #110600 to #221802, lifted a little for the screen).
+  hachure: '#2e2010',
   contour: '#b0622e',
   raisedStream: '#6f8796',
 }

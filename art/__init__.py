@@ -3,4 +3,4 @@
 """
 
 # The map's ink and paper; site/src/map/tokens.ts holds the same two colours for the style.
-INK, PAPER = "#2b2118", "#e4ddcc"
+INK, PAPER = "#2b2118", "#efe5c8"
