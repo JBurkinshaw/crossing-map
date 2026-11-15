@@ -20,6 +20,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Tiles
 
+- `tiles-v9`: the Raised view rebuilt for the drafted areas and the modelled legs, and the Wheeler hachures over the journeys corridor (`relief-wheeler.pmtiles`, `relief-wheeler-12.pmtiles`), with the production hachures kept beside them.
 - `tiles-v8`: small streams on both sides of the border by one rule. Each stream appears from a zoom set by its Strahler order, widens with order, and intermittent streams are lighter rather than dashed, so drainage is as dense south of Colonia Morelos as north of it. Creek names show from zoom 11. River names show again: they follow a smoothed copy of each river, and minor rivers are named too. NHD's stream orders no longer climb along braided channels and ditches. Lakes in Mexico follow INEGI's water-body outlines, so the Babícora lake has its real shape.
 
 #### Site
