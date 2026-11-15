@@ -3,8 +3,10 @@
 Run from the repo root, with QGIS_ENV set to the QGIS 4 environment:
     QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures \
         [--scale fine|coarse|dense|all] [--jobs 4]
-or, for the Wheeler test build of one box (crossing.wheeler_hachures; never writes to the production cache):
+or, for the Wheeler build (crossing.wheeler_hachures; never writes to the production cache), over one box or over
+the same corridor as the fine scale:
     ... python -m crossing.hachures --style wheeler --bbox W S E N --out private/cache/relief/wheeler-test
+    ... python -m crossing.hachures --style wheeler --region corridor --out private/cache/relief/wheeler
 
 Three scales, each with absolute settings so that tiles match where they meet:
   fine    30 m DEM, inside the journeys corridor (journeys buffered CORRIDOR_HALF_M each side),
@@ -114,6 +116,12 @@ def corridor() -> Polygon:
              if f["properties"]["kind"] == "route-segment"
              and f["properties"].get("travel") not in NOT_IN_CORRIDOR]
     return reproject(to_utm, unary_union(lines)).buffer(CORRIDOR_HALF_M)
+
+
+def fine_region(cover: Polygon) -> Polygon:
+    """Where the fine (and dense) scale draws: the corridor, less the lines within two cells of the DEM's edge,
+    which come from filled ground. The Wheeler build's corridor mode uses the same region."""
+    return corridor().intersection(cover.buffer(-60))
 
 
 def tiles(region: Polygon, size: int) -> list[tuple[str, Polygon]]:
@@ -259,9 +267,12 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--scale", choices=[*SCALES, "all"], default="all")
     ap.add_argument("--jobs", type=int, default=4)
-    # The Wheeler test build (crossing.wheeler_hachures): one box, into its own folder. The default runs production.
+    # The Wheeler build (crossing.wheeler_hachures): one box or the corridor, into its own folder. The default runs
+    # production.
     ap.add_argument("--style", choices=["production", "wheeler"], default="production")
     ap.add_argument("--bbox", type=float, nargs=4, metavar=("W", "S", "E", "N"), help="degrees; --style wheeler only")
+    ap.add_argument("--region", choices=["corridor"],
+                    help="the fine scale's region, in place of --bbox; --style wheeler only")
     ap.add_argument("--out", type=Path, help="output folder; --style wheeler only")
     a = ap.parse_args()
     if "QGIS_ENV" not in os.environ:
@@ -270,18 +281,21 @@ def main() -> None:
     if a.style == "wheeler":
         from crossing import wheeler_hachures  # imports this module, so it is loaded only when asked for
 
-        if not a.bbox or not a.out:
-            ap.error("--style wheeler needs --bbox and --out")
+        if bool(a.bbox) == bool(a.region) or not a.out:
+            ap.error("--style wheeler needs --out and one of --bbox or --region")
         if a.out.resolve().is_relative_to(OUT.resolve()):
             ap.error(f"--out must not be inside the production cache, {OUT.relative_to(REPO)}")
-        wheeler_hachures.build(tuple(a.bbox), a.out, a.jobs, qgis_env)
+        if a.region:
+            wheeler_hachures.build(fine_region(coverage()), a.region, a.out, a.jobs, qgis_env)
+        else:
+            wheeler_hachures.build(wheeler_hachures.bbox_region(tuple(a.bbox)), a.bbox, a.out, a.jobs, qgis_env)
         return
 
     cover = coverage()
     # Lines within two cells of the DEM's edge come from filled ground, so they are dropped.
     # The fine lines cover the corridor; the coarse lines, everywhere else.
-    fine_region = corridor().intersection(cover.buffer(-60))
-    regions = {"fine": fine_region, "dense": fine_region, "coarse": cover.buffer(-180).difference(fine_region)}
+    fine = fine_region(cover)
+    regions = {"fine": fine, "dense": fine, "coarse": cover.buffer(-180).difference(fine)}
     lines = []
     for scale in (SCALES if a.scale == "all" else [a.scale]):
         s = SCALES[scale]

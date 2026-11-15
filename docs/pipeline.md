@@ -85,10 +85,11 @@ These need QGIS 4. Set `QGIS_ENV` to its micromamba environment.
 | Step | Command | Reads | Writes | Private |
 | --- | --- | --- | --- | --- |
 | Hachures | `QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures [--scale fine\|coarse\|dense\|all] [--jobs 4]` | The DEM, `data/journeys.geojson` | `private/cache/relief/production/` | Yes |
+| Wheeler hachures | `QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures --style wheeler --region corridor --out private/cache/relief/wheeler [--jobs 9]` (or `--bbox W S E N` for one box) | The DEM, `data/journeys.geojson`, `data/mountain_glyphs.geojson` | `private/cache/relief/wheeler/` | Yes |
 | Full-region run (optional) | `QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.full_region [--jobs 10]` | `copernicus-region/` | The same tile cache; a report in `private/overnight/full-region.md` | Yes |
 | Raised view | `uv run --project pipeline python -m crossing.plan_oblique` | The hachure cache, the DEM, INEGI, NHD, Natural Earth, Census | `tiles/out/oblique-<n>.pmtiles`, `data/raised/*.geojson`, `data/raised/archives.json` | Yes |
 
-Hachure tiles are cached one file per tile. Delete a tile's file to run it again. `crossing.full_region` sizes a whole-region run and does not change the production build.
+Hachure tiles are cached one file per tile. Delete a tile's file to run it again. The Wheeler build (decision 0024) keeps its generator tiles in `<out>/tiles/`; they depend only on the tile and the Wheeler settings, so a box's tiles can be copied into the corridor's folder. It cuts, clears and measures the strokes again on every run, which takes a few minutes. `crossing.full_region` sizes a whole-region run and does not change the production build.
 
 ## 6. Tiles
 
@@ -96,6 +97,7 @@ Hachure tiles are cached one file per tile. Delete a tile's file to run it again
 | --- | --- | --- | --- | --- |
 | Base map | `uv run --project pipeline python -m tiles.build_base` | Natural Earth, Census, NHD, INEGI | `tiles/out/base.pmtiles` | Yes |
 | Relief | `uv run --project pipeline python -m tiles.build_relief` | The hachure cache | `tiles/out/relief.pmtiles`, `relief-dense.pmtiles`, `contours.pmtiles` | Yes |
+| Wheeler relief | `uv run --project pipeline python -m tiles.build_relief --style wheeler --region corridor` | The Wheeler cache, the production `coarse.geojson` | `tiles/out/relief-wheeler.pmtiles` (zoom 10-11), `relief-wheeler-12.pmtiles` (zoom 12) | Yes |
 | Terrain | `uv run --project pipeline python -m tiles.build_terrain` | AWS Terrain Tiles (cached in `private/cache/terrain/`) | `tiles/out/terrain.pmtiles` | Yes (network once) |
 | Sharper terrain (not released) | `uv run --project pipeline python -m tiles.build_terrain_hi [--estimate N] [--zooms MIN MAX] [--bbox W S E N] [--quantum M] [--out PATH]` | The Copernicus tiles | `tiles/out/terrain-hi.pmtiles` | Yes |
 | Into the local site | `uv run --project pipeline python -m tiles.install` | `tiles/out/` | `site/public/tiles/`, removing Raised archives that `archives.json` no longer lists | No |

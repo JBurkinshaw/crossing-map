@@ -210,6 +210,7 @@ Relief is drawn as the 1850s–1880s survey maps drew it, with hachures, plus sm
 - Fine strokes (30 m DEM) cover a corridor 20 km either side of the legs ridden or walked. Bus and train legs, ranch work told in summary, and the reported J6 get coarse relief only.
 - Coarse lines (90 m DEM) cover wherever the cached DEM tiles reach.
 - A denser set draws from zoom 12, cross-faded with the zoom 10–11 set.
+- Inside the corridor the site draws Wheeler-style strokes in place of the fine and dense sets (decision 0024, `crossing.wheeler_hachures`): short strokes of one width, packed closer on steep ground, with crests, summits, mesa tops and valley floors left white and escarpments drawn as a comb of wedges. The fine and dense sets are still built and released, and one switch in the style (`HACHURE_SET`) brings them back.
 - Basin floors stay blank, which is what makes the Animas Valley and the Chihuahua plains read as open country.
 
 **Mountain glyphs** (`crossing.peaks`, `crossing.landforms`, `art/glyphs/`).

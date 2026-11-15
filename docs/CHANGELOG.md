@@ -24,6 +24,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- Inside the journeys corridor the hachures are drawn as on the Wheeler Survey sheets (decision 0024): short strokes of one width, packed closer on steep ground, with crests, summits, mesa tops and valley floors left white and escarpments drawn as a comb of wedges. They come from two new tile archives, `relief-wheeler.pmtiles` and `relief-wheeler-12.pmtiles`, which need a tile release. The earlier hachures are kept and can be switched back.
 - Modelled legs are drawn in long dashes, with a key entry; their cards say "Modelled path, not the book's". How it's built explains the model and its uncertainty.
 - An inferred area's card says how it was drawn, by a rule from data rather than by hand from a source, and asks readers who know more to suggest a correction. How it's built explains the method and its limits.
 - Ranges, valleys, plains and mesas are lettered in spaced roman capitals along their long axes, as on the Wheeler sheets (decision 0023): the landforms the book names from zoom 7, the gazetteers' from zoom 10. A new layer, `landforms.geojson`, holds 313 name lines.

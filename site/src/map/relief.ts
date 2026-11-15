@@ -3,8 +3,7 @@ import { fonts, type Palette } from './tokens'
 import { heightLabel, type Units } from '../units'
 
 // Relief (docs/design.md, section 5.2; decision 0016, "S5"): an Imhof desert tint below zoom 10, then
-// near-white paper, a light grey hillshade, 50 m contours and short sepia hachures from relief.pmtiles,
-// with mountain glyphs.
+// near-white paper, a light grey hillshade, 50 m contours and hachures (HACHURE_SET), with mountain glyphs.
 export function reliefSources(tilesBase: string, dataBase: string): Record<string, SourceSpecification> {
   return {
     // A trimmed copy of data/mountain_glyphs.geojson with only the properties drawn (scripts/copy-data.mjs).
@@ -13,11 +12,35 @@ export function reliefSources(tilesBase: string, dataBase: string): Record<strin
     // The landform name lines the map letters, trimmed and filtered by scripts/copy-data.mjs.
     landforms: { type: 'geojson', data: `${dataBase}map/landforms.geojson` },
     terrain: { type: 'raster-dem', url: `pmtiles://${tilesBase}terrain.pmtiles`, encoding: 'terrarium', tileSize: 256 },
+    ...hachureSources(tilesBase),
+    contours: { type: 'vector', url: `pmtiles://${tilesBase}contours.pmtiles` },
+  }
+}
+
+// Which hachures draw inside the journeys corridor (decision 0024). 'wheeler': Wheeler-style strokes from
+// relief-wheeler*.pmtiles (crossing.wheeler_hachures). 'production': the fine and dense sepia strokes from
+// relief.pmtiles and relief-dense.pmtiles (decision 0016). Outside the corridor the coarse strokes draw either way,
+// in the same paint; the Wheeler archives carry their own copy of them, so that set fetches no other hachure archive.
+// Both sets are built and released, so this one line swaps them.
+type HachureSet = 'wheeler' | 'production'
+export const HACHURE_SET = 'wheeler' as HachureSet
+
+// The Wheeler archives, split by zoom so each stays under 100 MB (design 5.2) and a reader who stays zoomed out
+// never fetches the zoom 12 tiles. Each holds the layers `coarse`, `hachure` and `rim` (tiles.build_relief).
+const WHEELER_PARTS: { source: string; file: string; zooms: [number, number] }[] = [
+  { source: 'relief-wheeler', file: 'relief-wheeler.pmtiles', zooms: [10, 11] },
+  { source: 'relief-wheeler-12', file: 'relief-wheeler-12.pmtiles', zooms: [12, 12] },
+]
+
+function hachureSources(tilesBase: string): Record<string, SourceSpecification> {
+  if (HACHURE_SET === 'wheeler') {
+    return Object.fromEntries(WHEELER_PARTS.map((w) => [w.source, { type: 'vector', url: `pmtiles://${tilesBase}${w.file}` }]))
+  }
+  return {
     relief: { type: 'vector', url: `pmtiles://${tilesBase}relief.pmtiles` },
     // Split from relief.pmtiles so each archive stays under 100 MB (design 5.2) and readers who stay zoomed out
     // never fetch the dense strokes.
     'relief-dense': { type: 'vector', url: `pmtiles://${tilesBase}relief-dense.pmtiles` },
-    contours: { type: 'vector', url: `pmtiles://${tilesBase}contours.pmtiles` },
   }
 }
 
@@ -352,13 +375,49 @@ const strokeFilter = (kind?: string): ExpressionSpecification => ['all',
   ...(kind ? [['==', ['get', 'kind'], kind] as ExpressionSpecification] : []),
   ['step', ['zoom'], ['<', ['get', 'Rand'], 7], 12, true]]
 
+// Wheeler-style strokes (decision 0024; review/stage-9/wheeler-hachures/README.md): one width, Wheeler's 0.14 mm at
+// zoom 11 on a 96 dpi screen (0.53 px), and one opacity. Steep ground darkens because the build packs the strokes
+// closer, so the slope contrast and the hachure light above do not apply to them. They are laid out for zoom 11, so at
+// zoom 10 they lie twice as close on screen: only 70% of them draw there (by Rand), a little thinner. From 12 they
+// widen so they stay visible as they spread apart. The rim wedges are polygons drawn to scale.
+const WHEELER_WIDTH: ExpressionSpecification = ['interpolate', ['linear'], ['zoom'], 10, 0.42, 11, 0.53, 12, 0.8, 13, 1.2]
+const WHEELER_OPACITY = 0.92
+
+// A sepia stroke layer and its faint copy.
+const strokes = (p: Palette, id: string, source: string, layer: string, fade: keyof typeof FADE, minzoom = S5_SPLIT): LayerSpecification[] =>
+  [false, true].map((copy) => ({
+    id: copy ? `${id}-copy` : id, type: 'line', source, 'source-layer': layer, minzoom,
+    filter: strokeFilter(), layout: { 'line-cap': 'round' },
+    paint: strokePaint(p.hachure, layer === 'coarse' ? [5, 25] : [10, 40], copy, fade),
+  }))
+
+function wheelerLines(p: Palette): LayerSpecification[] {
+  return WHEELER_PARTS.flatMap(({ source, zooms: [from, to] }, i): LayerSpecification[] => {
+    const last = i === WHEELER_PARTS.length - 1
+    // Each part draws only at its own zooms; the last over-zooms past its top.
+    const range = { minzoom: from, ...(last ? {} : { maxzoom: to + 1 }) }
+    const suffix = i ? `-${from}` : ''
+    return [
+      ...strokes(p, `hachure-coarse${suffix}`, source, 'coarse', 'none', from).map((l) => ({ ...l, ...range }) as LayerSpecification),
+      {
+        id: `hachure-wheeler${suffix}`, type: 'line', source, 'source-layer': 'hachure', ...range,
+        filter: ['step', ['zoom'], ['<', ['get', 'Rand'], 7], 11, true], layout: { 'line-cap': 'round' },
+        paint: { 'line-color': p.hachure, 'line-width': WHEELER_WIDTH, 'line-opacity': WHEELER_OPACITY },
+      },
+      // Not named hachure-*, which the labs restyle as lines.
+      { id: `rim-wedge${suffix}`, type: 'fill', source, 'source-layer': 'rim', ...range, paint: { 'fill-color': p.hachure, 'fill-opacity': WHEELER_OPACITY } },
+    ]
+  })
+}
+
 function s5Lines(p: Palette): LayerSpecification[] {
-  const strokes = (id: string, source: string, layer: string, fade: keyof typeof FADE, minzoom = S5_SPLIT): LayerSpecification[] =>
-    [false, true].map((copy) => ({
-      id: copy ? `${id}-copy` : id, type: 'line', source, 'source-layer': layer, minzoom,
-      filter: strokeFilter(), layout: { 'line-cap': 'round' },
-      paint: strokePaint(p.hachure, layer === 'coarse' ? [5, 25] : [10, 40], copy, fade),
-    }))
+  const hachures = HACHURE_SET === 'wheeler'
+    ? wheelerLines(p)
+    : [
+        ...strokes(p, 'hachure-coarse', 'relief', 'coarse', 'none'),
+        ...strokes(p, 'hachure-fine', 'relief', 'fine', 'out'),
+        ...strokes(p, 'hachure-dense', 'relief-dense', 'dense', 'in', 12),
+      ]
   return [
     {
       // Orange-brown, as on the Siegfried sheets: every 100 m below zoom 12, every 50 m from 12, heavier every 200 m.
@@ -367,9 +426,7 @@ function s5Lines(p: Palette): LayerSpecification[] {
       layout: { 'line-join': 'round' },
       paint: { 'line-color': p.contour, 'line-opacity': 0.45, 'line-width': ['case', ['==', ['%', ['get', 'Ele'], 200], 0], 0.8, 0.4] },
     },
-    ...strokes('hachure-coarse', 'relief', 'coarse', 'none'),
-    ...strokes('hachure-fine', 'relief', 'fine', 'out'),
-    ...strokes('hachure-dense', 'relief-dense', 'dense', 'in', 12),
+    ...hachures,
   ]
 }
 

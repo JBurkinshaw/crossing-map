@@ -38,6 +38,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0021 Least-cost routes for the sierra and valley legs | accepted |
 | 0022 Paper, ink and lettering after the Wheeler Survey sheets | accepted |
 | 0023 Landform names along computed axes | proposed |
+| 0024 Wheeler hachures in the journeys corridor | accepted |
 | 0025 A MapTiler-like hillshade | accepted |
 | 0026 Vignettes beside their pins | accepted |
 
