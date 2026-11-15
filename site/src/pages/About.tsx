@@ -66,8 +66,10 @@ export function About() {
       <h2>Further reading</h2>
       <ul>
         <li>
-          James Luther Bell, <cite>Contextualizing Cormac McCarthy’s Border Trilogy: An Annotative Approach</cite>, PhD
-          dissertation, Texas Tech University, 2000. A place-by-place companion to the trilogy, with local research
+          <a href="https://ttu-ir.tdl.org/bitstreams/ec52ab01-a89b-423d-aee5-92df180a15c4/download">
+            James Luther Bell, <cite>Contextualizing Cormac McCarthy’s Border Trilogy: An Annotative Approach</cite>
+          </a>
+          , PhD dissertation, Texas Tech University, 2000. A place-by-place companion to the trilogy, with local research
           in the New Mexico bootheel.
         </li>
         <li>

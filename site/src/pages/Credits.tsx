@@ -34,6 +34,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       },
       {
         name: 'James Luther Bell, Contextualizing Cormac McCarthy’s Border Trilogy: An Annotative Approach',
+        link: 'https://ttu-ir.tdl.org/bitstreams/ec52ab01-a89b-423d-aee5-92df180a15c4/download',
         use: (
           <>
             PhD dissertation, Texas Tech University, 2000. Its index of the novel’s places, its local research in the

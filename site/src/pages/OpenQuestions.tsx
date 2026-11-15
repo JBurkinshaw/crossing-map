@@ -12,7 +12,8 @@ export function OpenQuestions({ questions }: { questions: OpenQuestion[] }) {
         correction.
       </p>
       <p>
-        Other readers' maps used here: James Luther Bell's annotated dissertation (Texas Tech University, 2000) and
+        Other readers' maps used here: James Luther Bell's{' '}
+        <a href="https://ttu-ir.tdl.org/bitstreams/ec52ab01-a89b-423d-aee5-92df180a15c4/download">annotated dissertation</a> (Texas Tech University, 2000) and
         Joe Hazelton's map of the novel on Gaia GPS. Questions about places you have not reached yet stay hidden.
       </p>
       {questions.length === 0 ? (
