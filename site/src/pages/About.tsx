@@ -1,3 +1,4 @@
+import { showIntroduction } from '../welcome/showIntroduction'
 import { REPO_URL } from './format'
 
 export function About() {
@@ -11,6 +12,29 @@ export function About() {
         country on both sides of the border. This is a map of where Billy, Boyd,
         “the girl” and the she-wolf went, built from real geographic data and marked honestly where the book leaves
         us guessing.
+      </p>
+
+      <p>
+        <button type="button" className="link" onClick={showIntroduction}>
+          Show the introduction again
+        </button>
+      </p>
+
+      <h2>A story bound to place, with no map</h2>
+      <p>
+        <cite>The Crossing</cite> is a novel of place in the geographer’s sense: its places are not backdrops but
+        part of what happens. McCarthy names real towns, rivers, ranges, ranches and border crossings, and measures
+        the country the way a rider does, in days on horseback, in a creek followed upstream, in the light of a town
+        seen from the dark. A geographer would call these place names toponyms, and the book is thick with them,
+        in English and in Spanish.
+      </p>
+      <p>
+        Yet the book comes with no map. A reader builds one in the head, a mental map, and it is easy to get lost,
+        because the journeys cross scales, from a single canyon to three hundred miles of desert, and the text gives
+        directions and distances only now and then. This site turns that mental map into a drawn one. It ties each
+        place the book names to a point on the ground (georeferencing), and where the book only describes a place,
+        it marks an area as wide as the clues allow. It is a reading of the book, not the author’s own map, and it
+        says where it is unsure.
       </p>
 
       <h2>How to read it</h2>
@@ -31,7 +55,7 @@ export function About() {
       <p>
         Routes follow a road or river where the text names one, and are drawn as gentle curves where it does not.
         Inferred areas are drawn no smaller than the evidence allows: a large honest area is better than a precise
-        wrong pin. Most are drafts, cut from a circle by a rule, and any of them can be redrawn when a reader knows more.
+        wrong pin. Most are drafts, cut to the ground the clues describe by a rule, and any of them can be redrawn when a reader knows more.
       </p>
 
       <h2>What is here and what is not</h2>

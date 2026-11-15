@@ -229,6 +229,30 @@ details.more summary:focus-visible,
   font-size: 0.8rem;
   font-style: italic;
 }
+/* A button that reads as one of the links beside it (the panel's Introduction link, the About page). */
+button.link {
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  background: none;
+  cursor: pointer;
+}
+
+button.link:focus-visible,
+.introduction-more:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* The introduction shares the progress dialog's frame; its secondary action is a link beside the button. */
+.introduction-more {
+  align-self: center;
+  margin-left: 6px;
+  color: inherit;
+}
+
 /* Reading progress: the badge at the top of the panel and its dialog. Nothing here moves. */
 .progress-badge {
   display: flex;

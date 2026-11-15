@@ -27,7 +27,7 @@ import { usePhone } from '../panel/usePhone'
 const SatelliteMap = lazy(() => import('./SatelliteMap'))
 
 const MIN_ZOOM = 4
-const TERRAIN_TILT = 40
+const TERRAIN_TILT = 50
 
 // The units only change label text, which MapView sets on the map when they change; every derived list below
 // comes from one build of the style.

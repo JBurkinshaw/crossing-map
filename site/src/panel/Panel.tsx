@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { showIntroduction } from '../welcome/showIntroduction'
 import type { Feature, Point } from 'geojson'
 import { JOURNEYS } from '../data/journeys'
 import type { Elsewhere, StoryProps } from '../data/story'
@@ -59,6 +60,9 @@ export function Panel(props: Props) {
       <a href="#/open-questions">Open questions</a>
       <a href="#/data">Data</a>
       <a href="#/credits">Credits</a>
+      <button type="button" className="link" onClick={showIntroduction}>
+        Introduction
+      </button>
     </nav>
   )
 

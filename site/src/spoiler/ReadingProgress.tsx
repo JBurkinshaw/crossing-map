@@ -14,10 +14,19 @@ type Props = {
   // The episode list could not be loaded: the slider has nothing to step through.
   episodesFailed: boolean
   onSet: (progress: Progress) => void
+  // The introduction is open: on a first visit the question waits until it closes.
+  hold: boolean
 }
 
-export function ReadingProgress({ progress, isSet, episodes, episodesFailed, onSet }: Props) {
-  const [open, setOpen] = useState(!isSet)
+export function ReadingProgress({ progress, isSet, episodes, episodesFailed, onSet, hold }: Props) {
+  const [open, setOpen] = useState(!isSet && !hold)
+  // Ask once the introduction closes, if the reader has not set their progress yet.
+  const asked = useRef(open)
+  useEffect(() => {
+    if (hold || isSet || asked.current) return
+    asked.current = true
+    setOpen(true)
+  }, [hold, isSet])
   const badge = useRef<HTMLButtonElement>(null)
   // Focus goes back to the badge once the dialog has gone: while the modal dialog is open, the badge is inert.
   const returnFocus = useRef(false)

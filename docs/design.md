@@ -301,7 +301,7 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 
 | Pattern | Use |
 | --- | --- |
-| Onboarding | The reading-progress dialog opens on the first visit |
+| Onboarding | On the first visit only, an introduction says what the site is, then the reading-progress dialog opens. Both are remembered in `localStorage`; the panel's Introduction link and the About page bring the introduction back |
 | Timeline slider | Reading progress, one step per episode, labelled by Part |
 | Data dimming | Routes not in focus fade; when stepping, the road ahead fades |
 | Route positioning | Back and Next through a journey's stops; the camera flies to each |
