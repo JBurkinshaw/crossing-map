@@ -148,6 +148,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - translation review by a speaker
   - road snaps for the Mexican legs
 - **Small:**
+  - **[owner]** Restore the spoiler-leak job in `.github/workflows/deploy.yml` (paused 2026-11-14 to speed up deploys): delete its `if: false` and add it back to `build`'s `needs`. Until then, run `tools/spoiler-leak.mjs` locally before each push.
   - **[owner]** Rebuild and release the Raised archives. The hachure strokes in `oblique-*.pmtiles` now take the same `Rand` and `Slope` as `relief.pmtiles`, so the Raised view thins strokes as the flat view does once rebuilt ([`releasing-tiles.md`](releasing-tiles.md)).
   - **[owner]** Review the Apache Pass glyph: its entry in `data/mountain_glyphs.geojson` is stale against what `crossing.peaks` now produces.
   - **[decide]** Stop `j2-colonia-oaxaca` is first seen in 1-09, before its place, which the book names in 1-10. `crossing.validate` allows it, because the stop's own name gives nothing away until then. Confirm, or date the stop 1-10.
