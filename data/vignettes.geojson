@@ -850,6 +850,414 @@
     "label": "Madera fair, late April",
     "credit": "Drawn"
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.88,
+     31.6
+    ]
+   },
+   "properties": {
+    "id": "vignette-wolves-antelope",
+    "name": "Wolves running the antelope in the snow",
+    "kind": "vignette",
+    "stands_for": "The wolves Billy watches on the plain below the hills west of his house (1-01)",
+    "place_ref": "j1-animas-valley",
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-01",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "On a moonlit winter night Billy creeps out to the edge of the junipers and watches a pack of seven wolves harry the antelope across the new snow.",
+    "reasoning": "The book sets the scene on the plain below the low hills west of the Parham house, in the Animas Valley; the drawing sits at the valley stop of the wolf's own journey, where she runs antelope herself in 1-04. Its pin is first shown in 1-04, the drawing from 1-01. The drawing is set on the north-west side of Animas Valley, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-wolves-antelope",
+    "side": "nw",
+    "min_zoom": 8.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "Wolves running antelope in the snow",
+    "credit": "Drawn; the wolves are the traced she-wolf (US Fish and Wildlife Service photograph, public domain), the pronghorn after photographs by the Bureau of Land Management, Utah, and Great Sand Dunes National Park (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.92977,
+     31.41705
+    ]
+   },
+   "properties": {
+    "id": "vignette-billy-and-the-dog",
+    "name": "Billy on Bird, and the dog at the gate",
+    "kind": "vignette",
+    "stands_for": "Billy riding out from home to trail the she-wolf, and the family dog (J2)",
+    "place_ref": "place-cloverdale",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Sent out alone to check the traps, Billy rides through the stockgate onto the road south while the dog stands at the gate looking after him.",
+    "reasoning": "The Parham house is near Cloverdale (its stop, j3-parham-house, shares Cloverdale's point); the drawing sits on the place pin, which is shown from 1-05. No caption: Billy, his horse and the dog need none. The drawing is set on the east side of Cloverdale, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-billy-and-the-dog",
+    "side": "e",
+    "min_zoom": 8.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "",
+    "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the dog is the traced she-wolf (US Fish and Wildlife Service photograph, public domain), made smaller"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.19906,
+     30.98303
+    ]
+   },
+   "properties": {
+    "id": "vignette-wolf-on-the-rope",
+    "name": "Billy leading the wolf on the rope",
+    "kind": "vignette",
+    "stands_for": "Billy taking the she-wolf south into Sonora on his catch rope (J2)",
+    "place_ref": "j2-cajon-bonito",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Billy rides south through the mountains with the muzzled wolf hobbling behind on the rope, across high meadows of yellow grass and lechuguilla.",
+    "reasoning": "A character drawing on an empty stretch of J2: its own point is halfway along the leg from the Cajón Bonito to the passes of the Sierra de la Cabellera, on the route line. Its ref is the leg's first stop. No caption: the rider and the wolf on the rope need none. The drawing is set on the east side of its own place, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-wolf-on-the-rope",
+    "side": "e",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 3,
+    "label": "",
+    "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain); lechuguilla drawn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.29153,
+     31.12684
+    ]
+   },
+   "properties": {
+    "id": "vignette-wolf-by-the-fire",
+    "name": "Billy and the wolf by the fire",
+    "kind": "vignette",
+    "stands_for": "Billy's camps with the wolf in the mountains south of the line (J2)",
+    "place_ref": "j2-cajon-bonito",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "After he shoots a wild turkey and shares it with her, Billy sits by the fire through the night with the wolf beside him on the rope, her eyes lit by the flames.",
+    "reasoning": "The turkey and the night by the fire come the evening before Billy meets the riders on the Cajón Bonito, so the drawing sits at that stop. The drawing is set on the west side of Down the Cajon Bonita, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-wolf-by-the-fire",
+    "side": "w",
+    "min_zoom": 8.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "Night camp, the wolf beside him",
+    "credit": "Drawn; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain), bent to sit"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.05822,
+     30.73016
+    ]
+   },
+   "properties": {
+    "id": "vignette-wolf-ford",
+    "name": "Billy holding the wolf up in the river",
+    "kind": "vignette",
+    "stands_for": "The ford of the Bavispe where the deputies meet Billy (J2)",
+    "place_ref": "j2-colonia-oaxaca",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Fording the Bavispe, the muzzled wolf begins to drown in the current and Billy wades in to his chest to hold her head above the water.",
+    "reasoning": "The drawing is set on the east side of The river crossing (the deputies), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-wolf-ford",
+    "side": "e",
+    "min_zoom": 8.0,
+    "max_zoom": 12.0,
+    "priority": 1,
+    "label": "Fording the Bavispe",
+    "credit": "Drawn from the book's description; the wolf's head after the US Fish and Wildlife Service wolf photographs used for the she-wolf (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.22383,
+     30.82701
+    ]
+   },
+   "properties": {
+    "id": "vignette-wolf-cart",
+    "name": "The wolf shown in a cart at the fair",
+    "kind": "vignette",
+    "stands_for": "The fair at Colonia Morelos, where the wolf is shown for a fee (J2)",
+    "place_ref": "j2-colonia-morelos",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "In the old Mormon town Billy finds the wolf chained in the straw of a little cart under a tent of sheeting, shown to the fairgoers for ten centavos.",
+    "reasoning": "The drawing is set on the north-east side of Colonia Morelos (the fair), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-wolf-cart",
+    "side": "ne",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "The wolf shown at the fair",
+    "credit": "Drawn from the book's description"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.18245,
+     30.74121
+    ]
+   },
+   "properties": {
+    "id": "vignette-carrying-the-wolf",
+    "name": "Billy carrying the dead wolf to the mountains",
+    "kind": "vignette",
+    "stands_for": "Billy's night ride from the hacienda to the Pilares de Teras with the wolf's body (J2)",
+    "place_ref": "j2-pilares-de-teras",
+    "part": 1,
+    "episode": "1-10",
+    "first_seen": "1-10",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Billy rides out of the hacienda with the dead wolf wrapped in a sheet across the bow of his saddle, fords the river and climbs towards the Pilares before dawn.",
+    "reasoning": "A character drawing on J2's last leg: its own point is halfway from the hacienda to the Pilares de Teras, on the route line. Its ref is the leg's end. The drawing is set on the east side of its own place, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-carrying-the-wolf",
+    "side": "e",
+    "min_zoom": 10.0,
+    "max_zoom": 12.0,
+    "priority": 3,
+    "label": "Carrying her into the Pilares",
+    "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the bundle and the mountains drawn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.20033,
+     30.65895
+    ]
+   },
+   "properties": {
+    "id": "vignette-wolf-cairn",
+    "name": "The wolf's cairn on the high pass",
+    "kind": "vignette",
+    "stands_for": "The wolf's grave in the Pilares de Teras (J3)",
+    "place_ref": "j3-wolfs-grave",
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Billy buries the wolf in a high pass of the mountains under a heap of scree and leads his horse away.",
+    "reasoning": "The drawing is set on the east side of The wolf's grave, a high pass in the Pilares, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-wolf-cairn",
+    "side": "e",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 1,
+    "label": "The wolf's grave, a high pass",
+    "credit": "Drawn from the book's description"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.14314,
+     30.45038
+    ]
+   },
+   "properties": {
+    "id": "vignette-billy-bow-hawk",
+    "name": "Billy with his bow, and the hawk",
+    "kind": "vignette",
+    "stands_for": "Billy's weeks alone in the high Sierra after the wolf's death (J3)",
+    "place_ref": "j3-el-tigre",
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Wandering the high country for weeks, Billy makes a bow of holly and arrows of cane and on a windy saddle shoots a hawk that flies on with the arrow in its breast.",
+    "reasoning": "A character drawing for Billy alone in the Sierra: its own point is halfway along the leg from El Tigre into the sierras where he meets the Indians, on the route line. The book gives no place for the hawk. Its ref is the leg's first stop. The drawing is set on the west side of its own place, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-billy-bow-hawk",
+    "side": "w",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 3,
+    "label": "Holly bow, cane arrow",
+    "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the bow, arms and hawk drawn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.21838,
+     30.5876
+    ]
+   },
+   "properties": {
+    "id": "vignette-el-tigre",
+    "name": "The mining town of El Tigre",
+    "kind": "vignette",
+    "stands_for": "El Tigre, where a woman feeds the starving Billy (J3)",
+    "place_ref": "j3-el-tigre",
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Ragged and half starved, Billy rides into El Tigre, a few huts of mud and sticks with cowhide doors on a slope, where a woman takes him in and feeds him.",
+    "reasoning": "El Tigre's big mine had closed in 1938; the drawing keeps to the book's huts, with a small headframe for the mine. The drawing is set on the south-west side of El Tigre, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-el-tigre",
+    "side": "sw",
+    "min_zoom": 8.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "El Tigre, a mining town",
+    "credit": "Drawn; the jacales after a 1940 US government photograph of a Yaqui jacal at Cortaro Farms, Arizona (NARA 522189, public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.95,
+     30.0
+    ]
+   },
+   "properties": {
+    "id": "vignette-escarpment-road",
+    "name": "The wagon road down the escarpment",
+    "kind": "vignette",
+    "stands_for": "The eastern escarpment of the sierra above the Bavispe (J3)",
+    "place_ref": "j3-eastern-escarpment",
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "At the eastern rim Billy leads his horse along a shelf of grey rock, then follows an old wagon road that winds down the granite face in tight switchbacks.",
+    "reasoning": "The drawing is set on the west side of The eastern escarpment above the Bavispe barranca, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-escarpment-road",
+    "side": "w",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "Wagon road down the escarpment",
+    "credit": "Drawn from the book's description"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.94101,
+     30.47968
+    ]
+   },
+   "properties": {
+    "id": "vignette-bavispe-church",
+    "name": "The church at Bavispe",
+    "kind": "vignette",
+    "stands_for": "Bavispe, where Billy rides through the plaza on his way north (J3)",
+    "place_ref": "j3-bavispe",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Riding north along the river, Billy passes through Bavispe without stopping, by a meat seller's cart standing in the plaza before the church.",
+    "reasoning": "The hermit's tale in 2-01 also names Bavispe, as the town struck by the 1887 earthquake; the church today is the one rebuilt after it. The drawing is set on the east side of Bavispe, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-bavispe-church",
+    "side": "e",
+    "min_zoom": 8.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "San Miguel, Bavispe",
+    "credit": "Drawn after a photograph of San Miguel Arcángel, Bavispe, by LIMO 5 (CC BY-SA 4.0). This drawing is shared under CC BY-SA 4.0"
+   }
   }
  ]
 }
