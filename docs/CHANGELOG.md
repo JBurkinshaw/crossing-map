@@ -10,6 +10,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- New layer `water_places`: 1,233 springs, tanks, ranches and stations within 20 km of the journeys ridden or walked, from GNIS and GeoNames, with the book's own four pointing at their place. A GeoParquet copy too.
 - Veracruz added to the places named elsewhere (3-01), read as the state, as Bell (2000) reads it.
 - A GeoParquet copy of `vignettes`.
 - The wolf's crossing of the Río Bavispe moved 1.7 km east, onto the river's real channel.
@@ -25,6 +26,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- The classic map takes three more features from the Wheeler Survey sheets (decision 0027). A 15′ graticule in faint ink from zoom 8, labelled in a margin band inside a thin-thick rule round the map (the rule alone on phones); the cartouche gets the same rule. Springs, tanks, ranches and stations within 20 km of the journeys, from zoom 11, each with a small mark and its name in quiet italic. Names on one type scale: towns in roman at about 1.4 times the spot heights, cities in capitals, ranches and springs in small italic, and named passes in small capitals laid across the saddle or along the road through it, in place of their glyph.
 - Inside the journeys corridor the hachures are drawn as on the Wheeler Survey sheets (decision 0024): short strokes of one width, packed closer on steep ground, with crests, summits, mesa tops and valley floors left white and escarpments drawn as a comb of wedges. They come from two new tile archives, `relief-wheeler.pmtiles` and `relief-wheeler-12.pmtiles`, which need a tile release. The earlier hachures are kept and can be switched back.
 - Modelled legs are drawn in long dashes, with a key entry; their cards say "Modelled path, not the book's". How it's built explains the model and its uncertainty.
 - An inferred area's card says how it was drawn, by a rule from data rather than by hand from a source, and asks readers who know more to suggest a correction. How it's built explains the method and its limits.

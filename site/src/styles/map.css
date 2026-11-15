@@ -97,21 +97,28 @@
 }
 
 /* The title cartouche, bottom right, with the layer key folded under the title. Opened, the key grows the
-   cartouche upwards, over the inset, and the cartouche scrolls if the map is short. */
+   cartouche upwards, over the inset, and the cartouche scrolls if the map is short. Its rule is a Wheeler
+   sheet's: a thin neatline (the border) inside a thin-thick rule, drawn as outset box shadows from the inside
+   out (a 3 px gap, a 3 px heavy rule, a 1.5 px gap, a 1 px thin rule; review/stage-9/wheeler-places/README.md).
+   The rule reaches 8.5 px past the border, so the box sits that far and a little more from the edges, inside the
+   map's frame where it shows (--frame). */
 .cartouche {
   position: absolute;
   z-index: 3;
-  right: 12px;
-  bottom: 28px;
+  right: calc(var(--frame) + 17px);
+  bottom: calc(var(--frame) + 33px);
   /* Clear of the map's switches, top right. */
-  max-height: calc(100% - 228px);
+  max-height: calc(100% - 233px - 2 * var(--frame));
   overflow-y: auto;
-  max-width: min(320px, calc(100% - 30px));
+  max-width: min(320px, calc(100% - 40px - 2 * var(--frame)));
   box-sizing: border-box;
   padding: 8px 14px 4px;
   border: 1px solid var(--ink);
-  outline: 1px solid var(--ink);
-  outline-offset: 3px;
+  box-shadow:
+    0 0 0 3px var(--paper),
+    0 0 0 6px var(--ink),
+    0 0 0 7.5px var(--paper),
+    0 0 0 8.5px var(--ink);
   background: var(--paper);
 }
 
@@ -147,11 +154,15 @@
 /* Phones: the title alone, smaller, so the cartouche stays a small corner holding the key. */
 @media (max-width: 720px) {
   .cartouche {
-    right: 10px;
-    bottom: 10px;
-    max-height: calc(100% - 66px);
+    right: calc(var(--frame) + 13px);
+    bottom: calc(var(--frame) + 13px);
+    max-height: calc(100% - 72px - 2 * var(--frame));
     padding: 4px 10px 2px;
-    outline-offset: 2px;
+    box-shadow:
+      0 0 0 2px var(--paper),
+      0 0 0 4px var(--ink),
+      0 0 0 5px var(--paper),
+      0 0 0 6px var(--ink);
   }
   .cartouche .north,
   .cartouche-sub {
@@ -165,8 +176,8 @@
 /* The overview inset (OverviewInset.tsx): above the cartouche. */
 .overview {
   position: absolute;
-  right: 12px;
-  bottom: 136px;
+  right: calc(var(--frame) + 12px);
+  bottom: calc(var(--frame) + 146px);
   margin: 0;
   border: 1px solid var(--ink);
   outline: 1px solid var(--ink);
@@ -191,8 +202,8 @@
 
 @media (max-width: 720px) {
   .overview {
-    right: 10px;
-    bottom: 76px;
+    right: calc(var(--frame) + 10px);
+    bottom: calc(var(--frame) + 84px);
   }
 }
 
@@ -231,8 +242,8 @@
 .map-controls-box {
   position: absolute;
   z-index: 4;
-  top: 10px;
-  right: 10px;
+  top: calc(var(--frame) + 10px);
+  right: calc(var(--frame) + 10px);
 }
 
 .map-controls {
@@ -302,7 +313,7 @@
 
 @media (max-width: 720px) {
   .map-controls-box {
-    top: max(10px, env(safe-area-inset-top));
+    top: calc(var(--frame) + max(10px, env(safe-area-inset-top)));
     display: grid;
     justify-items: end;
     gap: 8px;
@@ -353,8 +364,8 @@
 /* Under the map's switches. */
 .notice {
   position: absolute;
-  top: 186px;
-  right: 10px;
+  top: calc(var(--frame) + 186px);
+  right: calc(var(--frame) + 10px);
   max-width: 260px;
   margin: 0;
   padding: 6px 10px;
@@ -370,10 +381,85 @@
     padding: 2px 9px;
   }
   .notice {
-    top: 58px;
-    left: 50px;
+    top: calc(var(--frame) + 58px);
+    left: calc(var(--frame) + 50px);
     max-width: none;
   }
+}
+
+/* The Wheeler sheet's frame (MapFrame.tsx), on the classic map in the Flat and Tilted views. Measured on sheet 70A
+   (review/stage-9/wheeler-places/README.md): from the outside in, a thin rule, a gap, a heavy rule, a gap, a thin
+   rule, a margin band holding the graticule's labels, and a thin neatline round the map; here 1, 2, 4, 2 and 1 px,
+   a 20 px band and a 1 px neatline. It is drawn over the map's edges by inset box shadows, so the map keeps its
+   size, and everything set on the map (controls, inset, cartouche, notices) moves in by --frame, the frame's
+   width, to sit inside the neatline. */
+.map-area {
+  --frame: 0px;
+}
+
+.map-area.framed {
+  --frame-thin: 1px;
+  --frame-gap: 2px;
+  --frame-heavy: 4px;
+  --frame-band: 20px;
+  --frame-neat: 1px;
+  --frame-rule: calc(2 * var(--frame-thin) + 2 * var(--frame-gap) + var(--frame-heavy));
+  --frame: calc(var(--frame-rule) + var(--frame-band) + var(--frame-neat));
+  /* Wheeler's margin is lighter than his map's under-tint (70A: #f7f6e3 against #f9eecf): the paper the map
+     shows above zoom 10 (paperShown in tokens.ts), a step lighter. */
+  --frame-margin: #f7f4ea;
+}
+
+/* Phones: the rule alone (1, 1, 2, 1 and 1 px), with no band, neatline or labels. A 20 px band on each side
+   would take a tenth of a 390 px screen; the graticule's lines still show. */
+@media (max-width: 720px) {
+  .map-area.framed {
+    --frame-gap: 1px;
+    --frame-heavy: 2px;
+    --frame-band: 0px;
+    --frame-neat: 0px;
+  }
+}
+
+.map-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 var(--frame-thin) var(--ink),
+    inset 0 0 0 calc(var(--frame-thin) + var(--frame-gap)) var(--frame-margin),
+    inset 0 0 0 calc(var(--frame-thin) + var(--frame-gap) + var(--frame-heavy)) var(--ink),
+    inset 0 0 0 calc(var(--frame-rule) - var(--frame-thin)) var(--frame-margin),
+    inset 0 0 0 var(--frame-rule) var(--ink),
+    inset 0 0 0 calc(var(--frame-rule) + var(--frame-band)) var(--frame-margin),
+    inset 0 0 0 var(--frame) var(--ink);
+}
+
+.map-frame[hidden] {
+  display: none;
+}
+
+/* The margin labels: small roman figures, centred on their line where it meets the band. */
+.frame-edge {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* The maps' own controls (zoom, scale, credits, and the satellite map's logo) move inside the neatline, and the
+   map's focus ring with them. */
+.map-area .maplibregl-ctrl-top-left,
+.map-area .maplibregl-ctrl-bottom-left,
+.map-area .maplibregl-ctrl-bottom-right {
+  margin: var(--frame);
+}
+
+.map-area.framed .maplibregl-canvas:focus-visible {
+  outline-offset: calc(-4px - var(--frame));
 }
 
 /* Clear the MapTiler logo, which the satellite map draws bottom left. */

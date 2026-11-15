@@ -1,3 +1,5 @@
+import type { ExpressionSpecification } from 'maplibre-gl'
+
 // Design tokens for the literary map (docs/design.md, section 5.1): ink on cream paper, after the Wheeler Survey's
 // sheet 70A (1877; review/stage-8/wheeler/README.md). Each colour keeps its place in
 // the hierarchy: the Mexico side a shade darker than the paper, the paper above zoom 10 plainer than below,
@@ -62,6 +64,16 @@ export const fonts = {
   italic: 'IMFeENit28P',
   smallCaps: 'IMFeENsc28P',
 } as const
+
+// The type scale after the Wheeler sheets (review/stage-9/wheeler-type/README.md; decision 0027): sizes in px at
+// zoom 11, all in the one ink. The spot height is the unit; towns are about 1.4 times it, in roman (the larger,
+// places.geojson's cities, in capitals); ranches, stations and springs about the unit, in quiet italic; passes
+// about the unit, in small capitals. Landform names along their axes (relief.ts) are about twice it.
+export const typeScale = { spot: 10.5, town: 14.5, quiet: 10.5, pass: 10.5 } as const
+// Quiet names (ranches, stations, springs) are in the same ink at this opacity.
+export const QUIET_OPACITY = 0.72
+// A size at zoom 11 grown with the zoom, less than the ground grows: 0.85 of it at zoom 9 and below, 1.15 at 13.
+export const zoomedSize = (size: number): ExpressionSpecification => ['interpolate', ['linear'], ['zoom'], 9, size * 0.85, 11, size, 13, size * 1.15]
 
 // Route ink by journey, after its central figure (design 5.1): the wolf in slate, Billy in oxblood (J2 with the wolf
 // beside him), Boyd in green for the brothers' ride (J4), and "the girl" in plum for the reported J6.

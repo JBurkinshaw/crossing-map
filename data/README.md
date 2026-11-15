@@ -16,6 +16,7 @@ Every file is validated against its schema in `schema/` by `crossing.validate`, 
 | `areas.geojson` | 59 inferred areas and named regions, each with its reasoning | `story-layer` |
 | `vignettes.geojson` | 13 anchors for the map's drawings, and 2 hairline leaders to real sites | `story-layer` |
 | `landforms.geojson` | 313 label lines along ranges, valleys, plains, mesas and plateaus, for names set along the landform (decision 0023) | `story-layer` |
+| `water_places.geojson` | 1,233 springs, tanks, ranches and stations within 20 km of the journeys ridden or walked, from GNIS and GeoNames, with the book's own 4 (they point at their place) | `story-layer` |
 | `mountain_glyphs.geojson` | 836 summits and 168 passes found in the Copernicus DEM, each with its landform | `story-layer` |
 | `episodes.json` | The novel's 41 episodes: opening words, length, and a spoiler-safe summary | `episodes` |
 | `translations.json` | 916 Spanish lines: an incipit of at most five words, our English, and where each was spoken | `translations` |
@@ -34,8 +35,8 @@ Our own data, notes, and translations are CC BY 4.0 (`LICENSE`). Each feature's 
 | Source | Used for | Licence | Credit |
 | --- | --- | --- | --- |
 | This project | Notes, reasoning, translations, inferred areas, routes | CC BY 4.0 | "The Crossing reading map, Joe Burkinshaw" |
-| GeoNames | Places, summits, and passes in Mexico | CC BY 4.0 | "GeoNames" |
-| USGS GNIS | Places, summits, and passes in the US | Public domain | Courtesy of the U.S. Geological Survey (GNIS) |
+| GeoNames | Places, summits, passes, springs, ranches, and stations in Mexico | CC BY 4.0 | "GeoNames" |
+| USGS GNIS | Places, summits, passes, and springs in the US | Public domain | Courtesy of the U.S. Geological Survey (GNIS) |
 | Wikidata | A few place locations | CC0 | Courtesy link |
 | GMBA Mountain Inventory v2 | The axes of US ranges in `landforms.geojson` | CC BY 4.0 | "GMBA Mountain Inventory v2 (Snethlage et al. 2022), GMBA and EarthEnv" |
 | Copernicus DEM GLO-30 | Summits, passes, hachures, contours, and the Raised view | Copernicus DEM licence | The notice below |

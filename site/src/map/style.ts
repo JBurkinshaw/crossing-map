@@ -1,6 +1,7 @@
 import type { ExpressionSpecification, LayerSpecification, StyleSpecification } from 'maplibre-gl'
 import { reliefLayers, reliefSources } from './relief'
 import { fonts, palette as tokens, SPRITE } from './tokens'
+import { waterPlaceLayer } from './waterPlaces'
 import type { Units } from '../units'
 
 // Every layer literaryStyle draws is part of the literary base, which satellite, topo and compare modes hide,
@@ -48,11 +49,27 @@ const stateLabel = (source: string): LayerSpecification => ({
   },
 })
 
+// The 15′ graticule (crossing.graticule), as on Wheeler's sheet 70A: faint ink from zoom 8, the whole degrees a
+// little heavier, over the relief and the water and under all type. MapFrame labels it in the frame's margin.
+const graticule: LayerSpecification = {
+  id: 'graticule',
+  type: 'line',
+  source: 'graticule',
+  minzoom: 8,
+  paint: {
+    'line-color': tokens.ink,
+    'line-opacity': ['interpolate', ['linear'], ['zoom'], 8, 0.16, 12, 0.24],
+    'line-width': ['interpolate', ['linear'], ['zoom'], 8, ['match', ['get', 'rank'], 1, 0.8, 0.5], 12, ['match', ['get', 'rank'], 1, 1.1, 0.7]],
+  },
+}
+
 // The literary basemap (docs/design.md, section 5.1): ink on caliche paper, the
 // Mexico side a shade darker, rivers in blue-grey ink, and a dash-dot
 // international line as on the 1850s-1880s survey sheets.
 export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: string, units: Units): StyleSpecification {
   const base = 'base'
+  // Label data made for the map beside the tiles (tiles.state_labels, crossing.graticule, crossing.pass_lines).
+  const labels = `${tilesBase.replace(/tiles\/$/, '')}labels/`
   const r = reliefLayers(tokens, units)
   const layers: LayerSpecification[] = [
       { id: 'paper', type: 'background', paint: { 'background-color': tokens.paper } },
@@ -213,10 +230,11 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         paint: { 'text-color': tokens.waterLabel, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },
     ]
-  // Hillshade sits on the paper; hachures under the water and lines; glyphs, then vignettes, above the lines and
-  // below the labels.
+  // Hillshade sits on the paper; hachures under the water and lines; the graticule over the lines; the water
+  // places, glyphs, then vignettes, above the lines and below the labels. The water places are the lowest
+  // symbols, so every other name wins a collision with them.
   const at = (id: string) => layers.findIndex((l) => l.id === id)
-  layers.splice(at('creek-label'), 0, ...r.glyphs, ...r.vignettes)
+  layers.splice(at('creek-label'), 0, graticule, waterPlaceLayer(tokens), ...r.glyphs, ...r.vignettes)
   layers.splice(at('county-line'), 0, ...r.hachures)
   layers.splice(at('lake'), 0, ...r.hillshade)
   // Last of the base, so the story's labels (added above it) win any collision.
@@ -229,7 +247,15 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
     sources: {
       [base]: { type: 'vector', url: `pmtiles://${tilesBase}base.pmtiles` },
       ...reliefSources(tilesBase, dataBase),
-      'state-labels': { type: 'geojson', data: `${tilesBase.replace(/tiles\/$/, '')}labels/states.geojson` },
+      'state-labels': { type: 'geojson', data: `${labels}states.geojson` },
+      graticule: { type: 'geojson', data: `${labels}graticule.geojson` },
+      passes: { type: 'geojson', data: `${labels}passes.geojson` },
+      // The gazetteer's water places, trimmed by scripts/copy-data.mjs (waterPlaces.ts).
+      'water-places': {
+        type: 'geojson',
+        data: `${dataBase}map/water_places.geojson`,
+        attribution: 'Springs, ranches and stations: USGS GNIS, GeoNames (CC BY 4.0)',
+      },
     },
     layers,
   }

@@ -10,10 +10,12 @@ import { ChunkBoundary } from '../ChunkBoundary'
 import { CompareSwipe } from './CompareSwipe'
 import { HomeControl } from './HomeControl'
 import { LayerKey } from './LayerKey'
+import { MapFrame } from './MapFrame'
 import { MapControls } from './MapControls'
 import type { Basemap, View } from './mode'
 import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
+import { WaterMarks } from './WaterMarks'
 import { contourText, glyphText, RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
 import { closeAttribution, dataBase, exposeForScripts, fontsBase, motion, TERRAIN_EXAGGERATION, tilesBase } from './setup'
 import { baseLayerIds, literaryStyle, notRaisedIds } from './style'
@@ -94,6 +96,8 @@ export function MapView(props: Props) {
   const tintAvailable = basemap === 'literary' && view !== 'raised' && !unavailable
   const wash = tint && tintAvailable
   const phone = usePhone()
+  // The Wheeler frame and its graticule labels, on the classic map in the Flat and Tilted views (MapFrame).
+  const framed = basemap === 'literary' && view !== 'raised'
   if ((basemap !== 'literary' || wash) && !satelliteStarted) setSatelliteStarted(true)
   // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
   // tiles are loading, and 'load' fires only once.
@@ -186,7 +190,7 @@ export function MapView(props: Props) {
   }, [view, loaded, mapRef])
 
   return (
-    <div className={`map-area${basemap === 'literary' ? '' : ' has-satellite'}${wash ? ' satellite-tint' : ''}`}>
+    <div className={`map-area${basemap === 'literary' ? '' : ' has-satellite'}${wash ? ' satellite-tint' : ''}${framed ? ' framed' : ''}`}>
       {satelliteStarted && !unavailable && (
         <ChunkBoundary onError={onUnavailable}>
           <Suspense fallback={null}>
@@ -246,6 +250,7 @@ export function MapView(props: Props) {
           {/* Added after the scale, so MapLibre stacks it above. Each archive brings its own credit (the terrain
               lines wherever the hillshade shows); the Credits page has the rest. */}
           <AttributionControl position="bottom-left" compact customAttribution='<a href="#/credits">Credits</a>' />
+          <WaterMarks palette={palette} />
           {story && (
             <StoryLayers
               story={story}
@@ -262,6 +267,7 @@ export function MapView(props: Props) {
         </Map>
       </div>
       {basemap === 'compare' && <CompareSwipe />}
+      {loaded && <MapFrame mapRef={mapRef} shown={framed} />}
       <MapControls
         phone={phone}
         basemap={basemap}

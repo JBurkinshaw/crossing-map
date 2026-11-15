@@ -1,5 +1,5 @@
 import type { ExpressionSpecification, LayerSpecification, SourceSpecification } from 'maplibre-gl'
-import { fonts, type Palette } from './tokens'
+import { fonts, typeScale, zoomedSize, type Palette } from './tokens'
 import { heightLabel, type Units } from '../units'
 
 // Relief (docs/design.md, section 5.2; decision 0016, "S5"): an Imhof desert tint below zoom 10, then
@@ -51,6 +51,8 @@ function hachureSources(tilesBase: string): Record<string, SourceSpecification> 
 const namedGlyph: ExpressionSpecification = ['all', ['!=', ['get', 'name'], 'Unnamed summit'], ['!=', ['get', 'name'], 'Unnamed pass'],
   ['any', ['!=', ['get', 'size'], 'small'], ['==', ['get', 'landform'], 'pass']]]
 const spotHeight: ExpressionSpecification = ['all', ['!=', ['get', 'landform'], 'pass'], ['!=', ['get', 'elevation_m'], null]]
+// A named pass has no glyph: its name is set across the saddle instead (pass-label), as Wheeler letters a pass.
+const namedPass: ExpressionSpecification = ['all', ['==', ['get', 'landform'], 'pass'], ['!=', ['get', 'name'], 'Unnamed pass']]
 
 export function glyphText(units: Units): ExpressionSpecification {
   const name: ExpressionSpecification =
@@ -63,6 +65,34 @@ export function glyphText(units: Units): ExpressionSpecification {
 // Heights on the heavier contours (every 200 m), in feet rounded to 10, since the lines are drawn in metres.
 export function contourText(units: Units): ExpressionSpecification {
   return heightLabel(['get', 'Ele'], units, 10)
+}
+
+// Pass names in small capitals laid across the saddle, or along the road through the pass where one crosses it
+// (crossing.pass_lines; decision 0027), as Wheeler letters RATON PASS. Point labels turned to the pass's line: a
+// line label would need a line longer than the name. They are placed after the summit glyphs, so a summit wins.
+// The passes the book names show from zoom 7, as the book's landforms do; the others from 9, where the small glyphs
+// start. The layer is in PROGRESS_LAYERS (spoiler/filter.ts): a pass the book names shows from its episode.
+function passLabel(p: Palette): LayerSpecification {
+  return {
+    id: 'pass-label',
+    type: 'symbol',
+    source: 'passes',
+    minzoom: 7,
+    filter: ['any', ['!=', ['get', 'place_ref'], null], ['>=', ['zoom'], 9]],
+    layout: {
+      'text-field': ['get', 'name'],
+      'text-font': [fonts.smallCaps],
+      'text-size': zoomedSize(typeScale.pass),
+      'text-letter-spacing': 0.08,
+      'text-rotate': ['get', 'rotate'],
+      // A pass the book names keeps its place's ring on the saddle (StoryLayers): its name sits just beside it.
+      'text-offset': ['case', ['!=', ['get', 'place_ref'], null], ['literal', [0, 0.9]], ['literal', [0, 0]]],
+      'text-rotation-alignment': 'map',
+      'text-pitch-alignment': 'viewport',
+      'text-padding': 2,
+    },
+    paint: { 'text-color': p.ink, 'text-halo-color': p.paper, 'text-halo-width': 1.2 },
+  }
 }
 
 function glyphs(p: Palette, units: Units): LayerSpecification[] {
@@ -87,6 +117,7 @@ function glyphs(p: Palette, units: Units): LayerSpecification[] {
       },
       paint: { 'text-color': p.contour, 'text-halo-color': p.paperShown, 'text-halo-width': 1.5 },
     },
+    passLabel(p),
     {
       id: 'mountain-glyph',
       type: 'symbol',
@@ -94,10 +125,9 @@ function glyphs(p: Palette, units: Units): LayerSpecification[] {
       // Large glyphs from zoom 6, medium from 7, small from 9: below zoom 10 the Imhof tint has no line work,
       // so the glyphs carry the relief there.
       filter: [
-        'any',
-        ['==', ['get', 'size'], 'large'],
-        ['all', ['==', ['get', 'size'], 'medium'], ['>=', ['zoom'], 7]],
-        ['>=', ['zoom'], 9],
+        'all',
+        ['!', namedPass],
+        ['any', ['==', ['get', 'size'], 'large'], ['all', ['==', ['get', 'size'], 'medium'], ['>=', ['zoom'], 7]], ['>=', ['zoom'], 9]],
       ],
       layout: {
         // <landform>-<nn>[-flip], from art/glyphs/make_glyphs.py.
@@ -118,7 +148,7 @@ function glyphs(p: Palette, units: Units): LayerSpecification[] {
           ['-', 0, ['coalesce', ['get', 'prominence_m'], 99999]]],
         'text-field': glyphText(units),
         'text-font': [fonts.italic],
-        'text-size': ['case', namedGlyph, 12, 10.5],
+        'text-size': ['case', namedGlyph, 12, typeScale.spot],
         'text-anchor': 'top',
         'text-optional': true,
       },

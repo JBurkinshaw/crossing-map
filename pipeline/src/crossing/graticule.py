@@ -1,11 +1,11 @@
-"""A 15-minute graticule over the story box, for the Wheeler lab.
+"""A 15-minute graticule over the story box, for the map and the Wheeler lab.
 
 Run from the repo root:
     uv run --project pipeline python -m crossing.graticule
 
 Wheeler's sheet 70A rules a graticule line every 15′ across the map and labels it in the margin (30′, 15′, and
 the whole degree as 105°); review/stage-8/wheeler/README.md, finding 16. This writes those lines for the whole
-story box to site/public/lab/wheeler/graticule.geojson. Web Mercator draws meridians and parallels as straight
+story box to site/public/labels/graticule.geojson. Web Mercator draws meridians and parallels as straight
 lines, so each line needs only its two end points.
 
 Properties: `axis` (lat or lon), `deg` (the value in decimal degrees, west negative), `label` ("31°15′ N"),
@@ -17,7 +17,7 @@ import json
 
 from crossing.paths import SITE_PUBLIC, STORY_BOX
 
-OUT = SITE_PUBLIC / "lab" / "wheeler" / "graticule.geojson"
+OUT = SITE_PUBLIC / "labels" / "graticule.geojson"
 STEP_MIN = 15
 
 

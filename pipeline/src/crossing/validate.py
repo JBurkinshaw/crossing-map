@@ -21,7 +21,7 @@ from crossing.paths import DATA, SITE_PUBLIC
 
 SCHEMAS = DATA / "schema"
 SPRITE_INDEX = SITE_PUBLIC / "sprites" / "glyphs.json"
-LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs", "vignettes", "landforms"]
+LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs", "vignettes", "landforms", "water_places"]
 RAISED_LAYERS = ["places", "stops", "areas", "journeys"]
 MAX_DECIMALS = 5  # about 1 m; docs/design.md, section 6, rounds all coordinates to this
 INCIPIT_WORDS = 5  # the most Spanish words of a line the site may publish (docs/design.md, section 3)
@@ -87,6 +87,7 @@ def check_references(layers: dict[str, dict]) -> list[str]:
         "areas": {p["id"] for p in properties(layers["places"])},
         "vignettes": {p["id"] for name in ("places", "stops") for p in properties(layers[name])},
         "landforms": {p["id"] for p in properties(layers["places"])},
+        "water_places": {p["id"] for p in properties(layers["places"])},
     }
     errors = []
     for layer, allowed in targets.items():
@@ -98,12 +99,13 @@ def check_references(layers: dict[str, dict]) -> list[str]:
             # the target's existence is checked here.
             if ref not in allowed:
                 errors.append(f"{layer}.geojson {p['id']}: place_ref {ref} is not a feature it may point at")
-    # A landform line carries the book's name, so it may not show before the place it stands for.
+    # A landform line or water place carries the book's name, so it may not show before the place it stands for.
     place_seen = {p["id"]: p.get("first_seen") for p in properties(layers["places"])}
-    for p in properties(layers["landforms"]):
-        seen = place_seen.get(p.get("place_ref"))
-        if seen and isinstance(p.get("first_seen"), str) and p["first_seen"] < seen:
-            errors.append(f"landforms.geojson {p['id']}: first_seen {p['first_seen']} is before its place's {seen}")
+    for layer in ("landforms", "water_places"):
+        for p in properties(layers[layer]):
+            seen = place_seen.get(p.get("place_ref"))
+            if seen and isinstance(p.get("first_seen"), str) and p["first_seen"] < seen:
+                errors.append(f"{layer}.geojson {p['id']}: first_seen {p['first_seen']} is before its place's {seen}")
     for layer, kind, offset in (("stops", "stop", 0), ("journeys", "route-segment", 1)):
         by_journey: dict[str, list[int]] = defaultdict(list)
         stops = Counter(p.get("journey") for p in properties(layers["stops"]))

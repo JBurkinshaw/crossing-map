@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import * as maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { closeAttribution, exposeForScripts, motion } from '../../map/setup'
+import { palette } from '../../map/tokens'
+import { addWaterMarks } from '../../map/waterPlaces'
 import { LEARNINGS, SHEETS, type Param } from './learnings'
 import { TODAY, WHEELER, wheelerStyle, type Paper, type Params } from './wheelerStyle'
 import { addFrame } from './subset/frame'
@@ -78,6 +80,7 @@ export default function WheelerLab() {
     m.addControl(new maplibregl.ScaleControl({ unit: 'imperial', maxWidth: 120 }), 'bottom-left')
     map.current = m
     addPlaceMarks(m)
+    addWaterMarks(m, palette)
     frame.current = addFrame(m)
     frame.current.show(first.places.graticule)
     closeAttribution(m)

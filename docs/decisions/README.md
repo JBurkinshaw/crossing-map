@@ -41,6 +41,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0024 Wheeler hachures in the journeys corridor | accepted |
 | 0025 A MapTiler-like hillshade | accepted |
 | 0026 Vignettes beside their pins | accepted |
+| 0027 Wheeler frame, water places and type scale on the map | accepted |
 
 ## Template
 

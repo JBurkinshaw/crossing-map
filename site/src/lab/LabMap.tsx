@@ -5,6 +5,8 @@ import { AttributionControl, Map, NavigationControl, ScaleControl, type MapRef }
 import 'maplibre-gl/dist/maplibre-gl.css'
 import { closeAttribution, dataBase, exposeForScripts, fontsBase, tilesBase } from '../map/setup'
 import { literaryStyle } from '../map/style'
+import { palette } from '../map/tokens'
+import { WaterMarks } from '../map/WaterMarks'
 import { reachedEpisode, useProgress } from '../spoiler/progress'
 import { styleUpTo } from '../spoiler/filter'
 
@@ -68,6 +70,7 @@ export function LabMap({ styleOverrides, initialView, mapRef, onLoad, onMove, la
       <ScaleControl position="bottom-left" unit="metric" maxWidth={120} />
       {/* The archives' credits, behind the (i) button as on the site. */}
       <AttributionControl position="bottom-right" compact />
+      <WaterMarks palette={palette} />
       {children}
     </Map>
   )

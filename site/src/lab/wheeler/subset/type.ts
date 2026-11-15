@@ -223,7 +223,7 @@ export function addTypeHierarchy(style: StyleSpecification, halo: string): Style
   const notInArea: ExpressionSpecification = ['!', inArea]
   const pass: ExpressionSpecification = ['==', ['get', 'landform'], 'pass']
   let layers = (style.layers as Layer[]).flatMap((l): Layer[] => {
-    if (l.id === 'river-label' || l.id === 'wheeler-river-label') return [andFilter(l, notInArea)]
+    if (l.id === 'river-label' || l.id === 'wheeler-river-label' || l.id === 'pass-label') return [andFilter(l, notInArea)]
     if (l.id === 'wheeler-landform-label') return [andFilter(l, ['!', ['in', ['get', 'name'], ['literal', demoInArea]]])]
     if (l.id === 'mountain-glyph') {
       // Passes in the test area keep their glyph but lose its italic name, which type-pass sets instead.

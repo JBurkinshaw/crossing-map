@@ -1,7 +1,8 @@
 // The spoiler-leak test (docs/design.md, section 11, acceptance criteria): for several reading positions, load
 // the app and check that nothing first seen later shows anywhere: the story data given to the map, the
 // features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop and
-// the road card of each stop with talk on the road, "Named elsewhere"), mountain glyphs, vignettes,
+// the road card of each stop with talk on the road, "Named elsewhere"), mountain glyphs, landform and pass names,
+// water places, vignettes,
 // search results and the cards they open (places and the translations "Spoken here"), the layer key, the
 // reading-progress dialog, every page (About, How it's built, Open questions, Data, Credits), the Tilted,
 // compare and Raised views, and the phone drawer at each height. A first visit straight to a page must leave
@@ -26,6 +27,9 @@ const elsewhere = await read('elsewhere.json')
 const glyphs = (await read('mountain_glyphs.geojson')).features
 const vignettes = (await read('vignettes.geojson')).features
 const landforms = (await read('landforms.geojson')).features
+const waterPlaces = (await read('water_places.geojson')).features
+// The pass names the map sets across each saddle (crossing.pass_lines), beside the site's other label data.
+const passes = JSON.parse(await readFile(new URL('../site/public/labels/passes.geojson', import.meta.url), 'utf8')).features
 const translations = await read('translations.json')
 const episodes = await read('episodes.json')
 
@@ -89,6 +93,10 @@ async function checkPanel(page, reached, where, later, lines = new Set()) {
   for (const line of shownLines) if (lines.has(line)) leak(where, `later translation shown: ${line}`)
 }
 
+// Base-map layers whose features first seen 1-01 are the land itself, named from gazetteers: they show at every
+// reading position, "not started" included (PROGRESS_LAYERS in site/src/spoiler/filter.ts).
+const LAND_LAYERS = new Set(['mountain-glyph', 'landform-label', 'pass-label', 'water-place', 'graticule'].map((id) => `rendered ${id}`))
+
 // What the map holds and draws: the GeoJSON in each story source, and every rendered feature with a first_seen.
 async function checkMap(page, reached, where) {
   const found = await page.evaluate(async () => {
@@ -106,7 +114,7 @@ async function checkMap(page, reached, where) {
     return out
   })
   for (const [kind, id, first_seen, role] of found) {
-    const land = kind === 'rendered mountain-glyph' && first_seen === '1-01'
+    const land = LAND_LAYERS.has(kind) && first_seen === '1-01'
     if (!land && !allowed({ first_seen, role }, reached)) leak(where, `${kind} ${id} first seen ${first_seen}`)
   }
   return found.length
@@ -304,6 +312,18 @@ for (const point of POINTS) {
     await idle(page)
     const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['landform-label'] }).map((f) => [f.properties.name, f.properties.first_seen]))
     for (const [name, fs] of shown) if (fs > reached && fs > '1-01') leak(where, `landform name ${name} first seen ${fs}`)
+  }
+
+  // Pass names the book gives later than this point, and water places first seen later (the map draws only the
+  // gazetteer's, all 1-01, so none may show): go to each and look at what the map draws there.
+  const seenLater = (f) => f.properties.first_seen > reached && f.properties.first_seen > '1-01'
+  for (const [what, layer, zoom, list] of [['pass name', 'pass-label', 10, passes], ['water place', 'water-place', 12, waterPlaces]]) {
+    for (const f of list.filter(seenLater)) {
+      await page.evaluate(([lo, la, z]) => window.__map.jumpTo({ center: [lo, la], zoom: z }), [...f.geometry.coordinates, zoom])
+      await idle(page)
+      const shown = await page.evaluate((id) => window.__map.queryRenderedFeatures({ layers: [id] }).map((r) => [r.properties.name, r.properties.first_seen]), layer)
+      for (const [name, fs] of shown) if (fs > reached && fs > '1-01') leak(where, `${what} ${name} first seen ${fs}`)
+    }
   }
 
   // Vignettes drawn later than this point: go to each, inside its zoom range, and look for it.

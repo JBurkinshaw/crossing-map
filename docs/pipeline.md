@@ -40,11 +40,13 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | Region drafts | `uv run --project pipeline python -m crossing.regions [--force]` | `data/places.geojson`, the DEM | `pipeline/seeds/regions.geojson`; refuses to overwrite without `--force` | Yes |
 | Vignette anchors | `uv run --project pipeline python -m crossing.build_vignettes` | `vignettes.csv`, `data/stops.geojson`, `data/places.geojson` | `data/vignettes.geojson` | No |
 | State labels | `uv run --project pipeline python -m tiles.state_labels` | Natural Earth admin 1 states, the story layers in `data/` | `site/public/labels/states.geojson`: label points clear of the story | Yes |
+| Water places | `uv run --project pipeline python -m crossing.water_places` | GNIS, GeoNames, `data/places.geojson`, `data/journeys.geojson` | `data/water_places.geojson`: springs, wells, tanks, ranches and stations in the journeys corridor | Yes |
+| Graticule | `uv run --project pipeline python -m crossing.graticule` | The story box | `site/public/labels/graticule.geojson`: the 15′ graticule | No |
 
 Order matters in four places:
 
 1. A first build runs `crossing.build_story` (it skips a missing regions file), then `crossing.regions`, then `crossing.build_story` again, because the region drafts sit on place pins.
-2. `crossing.build_vignettes` and `tiles.state_labels` follow `crossing.build_story`.
+2. `crossing.build_vignettes`, `tiles.state_labels` and `crossing.water_places` follow `crossing.build_story` (the water places drop gazetteer points near the book's places and follow the journeys' corridor).
 3. After a change to a stop's pin or radius, run `crossing.area_drafts --force` before `crossing.build_story`, which stops if a draft lies outside its stop's circle.
 4. `crossing.validate` checks that `data/raised/` holds the same features, first seen at the same episodes, as the flat layers. After a `build_story` change that adds, removes, or redates a feature, rerun `crossing.plan_oblique` (section 5, hours) before committing, or CI fails.
 
@@ -56,8 +58,9 @@ Order matters in four places:
 | Peaks | `uv run --project pipeline python -m crossing.peaks` | The DEM, gazetteers, `data/places.geojson`, the previous `data/mountain_glyphs.geojson` | `data/mountain_glyphs.geojson` | Yes |
 | Landforms | `uv run --project pipeline python -m crossing.landforms` | `data/mountain_glyphs.geojson`, `landforms.toml`, the DEM | Landforms in `data/mountain_glyphs.geojson`; `review/stage-3/landforms.csv` | Yes |
 | Landform label lines | `uv run --project pipeline python -m crossing.landform_axes` | `data/places.geojson`, GNIS, GeoNames, GMBA (`private/cache/gmba/`), the DEM, `landform_axes.toml` | `data/landforms.geojson` | Yes |
+| Pass names | `uv run --project pipeline python -m crossing.pass_lines` | `data/mountain_glyphs.geojson`, `data/places.geojson`, Natural Earth roads, the DEM | `site/public/labels/passes.geojson`: each named pass, rotated to the road through it or across its saddle | Yes |
 
-`crossing.landforms` must follow every `crossing.peaks` run: `crossing.validate` fails until it has. `crossing.landform_axes` follows a change to the book's ranges, valleys or plains in `places.geojson`; `crossing.validate` fails if a line shows before its place. It downloads nothing: fetch the GMBA standard zip (`https://data.earthenv.org/mountains/standard/GMBA_Inventory_v2.0_standard.zip`) into `private/cache/gmba/` first. `crossing.peaks` keeps the ids of nearby glyphs from the previous file, so the committed file is also an input.
+`crossing.landforms` must follow every `crossing.peaks` run: `crossing.validate` fails until it has. `crossing.pass_lines` follows `crossing.peaks` and any change to the book's passes. `crossing.landform_axes` follows a change to the book's ranges, valleys or plains in `places.geojson`; `crossing.validate` fails if a line shows before its place. It downloads nothing: fetch the GMBA standard zip (`https://data.earthenv.org/mountains/standard/GMBA_Inventory_v2.0_standard.zip`) into `private/cache/gmba/` first. `crossing.peaks` keeps the ids of nearby glyphs from the previous file, so the committed file is also an input.
 
 ## 3. Translations
 
