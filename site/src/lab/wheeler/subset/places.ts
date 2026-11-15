@@ -149,8 +149,11 @@ function graticuleLayers(p: PlacesParams, halo: string): LayerSpecification[] {
 export function addPlaces(style: StyleSpecification, p: PlacesParams, halo: string): StyleSpecification {
   if (!p.water && !p.graticule) return style
   const ours = [...(p.graticule ? graticuleLayers(p, halo) : []), ...(p.water ? waterLayers(p, halo) : [])]
-  const at = style.layers.findIndex((l) => l.type === 'symbol')
-  const layers = at < 0 ? [...style.layers, ...ours] : [...style.layers.slice(0, at), ...ours, ...style.layers.slice(at)]
+  // The site's own copies of these layers (style.ts) give way to the lab's, which the lab's controls change.
+  const replaced = new Set([...(p.graticule ? ['graticule'] : []), ...(p.water ? ['water-place'] : [])])
+  const kept = style.layers.filter((l) => !replaced.has(l.id))
+  const at = kept.findIndex((l) => l.type === 'symbol')
+  const layers = at < 0 ? [...kept, ...ours] : [...kept.slice(0, at), ...ours, ...kept.slice(at)]
   return {
     ...style,
     sources: {

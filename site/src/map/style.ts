@@ -1,6 +1,7 @@
 import type { ExpressionSpecification, LayerSpecification, StyleSpecification } from 'maplibre-gl'
 import { reliefLayers, reliefSources } from './relief'
 import { fonts, palette as tokens, SPRITE } from './tokens'
+import { waterPlaceLayer } from './waterPlaces'
 import type { Units } from '../units'
 
 // Every layer literaryStyle draws is part of the literary base, which satellite, topo and compare modes hide,
@@ -229,10 +230,11 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         paint: { 'text-color': tokens.waterLabel, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },
     ]
-  // Hillshade sits on the paper; hachures under the water and lines; the graticule over the lines; glyphs, then
-  // vignettes, above the lines and below the labels.
+  // Hillshade sits on the paper; hachures under the water and lines; the graticule over the lines; the water
+  // places, glyphs, then vignettes, above the lines and below the labels. The water places are the lowest
+  // symbols, so every other name wins a collision with them.
   const at = (id: string) => layers.findIndex((l) => l.id === id)
-  layers.splice(at('creek-label'), 0, graticule, ...r.glyphs, ...r.vignettes)
+  layers.splice(at('creek-label'), 0, graticule, waterPlaceLayer(tokens), ...r.glyphs, ...r.vignettes)
   layers.splice(at('county-line'), 0, ...r.hachures)
   layers.splice(at('lake'), 0, ...r.hillshade)
   // Last of the base, so the story's labels (added above it) win any collision.
@@ -248,6 +250,12 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
       'state-labels': { type: 'geojson', data: `${labels}states.geojson` },
       graticule: { type: 'geojson', data: `${labels}graticule.geojson` },
       passes: { type: 'geojson', data: `${labels}passes.geojson` },
+      // The gazetteer's water places, trimmed by scripts/copy-data.mjs (waterPlaces.ts).
+      'water-places': {
+        type: 'geojson',
+        data: `${dataBase}map/water_places.geojson`,
+        attribution: 'Springs, ranches and stations: USGS GNIS, GeoNames (CC BY 4.0)',
+      },
     },
     layers,
   }

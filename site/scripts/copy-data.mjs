@@ -32,3 +32,18 @@ writeFileSync(new URL('map/landforms.geojson', to), JSON.stringify({
     properties: Object.fromEntries(LANDFORM_PROPERTIES.filter((k) => k in f.properties).map((k) => [k, f.properties[k]])),
   })),
 }))
+
+// The water places the map draws (src/map/waterPlaces.tsx): the gazetteer's only, since the story layers draw the
+// book's own springs and ranches, trimmed to the properties the style and the reading filter read.
+const WATER_PROPERTIES = ['id', 'name', 'kind', 'first_seen']
+const water = JSON.parse(readFileSync(new URL('water_places.geojson', from), 'utf8'))
+writeFileSync(new URL('map/water_places.geojson', to), JSON.stringify({
+  type: 'FeatureCollection',
+  features: water.features
+    .filter((f) => f.properties.place_ref === null)
+    .map((f) => ({
+      type: 'Feature',
+      geometry: f.geometry,
+      properties: Object.fromEntries(WATER_PROPERTIES.map((k) => [k, f.properties[k]])),
+    })),
+}))

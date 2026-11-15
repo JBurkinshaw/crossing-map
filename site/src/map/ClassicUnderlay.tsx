@@ -3,6 +3,8 @@ import * as maplibregl from 'maplibre-gl'
 import type { StyleSpecification } from 'maplibre-gl'
 import type { MapRef } from '@vis.gl/react-maplibre'
 import { contourText, glyphText } from './relief'
+import { palette } from './tokens'
+import { addWaterMarks } from './waterPlaces'
 import type { Units } from '../units'
 
 // Compare mode: the classic base on its own map, clipped to the left of the swipe, between the satellite map
@@ -43,6 +45,7 @@ export default function ClassicUnderlay({ main, style, units, terrain }: Props) 
       attributionControl: false,
     })
     mapRef.current = map
+    addWaterMarks(map, palette)
     map.once('load', () => setReady(true))
     const follow = () => map.jumpTo({ center: top.getCenter(), zoom: top.getZoom(), pitch: top.getPitch(), bearing: top.getBearing() })
     top.on('move', follow)

@@ -15,6 +15,7 @@ import { MapControls } from './MapControls'
 import type { Basemap, View } from './mode'
 import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
+import { WaterMarks } from './WaterMarks'
 import { contourText, glyphText, RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
 import { closeAttribution, dataBase, exposeForScripts, fontsBase, motion, TERRAIN_EXAGGERATION, tilesBase } from './setup'
 import { baseLayerIds, literaryStyle, notRaisedIds } from './style'
@@ -249,6 +250,7 @@ export function MapView(props: Props) {
           {/* Added after the scale, so MapLibre stacks it above. Each archive brings its own credit (the terrain
               lines wherever the hillshade shows); the Credits page has the rest. */}
           <AttributionControl position="bottom-left" compact customAttribution='<a href="#/credits">Credits</a>' />
+          <WaterMarks palette={palette} />
           {story && (
             <StoryLayers
               story={story}
