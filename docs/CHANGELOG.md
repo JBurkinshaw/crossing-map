@@ -14,7 +14,8 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Tiles
 
-- `tiles-v10` (to be published): the US streams of six more watersheds, the closed valleys the river data had missed (the Animas Valley, Willcox Playa, the Jornada and Tularosa valleys, the Rillito and the San Francisco), so the Animas Valley's washes no longer stop at a watershed's edge. US dry lakes and intermittent lakes of 1 km² or more are drawn, so the washes of the closed valleys end in their playa. The Raised view rebuilt with the same streams.
+- `tiles-v11`: reservoirs whose dams were finished after 1945 are left off the base map, using the dam years in the Global Dam Watch database (decision 0031): 24 lakes, among them El Novillo on the Yaqui and Abiquiu on the Chama. The river under each one shows instead.
+- `tiles-v10`: the US streams of six more watersheds, the closed valleys the river data had missed (the Animas Valley, Willcox Playa, the Jornada and Tularosa valleys, the Rillito and the San Francisco), so the Animas Valley's washes no longer stop at a watershed's edge. US dry lakes and intermittent lakes of 1 km² or more are drawn, so the washes of the closed valleys end in their playa. The Raised view rebuilt with the same streams.
 
 #### Site
 
