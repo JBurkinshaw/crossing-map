@@ -58,8 +58,9 @@ Order matters in four places:
 | Peaks | `uv run --project pipeline python -m crossing.peaks` | The DEM, gazetteers, `data/places.geojson`, the previous `data/mountain_glyphs.geojson` | `data/mountain_glyphs.geojson` | Yes |
 | Landforms | `uv run --project pipeline python -m crossing.landforms` | `data/mountain_glyphs.geojson`, `landforms.toml`, the DEM | Landforms in `data/mountain_glyphs.geojson`; `review/stage-3/landforms.csv` | Yes |
 | Landform label lines | `uv run --project pipeline python -m crossing.landform_axes` | `data/places.geojson`, GNIS, GeoNames, GMBA (`private/cache/gmba/`), the DEM, `landform_axes.toml` | `data/landforms.geojson` | Yes |
+| Pass names | `uv run --project pipeline python -m crossing.pass_lines` | `data/mountain_glyphs.geojson`, `data/places.geojson`, Natural Earth roads, the DEM | `site/public/labels/passes.geojson`: each named pass, rotated to the road through it or across its saddle | Yes |
 
-`crossing.landforms` must follow every `crossing.peaks` run: `crossing.validate` fails until it has. `crossing.landform_axes` follows a change to the book's ranges, valleys or plains in `places.geojson`; `crossing.validate` fails if a line shows before its place. It downloads nothing: fetch the GMBA standard zip (`https://data.earthenv.org/mountains/standard/GMBA_Inventory_v2.0_standard.zip`) into `private/cache/gmba/` first. `crossing.peaks` keeps the ids of nearby glyphs from the previous file, so the committed file is also an input.
+`crossing.landforms` must follow every `crossing.peaks` run: `crossing.validate` fails until it has. `crossing.pass_lines` follows `crossing.peaks` and any change to the book's passes. `crossing.landform_axes` follows a change to the book's ranges, valleys or plains in `places.geojson`; `crossing.validate` fails if a line shows before its place. It downloads nothing: fetch the GMBA standard zip (`https://data.earthenv.org/mountains/standard/GMBA_Inventory_v2.0_standard.zip`) into `private/cache/gmba/` first. `crossing.peaks` keeps the ids of nearby glyphs from the previous file, so the committed file is also an input.
 
 ## 3. Translations
 
