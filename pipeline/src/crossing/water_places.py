@@ -1,11 +1,12 @@
-"""Springs, wells, tanks, ranches and stations for the Wheeler lab's test area, from the cached gazetteers.
+"""Springs, wells, tanks, ranches and stations along the journeys, from the cached gazetteers.
 
 Run from the repo root:
     uv run --project pipeline python -m crossing.water_places
 
 The Wheeler Survey sheets name every spring, water hole, tank, ranch and station, because in dry country those
-are the places a rider goes to (review/stage-8/wheeler/README.md, finding 13). This builds a small layer of them
-for the lab only (site/public/lab/wheeler/water-places.geojson), inside the test area, from local files:
+are the places a rider goes to (review/stage-8/wheeler/README.md, finding 13). This builds the story layer
+data/water_places.geojson inside the journeys corridor (the stretches ridden or walked, 20 km each side, the
+region the fine relief covers: crossing.hachures.corridor), from local files:
 
 - GNIS Domestic Names (public domain): feature class Spring, and Locale or Populated Place records whose name says
   ranch or station.
@@ -15,9 +16,10 @@ for the lab only (site/public/lab/wheeler/water-places.geojson), inside the test
   railway stations.
 - data/places.geojson: the ranches and springs the book names, with the book's spelling and first_seen.
 
-Gazetteer points never named in the book carry first_seen 1-01, as context features do. A gazetteer point within
-1 km of any book place is dropped as its duplicate (the book place is drawn by the site already, or listed here),
-and two gazetteer points of the same kind and name within 1 km are kept once. Every drop is printed.
+Gazetteer points never named in the book carry first_seen 1-01, as context features do. The book's own carry the
+place's first_seen and point at it (place_ref); the site draws only the gazetteer points, because the story layers
+draw the book's. A gazetteer point within 1 km of any book place is dropped as its duplicate, and two gazetteer
+points of the same kind and name within 1 km are kept once. Every drop is printed.
 """
 
 import json
@@ -25,20 +27,23 @@ import re
 from collections import Counter
 from pathlib import Path
 
-from pyproj import Geod
+import shapely
+from pyproj import Geod, Transformer
 
 from crossing.gazetteer import geonames_rows, gnis_rows
-from crossing.paths import DATA, SITE_PUBLIC
+from crossing.hachures import corridor
+from crossing.paths import DATA, UTM_CRS
 from crossing.text import fold_name
 
-OUT = SITE_PUBLIC / "lab" / "wheeler" / "water-places.geojson"
+OUT = DATA / "water_places.geojson"
 PLACES = DATA / "places.geojson"
-# The Wheeler lab's test area (west, south, east, north): the bootheel and the upper Bavispe.
-TEST_AREA = (-109.6, 30.5, -108.4, 31.6)
 DUPLICATE_KM = 1.0
 GEOD = Geod(ellps="WGS84")
+TO_UTM = Transformer.from_crs("EPSG:4326", UTM_CRS, always_xy=True)
 
 LICENCE = {"gnis": "Public domain", "geonames": "CC BY 4.0"}
+# How each source names a record's class, for the reader's note.
+CLASS_NOTE = {"gnis": "GNIS feature class", "geonames": "GeoNames feature code"}
 BOOK_KINDS = {"spring": "spring", "ranch": "ranch"}
 
 # GNIS records that the feature class gets wrong for this layer, with the reason.
@@ -60,9 +65,16 @@ WATER_WORD = {"aguaje": "spring", "ojo": "spring", "pozo": "well", "tanque": "ta
 GEONAMES_RANCH_CODES = {"PPL", "PPLQ", "PPLL", "PPLX", "LCTY"}
 
 
-def in_area(lon: float, lat: float) -> bool:
-    w, s, e, n = TEST_AREA
-    return w <= lon <= e and s <= lat <= n
+class Corridor:
+    """The journeys corridor in UTM, prepared once for fast point tests."""
+
+    def __init__(self) -> None:
+        self.area = corridor()
+        shapely.prepare(self.area)
+
+    def __contains__(self, lonlat: tuple[float, float]) -> bool:
+        x, y = TO_UTM.transform(*lonlat)
+        return bool(shapely.contains_xy(self.area, x, y))
 
 
 def km(a: dict, b: dict) -> float:
@@ -70,18 +82,20 @@ def km(a: dict, b: dict) -> float:
     return GEOD.inv(ax, ay, bx, by)[2] / 1000
 
 
-def feature(fid: str, name: str, kind: str, lon: float, lat: float, source: str, code: str, **extra) -> dict:
-    props = {"id": fid, "name": name, "kind": kind, "source": source, "source_licence": LICENCE.get(source, ""),
-             "certainty": "located", "first_seen": "1-01", "code": code, **extra}
+def feature(source: str, source_id: str, name: str, kind: str, lon: float, lat: float, code: str) -> dict:
+    """A gazetteer point the book never names: context, shown from the start (1-01)."""
+    props = {"id": f"water-{source}-{source_id}", "name": name, "kind": kind, "part": 1, "first_seen": "1-01",
+             "certainty": "located", "method": "gazetteer", "source": source, "source_id": source_id,
+             "source_licence": LICENCE[source], "note_safe": f"{CLASS_NOTE[source]} {code}.", "place_ref": None}
     point = {"type": "Point", "coordinates": [round(lon, 5), round(lat, 5)]}
     return {"type": "Feature", "properties": props, "geometry": point}
 
 
-def from_gnis() -> list[dict]:
+def from_gnis(area: Corridor) -> list[dict]:
     out = []
     for row in gnis_rows():
         lat, lon = float(row["prim_lat_dec"] or 0), float(row["prim_long_dec"] or 0)
-        if not in_area(lon, lat) or row["feature_id"] in GNIS_EXCLUDE:
+        if row["feature_id"] in GNIS_EXCLUDE:
             continue
         name, cls = row["feature_name"], row["feature_class"]
         if cls == "Spring":
@@ -90,7 +104,8 @@ def from_gnis() -> list[dict]:
             kind = "ranch" if m.group(1) else "station"
         else:
             continue
-        out.append(feature(f"water-gnis-{row['feature_id']}", name, kind, lon, lat, "gnis", cls))
+        if (lon, lat) in area:
+            out.append(feature("gnis", row["feature_id"], name, kind, lon, lat, cls))
     return out
 
 
@@ -105,25 +120,26 @@ def geonames_kind(name: str, code: str) -> str | None:
     return None
 
 
-def from_geonames() -> list[dict]:
+def from_geonames(area: Corridor) -> list[dict]:
     out = []
     for row in geonames_rows():
         lat, lon = float(row[4]), float(row[5])
-        if in_area(lon, lat) and (kind := geonames_kind(row[1], row[7])):
-            out.append(feature(f"water-geonames-{row[0]}", row[1], kind, lon, lat, "geonames", row[7]))
+        if (kind := geonames_kind(row[1], row[7])) and (lon, lat) in area:
+            out.append(feature("geonames", row[0], row[1], kind, lon, lat, row[7]))
     return out
 
 
-def from_book() -> list[dict]:
+def from_book(area: Corridor) -> list[dict]:
     out = []
     for f in json.loads(PLACES.read_text(encoding="utf-8"))["features"]:
         p, g = f["properties"], f["geometry"]
-        if p["kind"] not in BOOK_KINDS or not g or g["type"] != "Point" or not in_area(*g["coordinates"][:2]):
+        if p["kind"] not in BOOK_KINDS or not g or g["type"] != "Point" or tuple(g["coordinates"][:2]) not in area:
             continue
         out.append({"type": "Feature", "geometry": g, "properties": {
-            "id": p["id"], "name": p["name"], "kind": BOOK_KINDS[p["kind"]], "source": p["source"],
-            "source_licence": p["source_licence"], "certainty": p["certainty"], "first_seen": p["first_seen"],
-            "code": "book"}})
+            "id": f"water-{p['id']}", "name": p["name"], "kind": BOOK_KINDS[p["kind"]], "part": p["part"],
+            "first_seen": p["first_seen"], "certainty": p["certainty"], "method": p["method"], "source": p["source"],
+            "source_id": p.get("source_id"), "source_licence": p["source_licence"], "note_safe": p["note_safe"],
+            "place_ref": p["id"]}})
     return out
 
 
@@ -134,20 +150,21 @@ def book_points() -> list[dict]:
 
 
 def build() -> tuple[list[dict], list[str]]:
+    area = Corridor()
     book = book_points()
-    kept: list[dict] = from_book()
+    kept: list[dict] = from_book(area)
     dropped: list[str] = []
-    for f in from_gnis() + from_geonames():
+    for f in from_gnis(area) + from_geonames(area):
         p = f["properties"]
         near = next((b for b in book if km(f, b) <= DUPLICATE_KM), None)
         if near:
             what = f"{km(f, near):.2f} km from book place {near['properties']['name']}"
-            dropped.append(f"{p['id']} {p['name']} [{p['code']}]: {what}")
+            dropped.append(f"{p['id']} {p['name']} [{p['note_safe']}]: {what}")
             continue
         twin = next((k for k in kept if k["properties"]["kind"] == p["kind"]
                      and fold_name(k["properties"]["name"]) == fold_name(p["name"]) and km(f, k) <= DUPLICATE_KM), None)
         if twin:
-            dropped.append(f"{p['id']} {p['name']} [{p['code']}]: same name and kind as {twin['properties']['id']}")
+            dropped.append(f"{p['id']} {p['name']}: same name and kind as {twin['properties']['id']}")
             continue
         kept.append(f)
     kept.sort(key=lambda f: f["properties"]["id"])
@@ -155,9 +172,8 @@ def build() -> tuple[list[dict], list[str]]:
 
 
 def write(path: Path, features: list[dict]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
     fc = {"type": "FeatureCollection", "features": features}
-    path.write_text(json.dumps(fc, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(fc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
 def main() -> None:
@@ -166,7 +182,7 @@ def main() -> None:
     for line in dropped:
         print("dropped", line)
     print(f"{len(features)} places -> {OUT}")
-    counts = Counter((p["kind"], p["source"], p["code"] == "book") for p in (f["properties"] for f in features))
+    counts = Counter((p["kind"], p["source"], p["place_ref"] is not None) for p in (f["properties"] for f in features))
     for (kind, source, book), n in sorted(counts.items()):
         print(f"  {kind:8} {source:9} {'book' if book else 'gazetteer':9} {n}")
 

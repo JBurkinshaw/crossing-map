@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Story layer",
-  "description": "A GeoJSON FeatureCollection of story features: places, stops, areas, journeys, mountain glyphs, vignettes or landform label lines. Every feature shares the properties in $defs/properties; $defs/layers adds what each layer requires. crossing.validate checks each file against its layer. See docs/design.md, section 6.",
+  "description": "A GeoJSON FeatureCollection of story features: places, stops, areas, journeys, mountain glyphs, vignettes, landform label lines or water places. Every feature shares the properties in $defs/properties; $defs/layers adds what each layer requires. crossing.validate checks each file against its layer. See docs/design.md, section 6.",
   "type": "object",
   "required": ["type", "features"],
   "additionalProperties": false,
@@ -120,13 +120,16 @@
             "ruin",
             "sightline",
             "spring",
+            "station",
             "stop",
             "stream",
             "summit",
+            "tank",
             "town",
             "valley",
             "vignette",
-            "vignette-leader"
+            "vignette-leader",
+            "well"
           ],
           "description": "What the feature is. Each layer allows only its own kinds (see $defs/layers)."
         },
@@ -368,6 +371,22 @@
                 "properties": {
                   "required": ["place_ref", "name_source", "axis", "elongation", "len_m", "mpp0"],
                   "properties": {"kind": {"enum": ["range", "valley", "plain", "mesa", "plateau"]}}
+                }
+              }
+            }
+          }
+        }
+      },
+      "water_places": {
+        "description": "Springs, wells, tanks, ranches and stations along the journeys, from GNIS and GeoNames, with the book's own springs and ranches (crossing.water_places).",
+        "properties": {
+          "features": {
+            "items": {
+              "properties": {
+                "geometry": {"$ref": "#/$defs/point"},
+                "properties": {
+                  "required": ["source_id", "place_ref"],
+                  "properties": {"kind": {"enum": ["spring", "well", "tank", "ranch", "station"]}}
                 }
               }
             }

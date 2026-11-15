@@ -1,9 +1,11 @@
 import type { ExpressionSpecification, LayerSpecification, Map as MapLibreMap, MapStyleImageMissingEvent, StyleSpecification } from 'maplibre-gl'
+import { dataBase } from '../../../map/setup'
 import { fonts, palette } from '../../../map/tokens'
 
 // Two Wheeler cards for the lab's test area (review/stage-9/wheeler-places/README.md): springs, tanks, ranches and
-// stations as quiet named places (Wheeler finding 13), and a 15′ graticule in faint ink (finding 16). The data are
-// small GeoJSON files made by crossing.water_places and crossing.graticule.
+// stations as quiet named places (Wheeler finding 13), and a 15′ graticule in faint ink (finding 16). The data are the
+// site's: data/water_places.geojson (crossing.water_places, the journeys corridor) and labels/graticule.geojson
+// (crossing.graticule).
 
 export type PlacesParams = {
   // Springs, wells, tanks, ranches and stations in the test area, from zoom 11.
@@ -27,7 +29,7 @@ export const READING: string[] = [
   '9-99',
 ]
 
-const lab = (file: string) => new URL(`${import.meta.env.BASE_URL}lab/wheeler/${file}`, window.location.origin).href
+const labels = new URL(`${import.meta.env.BASE_URL}labels/`, window.location.origin).href
 
 // The symbol per kind, after Wheeler: a ring for a spring, a dot for a well, a ringed dot for a tank, a small solid
 // square for a ranch and an open one for a station. Water in the water ink, buildings in the type's ink.
@@ -153,8 +155,8 @@ export function addPlaces(style: StyleSpecification, p: PlacesParams, halo: stri
     ...style,
     sources: {
       ...style.sources,
-      'wp-water': { type: 'geojson', data: lab('water-places.geojson'), attribution: 'Springs and ranches: USGS GNIS (public domain), GeoNames (CC BY 4.0)' },
-      'wp-graticule': { type: 'geojson', data: lab('graticule.geojson') },
+      'wp-water': { type: 'geojson', data: `${dataBase}water_places.geojson`, attribution: 'Springs and ranches: USGS GNIS (public domain), GeoNames (CC BY 4.0)' },
+      'wp-graticule': { type: 'geojson', data: `${labels}graticule.geojson` },
     },
     layers,
   }

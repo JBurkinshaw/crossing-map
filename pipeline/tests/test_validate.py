@@ -37,6 +37,7 @@ def layers():
         "landforms": collection(feature("landform-a", kind="range", geometry=line, place_ref="place-a",
                                         name_source="gnis:1", axis="dem", elongation=2.0, len_m=1000,
                                         mpp0=134000)),
+        "water_places": collection(feature("water-gnis-1", kind="spring", source="gnis", source_id="1")),
     }
 
 
@@ -132,3 +133,12 @@ def test_check_sprites_reports_missing_icons():
 def test_landform_may_not_show_before_its_place(layers):
     layers["places"]["features"][0]["properties"]["first_seen"] = "1-02"
     assert any("before its place" in e for e in validate.check_references(layers))
+
+
+def test_water_place_may_not_show_before_its_place(layers):
+    layers["landforms"]["features"].clear()
+    layers["places"]["features"][0]["properties"]["first_seen"] = "1-02"
+    assert validate.check_references(layers) == []
+    layers["water_places"]["features"].append(feature("water-place-a", kind="spring", place_ref="place-a",
+                                                      source_id=None))
+    assert any("water_places.geojson water-place-a" in e for e in validate.check_references(layers))

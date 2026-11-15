@@ -10,7 +10,7 @@ import type { Plugin } from 'vite'
 const repo = fileURLToPath(new URL('../../', import.meta.url))
 const data = join(repo, 'data')
 const tiles = join(repo, 'site', 'public', 'tiles')
-const LAYERS = ['places', 'stops', 'areas', 'journeys', 'mountain_glyphs', 'landforms', 'vignettes']
+const LAYERS = ['places', 'stops', 'areas', 'journeys', 'mountain_glyphs', 'landforms', 'water_places', 'vignettes']
 // Published files beside the layers, in the order the Data page lists them.
 const FILES = ['episodes.json', 'translations.json', 'open-questions.json', 'elsewhere.json']
 const SCHEMAS = ['story-layer.schema.json', 'episodes.schema.json', 'translations.schema.json']

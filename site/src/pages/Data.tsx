@@ -8,6 +8,7 @@ const LAYERS: Record<string, string> = {
   journeys: 'Route segments between consecutive stops, for all seven journeys: narrated paths, modelled paths and schematic curves.',
   mountain_glyphs: 'Summits and passes found in the Copernicus elevation model, named from GNIS and GeoNames.',
   landforms: 'Lines along the long axis of ranges, valleys, plains and mesas, for lettering their names.',
+  water_places: 'Springs, tanks, ranches and stations within 20 km of the journeys, from GNIS and GeoNames, with the book’s own pointing at their place.',
   vignettes: 'Anchors for the map’s drawings, each in empty country near what it stands for, with its label and credit.',
 }
 
