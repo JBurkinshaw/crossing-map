@@ -9,6 +9,7 @@ const LAYERS: Record<string, string> = {
   mountain_glyphs: 'Summits and passes found in the Copernicus elevation model, named from GNIS and GeoNames.',
   landforms: 'Lines along the long axis of ranges, valleys, plains and mesas, for lettering their names.',
   water_places: 'Springs, tanks, ranches and stations within 20 km of the journeys, from GNIS and GeoNames, with the book’s own pointing at their place.',
+  context_places: 'Forts, ghost towns, mines, sawmills, churches, cemeteries, post offices, corrals, named wells, dry lakes and flats within 20 km of the journeys, from GNIS (with its 2021 national file) and GeoNames. None is dated: see the caveats.',
   vignettes: 'Anchors for the map’s drawings, each in empty country near what it stands for, with its label and credit.',
 }
 

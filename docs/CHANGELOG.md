@@ -8,10 +8,15 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ### 2026-11-15
 
+#### Data
+
+- New layer `context_places`: 2,391 period places within 20 km of the journeys, from GNIS (with its national file of 2021) and GeoNames: forts and army air fields, ghost towns and abandoned places, mines, sawmills, churches, cemeteries, schools, old post offices, corrals, camps, ranches, named wells and windmills, railway tunnels, dry lakes and flats. A GeoParquet copy too.
+
 #### Site
 
 - Everything off the map (the frame's margin, the panel, the cards and the pages) is a lighter cream than the map, as on the Wheeler sheets.
 - How it's built explains how the mountain glyphs are found and drawn, and a new Caveats section says the gazetteer's springs, ranches and stations are undated and the hydrography is today's.
+- From zoom 11 the map names the context places in quiet italic, each with a tiny mark after Wheeler (a flag for a fort, crossed picks for a mine, a cross for a church, an open square for an abandoned place), below every other name. The Caveats say they are undated too.
 
 ### 2026-11-14
 

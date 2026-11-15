@@ -172,6 +172,14 @@ export function HowItsBuilt() {
         are drawn separately, with its own spelling.
       </p>
       <p>
+        <strong>Forts, mines, ghost towns and the rest.</strong> The other period places along the journeys (forts and
+        army air fields, ghost towns and abandoned places, mines, sawmills, churches, cemeteries, schools, old post
+        offices, corrals, camps, named wells and windmills) come from the same gazetteers and from the GNIS file of
+        2021, and none of them is dated. Where a gazetteer marks a place as historical or abandoned, it does not say
+        when it was given up, so a place may be drawn that was already gone by 1939, or not yet gone. Town churches and
+        schools, numbered wells and anything plainly modern are left out.
+      </p>
+      <p>
         <strong>Today’s ground.</strong> Rivers, creeks, lakes and the relief come from present-day surveys (USGS,
         INEGI, Copernicus). Modern earth dams are left out of the gazetteer places, but a river or a lake is drawn
         as it is now, which may not be quite where it was then.

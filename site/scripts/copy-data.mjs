@@ -47,3 +47,14 @@ writeFileSync(new URL('map/water_places.geojson', to), JSON.stringify({
       properties: Object.fromEntries(WATER_PROPERTIES.map((k) => [k, f.properties[k]])),
     })),
 }))
+
+// The context places (src/map/contextPlaces.ts): all the gazetteer's, trimmed the same way.
+const context = JSON.parse(readFileSync(new URL('context_places.geojson', from), 'utf8'))
+writeFileSync(new URL('map/context_places.geojson', to), JSON.stringify({
+  type: 'FeatureCollection',
+  features: context.features.map((f) => ({
+    type: 'Feature',
+    geometry: f.geometry,
+    properties: Object.fromEntries(WATER_PROPERTIES.map((k) => [k, f.properties[k]])),
+  })),
+}))

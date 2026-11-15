@@ -2,7 +2,7 @@
 // the app and check that nothing first seen later shows anywhere: the story data given to the map, the
 // features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop and
 // the road card of each stop with talk on the road, "Named elsewhere"), mountain glyphs, landform and pass names,
-// water places, vignettes,
+// water and context places, vignettes,
 // search results and the cards they open (places and the translations "Spoken here"), the layer key, the
 // reading-progress dialog, every page (About, How it's built, Open questions, Data, Credits), the Tilted,
 // compare and Raised views, and the phone drawer at each height. A first visit straight to a page must leave
@@ -28,6 +28,7 @@ const glyphs = (await read('mountain_glyphs.geojson')).features
 const vignettes = (await read('vignettes.geojson')).features
 const landforms = (await read('landforms.geojson')).features
 const waterPlaces = (await read('water_places.geojson')).features
+const contextPlaces = (await read('context_places.geojson')).features
 // The pass names the map sets across each saddle (crossing.pass_lines), beside the site's other label data.
 const passes = JSON.parse(await readFile(new URL('../site/public/labels/passes.geojson', import.meta.url), 'utf8')).features
 const translations = await read('translations.json')
@@ -314,10 +315,11 @@ for (const point of POINTS) {
     for (const [name, fs] of shown) if (fs > reached && fs > '1-01') leak(where, `landform name ${name} first seen ${fs}`)
   }
 
-  // Pass names the book gives later than this point, and water places first seen later (the map draws only the
-  // gazetteer's, all 1-01, so none may show): go to each and look at what the map draws there.
+  // Pass names the book gives later than this point, and water and context places first seen later (the map draws
+  // only the gazetteer's, all 1-01, so none may show): go to each and look at what the map draws there.
   const seenLater = (f) => f.properties.first_seen > reached && f.properties.first_seen > '1-01'
-  for (const [what, layer, zoom, list] of [['pass name', 'pass-label', 10, passes], ['water place', 'water-place', 12, waterPlaces]]) {
+  for (const [what, layer, zoom, list] of [['pass name', 'pass-label', 10, passes], ['water place', 'water-place', 12, waterPlaces],
+    ['context place', 'context-place', 12, contextPlaces]]) {
     for (const f of list.filter(seenLater)) {
       await page.evaluate(([lo, la, z]) => window.__map.jumpTo({ center: [lo, la], zoom: z }), [...f.geometry.coordinates, zoom])
       await idle(page)
