@@ -1,5 +1,8 @@
 :root {
-  --paper: #efe5c8;
+  /* The sheet's cream, for everything off the map: the frame's margin, the panel, the cards and the pages. As on
+     the Wheeler sheets (70A: a #f7f6e5 margin round a #ebdebd under-tint), the map is the darker paper, set in
+     tokens.ts, and the sheet round it a step lighter. */
+  --paper: #f7f5e6;
   --ink: #2b2118;
   /* 0.7 over the cream paper gives 5.2:1, for small italic text (WCAG AA). */
   --ink-faint: rgba(43, 33, 24, 0.7);

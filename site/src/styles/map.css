@@ -405,9 +405,8 @@
   --frame-neat: 1px;
   --frame-rule: calc(2 * var(--frame-thin) + 2 * var(--frame-gap) + var(--frame-heavy));
   --frame: calc(var(--frame-rule) + var(--frame-band) + var(--frame-neat));
-  /* Wheeler's margin is lighter than his map's under-tint (70A: #f7f6e3 against #f9eecf): the paper the map
-     shows above zoom 10 (paperShown in tokens.ts), a step lighter. */
-  --frame-margin: #f7f4ea;
+  /* The margin band is the sheet's cream (--paper in base.css), lighter than the map, as on 70A. */
+  --frame-margin: var(--paper);
 }
 
 /* Phones: the rule alone (1, 1, 2, 1 and 1 px), with no band, neatline or labels. A 20 px band on each side
