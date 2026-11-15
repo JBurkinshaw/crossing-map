@@ -23,6 +23,10 @@ Where each input to the pipeline and tile builds comes from, and where it is cac
   | RH34 Cuencas Cerradas del Norte | 702825007009 | Casas Grandes, Santa María, Del Carmen |
   | RH35 Mapimí | 702825007010 | |
 
+## Reservoirs (`private/cache/reservoirs/`)
+
+- **Global Dam Watch database v1.0** (Lehner et al. 2024), CC BY 4.0, which carries GRanD v1.3: `GDW_v1_0_shp.zip` (69 MB) and `GDW_TechDoc_v1_0.pdf` from figshare, <https://doi.org/10.6084/m9.figshare.25988293> (files 47913754 and 47913739, downloaded 15 November 2026; the requests are in `lookups.log`). Read only by `tiles.later_reservoirs`, which drafts `pipeline/seeds/later_reservoirs.csv`.
+
 ## Places (`private/cache/gazetteer/`)
 
 - **USGS GNIS** Domestic Names for New Mexico and Arizona, public domain: <https://prd-tnm.s3.amazonaws.com/StagedProducts/GeographicNames/DomesticNames/DomesticNames_NM_Text.zip> and `..._AZ_Text.zip`.

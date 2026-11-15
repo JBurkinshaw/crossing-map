@@ -1,0 +1,54 @@
+gdw_id,name,river,country,state,year_dam,year_source,lake_km2,lon,lat,action,note
+1044,Novillo,El Yaqui,Mexico,Sonora,1964,GRanD,54.19,-109.67999,29.09937,drop,"Built 1964, after the book."
+1063,Miguel Hidalgo,El Fuerte,Mexico,Sinaloa,1956,GRanD,45.79,-108.51114,26.65710,drop,"Built 1956, after the book."
+1042,Abelardo,Sonora,Mexico,Sonora,1948,GRanD,32.90,-110.89906,29.07066,drop,"Built 1948, after the book."
+1043,Luis L. Leon,Conchos,Mexico,Chihuahua,1968,GRanD,25.17,-105.31021,28.92807,drop,"Built 1968, after the book."
+1064,Presa Josefa Ortiz de Dominguez,Alamos,Mexico,Sinaloa,1967,GRanD,24.11,-108.69911,26.46172,drop,"Built 1967, after the book."
+875,Abiquiu Reservoir,Rio Chama,United States,New Mexico,1963,GRanD,13.24,-106.45706,36.26599,drop,"Built 1963, after the book."
+1062,Huites,Fuerte,Mexico,Sinaloa,1995,GRanD,12.80,-108.36421,26.88990,drop,"Built 1995, after the book."
+1062,Huites,Fuerte,Mexico,Sinaloa,1995,GRanD,11.92,-108.28223,26.90344,drop,"Built 1995, after the book."
+3238,Brantley,Pecos River,United States,New Mexico,1989,GRanD,6.50,-104.39295,32.57141,drop,"Built 1989, after the book."
+1062,Huites,Fuerte,Mexico,Sinaloa,1995,GRanD,4.71,-108.37094,26.97723,drop,"Built 1995, after the book."
+3292,Cuauhtemoc,Altar,Mexico,Sonora,1950,GRanD,4.49,-111.50147,30.87551,drop,"Built 1950, after the book."
+1051,Presa Las Virgenes,San Pedro,Mexico,Chihuahua,1949,GRanD,4.15,-105.65712,28.15264,drop,"Built 1949, after the book."
+913,Santa Rosa Lake,Pecos River,United States,New Mexico,1979,GRanD,4.07,-104.67341,35.03986,drop,"Built 1979, after the book."
+7949,TREMAINE RESERVOIR,JACKS CANYON TRIB.,United States,Arizona,1952,NID,2.72,-111.23574,34.76743,drop,"Built 1952, after the book."
+1041,El Molini,Sonora,Mexico,Sonora,1991,GRanD,2.69,-110.71882,29.21852,drop,"Built 1991, after the book."
+3316,Ignacio L. Alatorre,Matape,Mexico,Sonora,1970,GRanD,2.07,-110.39281,28.42850,drop,"Built 1970, after the book."
+3165,Big Lake,Black River,United States,Arizona,1964,GRanD,2.03,-109.41864,33.88087,drop,"Built 1964, after the book."
+8019,,,Mexico,Chihuahua,1993,Estimated,1.99,-105.25759,26.52722,drop,"Built 1993, after the book."
+3315,Chihuahua,Chuviscar,Mexico,Chihuahua,1960,GRanD,1.65,-106.17626,28.56326,drop,"Built 1960, after the book."
+913,Santa Rosa Lake,Pecos River,United States,New Mexico,1979,GRanD,1.00,-104.67014,35.05508,drop,"Built 1979, after the book."
+5669,Blue Ridge Reservoir,East Clear Creek,United States,Arizona,1964,GRanD,0.99,-111.18809,34.54861,drop,"Built 1964, after the book."
+1051,Presa Las Virgenes,San Pedro,Mexico,Chihuahua,1949,GRanD,0.49,-105.66409,28.11712,drop,"Built 1949, after the book."
+1063,Miguel Hidalgo,El Fuerte,Mexico,Sinaloa,1956,GRanD,0.42,-108.52509,26.67712,drop,"Built 1956, after the book."
+1063,Miguel Hidalgo,El Fuerte,Mexico,Sinaloa,1956,GRanD,0.21,-108.53253,26.66402,drop,"Built 1956, after the book."
+957,Roosevelt Lake,Salt River,United States,Arizona,1911,GRanD,61.83,-111.16496,33.69961,keep,"Built 1911, by the book's last year."
+1057,La Boquilla,Camargo,Mexico,Chihuahua,1916,GRanD,38.43,-105.49363,27.52802,keep,"Built 1916, by the book's last year."
+1028,La Angostura,Bavispe,Mexico,Sonora,1942,GRanD,23.32,-109.36373,30.49077,keep,"Built 1942, by the book's last year."
+978,Caballo,Rio Grande,United States,New Mexico,1937,GRanD,18.88,-107.29330,32.96889,keep,"Built 1937, by the book's last year."
+3183,Apache Lake,Salt River,United States,Arizona,1926,GRanD,8.44,-111.29708,33.58811,keep,"Built 1926, by the book's last year."
+8008,,,Mexico,Chihuahua,,,5.74,-107.36497,29.52496,keep,Review: GDW gives no year.
+8007,,,Mexico,Chihuahua,,,4.91,-107.05790,29.87976,keep,Review: GDW gives no year.
+8014,,,Mexico,Chihuahua,,,3.94,-107.46253,28.46290,keep,Review: GDW gives no year.
+8017,,,Mexico,Chihuahua,,,3.48,-105.39889,27.58248,keep,Review: GDW gives no year.
+8015,,,Mexico,Sonora,,,3.16,-109.87063,27.73865,keep,Review: GDW gives no year.
+3185,Saguaro Lake,Salt River,United States,Arizona,1929,GRanD,2.48,-111.52417,33.56805,keep,"Built 1929, by the book's last year."
+3186,Canyon Lake,Salt River,United States,Arizona,1924,GRanD,1.84,-111.43653,33.54355,keep,"Built 1924, by the book's last year."
+8012,,,Mexico,Chihuahua,,,1.55,-104.71593,29.00702,keep,Review: GDW gives no year.
+12053,,,Mexico,Chihuahua,,,1.26,-105.51231,26.65908,keep,Review: GDW gives no year.
+173,Elephant Butte Reservoir,Rio Grande,United States,New Mexico,1921,GRanD,1.22,-107.19356,33.33234,keep,"Built 1921, by the book's last year."
+12047,,,Mexico,Chihuahua,,,1.20,-105.49234,26.88725,keep,Review: GDW gives no year.
+12030,,,Mexico,Chihuahua,,,0.69,-106.36291,28.78846,keep,Review: GDW gives no year.
+12033,,,Mexico,Chihuahua,,,0.59,-106.12875,28.61341,keep,Review: GDW gives no year.
+12018,,,Mexico,Sonora,,,0.40,-109.39049,29.67728,keep,Review: GDW gives no year.
+12051,,,Mexico,Chihuahua,,,0.39,-105.58666,26.72938,keep,Review: GDW gives no year.
+12046,,,Mexico,Chihuahua,,Estimated,0.38,-105.73475,26.90652,keep,Review: GDW gives no year.
+11965,,,Mexico,Sonora,,,0.37,-109.99603,31.14449,keep,Review: GDW gives no year.
+12016,,,Mexico,Chihuahua,,,0.34,-107.82242,29.84901,keep,Review: GDW gives no year.
+12043,,,Mexico,Chihuahua,,,0.31,-107.59464,27.70750,keep,Review: GDW gives no year.
+12034,,,Mexico,Chihuahua,,,0.31,-106.11630,28.59917,keep,Review: GDW gives no year.
+12032,,,Mexico,Chihuahua,,Estimated,0.25,-106.67562,28.65770,keep,Review: GDW gives no year.
+27112,,,Mexico,Chihuahua,,,0.21,-105.55285,26.63755,keep,Review: GDW gives no year.
+11958,,,Mexico,Sonora,,,0.11,-110.39406,31.27807,keep,Review: GDW gives no year.
+27315,,,Mexico,Sonora,,,0.11,-110.05452,31.06616,keep,Review: GDW gives no year.

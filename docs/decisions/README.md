@@ -45,6 +45,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0028 Context places of the period on the map | proposed |
 | 0029 Place pins apart from their stops | proposed |
 | 0030 Lakes drawn over the rivers | proposed |
+| 0031 Reservoirs built after the book left off the base map | proposed |
 
 ## Template
 

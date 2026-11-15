@@ -109,6 +109,13 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         credit: 'Fuente: INEGI, Red Nacional de Caminos (RNC) 2024',
       },
       {
+        name: 'Global Dam Watch database v1.0, with GRanD v1.3',
+        link: 'https://doi.org/10.6084/m9.figshare.25988293',
+        use: 'The year each dam was finished, which decides the reservoirs the classic map leaves out as built after the book (decision 0031). The map draws none of its shapes.',
+        licence: 'CC BY 4.0; transformed by this site',
+        credit: 'Global Dam Watch database v1.0 (Lehner et al. 2024), CC BY 4.0',
+      },
+      {
         name: 'USGS National Hydrography Dataset (NHD)',
         link: 'https://www.usgs.gov/national-hydrography',
         use: 'The courses of the named rivers on the US side of the classic map, streams on the US side, and the rivers some routes follow.',

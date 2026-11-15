@@ -99,7 +99,8 @@ Hachure tiles are cached one file per tile. Delete a tile's file to run it again
 
 | Step | Command | Reads | Writes | Private |
 | --- | --- | --- | --- | --- |
-| Base map | `uv run --project pipeline python -m tiles.build_base` | Natural Earth, Census, NHD, INEGI | `tiles/out/base.pmtiles` | Yes |
+| Later reservoirs (by hand, before the base map) | `uv run --project pipeline python -m tiles.later_reservoirs` | Global Dam Watch v1.0, the lakes `tiles.lakes` reads | `pipeline/seeds/later_reservoirs.csv`, drafted; hand edits to `action` and `note` are kept | Yes |
+| Base map | `uv run --project pipeline python -m tiles.build_base` | Natural Earth, Census, NHD, INEGI, `pipeline/seeds/later_reservoirs.csv` | `tiles/out/base.pmtiles` | Yes |
 | Relief | `uv run --project pipeline python -m tiles.build_relief` | The hachure cache | `tiles/out/relief.pmtiles`, `relief-dense.pmtiles`, `contours.pmtiles` | Yes |
 | Wheeler relief | `uv run --project pipeline python -m tiles.build_relief --style wheeler --region corridor` | The Wheeler cache, the production `coarse.geojson` | `tiles/out/relief-wheeler.pmtiles` (zoom 10-11), `relief-wheeler-12.pmtiles` (zoom 12) | Yes |
 | Terrain | `uv run --project pipeline python -m tiles.build_terrain` | AWS Terrain Tiles (cached in `private/cache/terrain/`) | `tiles/out/terrain.pmtiles` | Yes (network once) |

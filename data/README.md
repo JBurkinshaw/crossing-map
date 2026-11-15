@@ -43,6 +43,7 @@ Our own data, notes, and translations are CC BY 4.0 (`LICENSE`). Each feature's 
 | Copernicus DEM GLO-30 | Summits, passes, hachures, contours, and the Raised view | Copernicus DEM licence | The notice below |
 | AWS Terrain Tiles | The hillshade and the Tilted view | Public domain (USGS); INEGI free-use terms | "3DEP, SRTM and GMTED2010 terrain data courtesy of the U.S. Geological Survey. Source: INEGI, Continental relief, 2016." |
 | INEGI Red Hidrográfica 1:50,000, edición 2.0 | Rivers, creeks, and lakes in Mexico; Mexican streams in the Raised view | INEGI free-use terms | "Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0" |
+| Global Dam Watch v1.0 (with GRanD v1.3) | The dam years in `pipeline/seeds/later_reservoirs.csv`, which leave reservoirs built after the book off the base map | CC BY 4.0 | "Global Dam Watch database v1.0 (Lehner et al. 2024)" |
 | USGS NHD | US rivers and streams, and the rivers some routes follow | Public domain | "USGS National Hydrography Dataset courtesy of the U.S. Geological Survey" |
 | US Census Bureau | County lines (cartographic boundaries, 2023) and the roads some routes follow (TIGER/Line) | Public domain | Courtesy of the U.S. Census Bureau |
 | Natural Earth | Borders, states, roads, railroads, lakes outside Mexico, and the choice and names of rivers | Public domain | "Made with Natural Earth" |
