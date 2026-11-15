@@ -13,3 +13,5 @@ known-first-party = ["crossing"]
 [lint.per-file-ignores]
 # Hand-drawn SVG path data reads better on one line than split mid-coordinate.
 "art/vignettes/make_vignettes.py" = ["E501"]
+"art/vignettes/shapes.py" = ["E501"]
+"art/vignettes/subjects_*.py" = ["E501"]
