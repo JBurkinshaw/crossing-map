@@ -141,6 +141,42 @@ export function HowItsBuilt() {
         (decision 0021).
       </p>
 
+      <h2>Mountain glyphs</h2>
+      <p>
+        The little drawn mountains are found from the ground, not copied from a map. The Copernicus elevation model
+        is read on a 200 m grid, keeping the highest point in each cell so that summits survive. For every summit the
+        build measures its prominence: how far you would have to come down from it before you could climb to any
+        higher ground. A summit standing at least 200 m above its surroundings in that sense gets a glyph; one of
+        600 m or more gets a medium glyph, and 1,000 m or more a large one. So a glyph says how much a mountain
+        stands out from the country round it, not how high it is above the sea.
+      </p>
+      <p>
+        Each summit takes the name of the nearest summit, hill, mesa or ridge in the US and Mexican gazetteers (GNIS
+        and GeoNames) within 2 km, and the name decides the drawing: a Mesa or a Butte is drawn flat-topped, and
+        cones, domes and ridges have their own drawings; a summit whose name does not say is drawn as a peak. Named mesas, buttes and cones are kept down to 100 m of
+        prominence, because few of them stand higher. Passes are the low points between two summits where the ground
+        rises on both sides; named ones are lettered across the saddle, unnamed ones get a small pass glyph. The
+        height beside a summit is the elevation model’s, so it can differ by some metres from a surveyed height.
+        Each glyph is one of a dozen hand-drawn variants, flipped, scaled and turned a little by a fixed rule, so
+        the same mountain always looks the same. A glyph marks where a summit is; its outline is a symbol, not a
+        portrait of that mountain.
+      </p>
+
+      <h2>Caveats</h2>
+      <p>
+        <strong>Springs, ranches and stations.</strong> The springs, ranches, stations and tanks along the journeys
+        come from today’s gazetteers: GNIS in the US and GeoNames in Mexico. Neither says when a place was founded,
+        so some of the ranches in particular, about 480 of them from GeoNames, may be younger than the 1940s. They
+        are drawn because dry country is read by its water and its ranches, as the Wheeler sheets read it, not
+        because each one is known to have stood in the book’s years. The ranches and springs the book itself names
+        are drawn separately, with its own spelling.
+      </p>
+      <p>
+        <strong>Today’s ground.</strong> Rivers, creeks, lakes and the relief come from present-day surveys (USGS,
+        INEGI, Copernicus). Modern earth dams are left out of the gazetteer places, but a river or a lake is drawn
+        as it is now, which may not be quite where it was then.
+      </p>
+
       <h2>Numbers</h2>
       <table>
         <caption>Tile archives, from release {facts.tileRelease}</caption>

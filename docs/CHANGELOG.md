@@ -6,6 +6,13 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ## Unreleased
 
+### 2026-11-15
+
+#### Site
+
+- Everything off the map (the frame's margin, the panel, the cards and the pages) is a lighter cream than the map, as on the Wheeler sheets.
+- How it's built explains how the mountain glyphs are found and drawn, and a new Caveats section says the gazetteer's springs, ranches and stations are undated and the hydrography is today's.
+
 ### 2026-11-14
 
 #### Data
