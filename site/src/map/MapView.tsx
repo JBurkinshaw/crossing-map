@@ -10,6 +10,7 @@ import { ChunkBoundary } from '../ChunkBoundary'
 import { CompareSwipe } from './CompareSwipe'
 import { HomeControl } from './HomeControl'
 import { LayerKey } from './LayerKey'
+import { MapFrame } from './MapFrame'
 import { MapControls } from './MapControls'
 import type { Basemap, View } from './mode'
 import { OverviewInset } from './OverviewInset'
@@ -94,6 +95,8 @@ export function MapView(props: Props) {
   const tintAvailable = basemap === 'literary' && view !== 'raised' && !unavailable
   const wash = tint && tintAvailable
   const phone = usePhone()
+  // The Wheeler frame and its graticule labels, on the classic map in the Flat and Tilted views (MapFrame).
+  const framed = basemap === 'literary' && view !== 'raised'
   if ((basemap !== 'literary' || wash) && !satelliteStarted) setSatelliteStarted(true)
   // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
   // tiles are loading, and 'load' fires only once.
@@ -186,7 +189,7 @@ export function MapView(props: Props) {
   }, [view, loaded, mapRef])
 
   return (
-    <div className={`map-area${basemap === 'literary' ? '' : ' has-satellite'}${wash ? ' satellite-tint' : ''}`}>
+    <div className={`map-area${basemap === 'literary' ? '' : ' has-satellite'}${wash ? ' satellite-tint' : ''}${framed ? ' framed' : ''}`}>
       {satelliteStarted && !unavailable && (
         <ChunkBoundary onError={onUnavailable}>
           <Suspense fallback={null}>
@@ -262,6 +265,7 @@ export function MapView(props: Props) {
         </Map>
       </div>
       {basemap === 'compare' && <CompareSwipe />}
+      {loaded && <MapFrame mapRef={mapRef} shown={framed} />}
       <MapControls
         phone={phone}
         basemap={basemap}
