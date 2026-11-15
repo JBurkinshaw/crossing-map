@@ -17,6 +17,7 @@ Every file is validated against its schema in `schema/` by `crossing.validate`, 
 | `vignettes.geojson` | 13 anchors for the map's drawings, and 2 hairline leaders to real sites | `story-layer` |
 | `landforms.geojson` | 313 label lines along ranges, valleys, plains, mesas and plateaus, for names set along the landform (decision 0023) | `story-layer` |
 | `water_places.geojson` | 1,233 springs, tanks, ranches and stations within 20 km of the journeys ridden or walked, from GNIS and GeoNames, with the book's own 4 (they point at their place) | `story-layer` |
+| `context_places.geojson` | 2,391 forts, ghost towns, mines, sawmills, churches, cemeteries, schools, old post offices, corrals, camps, ranches, named wells and windmills, dry lakes and flats within 20 km of the journeys, from GNIS (with its national file of 2021) and GeoNames; none dated (decision 0028) | `story-layer` |
 | `mountain_glyphs.geojson` | 836 summits and 168 passes found in the Copernicus DEM, each with its landform | `story-layer` |
 | `episodes.json` | The novel's 41 episodes: opening words, length, and a spoiler-safe summary | `episodes` |
 | `translations.json` | 916 Spanish lines: an incipit of at most five words, our English, and where each was spoken | `translations` |

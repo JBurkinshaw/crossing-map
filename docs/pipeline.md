@@ -41,12 +41,13 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | Vignette anchors | `uv run --project pipeline python -m crossing.build_vignettes` | `vignettes.csv`, `data/stops.geojson`, `data/places.geojson` | `data/vignettes.geojson` | No |
 | State labels | `uv run --project pipeline python -m tiles.state_labels` | Natural Earth admin 1 states, the story layers in `data/` | `site/public/labels/states.geojson`: label points clear of the story | Yes |
 | Water places | `uv run --project pipeline python -m crossing.water_places` | GNIS, GeoNames, `data/places.geojson`, `data/journeys.geojson` | `data/water_places.geojson`: springs, wells, tanks, ranches and stations in the journeys corridor | Yes |
+| Context places | `uv run --project pipeline python -m crossing.context_places` | GNIS, the GNIS national file of 2021 (`private/cache/gazetteer/Features_20210825/`), GeoNames, Natural Earth railroads, `data/places.geojson`, `data/water_places.geojson` | `data/context_places.geojson`: forts, ghost towns, mines, sawmills, churches, cemeteries, schools, old post offices, corrals, camps, named wells, dry lakes and flats in the journeys corridor | Yes |
 | Graticule | `uv run --project pipeline python -m crossing.graticule` | The story box | `site/public/labels/graticule.geojson`: the 15′ graticule | No |
 
 Order matters in four places:
 
 1. A first build runs `crossing.build_story` (it skips a missing regions file), then `crossing.regions`, then `crossing.build_story` again, because the region drafts sit on place pins.
-2. `crossing.build_vignettes`, `tiles.state_labels` and `crossing.water_places` follow `crossing.build_story` (the water places drop gazetteer points near the book's places and follow the journeys' corridor).
+2. `crossing.build_vignettes`, `tiles.state_labels` and `crossing.water_places` follow `crossing.build_story` (the water places drop gazetteer points near the book's places and follow the journeys' corridor), and `crossing.context_places` follows `crossing.water_places`, whose names it does not repeat.
 3. After a change to a stop's pin or radius, run `crossing.area_drafts --force` before `crossing.build_story`, which stops if a draft lies outside its stop's circle.
 4. `crossing.validate` checks that `data/raised/` holds the same features, first seen at the same episodes, as the flat layers. After a `build_story` change that adds, removes, or redates a feature, rerun `crossing.plan_oblique` (section 5, hours) before committing, or CI fails.
 

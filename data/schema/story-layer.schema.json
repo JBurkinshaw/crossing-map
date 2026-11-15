@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Story layer",
-  "description": "A GeoJSON FeatureCollection of story features: places, stops, areas, journeys, mountain glyphs, vignettes, landform label lines or water places. Every feature shares the properties in $defs/properties; $defs/layers adds what each layer requires. crossing.validate checks each file against its layer. See docs/design.md, section 6.",
+  "description": "A GeoJSON FeatureCollection of story features: places, stops, areas, journeys, mountain glyphs, vignettes, landform label lines, water places or context places. Every feature shares the properties in $defs/properties; $defs/layers adds what each layer requires. crossing.validate checks each file against its layer. See docs/design.md, section 6.",
   "type": "object",
   "required": ["type", "features"],
   "additionalProperties": false,
@@ -100,24 +100,37 @@
         },
         "kind": {
           "enum": [
+            "abandoned",
+            "camp",
             "canyon",
+            "cemetery",
+            "church",
             "city",
+            "corral",
             "county",
             "crossing",
+            "customs",
+            "flat",
             "inferred-area",
+            "lake",
             "locale",
             "mesa",
             "military",
+            "mine",
             "pass",
             "peak",
             "plain",
             "plateau",
+            "post-office",
+            "railway",
             "ranch",
             "range",
             "region",
             "river",
             "route-segment",
             "ruin",
+            "sawmill",
+            "school",
             "sightline",
             "spring",
             "station",
@@ -126,10 +139,12 @@
             "summit",
             "tank",
             "town",
+            "tunnel",
             "valley",
             "vignette",
             "vignette-leader",
-            "well"
+            "well",
+            "windmill"
           ],
           "description": "What the feature is. Each layer allows only its own kinds (see $defs/layers)."
         },
@@ -174,6 +189,10 @@
         "straight_road": {
           "type": "boolean",
           "description": "Inferred areas: the outline follows a straight line between towns, standing in for an old road no source maps yet."
+        },
+        "historical": {
+          "type": "boolean",
+          "description": "Context places: the gazetteer names the feature \"(historical)\", that is gone or no longer in use; the name is given without it."
         },
         "photo_ids": {"type": "array", "items": {"type": "string"}},
         "vignette": {"type": ["string", "null"], "description": "Vignettes: the drawing's name in the map sprite."},
@@ -387,6 +406,22 @@
                 "properties": {
                   "required": ["source_id", "place_ref"],
                   "properties": {"kind": {"enum": ["spring", "well", "tank", "ranch", "station"]}}
+                }
+              }
+            }
+          }
+        }
+      },
+      "context_places": {
+        "description": "Forts, ghost towns, mines, sawmills, churches, cemeteries, schools, post offices, corrals, named wells, dry lakes and flats along the journeys, from GNIS (with its national file of 2021) and GeoNames (crossing.context_places).",
+        "properties": {
+          "features": {
+            "items": {
+              "properties": {
+                "geometry": {"$ref": "#/$defs/point"},
+                "properties": {
+                  "required": ["source_id", "historical"],
+                  "properties": {"kind": {"enum": ["abandoned", "camp", "cemetery", "church", "corral", "customs", "flat", "lake", "military", "mine", "post-office", "railway", "ranch", "ruin", "sawmill", "school", "station", "tunnel", "well", "windmill"]}}
                 }
               }
             }
