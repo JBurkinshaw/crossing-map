@@ -1,6 +1,7 @@
 import type { ExpressionSpecification, LayerSpecification, StyleSpecification } from 'maplibre-gl'
 import { reliefLayers, reliefSources } from './relief'
 import { fonts, palette as tokens, SPRITE } from './tokens'
+import { contextPlaceLayer } from './contextPlaces'
 import { waterPlaceLayer } from './waterPlaces'
 import type { Units } from '../units'
 
@@ -232,9 +233,9 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
     ]
   // Hillshade sits on the paper; hachures under the water and lines; the graticule over the lines; the water
   // places, glyphs, then vignettes, above the lines and below the labels. The water places are the lowest
-  // symbols, so every other name wins a collision with them.
+  // symbols but for the context places under them, so every other name wins a collision with them.
   const at = (id: string) => layers.findIndex((l) => l.id === id)
-  layers.splice(at('creek-label'), 0, graticule, waterPlaceLayer(tokens), ...r.glyphs, ...r.vignettes)
+  layers.splice(at('creek-label'), 0, graticule, contextPlaceLayer(tokens), waterPlaceLayer(tokens), ...r.glyphs, ...r.vignettes)
   layers.splice(at('county-line'), 0, ...r.hachures)
   layers.splice(at('lake'), 0, ...r.hillshade)
   // Last of the base, so the story's labels (added above it) win any collision.
@@ -256,6 +257,8 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         data: `${dataBase}map/water_places.geojson`,
         attribution: 'Springs, ranches and stations: USGS GNIS, GeoNames (CC BY 4.0)',
       },
+      // The gazetteer's other period places, trimmed the same way (contextPlaces.ts).
+      'context-places': { type: 'geojson', data: `${dataBase}map/context_places.geojson` },
     },
     layers,
   }

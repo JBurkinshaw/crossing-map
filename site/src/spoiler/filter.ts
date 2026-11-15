@@ -66,13 +66,14 @@ export function translationsUpTo<T extends { first_seen: string }>(list: T[], re
 // they show at every reading position, "not started" included.
 export const GLYPH_ALWAYS = '1-01'
 // Base-style layers whose features carry first_seen, with the episode they always show from (the glyphs, landform
-// and pass names, water places and graticule are the land; the vignettes appear only once the reader reaches their
+// and pass names, water and context places and graticule are the land; the vignettes appear only once the reader reaches their
 // episode). Book places among the landform and pass names carry the place's own first_seen.
 export const PROGRESS_LAYERS: Record<string, string> = {
   'mountain-glyph': GLYPH_ALWAYS,
   'landform-label': GLYPH_ALWAYS,
   'pass-label': GLYPH_ALWAYS,
   'water-place': GLYPH_ALWAYS,
+  'context-place': GLYPH_ALWAYS,
   graticule: GLYPH_ALWAYS,
   vignette: '',
   'vignette-label': '',

@@ -21,7 +21,8 @@ from crossing.paths import DATA, SITE_PUBLIC
 
 SCHEMAS = DATA / "schema"
 SPRITE_INDEX = SITE_PUBLIC / "sprites" / "glyphs.json"
-LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs", "vignettes", "landforms", "water_places"]
+LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs", "vignettes", "landforms", "water_places",
+          "context_places"]
 RAISED_LAYERS = ["places", "stops", "areas", "journeys"]
 MAX_DECIMALS = 5  # about 1 m; docs/design.md, section 6, rounds all coordinates to this
 INCIPIT_WORDS = 5  # the most Spanish words of a line the site may publish (docs/design.md, section 3)

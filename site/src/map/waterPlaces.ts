@@ -1,4 +1,5 @@
 import type { ExpressionSpecification, LayerSpecification, Map as MapLibreMap, MapStyleImageMissingEvent } from 'maplibre-gl'
+import { CONTEXT_IMAGE_IDS, CONTEXT_PIXEL_RATIO, drawContextMark } from './contextPlaces'
 import { fonts, QUIET_OPACITY, typeScale, zoomedSize, type Palette } from './tokens'
 
 // Springs, wells, tanks, ranches and stations as quiet named places, after the Wheeler sheets, which name every
@@ -45,6 +46,10 @@ function addMarks(map: MapLibreMap, p: Palette, only?: string) {
   for (const mark of Object.values(MARK)) {
     const id = imageId(mark)
     if ((!only || only === id) && !map.hasImage(id)) map.addImage(id, drawMark(mark, p), { pixelRatio: MARK_RATIO })
+  }
+  // The context places' marks (contextPlaces.ts) go in with these, so every map that draws one draws both.
+  for (const id of CONTEXT_IMAGE_IDS) {
+    if ((!only || only === id) && !map.hasImage(id)) map.addImage(id, drawContextMark(id, p), { pixelRatio: CONTEXT_PIXEL_RATIO })
   }
 }
 
