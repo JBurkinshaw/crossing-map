@@ -77,6 +77,13 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
     const map = mapRef?.getMap()
     if (map && !map.hasImage(TALE_ICON)) map.addImage(TALE_ICON, taleDiamond(), { pixelRatio: 2 })
   }, [mapRef])
+  // The vignettes' captions (relief.ts) belong to the base style, under these layers; moved to the top, they are
+  // placed before every other label, so the other labels make room for them. The story layers above are added
+  // first: a child's effects run before its parent's.
+  useEffect(() => {
+    const map = mapRef?.getMap()
+    if (map?.getLayer('vignette-label')) map.moveLayer('vignette-label')
+  }, [mapRef, story])
   const zoneIds = useMemo(() => places.zone.features.map((f) => String(f.properties?.id)), [places.zone])
   // The journey's stops grouped by spot (to about 100 m), in order: a journey that comes back to a place, such as
   // J4 to San Diego, gets one badge there instead of markers drawn over each other.

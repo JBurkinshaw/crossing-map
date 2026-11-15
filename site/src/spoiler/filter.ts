@@ -67,7 +67,7 @@ export function translationsUpTo<T extends { first_seen: string }>(list: T[], re
 export const GLYPH_ALWAYS = '1-01'
 // Base-style layers whose features carry first_seen, with the episode they always show from (the glyphs are the
 // land; the vignettes appear only once the reader reaches their episode).
-export const PROGRESS_LAYERS: Record<string, string> = { 'mountain-glyph': GLYPH_ALWAYS, 'landform-label': GLYPH_ALWAYS, vignette: '' }
+export const PROGRESS_LAYERS: Record<string, string> = { 'mountain-glyph': GLYPH_ALWAYS, 'landform-label': GLYPH_ALWAYS, vignette: '', 'vignette-label': '' }
 
 export function layerFilterUpTo(id: string, base: FilterSpecification | undefined, reached: string): FilterSpecification {
   const floor = PROGRESS_LAYERS[id] ?? ''

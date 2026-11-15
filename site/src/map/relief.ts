@@ -212,12 +212,14 @@ function vignettes(p: Palette): LayerSpecification[] {
       return ['literal', [x / text, (y + VIGNETTE_HALF * size + 2) / text]]
     }, ['literal', [0, (VIGNETTE_HALF * size + 2) / text]])]
   })
+  const filter: ExpressionSpecification =
+    ['all', ['==', ['get', 'kind'], 'vignette'], ['>=', ['zoom'], ['get', 'min_zoom']], ['<', ['zoom'], ['get', 'max_zoom']]]
   return [
     {
       id: 'vignette',
       type: 'symbol',
       source: 'vignettes',
-      filter: ['all', ['==', ['get', 'kind'], 'vignette'], ['>=', ['zoom'], ['get', 'min_zoom']], ['<', ['zoom'], ['get', 'max_zoom']]],
+      filter,
       layout: {
         'icon-image': ['get', 'vignette'],
         // Drawn on a 96 px grid: about 50 px across at zoom 6, 69 px at 9 and 87 px from 12.
@@ -226,20 +228,30 @@ function vignettes(p: Palette): LayerSpecification[] {
         // In drawing pixels (scaled by icon-size): the gap between the pin and the drawing, along its side.
         'icon-offset': bySide((v) => ['literal', [v.dx * VIGNETTE_GAP, v.dy * VIGNETTE_GAP]], ['literal', [0, 0]]),
         'icon-padding': 4,
-        // Next to a town the place labels would otherwise push the drawing off the map; it may sit under them (they
-        // draw on top), so every drawing shows in its zoom range.
+        // The drawing always shows in its zoom range and blocks no other label: names draw over it.
         'icon-allow-overlap': true,
+        'icon-ignore-placement': true,
         'symbol-sort-key': ['get', 'priority'],
-        // The caption sits under the drawing; it is optional, so a drawing still shows when its label collides.
+      },
+    },
+    {
+      // The caption, under the drawing. Its own layer, which StoryLayers moves to the top of the stack, so it is
+      // placed before every other label and the others make room for it.
+      id: 'vignette-label',
+      type: 'symbol',
+      source: 'vignettes',
+      filter,
+      layout: {
+        'symbol-sort-key': ['get', 'priority'],
         'text-field': ['get', 'label'],
         'text-font': [fonts.italic],
         'text-size': ['interpolate', ['linear'], ['zoom'], ...VIGNETTE_TEXT.flat()] as ExpressionSpecification,
         'text-anchor': 'top',
         'text-offset': ['interpolate', ['linear'], ['zoom'], ...labelOffset] as ExpressionSpecification,
         'text-max-width': 9,
-        'text-optional': true,
+        'text-padding': 4,
       },
-      paint: { 'text-color': p.ink, 'text-halo-color': p.paper, 'text-halo-width': 1.2 },
+      paint: { 'text-color': p.ink, 'text-halo-color': p.paper, 'text-halo-width': 1.5 },
     },
   ]
 }

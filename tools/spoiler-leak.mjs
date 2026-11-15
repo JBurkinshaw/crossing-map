@@ -313,7 +313,7 @@ for (const point of POINTS) {
     const zoom = Math.max(v.properties.min_zoom, Math.min(9, v.properties.max_zoom - 0.5))
     await page.evaluate(([lo, la, z]) => window.__map.jumpTo({ center: [lo, la], zoom: z }), [lon, lat, zoom])
     await idle(page)
-    const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['vignette'].filter((id) => window.__map.getLayer(id)) })
+    const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['vignette', 'vignette-label'].filter((id) => window.__map.getLayer(id)) })
       .map((f) => [f.properties.name, f.properties.first_seen]))
     for (const [name, fs] of shown) if (fs > reached) leak(where, `vignette ${name} first seen ${fs}`)
   }
