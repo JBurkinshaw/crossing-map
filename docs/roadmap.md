@@ -40,6 +40,7 @@ These were "open questions" in the build plan; they are project decisions, not q
 - **[decide] Relief.**
   - Full-region relief and Raised, about 710 MB: Cloudflare R2, the preview only, or a thinner treatment?
   - Coarse relief and contours over the whole story box?
+  - Two hachure sets are kept for now (decision 0024): the Wheeler strokes, which the site draws in the corridor, and the production fine and dense strokes (`relief.pmtiles`, `relief-dense.pmtiles`, `private/cache/relief/production/`), one switch away (`HACHURE_SET` in `site/src/map/relief.ts`). Keep both in every tile release until one is dropped; then remove the other's archives, cache and code.
   - The corridor edge, where hachures stop in a hard line (Mesa Atravesada shows it): fade the last few kilometres, or wait for full-region relief?
   - Thinning pass labels, glyph thresholds, and Raised details.
 - **[decide] Landform weights** in `pipeline/seeds/landforms.toml`: do the mesas and ridges land where expected? `review/stage-3/landforms.csv` lists each summit's scores.

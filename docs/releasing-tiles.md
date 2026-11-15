@@ -10,8 +10,11 @@ Rebuild only the archives whose inputs changed. The commands are in [`pipeline.m
 | --- | --- |
 | `base.pmtiles` | `tiles.build_base` |
 | `relief.pmtiles`, `relief-dense.pmtiles`, `contours.pmtiles` | `crossing.hachures`, then `tiles.build_relief` |
+| `relief-wheeler.pmtiles`, `relief-wheeler-12.pmtiles` | `crossing.hachures --style wheeler --region corridor`, then `tiles.build_relief --style wheeler --region corridor` |
 | `terrain.pmtiles` | `tiles.build_terrain` |
 | `oblique-1.pmtiles`, `oblique-2.pmtiles` | `crossing.hachures`, then `crossing.plan_oblique` |
+
+The site draws one of two hachure sets inside the journeys corridor, chosen by `HACHURE_SET` in `site/src/map/relief.ts` (decision 0024): the Wheeler set reads `relief-wheeler*.pmtiles`, the production set `relief.pmtiles` and `relief-dense.pmtiles`. Release both sets, so switching back needs no new release.
 
 `crossing.plan_oblique` also rewrites `data/raised/*.geojson` and `data/raised/archives.json`, which list the Raised archives in drawing order. Commit those with the release bump: the site draws every archive the list names, and only those.
 
@@ -46,6 +49,8 @@ Warning: a release is public as soon as it is created.
      tiles/out/base.pmtiles \
      tiles/out/relief.pmtiles \
      tiles/out/relief-dense.pmtiles \
+     tiles/out/relief-wheeler.pmtiles \
+     tiles/out/relief-wheeler-12.pmtiles \
      tiles/out/contours.pmtiles \
      tiles/out/terrain.pmtiles \
      tiles/out/oblique-1.pmtiles \
