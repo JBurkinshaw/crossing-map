@@ -10,6 +10,10 @@ export type Palette = {
   water: string
   // River and creek labels: the water a shade darker, for 4.5:1 against the paper on both sides of the line.
   waterLabel: string
+  // Lakes, opaque because they lie over the rivers: the water at 25% over the paper, and 12% for intermittent
+  // ones.
+  lake: string
+  lakeDry: string
   ink: string
   inkFaint: string
   routeWolf: string
@@ -36,6 +40,8 @@ export const palette: Palette = {
   paperMexico: '#e6d9b9',
   water: '#5f7480',
   waterLabel: '#465a65',
+  lake: '#cbc9b6',
+  lakeDry: '#ded7bf',
   ink: '#2b2118',
   inkFaint: 'rgba(43, 33, 24, 0.35)',
   routeWolf: '#4a5560',

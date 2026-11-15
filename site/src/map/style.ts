@@ -82,14 +82,6 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         paint: { 'fill-color': tokens.paperMexico },
       },
       {
-        id: 'lake',
-        type: 'fill',
-        source: base,
-        'source-layer': 'lake',
-        // Intermittent water bodies (`i`, from INEGI) are lighter: often a dry playa.
-        paint: { 'fill-color': tokens.water, 'fill-opacity': ['case', ['has', 'i'], 0.12, 0.25], 'fill-outline-color': tokens.water },
-      },
-      {
         id: 'county-line',
         type: 'line',
         source: base,
@@ -150,6 +142,16 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         'source-layer': 'river',
         layout: { 'line-cap': 'round', 'line-join': 'round' },
         paint: { 'line-color': tokens.water, 'line-width': ['interpolate', ['linear'], ['zoom'], 5, byRank(1.3, 0.7), 10, byRank(2.8, 1.4), 13, byRank(3.6, 1.8)] },
+      },
+      {
+        // Over the rivers and creeks, and opaque, so a river ends at the shore instead of running through the
+        // water, as on the survey sheets. Intermittent water bodies (`i`, INEGI's and NHD's) are lighter: often
+        // a dry playa.
+        id: 'lake',
+        type: 'fill',
+        source: base,
+        'source-layer': 'lake',
+        paint: { 'fill-color': ['case', ['has', 'i'], tokens.lakeDry, tokens.lake], 'fill-outline-color': tokens.water },
       },
       {
         id: 'road',
@@ -236,8 +238,8 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
   // symbols but for the context places under them, so every other name wins a collision with them.
   const at = (id: string) => layers.findIndex((l) => l.id === id)
   layers.splice(at('creek-label'), 0, graticule, contextPlaceLayer(tokens), waterPlaceLayer(tokens), ...r.glyphs, ...r.vignettes)
+  layers.splice(at('county-line'), 0, ...r.hillshade)
   layers.splice(at('county-line'), 0, ...r.hachures)
-  layers.splice(at('lake'), 0, ...r.hillshade)
   // Last of the base, so the story's labels (added above it) win any collision.
   layers.push(stateLabel('state-labels'))
   return {

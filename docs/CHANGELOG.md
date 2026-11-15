@@ -18,6 +18,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- Lakes are drawn over the rivers, so a river ends at the shore instead of running through the water (decision 0030).
 - A place's pin that stands more than 1 km from every stop at it, such as the Guadalupe Mountains' gazetteer point beside the J2 pass, keeps its dot and its name but no longer opens the stop (decision 0029).
 - Everything off the map (the frame's margin, the panel, the cards and the pages) is a lighter cream than the map, as on the Wheeler sheets.
 - How it's built explains how the mountain glyphs are found and drawn, and a new Caveats section says the gazetteer's springs, ranches and stations are undated and the hydrography is today's.
