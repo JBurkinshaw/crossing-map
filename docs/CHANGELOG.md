@@ -18,6 +18,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- A place's pin that stands more than 1 km from every stop at it, such as the Guadalupe Mountains' gazetteer point beside the J2 pass, keeps its dot and its name but no longer opens the stop (decision 0029).
 - Everything off the map (the frame's margin, the panel, the cards and the pages) is a lighter cream than the map, as on the Wheeler sheets.
 - How it's built explains how the mountain glyphs are found and drawn, and a new Caveats section says the gazetteer's springs, ranches and stations are undated and the hydrography is today's.
 - From zoom 11 the map names the context places in quiet italic, each with a tiny mark after Wheeler (a flag for a fort, crossed picks for a mine, a cross for a church, an open square for an abandoned place), below every other name. The Caveats say they are undated too.

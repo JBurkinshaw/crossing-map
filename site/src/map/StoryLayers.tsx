@@ -1,11 +1,12 @@
 import { useEffect, useMemo } from 'react'
 import { Layer, Marker, Source, useMap } from '@vis.gl/react-maplibre'
-import type { ExpressionSpecification } from 'maplibre-gl'
+import type { CircleLayerSpecification, ExpressionSpecification } from 'maplibre-gl'
 import type { Feature, FeatureCollection, Geometry, Point } from 'geojson'
 import { useJson } from '../data/json'
 import type { Story, StoryProps } from '../data/story'
 import { CLUSTER_MAX_ZOOM, CLUSTER_RADIUS, expandCluster, inZone, useZoneClusters, ZONE_CLUSTERS, ZONE_SOURCE, ZONE_STOPS } from './cluster'
 import { corridor, midpoint } from './corridor'
+import { pinsApart } from '../story/select'
 import { prefersReducedMotion } from './setup'
 import { fonts, journeyInks, palette as tokens, QUIET_OPACITY, typeScale } from './tokens'
 
@@ -67,20 +68,23 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
   )
   // The places and the journey's stops around Cloverdale and the Peloncillos go to the clustered source; the
   // current stop stays out of it, so the stop being read always shows.
+  // Pins that stand apart from their stops are marked `apart`: drawn by a layer a click passes through.
   const current = stops[stopIndex]?.properties.id
   const places = useMemo(() => {
-    const outside: FeatureCollection<Point, StoryProps> = { ...story.places, features: story.places.features.filter((f) => !inZone(f.geometry.coordinates)) }
+    const apart = pinsApart(story)
+    const marked = story.places.features.map((f) => (apart.has(f.properties.id) ? { ...f, properties: { ...f.properties, apart: true } } : f))
+    const outside: FeatureCollection<Point, StoryProps> = { ...story.places, features: marked.filter((f) => !inZone(f.geometry.coordinates)) }
     const zone: FeatureCollection<Point> = {
       type: 'FeatureCollection',
       features: [
-        ...story.places.features.filter((f) => inZone(f.geometry.coordinates)).map((f) => ({ ...f, properties: { ...f.properties, cat: 'place' } })),
+        ...marked.filter((f) => inZone(f.geometry.coordinates)).map((f) => ({ ...f, properties: { ...f.properties, cat: 'place' } })),
         ...stops
           .filter((f) => f.properties.id !== current && inZone(f.geometry.coordinates))
           .map((f) => ({ ...f, properties: { id: f.properties.id, first_seen: f.properties.first_seen, cat: 'stop' } })),
       ],
     }
     return { outside, zone }
-  }, [story.places, stops, current])
+  }, [story, stops, current])
   useEffect(() => {
     const map = mapRef?.getMap()
     if (map && !map.hasImage(TALE_ICON)) map.addImage(TALE_ICON, taleDiamond(), { pixelRatio: 2 })
@@ -120,9 +124,10 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
   }, [road])
 
   // A place whose name the map sets along its landform's axis, or across its pass (relief.ts, pass-label), has no
-  // point label while those show; a city's name is in capitals.
+  // point label while those show, unless its pin stands apart from its stops; a city's name is in capitals.
+  const apart: ExpressionSpecification = ['boolean', ['get', 'apart'], false]
   const nameUnlessLined: ExpressionSpecification = ['case',
-    ['in', ['get', 'id'], ['literal', lined]], '',
+    ['all', ['!', apart], ['in', ['get', 'id'], ['literal', lined]]], '',
     ['all', ['boolean', lineLabels], ['==', ['get', 'kind'], 'pass']], '',
     ['==', ['get', 'kind'], 'city'], ['upcase', ['get', 'name']],
     ['get', 'name']]
@@ -140,24 +145,21 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
   // An array, not a fragment: the Source gives its id to each of its direct children.
   const placeLayers = (prefix: string, only?: ExpressionSpecification) => {
     const and = (f: ExpressionSpecification): ExpressionSpecification => (only ? ['all', only, f] : f)
+    const pointPaint: CircleLayerSpecification['paint'] = {
+      // Told apart by fill and shape more than size: places on a journey are solid ink dots, places passed
+      // or named open rings, towns the book never names small faint dots. Cities are a step larger.
+      // Tale places keep an unseen circle here, so they stay clickable under their diamond.
+      'circle-radius': ['+', ['match', ['get', 'role'], 'context', 2, 'passing', 3.5, 'tale', 5, 4], ['match', ['get', 'kind'], 'city', 1, 0]],
+      'circle-color': ['match', ['get', 'role'], 'context', tokens.inkFaint, 'stop', tokens.ink, tokens.paper],
+      'circle-opacity': ['match', ['get', 'role'], 'tale', 0, 1],
+      'circle-stroke-color': ['match', ['get', 'role'], 'stop', tokens.paper, tokens.ink],
+      'circle-stroke-width': ['match', ['get', 'role'], 'context', 0, 'stop', 1.5, 1.2],
+      'circle-stroke-opacity': ['match', ['get', 'role'], 'tale', 0, 1],
+    }
     return [
-      <Layer
-        key="point"
-        id={`${prefix}-point`}
-        type="circle"
-        {...(only ? { filter: only } : {})}
-        paint={{
-          // Told apart by fill and shape more than size: places on a journey are solid ink dots, places passed
-          // or named open rings, towns the book never names small faint dots. Cities are a step larger.
-          // Tale places keep an unseen circle here, so they stay clickable under their diamond.
-          'circle-radius': ['+', ['match', ['get', 'role'], 'context', 2, 'passing', 3.5, 'tale', 5, 4], ['match', ['get', 'kind'], 'city', 1, 0]],
-          'circle-color': ['match', ['get', 'role'], 'context', tokens.inkFaint, 'stop', tokens.ink, tokens.paper],
-          'circle-opacity': ['match', ['get', 'role'], 'tale', 0, 1],
-          'circle-stroke-color': ['match', ['get', 'role'], 'stop', tokens.paper, tokens.ink],
-          'circle-stroke-width': ['match', ['get', 'role'], 'context', 0, 'stop', 1.5, 1.2],
-          'circle-stroke-opacity': ['match', ['get', 'role'], 'tale', 0, 1],
-        }}
-      />,
+      <Layer key="point" id={`${prefix}-point`} type="circle" filter={and(['!', apart])} paint={pointPaint} />,
+      // Pins apart from their stops look the same, on a layer MapView does not make clickable.
+      <Layer key="apart" id={`${prefix}-apart`} type="circle" filter={and(apart)} paint={pointPaint} />,
       // Places in the tales told to Billy: a hollow diamond (TALE_ICON), told rather than travelled.
       <Layer
         key="tale"

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { Feature, Geometry, Point } from 'geojson'
 import type { StoryProps } from '../data/story'
 import { story } from '../test/fixtures'
-import { bounds, clickResult, journeysOf, journeyStops, roadLabel, type MapPick } from './select'
+import { bounds, clickResult, journeysOf, journeyStops, pinsApart, roadLabel, type MapPick } from './select'
 
 const pick = (layer: MapPick['layer'], id: string, journey: string | null = null, sequence: number | null = null): MapPick => ({
   layer,
@@ -31,6 +31,25 @@ describe('roadLabel', () => {
     const [first, second] = s.journeys.features as Feature<Geometry, StoryProps>[]
     expect(roadLabel(s, first)).toBe('On the road between Town and Ranch')
     expect(roadLabel(s, second)).toBe('On the road between Ranch and Camp')
+  })
+})
+
+describe('pinsApart', () => {
+  it('keeps a pin with a stop on it, and one no stop names', () => {
+    expect([...pinsApart(story())]).toEqual([])
+  })
+  it('sets apart a pin whose every stop is over a kilometre away', () => {
+    const s = story()
+    // Move the ranch pin about 2.2 km east of the stop at it.
+    s.places.features[1].geometry.coordinates = [1.02, 0]
+    expect([...pinsApart(s)]).toEqual(['ranch'])
+  })
+  it('keeps a pin when any one of its stops is on it', () => {
+    const s = story()
+    s.places.features[0].geometry.coordinates = [0.02, 0]
+    // J1 stops 2.2 km from the moved town pin, J2 on it.
+    s.stops.features.find((f) => f.properties.id === 'j2-1')!.geometry.coordinates = [0.02, 0]
+    expect([...pinsApart(s)]).toEqual([])
   })
 })
 

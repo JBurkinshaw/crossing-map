@@ -62,6 +62,27 @@ export function corridorBounds(f: StoryFeature) {
   return bounds(area ? [{ type: 'Feature', geometry: area, properties: {} }] : [f])
 }
 
+// How far (km) a stop may sit from its place's pin and still stand at the same spot.
+const SAME_SPOT_KM = 1
+
+// The places whose pin stands apart from every stop at it, as a range's gazetteer point does from a pass on its
+// flank (decision 0029). Such a pin is drawn and named but does not open its stops: the stop's own marker does.
+export function pinsApart(story: Story): Set<string> {
+  const near = new Set<string>()
+  const referenced = new Set<string>()
+  const pins = new Map(story.places.features.map((f) => [f.properties.id, f.geometry.coordinates]))
+  for (const s of story.stops.features) {
+    const ref = s.properties.place_ref
+    const pin = ref ? pins.get(ref) : undefined
+    if (!ref || !pin) continue
+    referenced.add(ref)
+    const [x, y] = s.geometry.coordinates
+    const km = 111.32 * Math.hypot((x - pin[0]) * Math.cos((y * Math.PI) / 180), y - pin[1])
+    if (km <= SAME_SPOT_KM) near.add(ref)
+  }
+  return new Set([...referenced].filter((id) => !near.has(id)))
+}
+
 // What a click on the map opens. A route or a place where a journey stops goes to that stop: in the journey in
 // focus if it is one of the journeys there (several can share a road or a town), else in the journey of the
 // topmost route clicked, else the first journey that stops there. On a route, the stop is the end of the clicked
