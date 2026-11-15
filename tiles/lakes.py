@@ -5,6 +5,11 @@ spills over the plain where the book's riders camp on its shore. In Mexico the l
 polygons of INEGI's Red Hidrográfica 1:50,000 (the `_ha` layers): every perennial body of at least MIN_PERENNIAL_KM2,
 and intermittent ones of at least MIN_INTERMITTENT_KM2 (smaller ones are mostly stock tanks), marked `i` so the
 style can draw them lighter. Natural Earth's lakes are kept outside Mexico.
+
+In the US the closed valleys of the bootheel and southern Arizona (the Animas, the Playas, Willcox) drain to dry
+lakes, which Natural Earth leaves out, so their washes would end on bare ground. NHD's playas (ftype 361) and
+intermittent lakes (fcode 39004) of at least MIN_INTERMITTENT_KM2 are added outside Mexico, marked `i` like
+INEGI's. NHD's reservoirs are left out: nearly all are stock tanks and dams built since the 1940s.
 """
 
 import json
@@ -16,7 +21,7 @@ import shapely
 from shapely.geometry import mapping, shape
 
 from crossing.basemap import shapefile
-from crossing.hydro import INEGI
+from crossing.hydro import INEGI, NHD
 from crossing.vector import read
 
 MIN_PERENNIAL_KM2 = 0.1
@@ -24,6 +29,8 @@ MIN_INTERMITTENT_KM2 = 1.0
 # Islets and marsh patches smaller than this (km²) are filled: INEGI draws hundreds in the Laguna de Babícora,
 # which would speckle the lake at every zoom.
 MAX_HOLE_KM2 = 0.5
+# NHD water bodies taken: playas, and lakes whose water comes and goes.
+NHD_DRY_LAKES = "ftype = 361 OR fcode = 39004"
 # Square degrees to km² at about 30° N.
 KM2 = 111.32 * 111.32 * 0.866
 
@@ -59,9 +66,19 @@ def write_layer(bbox: Sequence, mexico: shapely.Geometry, tmp: Path) -> Path:
                 kept["intermittent" if intermittent else "perennial"] += 1
                 features.append({"type": "Feature", "geometry": mapping(shapely.simplify(g, 0.0002)),
                                  "properties": {"i": 1} if intermittent else {}})
+    dry = 0
+    for i, shp_dir in enumerate(sorted(NHD.glob("*/Shape"))):
+        sql = f"SELECT ftype FROM NHDWaterbody WHERE {NHD_DRY_LAKES}"
+        for f in read(shp_dir / "NHDWaterbody.shp", sql, bbox, tmp / f"nhd-dry-{i}.geojson"):
+            g = fill_holes(shape(f["geometry"]).buffer(0)).difference(mexico)
+            if g.is_empty or g.area * KM2 < MIN_INTERMITTENT_KM2:
+                continue
+            dry += 1
+            features.append({"type": "Feature", "geometry": mapping(shapely.simplify(g, 0.0002)),
+                             "properties": {"i": 1}})
     out = tmp / "lake.geojson"
     out.write_text(json.dumps({"type": "FeatureCollection", "features": features}))
     print(f"lakes: {kept['perennial']} perennial and {kept['intermittent']} intermittent from INEGI, "
-          f"{len(features) - sum(kept.values())} from Natural Earth outside Mexico")
+          f"{dry} dry lakes from NHD, {len(features) - sum(kept.values()) - dry} from Natural Earth outside Mexico")
     return out
 

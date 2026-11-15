@@ -8,6 +8,10 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ### 2026-11-15
 
+#### Tiles
+
+- `tiles-v10` (to be published): the US streams of six more watersheds, the closed valleys the river data had missed (the Animas Valley, Willcox Playa, the Jornada and Tularosa valleys, the Rillito and the San Francisco), so the Animas Valley's washes no longer stop at a watershed's edge. US dry lakes and intermittent lakes of 1 km² or more are drawn, so the washes of the closed valleys end in their playa. The Raised view rebuilt with the same streams.
+
 #### Site
 
 - Everything off the map (the frame's margin, the panel, the cards and the pages) is a lighter cream than the map, as on the Wheeler sheets.
