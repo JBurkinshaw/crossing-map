@@ -72,7 +72,7 @@ In `private/review/stage-9/wheeler-site/`, all with the whole book read. Desktop
 
 ## Checks
 
-`npx tsc -b`, `npx oxlint`, `npm run build`, `npm test` (23 tests), ruff, pytest (22), `crossing.validate`, `crossing.downloads --check`, `crossing.echo_check` (0 shared runs), contrast (`tools/contrast.mjs`: water place names 5.77:1 on the paper and 5.24:1 on the Mexico side, quiet book names 5.56:1, pass names 12.53:1, margin labels 14.31:1), and the spoiler-leak test against a `VITE_DEBUG=1` build under `vite preview` (result in the final report).
+`npx tsc -b`, `npx oxlint`, `npm run build`, `npm test` (23 tests), ruff, pytest (22), `crossing.validate`, `crossing.downloads --check`, `crossing.echo_check` (0 shared runs), contrast (`tools/contrast.mjs`: water place names 5.77:1 on the paper and 5.24:1 on the Mexico side, quiet book names 5.56:1, pass names 12.53:1, margin labels 14.31:1), and the spoiler-leak test against a `VITE_DEBUG=1` build under `vite preview` ("No spoiler leaks." at all ten reading positions).
 
 The three new GeoJSON files load with the style: 228, 31 and 15 kB, about 30 kB gzipped in all.
 
