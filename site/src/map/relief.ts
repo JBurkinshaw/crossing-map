@@ -180,8 +180,8 @@ function landformLabel(p: Palette): LayerSpecification {
 // (spoiler/filter.ts), so each vignette shows from its own first_seen.
 const VIGNETTE_HALF = 48 // half the 96 px drawing grid
 const VIGNETTE_GAP = 16 // between the pin and the drawing's nearest edge, in drawing pixels
-const VIGNETTE_SIZE: [number, number][] = [[6, 0.4], [9, 0.55], [12, 0.7]] // zoom, icon-size
-const VIGNETTE_TEXT: [number, number][] = [[6, 11], [9, 11.8], [12, 13]] // zoom, text-size
+const VIGNETTE_SIZE: [number, number][] = [[6, 0.52], [9, 0.72], [12, 0.91]] // zoom, icon-size
+const VIGNETTE_TEXT: [number, number][] = [[6, 12.5], [9, 13.3], [12, 14.5]] // zoom, text-size
 // Each side: the icon anchor that puts the drawing on that side of the point, and the unit step towards it.
 const SIDES: Record<string, { anchor: string; dx: number; dy: number }> = {
   n: { anchor: 'bottom', dx: 0, dy: -1 },
@@ -220,7 +220,7 @@ function vignettes(p: Palette): LayerSpecification[] {
       filter: ['all', ['==', ['get', 'kind'], 'vignette'], ['>=', ['zoom'], ['get', 'min_zoom']], ['<', ['zoom'], ['get', 'max_zoom']]],
       layout: {
         'icon-image': ['get', 'vignette'],
-        // Drawn on a 96 px grid: about 38 px across at zoom 6, 53 px at 9 and 67 px from 12.
+        // Drawn on a 96 px grid: about 50 px across at zoom 6, 69 px at 9 and 87 px from 12.
         'icon-size': ['interpolate', ['linear'], ['zoom'], ...VIGNETTE_SIZE.flat()] as ExpressionSpecification,
         'icon-anchor': bySide((v) => v.anchor, 'center'),
         // In drawing pixels (scaled by icon-size): the gap between the pin and the drawing, along its side.
