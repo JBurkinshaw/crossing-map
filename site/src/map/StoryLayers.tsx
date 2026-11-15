@@ -7,7 +7,7 @@ import type { Story, StoryProps } from '../data/story'
 import { CLUSTER_MAX_ZOOM, CLUSTER_RADIUS, expandCluster, inZone, useZoneClusters, ZONE_CLUSTERS, ZONE_SOURCE, ZONE_STOPS } from './cluster'
 import { corridor, midpoint } from './corridor'
 import { prefersReducedMotion } from './setup'
-import { fonts, journeyInks, palette as tokens } from './tokens'
+import { fonts, journeyInks, palette as tokens, QUIET_OPACITY, typeScale } from './tokens'
 
 // Talk on the road: the route segment a picked line was spoken on, and its label ("on the road between X and Y").
 export type Corridor = { segment: Feature<Geometry, StoryProps>; label: string }
@@ -29,6 +29,14 @@ type Props = {
   // then step aside. Off where the base map is hidden or replaced (satellite, the Raised view).
   lineLabels: boolean
 }
+
+// The type scale (tokens.ts; decision 0027): towns in roman at about 1.4 times the spot height, the cities in
+// capitals; ranches and springs in small quiet italic. Both grow a little with zoom, as the base map's names do.
+const TOWNS = ['town', 'city', 'locale']
+const QUIET = ['ranch', 'spring']
+const placeSize = (k: number): ExpressionSpecification =>
+  ['match', ['get', 'kind'], ['range', 'valley'], 14, TOWNS, typeScale.town * k, QUIET, typeScale.quiet * k,
+    ['match', ['get', 'role'], 'stop', 13.5, 12.5]] as unknown as ExpressionSpecification
 
 // The tale places' diamond, drawn once into the map's images: paper inside an ink edge, 11 px across.
 const TALE_ICON = 'tale-diamond'
@@ -111,7 +119,13 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
     }
   }, [road])
 
-  const nameUnlessLined: ExpressionSpecification = ['case', ['in', ['get', 'id'], ['literal', lined]], '', ['get', 'name']]
+  // A place whose name the map sets along its landform's axis, or across its pass (relief.ts, pass-label), has no
+  // point label while those show; a city's name is in capitals.
+  const nameUnlessLined: ExpressionSpecification = ['case',
+    ['in', ['get', 'id'], ['literal', lined]], '',
+    ['all', ['boolean', lineLabels], ['==', ['get', 'kind'], 'pass']], '',
+    ['==', ['get', 'kind'], 'city'], ['upcase', ['get', 'name']],
+    ['get', 'name']]
   const journeyInk = journeyInks(tokens)
   const inkByJourney = ['match', ['get', 'journey'], ...Object.entries(journeyInk).flat(), tokens.ink] as unknown as ExpressionSpecification
   const journey = stops[0]?.properties.journey ?? ''
@@ -168,21 +182,23 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           // Towns the book never names are labelled only from zoom 9.
           // A place whose name the map sets along its landform's axis has no point label.
           'text-field': ['step', ['zoom'], ['match', ['get', 'role'], 'context', '', nameUnlessLined], 9, nameUnlessLined],
-          // Ranges, valleys and streams in spaced italic, as on the survey sheets, and so are tale places;
-          // settlements in roman.
+          // Ranges, valleys and streams in spaced italic, as on the survey sheets, and so are tale places, ranches
+          // and springs; settlements in roman.
           'text-font': ['case',
-            ['any', ['==', ['get', 'role'], 'tale'], ['in', ['get', 'kind'], ['literal', ['range', 'valley', 'stream', 'spring', 'plain']]]],
+            ['any', ['==', ['get', 'role'], 'tale'], ['in', ['get', 'kind'], ['literal', ['range', 'valley', 'stream', 'plain', ...QUIET]]]],
             ['literal', [fonts.italic]], ['literal', [fonts.roman]]],
-          'text-letter-spacing': ['match', ['get', 'kind'], ['range', 'valley'], 0.15, 0.02],
-          // Places on a journey a size up from places passed.
-          'text-size': ['match', ['get', 'kind'], ['range', 'valley'], 14, ['match', ['get', 'role'], 'stop', 13.5, 12.5]],
+          'text-letter-spacing': ['match', ['get', 'kind'], ['range', 'valley'], 0.15, 'city', 0.08, 0.02],
+          // Towns and quiet places on the type scale; other places on a journey a size up from places passed.
+          'text-size': ['interpolate', ['linear'], ['zoom'], 9, placeSize(0.85), 11, placeSize(1), 13, placeSize(1.15)],
           'text-anchor': 'top',
           'text-offset': [0, 0.6],
           'text-optional': true,
         }}
         paint={{
           'text-color': tokens.ink,
-          'text-opacity': ['match', ['get', 'role'], 'context', 0.75, 1],
+          // Ranches and springs are quiet unless the journey stops there.
+          'text-opacity': ['case', ['==', ['get', 'role'], 'context'], 0.75,
+            ['all', ['in', ['get', 'kind'], ['literal', QUIET]], ['!=', ['get', 'role'], 'stop']], QUIET_OPACITY, 1],
           'text-halo-color': tokens.paper,
           'text-halo-width': 1.5,
         }}

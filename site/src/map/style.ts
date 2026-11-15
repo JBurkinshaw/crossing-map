@@ -67,7 +67,7 @@ const graticule: LayerSpecification = {
 // international line as on the 1850s-1880s survey sheets.
 export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: string, units: Units): StyleSpecification {
   const base = 'base'
-  // Label data made for the map beside the tiles (tiles.state_labels, crossing.graticule).
+  // Label data made for the map beside the tiles (tiles.state_labels, crossing.graticule, crossing.pass_lines).
   const labels = `${tilesBase.replace(/tiles\/$/, '')}labels/`
   const r = reliefLayers(tokens, units)
   const layers: LayerSpecification[] = [
@@ -247,6 +247,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
       ...reliefSources(tilesBase, dataBase),
       'state-labels': { type: 'geojson', data: `${labels}states.geojson` },
       graticule: { type: 'geojson', data: `${labels}graticule.geojson` },
+      passes: { type: 'geojson', data: `${labels}passes.geojson` },
     },
     layers,
   }
