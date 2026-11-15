@@ -442,6 +442,414 @@
     "label": "Trinity test, 16 July 1945",
     "credit": "Cap traced from the Trinity test photograph, US government, 1945 (public domain)"
    }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.9699,
+     29.6269
+    ]
+   },
+   "properties": {
+    "id": "vignette-brothers-and-the-girl",
+    "name": "The brothers and \"the girl\" riding south",
+    "kind": "vignette",
+    "stands_for": "The brothers' ride south from San Diego with \"the girl\" (J4)",
+    "place_ref": "j4-mata-ortiz-south",
+    "part": 3,
+    "episode": "3-01",
+    "first_seen": "3-01",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Billy and Boyd ride south from San Diego towards Las Varas, with \"the girl\" riding double behind Boyd on his horse.",
+    "reasoning": "A character vignette on the long, empty stretch of the J4 leg from Mata Ortiz to the opera camp (3-01). The point is on the route line (data/journeys.geojson, j4-seg-20, 85% along); the ref is the leg's first stop. Placed to the west so it clears the steers and the blind man's house. The drawing is set on the west side of its own place, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-brothers-and-the-girl",
+    "side": "w",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 3,
+    "label": "",
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), drawn twice; \"the girl\" and the hats drawn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.8181,
+     30.0151
+    ]
+   },
+   "properties": {
+    "id": "vignette-boyd-and-the-girl",
+    "name": "Boyd and \"the girl\"",
+    "kind": "vignette",
+    "stands_for": "Boyd and \"the girl\" gone from San Diego, as Billy later hears it (J6)",
+    "place_ref": "j6-san-diego",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "One morning Billy wakes at San Diego to find Boyd and \"the girl\" gone together, and he never sees them ride again.",
+    "reasoning": "A character vignette on the reported J6 leg from San Diego towards Namiquipa (3-14), on the route line (j6-seg-03, 25% along); the ref is the leg's first stop. J6 is told, not seen, so the drawing shows the pair as Billy pictures them. The drawing is set on the east side of its own place, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-boyd-and-the-girl",
+    "side": "e",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 3,
+    "label": "",
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), drawn twice; Boyd's straw hat and \"the girl\" drawn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.1968,
+     29.1422
+    ]
+   },
+   "properties": {
+    "id": "vignette-billy-searching",
+    "name": "Billy alone, searching",
+    "kind": "vignette",
+    "stands_for": "Billy's weeks of searching for Boyd across Chihuahua (J5)",
+    "place_ref": "j5-cuauhtemoc",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Billy rides south alone in grey weather with the shotgun across his saddle, looking for Boyd for weeks and finding only rumour.",
+    "reasoning": "A character vignette on the long J5 leg from San Diego to Cuauhtémoc (3-14), on the route line (j5-seg-13, 60% along); the ref is the nearer end of the leg. The drawing is set on the east side of its own place, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-billy-searching",
+    "side": "e",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 3,
+    "label": "",
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the hat and shotgun drawn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.581,
+     29.7005
+    ]
+   },
+   "properties": {
+    "id": "vignette-billy-in-the-rain",
+    "name": "Billy riding north in the rain",
+    "kind": "vignette",
+    "stands_for": "Billy's ride north to San Buenaventura (J7)",
+    "place_ref": "j7-san-buenaventura",
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Under a grey sky Billy rides north all day on a wet horse through the mud of the upland roads, the rain blowing over his slicker.",
+    "reasoning": "A character vignette on the J7 leg from Quijada's cabin to San Buenaventura (4-06), on the route line (j7-seg-37, 50% along); the ref is the leg's end. South-west keeps it off Álamo and Boyd's grave. The drawing is set on the south-west side of its own place, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-billy-in-the-rain",
+    "side": "sw",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 3,
+    "label": "",
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored; the slicker, the hat and the rain drawn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.9377,
+     31.3769
+    ]
+   },
+   "properties": {
+    "id": "vignette-bones-travois",
+    "name": "The travois with Boyd's bones",
+    "kind": "vignette",
+    "stands_for": "Billy taking his brother's remains north to the border (J7)",
+    "place_ref": "j7-dog-springs",
+    "part": 4,
+    "episode": "4-08",
+    "first_seen": "4-08",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Billy rides north along the river for three days with his brother's remains lashed on a travois of sapling poles dragging behind the horse.",
+    "reasoning": "A character vignette on the J7 leg from the gypsies' camp to the border west of Dog Springs (4-08), on the route line (j7-seg-43, 50% along); the ref is the leg's end. The label is there because a travois is not obvious at map size. The drawing is set on the east side of its own place, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-bones-travois",
+    "side": "e",
+    "min_zoom": 8.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "North with Boyd's bones",
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the travois drawn after a photograph of a man on a mule travois, about 1876, Little Bighorn Battlefield National Monument (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.6819,
+     29.5203
+    ]
+   },
+   "properties": {
+    "id": "vignette-windmill-tank",
+    "name": "The windmill and the stone tank",
+    "kind": "vignette",
+    "stands_for": "The windmill tank on the high prairie (J4)",
+    "place_ref": "j4-quijada-remuda",
+    "part": 3,
+    "episode": "3-05",
+    "first_seen": "3-05",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "At evening the brothers water Niño and Bailey at a trough of hewn limestone under a turning windmill, whose vanes throw a long shadow over the prairie.",
+    "reasoning": "The book gives the tank no place; it falls between Quijada's remuda and Boquilla (3-05 sits between 3-04 and 3-06). The point is on the J4 route line there (j4-seg-29, 40% along); the ref is the nearer stop. The drawing is set on the east side of its own place, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-windmill-tank",
+    "side": "e",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "Windmill and stone tank",
+    "credit": "Drawn after a photograph of an Aermotor windmill in New Mexico by SteveStrummer (CC0) and an Aermotor advertisement of 1895 (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.9,
+     29.43
+    ]
+   },
+   "properties": {
+    "id": "vignette-corriente-steers",
+    "name": "Corriente steers on the Boquilla road",
+    "kind": "vignette",
+    "stands_for": "The steer herd on the road to Boquilla (J4)",
+    "place_ref": "j4-steer-herd",
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "On the road to Boquilla the brothers meet vaqueros trailing a thousand wild corriente steers from the south of the Babícora up towards the pens at Naco.",
+    "reasoning": "North of the pin, so it clears the red plane to the south-east. The drawing is set on the north side of The steer herd on the road to Boquilla, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-corriente-steers",
+    "side": "n",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "Corriente steers, bound for Naco",
+    "credit": "Drawn after photographs of longhorn steers by Carol M. Highsmith (public domain) and Clinton and Charles Robertson (CC BY 2.0)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.04,
+     30.1
+    ]
+   },
+   "properties": {
+    "id": "vignette-sandhill-cranes",
+    "name": "Sandhill cranes going south",
+    "kind": "vignette",
+    "stands_for": "The cranes over the river camp south of Mata Ortiz (J5)",
+    "place_ref": "j5-river-camp",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Camped on a gravel bar in the river with \"the girl\", Billy watches the cranes pass south high overhead in the night.",
+    "reasoning": "West of the pin, away from the road north to Mata Ortiz. The cranes come back in 3-13, 4-06 and 4-08. The drawing is set on the west side of Camp on the river south of Mata Ortiz, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-sandhill-cranes",
+    "side": "w",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "Sandhill cranes going south",
+    "credit": "Drawn after a photograph of sandhill cranes in flight, US Fish and Wildlife Service (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.89,
+     29.77
+    ]
+   },
+   "properties": {
+    "id": "vignette-cottonwood-camp",
+    "name": "The cottonwood camp on the river",
+    "kind": "vignette",
+    "stands_for": "The river camp near San José where Boyd is shot (J4)",
+    "place_ref": "j4-shooting",
+    "part": 3,
+    "episode": "3-08",
+    "first_seen": "3-08",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Near San José the brothers make camp under the river cottonwoods and swim at night; at dawn riders on the far bank shoot Boyd.",
+    "reasoning": "East of the pin, so it clears the truck and the blind man's house to the west. The drawing is set on the east side of The river camp where Boyd is shot, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-cottonwood-camp",
+    "side": "e",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "Cottonwood camp on the river",
+    "credit": "Drawn"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.96,
+     29.8
+    ]
+   },
+   "properties": {
+    "id": "vignette-workers-truck",
+    "name": "The farmworkers' truck",
+    "kind": "vignette",
+    "stands_for": "The truck that carries the wounded Boyd away (J4, J6)",
+    "place_ref": "j6-truck",
+    "part": 3,
+    "episode": "3-08",
+    "first_seen": "3-08",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Billy flags down an old flatbed truck full of farmworkers on the dirt road, and they lift the wounded Boyd into its bed and drive him away.",
+    "reasoning": "From zoom 10 only: at lower zooms it would crowd the cottonwood camp and the blind man's house. The drawing is set on the south-west side of Boyd lifted onto the workers' truck, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-workers-truck",
+    "side": "sw",
+    "min_zoom": 10.0,
+    "max_zoom": 12.0,
+    "priority": 2,
+    "label": "Farmworkers' flatbed truck",
+    "credit": "Drawn after a photograph of a 1930 Ford Model AA truck by Alf van Beem (CC0)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.4442,
+     29.8435
+    ]
+   },
+   "properties": {
+    "id": "vignette-boyds-grave",
+    "name": "Boyd's grave on the Gallego road",
+    "kind": "vignette",
+    "stands_for": "Boyd's grave at San Buenaventura (J7)",
+    "place_ref": "j7-boyds-grave",
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "In the walled burial ground above San Buenaventura Billy lifts the board cross from his brother's cairn and digs all day and into the night.",
+    "reasoning": "East of the pin, away from the town. The drawing is set on the east side of Boyd's grave, on the Gallego road, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-boyds-grave",
+    "side": "e",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 1,
+    "label": "Boyd's grave, Gallego road",
+    "credit": "Drawn from the book's description"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.14334,
+     29.19269
+    ]
+   },
+   "properties": {
+    "id": "vignette-madera-fair",
+    "name": "The fair at Madera",
+    "kind": "vignette",
+    "stands_for": "The April fair in the mountain town of Madera (J7)",
+    "place_ref": "j7-madera",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "In late April Billy walks through a fair beyond the railway at Madera, under strung lights, in air smelling of pine smoke and the sawmill.",
+    "reasoning": "South-west of the pin, away from the opera camp to the north-east. The drawing is set on the south-west side of Madera, the late April fair, beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-madera-fair",
+    "side": "sw",
+    "min_zoom": 9.0,
+    "max_zoom": 12.0,
+    "priority": 3,
+    "label": "Madera fair, late April",
+    "credit": "Drawn"
+   }
   }
  ]
 }
