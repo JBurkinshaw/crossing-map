@@ -32,7 +32,7 @@ const FIELDS: Record<string, string> = {
   part: 'Part of the novel, 1 to 4.',
   episode: 'Part and episode where it happens, for example 1-09.',
   first_seen: 'The earliest episode in which the feature may appear.',
-  certainty: 'located, approximate, inferred or reported (see the About page).',
+  certainty: 'located, approximate, inferred or reported (How it’s built maps each to the plain words the site shows).',
   uncertainty_m: 'Rough radius of doubt, in metres.',
   method: 'How the geometry was made: gazetteer match, computed, hand-drawn, a path the text names, modelled, schematic curve, or generated from elevation.',
   source: 'Where the geometry or name came from.',

@@ -19,8 +19,9 @@ function suggestion(t: Translation): string {
   )
 }
 
-// Lines of Spanish with this site's English (design sections 3 and 8): the opening words only, our English, the
-// episode, and the Campbell guide's page where it lists the line, with the credit the design asks for on each.
+// Lines of Spanish with this site's English (design sections 3 and 8): the opening words only, our English, and a
+// link to suggest better English. "About this translation" holds the episode, our confidence, and the Campbell
+// guide's page where it lists the line, with the credit the design asks for on each.
 // A long list that spans several episodes is grouped by episode, in the order the lines come: the first group
 // starts open, and so does the one holding the line picked in search.
 export function TranslationList({ items, current }: Props) {
@@ -67,19 +68,24 @@ function Lines({ items, current, marked }: Props & { marked: RefObject<HTMLLIEle
             </div>
             <div className="en">{t.en ?? 'Translation still to come.'}</div>
             <div className="meta">
-              {episodeLabel(t.episode)} · Added by this site{t.confidence ? `, ${t.confidence} confidence` : ''} ·{' '}
               <a href={suggestion(t)} target="_blank" rel="noreferrer">
                 Suggest a better translation
               </a>
             </div>
-            {t.guide_page && (
-              <div className="meta">
-                <a href={CAMPBELL_GUIDE} target="_blank" rel="noopener">
-                  {CAMPBELL_CREDIT}
-                </a>
-                , listed under page {t.guide_page}
-              </div>
-            )}
+            {/* The fine print, folded away: most readers want only the line and its English. */}
+            <details className="translation-about meta">
+              <summary>About this translation</summary>
+              <p>{episodeLabel(t.episode)}</p>
+              <p>Added by this site{t.confidence ? `, ${t.confidence} confidence` : ''}</p>
+              {t.guide_page && (
+                <p>
+                  <a href={CAMPBELL_GUIDE} target="_blank" rel="noopener">
+                    {CAMPBELL_CREDIT}
+                  </a>
+                  , listed under page {t.guide_page}
+                </p>
+              )}
+            </details>
           </li>
         ))}
       </ul>

@@ -118,6 +118,20 @@ def incipit(es: str, n: int = INCIPIT_WORDS) -> str:
     return cut + ("…" if len(words) > n or spoken != text else "")
 
 
+# Lines so common that the panel leaves them out of a place's Spanish, where dozens of "Sí" and "Bueno" would bury
+# the lines worth reading. They stay in the data and in search. The whole incipit must match, lower-cased with its
+# accents kept, so "Sí señor" and "Gracias. Adiós." still show. "Vámonos" and "Está bien" are left out of the set:
+# each moves a scene on.
+COMMON_LINES = frozenset({"sí", "no", "gracias", "bueno", "adiós", "buenas noches", "señor"})
+# What may wrap a common line: Spanish and English punctuation, and an ellipsis written either way.
+COMMON_WRAP = " ¡!¿?,.…"
+
+
+def is_common(es_incipit: str) -> bool:
+    """Whether a line is only one of COMMON_LINES, once its surrounding punctuation is set aside."""
+    return es_incipit.lower().strip(COMMON_WRAP) in COMMON_LINES
+
+
 # ---------- the Campbell guide (matching only: its English is never kept) ----------
 
 def parse_guide(pdf: Path = GUIDE_PDF) -> list[dict]:
@@ -660,6 +674,7 @@ def cmd_build() -> None:
             "location_kind": features[loc]["kind"] if loc else None,
             "first_seen": s["episode"],
             "guide_page": s.get("guide_page"),
+            "common": is_common(incipit(s["es"])),
         }
         row = {**rec, "kind": s["kind"], "occurrences": s.get("occurrences"), "words": s["words"],
                "note": d.get("note", ""), "skip": "yes" if skip else "", "reviewed": d.get("reviewed", "")}
