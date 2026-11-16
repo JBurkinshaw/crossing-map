@@ -4,7 +4,7 @@ import type { CircleLayerSpecification, ExpressionSpecification } from 'maplibre
 import type { Feature, FeatureCollection, Geometry, Point } from 'geojson'
 import { useJson } from '../data/json'
 import type { Story, StoryProps } from '../data/story'
-import { CLUSTER_MAX_ZOOM, CLUSTER_RADIUS, expandCluster, inZone, useZoneClusters, ZONE_CLUSTERS, ZONE_SOURCE, ZONE_STOPS } from './cluster'
+import { CLUSTER_MAX_ZOOM, CLUSTER_PROPERTIES, CLUSTER_RADIUS, clusterDetail, clusterWord, expandCluster, inZone, useZoneClusters, ZONE_CLUSTERS, ZONE_SOURCE, ZONE_STOPS } from './cluster'
 import { corridor, midpoint } from './corridor'
 import { pinsApart } from '../story/select'
 import { prefersReducedMotion } from './setup'
@@ -329,7 +329,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
       </Source>
       {/* Around Cloverdale and the Peloncillos the places and the journey's stops share one clustered source
           (cluster.ts). Its clusters are markers, below; its loose places draw as places do everywhere else. */}
-      <Source id={ZONE_SOURCE} type="geojson" data={places.zone} cluster clusterMaxZoom={CLUSTER_MAX_ZOOM} clusterRadius={CLUSTER_RADIUS}>
+      <Source id={ZONE_SOURCE} type="geojson" data={places.zone} cluster clusterMaxZoom={CLUSTER_MAX_ZOOM} clusterRadius={CLUSTER_RADIUS} clusterProperties={CLUSTER_PROPERTIES}>
         {[
           ...placeLayers('zone-places', ['all', ['!', ['has', 'point_count']], ['==', ['get', 'cat'], 'place']]),
           // Unseen: they let cluster.ts ask which clusters and loose stops the map draws now.
@@ -363,15 +363,16 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           <button
             type="button"
             className="cluster-marker"
-            aria-label={`${c.count} places and stops here. Zoom in to see them`}
-            title="Zoom in to see them"
+            aria-label={`${c.count} ${clusterWord(c)} close together: ${clusterDetail(c)}. Zoom in to see them`}
+            title={`${clusterDetail(c)}. Zoom in to see them`}
             onClick={(e) => {
               e.stopPropagation()
               const map = mapRef?.getMap()
               if (map) void expandCluster(map, c, prefersReducedMotion())
             }}
           >
-            +{c.count}
+            {c.count}
+            <span className="cluster-word">{clusterWord(c)}</span>
           </button>
         </Marker>
       ))}
