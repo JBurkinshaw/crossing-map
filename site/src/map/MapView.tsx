@@ -93,6 +93,11 @@ export function MapView(props: Props) {
   // Satellite tint: the satellite map, faded, under the literary map in the Flat and Tilted views. The Raised
   // view's line work is shifted north, so imagery would not line up under it.
   const [tint, setTint] = useState(false)
+  // The Map menu and the open layer key share the map's right-hand side, and on desktop the menu would cover the
+  // top of the key: opening one closes the other.
+  const [opened, setOpened] = useState<'menu' | 'key' | null>(null)
+  const onMenuOpen = useCallback((open: boolean) => setOpened((o) => (open ? 'menu' : o === 'menu' ? null : o)), [])
+  const onKeyOpen = useCallback((open: boolean) => setOpened((o) => (open ? 'key' : o === 'key' ? null : o)), [])
   const tintAvailable = basemap === 'literary' && view !== 'raised' && !unavailable
   const wash = tint && tintAvailable
   const phone = usePhone()
@@ -290,6 +295,8 @@ export function MapView(props: Props) {
         onTint={setTint}
         units={units}
         onUnits={onUnits}
+        menuOpen={opened === 'menu'}
+        onMenuOpen={onMenuOpen}
       />
       {/* Not on phones: the inset would cover a fifth of a small map, and the Home button already brings back the whole journey. */}
       {loaded && view !== 'raised' && !phone && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}
@@ -315,7 +322,7 @@ export function MapView(props: Props) {
           </div>
         </div>
         {(basemap === 'literary' || basemap === 'compare') && (
-          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} units={units} phone={phone} />
+          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} units={units} phone={phone} open={opened === 'key'} onOpen={onKeyOpen} />
         )}
       </div>
     </div>

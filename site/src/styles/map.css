@@ -678,14 +678,16 @@
   white-space: nowrap;
 }
 
-/* Phones: the key opens as a sheet from the bottom of the screen, over the drawer, with its own close button. */
+/* Phones: the key opens as a modal sheet from the bottom of the screen, over the drawer, with its own close
+   button. A <dialog>: the reset clears the browser's centred box, and the backdrop is the progress dialog's veil. */
 .key-sheet {
-  position: fixed;
-  z-index: 6;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
+  inset: auto 0 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border: 0;
+  color: inherit;
   flex-direction: column;
   max-height: 70dvh;
   padding: 10px 16px max(10px, env(safe-area-inset-bottom));
@@ -695,6 +697,14 @@
     0 -4px 0 var(--ink);
   background: var(--paper);
   font-size: 0.9rem;
+}
+
+.key-sheet[open] {
+  display: flex;
+}
+
+.key-sheet::backdrop {
+  background: var(--veil);
 }
 
 .key-sheet-head {

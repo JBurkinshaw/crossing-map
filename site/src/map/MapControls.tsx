@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 import type { Units } from '../units'
 import { viewAvailable, type Basemap, type View } from './mode'
 import { Switch } from './Switch'
@@ -40,13 +40,15 @@ type Props = {
   onTint: (tint: boolean) => void
   units: Units
   onUnits: (units: Units) => void
+  // Whether the menu is open: MapView holds it, as opening the menu closes the layer key and the other way round.
+  menuOpen: boolean
+  onMenuOpen: (open: boolean) => void
 }
 
 // The map's switches, folded into one Map button top right, so the open box never sits over a stop the reader
 // is looking at (the folded button is small enough for frameStops' padding to clear).
 export function MapControls(props: Props) {
-  const { basemap, onBasemap, unavailable, view, onView, tint, tintAvailable, onTint, units, onUnits } = props
-  const [menuOpen, setMenuOpen] = useState(false)
+  const { basemap, onBasemap, unavailable, view, onView, tint, tintAvailable, onTint, units, onUnits, menuOpen, onMenuOpen: setMenuOpen } = props
   const menuBox = useRef<HTMLDivElement>(null)
   const menuButton = useRef<HTMLButtonElement>(null)
   useEffect(() => {
@@ -57,7 +59,7 @@ export function MapControls(props: Props) {
     }
     document.addEventListener('pointerdown', outside)
     return () => document.removeEventListener('pointerdown', outside)
-  }, [menuOpen])
+  }, [menuOpen, setMenuOpen])
   // Escape closes the box from anywhere inside it, and focus returns to the Map button.
   useEffect(() => {
     if (!menuOpen) return
@@ -69,7 +71,7 @@ export function MapControls(props: Props) {
     }
     box?.addEventListener('keydown', onKey)
     return () => box?.removeEventListener('keydown', onKey)
-  }, [menuOpen])
+  }, [menuOpen, setMenuOpen])
   const off = basemap === 'satellite' || basemap === 'topo'
 
   return (
@@ -81,7 +83,7 @@ export function MapControls(props: Props) {
         aria-expanded={menuOpen}
         aria-controls="map-controls"
         aria-label="Map options"
-        onClick={() => setMenuOpen((o) => !o)}
+        onClick={() => setMenuOpen(!menuOpen)}
       >
         <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.4">
           <path d="M10 3 L18 7 L10 11 L2 7 Z" />

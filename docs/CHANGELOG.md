@@ -30,11 +30,12 @@ A change is **released** when it is merged to `main`, which the public site serv
 - The key's drawing is twice as large and is a person or animal from the book once the reader has reached one. Its text now reads "People, animals and things from the book, set just beside their place, not on it. Not to scale."
 - Grouped-stop markers say what they hold ("9 stops", "9 places") instead of "+9", and a click or tap zooms in until all of them come apart.
 - The map's switches fold under one Map button on desktop as on phones, so the box no longer covers a stop. A line under each switch says what the chosen option does. Compare is labelled with its name.
-- On phones, the key opens as a sheet from the bottom of the screen with a Close button, the "Where you are" inset is hidden, and the scale bar is shorter, so it no longer covers the first stop of J1.
+- On phones, the key opens as a sheet from the bottom of the screen with a Close button; a tap outside it or Escape closes it too, the "Where you are" inset is hidden, and the scale bar is shorter, so it no longer covers the first stop of J1.
 - The first visit opens one dialog, not two: the introduction, a line on how to use the map, and the question "Have you finished *The Crossing*?". "Yes" shows everything; "Not yet" asks where you are up to (decision 0034).
 - "Where are you up to?" lists the episodes by their opening words, grouped by Part, in place of the slider. You can also enter how far through the book you are as a percentage.
 - The reading-progress badge says what the map is hiding, such as "Hiding what's after Part I, episode 5: In the woods", and opens "Where are you up to?" directly.
 - Setting your progress to an episode opens the map at the stop you reached most recently.
+- Opening the Map menu closes the key, and opening the key closes the menu, so neither covers the other.
 - Drawings no longer sit on the stops and route lines: each is set on the side of its pin with the least under it, and those in the busiest country, around Casas Grandes, San Diego, Cloverdale and the Peloncillos, show from a closer zoom. At each drawing's first zoom, none now covers another drawing (7 pairs did) or a stop marker except one at Colonia Morelos (26 did).
 - The drawings of the journey in focus are at full strength; those of other journeys are lighter, as their route lines are.
 

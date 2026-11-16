@@ -178,11 +178,13 @@ type Props = {
   units: Units
   // On phones the key opens as a sheet from the bottom of the screen, with its own close button.
   phone: boolean
+  // Whether the key is open: MapView holds it, as opening the key closes the Map menu and the other way round.
+  open: boolean
+  onOpen: (open: boolean) => void
 }
 
-export function LayerKey({ story, journey, reached, units, phone }: Props) {
+export function LayerKey({ story, journey, reached, units, phone, open, onOpen }: Props) {
   const journeyInk = journeyInks(tokens)
-  const [open, setOpen] = useState(false)
   const [tab, setTab] = useState<Tab>('story')
   const [sprite, setSprite] = useState<Sprite | null>(null)
   const [vignettes, setVignettes] = useState<Vignette[]>([])
@@ -199,9 +201,14 @@ export function LayerKey({ story, journey, reached, units, phone }: Props) {
       )
       .catch(() => setVignettes([]))
   }, [open, sprite])
-  // The sheet takes focus when it opens, so a screen reader and the keyboard land in it.
+  // On phones the key is a modal sheet: everything behind it is inert, and focus starts on its Close button, so
+  // a screen reader and the keyboard land in it.
+  const sheet = useRef<HTMLDialogElement>(null)
   useEffect(() => {
-    if (open && phone) sheetClose.current?.focus()
+    const dialog = sheet.current
+    if (!open || !phone || !dialog) return
+    if (!dialog.open) dialog.showModal()
+    sheetClose.current?.focus()
   }, [open, phone])
   // The drawing that stands for them all: the first person or animal the reader has reached (their drawings
   // carry no caption), else the first drawing reached.
@@ -231,25 +238,29 @@ export function LayerKey({ story, journey, reached, units, phone }: Props) {
   }, [story])
   const ink = journeyInk[journey] ?? tokens.ink
 
+  // Closed by the reader (Close, Escape, a tap outside the sheet), the key gives focus back to the Key button.
+  // That waits until the sheet has gone, as the button is inert while the modal sheet is open. Closed because the
+  // Map menu opened, it leaves focus in the menu.
+  const returnFocus = useRef(false)
   const close = () => {
-    setOpen(false)
-    toggle.current?.focus()
+    returnFocus.current = true
+    onOpen(false)
   }
-  // Escape closes the key from anywhere inside it (the sheet is portalled out of the box), and focus returns to
-  // the Key button.
-  const box = useRef<HTMLDivElement>(null)
-  const sheetBox = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    if (!open) return
+    if (open || !returnFocus.current) return
+    returnFocus.current = false
+    toggle.current?.focus()
+  }, [open])
+  // Escape closes the desktop key from anywhere inside it; the phone sheet, a <dialog>, has its own cancel event.
+  const box = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!open || phone) return
     const onKey = (e: globalThis.KeyboardEvent) => {
-      const at = e.target as Node
-      if (e.key !== 'Escape' || !(box.current?.contains(at) || sheetBox.current?.contains(at))) return
-      setOpen(false)
-      toggle.current?.focus()
+      if (e.key === 'Escape' && box.current?.contains(e.target as Node)) close()
     }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
-  }, [open])
+  })
   // The tabs: one tab stop, the arrow keys (and Home and End) moving to the other tab and showing it.
   const onTabKey = (e: KeyboardEvent<HTMLDivElement>) => {
     const at = TABS.findIndex(([t]) => t === tab)
@@ -449,23 +460,40 @@ export function LayerKey({ story, journey, reached, units, phone }: Props) {
 
   return (
     <div className="layer-key" ref={box}>
-      <button ref={toggle} type="button" className="layer-key-toggle" aria-expanded={open} aria-controls={`${id}-body`} onClick={() => setOpen((o) => !o)}>
+      <button ref={toggle} type="button" className="layer-key-toggle" aria-expanded={open} aria-controls={`${id}-body`} onClick={() => onOpen(!open)}>
         Key
       </button>
       {open &&
         (phone ? (
-          // Portalled to the page, so it stacks over the drawer rather than inside the cartouche.
+          // Portalled to the page, so the modal sheet is not inside the cartouche, which goes inert behind it.
           createPortal(
-          <div ref={sheetBox} className="key-sheet" id={`${id}-body`} role="dialog" aria-labelledby={`${id}-title`}>
-            <div className="key-sheet-head">
-              <h2 id={`${id}-title`}>Key</h2>
-              <button ref={sheetClose} type="button" className="key-sheet-close" onClick={close}>
-                Close
-              </button>
-            </div>
-            {body}
-          </div>,
-          document.body,
+            // Escape, the keyboard's way out, is the dialog's cancel event; the click is for a tap on the backdrop.
+            // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+            <dialog
+              ref={sheet}
+              className="key-sheet"
+              id={`${id}-body`}
+              aria-labelledby={`${id}-title`}
+              onCancel={(e) => {
+                e.preventDefault()
+                close()
+              }}
+              // A tap on the backdrop lands on the <dialog> itself, outside its box.
+              onClick={(e) => {
+                const r = e.currentTarget.getBoundingClientRect()
+                const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom
+                if (e.target === e.currentTarget && !inside) close()
+              }}
+            >
+              <div className="key-sheet-head">
+                <h2 id={`${id}-title`}>Key</h2>
+                <button ref={sheetClose} type="button" className="key-sheet-close" onClick={close}>
+                  Close
+                </button>
+              </div>
+              {body}
+            </dialog>,
+            document.body,
           )
         ) : (
           <div className="layer-key-body" id={`${id}-body`}>
