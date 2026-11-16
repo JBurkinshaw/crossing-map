@@ -10,6 +10,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- J5 leg 8, Santa Ana back to La Boquilla, follows the Soto Máynez road the book has them ride back on, instead of a curve straight over the ranges.
 - Traced legs are simplified to 5 m, which halves `journeys.geojson` (1.1 MB to 497 KB) with no visible change on the map.
 - `vignettes` no longer has `max_zoom`: a drawing shows from its `min_zoom` at every closer zoom.
 
