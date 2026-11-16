@@ -10,8 +10,8 @@ The side and the first zoom are chosen here (decision 0026, amended 2026-11-16).
 every side is scored by what the drawing and its caption would cover on screen: the stop markers and route lines of
 every journey, the pins of other places, and the drawings already placed (place). The best side wins; a tie keeps
 the side nearest the seed's `side`. If even the best side covers a stop, another drawing or more than LINE_OK of route
-line at the seed's `min_zoom`, the drawing waits for a closer zoom, up to MAX_ZOOM, where the country has spread out.
-A seed row with `side_fixed` set keeps its `side`; only its zoom may change.
+line at the seed's `min_zoom`, the drawing waits for a closer zoom where the country has spread out, but at most
+MAX_RISE zoom steps: the owner wants the drawings in view as context, so past that it takes its clearest side there.
 
 Screen footprints are measured in Web Mercator (EPSG:3857) pixels, as MapLibre draws them: 512 px tiles, so a zoom z
 world is 512 * 2^z px across. The coordinates are the published layers' (WGS 84) and the sizes are relief.ts's.
@@ -33,6 +33,8 @@ SEED = SEEDS / "vignettes.csv"
 SIDES = {"n": "north", "ne": "north-east", "e": "east", "se": "south-east", "s": "south", "sw": "south-west",
          "w": "west", "nw": "north-west"}
 MAX_ZOOM = 12
+# How many zoom steps a drawing may wait past its seed `min_zoom` for a clear side (decision 0026, amended).
+MAX_RISE = 1
 
 # relief.ts: the drawing grid's half width, the gap to the pin, and icon and caption sizes by zoom.
 HALF, GAP = 48, 16
@@ -190,23 +192,24 @@ def angle(a: str, b: str) -> int:
     return min(d, 8 - d)
 
 
-def place(story: Story, at: Point, seed_side: str, fixed: bool, min_zoom: float, label: str,
+def place(story: Story, at: Point, seed_side: str, min_zoom: float, label: str,
           placed: list[Drawing] = ()) -> tuple[Drawing, Clash]:
     """The side and first zoom for one drawing, and what it covers there, keeping clear of the drawings placed.
 
     At each zoom from min_zoom to MAX_ZOOM the best side is the one with the lowest clash level, then score, then
     nearest the seed's side. The drawing first shows at the first zoom whose best side reaches the lowest level any
     zoom reaches: clear if it can be, else off every stop marker, and so on; a drawing as crowded at every zoom keeps
-    its own min_zoom, since waiting would not help (a hub where many stops and lines meet).
+    its own min_zoom, since waiting would not help (a hub where many stops and lines meet). That first zoom is at most
+    MAX_RISE steps past min_zoom: a drawing that would wait longer shows there, on its clearest side at that zoom.
     """
-    sides = [seed_side] if fixed else list(SIDES)
     zooms = [min_zoom] + [float(z) for z in range(math.floor(min_zoom) + 1, MAX_ZOOM + 1)]
     best = []
     for z in zooms:
-        scored = [(story.clash(d, placed), d) for d in (Drawing(at, s, z, label) for s in sides)]
+        scored = [(story.clash(d, placed), d) for d in (Drawing(at, s, z, label) for s in SIDES)]
         best.append(min(scored, key=lambda cd: (cd[0].level, cd[0].score, angle(cd[1].side, seed_side))))
     lowest = min(c.level for c, _ in best)
-    clash, d = next(cd for cd in best if cd[0].level == lowest)
+    first = next(k for k, (c, _) in enumerate(best) if c.level == lowest)
+    clash, d = best[min(first, MAX_RISE)]
     return d, clash
 
 
@@ -247,7 +250,7 @@ def main() -> None:
         ref = points[s["ref"]]
         lon, lat = (float(s["lon"]), float(s["lat"])) if s["lon"] else ref["geometry"]["coordinates"]
         at = Point(MERC.transform(lon, lat))
-        d, clash = place(story, at, s["side"], bool(s["side_fixed"]), float(s["min_zoom"]), s["label"], placed)
+        d, clash = place(story, at, s["side"], float(s["min_zoom"]), s["label"], placed)
         placed.append(d)
         chosen[i] = (lon, lat, d.side, d.zoom, clash)
 
@@ -255,13 +258,17 @@ def main() -> None:
     for i, s in enumerate(seeds):
         lon, lat, side, zoom, clash = chosen[i]
         where = "its own place" if s["lon"] else points[s["ref"]]["properties"]["name"]
-        how = "by hand" if s["side_fixed"] else "where it covers the fewest stops, route lines and other drawings"
-        placed_note = (f"The drawing is set on the {SIDES[side]} side of {where} ({how}), beside the pin rather "
-                       "than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.")
+        placed_note = (f"The drawing is set on the {SIDES[side]} side of {where} (where it covers the fewest stops, "
+                       "route lines and other drawings), beside the pin rather than on it; it is not to scale, and it "
+                       "shows roughly where the scene happens, not exactly.")
         held = None
-        if zoom > float(s["min_zoom"]):
+        if zoom > float(s["min_zoom"]) and clash.clear:
             held = (f"Shown from zoom {zoom:g}, not {float(s['min_zoom']):g}: further out, on every side, it would "
                     "cover a stop, a route line or another drawing.")
+        elif zoom > float(s["min_zoom"]):
+            held = (f"Shown from zoom {zoom:g}, not {float(s['min_zoom']):g}: further out it would cover more. The "
+                    "country is still crowded at this zoom, so it sits on the side where it covers least rather than "
+                    "wait for a closer zoom.")
         elif not clash.clear:
             held = ("The country here is crowded at every zoom, so the drawing shows from its first zoom on the side "
                     "where it covers least.")

@@ -13,7 +13,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - `translations.json` has a new field, `common`: true for the 76 lines that are only "Sí", "No", "Gracias", "Bueno", "Adiós", "Buenas noches" or "Señor" (decision 0035). Set by `crossing.translations`.
 - Traced legs are simplified to 5 m, which halves `journeys.geojson` (1.1 MB to 497 KB) with no visible change on the map.
 - `vignettes` no longer has `max_zoom`: a drawing shows from its `min_zoom` at every closer zoom.
-- `vignettes` has a `journey`, the journey each drawing belongs to. Each drawing's `side` is now the side of its pin where it covers the fewest stops, route lines and other drawings, and its `min_zoom` waits for a closer zoom where it would cover a stop or a route line further out (decision 0026, amended): 36 sides and 28 first zooms changed, and its `reasoning` says why.
+- `vignettes` has a `journey`, the journey each drawing belongs to. Each drawing's `side` is now the side of its pin where it covers the fewest stops, route lines and other drawings, and its `min_zoom` waits one zoom step, no more, where it would cover a stop or a route line further out (decision 0026, amended): 34 sides and 27 first zooms changed, and its `reasoning` says why.
 
 #### Site
 
@@ -36,7 +36,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - The reading-progress badge says what the map is hiding, such as "Hiding what's after Part I, episode 5: In the woods", and opens "Where are you up to?" directly.
 - Setting your progress to an episode opens the map at the stop you reached most recently.
 - Opening the Map menu closes the key, and opening the key closes the menu, so neither covers the other.
-- Drawings no longer sit on the stops and route lines: each is set on the side of its pin with the least under it, and those in the busiest country, around Casas Grandes, San Diego, Cloverdale and the Peloncillos, show from a closer zoom. At each drawing's first zoom, none now covers another drawing (7 pairs did) or a stop marker except one at Colonia Morelos (26 did).
+- Drawings no longer sit on the stops and route lines: each is set on the side of its pin with the least under it, and those in the busiest country, around Casas Grandes, San Diego, Cloverdale and the Peloncillos, show from one zoom closer, never more, so they stay in view. At each drawing's first zoom, none now covers another drawing (7 pairs did), and 5 cover a stop marker (26 did).
 - The drawings of the journey in focus are at full strength; those of other journeys are lighter, as their route lines are, in Compare too.
 
 ### 2026-11-15

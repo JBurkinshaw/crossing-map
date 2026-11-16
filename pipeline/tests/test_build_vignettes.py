@@ -1,5 +1,8 @@
+import math
+
 from shapely.geometry import Point
 
+from crossing import build_vignettes
 from crossing.build_vignettes import MERC, Story, footprint, journey_of, place, px_per_m
 
 
@@ -33,13 +36,10 @@ def test_picks_the_clear_side_and_keeps_the_seed_side_on_a_tie():
     stops = [feature(*offset(lon, lat, 50, 0, 9), id="s1", journey="J1", place_ref=None)]
     story = Story(stops, [], [line((lon, lat), offset(lon, lat, -300, 0, 9))])
     at = Point(MERC.transform(lon, lat))
-    d, clash = place(story, at, "e", False, 9, "")
+    d, clash = place(story, at, "e", 9, "")
     assert clash.clear and d.zoom == 9
     # The diagonal sides' corners still reach the stop's marker, so the nearest clear sides to the seed's are n and s.
     assert d.side in {"n", "s"}
-    # Fixed by hand, it stays east and waits for a zoom where the stop has moved off it.
-    d, clash = place(story, at, "e", True, 9, "")
-    assert d.side == "e" and d.zoom > 9 and clash.clear
 
 
 def test_a_hub_crowded_at_every_zoom_keeps_its_first_zoom():
@@ -47,8 +47,23 @@ def test_a_hub_crowded_at_every_zoom_keeps_its_first_zoom():
     spokes = [line((lon, lat), offset(lon, lat, dx * 3000, dy * 3000, 9))
               for dx in (-1, 0, 1) for dy in (-1, 0, 1) if dx or dy]
     story = Story([], [], spokes)
-    d, clash = place(story, Point(MERC.transform(lon, lat)), "w", False, 8, "")
+    d, clash = place(story, Point(MERC.transform(lon, lat)), "w", 8, "")
     assert d.zoom == 8 and not clash.clear
+
+
+def test_waits_at_most_one_zoom_step(monkeypatch):
+    lon, lat = -108.0, 30.0
+    # A ring of stops 80 px out at zoom 9: every side covers one at zooms 8 and 9, none at 10.
+    ring = [feature(*offset(lon, lat, 80 * math.cos(a), 80 * math.sin(a), 9), id=f"s{k}", journey="J1", place_ref=None)
+            for k, a in enumerate(math.radians(d) for d in range(0, 360, 45))]
+    story = Story(ring, [], [])
+    at = Point(MERC.transform(lon, lat))
+    d, clash = place(story, at, "e", 8, "")
+    assert d.zoom == 9 and not clash.clear
+    # Without the cap it would wait for zoom 10.
+    monkeypatch.setattr(build_vignettes, "MAX_RISE", 99)
+    d, clash = place(story, at, "e", 8, "")
+    assert d.zoom == 10 and clash.clear
 
 
 def test_journey_of_a_place_is_its_first_stop_in_reading_order():
