@@ -20,7 +20,7 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | `modeled-legs.csv` | The legs drawn as least-cost paths (decision 0021), with mode, corridor and a note | Hand |
 | `regions.geojson` | The Animas Valley and La Babícora outlines | `crossing.regions`, then hand edits in QGIS |
 | `areas.geojson` | Each inferred area's outline: the stop's circle cut by a rule (decision 0020) | `crossing.area_drafts`, then hand edits in `pipeline/qgis/areas.qgs` |
-| `vignettes.csv` | The vignette anchors | Hand |
+| `vignettes.csv` | The vignette anchors. `side` is the preferred side, kept on a tie; set `side_fixed` (any value) to keep it whatever it covers. `min_zoom` is the earliest zoom; the build may raise it | Hand |
 | `landforms.toml` | Every weight and threshold of the landform rules, with comments | Hand |
 | `landform_axes.toml` | Hand edits to the landform label lines, each with a reason | Hand |
 | `translations.csv` | Our English for each Spanish line; a non-empty cell wins over the draft | `crossing.translations build`, then hand edits |
@@ -38,7 +38,7 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | Modelled legs | `uv run --project pipeline python -m crossing.least_cost` (optional: `build_story` calls it) | `modeled-legs.csv`, `data/stops.geojson`, the DEM, INEGI streams and road tracks, Natural Earth | Cached routes in `private/cache/least-cost/routes/`, and a line per leg printed | Yes |
 | Story layers | `uv run --project pipeline python -m crossing.build_story` | The seeds; snap shapefiles in `private/cache/` | `data/places.geojson`, `stops.geojson`, `areas.geojson`, `journeys.geojson`, `elsewhere.json`; the stage 4 checklists, keeping ticked rows | Yes |
 | Region drafts | `uv run --project pipeline python -m crossing.regions [--force]` | `data/places.geojson`, the DEM | `pipeline/seeds/regions.geojson`; refuses to overwrite without `--force` | Yes |
-| Vignette anchors | `uv run --project pipeline python -m crossing.build_vignettes` | `vignettes.csv`, `data/stops.geojson`, `data/places.geojson` | `data/vignettes.geojson` | No |
+| Vignette anchors | `uv run --project pipeline python -m crossing.build_vignettes` | `vignettes.csv`, `data/stops.geojson`, `data/places.geojson`, `data/journeys.geojson` | `data/vignettes.geojson`, each drawing's side and first zoom chosen clear of the stops and route lines (decision 0026), and a line printed for each that differs from the seed. `pipeline/measure/vignette_clashes.py` counts what the drawings still cover | No |
 | State labels | `uv run --project pipeline python -m tiles.state_labels` | Natural Earth admin 1 states, the story layers in `data/` | `site/public/labels/states.geojson`: label points clear of the story | Yes |
 | Water places | `uv run --project pipeline python -m crossing.water_places` | GNIS, GeoNames, `data/places.geojson`, `data/journeys.geojson` | `data/water_places.geojson`: springs, wells, tanks, ranches and stations in the journeys corridor | Yes |
 | Context places | `uv run --project pipeline python -m crossing.context_places` | GNIS, the GNIS national file of 2021 (`private/cache/gazetteer/Features_20210825/`), GeoNames, Natural Earth railroads, `data/places.geojson`, `data/water_places.geojson` | `data/context_places.geojson`: forts, ghost towns, mines, sawmills, churches, cemeteries, schools, old post offices, corrals, camps, named wells, dry lakes and flats in the journeys corridor | Yes |

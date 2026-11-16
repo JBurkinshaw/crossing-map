@@ -332,6 +332,8 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 
 - Each vignette stands on the stop or place it is for, with a `side`, a `min_zoom` from which it shows at every closer zoom, and a `priority` (decision 0026).
 - The drawing is set beside its pin on that side, a fixed gap away on screen, so it never covers the marker; no leader lines. Place labels draw over it; its caption is placed before every other label. The key says its position is approximate.
+- The side is the one where the drawing and its caption cover the fewest stops, route lines and other drawings at its first zoom; the seed's side breaks a tie, and the owner can fix a side by hand. A drawing that would cover another drawing, a stop or more than its own width of route line on every side waits for a closer zoom (up to 12), unless it is as crowded at every zoom. Its `reasoning` says which.
+- Each drawing belongs to a journey (`journey`). Those of the journey in focus are at full strength, the others at 60%, as other journeys' route lines are lighter.
 - Vignettes belong to the classic map only.
 - Spoiler mode hides those first seen after the reader's progress.
 

@@ -16,7 +16,7 @@ import type { Basemap, View } from './mode'
 import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
 import { WaterMarks } from './WaterMarks'
-import { contourText, glyphText, RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
+import { contourText, glyphText, RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers, VIGNETTE_LAYERS, vignetteOpacity } from './relief'
 import { closeAttribution, dataBase, exposeForScripts, fontsBase, motion, TERRAIN_EXAGGERATION, tilesBase } from './setup'
 import { baseLayerIds, literaryStyle, notRaisedIds } from './style'
 import { palette, storyBounds } from './tokens'
@@ -132,6 +132,16 @@ export function MapView(props: Props) {
     map.setLayoutProperty('mountain-glyph', 'text-field', glyphText(units))
     map.setLayoutProperty('contour-label', 'text-field', contourText(units))
   }, [units, loaded, mapRef])
+
+  // The drawings of the journey in focus at full strength, the others lighter.
+  const journey = stops[0]?.properties.journey ?? ''
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (!map || !loaded) return
+    const opacity = vignetteOpacity(journey)
+    if (map.getLayer(VIGNETTE_LAYERS.drawing)) map.setPaintProperty(VIGNETTE_LAYERS.drawing, 'icon-opacity', opacity)
+    if (map.getLayer(VIGNETTE_LAYERS.caption)) map.setPaintProperty(VIGNETTE_LAYERS.caption, 'text-opacity', opacity)
+  }, [journey, loaded, mapRef])
 
   const onUnavailable = useCallback(() => {
     setUnavailable(true)
