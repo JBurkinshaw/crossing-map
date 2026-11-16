@@ -289,11 +289,11 @@ The base is Lt. Jim Campbell's [A Translation of Spanish Passages in The Crossin
 
 **Method** (`crossing.translations`). Every Spanish sentence and phrase in the text is found by language identification (lingua) plus a Spanish word list, accent- and case-folded, and matched to guide entries by fuzzy matching (rapidfuzz). Matched entries anchor page numbers. Every line gets our own English, never the guide's, with a confidence, and a link to the guide page where one exists. The guide's English is never stored or compared.
 
-**Review.** Readers review translations: each line has a "Suggest a better translation" link to a prefilled GitHub issue, and accepted suggestions are credited in the changelog. A guide entry is never overwritten; a note sits beside it.
+**Review.** Readers review translations: each line has a "Suggest a better translation" link to a prefilled GitHub issue, and accepted suggestions are credited in the changelog. A guide entry is never overwritten; a note sits beside it. The episode, our confidence and the guide link fold under "About this translation" beneath each line.
 
-**Where it was spoken.** Each line points to a stop, place, or area where the text allows. Talk on the road points to a route segment, and the map outlines a corridor 2 km either side of it, labelled "on the road between X and Y". A selected place shows "Spoken here", and a selected line flies to its place.
+**Where it was spoken.** Each line points to a stop, place, or area where the text allows. Talk on the road points to a route segment, and the map outlines a corridor 2 km either side of it, labelled "on the road between X and Y". A selected place or stop shows "Spanish here", and a road "Spanish on this road"; a selected line flies to its place. Very common lines ("Sí", "No", "Gracias", "Bueno", "Adiós", "Buenas noches", "Señor", alone) are marked `common` by the pipeline and left out of these lists and the road's count, unless picked in search; "Vámonos" and "Está bien" are kept (decision 0034).
 
-**Search** covers Spanish, English, and place names, accent-insensitive, and obeys the reading progress ("Se murió" is itself a spoiler).
+**Search** covers Spanish, English, and place names, accent-insensitive, and obeys the reading progress ("Se murió" is itself a spoiler). It finds the common lines too. A visible "Search in:" select narrows it to one Part.
 
 ## 9. Interface
 
@@ -313,6 +313,8 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 | Cluster marker | Only where the map is crowded, around Cloverdale and the Peloncillos |
 | Home button | Back to the whole journey |
 | How it's built | Section 4.3 |
+
+**The panel** opens with a slim header, "The Crossing · a reading map", with About and Introduction links; the footer links to the other pages. Then come reading progress, search, the journey and its stepper, and the card and stop. On phones the stepper is the drawer's peek row, and the header and progress badge sit straight under it, before the journey picker. A stop says what happens there: its episode ("Part I · *Two days later*") and that episode's spoiler-safe summary from `episodes.json`, then any note. Stops and cards name their certainty in plain words, from one table in the code (decision 0034): `located` is "Named and found", `approximate` "Roughly here", `inferred` "Worked out from clues", `reported` "Someone in the book says so", followed by the radius ("Worked out from clues · within about 3 mi"). The source and its id sit under "How this was placed" with the reasoning. A route leg's card names its line as the key does instead.
 
 Avoid the kitchen sink (every layer on) and desert fog (an empty view with no cue). Empty desert is part of the book, so every view keeps a faint label or a route.
 

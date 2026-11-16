@@ -10,11 +10,19 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- `translations.json` has a new field, `common`: true for the 76 lines that are only "Sí", "No", "Gracias", "Bueno", "Adiós", "Buenas noches" or "Señor" (decision 0034). Set by `crossing.translations`.
 - Traced legs are simplified to 5 m, which halves `journeys.geojson` (1.1 MB to 497 KB) with no visible change on the map.
 - `vignettes` no longer has `max_zoom`: a drawing shows from its `min_zoom` at every closer zoom.
 
 #### Site
 
+- A stop says what happens there: its Part and episode ("Part I · *Two days later*") and the episode's summary.
+- Stops and place cards say how sure the map is in plain words: "Named and found", "Roughly here", "Worked out from clues" and "Someone in the book says so" (decision 0034). The source moves under "How this was placed", which on a card now holds the reasoning too.
+- "Spoken here" is now "Spanish here", and "Spoken on this road" "Spanish on this road". Very common lines ("Sí", "Gracias", "Buenas noches" and the like) are left out of these lists; search still finds them.
+- Each translation shows its Spanish, page, English and "Suggest a better translation"; the episode, confidence and Campbell's guide link fold under "About this translation".
+- Search's Part filter has a visible label, "Search in:".
+- The About page is rewritten: why a map, how to use it, how sure each place is, and how routes are drawn.
+- The panel opens with a header, "The Crossing · a reading map", with About and Introduction links. On phones the reading-progress badge sits straight under the stepper, before the journey picker.
 - The vignettes stay on the map when zoomed in past 12; they used to disappear there, and the she-wolf past 11.
 
 ### 2026-11-15
