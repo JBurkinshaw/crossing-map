@@ -19,7 +19,8 @@ import { usePhone } from './panel/usePhone'
 import { useRoute } from './route'
 import { shownAt, storyUpTo, translationsUpTo } from './spoiler/filter'
 import { reachedEpisode, spoilersHidden, useEpisodes, useProgress } from './spoiler/progress'
-import { ReadingProgress } from './spoiler/ReadingProgress'
+import { useReadingProgress } from './spoiler/progressDialog'
+import { ProgressBadge, ReadingProgressDialog } from './spoiler/ReadingProgress'
 import { byId, roadLabel } from './story/select'
 import { distance, useUnits } from './units'
 
@@ -39,6 +40,8 @@ export default function App() {
   const questionsAll = useOpenQuestions()
   // Spoiler mode: everything below sees only what the reader has reached (spoiler/filter.ts).
   const { progress, isSet, setProgress } = useProgress()
+  // The reading-progress dialog's state lives here, above the panel, so it survives the panel's change of layout.
+  const progressDialog = useReadingProgress(isSet)
   const episodesLoaded = useEpisodes()
   const episodes = episodesLoaded.data ?? NO_LIST
   const reached = reachedEpisode(progress)
@@ -193,9 +196,7 @@ export default function App() {
         <Panel
           units={units}
           questions={questions}
-          header={
-            <ReadingProgress progress={progress} isSet={isSet} episodes={episodes} episodesFailed={episodesLoaded.failed} onSet={setProgress} />
-          }
+          header={<ProgressBadge progress={progress} isSet={isSet} episodes={episodes} onOpen={() => progressDialog.open('where')} />}
           search={<SearchBox places={flat?.places.features ?? []} stops={flat?.stops.features ?? []} translations={translations} onPick={nav.onPick} />}
           card={card}
           failed={loaded === 'failed'}
@@ -221,6 +222,16 @@ export default function App() {
           phone={phone}
           drawer={drawer}
           onDrawer={setDrawer}
+        />
+      )}
+      {!reviewing && (
+        <ReadingProgressDialog
+          dialog={progressDialog}
+          progress={progress}
+          isSet={isSet}
+          episodes={episodes}
+          episodesFailed={episodesLoaded.failed}
+          onSet={setProgress}
         />
       )}
       {route !== '/' && (
