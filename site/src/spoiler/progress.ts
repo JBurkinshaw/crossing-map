@@ -8,7 +8,8 @@ import { useJson, type Loaded } from '../data/json'
 // it is filled in).
 export type Episode = { episode: string; part: number; opening: string; words: number; pages: string | null; summary: string }
 
-// 'none' (not started), 'all' (finished: nothing hidden) or the last episode read, such as '2-05'.
+// 'none' (not started), 'all' (finished: nothing hidden) or the episode being read, such as '2-05', which shows in
+// full (decision 0034).
 export type Progress = string
 
 const KEY = 'crossing-map.progress'

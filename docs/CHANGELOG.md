@@ -23,7 +23,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - Each translation shows its Spanish, page, English and "Suggest a better translation"; the episode, confidence and Campbell's guide link fold under "About this translation".
 - Search's Part filter has a visible label, "Search in:".
 - The About page is rewritten: why a map, how to use it, how sure each place is, and how routes are drawn.
-- The panel opens with a header, "The Crossing · a reading map", with About and Introduction links. On phones the reading-progress badge sits straight under the stepper, before the journey picker.
+- The panel opens with a header, "The Crossing · a reading map", with About and Introduction links. On phones, under the stepper, this slim header comes first, then the reading-progress badge, then the journey picker.
 - The vignettes stay on the map when zoomed in past 12; they used to disappear there, and the she-wolf past 11.
 - The key no longer runs off the bottom of a laptop screen: it is split into two tabs, "The story" and "The land", and scrolls if the screen is still too short. Journeys are listed in two columns under short names ("J2 First crossing").
 - The key now explains the international boundary, state lines, grouped stops, spot heights, and the small marks for forts, mines, churches, cemeteries, ruins, stations, ranches, camps, springs, wells, tanks and windmills. They are drawn the same way as on the map.

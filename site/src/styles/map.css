@@ -663,6 +663,8 @@
 .key-mark-wide {
   width: auto;
   min-width: 34px;
+  /* The grouped-stops ring is as wide as its box: a margin keeps it off its label. */
+  margin-right: 4px;
 }
 
 /* A grouped-stop marker at the map's size. */

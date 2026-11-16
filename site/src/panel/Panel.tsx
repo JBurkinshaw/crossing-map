@@ -10,7 +10,7 @@ import { distance, type Units } from '../units'
 import type { OpenQuestion } from '../data/openQuestions'
 import { FeatureQuestions } from './OpenQuestions'
 import { PART_NUMERALS, type Episode } from '../spoiler/progress'
-import { certaintyLabel } from './certainty'
+import { CERTAINTY_LABEL } from './certainty'
 
 type Props = {
   units: Units
@@ -122,7 +122,7 @@ export function Panel(props: Props) {
       <details className="placement" open={placementOpen} onToggle={(e) => onPlacement(e.currentTarget.open)}>
         <summary>How this was placed</summary>
         <p className="meta">
-          {certaintyLabel(stop.properties.certainty)}
+          {CERTAINTY_LABEL[stop.properties.certainty]}
           {stop.properties.uncertainty_m ? ` · within about ${distance(stop.properties.uncertainty_m, units)}` : ''}
         </p>
         {stop.properties.reasoning && <p>{stop.properties.reasoning}</p>}

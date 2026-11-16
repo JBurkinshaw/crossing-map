@@ -498,8 +498,7 @@ button.link:focus-visible,
 .search-part select:focus-visible,
 .search-results button:focus-visible,
 .place-card .close:focus-visible,
-.text-button:focus-visible,
-.layer-key summary:focus-visible {
+.text-button:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 1px;
 }

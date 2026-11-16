@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { episodeAtPage, episodeAtPercent, firstPage, hasPages } from './position'
+import { episodeAtPage, episodeAtPercent, hasPages } from './position'
 import type { Episode } from './progress'
 
 const episode = (id: string, words: number, pages: string | null): Episode => ({
@@ -32,10 +32,10 @@ describe('episodeAtPercent', () => {
 })
 
 describe('pages', () => {
-  it('reads the first page of a range', () => {
-    expect(firstPage('5–24')).toBe(5)
-    expect(firstPage('61-120')).toBe(61)
-    expect(firstPage(null)).toBeNull()
+  it('reads the first page of a range, with either dash', () => {
+    // '5–24' has an en dash, '61-120' a hyphen.
+    expect(episodeAtPage(5, paged)).toBe('1-01')
+    expect(episodeAtPage(61, paged)).toBe('2-01')
   })
   it('works only once every episode has pages', () => {
     expect(hasPages(episodes)).toBe(false)

@@ -20,7 +20,7 @@ export function episodeAtPercent(percent: number, episodes: Episode[]): Progress
 }
 
 // The first page of a range such as "5–24" (any dash), or null.
-export function firstPage(pages: string | null): number | null {
+function firstPage(pages: string | null): number | null {
   const n = Number(pages?.match(/\d+/)?.[0])
   return Number.isInteger(n) && n > 0 ? n : null
 }
