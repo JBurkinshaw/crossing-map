@@ -10,6 +10,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- Traced legs are simplified to 5 m, which halves `journeys.geojson` (1.1 MB to 497 KB) with no visible change on the map.
 - `vignettes` no longer has `max_zoom`: a drawing shows from its `min_zoom` at every closer zoom.
 
 #### Site

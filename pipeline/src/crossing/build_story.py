@@ -69,6 +69,9 @@ JOIN_DEG = 0.00045
 RIVER_PAD_DEG = 0.15
 RIVER_NAME_M = 300
 INEGI_HYDRO = REPO / "private" / "cache" / "hydro" / "inegi"
+# A traced leg is simplified (Douglas-Peucker) to this tolerance, in metres: well under a pixel at the map's
+# zoom 13 (about 19 m a pixel here), and it halves the published journeys file.
+SIMPLIFY_M = 5
 # The false dawn at the book's end (plan 2.4): the text names no place or event, but it is widely read as the
 # Trinity test, so the map draws a reported line of sight from Billy's last stop towards the Trinity Site
 # (Wikidata Q19842077), SIGHTLINE_KM long, rather than a point.
@@ -312,6 +315,11 @@ def snapped(snap: dict, a: tuple[float, float], b: tuple[float, float]) -> tuple
         sys.exit(f"{snap['journey']} {snap['from_seq']}: {e}; name the roads that join them in snaps.csv")
     out = [[r5(a[0]), r5(a[1])]] + [[r5(x), r5(y)] for x, y in coords] + [[r5(b[0]), r5(b[1])]]
     out = [c for i, c in enumerate(out) if i == 0 or c != out[i - 1]]
+    # Simplify in a plane where a degree of longitude is as long as one of latitude, so the tolerance is in metres
+    # both ways. Douglas-Peucker keeps the two ends, which are the stops.
+    k = math.cos(math.radians((a[1] + b[1]) / 2))
+    flat = LineString([(x * k, y) for x, y in out]).simplify(SIMPLIFY_M / 111_320, preserve_topology=False)
+    out = [[r5(x / k), r5(y)] for x, y in flat.coords]
     if snap["source"] == "inegi-river" and not river_named(snap["feature"], piece):
         sys.exit(f"{snap['journey']} {snap['from_seq']}: no INEGI toponym for {snap['feature']!r} within "
                  f"{RIVER_NAME_M} m of the traced line; raise min_order or check the name")
