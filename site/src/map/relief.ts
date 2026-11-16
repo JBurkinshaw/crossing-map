@@ -208,6 +208,7 @@ function landformLabel(p: Palette): LayerSpecification {
 // sits next to its pin at every zoom and never covers it. Each shows only in its own zoom range; its caption gives way
 // to other labels, the lowest `priority` placed first. The layer is in PROGRESS_LAYERS
 // (spoiler/filter.ts), so each vignette shows from its own first_seen.
+// crossing.build_vignettes picks each side and min_zoom from these sizes: change them there too.
 const VIGNETTE_HALF = 48 // half the 96 px drawing grid
 const VIGNETTE_GAP = 16 // between the pin and the drawing's nearest edge, in drawing pixels
 const VIGNETTE_SIZE: [number, number][] = [[6, 0.52], [9, 0.72], [12, 0.91]] // zoom, icon-size
@@ -223,6 +224,16 @@ const SIDES: Record<string, { anchor: string; dx: number; dy: number }> = {
   w: { anchor: 'right', dx: -1, dy: 0 },
   nw: { anchor: 'bottom-right', dx: -Math.SQRT1_2, dy: -Math.SQRT1_2 },
 }
+// The drawings of journeys other than the one in focus, drawing and caption, are this much lighter, as their route
+// lines are (StoryLayers.tsx).
+const VIGNETTE_OTHER_JOURNEY = 0.6
+export const VIGNETTE_LAYERS = { drawing: 'vignette', caption: 'vignette-label' }
+
+// Full strength for the drawings of the journey in focus (each vignette's `journey`), lighter for the rest.
+export function vignetteOpacity(journey: string): ExpressionSpecification {
+  return ['case', ['==', ['get', 'journey'], journey], 1, VIGNETTE_OTHER_JOURNEY]
+}
+
 const bySide = (f: (side: { anchor: string; dx: number; dy: number }) => unknown, fallback: unknown): ExpressionSpecification =>
   ['match', ['get', 'side'], ...Object.entries(SIDES).flatMap(([k, v]) => [k, f(v)]), fallback] as unknown as ExpressionSpecification
 
@@ -246,7 +257,7 @@ function vignettes(p: Palette): LayerSpecification[] {
     ['all', ['==', ['get', 'kind'], 'vignette'], ['>=', ['zoom'], ['get', 'min_zoom']]]
   return [
     {
-      id: 'vignette',
+      id: VIGNETTE_LAYERS.drawing,
       type: 'symbol',
       source: 'vignettes',
       filter,
@@ -267,7 +278,7 @@ function vignettes(p: Palette): LayerSpecification[] {
     {
       // The caption, under the drawing. Its own layer, which StoryLayers moves to the top of the stack, so it is
       // placed before every other label and the others make room for it.
-      id: 'vignette-label',
+      id: VIGNETTE_LAYERS.caption,
       type: 'symbol',
       source: 'vignettes',
       filter,
