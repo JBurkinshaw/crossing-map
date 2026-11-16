@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
-import { episodeLabel, progressLabel, reachedEpisode, spoilersHidden, type Episode } from './progress'
+import { badgeLabel, episodeLabel, progressLabel, reachedEpisode, spoilersHidden, type Episode } from './progress'
 
 const episodes: Episode[] = [
-  { episode: '1-01', part: 1, opening: 'When they came', summary: '' },
-  { episode: '1-02', part: 1, opening: 'They rode', summary: '' },
-  { episode: '2-01', part: 2, opening: 'He was all day', summary: '' },
+  { episode: '1-01', part: 1, opening: 'When they came', words: 1, pages: null, summary: '' },
+  { episode: '1-02', part: 1, opening: 'They rode', words: 1, pages: null, summary: '' },
+  { episode: '2-01', part: 2, opening: 'He was all day', words: 1, pages: null, summary: '' },
 ]
 
 describe('reachedEpisode', () => {
@@ -33,5 +33,12 @@ describe('labels', () => {
     expect(progressLabel('none', episodes)).toBe('Not started')
     expect(progressLabel('3-01', episodes)).toBe('Episode 3-01')
     expect(episodeLabel('1-07')).toBe('Part I, episode 7')
+  })
+  it('says on the badge what the map hides', () => {
+    expect(badgeLabel('none', false, episodes)).toBe('Not set')
+    expect(badgeLabel('none', true, episodes)).toBe('Hiding the whole book')
+    expect(badgeLabel('1-02', true, episodes)).toBe('Hiding what’s after Part I, episode 2: They rode')
+    expect(badgeLabel('2-01', true, episodes)).toBe('Showing everything')
+    expect(badgeLabel('all', true, episodes)).toBe('Showing everything')
   })
 })

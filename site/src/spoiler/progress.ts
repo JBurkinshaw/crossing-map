@@ -4,7 +4,9 @@ import { useJson, type Loaded } from '../data/json'
 // Reading progress: how far the reader has read, by episode (data/episodes.json). Spoiler mode hides every
 // feature first seen after it (docs/design.md, sections 6 and 9).
 
-export type Episode = { episode: string; part: number; opening: string; summary: string }
+// `words` is the episode's length; `pages` its page range in the Vintage paperback, such as "5–24" (null until
+// it is filled in).
+export type Episode = { episode: string; part: number; opening: string; words: number; pages: string | null; summary: string }
 
 // 'none' (not started), 'all' (finished: nothing hidden) or the last episode read, such as '2-05'.
 export type Progress = string
@@ -59,6 +61,14 @@ export function progressLabel(progress: Progress, episodes: Episode[]): string {
   const e = episodes.find((x) => x.episode === progress)
   if (!e) return `Episode ${progress}`
   return `Part ${PART_NUMERALS[e.part]}, episode ${Number(e.episode.split('-')[1])}: ${e.opening}`
+}
+
+// The progress badge: what the map is hiding, in the words of the dialog it opens.
+export function badgeLabel(progress: Progress, isSet: boolean, episodes: Episode[]): string {
+  if (!isSet) return 'Not set'
+  if (!spoilersHidden(progress, episodes)) return 'Showing everything'
+  if (progress === 'none') return 'Hiding the whole book'
+  return `Hiding what’s after ${progressLabel(progress, episodes)}`
 }
 
 // "Part I, episode 7", from an episode id such as '1-07'.

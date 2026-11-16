@@ -246,7 +246,7 @@ button.link:focus-visible,
   outline-offset: 2px;
 }
 
-/* The introduction shares the progress dialog's frame; its secondary action is a link beside the button. */
+/* The introduction is the progress dialog's first step; its "More about this map" is a link beside the buttons. */
 .introduction-more {
   align-self: center;
   margin-left: 6px;
@@ -294,29 +294,67 @@ button.link:focus-visible,
   line-height: 1.4;
 }
 
-.progress-slider {
+/* The first step's question, and its two answers: full-width, so either is one easy tap on a phone. */
+.progress-dialog .progress-question {
+  margin: 18px 0 8px;
+  font-size: 1.1rem;
+}
+
+.progress-answers {
+  display: grid;
+  gap: 8px;
+}
+
+.progress-answers button {
+  min-height: 52px;
+  padding: 6px 14px;
+  border: 1px solid var(--ink);
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--ink);
+  background: var(--paper);
+  text-align: left;
+  cursor: pointer;
+}
+
+/* The second step: the episode picker, then the percentage and page shortcuts in smaller type. */
+.progress-episode {
   display: block;
   width: 100%;
-  min-height: 32px;
+  min-height: 44px;
   margin: 4px 0 0;
-  accent-color: var(--ink);
+  padding: 4px 8px;
+  border: 1px solid var(--ink);
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
 }
 
-.part-ticks {
-  position: relative;
-  height: 1.2em;
-  font-size: 0.75rem;
-  font-style: italic;
-  color: var(--ink-faint);
+.progress-shortcuts label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
 }
 
-.part-ticks span {
-  position: absolute;
+.progress-number {
   white-space: nowrap;
 }
 
+.progress-shortcuts input {
+  width: 5em;
+  min-height: 36px;
+  padding: 2px 6px;
+  border: 1px solid var(--ink);
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.progress-shortcuts p {
+  margin: 2px 0 0;
+}
+
 .progress-choice {
-  min-height: 5.5em;
   margin-top: 8px;
 }
 
@@ -347,7 +385,9 @@ button.link:focus-visible,
 
 .progress-badge:focus-visible,
 .progress-actions button:focus-visible,
-.progress-slider:focus-visible {
+.progress-answers button:focus-visible,
+.progress-episode:focus-visible,
+.progress-shortcuts input:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }

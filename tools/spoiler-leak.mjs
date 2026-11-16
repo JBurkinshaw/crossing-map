@@ -156,20 +156,27 @@ async function checkPage(page, route, reached, where, later) {
   }
 }
 
-// The reading-progress dialog: moved to the last episode, it must not summarise episodes past the stored
-// progress.
-async function checkProgressDialog(page, reached, where) {
-  if (!(await page.locator('dialog.progress-dialog[open]').count())) await page.locator('.progress-badge').click()
-  await page.locator('dialog[open] .progress-slider').focus()
-  await page.keyboard.press('End')
-  await page.waitForTimeout(200)
+// The text of the open dialog must not summarise any episode past `reached`.
+async function checkDialogText(page, reached, where) {
   const text = await page.locator('dialog[open]').innerText()
   for (const e of episodes) if (e.episode > reached && e.summary && text.includes(e.summary)) leak(where, `progress dialog summarises ${e.episode}`)
+}
+
+// The reading-progress dialog, opened from the badge: moved to the last episode with the picker, then with the
+// percentage shortcut, it must not summarise episodes past the stored progress.
+async function checkProgressDialog(page, reached, where) {
+  if (!(await page.locator('dialog.progress-dialog[open]').count())) await page.locator('.progress-badge').click()
+  await page.locator('dialog[open] .progress-episode').selectOption(episodes.at(-1).episode)
+  await page.waitForTimeout(200)
+  await checkDialogText(page, reached, `${where}, picker`)
+  await page.locator('dialog[open]').getByLabel(/percentage/).fill('100')
+  await page.waitForTimeout(200)
+  await checkDialogText(page, reached, `${where}, percentage`)
   await page.keyboard.press('Escape')
 }
 
 // A first visit opened straight on a page: the page and the progress dialog must both be usable (nothing open
-// inside an inert subtree), and choosing a position must work.
+// inside an inert subtree), and choosing a position must work: "Not yet", then "Show the map up to here".
 async function checkFirstVisitPages(browser, point) {
   for (const route of PAGES) {
     const where = `progress ${point ?? 'unset'}, first visit to ${route}`
@@ -181,8 +188,12 @@ async function checkFirstVisitPages(browser, point) {
     const blocked = await page.evaluate(() => [...document.querySelectorAll('dialog[open], .page')].filter((e) => e.closest('[inert]')).map((e) => e.className))
     for (const c of blocked) leak(where, `${c} is inside an inert element`)
     if (await page.locator('dialog[open]').count()) {
-      const choose = page.locator('dialog[open] button.primary')
-      if (await choose.count()) await choose.click({ timeout: 3000 }).catch(() => leak(where, 'progress dialog cannot be used'))
+      await page
+        .locator('dialog[open]')
+        .getByRole('button', { name: /^Not yet/ })
+        .click({ timeout: 3000 })
+        .then(() => page.locator('dialog[open] button.primary').click({ timeout: 3000 }))
+        .catch(() => leak(where, 'progress dialog cannot be used'))
     }
     // The page's own links must answer too.
     await page.locator('.page nav a', { hasText: 'Credits' }).click({ timeout: 3000 }).catch(() => leak(where, 'page links cannot be used'))
@@ -226,6 +237,7 @@ for (const point of POINTS) {
   const dialogOpen = await page.locator('dialog[open]').count()
   if (point === null) {
     if (!dialogOpen) leak(where, 'onboarding dialog did not open')
+    await checkDialogText(page, reached, `${where}, onboarding`)
     await page.keyboard.press('Escape')
     if (await page.locator('dialog[open]').count()) leak(where, 'Escape did not close the dialog')
   } else if (dialogOpen) leak(where, 'dialog opened although progress is stored')
