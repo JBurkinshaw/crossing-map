@@ -7,7 +7,7 @@ import { TranslationList } from './TranslationList'
 import { FeatureQuestions } from './OpenQuestions'
 import type { OpenQuestion } from '../data/openQuestions'
 import { distance, type Units } from '../units'
-import { certaintyLabel } from './certainty'
+import { CERTAINTY_LABEL } from './certainty'
 
 type Props = {
   feature: Feature<Geometry, StoryProps>
@@ -27,6 +27,11 @@ type Props = {
   placementOpen: boolean
   onPlacement: (open: boolean) => void
 }
+
+// What kind of place it is, before how sure the map is of it: "Inferred area · Worked out from clues". The data's
+// kinds are single words ("town", "range") apart from these two.
+const KIND: Record<string, string> = { 'inferred-area': 'Inferred area', region: 'Region' }
+const kindWord = (kind: string | undefined) => (kind ? `${KIND[kind] ?? kind[0].toUpperCase() + kind.slice(1)} · ` : '')
 
 // The card for a place or area picked on the map or in search, or for the road a line was spoken on: what it
 // is, how sure the map is of it and how it was placed, and what was said there in Spanish ("Spanish here", design
@@ -50,7 +55,7 @@ export function PlaceCard(props: Props) {
       {/* Only the title is announced when a card opens: the whole card would be read out on every pick. */}
       <h2 aria-live="polite">{title ?? p.name}</h2>
       <div className="meta">
-        {p.kind === 'route-segment' ? (routeLabel(p.method) ?? 'Route segment') : certaintyLabel(p.certainty)}
+        {p.kind === 'route-segment' ? (routeLabel(p.method) ?? 'Route segment') : `${kindWord(p.kind)}${CERTAINTY_LABEL[p.certainty]}`}
         {p.uncertainty_m ? ` · within about ${distance(p.uncertainty_m, units)}` : ''}
       </div>
       {(p.note_full || p.note_safe) && <p>{p.note_full || p.note_safe}</p>}
