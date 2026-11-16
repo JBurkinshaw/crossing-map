@@ -14,7 +14,7 @@ Every file is validated against its schema in `schema/` by `crossing.validate`, 
 | `stops.geojson` | 171 stops, in order, on the seven journeys J1 to J7 | `story-layer` |
 | `journeys.geojson` | 165 route segments between stops, each with its `travel` | `story-layer` |
 | `areas.geojson` | 59 inferred areas and named regions, each with its reasoning | `story-layer` |
-| `vignettes.geojson` | 13 anchors for the map's drawings, and 2 hairline leaders to real sites | `story-layer` |
+| `vignettes.geojson` | 54 anchors for the map's drawings, each on the stop or place it stands for, with the `side` of the pin it is drawn on, the zoom it shows from, and its `journey` | `story-layer` |
 | `landforms.geojson` | 313 label lines along ranges, valleys, plains, mesas and plateaus, for names set along the landform (decision 0023) | `story-layer` |
 | `water_places.geojson` | 1,233 springs, tanks, ranches and stations within 20 km of the journeys ridden or walked, from GNIS and GeoNames, with the book's own 4 (they point at their place) | `story-layer` |
 | `context_places.geojson` | 2,391 forts, ghost towns, mines, sawmills, churches, cemeteries, schools, old post offices, corrals, camps, ranches, named wells and windmills, dry lakes and flats within 20 km of the journeys, from GNIS (with its national file of 2021) and GeoNames; none dated (decision 0028) | `story-layer` |
