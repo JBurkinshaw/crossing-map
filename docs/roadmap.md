@@ -80,7 +80,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
 
 ### Stage 8 packets (2026-11-14)
 
-- **[decide] Interface** (`review/stage-8/ui/README.md`). The desktop controls box can cover a stop in the top-right corner: more padding in `frameStops`, or let the box fold on desktop too? "Satellite tint" or "Ground colour"? Should a click on a stop's town also open the town's card?
+- **[decide] Interface** (`review/stage-8/ui/README.md`). "Satellite tint" or "Ground colour"? Should a click on a stop's town also open the town's card? (The controls box covering a stop is settled: the box now folds under one Map button on desktop too.)
 - **[decide] Hillshade** (`review/stage-8/lab-hillshade/README.md`; MapTiler-like adopted, decision 0025). Build and release the 76 MB `terrain-hi.pmtiles` (tile zoom 11), then make the site change? Add localhost to the MapTiler key so the lab can show Topo? Publish the lab, or keep it dev-only?
 - **[decide] Wheeler study** (`review/stage-8/wheeler/README.md`; decisions 0022 to 0024 record what was adopted). Still open: long valley names, and the test-area questions in `review/stage-9/`.
 - **[decide] Streams** (`review/stage-8/streams/README.md`). Zoom 12 density; the box for order 2 streams, or a corridor (which could hint at later journeys); fetching the missing US HU8 units for full creek coverage; the braid fix in `rivers.strahler`; Mexican stream labels from toponym points.

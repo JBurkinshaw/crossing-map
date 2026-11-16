@@ -305,12 +305,12 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 | Timeline slider | Reading progress, one step per episode, labelled by Part |
 | Data dimming | Routes not in focus fade; once the reader goes to a stop, the legs after it fade |
 | Route positioning | Back and Next through a journey's stops; the camera flies to each |
-| Basemap switch and swipe | Classic, Compare, Satellite, Topo; Flat, Tilted, Raised |
-| Layer key | Journeys by ink, how sure each line is, passing places, tale places, inferred areas and regions, vignettes |
+| Basemap switch and swipe | Classic, Compare, Satellite, Topo; Flat, Tilted, Raised. Folded under one Map button top right, on desktop and phone; a line under each row says what the chosen option does |
+| Layer key | In the title cartouche, in two tabs. The story: journeys by ink, how sure each line is, stops, grouped stops, places, inferred areas and regions, the false dawn. The land: the international boundary, state lines, the railroad, unnamed towns, spot heights, the small marks of context and water places, mountains, drawings. Its tab panel scrolls if the screen is short; on phones it opens as a sheet from the bottom |
 | Feature selection | Tap to select; names on hover on desktop |
 | Search | Places, stops, and translations in one box |
-| Overview map | An inset of the whole region when zoomed in |
-| Cluster marker | Only where the map is crowded, around Cloverdale and the Peloncillos |
+| Overview map | An inset of the whole region when zoomed in; not on phones, where it would cover too much of the map |
+| Cluster marker | Only where the map is crowded, around Cloverdale and the Peloncillos. It says what it holds ("9 stops", "9 places"); a click or tap frames all its points at a zoom where they come apart |
 | Home button | Back to the whole journey |
 | How it's built | Section 4.3 |
 
