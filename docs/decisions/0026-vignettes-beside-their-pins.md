@@ -1,6 +1,6 @@
 # 0026. Vignettes beside their pins
 
-Status: accepted (2026-11-14); the upper zoom bound (`max_zoom`) dropped on 2026-11-16, since a drawing beside its pin needs none. Amends design section 10's placement rules.
+Status: accepted (2026-11-14); the upper zoom bound (`max_zoom`) dropped on 2026-11-16, since a drawing beside its pin needs none; amended 2026-11-16: each side and first zoom chosen by script, clear of the stops and route lines, and the drawings of other journeys lighter (below). Amends design section 10's placement rules.
 Phase: P1
 
 ## Context
@@ -14,6 +14,28 @@ Design section 10 placed each vignette in empty country near what it stands for,
 - The drawing may sit under other labels, which draw over it, so every drawing shows in its zoom range and hides no name. Its caption is its own layer at the top of the label stack: it is placed first, and other labels make room for it.
 - No leader lines. The key says a drawing is beside where its scene happens and its position is approximate.
 
+## Amendment, 2026-11-16: sides and zooms chosen clear of the story
+
+The sides taken from the old positions put many drawings on the stops and route lines they stand beside, worst where journeys meet: Casas Grandes, San Diego, Colonia Morelos, Cloverdale and the Peloncillos. Every drawing stays on the map; three rules keep it off the story.
+
+- **The side is chosen by script.** `crossing.build_vignettes` tries all eight sides of each drawing, in `priority` order, and measures what the drawing and its caption cover on screen at its `min_zoom`: the stop markers (22 px) and route lines of all seven journeys, the pins of other places, and the drawings already placed. The sizes, anchor and gap are those of `site/src/map/relief.ts`, in Web Mercator pixels; caption widths are estimates. Clashes are ranked: covering another drawing is worst, as the two then read as neither; then a stop marker; then more route line than the drawing's own width (one line passing across it is accepted, since every drawing on a journey has its line near). Within a rank the score is the route line covered in pixels plus 40 for each stop or drawing and 20 for each place pin. A tie keeps the side nearest the seed's `side`. The owner can fix a side by hand with the seed's `side_fixed` column.
+- **The busiest drawings wait for a closer zoom.** If every side still clashes at the seed's `min_zoom`, the script tries each closer zoom up to 12 and shows the drawing from the first where some side is clear, or failing that off every stop. A drawing as crowded at every zoom keeps its zoom: waiting would not help. Each published `reasoning` says which side it took, why, and from which zoom.
+- **Drawings of other journeys are lighter.** Each vignette has a `journey`: its stop's, or for a place its first stop's in reading order (the Trinity cloud's is J7, from the waystation). The drawings of the journey in focus show at full strength, the others at 60%, drawing and caption, as the route lines of other journeys are lighter.
+
+`pipeline/measure/vignette_clashes.py` counts what the drawings cover. At each drawing's own first zoom, before and after:
+
+| | Before | After |
+| --- | --- | --- |
+| Drawings that clash (a stop, or more than their width of route line) | 36 of 54 | 7 of 54 |
+| Drawings on a stop marker | 26 | 1 (the fair at Colonia Morelos) |
+| Stop markers covered | 85 | 3 |
+| Route line covered | 7,780 px | 2,709 px |
+| Pairs of drawings on each other | 7 | 0 |
+
+At zoom 10, the 54 drawings before covered 17 stop markers and 6,822 px of route line, with 31 clashing; the 42 shown at zoom 10 after cover 6 stop markers and 2,300 px, with 9 clashing. 36 drawings changed side and 28 wait for a closer zoom: most by one step, the steel trap, the wolves running antelope, the cottonwood camp, Boyd's grave, Quijada, the remuda, the rider in the rain and others to 11, and the red plane, the corriente steers and Keno at Bacerac to 12. The she-wolf, which was the one drawing at zoom 6, now shows from 7.
+
+The seven drawings still clashing stand where many stops and lines meet (Paquimé, the San Diego house front, the opera caravan, the wolf's cart at Colonia Morelos, the calf at Foster Draw, the night train at Las Varas and the waterfowl at Buenaventura): every side and every zoom up to 12 is crowded, and each takes the side that covers least.
+
 ## Alternatives
 
 - **Geographic offsets a few kilometres out.** Close at one zoom, far at another.
@@ -22,3 +44,5 @@ Design section 10 placed each vignette in empty country near what it stands for,
 ## Consequences
 
 Drawings now crowd the busiest towns (Casas Grandes, San Diego) and can hide a place name under a drawing's paper; the place labels stay on top. The seed's `lon` and `lat` hold a position only for a subject that is not a stop or place.
+
+Since the amendment, the side and first zoom of a drawing can change when a stop or a route line near it moves; the build prints each drawing whose side or zoom differs from its seed. A drawing that waits for zoom 11 or 12 is seen only by readers who zoom in. Labels are not in the measure: a caption can still give way to another label drawn before it (the San Diego house front's does at zoom 10).

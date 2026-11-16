@@ -12,10 +12,13 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 - Traced legs are simplified to 5 m, which halves `journeys.geojson` (1.1 MB to 497 KB) with no visible change on the map.
 - `vignettes` no longer has `max_zoom`: a drawing shows from its `min_zoom` at every closer zoom.
+- `vignettes` has a `journey`, the journey each drawing belongs to. Each drawing's `side` is now the side of its pin where it covers the fewest stops, route lines and other drawings, and its `min_zoom` waits for a closer zoom where it would cover a stop or a route line further out (decision 0026, amended): 36 sides and 28 first zooms changed, and its `reasoning` says why.
 
 #### Site
 
 - The vignettes stay on the map when zoomed in past 12; they used to disappear there, and the she-wolf past 11.
+- Drawings no longer sit on the stops and route lines: each is set on the side of its pin with the least under it, and those in the busiest country, around Casas Grandes, San Diego, Cloverdale and the Peloncillos, show from a closer zoom. At each drawing's first zoom, none now covers another drawing (7 pairs did) or a stop marker except one at Colonia Morelos (26 did).
+- The drawings of the journey in focus are at full strength; those of other journeys are lighter, as their route lines are.
 
 ### 2026-11-15
 
