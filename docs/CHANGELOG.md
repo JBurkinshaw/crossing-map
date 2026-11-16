@@ -19,6 +19,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- The Tilted view's terrain is exaggerated 2.5 times (was 1.8).
 - Lakes are drawn over the rivers, so a river ends at the shore instead of running through the water (decision 0030).
 - A place's pin that stands more than 1 km from every stop at it, such as the Guadalupe Mountains' gazetteer point beside the J2 pass, keeps its dot and its name but no longer opens the stop (decision 0029).
 - Everything off the map (the frame's margin, the panel, the cards and the pages) is a lighter cream than the map, as on the Wheeler sheets.

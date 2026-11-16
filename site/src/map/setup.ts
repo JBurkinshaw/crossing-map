@@ -19,7 +19,7 @@ export const fontsBase = absolute('fonts')
 export const dataBase = absolute('data')
 
 // The terrain's exaggeration in the Tilted view, on every map that draws it.
-export const TERRAIN_EXAGGERATION = 1.8
+export const TERRAIN_EXAGGERATION = 2.5
 
 // The width below which the panel becomes a bottom drawer; styles/panel.css and styles/map.css use the same.
 export const PHONE_QUERY = '(max-width: 720px)'
