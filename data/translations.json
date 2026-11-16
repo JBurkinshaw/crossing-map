@@ -13,7 +13,8 @@
   "location_ref": "place-black-point",
   "location_kind": "place",
   "first_seen": "1-03",
-  "guide_page": 22
+  "guide_page": 22,
+  "common": false
  },
  {
   "id": "tr-1-04-001",
@@ -29,7 +30,8 @@
   "location_ref": "j1-sierra-de-la-madera",
   "location_kind": "stop",
   "first_seen": "1-04",
-  "guide_page": 405
+  "guide_page": 405,
+  "common": false
  },
  {
   "id": "tr-1-04-004",
@@ -45,7 +47,8 @@
   "location_ref": "place-cloverdale-creek",
   "location_kind": "place",
   "first_seen": "1-04",
-  "guide_page": 33
+  "guide_page": 33,
+  "common": false
  },
  {
   "id": "tr-1-04-005",
@@ -61,7 +64,8 @@
   "location_ref": "place-cloverdale-creek",
   "location_kind": "place",
   "first_seen": "1-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-07-001",
@@ -77,7 +81,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 41
+  "guide_page": 41,
+  "common": false
  },
  {
   "id": "tr-1-07-002",
@@ -93,7 +98,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-07-003",
@@ -109,7 +115,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-07-004",
@@ -125,7 +132,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-07-005",
@@ -141,7 +149,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-07-006",
@@ -157,7 +166,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 42
+  "guide_page": 42,
+  "common": false
  },
  {
   "id": "tr-1-07-007",
@@ -173,7 +183,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-07-008",
@@ -189,7 +200,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 42
+  "guide_page": 42,
+  "common": false
  },
  {
   "id": "tr-1-07-009",
@@ -205,7 +217,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 42
+  "guide_page": 42,
+  "common": false
  },
  {
   "id": "tr-1-07-010",
@@ -221,7 +234,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-07-011",
@@ -237,7 +251,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 43
+  "guide_page": 43,
+  "common": false
  },
  {
   "id": "tr-1-07-012",
@@ -253,7 +268,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-07-013",
@@ -269,7 +285,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 43
+  "guide_page": 43,
+  "common": false
  },
  {
   "id": "tr-1-07-014",
@@ -285,7 +302,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-07-015",
@@ -301,7 +319,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 43
+  "guide_page": 43,
+  "common": false
  },
  {
   "id": "tr-1-07-016",
@@ -317,7 +336,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 43
+  "guide_page": 43,
+  "common": false
  },
  {
   "id": "tr-1-07-017",
@@ -333,7 +353,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 43
+  "guide_page": 43,
+  "common": false
  },
  {
   "id": "tr-1-07-018",
@@ -349,7 +370,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-07-019",
@@ -365,7 +387,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-07-020",
@@ -381,7 +404,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 43
+  "guide_page": 43,
+  "common": false
  },
  {
   "id": "tr-1-07-021",
@@ -397,7 +421,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-07-022",
@@ -413,7 +438,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-07-023",
@@ -429,7 +455,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 43
+  "guide_page": 43,
+  "common": false
  },
  {
   "id": "tr-1-07-024",
@@ -445,7 +472,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 44
+  "guide_page": 44,
+  "common": false
  },
  {
   "id": "tr-1-07-025",
@@ -461,7 +489,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 44
+  "guide_page": 44,
+  "common": false
  },
  {
   "id": "tr-1-07-026",
@@ -477,7 +506,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 44
+  "guide_page": 44,
+  "common": false
  },
  {
   "id": "tr-1-07-027",
@@ -493,7 +523,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 44
+  "guide_page": 44,
+  "common": false
  },
  {
   "id": "tr-1-07-028",
@@ -509,7 +540,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 44
+  "guide_page": 44,
+  "common": false
  },
  {
   "id": "tr-1-07-029",
@@ -525,7 +557,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 45
+  "guide_page": 45,
+  "common": false
  },
  {
   "id": "tr-1-07-030",
@@ -541,7 +574,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 45
+  "guide_page": 45,
+  "common": false
  },
  {
   "id": "tr-1-07-031",
@@ -557,7 +591,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 45
+  "guide_page": 45,
+  "common": false
  },
  {
   "id": "tr-1-07-032",
@@ -573,7 +608,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 45
+  "guide_page": 45,
+  "common": false
  },
  {
   "id": "tr-1-07-033",
@@ -589,7 +625,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 46
+  "guide_page": 46,
+  "common": false
  },
  {
   "id": "tr-1-07-034",
@@ -605,7 +642,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 46
+  "guide_page": 46,
+  "common": false
  },
  {
   "id": "tr-1-07-035",
@@ -621,7 +659,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 46
+  "guide_page": 46,
+  "common": false
  },
  {
   "id": "tr-1-07-036",
@@ -637,7 +676,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-07-037",
@@ -653,7 +693,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 46
+  "guide_page": 46,
+  "common": false
  },
  {
   "id": "tr-1-07-038",
@@ -669,7 +710,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 47
+  "guide_page": 47,
+  "common": false
  },
  {
   "id": "tr-1-07-039",
@@ -685,7 +727,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 47
+  "guide_page": 47,
+  "common": false
  },
  {
   "id": "tr-1-07-040",
@@ -701,7 +744,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 47
+  "guide_page": 47,
+  "common": false
  },
  {
   "id": "tr-1-07-041",
@@ -717,7 +761,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 47
+  "guide_page": 47,
+  "common": false
  },
  {
   "id": "tr-1-07-042",
@@ -733,7 +778,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 47
+  "guide_page": 47,
+  "common": false
  },
  {
   "id": "tr-1-07-043",
@@ -749,7 +795,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 47
+  "guide_page": 47,
+  "common": false
  },
  {
   "id": "tr-1-07-044",
@@ -765,7 +812,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-07-045",
@@ -781,7 +829,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 47
+  "guide_page": 47,
+  "common": false
  },
  {
   "id": "tr-1-07-046",
@@ -797,7 +846,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-07-047",
@@ -813,7 +863,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-07-048",
@@ -829,7 +880,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 47
+  "guide_page": 47,
+  "common": false
  },
  {
   "id": "tr-1-07-049",
@@ -845,7 +897,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 48
+  "guide_page": 48,
+  "common": false
  },
  {
   "id": "tr-1-07-052",
@@ -861,7 +914,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 48
+  "guide_page": 48,
+  "common": false
  },
  {
   "id": "tr-1-07-054",
@@ -877,7 +931,8 @@
   "location_ref": "place-animas",
   "location_kind": "place",
   "first_seen": "1-07",
-  "guide_page": 48
+  "guide_page": 48,
+  "common": false
  },
  {
   "id": "tr-1-08-001",
@@ -893,7 +948,8 @@
   "location_ref": "j1-cloverdale-creek",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-08-002",
@@ -909,7 +965,8 @@
   "location_ref": "j1-cloverdale-creek",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": 33
+  "guide_page": 33,
+  "common": false
  },
  {
   "id": "tr-1-08-004",
@@ -925,7 +982,8 @@
   "location_ref": "j1-cloverdale-creek",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": 187
+  "guide_page": 187,
+  "common": false
  },
  {
   "id": "tr-1-08-007",
@@ -941,7 +999,8 @@
   "location_ref": "j2-guadalupe-pass",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-08-008",
@@ -957,7 +1016,8 @@
   "location_ref": "j2-guadalupe-pass",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-08-009",
@@ -973,7 +1033,8 @@
   "location_ref": "j2-guadalupe-pass",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": 70
+  "guide_page": 70,
+  "common": false
  },
  {
   "id": "tr-1-08-010",
@@ -989,7 +1050,8 @@
   "location_ref": "j2-guadalupe-pass",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-08-011",
@@ -1005,7 +1067,8 @@
   "location_ref": "j2-guadalupe-pass",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": 70
+  "guide_page": 70,
+  "common": false
  },
  {
   "id": "tr-1-08-012",
@@ -1021,7 +1084,8 @@
   "location_ref": "j2-guadalupe-pass",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-08-013",
@@ -1037,7 +1101,8 @@
   "location_ref": "j2-guadalupe-pass",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": 70
+  "guide_page": 70,
+  "common": false
  },
  {
   "id": "tr-1-08-014",
@@ -1053,7 +1118,8 @@
   "location_ref": "j2-guadalupe-pass",
   "location_kind": "stop",
   "first_seen": "1-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-003",
@@ -1069,7 +1135,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 75
+  "guide_page": 75,
+  "common": false
  },
  {
   "id": "tr-1-09-004",
@@ -1085,7 +1152,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 75
+  "guide_page": 75,
+  "common": false
  },
  {
   "id": "tr-1-09-005",
@@ -1101,7 +1169,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 75
+  "guide_page": 75,
+  "common": false
  },
  {
   "id": "tr-1-09-006",
@@ -1117,7 +1186,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-09-007",
@@ -1133,7 +1203,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 75
+  "guide_page": 75,
+  "common": true
  },
  {
   "id": "tr-1-09-008",
@@ -1149,7 +1220,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 75
+  "guide_page": 75,
+  "common": false
  },
  {
   "id": "tr-1-09-009",
@@ -1165,7 +1237,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 75
+  "guide_page": 75,
+  "common": true
  },
  {
   "id": "tr-1-09-010",
@@ -1181,7 +1254,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 75
+  "guide_page": 75,
+  "common": false
  },
  {
   "id": "tr-1-09-011",
@@ -1197,7 +1271,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 75
+  "guide_page": 75,
+  "common": false
  },
  {
   "id": "tr-1-09-012",
@@ -1213,7 +1288,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-09-013",
@@ -1229,7 +1305,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 75
+  "guide_page": 75,
+  "common": true
  },
  {
   "id": "tr-1-09-014",
@@ -1245,7 +1322,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-018",
@@ -1261,7 +1339,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-019",
@@ -1277,7 +1356,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-020",
@@ -1293,7 +1373,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-021",
@@ -1309,7 +1390,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-09-022",
@@ -1325,7 +1407,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-023",
@@ -1341,7 +1424,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-024",
@@ -1357,7 +1441,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-025",
@@ -1373,7 +1458,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-026",
@@ -1389,7 +1475,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-027",
@@ -1405,7 +1492,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-028",
@@ -1421,7 +1509,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-09-029",
@@ -1437,7 +1526,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 101
+  "guide_page": 101,
+  "common": false
  },
  {
   "id": "tr-1-09-030",
@@ -1453,7 +1543,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-033",
@@ -1469,7 +1560,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-034",
@@ -1485,7 +1577,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-035",
@@ -1501,7 +1594,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-036",
@@ -1517,7 +1611,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-09-037",
@@ -1533,7 +1628,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-038",
@@ -1549,7 +1645,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-039",
@@ -1565,7 +1662,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-040",
@@ -1581,7 +1679,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-041",
@@ -1597,7 +1696,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-043",
@@ -1613,7 +1713,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 91
+  "guide_page": 91,
+  "common": false
  },
  {
   "id": "tr-1-09-044",
@@ -1629,7 +1730,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-045",
@@ -1645,7 +1747,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": true
  },
  {
   "id": "tr-1-09-046",
@@ -1661,7 +1764,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-047",
@@ -1677,7 +1781,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-048",
@@ -1693,7 +1798,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 85
+  "guide_page": 85,
+  "common": false
  },
  {
   "id": "tr-1-09-049",
@@ -1709,7 +1815,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-051",
@@ -1725,7 +1832,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-053",
@@ -1741,7 +1849,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 90
+  "guide_page": 90,
+  "common": false
  },
  {
   "id": "tr-1-09-054",
@@ -1757,7 +1866,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 90
+  "guide_page": 90,
+  "common": false
  },
  {
   "id": "tr-1-09-055",
@@ -1773,7 +1883,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 90
+  "guide_page": 90,
+  "common": false
  },
  {
   "id": "tr-1-09-056",
@@ -1789,7 +1900,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 90
+  "guide_page": 90,
+  "common": false
  },
  {
   "id": "tr-1-09-057",
@@ -1805,7 +1917,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 90
+  "guide_page": 90,
+  "common": false
  },
  {
   "id": "tr-1-09-058",
@@ -1821,7 +1934,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 90
+  "guide_page": 90,
+  "common": false
  },
  {
   "id": "tr-1-09-059",
@@ -1837,7 +1951,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-060",
@@ -1853,7 +1968,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-061",
@@ -1869,7 +1985,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 90
+  "guide_page": 90,
+  "common": false
  },
  {
   "id": "tr-1-09-062",
@@ -1885,7 +2002,8 @@
   "location_ref": "j2-seg-07",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 91
+  "guide_page": 91,
+  "common": false
  },
  {
   "id": "tr-1-09-064",
@@ -1901,7 +2019,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 95
+  "guide_page": 95,
+  "common": false
  },
  {
   "id": "tr-1-09-065",
@@ -1917,7 +2036,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 95
+  "guide_page": 95,
+  "common": false
  },
  {
   "id": "tr-1-09-066",
@@ -1933,7 +2053,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-067",
@@ -1949,7 +2070,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-068",
@@ -1965,7 +2087,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 95
+  "guide_page": 95,
+  "common": false
  },
  {
   "id": "tr-1-09-069",
@@ -1981,7 +2104,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-070",
@@ -1997,7 +2121,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 95
+  "guide_page": 95,
+  "common": false
  },
  {
   "id": "tr-1-09-071",
@@ -2013,7 +2138,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-09-072",
@@ -2029,7 +2155,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 327
+  "guide_page": 327,
+  "common": false
  },
  {
   "id": "tr-1-09-073",
@@ -2045,7 +2172,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 95
+  "guide_page": 95,
+  "common": false
  },
  {
   "id": "tr-1-09-074",
@@ -2061,7 +2189,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 95
+  "guide_page": 95,
+  "common": false
  },
  {
   "id": "tr-1-09-075",
@@ -2077,7 +2206,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-076",
@@ -2093,7 +2223,8 @@
   "location_ref": "j2-colonia-oaxaca",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-077",
@@ -2109,7 +2240,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 142
+  "guide_page": 142,
+  "common": false
  },
  {
   "id": "tr-1-09-078",
@@ -2125,7 +2257,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 97
+  "guide_page": 97,
+  "common": false
  },
  {
   "id": "tr-1-09-080",
@@ -2141,7 +2274,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 97
+  "guide_page": 97,
+  "common": false
  },
  {
   "id": "tr-1-09-081",
@@ -2157,7 +2291,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-082",
@@ -2173,7 +2308,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-084",
@@ -2189,7 +2325,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-085",
@@ -2205,7 +2342,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-086",
@@ -2221,7 +2359,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 97
+  "guide_page": 97,
+  "common": false
  },
  {
   "id": "tr-1-09-087",
@@ -2237,7 +2376,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 97
+  "guide_page": 97,
+  "common": false
  },
  {
   "id": "tr-1-09-095",
@@ -2253,7 +2393,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 286
+  "guide_page": 286,
+  "common": false
  },
  {
   "id": "tr-1-09-098",
@@ -2269,7 +2410,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 107
+  "guide_page": 107,
+  "common": false
  },
  {
   "id": "tr-1-09-111",
@@ -2285,7 +2427,8 @@
   "location_ref": "j2-mud-settlement",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-118",
@@ -2301,7 +2444,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-119",
@@ -2317,7 +2461,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-120",
@@ -2333,7 +2478,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 101
+  "guide_page": 101,
+  "common": false
  },
  {
   "id": "tr-1-09-121",
@@ -2349,7 +2495,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-122",
@@ -2365,7 +2512,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-123",
@@ -2381,7 +2529,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-124",
@@ -2397,7 +2546,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 101
+  "guide_page": 101,
+  "common": false
  },
  {
   "id": "tr-1-09-125",
@@ -2413,7 +2563,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 101
+  "guide_page": 101,
+  "common": false
  },
  {
   "id": "tr-1-09-126",
@@ -2429,7 +2580,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 101
+  "guide_page": 101,
+  "common": false
  },
  {
   "id": "tr-1-09-127",
@@ -2445,7 +2597,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 101
+  "guide_page": 101,
+  "common": false
  },
  {
   "id": "tr-1-09-128",
@@ -2461,7 +2614,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 101
+  "guide_page": 101,
+  "common": false
  },
  {
   "id": "tr-1-09-129",
@@ -2477,7 +2631,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": 101
+  "guide_page": 101,
+  "common": false
  },
  {
   "id": "tr-1-09-132",
@@ -2493,7 +2648,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-133",
@@ -2509,7 +2665,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-134",
@@ -2525,7 +2682,8 @@
   "location_ref": "j2-seg-10",
   "location_kind": "road",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-136",
@@ -2541,7 +2699,8 @@
   "location_ref": "j2-colonia-morelos",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 145
+  "guide_page": 145,
+  "common": false
  },
  {
   "id": "tr-1-09-138",
@@ -2557,7 +2716,8 @@
   "location_ref": "j2-colonia-morelos",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-139",
@@ -2573,7 +2733,8 @@
   "location_ref": "j2-colonia-morelos",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-142",
@@ -2589,7 +2750,8 @@
   "location_ref": "j2-colonia-morelos",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-143",
@@ -2605,7 +2767,8 @@
   "location_ref": "j2-colonia-morelos",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 105
+  "guide_page": 105,
+  "common": false
  },
  {
   "id": "tr-1-09-144",
@@ -2621,7 +2784,8 @@
   "location_ref": "j2-colonia-morelos",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": 105
+  "guide_page": 105,
+  "common": false
  },
  {
   "id": "tr-1-09-147",
@@ -2637,7 +2801,8 @@
   "location_ref": "j2-colonia-morelos",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-152",
@@ -2653,7 +2818,8 @@
   "location_ref": "j2-colonia-morelos",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-09-156",
@@ -2669,7 +2835,8 @@
   "location_ref": "j2-colonia-morelos",
   "location_kind": "stop",
   "first_seen": "1-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-001",
@@ -2685,7 +2852,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 107
+  "guide_page": 107,
+  "common": false
  },
  {
   "id": "tr-1-10-007",
@@ -2701,7 +2869,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 107
+  "guide_page": 107,
+  "common": false
  },
  {
   "id": "tr-1-10-008",
@@ -2717,7 +2886,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-010",
@@ -2733,7 +2903,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 113
+  "guide_page": 113,
+  "common": false
  },
  {
   "id": "tr-1-10-026",
@@ -2749,7 +2920,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 110
+  "guide_page": 110,
+  "common": false
  },
  {
   "id": "tr-1-10-028",
@@ -2765,7 +2937,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-10-030",
@@ -2781,7 +2954,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-10-039",
@@ -2797,7 +2971,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 110
+  "guide_page": 110,
+  "common": false
  },
  {
   "id": "tr-1-10-044",
@@ -2813,7 +2988,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-045",
@@ -2829,7 +3005,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-10-047",
@@ -2845,7 +3022,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-048",
@@ -2861,7 +3039,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-051",
@@ -2877,7 +3056,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-055",
@@ -2893,7 +3073,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-056",
@@ -2909,7 +3090,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-057",
@@ -2925,7 +3107,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-059",
@@ -2941,7 +3124,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-060",
@@ -2957,7 +3141,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-061",
@@ -2973,7 +3158,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 116
+  "guide_page": 116,
+  "common": false
  },
  {
   "id": "tr-1-10-063",
@@ -2989,7 +3175,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 115
+  "guide_page": 115,
+  "common": false
  },
  {
   "id": "tr-1-10-064",
@@ -3005,7 +3192,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 115
+  "guide_page": 115,
+  "common": false
  },
  {
   "id": "tr-1-10-070",
@@ -3021,7 +3209,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-075",
@@ -3037,7 +3226,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-076",
@@ -3053,7 +3243,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 123
+  "guide_page": 123,
+  "common": false
  },
  {
   "id": "tr-1-10-080",
@@ -3069,7 +3260,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 118
+  "guide_page": 118,
+  "common": false
  },
  {
   "id": "tr-1-10-083",
@@ -3085,7 +3277,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 118
+  "guide_page": 118,
+  "common": false
  },
  {
   "id": "tr-1-10-087",
@@ -3101,7 +3294,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 119
+  "guide_page": 119,
+  "common": false
  },
  {
   "id": "tr-1-10-088",
@@ -3117,7 +3311,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 119
+  "guide_page": 119,
+  "common": false
  },
  {
   "id": "tr-1-10-091",
@@ -3133,7 +3328,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 119
+  "guide_page": 119,
+  "common": false
  },
  {
   "id": "tr-1-10-093",
@@ -3149,7 +3345,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 120
+  "guide_page": 120,
+  "common": false
  },
  {
   "id": "tr-1-10-094",
@@ -3165,7 +3362,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 120
+  "guide_page": 120,
+  "common": false
  },
  {
   "id": "tr-1-10-105",
@@ -3181,7 +3379,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-109",
@@ -3197,7 +3396,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-111",
@@ -3213,7 +3413,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-113",
@@ -3229,7 +3430,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-118",
@@ -3245,7 +3447,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-119",
@@ -3261,7 +3464,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 123
+  "guide_page": 123,
+  "common": false
  },
  {
   "id": "tr-1-10-120",
@@ -3277,7 +3481,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 123
+  "guide_page": 123,
+  "common": false
  },
  {
   "id": "tr-1-10-121",
@@ -3293,7 +3498,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-1-10-122",
@@ -3309,7 +3515,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": 123
+  "guide_page": 123,
+  "common": false
  },
  {
   "id": "tr-1-10-123",
@@ -3325,7 +3532,8 @@
   "location_ref": "j2-hacienda",
   "location_kind": "stop",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-1-10-127",
@@ -3341,7 +3549,8 @@
   "location_ref": "j2-seg-12",
   "location_kind": "road",
   "first_seen": "1-10",
-  "guide_page": 125
+  "guide_page": 125,
+  "common": false
  },
  {
   "id": "tr-1-10-128",
@@ -3357,7 +3566,8 @@
   "location_ref": "j2-seg-12",
   "location_kind": "road",
   "first_seen": "1-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-002",
@@ -3373,7 +3583,8 @@
   "location_ref": "j3-seg-02",
   "location_kind": "road",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-003",
@@ -3389,7 +3600,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-004",
@@ -3405,7 +3617,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-005",
@@ -3421,7 +3634,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-006",
@@ -3437,7 +3651,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-007",
@@ -3453,7 +3668,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-008",
@@ -3469,7 +3685,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-009",
@@ -3485,7 +3702,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": 131
+  "guide_page": 131,
+  "common": false
  },
  {
   "id": "tr-2-01-010",
@@ -3501,7 +3719,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": 131
+  "guide_page": 131,
+  "common": false
  },
  {
   "id": "tr-2-01-011",
@@ -3517,7 +3736,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-012",
@@ -3533,7 +3753,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": 132
+  "guide_page": 132,
+  "common": false
  },
  {
   "id": "tr-2-01-013",
@@ -3549,7 +3770,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-014",
@@ -3565,7 +3787,8 @@
   "location_ref": "j3-el-tigre",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-016",
@@ -3581,7 +3804,8 @@
   "location_ref": "j3-indian-rancherias",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-017",
@@ -3597,7 +3821,8 @@
   "location_ref": "j3-indian-rancherias",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-019",
@@ -3613,7 +3838,8 @@
   "location_ref": "j3-indian-rancherias",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-021",
@@ -3629,7 +3855,8 @@
   "location_ref": "j3-indian-rancherias",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": 134
+  "guide_page": 134,
+  "common": false
  },
  {
   "id": "tr-2-01-024",
@@ -3645,7 +3872,8 @@
   "location_ref": "j3-seg-04",
   "location_kind": "road",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-028",
@@ -3661,7 +3889,8 @@
   "location_ref": "j3-eastern-escarpment",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-030",
@@ -3677,7 +3906,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": 160
+  "guide_page": 160,
+  "common": false
  },
  {
   "id": "tr-2-01-031",
@@ -3693,7 +3923,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-032",
@@ -3709,7 +3940,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": 138
+  "guide_page": 138,
+  "common": false
  },
  {
   "id": "tr-2-01-033",
@@ -3725,7 +3957,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-034",
@@ -3741,7 +3974,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": 145
+  "guide_page": 145,
+  "common": false
  },
  {
   "id": "tr-2-01-038",
@@ -3757,7 +3991,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-040",
@@ -3773,7 +4008,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-046",
@@ -3789,7 +4025,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-01-047",
@@ -3805,7 +4042,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": 153
+  "guide_page": 153,
+  "common": false
  },
  {
   "id": "tr-2-01-051",
@@ -3821,7 +4059,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-02-001",
@@ -3837,7 +4076,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-02",
-  "guide_page": 159
+  "guide_page": 159,
+  "common": false
  },
  {
   "id": "tr-2-02-002",
@@ -3853,7 +4093,8 @@
   "location_ref": "j3-huisiachepic",
   "location_kind": "stop",
   "first_seen": "2-02",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-07-001",
@@ -3869,7 +4110,8 @@
   "location_ref": "j4-agua-prieta",
   "location_kind": "stop",
   "first_seen": "2-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-07-003",
@@ -3885,7 +4127,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-07-004",
@@ -3901,7 +4144,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-07",
-  "guide_page": 183
+  "guide_page": 183,
+  "common": false
  },
  {
   "id": "tr-2-07-005",
@@ -3917,7 +4161,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-001",
@@ -3933,7 +4178,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-003",
@@ -3949,7 +4195,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-004",
@@ -3965,7 +4212,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 184
+  "guide_page": 184,
+  "common": false
  },
  {
   "id": "tr-2-08-005",
@@ -3981,7 +4229,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-006",
@@ -3997,7 +4246,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-008",
@@ -4013,7 +4263,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-009",
@@ -4029,7 +4280,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-010",
@@ -4045,7 +4297,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-011",
@@ -4061,7 +4314,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-012",
@@ -4077,7 +4331,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 185
+  "guide_page": 185,
+  "common": false
  },
  {
   "id": "tr-2-08-013",
@@ -4093,7 +4348,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-014",
@@ -4109,7 +4365,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 185
+  "guide_page": 185,
+  "common": false
  },
  {
   "id": "tr-2-08-015",
@@ -4125,7 +4382,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-016",
@@ -4141,7 +4399,8 @@
   "location_ref": "j4-bacerac",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-017",
@@ -4157,7 +4416,8 @@
   "location_ref": "j4-seg-13",
   "location_kind": "road",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-2-08-018",
@@ -4173,7 +4433,8 @@
   "location_ref": "j4-seg-13",
   "location_kind": "road",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-2-08-019",
@@ -4189,7 +4450,8 @@
   "location_ref": "j4-seg-13",
   "location_kind": "road",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-020",
@@ -4205,7 +4467,8 @@
   "location_ref": "j4-seg-13",
   "location_kind": "road",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-2-08-021",
@@ -4221,7 +4484,8 @@
   "location_ref": "j4-seg-13",
   "location_kind": "road",
   "first_seen": "2-08",
-  "guide_page": 187
+  "guide_page": 187,
+  "common": false
  },
  {
   "id": "tr-2-08-022",
@@ -4237,7 +4501,8 @@
   "location_ref": "j4-seg-13",
   "location_kind": "road",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-025",
@@ -4253,7 +4518,8 @@
   "location_ref": "j4-plains-camp",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-026",
@@ -4269,7 +4535,8 @@
   "location_ref": "j4-plains-camp",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-030",
@@ -4285,7 +4552,8 @@
   "location_ref": "place-paquime",
   "location_kind": "place",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-031",
@@ -4301,7 +4569,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 195
+  "guide_page": 195,
+  "common": false
  },
  {
   "id": "tr-2-08-034",
@@ -4317,7 +4586,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-2-08-035",
@@ -4333,7 +4603,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 196
+  "guide_page": 196,
+  "common": false
  },
  {
   "id": "tr-2-08-036",
@@ -4349,7 +4620,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-2-08-037",
@@ -4365,7 +4637,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-038",
@@ -4381,7 +4654,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 197
+  "guide_page": 197,
+  "common": false
  },
  {
   "id": "tr-2-08-039",
@@ -4397,7 +4671,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-040",
@@ -4413,7 +4688,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-041",
@@ -4429,7 +4705,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-042",
@@ -4445,7 +4722,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-052",
@@ -4461,7 +4739,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-056",
@@ -4477,7 +4756,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-2-08-057",
@@ -4493,7 +4773,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-058",
@@ -4509,7 +4790,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-060",
@@ -4525,7 +4807,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 201
+  "guide_page": 201,
+  "common": false
  },
  {
   "id": "tr-2-08-062",
@@ -4541,7 +4824,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-063",
@@ -4557,7 +4841,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 201
+  "guide_page": 201,
+  "common": false
  },
  {
   "id": "tr-2-08-067",
@@ -4573,7 +4858,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 201
+  "guide_page": 201,
+  "common": false
  },
  {
   "id": "tr-2-08-069",
@@ -4589,7 +4875,8 @@
   "location_ref": "j4-casas-grandes",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-076",
@@ -4605,7 +4892,8 @@
   "location_ref": "j4-seg-17",
   "location_kind": "road",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-078",
@@ -4621,7 +4909,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-2-08-079",
@@ -4637,7 +4926,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-2-08-080",
@@ -4653,7 +4943,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-081",
@@ -4669,7 +4960,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-082",
@@ -4685,7 +4977,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-083",
@@ -4701,7 +4994,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-084",
@@ -4717,7 +5011,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-085",
@@ -4733,7 +5028,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-086",
@@ -4749,7 +5045,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-087",
@@ -4765,7 +5062,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 208
+  "guide_page": 208,
+  "common": false
  },
  {
   "id": "tr-2-08-088",
@@ -4781,7 +5079,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 208
+  "guide_page": 208,
+  "common": true
  },
  {
   "id": "tr-2-08-089",
@@ -4797,7 +5096,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 208
+  "guide_page": 208,
+  "common": false
  },
  {
   "id": "tr-2-08-090",
@@ -4813,7 +5113,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-091",
@@ -4829,7 +5130,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-092",
@@ -4845,7 +5147,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-093",
@@ -4861,7 +5164,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 208
+  "guide_page": 208,
+  "common": false
  },
  {
   "id": "tr-2-08-094",
@@ -4877,7 +5181,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 208
+  "guide_page": 208,
+  "common": false
  },
  {
   "id": "tr-2-08-095",
@@ -4893,7 +5198,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-096",
@@ -4909,7 +5215,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-097",
@@ -4925,7 +5232,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 208
+  "guide_page": 208,
+  "common": false
  },
  {
   "id": "tr-2-08-098",
@@ -4941,7 +5249,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-099",
@@ -4957,7 +5266,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-100",
@@ -4973,7 +5283,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 208
+  "guide_page": 208,
+  "common": false
  },
  {
   "id": "tr-2-08-101",
@@ -4989,7 +5300,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-102",
@@ -5005,7 +5317,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-103",
@@ -5021,7 +5334,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-104",
@@ -5037,7 +5351,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-105",
@@ -5053,7 +5368,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-106",
@@ -5069,7 +5385,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 210
+  "guide_page": 210,
+  "common": false
  },
  {
   "id": "tr-2-08-107",
@@ -5085,7 +5402,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": 210
+  "guide_page": 210,
+  "common": false
  },
  {
   "id": "tr-2-08-108",
@@ -5101,7 +5419,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-109",
@@ -5117,7 +5436,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-110",
@@ -5133,7 +5453,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-111",
@@ -5149,7 +5470,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-112",
@@ -5165,7 +5487,8 @@
   "location_ref": "j4-the-girl",
   "location_kind": "stop",
   "first_seen": "2-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-2-08-113",
@@ -5181,7 +5504,8 @@
   "location_ref": "j4-seg-18",
   "location_kind": "road",
   "first_seen": "2-08",
-  "guide_page": 212
+  "guide_page": 212,
+  "common": false
  },
  {
   "id": "tr-3-01-003",
@@ -5197,7 +5521,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-004",
@@ -5213,7 +5538,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-005",
@@ -5229,7 +5555,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 215
+  "guide_page": 215,
+  "common": false
  },
  {
   "id": "tr-3-01-006",
@@ -5245,7 +5572,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 215
+  "guide_page": 215,
+  "common": false
  },
  {
   "id": "tr-3-01-007",
@@ -5261,7 +5589,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-008",
@@ -5277,7 +5606,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-009",
@@ -5293,7 +5623,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 216
+  "guide_page": 216,
+  "common": false
  },
  {
   "id": "tr-3-01-012",
@@ -5309,7 +5640,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-013",
@@ -5325,7 +5657,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-014",
@@ -5341,7 +5674,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-018",
@@ -5357,7 +5691,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 222
+  "guide_page": 222,
+  "common": false
  },
  {
   "id": "tr-3-01-019",
@@ -5373,7 +5708,8 @@
   "location_ref": "j4-san-diego",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 222
+  "guide_page": 222,
+  "common": false
  },
  {
   "id": "tr-3-01-020",
@@ -5389,7 +5725,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 225
+  "guide_page": 225,
+  "common": false
  },
  {
   "id": "tr-3-01-021",
@@ -5405,7 +5742,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 225
+  "guide_page": 225,
+  "common": false
  },
  {
   "id": "tr-3-01-022",
@@ -5421,7 +5759,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-023",
@@ -5437,7 +5776,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-024",
@@ -5453,7 +5793,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-025",
@@ -5469,7 +5810,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 227
+  "guide_page": 227,
+  "common": false
  },
  {
   "id": "tr-3-01-026",
@@ -5485,7 +5827,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-027",
@@ -5501,7 +5844,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 227
+  "guide_page": 227,
+  "common": false
  },
  {
   "id": "tr-3-01-028",
@@ -5517,7 +5861,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-029",
@@ -5533,7 +5878,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-030",
@@ -5549,7 +5895,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-031",
@@ -5565,7 +5912,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 229
+  "guide_page": 229,
+  "common": false
  },
  {
   "id": "tr-3-01-032",
@@ -5581,7 +5929,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-033",
@@ -5597,7 +5946,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-034",
@@ -5613,7 +5963,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-035",
@@ -5629,7 +5980,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-036",
@@ -5645,7 +5997,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-037",
@@ -5661,7 +6014,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-038",
@@ -5677,7 +6031,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-039",
@@ -5693,7 +6048,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-040",
@@ -5709,7 +6065,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-042",
@@ -5725,7 +6082,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 230
+  "guide_page": 230,
+  "common": false
  },
  {
   "id": "tr-3-01-043",
@@ -5741,7 +6099,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": 230
+  "guide_page": 230,
+  "common": false
  },
  {
   "id": "tr-3-01-045",
@@ -5757,7 +6116,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-046",
@@ -5773,7 +6133,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-01-047",
@@ -5789,7 +6150,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-01-048",
@@ -5805,7 +6167,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-01-049",
@@ -5821,7 +6184,8 @@
   "location_ref": "j4-opera-camp",
   "location_kind": "stop",
   "first_seen": "3-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-02-001",
@@ -5837,7 +6201,8 @@
   "location_ref": "j4-river-camps",
   "location_kind": "stop",
   "first_seen": "3-02",
-  "guide_page": 113
+  "guide_page": 113,
+  "common": false
  },
  {
   "id": "tr-3-02-002",
@@ -5853,7 +6218,8 @@
   "location_ref": "j4-river-camps",
   "location_kind": "stop",
   "first_seen": "3-02",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-03-002",
@@ -5869,7 +6235,8 @@
   "location_ref": "j4-wagon-road-crossing",
   "location_kind": "stop",
   "first_seen": "3-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-03-003",
@@ -5885,7 +6252,8 @@
   "location_ref": "j4-wagon-road-crossing",
   "location_kind": "stop",
   "first_seen": "3-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-03-004",
@@ -5901,7 +6269,8 @@
   "location_ref": "j4-wagon-road-crossing",
   "location_kind": "stop",
   "first_seen": "3-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-03-005",
@@ -5917,7 +6286,8 @@
   "location_ref": "j4-wagon-road-crossing",
   "location_kind": "stop",
   "first_seen": "3-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-03-006",
@@ -5933,7 +6303,8 @@
   "location_ref": "j4-wagon-road-crossing",
   "location_kind": "stop",
   "first_seen": "3-03",
-  "guide_page": 235
+  "guide_page": 235,
+  "common": false
  },
  {
   "id": "tr-3-03-008",
@@ -5949,7 +6320,8 @@
   "location_ref": "j4-wagon-road-crossing",
   "location_kind": "stop",
   "first_seen": "3-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-03-009",
@@ -5965,7 +6337,8 @@
   "location_ref": "j4-wagon-road-crossing",
   "location_kind": "stop",
   "first_seen": "3-03",
-  "guide_page": 236
+  "guide_page": 236,
+  "common": false
  },
  {
   "id": "tr-3-04-001",
@@ -5981,7 +6354,8 @@
   "location_ref": "j4-las-varas",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-002",
@@ -5997,7 +6371,8 @@
   "location_ref": "j4-las-varas",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-004",
@@ -6013,7 +6388,8 @@
   "location_ref": "j4-las-varas",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": 239
+  "guide_page": 239,
+  "common": false
  },
  {
   "id": "tr-3-04-005",
@@ -6029,7 +6405,8 @@
   "location_ref": "j4-las-varas",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-006",
@@ -6045,7 +6422,8 @@
   "location_ref": "j4-las-varas",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-007",
@@ -6061,7 +6439,8 @@
   "location_ref": "j4-las-varas",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-008",
@@ -6077,7 +6456,8 @@
   "location_ref": "j4-las-varas",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-009",
@@ -6093,7 +6473,8 @@
   "location_ref": "j4-las-varas",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-010",
@@ -6109,7 +6490,8 @@
   "location_ref": "j4-las-varas",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-011",
@@ -6125,7 +6507,8 @@
   "location_ref": "j4-las-varas",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-012",
@@ -6141,7 +6524,8 @@
   "location_ref": "j4-steer-herd",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-013",
@@ -6157,7 +6541,8 @@
   "location_ref": "j4-steer-herd",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-014",
@@ -6173,7 +6558,8 @@
   "location_ref": "j4-steer-herd",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-016",
@@ -6189,7 +6575,8 @@
   "location_ref": "j4-horses-found",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-017",
@@ -6205,7 +6592,8 @@
   "location_ref": "j4-horses-found",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-018",
@@ -6221,7 +6609,8 @@
   "location_ref": "j4-horses-found",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-019",
@@ -6237,7 +6626,8 @@
   "location_ref": "j4-horses-found",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-021",
@@ -6253,7 +6643,8 @@
   "location_ref": "j4-horses-found",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-022",
@@ -6269,7 +6660,8 @@
   "location_ref": "j4-horses-found",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-023",
@@ -6285,7 +6677,8 @@
   "location_ref": "j4-horses-found",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-024",
@@ -6301,7 +6694,8 @@
   "location_ref": "j4-horses-found",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": 244
+  "guide_page": 244,
+  "common": false
  },
  {
   "id": "tr-3-04-026",
@@ -6317,7 +6711,8 @@
   "location_ref": "j4-manco-roadblock",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-04-027",
@@ -6333,7 +6728,8 @@
   "location_ref": "j4-manco-roadblock",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-028",
@@ -6349,7 +6745,8 @@
   "location_ref": "j4-manco-roadblock",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-030",
@@ -6365,7 +6762,8 @@
   "location_ref": "j4-manco-roadblock",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-031",
@@ -6381,7 +6779,8 @@
   "location_ref": "j4-manco-roadblock",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-032",
@@ -6397,7 +6796,8 @@
   "location_ref": "j4-seg-28",
   "location_kind": "road",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-04-033",
@@ -6413,7 +6813,8 @@
   "location_ref": "j4-quijada-remuda",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": 113
+  "guide_page": 113,
+  "common": false
  },
  {
   "id": "tr-3-04-043",
@@ -6429,7 +6830,8 @@
   "location_ref": "j4-quijada-remuda",
   "location_kind": "stop",
   "first_seen": "3-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-06-001",
@@ -6445,7 +6847,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-006",
@@ -6461,7 +6864,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-07-007",
@@ -6477,7 +6881,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-008",
@@ -6493,7 +6898,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": 318
+  "guide_page": 318,
+  "common": false
  },
  {
   "id": "tr-3-07-010",
@@ -6509,7 +6915,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-011",
@@ -6525,7 +6932,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-012",
@@ -6541,7 +6949,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-013",
@@ -6557,7 +6966,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-07-014",
@@ -6573,7 +6983,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": 260
+  "guide_page": 260,
+  "common": false
  },
  {
   "id": "tr-3-07-015",
@@ -6589,7 +7000,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-016",
@@ -6605,7 +7017,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-017",
@@ -6621,7 +7034,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-019",
@@ -6637,7 +7051,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": 260
+  "guide_page": 260,
+  "common": false
  },
  {
   "id": "tr-3-07-020",
@@ -6653,7 +7068,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-022",
@@ -6669,7 +7085,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-023",
@@ -6685,7 +7102,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": 260
+  "guide_page": 260,
+  "common": false
  },
  {
   "id": "tr-3-07-024",
@@ -6701,7 +7119,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-040",
@@ -6717,7 +7136,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-07-041",
@@ -6733,7 +7153,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": 262
+  "guide_page": 262,
+  "common": false
  },
  {
   "id": "tr-3-07-042",
@@ -6749,7 +7170,8 @@
   "location_ref": "j4-boquilla",
   "location_kind": "stop",
   "first_seen": "3-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-08-002",
@@ -6765,7 +7187,8 @@
   "location_ref": "j4-dry-camp",
   "location_kind": "stop",
   "first_seen": "3-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-08-008",
@@ -6781,7 +7204,8 @@
   "location_ref": "j4-san-jose",
   "location_kind": "stop",
   "first_seen": "3-08",
-  "guide_page": 267
+  "guide_page": 267,
+  "common": false
  },
  {
   "id": "tr-3-08-009",
@@ -6797,7 +7221,8 @@
   "location_ref": "j4-san-jose",
   "location_kind": "stop",
   "first_seen": "3-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-08-013",
@@ -6813,7 +7238,8 @@
   "location_ref": "j4-shooting",
   "location_kind": "stop",
   "first_seen": "3-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-08-015",
@@ -6829,7 +7255,8 @@
   "location_ref": "j4-truck",
   "location_kind": "stop",
   "first_seen": "3-08",
-  "guide_page": 272
+  "guide_page": 272,
+  "common": false
  },
  {
   "id": "tr-3-08-016",
@@ -6845,7 +7272,8 @@
   "location_ref": "j4-truck",
   "location_kind": "stop",
   "first_seen": "3-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-08-017",
@@ -6861,7 +7289,8 @@
   "location_ref": "j4-truck",
   "location_kind": "stop",
   "first_seen": "3-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-08-018",
@@ -6877,7 +7306,8 @@
   "location_ref": "j4-truck",
   "location_kind": "stop",
   "first_seen": "3-08",
-  "guide_page": 272
+  "guide_page": 272,
+  "common": false
  },
  {
   "id": "tr-3-08-019",
@@ -6893,7 +7323,8 @@
   "location_ref": "j4-truck",
   "location_kind": "stop",
   "first_seen": "3-08",
-  "guide_page": 272
+  "guide_page": 272,
+  "common": false
  },
  {
   "id": "tr-3-08-020",
@@ -6909,7 +7340,8 @@
   "location_ref": "j4-truck",
   "location_kind": "stop",
   "first_seen": "3-08",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-001",
@@ -6925,7 +7357,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-002",
@@ -6941,7 +7374,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-003",
@@ -6957,7 +7391,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-09-005",
@@ -6973,7 +7408,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 275
+  "guide_page": 275,
+  "common": false
  },
  {
   "id": "tr-3-09-006",
@@ -6989,7 +7425,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-007",
@@ -7005,7 +7442,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-008",
@@ -7021,7 +7459,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 277
+  "guide_page": 277,
+  "common": false
  },
  {
   "id": "tr-3-09-010",
@@ -7037,7 +7476,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 278
+  "guide_page": 278,
+  "common": false
  },
  {
   "id": "tr-3-09-012",
@@ -7053,7 +7493,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-013",
@@ -7069,7 +7510,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-014",
@@ -7085,7 +7527,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 280
+  "guide_page": 280,
+  "common": false
  },
  {
   "id": "tr-3-09-015",
@@ -7101,7 +7544,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-016",
@@ -7117,7 +7561,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 281
+  "guide_page": 281,
+  "common": false
  },
  {
   "id": "tr-3-09-017",
@@ -7133,7 +7578,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-018",
@@ -7149,7 +7595,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 282
+  "guide_page": 282,
+  "common": false
  },
  {
   "id": "tr-3-09-019",
@@ -7165,7 +7612,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-020",
@@ -7181,7 +7629,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-021",
@@ -7197,7 +7646,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 281
+  "guide_page": 281,
+  "common": false
  },
  {
   "id": "tr-3-09-022",
@@ -7213,7 +7663,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-023",
@@ -7229,7 +7680,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 282
+  "guide_page": 282,
+  "common": false
  },
  {
   "id": "tr-3-09-024",
@@ -7245,7 +7697,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 281
+  "guide_page": 281,
+  "common": false
  },
  {
   "id": "tr-3-09-025",
@@ -7261,7 +7714,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 282
+  "guide_page": 282,
+  "common": false
  },
  {
   "id": "tr-3-09-026",
@@ -7277,7 +7731,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 282
+  "guide_page": 282,
+  "common": false
  },
  {
   "id": "tr-3-09-027",
@@ -7293,7 +7748,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-028",
@@ -7309,7 +7765,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 283
+  "guide_page": 283,
+  "common": false
  },
  {
   "id": "tr-3-09-029",
@@ -7325,7 +7782,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 284
+  "guide_page": 284,
+  "common": false
  },
  {
   "id": "tr-3-09-030",
@@ -7341,7 +7799,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 284
+  "guide_page": 284,
+  "common": false
  },
  {
   "id": "tr-3-09-031",
@@ -7357,7 +7816,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-09-032",
@@ -7373,7 +7833,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-033",
@@ -7389,7 +7850,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-034",
@@ -7405,7 +7867,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 284
+  "guide_page": 284,
+  "common": false
  },
  {
   "id": "tr-3-09-035",
@@ -7421,7 +7884,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-09-036",
@@ -7437,7 +7901,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-037",
@@ -7453,7 +7918,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-038",
@@ -7469,7 +7935,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-039",
@@ -7485,7 +7952,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-040",
@@ -7501,7 +7969,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-041",
@@ -7517,7 +7986,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-042",
@@ -7533,7 +8003,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 285
+  "guide_page": 285,
+  "common": false
  },
  {
   "id": "tr-3-09-044",
@@ -7549,7 +8020,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 286
+  "guide_page": 286,
+  "common": false
  },
  {
   "id": "tr-3-09-045",
@@ -7565,7 +8037,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-046",
@@ -7581,7 +8054,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-047",
@@ -7597,7 +8071,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-048",
@@ -7613,7 +8088,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 286
+  "guide_page": 286,
+  "common": false
  },
  {
   "id": "tr-3-09-049",
@@ -7629,7 +8105,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-050",
@@ -7645,7 +8122,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-052",
@@ -7661,7 +8139,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 286
+  "guide_page": 286,
+  "common": false
  },
  {
   "id": "tr-3-09-055",
@@ -7677,7 +8156,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-056",
@@ -7693,7 +8173,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-057",
@@ -7709,7 +8190,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-058",
@@ -7725,7 +8207,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 289
+  "guide_page": 289,
+  "common": false
  },
  {
   "id": "tr-3-09-059",
@@ -7741,7 +8224,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 290
+  "guide_page": 290,
+  "common": false
  },
  {
   "id": "tr-3-09-060",
@@ -7757,7 +8241,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-09-061",
@@ -7773,7 +8258,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 290
+  "guide_page": 290,
+  "common": false
  },
  {
   "id": "tr-3-09-062",
@@ -7789,7 +8275,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-09-063",
@@ -7805,7 +8292,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-065",
@@ -7821,7 +8309,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 290
+  "guide_page": 290,
+  "common": false
  },
  {
   "id": "tr-3-09-066",
@@ -7837,7 +8326,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 291
+  "guide_page": 291,
+  "common": false
  },
  {
   "id": "tr-3-09-067",
@@ -7853,7 +8343,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 291
+  "guide_page": 291,
+  "common": false
  },
  {
   "id": "tr-3-09-068",
@@ -7869,7 +8360,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-069",
@@ -7885,7 +8377,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-070",
@@ -7901,7 +8394,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 292
+  "guide_page": 292,
+  "common": false
  },
  {
   "id": "tr-3-09-075",
@@ -7917,7 +8411,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 292
+  "guide_page": 292,
+  "common": false
  },
  {
   "id": "tr-3-09-077",
@@ -7933,7 +8428,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 293
+  "guide_page": 293,
+  "common": false
  },
  {
   "id": "tr-3-09-079",
@@ -7949,7 +8445,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 293
+  "guide_page": 293,
+  "common": false
  },
  {
   "id": "tr-3-09-080",
@@ -7965,7 +8462,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-081",
@@ -7981,7 +8479,8 @@
   "location_ref": "j4-blind-man",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-082",
@@ -7997,7 +8496,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-084",
@@ -8013,7 +8513,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-085",
@@ -8029,7 +8530,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-086",
@@ -8045,7 +8547,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-09-087",
@@ -8061,7 +8564,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 297
+  "guide_page": 297,
+  "common": false
  },
  {
   "id": "tr-3-09-088",
@@ -8077,7 +8581,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 298
+  "guide_page": 298,
+  "common": false
  },
  {
   "id": "tr-3-09-089",
@@ -8093,7 +8598,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-090",
@@ -8109,7 +8615,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-091",
@@ -8125,7 +8632,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-092",
@@ -8141,7 +8649,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-09-093",
@@ -8157,7 +8666,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-09-094",
@@ -8173,7 +8683,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-095",
@@ -8189,7 +8700,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 298
+  "guide_page": 298,
+  "common": false
  },
  {
   "id": "tr-3-09-096",
@@ -8205,7 +8717,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 298
+  "guide_page": 298,
+  "common": false
  },
  {
   "id": "tr-3-09-097",
@@ -8221,7 +8734,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 298
+  "guide_page": 298,
+  "common": false
  },
  {
   "id": "tr-3-09-098",
@@ -8237,7 +8751,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-099",
@@ -8253,7 +8768,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-100",
@@ -8269,7 +8785,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 298
+  "guide_page": 298,
+  "common": false
  },
  {
   "id": "tr-3-09-101",
@@ -8285,7 +8802,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-09-102",
@@ -8301,7 +8819,8 @@
   "location_ref": "j4-mata-ortiz",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-104",
@@ -8317,7 +8836,8 @@
   "location_ref": "j4-san-diego-boyd",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-105",
@@ -8333,7 +8853,8 @@
   "location_ref": "j4-san-diego-boyd",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-106",
@@ -8349,7 +8870,8 @@
   "location_ref": "j4-san-diego-boyd",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-107",
@@ -8365,7 +8887,8 @@
   "location_ref": "j4-san-diego-boyd",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-108",
@@ -8381,7 +8904,8 @@
   "location_ref": "j4-san-diego-boyd",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-109",
@@ -8397,7 +8921,8 @@
   "location_ref": "j4-san-diego-boyd",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 299
+  "guide_page": 299,
+  "common": false
  },
  {
   "id": "tr-3-09-110",
@@ -8413,7 +8938,8 @@
   "location_ref": "j4-san-diego-boyd",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-112",
@@ -8429,7 +8955,8 @@
   "location_ref": "j4-san-diego-boyd",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-113",
@@ -8445,7 +8972,8 @@
   "location_ref": "j4-san-diego-boyd",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-114",
@@ -8461,7 +8989,8 @@
   "location_ref": "j4-san-diego-boyd",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": 300
+  "guide_page": 300,
+  "common": false
  },
  {
   "id": "tr-3-09-116",
@@ -8477,7 +9006,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-09-117",
@@ -8493,7 +9023,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-09",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-003",
@@ -8509,7 +9040,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-005",
@@ -8525,7 +9057,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-008",
@@ -8541,7 +9074,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 301
+  "guide_page": 301,
+  "common": false
  },
  {
   "id": "tr-3-10-009",
@@ -8557,7 +9091,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-010",
@@ -8573,7 +9108,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-011",
@@ -8589,7 +9125,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-012",
@@ -8605,7 +9142,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-014",
@@ -8621,7 +9159,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-020",
@@ -8637,7 +9176,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 302
+  "guide_page": 302,
+  "common": false
  },
  {
   "id": "tr-3-10-021",
@@ -8653,7 +9193,8 @@
   "location_ref": "j4-casas-grandes-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-027",
@@ -8669,7 +9210,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 303
+  "guide_page": 303,
+  "common": false
  },
  {
   "id": "tr-3-10-028",
@@ -8685,7 +9227,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 305
+  "guide_page": 305,
+  "common": false
  },
  {
   "id": "tr-3-10-029",
@@ -8701,7 +9244,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-030",
@@ -8717,7 +9261,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-031",
@@ -8733,7 +9278,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 304
+  "guide_page": 304,
+  "common": false
  },
  {
   "id": "tr-3-10-032",
@@ -8749,7 +9295,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-033",
@@ -8765,7 +9312,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 305
+  "guide_page": 305,
+  "common": false
  },
  {
   "id": "tr-3-10-034",
@@ -8781,7 +9329,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 305
+  "guide_page": 305,
+  "common": false
  },
  {
   "id": "tr-3-10-035",
@@ -8797,7 +9346,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-036",
@@ -8813,7 +9363,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 305
+  "guide_page": 305,
+  "common": false
  },
  {
   "id": "tr-3-10-037",
@@ -8829,7 +9380,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 305
+  "guide_page": 305,
+  "common": false
  },
  {
   "id": "tr-3-10-038",
@@ -8845,7 +9397,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-039",
@@ -8861,7 +9414,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 306
+  "guide_page": 306,
+  "common": false
  },
  {
   "id": "tr-3-10-040",
@@ -8877,7 +9431,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-041",
@@ -8893,7 +9448,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-042",
@@ -8909,7 +9465,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-043",
@@ -8925,7 +9482,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-044",
@@ -8941,7 +9499,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-045",
@@ -8957,7 +9516,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-046",
@@ -8973,7 +9533,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-047",
@@ -8989,7 +9550,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 306
+  "guide_page": 306,
+  "common": false
  },
  {
   "id": "tr-3-10-049",
@@ -9005,7 +9567,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 307
+  "guide_page": 307,
+  "common": false
  },
  {
   "id": "tr-3-10-050",
@@ -9021,7 +9584,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-051",
@@ -9037,7 +9601,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 307
+  "guide_page": 307,
+  "common": false
  },
  {
   "id": "tr-3-10-052",
@@ -9053,7 +9618,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 308
+  "guide_page": 308,
+  "common": false
  },
  {
   "id": "tr-3-10-053",
@@ -9069,7 +9635,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-054",
@@ -9085,7 +9652,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 308
+  "guide_page": 308,
+  "common": false
  },
  {
   "id": "tr-3-10-055",
@@ -9101,7 +9669,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-056",
@@ -9117,7 +9686,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 308
+  "guide_page": 308,
+  "common": false
  },
  {
   "id": "tr-3-10-057",
@@ -9133,7 +9703,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-058",
@@ -9149,7 +9720,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 309
+  "guide_page": 309,
+  "common": false
  },
  {
   "id": "tr-3-10-059",
@@ -9165,7 +9737,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-060",
@@ -9181,7 +9754,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 309
+  "guide_page": 309,
+  "common": false
  },
  {
   "id": "tr-3-10-061",
@@ -9197,7 +9771,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 309
+  "guide_page": 309,
+  "common": true
  },
  {
   "id": "tr-3-10-062",
@@ -9213,7 +9788,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-063",
@@ -9229,7 +9805,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-064",
@@ -9245,7 +9822,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-065",
@@ -9261,7 +9839,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-066",
@@ -9277,7 +9856,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 310
+  "guide_page": 310,
+  "common": false
  },
  {
   "id": "tr-3-10-067",
@@ -9293,7 +9873,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 310
+  "guide_page": 310,
+  "common": false
  },
  {
   "id": "tr-3-10-068",
@@ -9309,7 +9890,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 311
+  "guide_page": 311,
+  "common": false
  },
  {
   "id": "tr-3-10-069",
@@ -9325,7 +9907,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-070",
@@ -9341,7 +9924,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 311
+  "guide_page": 311,
+  "common": false
  },
  {
   "id": "tr-3-10-071",
@@ -9357,7 +9941,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 311
+  "guide_page": 311,
+  "common": false
  },
  {
   "id": "tr-3-10-072",
@@ -9373,7 +9958,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-073",
@@ -9389,7 +9975,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-074",
@@ -9405,7 +9992,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 312
+  "guide_page": 312,
+  "common": false
  },
  {
   "id": "tr-3-10-075",
@@ -9421,7 +10009,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 312
+  "guide_page": 312,
+  "common": false
  },
  {
   "id": "tr-3-10-076",
@@ -9437,7 +10026,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 312
+  "guide_page": 312,
+  "common": false
  },
  {
   "id": "tr-3-10-077",
@@ -9453,7 +10043,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 312
+  "guide_page": 312,
+  "common": false
  },
  {
   "id": "tr-3-10-078",
@@ -9469,7 +10060,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-079",
@@ -9485,7 +10077,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 312
+  "guide_page": 312,
+  "common": false
  },
  {
   "id": "tr-3-10-080",
@@ -9501,7 +10094,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-081",
@@ -9517,7 +10111,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-082",
@@ -9533,7 +10128,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-083",
@@ -9549,7 +10145,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-084",
@@ -9565,7 +10162,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 313
+  "guide_page": 313,
+  "common": false
  },
  {
   "id": "tr-3-10-085",
@@ -9581,7 +10179,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-086",
@@ -9597,7 +10196,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-087",
@@ -9613,7 +10213,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-10-088",
@@ -9629,7 +10230,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-089",
@@ -9645,7 +10247,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-090",
@@ -9661,7 +10264,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 314
+  "guide_page": 314,
+  "common": false
  },
  {
   "id": "tr-3-10-091",
@@ -9677,7 +10281,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-10-094",
@@ -9693,7 +10298,8 @@
   "location_ref": "j4-san-diego-doctor",
   "location_kind": "stop",
   "first_seen": "3-10",
-  "guide_page": 314
+  "guide_page": 314,
+  "common": false
  },
  {
   "id": "tr-3-11-004",
@@ -9709,7 +10315,8 @@
   "location_ref": "place-hacienda-de-san-diego",
   "location_kind": "place",
   "first_seen": "3-11",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-11-007",
@@ -9725,7 +10332,8 @@
   "location_ref": "place-hacienda-de-san-diego",
   "location_kind": "place",
   "first_seen": "3-11",
-  "guide_page": 315
+  "guide_page": 315,
+  "common": false
  },
  {
   "id": "tr-3-11-009",
@@ -9741,7 +10349,8 @@
   "location_ref": "place-hacienda-de-san-diego",
   "location_kind": "place",
   "first_seen": "3-11",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-11-010",
@@ -9757,7 +10366,8 @@
   "location_ref": "place-hacienda-de-san-diego",
   "location_kind": "place",
   "first_seen": "3-11",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-11-013",
@@ -9773,7 +10383,8 @@
   "location_ref": "place-hacienda-de-san-diego",
   "location_kind": "place",
   "first_seen": "3-11",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-11-014",
@@ -9789,7 +10400,8 @@
   "location_ref": "place-hacienda-de-san-diego",
   "location_kind": "place",
   "first_seen": "3-11",
-  "guide_page": 316
+  "guide_page": 316,
+  "common": false
  },
  {
   "id": "tr-3-12-001",
@@ -9805,7 +10417,8 @@
   "location_ref": "j5-san-diego",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 150
+  "guide_page": 150,
+  "common": false
  },
  {
   "id": "tr-3-12-002",
@@ -9821,7 +10434,8 @@
   "location_ref": "j5-san-diego",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-004",
@@ -9837,7 +10451,8 @@
   "location_ref": "j5-san-diego",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 316
+  "guide_page": 316,
+  "common": true
  },
  {
   "id": "tr-3-12-005",
@@ -9853,7 +10468,8 @@
   "location_ref": "j5-san-diego",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 317
+  "guide_page": 317,
+  "common": false
  },
  {
   "id": "tr-3-12-006",
@@ -9869,7 +10485,8 @@
   "location_ref": "j5-san-diego",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 317
+  "guide_page": 317,
+  "common": false
  },
  {
   "id": "tr-3-12-007",
@@ -9885,7 +10502,8 @@
   "location_ref": "j5-san-diego",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-3-12-009",
@@ -9901,7 +10519,8 @@
   "location_ref": "j5-seg-02",
   "location_kind": "road",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-010",
@@ -9917,7 +10536,8 @@
   "location_ref": "j5-seg-02",
   "location_kind": "road",
   "first_seen": "3-12",
-  "guide_page": 317
+  "guide_page": 317,
+  "common": false
  },
  {
   "id": "tr-3-12-014",
@@ -9933,7 +10553,8 @@
   "location_ref": "j5-seg-02",
   "location_kind": "road",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-017",
@@ -9949,7 +10570,8 @@
   "location_ref": "j5-seg-02",
   "location_kind": "road",
   "first_seen": "3-12",
-  "guide_page": 318
+  "guide_page": 318,
+  "common": false
  },
  {
   "id": "tr-3-12-018",
@@ -9965,7 +10587,8 @@
   "location_ref": "j5-seg-02",
   "location_kind": "road",
   "first_seen": "3-12",
-  "guide_page": 318
+  "guide_page": 318,
+  "common": false
  },
  {
   "id": "tr-3-12-020",
@@ -9981,7 +10604,8 @@
   "location_ref": "j5-santa-maria-stream",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 320
+  "guide_page": 320,
+  "common": false
  },
  {
   "id": "tr-3-12-021",
@@ -9997,7 +10621,8 @@
   "location_ref": "j5-santa-maria-stream",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 320
+  "guide_page": 320,
+  "common": false
  },
  {
   "id": "tr-3-12-022",
@@ -10013,7 +10638,8 @@
   "location_ref": "j5-santa-maria-stream",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 320
+  "guide_page": 320,
+  "common": false
  },
  {
   "id": "tr-3-12-023",
@@ -10029,7 +10655,8 @@
   "location_ref": "j5-santa-maria-stream",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-026",
@@ -10045,7 +10672,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 320
+  "guide_page": 320,
+  "common": false
  },
  {
   "id": "tr-3-12-027",
@@ -10061,7 +10689,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-028",
@@ -10077,7 +10706,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-029",
@@ -10093,7 +10723,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 321
+  "guide_page": 321,
+  "common": false
  },
  {
   "id": "tr-3-12-030",
@@ -10109,7 +10740,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 321
+  "guide_page": 321,
+  "common": false
  },
  {
   "id": "tr-3-12-031",
@@ -10125,7 +10757,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 321
+  "guide_page": 321,
+  "common": false
  },
  {
   "id": "tr-3-12-032",
@@ -10141,7 +10774,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 321
+  "guide_page": 321,
+  "common": false
  },
  {
   "id": "tr-3-12-034",
@@ -10157,7 +10791,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 321
+  "guide_page": 321,
+  "common": false
  },
  {
   "id": "tr-3-12-035",
@@ -10173,7 +10808,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-037",
@@ -10189,7 +10825,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 113
+  "guide_page": 113,
+  "common": false
  },
  {
   "id": "tr-3-12-039",
@@ -10205,7 +10842,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 323
+  "guide_page": 323,
+  "common": false
  },
  {
   "id": "tr-3-12-040",
@@ -10221,7 +10859,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-041",
@@ -10237,7 +10876,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-042",
@@ -10253,7 +10893,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-043",
@@ -10269,7 +10910,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-044",
@@ -10285,7 +10927,8 @@
   "location_ref": "j5-santa-ana-return",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-052",
@@ -10301,7 +10944,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 327
+  "guide_page": 327,
+  "common": false
  },
  {
   "id": "tr-3-12-054",
@@ -10317,7 +10961,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-055",
@@ -10333,7 +10978,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-056",
@@ -10349,7 +10995,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-057",
@@ -10365,7 +11012,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-059",
@@ -10381,7 +11029,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-060",
@@ -10397,7 +11046,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 327
+  "guide_page": 327,
+  "common": false
  },
  {
   "id": "tr-3-12-062",
@@ -10413,7 +11063,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 327
+  "guide_page": 327,
+  "common": false
  },
  {
   "id": "tr-3-12-063",
@@ -10429,7 +11080,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 327
+  "guide_page": 327,
+  "common": false
  },
  {
   "id": "tr-3-12-065",
@@ -10445,7 +11097,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-068",
@@ -10461,7 +11114,8 @@
   "location_ref": "j5-las-varas",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-071",
@@ -10477,7 +11131,8 @@
   "location_ref": "j5-river-camp",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-12-074",
@@ -10493,7 +11148,8 @@
   "location_ref": "j5-san-diego-feast",
   "location_kind": "stop",
   "first_seen": "3-12",
-  "guide_page": 328
+  "guide_page": 328,
+  "common": false
  },
  {
   "id": "tr-3-13-001",
@@ -10509,7 +11165,8 @@
   "location_ref": "place-hacienda-de-san-diego",
   "location_kind": "place",
   "first_seen": "3-13",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-14-001",
@@ -10525,7 +11182,8 @@
   "location_ref": null,
   "location_kind": null,
   "first_seen": "3-14",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-14-002",
@@ -10541,7 +11199,8 @@
   "location_ref": "j5-buenaventura",
   "location_kind": "stop",
   "first_seen": "3-14",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-14-003",
@@ -10557,7 +11216,8 @@
   "location_ref": null,
   "location_kind": null,
   "first_seen": "3-14",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-14-008",
@@ -10573,7 +11233,8 @@
   "location_ref": "j5-casas-grandes",
   "location_kind": "stop",
   "first_seen": "3-14",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-3-14-012",
@@ -10589,7 +11250,8 @@
   "location_ref": "j5-casas-grandes",
   "location_kind": "stop",
   "first_seen": "3-14",
-  "guide_page": 332
+  "guide_page": 332,
+  "common": false
  },
  {
   "id": "tr-3-14-013",
@@ -10605,7 +11267,8 @@
   "location_ref": "j5-casas-grandes",
   "location_kind": "stop",
   "first_seen": "3-14",
-  "guide_page": 332
+  "guide_page": 332,
+  "common": false
  },
  {
   "id": "tr-4-01-002",
@@ -10621,7 +11284,8 @@
   "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-01-003",
@@ -10637,7 +11301,8 @@
   "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-01-004",
@@ -10653,7 +11318,8 @@
   "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-01-005",
@@ -10669,7 +11335,8 @@
   "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-01-006",
@@ -10685,7 +11352,8 @@
   "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
-  "guide_page": 342
+  "guide_page": 342,
+  "common": false
  },
  {
   "id": "tr-4-01-007",
@@ -10701,7 +11369,8 @@
   "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-01-008",
@@ -10717,7 +11386,8 @@
   "location_ref": "j7-deming-3",
   "location_kind": "stop",
   "first_seen": "4-01",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-02-001",
@@ -10733,7 +11403,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-02-002",
@@ -10749,7 +11420,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-02-003",
@@ -10765,7 +11437,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-02-004",
@@ -10781,7 +11454,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-02-005",
@@ -10797,7 +11471,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": 354
+  "guide_page": 354,
+  "common": false
  },
  {
   "id": "tr-4-02-006",
@@ -10813,7 +11488,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-02-007",
@@ -10829,7 +11505,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-02-008",
@@ -10845,7 +11522,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": 354
+  "guide_page": 354,
+  "common": false
  },
  {
   "id": "tr-4-02-009",
@@ -10861,7 +11539,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": 354
+  "guide_page": 354,
+  "common": false
  },
  {
   "id": "tr-4-02-010",
@@ -10877,7 +11556,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-02-011",
@@ -10893,7 +11573,8 @@
   "location_ref": "j7-sk-bar",
   "location_kind": "stop",
   "first_seen": "4-02",
-  "guide_page": 354
+  "guide_page": 354,
+  "common": false
  },
  {
   "id": "tr-4-03-001",
@@ -10909,7 +11590,8 @@
   "location_ref": "j7-el-berrendo",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 355
+  "guide_page": 355,
+  "common": false
  },
  {
   "id": "tr-4-03-005",
@@ -10925,7 +11607,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 356
+  "guide_page": 356,
+  "common": false
  },
  {
   "id": "tr-4-03-006",
@@ -10941,7 +11624,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-007",
@@ -10957,7 +11641,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 356
+  "guide_page": 356,
+  "common": false
  },
  {
   "id": "tr-4-03-008",
@@ -10973,7 +11658,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-009",
@@ -10989,7 +11675,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-010",
@@ -11005,7 +11692,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-011",
@@ -11021,7 +11709,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-03-012",
@@ -11037,7 +11726,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-03-013",
@@ -11053,7 +11743,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-03-014",
@@ -11069,7 +11760,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-015",
@@ -11085,7 +11777,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-03-016",
@@ -11101,7 +11794,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-017",
@@ -11117,7 +11811,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 358
+  "guide_page": 358,
+  "common": false
  },
  {
   "id": "tr-4-03-018",
@@ -11133,7 +11828,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-019",
@@ -11149,7 +11845,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-020",
@@ -11165,7 +11862,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-022",
@@ -11181,7 +11879,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-023",
@@ -11197,7 +11896,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-024",
@@ -11213,7 +11913,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-03-025",
@@ -11229,7 +11930,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-03-026",
@@ -11245,7 +11947,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-027",
@@ -11261,7 +11964,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-028",
@@ -11277,7 +11981,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 359
+  "guide_page": 359,
+  "common": false
  },
  {
   "id": "tr-4-03-029",
@@ -11293,7 +11998,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-030",
@@ -11309,7 +12015,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-03-031",
@@ -11325,7 +12032,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-032",
@@ -11341,7 +12049,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-033",
@@ -11357,7 +12066,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-034",
@@ -11373,7 +12083,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 360
+  "guide_page": 360,
+  "common": false
  },
  {
   "id": "tr-4-03-035",
@@ -11389,7 +12100,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-036",
@@ -11405,7 +12117,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-03-037",
@@ -11421,7 +12134,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-038",
@@ -11437,7 +12151,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-039",
@@ -11453,7 +12168,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-040",
@@ -11469,7 +12185,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-041",
@@ -11485,7 +12202,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-03-042",
@@ -11501,7 +12219,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-043",
@@ -11517,7 +12236,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-044",
@@ -11533,7 +12253,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-045",
@@ -11549,7 +12270,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-047",
@@ -11565,7 +12287,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-048",
@@ -11581,7 +12304,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 362
+  "guide_page": 362,
+  "common": false
  },
  {
   "id": "tr-4-03-049",
@@ -11597,7 +12321,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-050",
@@ -11613,7 +12338,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-051",
@@ -11629,7 +12355,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-052",
@@ -11645,7 +12372,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-053",
@@ -11661,7 +12389,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-03-054",
@@ -11677,7 +12406,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": 363
+  "guide_page": 363,
+  "common": false
  },
  {
   "id": "tr-4-03-055",
@@ -11693,7 +12423,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-03",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-001",
@@ -11709,7 +12440,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-002",
@@ -11725,7 +12457,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-003",
@@ -11741,7 +12474,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 365
+  "guide_page": 365,
+  "common": false
  },
  {
   "id": "tr-4-04-004",
@@ -11757,7 +12491,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-005",
@@ -11773,7 +12508,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-006",
@@ -11789,7 +12525,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-007",
@@ -11805,7 +12542,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-008",
@@ -11821,7 +12559,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 366
+  "guide_page": 366,
+  "common": false
  },
  {
   "id": "tr-4-04-009",
@@ -11837,7 +12576,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-010",
@@ -11853,7 +12593,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-04-011",
@@ -11869,7 +12610,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-013",
@@ -11885,7 +12627,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 367
+  "guide_page": 367,
+  "common": false
  },
  {
   "id": "tr-4-04-014",
@@ -11901,7 +12644,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-016",
@@ -11917,7 +12661,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-017",
@@ -11933,7 +12678,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-018",
@@ -11949,7 +12695,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 367
+  "guide_page": 367,
+  "common": false
  },
  {
   "id": "tr-4-04-019",
@@ -11965,7 +12712,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-020",
@@ -11981,7 +12729,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-021",
@@ -11997,7 +12746,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 367
+  "guide_page": 367,
+  "common": false
  },
  {
   "id": "tr-4-04-022",
@@ -12013,7 +12763,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-023",
@@ -12029,7 +12780,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-024",
@@ -12045,7 +12797,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-025",
@@ -12061,7 +12814,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-026",
@@ -12077,7 +12831,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-027",
@@ -12093,7 +12848,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-028",
@@ -12109,7 +12865,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 368
+  "guide_page": 368,
+  "common": false
  },
  {
   "id": "tr-4-04-029",
@@ -12125,7 +12882,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-030",
@@ -12141,7 +12899,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 368
+  "guide_page": 368,
+  "common": false
  },
  {
   "id": "tr-4-04-031",
@@ -12157,7 +12916,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-032",
@@ -12173,7 +12933,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-033",
@@ -12189,7 +12950,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-034",
@@ -12205,7 +12967,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-035",
@@ -12221,7 +12984,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-036",
@@ -12237,7 +13001,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-037",
@@ -12253,7 +13018,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-038",
@@ -12269,7 +13035,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-039",
@@ -12285,7 +13052,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-040",
@@ -12301,7 +13069,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-041",
@@ -12317,7 +13086,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-042",
@@ -12333,7 +13103,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 357
+  "guide_page": 357,
+  "common": false
  },
  {
   "id": "tr-4-04-043",
@@ -12349,7 +13120,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-044",
@@ -12365,7 +13137,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-04-045",
@@ -12381,7 +13154,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 369
+  "guide_page": 369,
+  "common": false
  },
  {
   "id": "tr-4-04-046",
@@ -12397,7 +13171,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-047",
@@ -12413,7 +13188,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 369
+  "guide_page": 369,
+  "common": false
  },
  {
   "id": "tr-4-04-048",
@@ -12429,7 +13205,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 369
+  "guide_page": 369,
+  "common": false
  },
  {
   "id": "tr-4-04-049",
@@ -12445,7 +13222,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 369
+  "guide_page": 369,
+  "common": false
  },
  {
   "id": "tr-4-04-050",
@@ -12461,7 +13239,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 369
+  "guide_page": 369,
+  "common": false
  },
  {
   "id": "tr-4-04-051",
@@ -12477,7 +13256,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 369
+  "guide_page": 369,
+  "common": false
  },
  {
   "id": "tr-4-04-052",
@@ -12493,7 +13273,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-053",
@@ -12509,7 +13290,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-054",
@@ -12525,7 +13307,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-055",
@@ -12541,7 +13324,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 369
+  "guide_page": 369,
+  "common": false
  },
  {
   "id": "tr-4-04-056",
@@ -12557,7 +13341,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-057",
@@ -12573,7 +13358,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 369
+  "guide_page": 369,
+  "common": false
  },
  {
   "id": "tr-4-04-058",
@@ -12589,7 +13375,8 @@
   "location_ref": "j7-janos",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 370
+  "guide_page": 370,
+  "common": false
  },
  {
   "id": "tr-4-04-062",
@@ -12605,7 +13392,8 @@
   "location_ref": "j7-namiquipa",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-04-063",
@@ -12621,7 +13409,8 @@
   "location_ref": "j7-namiquipa",
   "location_kind": "stop",
   "first_seen": "4-04",
-  "guide_page": 372
+  "guide_page": 372,
+  "common": false
  },
  {
   "id": "tr-4-05-003",
@@ -12637,7 +13426,8 @@
   "location_ref": "j7-namiquipa",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 373
+  "guide_page": 373,
+  "common": false
  },
  {
   "id": "tr-4-05-004",
@@ -12653,7 +13443,8 @@
   "location_ref": "j7-namiquipa",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 374
+  "guide_page": 374,
+  "common": false
  },
  {
   "id": "tr-4-05-005",
@@ -12669,7 +13460,8 @@
   "location_ref": "j7-namiquipa",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 374
+  "guide_page": 374,
+  "common": false
  },
  {
   "id": "tr-4-05-010",
@@ -12685,7 +13477,8 @@
   "location_ref": "j7-temosachic",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 375
+  "guide_page": 375,
+  "common": false
  },
  {
   "id": "tr-4-05-011",
@@ -12701,7 +13494,8 @@
   "location_ref": "j7-temosachic",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 375
+  "guide_page": 375,
+  "common": false
  },
  {
   "id": "tr-4-05-015",
@@ -12717,7 +13511,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-016",
@@ -12733,7 +13528,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 375
+  "guide_page": 375,
+  "common": false
  },
  {
   "id": "tr-4-05-017",
@@ -12749,7 +13545,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 376
+  "guide_page": 376,
+  "common": false
  },
  {
   "id": "tr-4-05-018",
@@ -12765,7 +13562,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-019",
@@ -12781,7 +13579,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-020",
@@ -12797,7 +13596,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-021",
@@ -12813,7 +13613,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 376
+  "guide_page": 376,
+  "common": false
  },
  {
   "id": "tr-4-05-022",
@@ -12829,7 +13630,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 376
+  "guide_page": 376,
+  "common": false
  },
  {
   "id": "tr-4-05-023",
@@ -12845,7 +13647,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 376
+  "guide_page": 376,
+  "common": false
  },
  {
   "id": "tr-4-05-024",
@@ -12861,7 +13664,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-025",
@@ -12877,7 +13681,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-026",
@@ -12893,7 +13698,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 376
+  "guide_page": 376,
+  "common": false
  },
  {
   "id": "tr-4-05-027",
@@ -12909,7 +13715,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 376
+  "guide_page": 376,
+  "common": false
  },
  {
   "id": "tr-4-05-028",
@@ -12925,7 +13732,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 376
+  "guide_page": 376,
+  "common": false
  },
  {
   "id": "tr-4-05-029",
@@ -12941,7 +13749,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 376
+  "guide_page": 376,
+  "common": false
  },
  {
   "id": "tr-4-05-030",
@@ -12957,7 +13766,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-031",
@@ -12973,7 +13783,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 377
+  "guide_page": 377,
+  "common": false
  },
  {
   "id": "tr-4-05-032",
@@ -12989,7 +13800,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-034",
@@ -13005,7 +13817,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-035",
@@ -13021,7 +13834,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-036",
@@ -13037,7 +13851,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-037",
@@ -13053,7 +13868,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-038",
@@ -13069,7 +13885,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-039",
@@ -13085,7 +13902,8 @@
   "location_ref": "j7-madera",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-041",
@@ -13101,7 +13919,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 378
+  "guide_page": 378,
+  "common": false
  },
  {
   "id": "tr-4-05-042",
@@ -13117,7 +13936,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 378
+  "guide_page": 378,
+  "common": false
  },
  {
   "id": "tr-4-05-043",
@@ -13133,7 +13953,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 378
+  "guide_page": 378,
+  "common": false
  },
  {
   "id": "tr-4-05-044",
@@ -13149,7 +13970,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 379
+  "guide_page": 379,
+  "common": false
  },
  {
   "id": "tr-4-05-045",
@@ -13165,7 +13987,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 379
+  "guide_page": 379,
+  "common": false
  },
  {
   "id": "tr-4-05-046",
@@ -13181,7 +14004,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 379
+  "guide_page": 379,
+  "common": false
  },
  {
   "id": "tr-4-05-047",
@@ -13197,7 +14021,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 379
+  "guide_page": 379,
+  "common": false
  },
  {
   "id": "tr-4-05-048",
@@ -13213,7 +14038,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 379
+  "guide_page": 379,
+  "common": false
  },
  {
   "id": "tr-4-05-049",
@@ -13229,7 +14055,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 379
+  "guide_page": 379,
+  "common": false
  },
  {
   "id": "tr-4-05-051",
@@ -13245,7 +14072,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 379
+  "guide_page": 379,
+  "common": false
  },
  {
   "id": "tr-4-05-052",
@@ -13261,7 +14089,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-053",
@@ -13277,7 +14106,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 380
+  "guide_page": 380,
+  "common": false
  },
  {
   "id": "tr-4-05-054",
@@ -13293,7 +14123,8 @@
   "location_ref": "j7-babicora-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 380
+  "guide_page": 380,
+  "common": true
  },
  {
   "id": "tr-4-05-056",
@@ -13309,7 +14140,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 380
+  "guide_page": 380,
+  "common": false
  },
  {
   "id": "tr-4-05-058",
@@ -13325,7 +14157,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-059",
@@ -13341,7 +14174,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-060",
@@ -13357,7 +14191,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-061",
@@ -13373,7 +14208,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 381
+  "guide_page": 381,
+  "common": false
  },
  {
   "id": "tr-4-05-062",
@@ -13389,7 +14225,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-063",
@@ -13405,7 +14242,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-064",
@@ -13421,7 +14259,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-068",
@@ -13437,7 +14276,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 381
+  "guide_page": 381,
+  "common": false
  },
  {
   "id": "tr-4-05-072",
@@ -13453,7 +14293,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-073",
@@ -13469,7 +14310,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-074",
@@ -13485,7 +14327,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-075",
@@ -13501,7 +14344,8 @@
   "location_ref": "j7-casas-grandes-2",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-076",
@@ -13517,7 +14361,8 @@
   "location_ref": "j7-babicora-high-country",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-077",
@@ -13533,7 +14378,8 @@
   "location_ref": "j7-babicora-high-country",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-078",
@@ -13549,7 +14395,8 @@
   "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": 383
+  "guide_page": 383,
+  "common": false
  },
  {
   "id": "tr-4-05-079",
@@ -13565,7 +14412,8 @@
   "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-080",
@@ -13581,7 +14429,8 @@
   "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-081",
@@ -13597,7 +14446,8 @@
   "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-082",
@@ -13613,7 +14463,8 @@
   "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-05-090",
@@ -13629,7 +14480,8 @@
   "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-092",
@@ -13645,7 +14497,8 @@
   "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-05-099",
@@ -13661,7 +14514,8 @@
   "location_ref": "j7-quijada-cabin",
   "location_kind": "stop",
   "first_seen": "4-05",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-003",
@@ -13677,7 +14531,8 @@
   "location_ref": "j7-boyds-grave",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-004",
@@ -13693,7 +14548,8 @@
   "location_ref": "j7-boyds-grave",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-005",
@@ -13709,7 +14565,8 @@
   "location_ref": "j7-boyds-grave",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-006",
@@ -13725,7 +14582,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-007",
@@ -13741,7 +14599,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 389
+  "guide_page": 389,
+  "common": false
  },
  {
   "id": "tr-4-06-008",
@@ -13757,7 +14616,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-009",
@@ -13773,7 +14633,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-010",
@@ -13789,7 +14650,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-011",
@@ -13805,7 +14667,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-012",
@@ -13821,7 +14684,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-013",
@@ -13837,7 +14701,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 390
+  "guide_page": 390,
+  "common": false
  },
  {
   "id": "tr-4-06-014",
@@ -13853,7 +14718,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-015",
@@ -13869,7 +14735,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-016",
@@ -13885,7 +14752,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-06-017",
@@ -13901,7 +14769,8 @@
   "location_ref": "j7-san-buenaventura",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-020",
@@ -13917,7 +14786,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 394
+  "guide_page": 394,
+  "common": false
  },
  {
   "id": "tr-4-06-021",
@@ -13933,7 +14803,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-022",
@@ -13949,7 +14820,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-023",
@@ -13965,7 +14837,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-06-024",
@@ -13981,7 +14854,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 394
+  "guide_page": 394,
+  "common": false
  },
  {
   "id": "tr-4-06-025",
@@ -13997,7 +14871,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 395
+  "guide_page": 395,
+  "common": false
  },
  {
   "id": "tr-4-06-026",
@@ -14013,7 +14888,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-027",
@@ -14029,7 +14905,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 395
+  "guide_page": 395,
+  "common": false
  },
  {
   "id": "tr-4-06-028",
@@ -14045,7 +14922,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-029",
@@ -14061,7 +14939,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-030",
@@ -14077,7 +14956,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-031",
@@ -14093,7 +14973,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 397
+  "guide_page": 397,
+  "common": false
  },
  {
   "id": "tr-4-06-036",
@@ -14109,7 +14990,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 402
+  "guide_page": 402,
+  "common": false
  },
  {
   "id": "tr-4-06-037",
@@ -14125,7 +15007,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 402
+  "guide_page": 402,
+  "common": false
  },
  {
   "id": "tr-4-06-038",
@@ -14141,7 +15024,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 402
+  "guide_page": 402,
+  "common": false
  },
  {
   "id": "tr-4-06-039",
@@ -14157,7 +15041,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 402
+  "guide_page": 402,
+  "common": false
  },
  {
   "id": "tr-4-06-040",
@@ -14173,7 +15058,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 402
+  "guide_page": 402,
+  "common": false
  },
  {
   "id": "tr-4-06-041",
@@ -14189,7 +15075,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-042",
@@ -14205,7 +15092,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-043",
@@ -14221,7 +15109,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-044",
@@ -14237,7 +15126,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-045",
@@ -14253,7 +15143,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-046",
@@ -14269,7 +15160,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-047",
@@ -14285,7 +15177,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-048",
@@ -14301,7 +15194,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 403
+  "guide_page": 403,
+  "common": false
  },
  {
   "id": "tr-4-06-049",
@@ -14317,7 +15211,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 404
+  "guide_page": 404,
+  "common": false
  },
  {
   "id": "tr-4-06-050",
@@ -14333,7 +15228,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 404
+  "guide_page": 404,
+  "common": false
  },
  {
   "id": "tr-4-06-051",
@@ -14349,7 +15245,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 405
+  "guide_page": 405,
+  "common": false
  },
  {
   "id": "tr-4-06-053",
@@ -14365,7 +15262,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 406
+  "guide_page": 406,
+  "common": false
  },
  {
   "id": "tr-4-06-054",
@@ -14381,7 +15279,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 406
+  "guide_page": 406,
+  "common": false
  },
  {
   "id": "tr-4-06-055",
@@ -14397,7 +15296,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 408
+  "guide_page": 408,
+  "common": false
  },
  {
   "id": "tr-4-06-056",
@@ -14413,7 +15313,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 409
+  "guide_page": 409,
+  "common": false
  },
  {
   "id": "tr-4-06-058",
@@ -14429,7 +15330,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 411
+  "guide_page": 411,
+  "common": false
  },
  {
   "id": "tr-4-06-059",
@@ -14445,7 +15347,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-061",
@@ -14461,7 +15364,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-062",
@@ -14477,7 +15381,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-063",
@@ -14493,7 +15398,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-06-064",
@@ -14509,7 +15415,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 412
+  "guide_page": 412,
+  "common": false
  },
  {
   "id": "tr-4-06-065",
@@ -14525,7 +15432,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 412
+  "guide_page": 412,
+  "common": false
  },
  {
   "id": "tr-4-06-066",
@@ -14541,7 +15449,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-067",
@@ -14557,7 +15466,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-068",
@@ -14573,7 +15483,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": true
  },
  {
   "id": "tr-4-06-069",
@@ -14589,7 +15500,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-06-070",
@@ -14605,7 +15517,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-06",
-  "guide_page": 414
+  "guide_page": 414,
+  "common": false
  },
  {
   "id": "tr-4-07-001",
@@ -14621,7 +15534,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  },
  {
   "id": "tr-4-07-002",
@@ -14637,7 +15551,8 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-07",
-  "guide_page": 415
+  "guide_page": 415,
+  "common": false
  },
  {
   "id": "tr-4-07-004",
@@ -14653,6 +15568,7 @@
   "location_ref": "j7-attack",
   "location_kind": "stop",
   "first_seen": "4-07",
-  "guide_page": null
+  "guide_page": null,
+  "common": false
  }
 ]

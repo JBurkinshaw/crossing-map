@@ -20,7 +20,7 @@ Every file is validated against its schema in `schema/` by `crossing.validate`, 
 | `context_places.geojson` | 2,391 forts, ghost towns, mines, sawmills, churches, cemeteries, schools, old post offices, corrals, camps, ranches, named wells and windmills, dry lakes and flats within 20 km of the journeys, from GNIS (with its national file of 2021) and GeoNames; none dated (decision 0028) | `story-layer` |
 | `mountain_glyphs.geojson` | 836 summits and 168 passes found in the Copernicus DEM, each with its landform | `story-layer` |
 | `episodes.json` | The novel's 41 episodes: opening words, length, and a spoiler-safe summary | `episodes` |
-| `translations.json` | 916 Spanish lines: an incipit of at most five words, our English, and where each was spoken | `translations` |
+| `translations.json` | 916 Spanish lines: an incipit of at most five words, our English, and where each was spoken. `common` marks 76 short replies and greetings ("Sí", "Gracias", "Buenas noches") that the panel leaves out of a place's lines; search still finds them | `translations` |
 | `open-questions.json` | 22 judgement calls about where something is, each shown from its own episode | `open-questions` |
 | `elsewhere.json` | 16 places the book names outside the story box, listed in the panel | `elsewhere` |
 | `raised/*.geojson` | The four story layers as drawn in the Raised view, each point moved north by its height (decisions 0018 and 0019). Use the flat files for analysis | `story-layer` |
