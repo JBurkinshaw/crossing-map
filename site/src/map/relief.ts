@@ -1,4 +1,4 @@
-import type { ExpressionSpecification, LayerSpecification, SourceSpecification } from 'maplibre-gl'
+import type { ExpressionSpecification, LayerSpecification, Map as MaplibreMap, SourceSpecification } from 'maplibre-gl'
 import { fonts, typeScale, zoomedSize, type Palette } from './tokens'
 import { heightLabel, type Units } from '../units'
 
@@ -232,6 +232,13 @@ export const VIGNETTE_LAYERS = { drawing: 'vignette', caption: 'vignette-label' 
 // Full strength for the drawings of the journey in focus (each vignette's `journey`), lighter for the rest.
 export function vignetteOpacity(journey: string): ExpressionSpecification {
   return ['case', ['==', ['get', 'journey'], journey], 1, VIGNETTE_OTHER_JOURNEY]
+}
+
+// Sets it on a map that draws the drawings: the main map, and in compare mode the classic underlay.
+export function setVignetteOpacity(map: MaplibreMap, journey: string) {
+  const opacity = vignetteOpacity(journey)
+  if (map.getLayer(VIGNETTE_LAYERS.drawing)) map.setPaintProperty(VIGNETTE_LAYERS.drawing, 'icon-opacity', opacity)
+  if (map.getLayer(VIGNETTE_LAYERS.caption)) map.setPaintProperty(VIGNETTE_LAYERS.caption, 'text-opacity', opacity)
 }
 
 const bySide = (f: (side: { anchor: string; dx: number; dy: number }) => unknown, fallback: unknown): ExpressionSpecification =>

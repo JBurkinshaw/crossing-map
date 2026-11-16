@@ -37,7 +37,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - Setting your progress to an episode opens the map at the stop you reached most recently.
 - Opening the Map menu closes the key, and opening the key closes the menu, so neither covers the other.
 - Drawings no longer sit on the stops and route lines: each is set on the side of its pin with the least under it, and those in the busiest country, around Casas Grandes, San Diego, Cloverdale and the Peloncillos, show from a closer zoom. At each drawing's first zoom, none now covers another drawing (7 pairs did) or a stop marker except one at Colonia Morelos (26 did).
-- The drawings of the journey in focus are at full strength; those of other journeys are lighter, as their route lines are.
+- The drawings of the journey in focus are at full strength; those of other journeys are lighter, as their route lines are, in Compare too.
 
 ### 2026-11-15
 

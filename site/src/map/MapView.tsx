@@ -16,7 +16,7 @@ import type { Basemap, View } from './mode'
 import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
 import { WaterMarks } from './WaterMarks'
-import { contourText, glyphText, RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers, VIGNETTE_LAYERS, vignetteOpacity } from './relief'
+import { contourText, glyphText, RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers, setVignetteOpacity } from './relief'
 import { closeAttribution, dataBase, exposeForScripts, fontsBase, motion, TERRAIN_EXAGGERATION, tilesBase } from './setup'
 import { baseLayerIds, literaryStyle, notRaisedIds } from './style'
 import { palette, storyBounds } from './tokens'
@@ -143,9 +143,7 @@ export function MapView(props: Props) {
   useEffect(() => {
     const map = mapRef.current?.getMap()
     if (!map || !loaded) return
-    const opacity = vignetteOpacity(journey)
-    if (map.getLayer(VIGNETTE_LAYERS.drawing)) map.setPaintProperty(VIGNETTE_LAYERS.drawing, 'icon-opacity', opacity)
-    if (map.getLayer(VIGNETTE_LAYERS.caption)) map.setPaintProperty(VIGNETTE_LAYERS.caption, 'text-opacity', opacity)
+    setVignetteOpacity(map, journey)
   }, [journey, loaded, mapRef])
 
   const onUnavailable = useCallback(() => {
@@ -223,6 +221,7 @@ export function MapView(props: Props) {
         <ClassicUnderlay
           main={mapRef}
           style={underlayStyle}
+          journey={journey}
           units={units}
           terrain={view === 'tilted' ? { url: `pmtiles://${tilesBase}terrain.pmtiles`, exaggeration: TERRAIN_EXAGGERATION } : null}
         />
