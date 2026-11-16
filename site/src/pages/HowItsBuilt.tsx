@@ -1,4 +1,5 @@
 import facts from 'virtual:site-facts'
+import { CERTAINTY_LABEL } from '../panel/certainty'
 import { Architecture } from './Architecture'
 import { bytes, DATA_URL, layerLabel, REPO_URL, repoUrl } from './format'
 import { Markdown } from './markdown'
@@ -99,6 +100,14 @@ export function HowItsBuilt() {
         <CountTable by="source" caption="Features by source" />
         <CountTable by="method" caption="Features by method" />
       </div>
+      <p>
+        The tables show the data’s own values. The map’s cards and the About page give each certainty a plain name:{' '}
+        {Object.entries(CERTAINTY_LABEL).map(([value, label], i, all) => (
+          <span key={value}>
+            <code>{value}</code> is “{label}”{i < all.length - 1 ? '; ' : '.'}
+          </span>
+        ))}
+      </p>
       <p>
         <strong>Accuracy targets.</strong> Located: within 250 m of the gazetteer feature. Approximate: the note says
         what the pin stands in for. Inferred: never smaller than the evidence. Sources are gazetteers (GNIS,

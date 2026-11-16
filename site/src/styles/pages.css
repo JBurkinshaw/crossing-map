@@ -152,13 +152,11 @@
   margin-left: 1.2em;
 }
 
-.terms dt,
 .credits dt {
   margin-top: 12px;
   font-style: italic;
 }
 
-.terms dd,
 .credits dd {
   margin: 2px 0 0 1.2em;
 }
