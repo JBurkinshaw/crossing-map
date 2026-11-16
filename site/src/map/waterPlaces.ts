@@ -8,17 +8,17 @@ import { fonts, QUIET_OPACITY, typeScale, zoomedSize, type Palette } from './tok
 // scripts/copy-data.mjs: the book's own springs and ranches are drawn by the story layers). Each has a small mark
 // for its kind, drawn in code, and its name in small italic from zoom 11.
 
-type Mark = 'ring' | 'dot' | 'ringdot' | 'square' | 'open-square'
+export type WaterMark = 'ring' | 'dot' | 'ringdot' | 'square' | 'open-square'
 // After Wheeler: a ring for a spring, a dot for a well, a ringed dot for a tank, a small solid square for a ranch
 // and an open one for a station.
-const MARK: Record<string, Mark> = { spring: 'ring', well: 'dot', tank: 'ringdot', ranch: 'square', station: 'open-square' }
-const WATER_MARKS = new Set<Mark>(['ring', 'dot', 'ringdot'])
+const MARK: Record<string, WaterMark> = { spring: 'ring', well: 'dot', tank: 'ringdot', ranch: 'square', station: 'open-square' }
+const WATER_MARKS = new Set<WaterMark>(['ring', 'dot', 'ringdot'])
 const MARK_PX = 8
 const MARK_RATIO = 2
-const imageId = (mark: Mark) => `water-${mark}`
+const imageId = (mark: WaterMark) => `water-${mark}`
 
 // Water marks in the water's ink, buildings in the type's.
-function drawMark(mark: Mark, p: Palette): ImageData {
+export function drawWaterMark(mark: WaterMark, p: Palette): ImageData {
   const n = MARK_PX * MARK_RATIO
   const canvas = document.createElement('canvas')
   canvas.width = canvas.height = n
@@ -45,7 +45,7 @@ function drawMark(mark: Mark, p: Palette): ImageData {
 function addMarks(map: MapLibreMap, p: Palette, only?: string) {
   for (const mark of Object.values(MARK)) {
     const id = imageId(mark)
-    if ((!only || only === id) && !map.hasImage(id)) map.addImage(id, drawMark(mark, p), { pixelRatio: MARK_RATIO })
+    if ((!only || only === id) && !map.hasImage(id)) map.addImage(id, drawWaterMark(mark, p), { pixelRatio: MARK_RATIO })
   }
   // The context places' marks (contextPlaces.ts) go in with these, so every map that draws one draws both.
   for (const id of CONTEXT_IMAGE_IDS) {

@@ -289,10 +289,13 @@ for (const point of POINTS) {
   await page.selectOption('.search select', '0')
   await page.fill('.search input', '')
 
-  // The layer key, opened.
-  await page.locator('.layer-key summary').click()
-  await page.waitForTimeout(300)
-  await checkPanel(page, reached, `${where}, layer key`, later, lines)
+  // The layer key, opened, on each of its tabs.
+  await page.locator('.layer-key-toggle').click()
+  for (const tab of ['The story', 'The land']) {
+    await page.getByRole('tab', { name: tab }).click()
+    await page.waitForTimeout(300)
+    await checkPanel(page, reached, `${where}, layer key, ${tab}`, later, lines)
+  }
 
   // Glyphs named later than this point: go to each and look at what the map draws there.
   // Glyphs first seen 1-01 are the land itself, named from gazetteers; they show at every position.
@@ -340,7 +343,9 @@ for (const point of POINTS) {
     for (const [name, fs] of shown) if (fs > reached) leak(where, `vignette ${name} first seen ${fs}`)
   }
 
-  // The Tilted view, then compare mode when satellite is available (it needs the MapTiler key).
+  // The Tilted view, then compare mode when satellite is available (it needs the MapTiler key). The switches
+  // fold under the Map button; clicks inside the open box leave it open.
+  await page.getByRole('button', { name: 'Map options' }).click()
   await page.getByRole('radio', { name: 'Tilted', exact: true }).click()
   await page.waitForTimeout(500)
   await idle(page)

@@ -47,6 +47,8 @@ for (const [name, p] of Object.entries(areas)) {
 
 // Hidden over satellite (when MapTiler answers) and in the Raised view.
 const visibility = () => page.evaluate(() => ['mountain-glyph', 'vignette'].map((id) => window.__map.getLayoutProperty(id, 'visibility') ?? 'visible').join('/'))
+// The switches fold under the Map button.
+await page.getByRole('button', { name: 'Map options' }).click()
 if (await basemap('Satellite').isEnabled()) {
   await basemap('Satellite').click()
   await page.waitForTimeout(2500)

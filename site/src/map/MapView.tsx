@@ -246,7 +246,8 @@ export function MapView(props: Props) {
         >
           <NavigationControl position="top-left" showCompass={false} />
           <HomeControl onHome={onHome} />
-          <ScaleControl position="bottom-left" unit={units} maxWidth={140} />
+          {/* Narrower on phones, where a 140 px bar covered the stops framed near the map's bottom edge. */}
+          <ScaleControl position="bottom-left" unit={units} maxWidth={phone ? 72 : 140} />
           {/* Added after the scale, so MapLibre stacks it above. Each archive brings its own credit (the terrain
               lines wherever the hillshade shows); the Credits page has the rest. */}
           <AttributionControl position="bottom-left" compact customAttribution='<a href="#/credits">Credits</a>' />
@@ -269,7 +270,6 @@ export function MapView(props: Props) {
       {basemap === 'compare' && <CompareSwipe />}
       {loaded && <MapFrame mapRef={mapRef} shown={framed} />}
       <MapControls
-        phone={phone}
         basemap={basemap}
         onBasemap={onBasemap}
         unavailable={unavailable}
@@ -281,7 +281,8 @@ export function MapView(props: Props) {
         units={units}
         onUnits={onUnits}
       />
-      {loaded && view !== 'raised' && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}
+      {/* Not on phones: the inset would cover a fifth of a small map, and the Home button already brings back the whole journey. */}
+      {loaded && view !== 'raised' && !phone && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}
       {view === 'raised' && (
         <p className="notice" role="status">
           {raisedArchives === 'failed' || raisedFailed
@@ -304,7 +305,7 @@ export function MapView(props: Props) {
           </div>
         </div>
         {(basemap === 'literary' || basemap === 'compare') && (
-          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} />
+          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} units={units} phone={phone} />
         )}
       </div>
     </div>
