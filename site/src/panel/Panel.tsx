@@ -9,6 +9,8 @@ import { TranslationList } from './TranslationList'
 import { distance, type Units } from '../units'
 import type { OpenQuestion } from '../data/openQuestions'
 import { FeatureQuestions } from './OpenQuestions'
+import { PART_NUMERALS, type Episode } from '../spoiler/progress'
+import { certaintyLabel } from './certainty'
 
 type Props = {
   units: Units
@@ -26,9 +28,11 @@ type Props = {
   // The journeys drawn so far, each with the episode it starts in, and the places named outside the map.
   journeys: { id: string; first_seen: string }[]
   elsewhere: Elsewhere[]
+  // The episodes reached so far: the stop section says what happens in its stop's episode.
+  episodes: Episode[]
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
-  // What was said in Spanish at the current stop, and the line picked in search, if any.
+  // What was said in Spanish at the current stop (less the common lines), and the line picked in search, if any.
   spokenAtStop: Translation[]
   // Lines spoken on the road from the current stop to the next (talk on the road), and how to show that road.
   spokenOnRoad: number
@@ -48,21 +52,34 @@ type Props = {
 export function Panel(props: Props) {
   const { header, search, card, failed, failures, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
   const { spokenOnRoad, onShowRoad } = props
-  const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement } = props
+  const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement, episodes } = props
   const stop = stops[stopIndex]
+  // The stop's episode: reached, as the stop is, so its summary is safe to show.
+  const episode = stop && episodes.find((e) => e.episode === stop.properties.episode)
   // The stop the road from this one leads to.
   const next = stops[stopIndex + 1]
 
+  // What the site is, and the two pages a new reader wants first; the footer links hold the rest.
+  const siteHeader = (
+    <header className="panel-header">
+      <p className="panel-title">
+        <cite>The Crossing</cite> · a reading map
+      </p>
+      <nav aria-label="About this site">
+        <a href="#/about">About</a>
+        <button type="button" className="link" onClick={showIntroduction}>
+          Introduction
+        </button>
+      </nav>
+    </header>
+  )
+
   const links = (
     <nav className="site-links" aria-label="Pages">
-      <a href="#/about">About</a>
       <a href="#/about/how-its-built">How it’s built</a>
       <a href="#/open-questions">Open questions</a>
       <a href="#/data">Data</a>
       <a href="#/credits">Credits</a>
-      <button type="button" className="link" onClick={showIntroduction}>
-        Introduction
-      </button>
     </nav>
   )
 
@@ -91,22 +108,33 @@ export function Panel(props: Props) {
   const stopSection = stop && (
     <section className="stop" data-first-seen={stop.properties.first_seen}>
       <h2>{stop.properties.name}</h2>
+      {/* What happens here: the stop's episode and its summary, written to give nothing away past its opening. */}
+      {episode && (
+        <div className="stop-episode" data-first-seen={episode.episode}>
+          <p className="meta">
+            Part {PART_NUMERALS[episode.part]} · <em>{episode.opening}</em>
+          </p>
+          <p>{episode.summary}</p>
+        </div>
+      )}
       {(stop.properties.note_full || stop.properties.note_safe) && <p>{stop.properties.note_full || stop.properties.note_safe}</p>}
       {/* Open or closed as the reader last left it, from stop to stop and journey to journey. */}
       <details className="placement" open={placementOpen} onToggle={(e) => onPlacement(e.currentTarget.open)}>
         <summary>How this was placed</summary>
-        <div className="meta">
-          {stop.properties.certainty}
-          {stop.properties.uncertainty_m ? `, within about ${distance(stop.properties.uncertainty_m, units)}` : ''} ·{' '}
-          {stop.properties.source}
-          {stop.properties.source_id ? ` ${stop.properties.source_id}` : ''}
-        </div>
+        <p className="meta">
+          {certaintyLabel(stop.properties.certainty)}
+          {stop.properties.uncertainty_m ? ` · within about ${distance(stop.properties.uncertainty_m, units)}` : ''}
+        </p>
         {stop.properties.reasoning && <p>{stop.properties.reasoning}</p>}
+        <p className="meta">
+          Source: {stop.properties.source}
+          {stop.properties.source_id ? ` ${stop.properties.source_id}` : ''}
+        </p>
       </details>
       <FeatureQuestions id={stop.properties.id} name={stop.properties.name} questions={questions} />
       {spokenAtStop.length > 0 && (
         <>
-          <h3>Spoken here</h3>
+          <h3>Spanish here</h3>
           <TranslationList key={stop.properties.id} items={spokenAtStop} current={currentTranslation} />
         </>
       )}
@@ -116,7 +144,7 @@ export function Panel(props: Props) {
         <div className="road-ahead">
           <h3>On the road{next ? ` to ${next.properties.name}` : ''}</h3>
           <button type="button" className="road-lines" onClick={onShowRoad}>
-            Show the {spokenOnRoad === 1 ? 'line' : `${spokenOnRoad} lines`} spoken on this road, and the road on the map
+            Show the {spokenOnRoad === 1 ? 'line' : `${spokenOnRoad} lines`} of Spanish on this road, and the road on the map
           </button>
         </div>
       )}
@@ -180,15 +208,16 @@ export function Panel(props: Props) {
   // The panel reads from the general to the particular: reading progress and search, which govern the whole
   // map; then the way through a journey (which journey, Back and Next, all its stops); then what is in focus
   // (the card for a pick on the map or in search, and the current stop); then places beyond the map and the
-  // page links. Phones put the stepper in the drawer's peek row, nearest the thumb, and the journey and its
-  // stops straight under it; search and progress follow, as the drawer opens half way.
+  // page links. Phones put the stepper in the drawer's peek row, nearest the thumb; then reading progress, so the
+  // drawer opened half way says how much the map hides; then the journey and its stops, then search.
   if (phone) {
     return (
       <Drawer label="Journey" height={drawer} onHeight={onDrawer} peek={stepper}>
+        {siteHeader}
+        {header}
         {journeyPick}
         {stopList}
         {search}
-        {header}
         {failure}
         {card}
         {stopSection}
@@ -200,6 +229,7 @@ export function Panel(props: Props) {
 
   return (
     <aside className="panel" aria-label="Journey">
+      {siteHeader}
       {header}
       {search}
       {journeyPick}

@@ -52,6 +52,8 @@ export default function App() {
   const elsewhere = useMemo(() => (elsewhereAll.data ?? NO_LIST).filter((e) => shownAt(e, reached)), [elsewhereAll, reached])
   const questions = useMemo(() => (questionsAll.data ?? NO_LIST).filter((q) => shownAt(q, reached)), [questionsAll, reached])
   const translations = useMemo(() => translationsUpTo(translationsAll.data ?? NO_LIST, reached), [translationsAll, reached])
+  // The episodes reached: the stop section shows its episode's summary, written to be safe once it is reached.
+  const episodesReached = useMemo(() => episodes.filter((e) => e.episode <= reached), [episodes, reached])
   const spokenAt = useMemo(() => {
     const at = new Map<string, Translation[]>()
     for (const t of translations) if (t.location_ref) at.set(t.location_ref, [...(at.get(t.location_ref) ?? []), t])
@@ -71,7 +73,7 @@ export default function App() {
   const story = shown === 'failed' ? null : shown
   const flat = loaded === 'failed' ? null : loaded
   const mapRef = useRef<MapRef>(null)
-  // "How this was placed" stays open or closed as the reader left it, whichever stop shows.
+  // "How this was placed" stays open or closed as the reader left it, whichever stop or card shows.
   const [placementOpen, setPlacementOpen] = useState(false)
   const [units, setUnits] = useUnits()
   const [introOpen, closeIntro] = useIntroduction()
@@ -98,7 +100,7 @@ export default function App() {
   // What the card shows: only what the reader has reached (a change of progress can hide it).
   const selected = selection ? byId(flat, selection.layer, selection.id) : undefined
   const translation = translations.find((t) => t.id === translationId) ?? null
-  // A line said at a stop shows in that stop's "Spoken here", and one said at a place in the place's card.
+  // A line said at a stop shows in that stop's "Spanish here", and one said at a place in the place's card.
   const ref = translation?.location_ref
   const placed = !!ref && (!!byId(flat, 'stops', ref) || selected?.properties.id === ref)
   const stop = stops[stopIndex]
@@ -108,6 +110,10 @@ export default function App() {
         (f) => f.properties.journey === stop.properties.journey && f.properties.sequence === stop.properties.sequence,
       )
     : undefined
+  // The lines the panel lists at a place, stop or road: the common ones ("Sí", "Gracias") would bury the rest, so
+  // they are left out, unless the reader picked one in search. Search itself still finds them.
+  const listed = (id: string | undefined): Translation[] =>
+    (id ? (spokenAt.get(id) ?? NO_LIST) : NO_LIST).filter((t) => !t.common || t.id === translationId)
   const road = selection?.layer === 'journeys' ? selected : undefined
   const corridor = useMemo((): Corridor | null => {
     if (!road) return null
@@ -122,10 +128,12 @@ export default function App() {
       units={units}
       questions={questions}
       title={roadLabel(flat, road)}
-      spoken={spokenAt.get(road.properties.id) ?? []}
-      spokenTitle="Spoken on this road"
+      spoken={listed(road.properties.id)}
+      spokenTitle="Spanish on this road"
       spokenNote={`The book does not say where these lines were spoken. The episode travels this road, so this site places them along it: the map outlines the route with ${distance(CORRIDOR_M, units)} either side.`}
       currentTranslation={translationId}
+      placementOpen={placementOpen}
+      onPlacement={setPlacementOpen}
       onClose={() => {
         setSelection(null)
         setTranslationId(null)
@@ -136,8 +144,10 @@ export default function App() {
       feature={selected}
       units={units}
       questions={questions}
-      spoken={spokenAt.get(selected.properties.id) ?? []}
+      spoken={listed(selected.properties.id)}
       currentTranslation={translationId}
+      placementOpen={placementOpen}
+      onPlacement={setPlacementOpen}
       onClose={() => setSelection(null)}
     />
   ) : (
@@ -196,10 +206,11 @@ export default function App() {
           journey={nav.journey}
           journeys={nav.journeys}
           elsewhere={elsewhere}
+          episodes={episodesReached}
           stops={stops}
           stopIndex={stopIndex}
-          spokenAtStop={stop ? (spokenAt.get(stop.properties.id) ?? []) : []}
-          spokenOnRoad={roadAhead ? (spokenAt.get(roadAhead.properties.id)?.length ?? 0) : 0}
+          spokenAtStop={listed(stop?.properties.id)}
+          spokenOnRoad={listed(roadAhead?.properties.id).length}
           onShowRoad={() => {
             if (!roadAhead) return
             setTranslationId(null)
