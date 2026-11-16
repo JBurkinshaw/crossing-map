@@ -24,12 +24,13 @@ export function Introduction({ titleId, onFinished, onNotYet, onClose, onMore }:
       </h2>
       <p>
         Cormac McCarthy’s novel moves through real country on both sides of the border, from the New Mexico bootheel
-        into Sonora and Chihuahua, but it comes with no map. This site draws one: the journeys, stop by stop, on real
-        geographic data.
+        into Sonora and Chihuahua, but it comes with no map. This site draws one: the journeys, stop by stop and
+        episode by episode, on real geographic data.
       </p>
       <p>
-        Every place says how sure it is. Where the book only describes a place, the map draws an area and writes
-        down its reasoning; where the book leaves us guessing, the map says so.
+        Every place says how sure it is. Places the book names come from gazetteers; where it only describes a place,
+        the map draws an area and writes down its reasoning; where it leaves us guessing, the map says so, and
+        readers can suggest a correction.
       </p>
       <p>Press Next to follow a journey stop by stop, or tap anything on the map.</p>
       <p id={question} className="progress-question">
