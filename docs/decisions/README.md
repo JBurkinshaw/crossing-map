@@ -48,6 +48,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0031 Reservoirs built after the book left off the base map | proposed |
 | 0032 Traced legs, and how each line was drawn | accepted |
 | 0033 One ink per journey, and a line's dash for how sure it is | accepted |
+| 0034 Ask on the first visit, then where the reader is up to | accepted |
 
 ## Template
 

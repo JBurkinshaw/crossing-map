@@ -22,6 +22,10 @@ A change is **released** when it is merged to `main`, which the public site serv
 - Grouped-stop markers say what they hold ("9 stops", "9 places") instead of "+9", and a click or tap zooms in until all of them come apart.
 - The map's switches fold under one Map button on desktop as on phones, so the box no longer covers a stop. A line under each switch says what the chosen option does. Compare is labelled with its name.
 - On phones, the key opens as a sheet from the bottom of the screen with a Close button, the "Where you are" inset is hidden, and the scale bar is shorter, so it no longer covers the first stop of J1.
+- The first visit opens one dialog, not two: the introduction, a line on how to use the map, and the question "Have you finished *The Crossing*?". "Yes" shows everything; "Not yet" asks where you are up to (decision 0034).
+- "Where are you up to?" lists the episodes by their opening words, grouped by Part, in place of the slider. You can also enter how far through the book you are as a percentage.
+- The reading-progress badge says what the map is hiding, such as "Hiding what's after Part I, episode 5: In the woods", and opens "Where are you up to?" directly.
+- Setting your progress to an episode opens the map at the stop you reached most recently.
 
 ### 2026-11-15
 

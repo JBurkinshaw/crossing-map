@@ -5,6 +5,8 @@ import type { Story, StoryProps } from './data/story'
 import type { Translation } from './data/translations'
 import { isPhone, motion } from './map/setup'
 import type { SearchHit } from './panel/SearchBox'
+import type { Progress } from './spoiler/progress'
+import { resumeStop } from './spoiler/resume'
 import { bounds, byId, clickResult, corridorBounds, journeyStops, journeysOf, type MapPick } from './story/select'
 
 // How the reader moves through the story: the journey in focus and its current stop, the place, area or road
@@ -43,6 +45,16 @@ function frameStops(map: MapRef | null, stops: StoryFeature[]) {
   if (stops.length > 0) map?.fitBounds(bounds(stops), { padding, duration: motion(1200) })
 }
 
+// To a point, closer in if the map is far out; to an area or line, framed.
+function flyToFeature(map: MapRef | null, f: StoryFeature) {
+  if (!map) return
+  if (f.geometry.type === 'Point') {
+    map.flyTo({ center: f.geometry.coordinates as [number, number], zoom: Math.max(map.getZoom(), 9), duration: motion(1600) })
+  } else {
+    map.fitBounds(bounds([f]), { padding: 60, maxZoom: 11, duration: motion(1600) })
+  }
+}
+
 type Options = {
   mapRef: RefObject<MapRef | null>
   // The story the map draws (the raised copies in the Raised view), and the flat story, which lists every
@@ -50,12 +62,14 @@ type Options = {
   story: Story | null
   flat: Story | null
   translations: Translation[]
+  // The reader's progress: setting it to an episode brings the stop they reached most recently into focus.
+  progress: Progress
   // Shows a pick's card on phones: the drawer goes to half height, with the map still in view above it. A pick
   // from search always does (search opens the drawer fully); a click on the map only raises a lowered drawer.
   showCard: (from: 'search' | 'map') => void
 }
 
-export function useNavigation({ mapRef, story, flat, translations, showCard }: Options) {
+export function useNavigation({ mapRef, story, flat, translations, progress, showCard }: Options) {
   const [state, dispatch] = useReducer(reducer, { journey: 'J1', stopIndex: 0, stepping: false })
   const [selection, setSelection] = useState<Selection>(null)
   const [translationId, setTranslationId] = useState<string | null>(null)
@@ -71,8 +85,28 @@ export function useNavigation({ mapRef, story, flat, translations, showCard }: O
   // Frame the whole journey when the data arrives and whenever the reader switches journey.
   // A shared link with a #map= view keeps its view on first load.
   const framed = useRef<string | null>(window.location.hash.includes('map=') ? 'from-link' : null)
+  // The progress already turned into a journey and stop. On first load, and whenever the reader sets their
+  // progress to an episode, the stop they reached most recently comes into focus and the map flies to it
+  // (spoiler/resume.ts); not started and finished keep the journey in focus. The link's view still wins on first
+  // load: the stop comes into focus without the map moving. One effect does both this and the framing, so the
+  // framing cannot first fly to the journey the stop replaces.
+  const resumed = useRef<Progress | null>(null)
   useEffect(() => {
-    if (!mapRef.current || stops.length === 0) return
+    if (!mapRef.current || !story) return
+    if (resumed.current !== progress) {
+      resumed.current = progress
+      const at = resumeStop(story.stops.features, progress)
+      const list = at ? journeyStops(story, at.journey) : []
+      const index = list.findIndex((s) => s.properties.id === at?.id)
+      if (at && index >= 0) {
+        const fromLink = framed.current === 'from-link'
+        framed.current = at.journey
+        dispatch({ type: 'goto', journey: at.journey, index, stepping: true })
+        if (!fromLink) flyToFeature(mapRef.current, list[index])
+        return
+      }
+    }
+    if (stops.length === 0) return
     if (framed.current === 'from-link') {
       framed.current = journey
       return
@@ -80,17 +114,9 @@ export function useNavigation({ mapRef, story, flat, translations, showCard }: O
     if (framed.current === journey) return
     framed.current = journey
     frameStops(mapRef.current, stops)
-  }, [stops, journey, mapRef])
+  }, [stops, journey, mapRef, story, progress])
 
-  const flyTo = (f: StoryFeature) => {
-    const map = mapRef.current
-    if (!map) return
-    if (f.geometry.type === 'Point') {
-      map.flyTo({ center: f.geometry.coordinates as [number, number], zoom: Math.max(map.getZoom(), 9), duration: motion(1600) })
-    } else {
-      map.fitBounds(bounds([f]), { padding: 60, maxZoom: 11, duration: motion(1600) })
-    }
-  }
+  const flyTo = (f: StoryFeature) => flyToFeature(mapRef.current, f)
 
   // Stepping through the stops of the journey in focus.
   const goToStop = (index: number) => {

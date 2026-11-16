@@ -20,8 +20,6 @@ import { useRoute } from './route'
 import { shownAt, storyUpTo, translationsUpTo } from './spoiler/filter'
 import { reachedEpisode, spoilersHidden, useEpisodes, useProgress } from './spoiler/progress'
 import { ReadingProgress } from './spoiler/ReadingProgress'
-import { Introduction } from './welcome/Introduction'
-import { useIntroduction } from './welcome/showIntroduction'
 import { byId, roadLabel } from './story/select'
 import { distance, useUnits } from './units'
 
@@ -74,7 +72,6 @@ export default function App() {
   // "How this was placed" stays open or closed as the reader left it, whichever stop shows.
   const [placementOpen, setPlacementOpen] = useState(false)
   const [units, setUnits] = useUnits()
-  const [introOpen, closeIntro] = useIntroduction()
   // Phones: the panel is a bottom drawer. It opens half way, so the reading-progress badge and search show.
   const phone = usePhone()
   const [drawer, setDrawer] = useState<DrawerHeight>('half')
@@ -83,6 +80,7 @@ export default function App() {
     story,
     flat,
     translations,
+    progress,
     showCard: (from) => setDrawer((d) => (from === 'search' || d === 'peek' ? 'half' : d)),
   })
   const { stops, stopIndex, selection, translationId, setSelection, setTranslationId } = nav
@@ -157,7 +155,6 @@ export default function App() {
   return (
     <main className="app" data-drawer={phone ? drawer : undefined}>
       <h1 className="visually-hidden">The Crossing: a reading map</h1>
-      {introOpen && <Introduction onClose={closeIntro} />}
       <MapView
         mapRef={mapRef}
         story={story}
@@ -187,7 +184,7 @@ export default function App() {
           units={units}
           questions={questions}
           header={
-            <ReadingProgress progress={progress} isSet={isSet} episodes={episodes} episodesFailed={episodesLoaded.failed} onSet={setProgress} hold={introOpen} />
+            <ReadingProgress progress={progress} isSet={isSet} episodes={episodes} episodesFailed={episodesLoaded.failed} onSet={setProgress} />
           }
           search={<SearchBox places={flat?.places.features ?? []} stops={flat?.stops.features ?? []} translations={translations} onPick={nav.onPick} />}
           card={card}
