@@ -102,7 +102,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - The checklists are unsigned.
   - The Animas Valley and La Babícora regions are drafts from the DEM.
   - **[research]** La Babícora's real outline. No online source has a georeferenced boundary of the Hearst estate. The best lead is a hand-drawn outline of the estate (Fig. 21, about 1:5,000,000) in Palomares Peña's 1987 UNAM thesis on land reform in three US-owned estates in Chihuahua (author's copyright: trace and cite, do not republish), checked against the ejido polygons of the Registro Agrario Nacional and the lake basin, and marked "approximate, after Palomares Peña 1987". The Diario Oficial of 17 January 1942 gives the nine lots' areas (361,390 ha in all) but no boundaries; the survey plans are in the Archivo General Agrario, by request only. Notes in `private/research/babicora/README.md`.
-  - The flat and summary legs in Mexico stay schematic curves by design; the sierra and valley legs are modelled (section 4).
+  - Legs on a road or river the book names are traced on it (decision 0032); the sierra and valley legs are modelled (section 4); the flat and summary legs in Mexico stay curves by design.
 - **Stage 5.**
   - The 916 translation drafts are unreviewed. Decided 2026-11-13: crowd review, through a link on each line.
   - Speaker names are inconsistent; a pass is needed before the UI shows speakers.
@@ -117,10 +117,11 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
 
 ## 4. Modelled routes (built 2026-11-14, decision 0021)
 
-21 sierra and valley legs are least-cost paths (`pipeline/seeds/modeled-legs.csv`, cost model lc-0.4). Left to do:
+20 sierra and valley legs are least-cost paths (`pipeline/seeds/modeled-legs.csv`, cost model lc-0.4); J7 leg 41 is now traced on the Río Casas Grandes (decision 0032). Left to do:
 
 - **[decide]** Draw a modelled leg as a band (the spread between the full model and slope alone) to carry its doubt, if the line reads as too certain.
 - **[research]** Period roads from the Army Map Service 1:250,000 sheets or the USGS historical topographic maps, to replace today's INEGI tracks as the road corridors on the important legs.
+- **[decide]** A faint base layer of the roads the book names (the Douglas to Cloverdale road, Apache Pass Road, the Casas Grandes to Madera road and the rest in `snaps.csv`), drawn as dotted period trails, each cut to 10 km beyond its traced legs and shown from its first leg's episode. Scoped 2026-11-16 and held.
 - **[decide]** `q-j4-one-day-ride`: the ride from San Diego to the opera camp, about 100 km in one day.
 - **[build]** The local review mode (`?review=routes`) still shows the lc-0.3 experiment's lines from `review/experiments/least-cost/` (not in git), not the built ones.
 
@@ -146,7 +147,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - the remaining vignettes (design section 10)
   - hand-drawn glyphs
   - translation review by a speaker
-  - road snaps for the Mexican legs
+  - more traced legs (decision 0032): roads in US counties with no cached TIGER file, roads INEGI does not name, J7 leg 42 (its stop sits on a side channel), and the rest of `private/review/snap-candidates.md`
 - **Small:**
   - **[owner]** Restore the spoiler-leak job in `.github/workflows/deploy.yml` (paused 2026-11-14 to speed up deploys): delete its `if: false` and add it back to `build`'s `needs`. Until then, run `tools/spoiler-leak.mjs` locally before each push.
   - **[owner]** Rebuild and release the Raised archives. The hachure strokes in `oblique-*.pmtiles` now take the same `Rand` and `Slope` as `relief.pmtiles`, so the Raised view thins strokes as the flat view does once rebuilt ([`releasing-tiles.md`](releasing-tiles.md)).
@@ -154,6 +155,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - **[decide]** Stop `j2-colonia-oaxaca` is first seen in 1-09, before its place, which the book names in 1-10. `crossing.validate` allows it, because the stop's own name gives nothing away until then. Confirm, or date the stop 1-10.
   - **[decide]** The Raised view's US streams come from NHD's display scale (`visibility`), not Strahler order as on the classic map, so the two views rank streams differently.
   - **[decide]** Summits, landforms, regions, coarse hachures, and the Raised view read only `private/cache/dem/copernicus/` (18 corridor tiles). Only `tiles.build_terrain_hi` and `crossing.full_region` read `copernicus-region/` (63 more tiles). Decide whether summits and coarse relief should cover the whole story box.
+  - **[decide]** Simplify the traced legs (about 5 m tolerance): they keep every TIGER and INEGI vertex, and `data/journeys.geojson` doubled to 1.1 MB with decision 0032. It changes the published geometry.
   - **[build]** The creek zoom table is written twice: `MIN_ZOOM` in `tiles/creeks.py` and the matching expression in `site/src/map/style.ts`. Derive the style's from the tiles, or test that they agree.
   - **[decide]** `data/raised/*.geojson` repeats every property of the flat layers; only geometry differs. Slimming them to id and geometry changes the published format, so it waits for a decision.
   - **[decide]** Rewrite git history to drop about 102 MB of deleted `review/stage-3/sheet/` images, most of the repository's size. It needs a force-push to every branch, so it is the owner's call, and is cheapest while the history is short.

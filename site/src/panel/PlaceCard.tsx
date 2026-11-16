@@ -1,5 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import type { Feature, Geometry } from 'geojson'
+import { routeLabel } from '../data/routeLabels'
 import type { StoryProps } from '../data/story'
 import type { Translation } from '../data/translations'
 import { TranslationList } from './TranslationList'
@@ -48,12 +49,18 @@ export function PlaceCard({ feature, units, questions, spoken, currentTranslatio
       {/* Only the title is announced when a card opens: the whole card would be read out on every pick. */}
       <h2 aria-live="polite">{title ?? p.name}</h2>
       <div className="meta">
-        {p.method === 'modeled' ? 'Modelled path, not the book’s' : (KIND[p.kind ?? ''] ?? p.kind)} · {p.certainty}
+        {(p.kind === 'route-segment' && routeLabel(p.method)) || (KIND[p.kind ?? ''] ?? p.kind)} · {p.certainty}
         {p.uncertainty_m ? `, within about ${distance(p.uncertainty_m, units)}` : ''} · {p.source}
         {p.source_id ? ` ${p.source_id}` : ''}
       </div>
       {(p.note_full || p.note_safe) && <p>{p.note_full || p.note_safe}</p>}
       {p.reasoning && <p>{p.reasoning}</p>}
+      {p.drawn && (
+        <aside className="area-outline">
+          <h3>How this line was drawn</h3>
+          <p>{p.drawn}</p>
+        </aside>
+      )}
       {p.kind === 'inferred-area' && <AreaOutline rule={p.outline_rule ?? null} straightRoad={p.straight_road ?? false} />}
       <FeatureQuestions id={p.id} name={title ?? p.name} questions={questions} />
       {spoken.length > 0 && (

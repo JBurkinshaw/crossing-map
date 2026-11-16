@@ -195,7 +195,7 @@ The look is an endpaper map from a 1940s novel, drawn by a surveyor who also ske
 
 **Hachure styles.** Carl Churchill's [Variety in hachure](https://churchillgeo.com/variety-in-hachure/) separates systematic survey hachure (lines downslope, denser where steeper) from the caterpillar chains of many "Old West" maps. The map uses the systematic kind, generated from the DEM, so it is accurate by construction. It keeps Churchill's caution too: these survey styles grew up alongside conquest and extraction, and *The Crossing* is partly about land taken and held. So the map borrows the craft, draws the Mexican side from Mexican mapmakers as well as US surveys, and avoids the prospectus look: no resources drawn as prizes, no empty land waiting to be claimed.
 
-**Design tokens** (`site/src/map/tokens.ts`). Cream paper after the Wheeler Survey's sheet 70A, brown-black hachures (decision 0022), iron-gall ink, the Mexico side a shade darker, water in blue-grey ink, and one ink per character: slate for the wolf, oxblood for Billy, green for Boyd, plum for "the girl". One light theme. Type: IM Fell English for labels and notes, IM Fell English SC for states and counties, both under the OFL.
+**Design tokens** (`site/src/map/tokens.ts`). Cream paper after the Wheeler Survey's sheet 70A, brown-black hachures (decision 0022), iron-gall ink, the Mexico side a shade darker, water in blue-grey ink, and one ink per journey, after the hand-coloured tints of period atlas maps: indigo J1, vermilion J2, oxblood J3, sap green J4, ochre J5, violet J6, rose madder J7 (decision 0033). A route line's dash says how sure it is: solid where it follows the road or river the book names, long dashes for a modelled path, sparse short dashes, thinner and lighter, for a curve that only joins the stops. One light theme. Type: IM Fell English for labels and notes, IM Fell English SC for states and counties, both under the OFL.
 
 Reference images are studied in a browser by hand. The Guild's `robots.txt` disallows automated agents, and the Rumsey catalogue serves a bot check. Nothing from either goes into the site or the repository; any style taken is redrawn in our own hand.
 
@@ -303,10 +303,10 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 | --- | --- |
 | Onboarding | On the first visit only, an introduction says what the site is, then the reading-progress dialog opens. Both are remembered in `localStorage`; the panel's Introduction link and the About page bring the introduction back |
 | Timeline slider | Reading progress, one step per episode, labelled by Part |
-| Data dimming | Routes not in focus fade; when stepping, the road ahead fades |
+| Data dimming | Routes not in focus fade; once the reader goes to a stop, the legs after it fade |
 | Route positioning | Back and Next through a journey's stops; the camera flies to each |
 | Basemap switch and swipe | Classic, Compare, Satellite, Topo; Flat, Tilted, Raised |
-| Layer key | Journeys by character, passing places, tale places, inferred areas, vignettes |
+| Layer key | Journeys by ink, how sure each line is, passing places, tale places, inferred areas and regions, vignettes |
 | Feature selection | Tap to select; names on hover on desktop |
 | Search | Places, stops, and translations in one box |
 | Overview map | An inset of the whole region when zoomed in |
@@ -328,7 +328,7 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 
 **Placement rules**
 
-- Each vignette stands on the stop or place it is for, with a `side`, a zoom range (`min_zoom`, `max_zoom`), and a `priority` (decision 0026).
+- Each vignette stands on the stop or place it is for, with a `side`, a `min_zoom` from which it shows at every closer zoom, and a `priority` (decision 0026).
 - The drawing is set beside its pin on that side, a fixed gap away on screen, so it never covers the marker; no leader lines. Place labels draw over it; its caption is placed before every other label. The key says its position is approximate.
 - Vignettes belong to the classic map only.
 - Spoiler mode hides those first seen after the reader's progress.

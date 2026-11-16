@@ -35,7 +35,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0018 Raised over the first two journeys | accepted; area and archive size superseded by 0019 |
 | 0019 Raised over every journey | accepted |
 | 0020 Inferred areas drafted by rule from the stop's circle | accepted |
-| 0021 Least-cost routes for the sierra and valley legs | accepted |
+| 0021 Least-cost routes for the sierra and valley legs | accepted; J7 leg 41 traced instead by 0032 |
 | 0022 Paper, ink and lettering after the Wheeler Survey sheets | accepted |
 | 0023 Landform names along computed axes | proposed |
 | 0024 Wheeler hachures in the journeys corridor | accepted |
@@ -46,6 +46,8 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0029 Place pins apart from their stops | proposed |
 | 0030 Lakes drawn over the rivers | proposed |
 | 0031 Reservoirs built after the book left off the base map | proposed |
+| 0032 Traced legs, and how each line was drawn | accepted |
+| 0033 One ink per journey, and a line's dash for how sure it is | accepted |
 
 ## Template
 

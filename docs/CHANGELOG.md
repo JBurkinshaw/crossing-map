@@ -6,11 +6,24 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ## Unreleased
 
+### 2026-11-16
+
+#### Data
+
+- `vignettes` no longer has `max_zoom`: a drawing shows from its `min_zoom` at every closer zoom.
+
+#### Site
+
+- The vignettes stay on the map when zoomed in past 12; they used to disappear there, and the she-wolf past 11.
+
 ### 2026-11-15
 
 #### Data
 
 - New layer `context_places`: 2,391 period places within 20 km of the journeys, from GNIS (with its national file of 2021) and GeoNames: forts and army air fields, ghost towns and abandoned places, mines, sawmills, churches, cemeteries, schools, old post offices, corrals, camps, ranches, named wells and windmills, railway tunnels, dry lakes and flats. A GeoParquet copy too.
+- Every journey leg has a `drawn` text saying how its line was made: traced along a named road or river (which one, in which dataset, and how it was cut), computed as a least-cost path, or drawn as a curve (decision 0032).
+- 17 more legs follow the road or river the book names instead of a curve (decision 0032): in the US, the old Douglas to Cloverdale road over the Guadalupes (Geronimo Trail) and on down the Animas Valley road, and US 180 and NM 152 from Silver City past the Santa Rita mines (Census TIGER 2023); in Mexico, the Bavispe from Colonia Oaxaca to Morelos (Natural Earth), the roads from Morelos to Ojito, San Diego to Mata Ortiz and Casas Grandes, and Boquilla to Santa Ana de Babícora (INEGI's road network), and the Arroyo Agua Prieta and the Río Casas Grandes (INEGI's 1:50,000 streams, checked against INEGI's river names). A traced leg can now turn from one named road onto another at a junction.
+- Three stops moved onto the road their reasoning names: the J3 pass in the Guadalupes to the highest point of Geronimo Trail (7.8 km north); the SK Bar (J3 and J7) to nine road miles north of Cloverdale, not nine straight-line miles (5.6 km south); and the J4 camp in the Dos Cabezas onto Apache Pass Road (14 km east), with a new inferred area along the road.
 
 #### Tiles
 
@@ -20,6 +33,11 @@ A change is **released** when it is merged to `main`, which the public site serv
 #### Site
 
 - The Tilted view's terrain is exaggerated 2.5 times (was 1.8).
+- A leg's card has a "How this line was drawn" section (decision 0032).
+- The key's faded-line entry reads "Legs after the stop you are on" instead of "The road ahead, when stepping through".
+- Each journey has its own ink: indigo, vermilion, oxblood, sap green, ochre, violet and rose madder (decision 0033).
+- A route line's dash shows how sure it is: solid where it follows the road or river the book names, long dashes for a modelled route, and sparse short dashes for a curve that only joins the stops. The key groups these three under "How sure the line is", and a leg's card uses the same wording.
+- Inferred areas are a tint in their journey's ink with a dotted edge. Regions have no fill, just a fine line with a soft band inside it.
 - Lakes are drawn over the rivers, so a river ends at the shore instead of running through the water (decision 0030).
 - A place's pin that stands more than 1 km from every stop at it, such as the Guadalupe Mountains' gazetteer point beside the J2 pass, keeps its dot and its name but no longer opens the stop (decision 0029).
 - Everything off the map (the frame's margin, the panel, the cards and the pages) is a lighter cream than the map, as on the Wheeler sheets.

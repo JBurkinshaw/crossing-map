@@ -243,7 +243,7 @@ function vignettes(p: Palette): LayerSpecification[] {
     }, ['literal', [0, (VIGNETTE_HALF * size + 2) / text]])]
   })
   const filter: ExpressionSpecification =
-    ['all', ['==', ['get', 'kind'], 'vignette'], ['>=', ['zoom'], ['get', 'min_zoom']], ['<', ['zoom'], ['get', 'max_zoom']]]
+    ['all', ['==', ['get', 'kind'], 'vignette'], ['>=', ['zoom'], ['get', 'min_zoom']]]
   return [
     {
       id: 'vignette',

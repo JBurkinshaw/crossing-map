@@ -122,6 +122,22 @@ def check_references(layers: dict[str, dict]) -> list[str]:
     return errors
 
 
+def check_region_rings(doc) -> list[str]:
+    """Regions' outer rings must run clockwise and their holes anticlockwise: the map draws a region's band with a
+    line offset to the right of the ring (site/src/map/StoryLayers.tsx), which is inside only in that direction."""
+
+    def clockwise(ring: list) -> bool:
+        return sum(x0 * y1 - x1 * y0 for (x0, y0, *_), (x1, y1, *_) in zip(ring, ring[1:], strict=False)) < 0
+
+    errors = []
+    for p, g in ((f["properties"], f["geometry"]) for f in doc["features"] if f["properties"].get("kind") == "region"):
+        for polygon in [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]:
+            if not clockwise(polygon[0]) or any(clockwise(hole) for hole in polygon[1:]):
+                errors.append(f"{p['id']}: rings must run clockwise outside and anticlockwise in holes")
+                break
+    return errors
+
+
 def check_raised(flat: dict, raised: dict, layer: str) -> list[str]:
     """The Raised copy holds the same features as the flat layer, each first seen at the same episode."""
     a = {p["id"]: p.get("first_seen") for p in properties(flat)}
@@ -252,10 +268,12 @@ def main() -> int:
     episodes = {e.get("episode") for e in episodes_doc if isinstance(e, dict)}
     layers = {name: load(DATA / f"{name}.geojson") for name in LAYERS}
     for name, doc in layers.items():
-        failed |= report(f"{name}.geojson", check_layer(doc, name, episodes))
+        failed |= report(f"{name}.geojson", check_layer(doc, name, episodes)
+                         + (check_region_rings(doc) if name == "areas" else []))
     for name in RAISED_LAYERS:
         doc = load(DATA / "raised" / f"{name}.geojson")
-        errors = check_layer(doc, name, episodes) + check_raised(layers[name], doc, name)
+        errors = (check_layer(doc, name, episodes) + check_raised(layers[name], doc, name)
+                  + (check_region_rings(doc) if name == "areas" else []))
         failed |= report(f"raised/{name}.geojson", errors)
     failed |= report("raised/archives.json", schema_errors(load(DATA / "raised" / "archives.json"),
                                                           load(SCHEMAS / "archives.schema.json")))

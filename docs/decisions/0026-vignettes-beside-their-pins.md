@@ -1,6 +1,6 @@
 # 0026. Vignettes beside their pins
 
-Status: accepted (2026-11-14). Amends design section 10's placement rules.
+Status: accepted (2026-11-14); the upper zoom bound (`max_zoom`) dropped on 2026-11-16, since a drawing beside its pin needs none. Amends design section 10's placement rules.
 Phase: P1
 
 ## Context

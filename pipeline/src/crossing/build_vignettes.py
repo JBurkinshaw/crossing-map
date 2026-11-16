@@ -43,7 +43,7 @@ def main() -> None:
             source_licence="CC BY 4.0",
             note_safe=s["note"], reasoning=" ".join(x for x in (s["reasoning"], placed) if x),
             vignette=f"vignette-{s['id']}", side=s["side"], min_zoom=float(s["min_zoom"]),
-            max_zoom=float(s["max_zoom"]), priority=int(s["priority"]), label=s["label"], credit=s["credit"],
+            priority=int(s["priority"]), label=s["label"], credit=s["credit"],
         )
         features.append({"type": "Feature", "geometry": {"type": "Point", "coordinates": [r5(lon), r5(lat)]},
                          "properties": props})

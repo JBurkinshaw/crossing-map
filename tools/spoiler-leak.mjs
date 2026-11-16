@@ -332,7 +332,7 @@ for (const point of POINTS) {
   for (const v of vignettes.filter((f) => f.properties.first_seen > reached)) {
     // Leader lines are LineStrings: go to where they start.
     const [lon, lat] = v.geometry.type === 'Point' ? v.geometry.coordinates : v.geometry.coordinates[0]
-    const zoom = Math.max(v.properties.min_zoom, Math.min(9, v.properties.max_zoom - 0.5))
+    const zoom = Math.max(v.properties.min_zoom, 9)
     await page.evaluate(([lo, la, z]) => window.__map.jumpTo({ center: [lo, la], zoom: z }), [lon, lat, zoom])
     await idle(page)
     const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['vignette', 'vignette-label'].filter((id) => window.__map.getLayer(id)) })

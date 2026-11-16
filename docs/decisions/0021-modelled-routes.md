@@ -1,6 +1,6 @@
 # 0021. Least-cost routes for the sierra and valley legs
 
-Status: accepted (2026-11-14)
+Status: accepted (2026-11-14); J7 leg 41 traced on the Río Casas Grandes instead, by 0032
 Phase: P1
 
 ## Context

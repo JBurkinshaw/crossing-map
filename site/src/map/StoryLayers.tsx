@@ -8,7 +8,7 @@ import { CLUSTER_MAX_ZOOM, CLUSTER_RADIUS, expandCluster, inZone, useZoneCluster
 import { corridor, midpoint } from './corridor'
 import { pinsApart } from '../story/select'
 import { prefersReducedMotion } from './setup'
-import { fonts, journeyInks, palette as tokens, QUIET_OPACITY, typeScale } from './tokens'
+import { dashInWidths, fonts, journeyInks, OUT_OF_FOCUS_WIDTH, palette as tokens, QUIET_OPACITY, routeLines, typeScale } from './tokens'
 
 // Talk on the road: the route segment a picked line was spoken on, and its label ("on the road between X and Y").
 export type Corridor = { segment: Feature<Geometry, StoryProps>; label: string }
@@ -140,6 +140,8 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
   const ahead: ExpressionSpecification =
     aheadFrom === null ? ['boolean', false] : ['all', inFocus, ['>=', ['coalesce', ['get', 'sequence'], 9999], aheadFrom]]
   const routeOpacity: ExpressionSpecification = ['case', ahead, 0.4, inFocus, 1, 0.6]
+  const routeWidth = (width: number): ExpressionSpecification => ['case', inFocus, width, width * OUT_OF_FOCUS_WIDTH]
+  const { traced, modeled, curve } = routeLines
 
   // The place layers, drawn alike from the places source and from the loose points of the clustered one.
   // An array, not a fragment: the Source gives its id to each of its direct children.
@@ -211,15 +213,37 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
   return (
     <>
       <Source id="areas" type="geojson" data={story.areas}>
+        {/* Inferred areas: a flat tint in the journey's ink with a dotted edge, after the land-class tints of
+            Wheeler sheet 84 (decision 0033). */}
+        {/* Regions are in this layer too, unfilled, because it is the layer a click on an area hits (MapView). */}
         <Layer
           id="areas-fill"
           type="fill"
-          paint={{ 'fill-color': inkByJourney, 'fill-opacity': ['case', inFocus, 0.12, 0.04] }}
+          paint={{ 'fill-color': inkByJourney, 'fill-opacity': ['case', ['==', ['get', 'kind'], 'region'], 0, inFocus, 0.18, 0.05] }}
         />
         <Layer
           id="areas-edge"
           type="line"
-          paint={{ 'line-color': inkByJourney, 'line-width': 1, 'line-dasharray': [2, 2], 'line-opacity': ['case', inFocus, 0.8, 0.25] }}
+          filter={['!=', ['get', 'kind'], 'region']}
+          layout={{ 'line-cap': 'round', 'line-join': 'round' }}
+          paint={{ 'line-color': inkByJourney, 'line-width': 1.5, 'line-dasharray': [0.1, 2.5], 'line-opacity': ['case', inFocus, 0.9, 0.3] }}
+        />
+        {/* Regions: no fill, a fine ink line with a broad soft band inside it, after the ribboned county edges of
+            the Mitchell and Gray atlas maps (decision 0033). The offset puts the band inside the line: the
+            regions' outer rings run clockwise (crossing.validate checks it), so their inside is to the line's right. */}
+        <Layer
+          id="regions-band"
+          type="line"
+          filter={['==', ['get', 'kind'], 'region']}
+          layout={{ 'line-join': 'round' }}
+          paint={{ 'line-color': tokens.ink, 'line-width': 6, 'line-offset': 3, 'line-opacity': 0.15 }}
+        />
+        <Layer
+          id="regions-edge"
+          type="line"
+          filter={['==', ['get', 'kind'], 'region']}
+          layout={{ 'line-join': 'round' }}
+          paint={{ 'line-color': tokens.ink, 'line-width': 0.8, 'line-opacity': 0.8 }}
         />
         <Layer id="areas-selected" type="line" filter={selected} paint={{ 'line-color': tokens.ink, 'line-width': 2.5 }} />
       </Source>
@@ -245,8 +269,9 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{ 'line-color': tokens.paper, 'line-width': ['case', inFocus, 6.5, 3.5], 'line-opacity': ['case', inFocus, 0.8, 0.5] }}
         />
-        {/* Solid where the book names the road or river followed; long dashes where the line is modelled over the
-            ground (decision 0021), a plausible way the book does not trace; short dashes where the way is not known. */}
+        {/* How sure the line is (decision 0033): solid where the book names the road or river followed; long dashes
+            where the line is modelled over the ground (decision 0021); sparse short dashes, thinner and lighter,
+            where the line only joins the stops. Dashed lines have butt caps: round caps would fill their gaps. */}
         <Layer
           id="journeys-line"
           type="line"
@@ -254,7 +279,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
-            'line-width': ['case', inFocus, 3.5, 1.8],
+            'line-width': routeWidth(traced.width),
             'line-opacity': routeOpacity,
           }}
         />
@@ -262,24 +287,24 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           id="journeys-line-schematic"
           type="line"
           filter={['all', ['!', ['in', ['get', 'method'], ['literal', ['narrated-path', 'modeled']]]], ['!=', ['get', 'kind'], 'sightline']]}
-          layout={{ 'line-cap': 'round', 'line-join': 'round' }}
+          layout={{ 'line-cap': 'butt', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
-            'line-width': ['case', inFocus, 3.5, 1.8],
-            'line-opacity': routeOpacity,
-            'line-dasharray': [3, 2],
+            'line-width': routeWidth(curve.width),
+            'line-opacity': ['*', curve.opacity, routeOpacity],
+            'line-dasharray': dashInWidths(curve.dash, curve.width),
           }}
         />
         <Layer
           id="journeys-line-modeled"
           type="line"
           filter={['==', ['get', 'method'], 'modeled']}
-          layout={{ 'line-cap': 'round', 'line-join': 'round' }}
+          layout={{ 'line-cap': 'butt', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
-            'line-width': ['case', inFocus, 3, 1.5],
+            'line-width': routeWidth(modeled.width),
             'line-opacity': routeOpacity,
-            'line-dasharray': [6, 1.5],
+            'line-dasharray': dashInWidths(modeled.dash, modeled.width),
           }}
         />
         {/* Unseen and wide: what a click on a route hits (MapView), so the thin lines are easy to pick. */}

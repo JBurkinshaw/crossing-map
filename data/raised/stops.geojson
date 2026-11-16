@@ -1306,8 +1306,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.99325,
-     31.47923
+     -109.03694,
+     31.5425
     ]
    },
    "properties": {
@@ -1331,7 +1331,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names carved in the rock, and looks down on the Animas Plain at dusk. The book does not name the pass; the area is where a road east from Douglas toward Cloverdale crosses the range, north of the low pass of J2. The pin is by the road over the range (Geronimo Trail in Census TIGER 2023), which the area follows."
+    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names carved in the rock, and looks down on the Animas Plain at dusk. The book does not name the pass; the old Douglas to Cloverdale road is today's Geronimo Trail (Census TIGER 2023), north of the low pass of J2. The pin is the trail's highest point over the range (pipeline/measure/road_points.py), and the area follows the road."
    }
   },
   {
@@ -1372,8 +1372,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.89936,
-     31.57346
+     -108.87025,
+     31.52377
     ]
    },
    "properties": {
@@ -1397,7 +1397,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Old man Sanders and Leona tell him what happened. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is about 14.5 km north of Cloverdale."
+    "reasoning": "Old man Sanders and Leona tell him what happened. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is the point nine miles (14.5 km) along the Animas Valley road north from Cloverdale (Census TIGER 2023; pipeline/measure/road_points.py)."
    }
   },
   {
@@ -1640,8 +1640,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.61126,
-     32.26694
+     -109.43188,
+     32.23202
     ]
    },
    "properties": {
@@ -1655,18 +1655,18 @@
     ],
     "journey": "J4",
     "sequence": 5,
-    "place_ref": "place-dos-cabezas-mountains",
+    "place_ref": null,
     "part": 2,
     "episode": "2-07",
     "first_seen": "2-07",
-    "certainty": "approximate",
-    "uncertainty_m": null,
-    "method": "gazetteer",
-    "source": "gnis",
-    "source_id": "4038",
-    "source_licence": "Public domain",
+    "certainty": "inferred",
+    "uncertainty_m": 5000.0,
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They follow an old road southward across the Dos Cabezas range and make camp."
+    "reasoning": "They follow an old road southward into the Dos Cabezas and make camp. The old road south from Bowie is today's Apache Pass Road (Census TIGER 2023). The book does not say how far they rode before camping, so the pin is where the road climbs into the foothills, 12.4 km south of the Bowie stop (pipeline/measure/road_points.py), with a wide circle."
    }
   },
   {
@@ -4259,8 +4259,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.89936,
-     31.57346
+     -108.87025,
+     31.52377
     ]
    },
    "properties": {
@@ -4523,8 +4523,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.89936,
-     31.57346
+     -108.87025,
+     31.52377
     ]
    },
    "properties": {

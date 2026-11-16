@@ -356,6 +356,21 @@ def route(a: tuple[float, float], b: tuple[float, float], leg: dict) -> dict:
     return out
 
 
+def drawn(leg: dict, res_m: float) -> str:
+    """How a modelled leg was drawn, in words, for the "How this line was drawn" section of its card."""
+    who = ("a wolf on foot (Tobler's hiking speed, about 5 km/h on the flat)" if leg["mode"] == "wolf"
+           else "a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat)")
+    corridor = (" Ground within 1 km of today's unpaved tracks and the railways costs a fifth less, standing in "
+                "for the roads of the time." if leg.get("road")
+                else " Ground within 300 m of the river costs a fifth less, for the river trail." if leg.get("river")
+                else "")
+    return (f"Computed, not traced: the quickest way between the two stops for {who}, found over a {res_m:.0f} m "
+            f"grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost "
+            f"more time{' and the wolf keeps clear of towns' if leg['mode'] == 'wolf' else ''}.{corridor} The "
+            f"cell path is then smoothed (Douglas-Peucker at {SIMPLIFY_M:.0f} m, one round of corner cutting). "
+            f"Cost model {MODEL}, decision 0021.")
+
+
 def main() -> None:
     argparse.ArgumentParser(description=__doc__.split("\n")[0]).parse_args()
     stops = {}

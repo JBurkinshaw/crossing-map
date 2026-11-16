@@ -11,7 +11,12 @@ A route segment follows the line its snap names, where the book names the road o
   nhd          a USGS NHD flowline by its GNIS name (shapefile, feature)
   tiger-road   a US Census TIGER road by its full name (shapefile, feature)
   ne-river     a Natural Earth river by name: the line the map itself draws for Mexican rivers
-Elsewhere it is a gentle curve between the stops.
+  inegi-road   an INEGI Red Nacional de Caminos road by its name (tracks.geojson, feature)
+  inegi-river  INEGI's 1:50,000 streams of Strahler order min_order and up near the two stops; INEGI's streams
+               carry no names, so the build checks that INEGI's toponyms put the river named in feature on the line
+Each snap's lines form a network, and the segment is the shortest way along it between the points nearest the two
+stops, so it can run from one named road onto another at a junction. Elsewhere it is a gentle curve between the
+stops.
 A segment's `travel` is its arriving stop's: empty for horseback, or foot, truck, car, bus, train or reported.
 """
 
@@ -21,22 +26,49 @@ import math
 import re
 import subprocess
 import sys
+import unicodedata
+import zipfile
 from pathlib import Path
 
+import numpy as np
 from pyproj import Geod
-from shapely import line_merge, make_valid
+from scipy.sparse import csr_matrix
+from scipy.sparse.csgraph import connected_components, dijkstra
+from shapely import STRtree, make_valid
 from shapely.geometry import LineString, MultiLineString, Point, shape
-from shapely.ops import substring
 
 from crossing import least_cost
 from crossing.paths import DATA, REPO, SEEDS, STORY_BOX
 
 GEOD = Geod(ellps="WGS84")
 LICENCE = {"wikidata": "CC0", "gnis": "Public domain", "geonames": "CC BY 4.0", "this-site": "CC BY 4.0",
-           "usgs-nhd": "Public domain", "census-tiger": "Public domain", "natural-earth": "Public domain"}
-SNAP_SOURCES = {"nhd": "usgs-nhd", "tiger-road": "census-tiger", "ne-river": "natural-earth"}
-# The widest gap bridged between pieces of a named line, in degrees (about 1 km).
-GAP_DEG = 0.01
+           "usgs-nhd": "Public domain", "census-tiger": "Public domain", "natural-earth": "Public domain",
+           "inegi": "INEGI free-use terms (Fuente: INEGI)"}
+# Each snap source: the feature's source id, the name field and layer it is read by, whether it is a road or a
+# river, and the dataset as the "How this line was drawn" text names it.
+SNAPS = {
+    "nhd": dict(source="usgs-nhd", field="gnis_name", layer="NHDFlowline", what="river",
+                dataset="the USGS National Hydrography Dataset (high resolution)"),
+    "tiger-road": dict(source="census-tiger", field="FULLNAME", layer=None, what="road",
+                       dataset="the US Census Bureau's TIGER/Line roads (2023)"),
+    "ne-river": dict(source="natural-earth", field="name", layer=None, what="river",
+                     dataset="Natural Earth's 1:10m rivers"),
+    "inegi-road": dict(source="inegi", field="name", layer="tracks", what="road",
+                       dataset="INEGI's Red Nacional de Caminos (today's roads and tracks)"),
+    "inegi-river": dict(source="inegi", field="ORDER_1", layer="inegi-streams", what="river",
+                        dataset="INEGI's 1:50,000 hydrography"),
+}
+# The widest gap bridged between pieces of a named line, in degrees: about 1 km for roads (TIGER breaks some
+# roads), about 200 m for INEGI's streams, whose many loose ends a wider bridge would join across country.
+GAP_DEG = {"inegi-river": 0.002}
+GAP_DEG_ROAD = 0.01
+# A stop is joined to every line within this many degrees (about 50 m) of the nearest one.
+JOIN_DEG = 0.00045
+# How far around the two stops an inegi-river snap reads streams, in degrees, and how close one of INEGI's
+# toponym points for the river must lie to the traced line, in metres.
+RIVER_PAD_DEG = 0.15
+RIVER_NAME_M = 300
+INEGI_HYDRO = REPO / "private" / "cache" / "hydro" / "inegi"
 # The false dawn at the book's end (plan 2.4): the text names no place or event, but it is widely read as the
 # Trinity test, so the map draws a reported line of sight from Billy's last stop towards the Trinity Site
 # (Wikidata Q19842077), SIGHTLINE_KM long, rather than a point.
@@ -96,51 +128,214 @@ def curve(a: tuple[float, float], b: tuple[float, float], side: int) -> list[lis
     return pts
 
 
-def named_lines(snap: dict) -> list:
-    """The lines a snap names, in WGS 84: an NHD flowline, Natural Earth river or TIGER road by name.
+def ogr_lines(target: str, sql: str, bbox: tuple[float, float, float, float] | None = None) -> list:
+    spat = ["-spat", *map(str, bbox)] if bbox else []  # in the source's lon/lat; -spat_srs does not work with -sql
+    out = subprocess.run(["ogr2ogr", "-f", "GeoJSON", "-t_srs", "EPSG:4326", "-dim", "XY", *spat, "-sql", sql,
+                          "/vsistdout/", target], check=True, capture_output=True, text=True).stdout
+    return [shape(f["geometry"]) for f in json.loads(out)["features"] if f["geometry"]]
 
-    A road that crosses a county line names one TIGER file per county, separated by semicolons. A road whose
-    stretches carry different names in TIGER (a county road that changes number) names each, also separated by
-    semicolons.
+
+def named_lines(snap: dict, a: tuple[float, float], b: tuple[float, float]) -> list:
+    """The lines a snap names, in WGS 84: an NHD flowline, Natural Earth river, TIGER or INEGI road by name, or
+    INEGI's streams of the snap's order and up around the two stops.
+
+    A road that crosses a county line names one TIGER file per county, separated by semicolons. A way whose
+    stretches carry different names (a county road that changes number, a turn from one highway onto another)
+    names each, also separated by semicolons.
     """
-    field = {"nhd": "gnis_name", "ne-river": "name", "tiger-road": "FULLNAME"}[snap["source"]]
+    how = SNAPS[snap["source"]]
+    if snap["source"] == "inegi-river":
+        pad = RIVER_PAD_DEG
+        bbox = (min(a[0], b[0]) - pad, min(a[1], b[1]) - pad, max(a[0], b[0]) + pad, max(a[1], b[1]) + pad)
+        return ogr_lines(str(REPO / snap["shapefile"]),
+                         f'SELECT ORDER_1 FROM "{how["layer"]}" WHERE ORDER_1 >= {int(snap["min_order"])}', bbox)
     # OGR SQL escapes a quote by doubling it.
     names = ", ".join("'{}'".format(n.replace("'", "''")) for n in snap["feature"].split(";"))
     lines = []
     for name in snap["shapefile"].split(";"):
         path = REPO / name
-        layer = path.name.removesuffix(".zip").removesuffix(".shp")
-        sql = f"SELECT * FROM {'NHDFlowline' if snap['source'] == 'nhd' else layer} WHERE {field} IN ({names})"
+        layer = how["layer"] or path.name.removesuffix(".zip").removesuffix(".shp")
         target = f"/vsizip/{path}" if path.suffix == ".zip" else str(path)
-        out = subprocess.run(["ogr2ogr", "-f", "GeoJSON", "-t_srs", "EPSG:4326", "-dim", "XY", "-sql", sql,
-                              "/vsistdout/", target],
-                             check=True, capture_output=True, text=True).stdout
-        lines += [shape(f["geometry"]) for f in json.loads(out)["features"]]
+        lines += ogr_lines(target, f'SELECT * FROM "{layer}" WHERE {how["field"]} IN ({names})')
     return lines
 
 
-def snapped(snap: dict, a: tuple[float, float], b: tuple[float, float]) -> list[list[float]]:
-    """The stretch of the snap's line between stops a and b (lon, lat), joined to both stops."""
-    lines = [g for line in named_lines(snap) for g in getattr(line, "geoms", [line])]
-    # TIGER breaks some roads with gaps of a few hundred metres: join loose ends of different lines in pairs,
-    # closest first, if they are within about a kilometre.
-    ends = [(i, c) for i, g in enumerate(lines) for c in (g.coords[0], g.coords[-1])]
-    loose = [(i, c) for i, c in ends if sum(c == d for _, d in ends) == 1]
-    pairs = sorted((Point(c).distance(Point(d)), c, d)
-                   for k, (i, c) in enumerate(loose) for j, d in loose[k + 1:] if j != i)
-    used, bridges = set(), []
-    for dist, c, d in pairs:
-        if dist < GAP_DEG and c not in used and d not in used:
-            used |= {c, d}
-            bridges.append(LineString([c, d]))
-    merged = line_merge(MultiLineString(lines + bridges))
-    # Use the merged piece that passes closest to the two stops together.
-    pieces = list(getattr(merged, "geoms", [merged]))
-    line = min(pieces, key=lambda g: g.distance(Point(a)) + g.distance(Point(b)))
-    da, db = line.project(Point(a)), line.project(Point(b))
-    part = substring(line, min(da, db), max(da, db))
-    coords = list(part.coords) if da <= db else list(part.coords)[::-1]
-    return [[r5(a[0]), r5(a[1])]] + [[r5(x), r5(y)] for x, y in coords] + [[r5(b[0]), r5(b[1])]]
+def plain(name: str) -> str:
+    """A name in capitals without accents, for comparing INEGI's names with ours."""
+    return unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().upper()
+
+
+def river_named(name: str, line) -> bool:
+    """Whether one of INEGI's toponym points for the river `name` (as INEGI writes it, such as "Río Casas
+    Grandes") lies within RIVER_NAME_M of the line. INEGI labels a river every 10 to 30 km, so the line is the
+    whole connected channel the leg runs on, as far as the snap reads, not the leg alone."""
+    x0, y0, x1, y1 = line.bounds
+    k = math.cos(math.radians((y0 + y1) / 2))
+    pad = RIVER_NAME_M / 111_320
+    # Match on the name after its generic word (Río, Arroyo), which has no accents, then compare in full.
+    tail = plain(name).split(" ", 1)[-1].replace("'", "''")
+    for zip_path in sorted(INEGI_HYDRO.glob("*.zip")):
+        with zipfile.ZipFile(zip_path) as z:
+            members = [m for m in z.namelist() if m.endswith("_to.shp")]
+        for member in members:
+            sql = f"SELECT NOMBRE_COM FROM \"{Path(member).stem}\" WHERE NOMBRE_COM LIKE '%{tail}%'"
+            spat = ["-spat", str(x0 - pad / k), str(y0 - pad), str(x1 + pad / k), str(y1 + pad)]
+            # INEGI's shapefiles are in Latin-1 and do not say so.
+            out = subprocess.run(["ogr2ogr", "-f", "GeoJSON", "-t_srs", "EPSG:4326", "-oo", "ENCODING=ISO-8859-1",
+                                  *spat, "-sql", sql, "/vsistdout/", f"/vsizip/{zip_path}/{member}"],
+                                 check=True, capture_output=True, text=True).stdout
+            for f in json.loads(out)["features"]:
+                if plain(f["properties"]["NOMBRE_COM"]) != plain(name):
+                    continue
+                x, y = f["geometry"]["coordinates"][:2]
+                p = line.interpolate(line.project(Point(x, y)))
+                if GEOD.inv(x, y, p.x, p.y)[2] <= RIVER_NAME_M:
+                    return True
+    return False
+
+
+def network_path(lines: list, a: tuple[float, float], b: tuple[float, float],
+                 gap_deg: float) -> tuple[list[tuple[float, float]], int, MultiLineString]:
+    """The shortest way along a set of lines between the points on them nearest a and b (lon, lat), how many
+    gaps it bridged, and the whole connected piece it runs on. Lines meet where they share a vertex, as TIGER's
+    and INEGI's mostly do at junctions.
+    Where pieces do not meet, a loose end is joined to the nearest point on a piece it is not yet connected to,
+    if that lies within gap_deg, closest first: this closes the breaks in TIGER's roads and the seams between
+    INEGI's sheets without short-cutting a network that is already joined."""
+    k = math.cos(math.radians((a[1] + b[1]) / 2))  # shrink longitude so lengths are about right
+
+    index: dict[tuple[float, float], int] = {}
+    xy: list[tuple[float, float]] = []
+
+    def node(c: tuple[float, float]) -> int:
+        key = (round(c[0], 7), round(c[1], 7))
+        if key not in index:
+            index[key] = len(xy)
+            xy.append(key)
+        return index[key]
+
+    edges: list[tuple[int, int, bool]] = []
+    for g in lines:
+        cs = list(g.coords)
+        for p, q in zip(cs, cs[1:], strict=False):
+            u, v = node(p), node(q)
+            if u != v:
+                edges.append((u, v, False))
+    n_nodes = len(xy)
+    adjacency = csr_matrix((np.ones(len(edges)), ([u for u, _, _ in edges], [v for _, v, _ in edges])),
+                           shape=(n_nodes, n_nodes))
+    piece = connected_components(adjacency, directed=False)[1]
+    degree = np.bincount([n for u, v, _ in edges for n in (u, v)], minlength=n_nodes)
+    loose = [n for n in range(n_nodes) if degree[n] == 1]
+    segments = [LineString([xy[u], xy[v]]) for u, v, _ in edges]
+    tree = STRtree(segments)
+    candidates = []
+    for n in loose:
+        end = Point(xy[n])
+        for e in tree.query(end, predicate="dwithin", distance=gap_deg):
+            if piece[edges[e][0]] != piece[n]:
+                q = segments[e].interpolate(segments[e].project(end))
+                candidates.append((end.distance(q), n, int(e), (q.x, q.y)))
+    joined = list(range(int(piece.max()) + 1))
+
+    def root(c: int) -> int:
+        while joined[c] != c:
+            c = joined[c]
+        return c
+
+    for _, n, e, q in sorted(candidates):
+        u, v, _ = edges[e]
+        if root(piece[u]) == root(piece[n]):
+            continue
+        joined[root(piece[u])] = root(piece[n])
+        m = node(q)
+        edges += [(x, y, bridge) for x, y, bridge in ((u, m, False), (m, v, False), (n, m, True)) if x != y]
+    # Use the connected piece that lies closest to the two stops together (a stray piece of the same road can lie
+    # nearer one stop), and join each stop to the nearest point on every line of it within JOIN_DEG of the
+    # nearest: some sources draw a river twice, overlapping, and the nearest copy can be a dead end.
+    segments = [LineString([xy[u], xy[v]]) for u, v, _ in edges]
+    group = [root(piece[u if u < n_nodes else v]) for u, v, _ in edges]  # a bridge node is new: use the other end
+    near: dict[int, list[float]] = {}
+    for e, seg in enumerate(segments):
+        d = near.setdefault(group[e], [math.inf, math.inf])
+        d[0], d[1] = min(d[0], seg.distance(Point(a))), min(d[1], seg.distance(Point(b)))
+    best = min(near, key=lambda c: sum(near[c]))
+    ends = []
+    splits: dict[int, list[tuple[float, int]]] = {}  # segment -> (distance along it, node), for both stops
+    mine = [i for i in range(len(segments)) if group[i] == best]
+    for stop in (a, b):
+        s = Point(stop)
+        nearest = min(segments[i].distance(s) for i in mine)
+        here = node(stop)
+        for e in (i for i in mine if segments[i].distance(s) <= nearest + JOIN_DEG):
+            along = segments[e].project(s)
+            p = segments[e].interpolate(along)
+            n = node((p.x, p.y))
+            splits.setdefault(e, []).append((along, n))
+            if here != n:
+                edges.append((here, n, False))
+        ends.append(here)
+    # Split each joined segment at its stop points in order, so two stops on one long segment connect directly.
+    for e, points in splits.items():
+        u, v, bridge = edges[e]
+        chain = [u] + [n for _, n in sorted(points)] + [v]
+        edges += [(x, y, bridge) for x, y in zip(chain, chain[1:], strict=False) if x != y]
+    # One weight per pair of nodes: csr_matrix adds duplicate entries together, and overlapping lines repeat edges.
+    weight: dict[tuple[int, int], float] = {}
+    for u, v, _ in edges:
+        weight[(min(u, v), max(u, v))] = math.hypot((xy[u][0] - xy[v][0]) * k, xy[u][1] - xy[v][1]) or 1e-12
+    rows = [u for u, v in weight] + [v for u, v in weight]
+    cols = [v for u, v in weight] + [u for u, v in weight]
+    graph = csr_matrix((list(weight.values()) * 2, (rows, cols)), shape=(len(xy), len(xy)))
+    dist, pred = dijkstra(graph, indices=ends[0], return_predecessors=True)
+    if not math.isfinite(dist[ends[1]]):
+        raise ValueError("the stops lie on lines that do not meet")
+    path = [ends[1]]
+    while path[-1] != ends[0]:
+        path.append(int(pred[path[-1]]))
+    path.reverse()
+    bridges = {frozenset((u, v)) for u, v, bridge in edges if bridge}
+    gaps = sum(frozenset(pair) in bridges for pair in zip(path, path[1:], strict=False))
+    piece = MultiLineString([seg for seg, g in zip(segments, group, strict=False) if g == best])
+    return [xy[n] for n in path], gaps, piece
+
+
+def snapped(snap: dict, a: tuple[float, float], b: tuple[float, float]) -> tuple[list[list[float]], int]:
+    """The way along the snap's lines between stops a and b (lon, lat), joined to both stops, and how many gaps
+    in the source lines were bridged to make it."""
+    lines = [g for line in named_lines(snap, a, b) for g in getattr(line, "geoms", [line]) if g.length > 0]
+    if not lines:
+        sys.exit(f"{snap['journey']} {snap['from_seq']}: no lines named {snap['feature']!r} in {snap['shapefile']}")
+    try:
+        coords, gaps, piece = network_path(lines, a, b, GAP_DEG.get(snap["source"], GAP_DEG_ROAD))
+    except ValueError as e:
+        sys.exit(f"{snap['journey']} {snap['from_seq']}: {e}; name the roads that join them in snaps.csv")
+    out = [[r5(a[0]), r5(a[1])]] + [[r5(x), r5(y)] for x, y in coords] + [[r5(b[0]), r5(b[1])]]
+    out = [c for i, c in enumerate(out) if i == 0 or c != out[i - 1]]
+    if snap["source"] == "inegi-river" and not river_named(snap["feature"], piece):
+        sys.exit(f"{snap['journey']} {snap['from_seq']}: no INEGI toponym for {snap['feature']!r} within "
+                 f"{RIVER_NAME_M} m of the traced line; raise min_order or check the name")
+    return out, gaps
+
+
+def drawn_traced(snap: dict, gaps: int) -> str:
+    """How a narrated leg was drawn, in words, for the "How this line was drawn" section of its card."""
+    how = SNAPS[snap["source"]]
+    what = f"the {how['what']}"
+    if snap["source"] == "inegi-river":
+        text = (f"Traced along {snap['feature']} in {how['dataset']}: the main channel, its streams of Strahler "
+                f"order {snap['min_order']} and up, which INEGI's place names label {snap['feature']}.")
+    else:
+        names = snap["feature"].split(";")
+        names = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
+        text = f"Traced along {names} in {how['dataset']}."
+    text += (f" The line follows {what} the shortest way from the point on it nearest one stop to the point nearest "
+             f"the next, and runs straight from each stop to {what}.")
+    if gaps:
+        text += (f" The source breaks {what} in {'one place' if gaps == 1 else f'{gaps} places'}; each gap, under "
+                 "about a kilometre, is closed with a straight line.")
+    return text + (" The book names the way, but not every bend: today's line may differ from the 1940s one "
+                   "(decision 0032).")
 
 
 def feature(geometry: dict, **props) -> dict:
@@ -290,13 +485,15 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
         for i, (a, b) in enumerate(zip(seq, seq[1:], strict=False), start=1):
             snap = snaps.get((jid, a["sequence"]))
             if snap:
-                coords = snapped(snap, (a["lon"], a["lat"]), (b["lon"], b["lat"]))
-                source = SNAP_SOURCES[snap["source"]]
+                coords, gaps = snapped(snap, (a["lon"], a["lat"]), (b["lon"], b["lat"]))
+                source = SNAPS[snap["source"]]["source"]
                 how = dict(certainty="approximate", method="narrated-path", source=source,
-                           source_licence=LICENCE[source], reasoning=snap["reasoning"])
+                           source_licence=LICENCE[source], reasoning=snap["reasoning"],
+                           drawn=drawn_traced(snap, gaps))
             elif (jid, a["sequence"]) in modeled:
                 leg = modeled[(jid, a["sequence"])]
-                coords = least_cost.route((a["lon"], a["lat"]), (b["lon"], b["lat"]), leg)["coords"]
+                path = least_cost.route((a["lon"], a["lat"]), (b["lon"], b["lat"]), leg)
+                coords = path["coords"]
                 who = "a wolf on foot" if leg["mode"] == "wolf" else "a rider at a walk"
                 corridor = (", keeping near the roads and tracks" if leg.get("road")
                             else ", keeping to the river trail" if leg.get("river") else "")
@@ -305,7 +502,8 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
                            reasoning=f"A modelled path, not the book's: the book does not trace this stretch, so the "
                                      f"line is the way of least effort for {who} between the two stops over the "
                                      f"ground{corridor} (cost model {least_cost.MODEL}, decision 0021). It shows a "
-                                     f"plausible way, not the one taken." + (f" {leg['note']}" if leg["note"] else ""))
+                                     f"plausible way, not the one taken." + (f" {leg['note']}" if leg["note"] else ""),
+                           drawn=least_cost.drawn(leg, path["res_m"]))
             else:
                 coords = curve((a["lon"], a["lat"]), (b["lon"], b["lat"]), 1 if i % 2 else -1)
                 reported = b["certainty"] == "reported"
@@ -313,7 +511,10 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
                            source_licence=LICENCE["this-site"],
                            reasoning="A gentle curve between consecutive stops; the book " +
                            ("only reports this leg, through someone's account (see the stop)." if reported
-                            else "names no road or river for this stretch."))
+                            else "names no road or river for this stretch."),
+                           drawn="A curve drawn between the two stops, bowed to one side by a tenth of its length "
+                                 "(the side alternates from leg to leg so the journey does not read as one arc). It "
+                                 "says only that the leg joins the stops: its shape is not evidence of the way.")
             journeys.append(feature(
                 {"type": "LineString", "coordinates": coords},
                 id=f"{jid.lower()}-seg-{i:02d}", name=f"{a['name']} to {b['name']}", kind="route-segment",

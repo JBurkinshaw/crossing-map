@@ -29,7 +29,6 @@
     "vignette": "vignette-she-wolf",
     "side": "ne",
     "min_zoom": 6.0,
-    "max_zoom": 11.0,
     "priority": 1,
     "label": "She-wolf, out of Sonora",
     "credit": "Traced from a Mexican wolf photograph, US Fish and Wildlife Service (public domain)"
@@ -63,7 +62,6 @@
     "vignette": "vignette-steel-trap",
     "side": "w",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Newhouse No. 4½ wolf trap",
     "credit": "Drawn after Newhouse trap catalogue engravings, 1890s-1919 (public domain)"
@@ -97,7 +95,6 @@
     "vignette": "vignette-obelisk",
     "side": "e",
     "min_zoom": 8.0,
-    "max_zoom": 13.0,
     "priority": 2,
     "label": "Boundary monument, 1890s line",
     "credit": "Drawn after the International Boundary Commission's monument photographs, 1892-94 (public domain)"
@@ -131,7 +128,6 @@
     "vignette": "vignette-hacienda-pit",
     "side": "sw",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Cockpit at the hacienda fair",
     "credit": "Drawn; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain)"
@@ -165,7 +161,6 @@
     "vignette": "vignette-ruined-church",
     "side": "e",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "Ruined adobe church, upper Bavispe",
     "credit": "Drawn after photographs of the Quarai mission ruin by suemruth (CC BY 2.0) and of Mission San Juan Capistrano about 1900, California Historical Society (public domain)"
@@ -199,7 +194,6 @@
     "vignette": "vignette-paquime",
     "side": "se",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Paquimé, adobe ruins, 1940s",
     "credit": "Drawn after photographs by Gary Lee Todd and DiSchamelrider (CC0)"
@@ -233,7 +227,6 @@
     "vignette": "vignette-san-diego-gate",
     "side": "w",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "Hacienda de San Diego, Terrazas house",
     "credit": "Drawn from the book's description; no reusable photograph found"
@@ -267,7 +260,6 @@
     "vignette": "vignette-opera-caravan",
     "side": "w",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Travelling opera wagons, 1940s",
     "credit": "Drawn from the book's description; wagon form after circus wagon photographs, c. 1900-25 (public domain, CC0)"
@@ -301,7 +293,6 @@
     "vignette": "vignette-blind-man",
     "side": "w",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Blind man of the revolution",
     "credit": "Drawn; hat and coat after a Fortepan photograph of a peasant with a cane (Fortepan 28839, CC BY-SA 3.0). This drawing is shared under CC BY-SA 3.0"
@@ -335,7 +326,6 @@
     "vignette": "vignette-red-plane",
     "side": "w",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "Red Waco cabin biplane, 1930s",
     "credit": "Drawn after photographs of a Waco YKS-6 by RuthAS (CC BY 3.0) and a Waco UEC by Armchair Aviator (CC BY 2.0)"
@@ -369,7 +359,6 @@
     "vignette": "vignette-gypsy-plane",
     "side": "e",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "Gypsies' airplane, lost in 1915",
     "credit": "Drawn; fuselage after a Curtiss JN-4B 3-view by Kaboldy (CC BY-SA 3.0), oxen after Giovanni Fattori's etching (CC0). This drawing is shared under CC BY-SA 3.0"
@@ -403,7 +392,6 @@
     "vignette": "vignette-crippled-dog",
     "side": "se",
     "min_zoom": 7.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "Old dog at the roadside ruin",
     "credit": "The traced she-wolf outline (US Fish and Wildlife Service, public domain), bent; the ruin drawn"
@@ -437,7 +425,6 @@
     "vignette": "vignette-trinity-cloud",
     "side": "n",
     "min_zoom": 7.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "Trinity test, 16 July 1945",
     "credit": "Cap traced from the Trinity test photograph, US government, 1945 (public domain)"
@@ -471,7 +458,6 @@
     "vignette": "vignette-brothers-and-the-girl",
     "side": "w",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), drawn twice; \"the girl\" and the hats drawn"
@@ -505,7 +491,6 @@
     "vignette": "vignette-boyd-and-the-girl",
     "side": "e",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), drawn twice; Boyd's straw hat and \"the girl\" drawn"
@@ -539,7 +524,6 @@
     "vignette": "vignette-billy-searching",
     "side": "e",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the hat and shotgun drawn"
@@ -573,7 +557,6 @@
     "vignette": "vignette-billy-in-the-rain",
     "side": "sw",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored; the slicker, the hat and the rain drawn"
@@ -607,7 +590,6 @@
     "vignette": "vignette-bones-travois",
     "side": "e",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "North with Boyd's bones",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the travois drawn after a photograph of a man on a mule travois, about 1876, Little Bighorn Battlefield National Monument (public domain)"
@@ -641,7 +623,6 @@
     "vignette": "vignette-windmill-tank",
     "side": "e",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Windmill and stone tank",
     "credit": "Drawn after a photograph of an Aermotor windmill in New Mexico by SteveStrummer (CC0) and an Aermotor advertisement of 1895 (public domain)"
@@ -675,7 +656,6 @@
     "vignette": "vignette-corriente-steers",
     "side": "n",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Corriente steers, bound for Naco",
     "credit": "Drawn after photographs of longhorn steers by Carol M. Highsmith (public domain) and Clinton and Charles Robertson (CC BY 2.0)"
@@ -709,7 +689,6 @@
     "vignette": "vignette-sandhill-cranes",
     "side": "w",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Sandhill cranes going south",
     "credit": "Drawn after a photograph of sandhill cranes in flight, US Fish and Wildlife Service (public domain)"
@@ -743,7 +722,6 @@
     "vignette": "vignette-cottonwood-camp",
     "side": "e",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Cottonwood camp on the river",
     "credit": "Drawn"
@@ -777,7 +755,6 @@
     "vignette": "vignette-workers-truck",
     "side": "sw",
     "min_zoom": 10.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Farmworkers' flatbed truck",
     "credit": "Drawn after a photograph of a 1930 Ford Model AA truck by Alf van Beem (CC0)"
@@ -811,7 +788,6 @@
     "vignette": "vignette-boyds-grave",
     "side": "e",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "Boyd's grave, Gallego road",
     "credit": "Drawn from the book's description"
@@ -845,7 +821,6 @@
     "vignette": "vignette-madera-fair",
     "side": "sw",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "Madera fair, late April",
     "credit": "Drawn"
@@ -879,7 +854,6 @@
     "vignette": "vignette-wolves-antelope",
     "side": "nw",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Wolves running antelope in the snow",
     "credit": "Drawn; the wolves are the traced she-wolf (US Fish and Wildlife Service photograph, public domain), the pronghorn after photographs by the Bureau of Land Management, Utah, and Great Sand Dunes National Park (public domain)"
@@ -913,7 +887,6 @@
     "vignette": "vignette-billy-and-the-dog",
     "side": "e",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "",
     "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the dog is the traced she-wolf (US Fish and Wildlife Service photograph, public domain), made smaller"
@@ -947,7 +920,6 @@
     "vignette": "vignette-wolf-on-the-rope",
     "side": "e",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "",
     "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain); lechuguilla drawn"
@@ -981,7 +953,6 @@
     "vignette": "vignette-wolf-by-the-fire",
     "side": "w",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Night camp, the wolf beside him",
     "credit": "Drawn; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain), bent to sit"
@@ -1015,7 +986,6 @@
     "vignette": "vignette-wolf-ford",
     "side": "e",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "Fording the Bavispe",
     "credit": "Drawn from the book's description; the wolf's head after the US Fish and Wildlife Service wolf photographs used for the she-wolf (public domain)"
@@ -1049,7 +1019,6 @@
     "vignette": "vignette-wolf-cart",
     "side": "ne",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "The wolf shown at the fair",
     "credit": "Drawn from the book's description"
@@ -1083,7 +1052,6 @@
     "vignette": "vignette-carrying-the-wolf",
     "side": "e",
     "min_zoom": 10.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "Carrying her into the Pilares",
     "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the bundle and the mountains drawn"
@@ -1117,7 +1085,6 @@
     "vignette": "vignette-wolf-cairn",
     "side": "e",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "The wolf's grave, a high pass",
     "credit": "Drawn from the book's description"
@@ -1151,7 +1118,6 @@
     "vignette": "vignette-billy-bow-hawk",
     "side": "w",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "Holly bow, cane arrow",
     "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the bow, arms and hawk drawn"
@@ -1185,7 +1151,6 @@
     "vignette": "vignette-el-tigre",
     "side": "sw",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "El Tigre, a mining town",
     "credit": "Drawn; the jacales after a 1940 US government photograph of a Yaqui jacal at Cortaro Farms, Arizona (NARA 522189, public domain)"
@@ -1219,7 +1184,6 @@
     "vignette": "vignette-escarpment-road",
     "side": "w",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Wagon road down the escarpment",
     "credit": "Drawn from the book's description"
@@ -1253,7 +1217,6 @@
     "vignette": "vignette-bavispe-church",
     "side": "e",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "San Miguel, Bavispe",
     "credit": "Drawn after a photograph of San Miguel Arcángel, Bavispe, by LIMO 5 (CC BY-SA 4.0). This drawing is shared under CC BY-SA 4.0"
@@ -1264,8 +1227,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.9,
-     31.545
+     -108.8709,
+     31.49525
     ]
    },
    "properties": {
@@ -1287,7 +1250,6 @@
     "vignette": "vignette-echols-cabin",
     "side": "w",
     "min_zoom": 10.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Echols' cabin, SK Bar",
     "credit": "Drawn from the book's description"
@@ -1321,7 +1283,6 @@
     "vignette": "vignette-dead-calf",
     "side": "se",
     "min_zoom": 10.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "The calf at Foster Draw",
     "credit": "Drawn from the book's description; the junipers as in the Parts I and II set"
@@ -1355,7 +1316,6 @@
     "vignette": "vignette-arnulfo-house",
     "side": "e",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Don Arnulfo's house",
     "credit": "Drawn after Russell Lee's photograph of an adobe house at Peñasco, New Mexico, about 1940 (Library of Congress, FSA/OWI, public domain); the horse is the traced Muybridge horse with the rider cut away, Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain)"
@@ -1389,7 +1349,6 @@
     "vignette": "vignette-wolf-in-the-cholla",
     "side": "w",
     "min_zoom": 10.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "Caught, the drag in a cholla",
     "credit": "Drawn; the wolf is the she-wolf traced from a US Fish and Wildlife Service photograph (public domain); the cholla after a photograph of cane cholla by White Sands National Park (public domain)"
@@ -1423,7 +1382,6 @@
     "vignette": "vignette-parham-house",
     "side": "sw",
     "min_zoom": 10.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "The house, found empty",
     "credit": "Drawn from the book's description"
@@ -1457,7 +1415,6 @@
     "vignette": "vignette-keno-bacerac",
     "side": "w",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Keno, found at Bacerac",
     "credit": "The horses are the traced Muybridge horse with the rider cut away, Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the house and tree drawn"
@@ -1491,7 +1448,6 @@
     "vignette": "vignette-taking-the-girl",
     "side": "se",
     "min_zoom": 10.0,
-    "max_zoom": 12.0,
     "priority": 1,
     "label": "Taking \"the girl\" from the fire",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), and the same horse with the rider cut away; the oaks, the fire and \"the girl\" drawn"
@@ -1525,7 +1481,6 @@
     "vignette": "vignette-colonia-juarez",
     "side": "nw",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Colonia Juárez, a Mormon colony",
     "credit": "Drawn from the book's description"
@@ -1559,7 +1514,6 @@
     "vignette": "vignette-quijada",
     "side": "n",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Quijada at the crossroads",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored; the pines as in the Madera fair drawing"
@@ -1593,7 +1547,6 @@
     "vignette": "vignette-remuda",
     "side": "ne",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Roping Niño from the remuda",
     "credit": "Horses and rider from the traced Muybridge horse and rider, Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the pines as in the Madera fair drawing"
@@ -1627,7 +1580,6 @@
     "vignette": "vignette-night-train",
     "side": "e",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Night train for Las Varas",
     "credit": "Drawn after a 1901 photograph of a Pennsylvania Railroad locomotive in Railway and Locomotive Engineering (Internet Archive Book Images, public domain); the horse is the traced Muybridge horse with the rider cut away, Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain)"
@@ -1661,7 +1613,6 @@
     "vignette": "vignette-recruiting-office",
     "side": "e",
     "min_zoom": 8.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Turned away by the army",
     "credit": "Drawn from the book's description (Deming's office is in the armory)"
@@ -1695,7 +1646,6 @@
     "vignette": "vignette-corridero",
     "side": "s",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "The corrido, Temósachic",
     "credit": "Drawn; the guitar and the seated pose after a Farm Security Administration photograph of a migratory worker playing a guitar (Flickr, public domain)"
@@ -1729,7 +1679,6 @@
     "vignette": "vignette-waterfowl",
     "side": "nw",
     "min_zoom": 10.0,
-    "max_zoom": 12.0,
     "priority": 2,
     "label": "Waterfowl at dawn, Buenaventura",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the birds drawn"
@@ -1763,7 +1712,6 @@
     "vignette": "vignette-billy-in-rags",
     "side": "e",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the bow and the trees drawn"
@@ -1797,7 +1745,6 @@
     "vignette": "vignette-billy-to-the-watershed",
     "side": "n",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored; the hat and the ridges drawn"
@@ -1831,7 +1778,6 @@
     "vignette": "vignette-billy-and-packhorse",
     "side": "s",
     "min_zoom": 9.0,
-    "max_zoom": 12.0,
     "priority": 3,
     "label": "",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), and the same horse with the rider cut away and a pack drawn on; the pines as in the Madera fair drawing"

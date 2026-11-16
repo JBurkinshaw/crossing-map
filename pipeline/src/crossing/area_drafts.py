@@ -763,6 +763,12 @@ RULES.update(
             "circle's estimate.",
             lambda F: F.nhd("San Simon River").buffer(1000),
         ),
+        "j4-dos-cabezas": Rule(
+            "medium",
+            "On the old road south into the Dos Cabezas: within 1 km of Apache Pass Road (Census TIGER), where "
+            "they camped. The book does not say how far along.",
+            lambda F: F.roads("name IN ('Apache Pass Rd', 'S Apache Pass Rd', 'N Apache Pass Rd')").buffer(1000),
+        ),
         "j4-bowie": Rule(
             "medium",
             "At the highway crossing, east of Bowie: within 1 km of the highway (Census TIGER primary and "

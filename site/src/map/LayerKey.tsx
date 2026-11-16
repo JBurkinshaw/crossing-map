@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { JOURNEYS } from '../data/journeys'
+import { ROUTE_LABEL } from '../data/routeLabels'
 import type { Story } from '../data/story'
-import { journeyInks, palette as tokens, SPRITE } from './tokens'
+import { journeyInks, palette as tokens, routeLines, SPRITE } from './tokens'
 
 // The layer key (legend, design section 9) for the classic map: one row per kind of mark the map draws, from
 // the story it is given. That story is already filtered to the reader's progress, so a journey, a region or
@@ -35,11 +36,21 @@ async function loadSprite(): Promise<Sprite> {
   return { icons, width: image.naturalWidth, height: image.naturalHeight }
 }
 
-function Line({ colour, dash, width = 2.5, opacity = 1 }: { colour: string; dash?: string; width?: number; opacity?: number }) {
+function Line({ colour, dash, width = 2.5, opacity = 1, cap = 'round' }: { colour: string; dash?: string; width?: number; opacity?: number; cap?: 'round' | 'butt' }) {
   return (
     <svg width="34" height="12" aria-hidden="true">
-      <line x1="2" y1="6" x2="32" y2="6" stroke={colour} strokeWidth={width} strokeDasharray={dash} strokeLinecap="round" opacity={opacity} />
+      <line x1="2" y1="6" x2="32" y2="6" stroke={colour} strokeWidth={width} strokeDasharray={dash} strokeLinecap={cap} opacity={opacity} />
     </svg>
+  )
+}
+
+// A route line as StoryLayers draws it with its journey in focus: the same widths and dashes (tokens.routeLines).
+function RouteLine({ colour, kind }: { colour: string; kind: keyof typeof routeLines }) {
+  const line: { width: number; dash: readonly number[] | null; opacity?: number } = routeLines[kind]
+  return line.dash ? (
+    <Line colour={colour} width={line.width} dash={line.dash.join(' ')} opacity={line.opacity ?? 1} cap="butt" />
+  ) : (
+    <Line colour={colour} width={line.width} />
   )
 }
 
@@ -70,10 +81,22 @@ function Diamond({ fill, stroke }: { fill: string; stroke: string }) {
   )
 }
 
+// An inferred area as StoryLayers draws it in focus: a flat tint with a dotted edge.
 function Area({ colour }: { colour: string }) {
   return (
     <svg width="34" height="16" aria-hidden="true">
-      <rect x="3" y="2" width="28" height="12" rx="4" fill={colour} fillOpacity={0.12} stroke={colour} strokeDasharray="2 2" />
+      <rect x="3" y="2" width="28" height="12" rx="4" fill={colour} fillOpacity={0.18} stroke={colour} strokeWidth={1.5}
+        strokeDasharray="0.1 3.75" strokeLinecap="round" strokeOpacity={0.9} />
+    </svg>
+  )
+}
+
+// A region as StoryLayers draws it: no fill, a fine ink line with a broad soft band inside it.
+function Region() {
+  return (
+    <svg width="34" height="16" aria-hidden="true">
+      <rect x="4.5" y="3.5" width="25" height="9" rx="3" fill="none" stroke={tokens.ink} strokeWidth={3} strokeOpacity={0.15} />
+      <rect x="3" y="2" width="28" height="12" rx="4" fill="none" stroke={tokens.ink} strokeWidth={0.8} strokeOpacity={0.8} />
     </svg>
   )
 }
@@ -154,22 +177,8 @@ export function LayerKey({ story, journey, reached }: Props) {
                 </li>
               ))}
               <li>
-                <Line colour={tokens.ink} />
-                The road or river the book names
-              </li>
-              {shown.modeled && (
-                <li data-first-seen={shown.modeled.properties?.first_seen}>
-                  <Line colour={tokens.ink} dash="12 3" width={2} />
-                  A modelled way over the ground, not the book’s
-                </li>
-              )}
-              <li>
-                <Line colour={tokens.ink} dash="5 3.5" />
-                The way is not known
-              </li>
-              <li>
                 <Line colour={ink} opacity={0.4} />
-                The road ahead, when stepping through
+                Legs after the stop you are on
               </li>
               {shown.sightline && (
                 <li data-first-seen={shown.sightline.properties?.first_seen}>
@@ -177,6 +186,23 @@ export function LayerKey({ story, journey, reached }: Props) {
                   The false dawn: its direction only
                 </li>
               )}
+            </ul>
+            <h3>How sure the line is</h3>
+            <ul>
+              <li>
+                <RouteLine colour={tokens.ink} kind="traced" />
+                {ROUTE_LABEL.traced}
+              </li>
+              {shown.modeled && (
+                <li data-first-seen={shown.modeled.properties?.first_seen}>
+                  <RouteLine colour={tokens.ink} kind="modeled" />
+                  {ROUTE_LABEL.modeled}
+                </li>
+              )}
+              <li>
+                <RouteLine colour={tokens.ink} kind="curve" />
+                {ROUTE_LABEL.curve}
+              </li>
             </ul>
           </>
         )}
@@ -220,7 +246,7 @@ export function LayerKey({ story, journey, reached }: Props) {
           )}
           {shown.areaKinds.has('region') && (
             <li>
-              <Area colour={tokens.ink} />
+              <Region />
               Region
             </li>
           )}

@@ -182,6 +182,10 @@
           "type": ["string", "null"],
           "description": "Inferred areas: how the outline was drawn. A draft is the stop's circle (uncertainty_m about the pin) cut by a rule to the ground its reasoning describes (crossing.area_drafts, decision 0020); null for a plain circle."
         },
+        "drawn": {
+          "type": "string",
+          "description": "Route segments: how the line was drawn (traced on a named road or river, computed as a least-cost path, or drawn as a curve), in words for the reader (decision 0032)."
+        },
         "cost_model": {
           "type": "string",
           "description": "Route segments with method modeled: the least-cost model version that drew the line (crossing.least_cost, decision 0021)."
@@ -204,13 +208,7 @@
           "type": "number",
           "minimum": 0,
           "maximum": 24,
-          "description": "Vignettes: the first zoom at which the drawing may show."
-        },
-        "max_zoom": {
-          "type": "number",
-          "minimum": 0,
-          "maximum": 24,
-          "description": "Vignettes: the zoom from which the drawing no longer shows."
+          "description": "Vignettes: the first zoom at which the drawing may show; it shows at every zoom above it."
         },
         "priority": {
           "type": "integer",
@@ -439,7 +437,7 @@
                   "required": ["place_ref"],
                   "properties": {"kind": {"enum": ["vignette", "vignette-leader"]}},
                   "if": {"properties": {"kind": {"const": "vignette"}}},
-                  "then": {"required": ["vignette", "stands_for", "min_zoom", "max_zoom", "priority"]}
+                  "then": {"required": ["vignette", "stands_for", "min_zoom", "priority"]}
                 }
               }
             }

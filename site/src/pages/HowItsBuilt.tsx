@@ -123,7 +123,10 @@ export function HowItsBuilt() {
       <h2>Modelled routes</h2>
       <p>
         The book seldom says which way a rider went between two stops. Where it names the road or river, the route
-        follows it. Where it does not, most legs are drawn as gentle curves, which say only that the way is unknown.
+        follows today’s line of it: Census roads and USGS rivers in the US, INEGI’s roads and rivers in Mexico,
+        taken the shortest way along them between the stops. Each leg’s card says, under “How this line was drawn”,
+        which line it follows and how. Where the book does not, most legs are drawn as gentle curves, which say
+        only that the way is unknown.
         Across the sierras and up the long valleys a curve reads badly, so those legs are modelled: the line is the
         way of least effort between the two stops over the ground, for a rider at a walk (or, on the first
         journey, a wolf on foot). The model works on a 90 m grid of the Copernicus elevation model. A horse’s speed
