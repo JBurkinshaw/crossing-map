@@ -301,8 +301,8 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 
 | Pattern | Use |
 | --- | --- |
-| Onboarding | On the first visit only, an introduction says what the site is, then the reading-progress dialog opens. Both are remembered in `localStorage`; the panel's Introduction link and the About page bring the introduction back |
-| Timeline slider | Reading progress, one step per episode, labelled by Part |
+| Onboarding | One dialog on the first visit (decision 0034). It says what the site is and how to use the map, then asks "Have you finished *The Crossing*?". "Yes" shows everything; "Not yet" asks where the reader is up to. It opens again on each visit until the reader answers; the panel's Introduction link and the About page bring it back |
+| Timeline | Reading progress: the episodes' opening words, grouped by Part, plus "I haven't started". Shortcuts take a percentage (for ebooks) or, once `episodes.json` has pages, a Vintage page. A summary shows only for episodes up to the stored progress |
 | Data dimming | Routes not in focus fade; once the reader goes to a stop, the legs after it fade |
 | Route positioning | Back and Next through a journey's stops; the camera flies to each |
 | Basemap switch and swipe | Classic, Compare, Satellite, Topo; Flat, Tilted, Raised |
@@ -316,7 +316,7 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 
 Avoid the kitchen sink (every layer on) and desert fog (an empty view with no cue). Empty desert is part of the book, so every view keeps a faint label or a route.
 
-**Spoiler mode.** On until the reader sets progress. A header badge always shows the setting and opens the slider. "Show everything" asks for confirmation. Progress is stored in `localStorage`.
+**Spoiler mode.** On until the reader answers the first-visit question. A header badge always says what is hidden ("Showing everything", "Hiding what's after Part I, episode 5: In the woods", or "Not set") and opens "Where are you up to?". There, "Show everything" asks for confirmation; the first visit's "Yes" does not, as it answers a direct question. Setting progress to an episode brings the stop the reader reached most recently into focus. Progress is stored in `localStorage`.
 
 **Usability targets.** Keyboard-reachable controls, safe-area insets, reduced motion respected, one-handed use on a phone, and smooth panning with every Part I layer on.
 

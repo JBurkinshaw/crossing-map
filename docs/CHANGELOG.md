@@ -16,6 +16,10 @@ A change is **released** when it is merged to `main`, which the public site serv
 #### Site
 
 - The vignettes stay on the map when zoomed in past 12; they used to disappear there, and the she-wolf past 11.
+- The first visit opens one dialog, not two: the introduction, a line on how to use the map, and the question "Have you finished *The Crossing*?". "Yes" shows everything; "Not yet" asks where you are up to (decision 0034).
+- "Where are you up to?" lists the episodes by their opening words, grouped by Part, in place of the slider. You can also enter how far through the book you are as a percentage.
+- The reading-progress badge says what the map is hiding, such as "Hiding what's after Part I, episode 5: In the woods", and opens "Where are you up to?" directly.
+- Setting your progress to an episode opens the map at the stop you reached most recently.
 
 ### 2026-11-15
 

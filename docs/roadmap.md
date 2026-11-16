@@ -24,7 +24,6 @@ These were "open questions" in the build plan; they are project decisions, not q
 
 - **[decide] Licences.** MIT for code (except the GPL-3.0 hachure folder) and CC BY 4.0 for data and notes are in place but provisional. Confirm or change before launch.
 - **[decide] Name and domain.** "Map Enough" (from the trilogy's last line) or "The Crossing: A Reading Map"; a custom domain or `jburkinshaw.github.io/crossing-map`.
-- **[decide] Spoiler default.** On until set (as built) or ask on first visit only. "Show everything" confirms every time as built; the design once said once.
 - **[decide] Interface language.** English only for launch, or Spanish too.
 - **[decide] Portfolio framing.** Should How it's built carry the owner's name and links, or stay anonymous with a link in the footer?
 - **[decide] Vignette drawing.** Draw or trace them, or commission an illustrator for a consistent set of about 30.
