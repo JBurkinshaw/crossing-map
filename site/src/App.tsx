@@ -80,6 +80,7 @@ export default function App() {
     story,
     flat,
     translations,
+    progress,
     showCard: (from) => setDrawer((d) => (from === 'search' || d === 'peek' ? 'half' : d)),
   })
   const { stops, stopIndex, selection, translationId, setSelection, setTranslationId } = nav
