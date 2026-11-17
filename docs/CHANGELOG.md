@@ -8,6 +8,11 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ### 2026-11-16
 
+#### Tiles
+
+- `tiles-v12`: the Oblique view redrawn at lean 4, with strokes down the fall line, stipple on the flats and heavier crests, now in three archives (`oblique-1` to `oblique-3`, decision 0040), and a new `landcover.pmtiles`, the CEC's 2020 land cover read with Brown's biotic communities, for the Land cover ground in every view (decisions 0040 and 0042).
+- `relief.pmtiles` and `relief-dense.pmtiles` are dropped from the next release: the map has drawn the hachures from `relief-wheeler*.pmtiles` since decision 0024, and nothing reads the other two.
+
 #### Data
 
 - J5 leg 8, Santa Ana back to La Boquilla, follows the Soto Máynez road the book has them ride back on, instead of a curve straight over the ranges.
@@ -29,6 +34,9 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- MapTiler's logo sits at the top of the bottom-left controls, above the credits and the scale, and MapTiler's and OpenStreetMap's credits join the map's one credits list while Satellite, Topo, Compare or Satellite tint shows (decision 0043). The satellite map no longer adds a second credits button of its own.
+- Suggestions go to a form instead of a GitHub issue, and need no account (decision 0044). The links stay hidden until the form is live.
+- The Credits page credits Joe Hazelton's map with his permission, and says this site transformed the CEC land cover and INEGI's rivers.
 - The Raised view is now the Oblique view, redrawn after the oblique maps of the mid-twentieth century: strokes down the fall line, dense in shade and sparse in light, stipple on the flats, heavier crests, and rivers as two inked banks (decision 0040). It leans twice as far.
 - A Ground option, Land cover, tints the ground by what grows there in every view of the Vintage map, from the CEC's 2020 land cover read with Brown's biotic communities, with an ink texture for each class (decisions 0040 and 0042). The key lists the classes.
 - The Classic map is now called the Vintage map (decision 0041).
