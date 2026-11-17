@@ -3,6 +3,7 @@
 Run from the repo root, after crossing.hachures:
     uv run --project pipeline python -m crossing.plan_oblique
     uv run --project pipeline python -m crossing.plan_oblique --properties  # after a text-only story change
+    uv run --project pipeline python -m crossing.plan_oblique --vignettes   # the drawings only (under a minute)
 
 Plan oblique relief (Jenny and Patterson, Cartographic Perspectives 57, 2007) keeps a flat, north-up map but
 moves every point north in proportion to its height, so high ground stands up and leans over the ground behind
@@ -74,6 +75,9 @@ TILE = SCALES["fine"]["tile"]
 CELL = 30
 STEP = 8  # metres between samples along a line
 STORY_STEP = 60  # metres between samples along the story's lines and area edges
+# How far, in degrees, --vignettes lets the other raised layers move when raised again (about 10 m, the rounding
+# of the published lines): a DEM tile added outside the corridor shifts a far point by a metre or two.
+RAISE_TOLERANCE = 0.0001
 LEAN = 2  # metres north per metre of height
 TRIM = 0.2  # share of each stroke cut from each end
 FOLD = 0.5  # smallest north-south stretch at which strokes are kept
@@ -81,7 +85,7 @@ FORM_INTERVAL = 200  # metres between form lines
 PAD = 20 * CELL  # covers the ridges' 1 km relief window and the smoothing's edge
 SOUTH = 6_000  # ground this far south of the area can still hide ground in it: shifts reach about 4.8 km
 RAISED_DATA = DATA / "raised"
-STORY = ("stops", "places", "areas", "journeys")
+STORY = ("stops", "places", "areas", "journeys", "vignettes")
 # Archives over this size are split, by groups of whole strips, to stay under the design's 100 MB per file.
 MAX_ARCHIVE_MB = 95
 # Shown in the map's attribution while the Raised view is on.
@@ -406,7 +410,7 @@ class Heights:
         return z
 
 
-def raise_story(heights: Heights) -> dict[str, int]:
+def raise_story(heights: Heights, out: Path = RAISED_DATA) -> dict[str, int]:
     """data/raised/: the story layers with every point moved north by its height, as the line work is.
     Lines and area edges are first sampled every STORY_STEP metres so that they follow the ground."""
     def shift(x: np.ndarray, y: np.ndarray) -> list:
@@ -435,14 +439,14 @@ def raise_story(heights: Heights) -> dict[str, int]:
             return {"type": kind, "coordinates": [[line(r) for r in p] for p in c]}
         raise ValueError(f"cannot raise a {kind}")
 
-    RAISED_DATA.mkdir(exist_ok=True)
+    out.mkdir(exist_ok=True)
     counts = {}
     for name in STORY:
         doc = json.loads((DATA / f"{name}.geojson").read_text(encoding="utf-8"))
         for f in doc["features"]:
             f["geometry"] = raised(f["geometry"])
         text = json.dumps(doc, ensure_ascii=False, indent=1) + "\n"
-        (RAISED_DATA / f"{name}.geojson").write_text(text, encoding="utf-8")
+        (out / f"{name}.geojson").write_text(text, encoding="utf-8")
         counts[name] = len(doc["features"])
     return counts
 
@@ -468,10 +472,63 @@ def copy_story_properties() -> list[str]:
     return changed
 
 
+def prepare_heights(area: list[dict], dems: list[Path], pool: ProcessPoolExecutor) -> float:
+    """Each strip's smoothed DEM, written to `dems`, and the one lowest height of the whole area, so the strips meet."""
+    list(pool.map(prepare_dem, [s["bounds"] for s in area], [CELL] * len(area), dems))
+    lows = []
+    for s, dem_path in zip(area, dems, strict=True):
+        with rasterio.open(dem_path) as src:
+            window = from_bounds(*s["core"], transform=src.transform).round_offsets().round_lengths()
+            lows.append(float(src.read(1, window=window).min()))
+    return min(lows)
+
+
+def raise_vignettes() -> None:
+    """--vignettes: data/raised/vignettes.geojson alone, in minutes, without the line work or the archives.
+
+    The strips' DEMs and the lowest height are prepared as in a full run, and every story layer is raised again into
+    a scratch folder by raise_story(), so each drawing moves by the same rule as the stops: by the height under its
+    own point. The other layers are not written; they must come out within RAISE_TOLERANCE of the published copies,
+    or the DEM or the story has changed and the full run is needed."""
+    started = time.monotonic()
+    area = strips()
+    with tempfile.TemporaryDirectory() as folder:
+        tmp = Path(folder)
+        dems = [tmp / f"{s['name']}.tif" for s in area]
+        with ProcessPoolExecutor(min(len(area), os.cpu_count() or 1)) as pool:
+            base = prepare_heights(area, dems, pool)
+        scratch = tmp / "raised"
+        counts = raise_story(Heights(list(zip(area, dems, strict=True)), base, tmp), scratch)
+        moved = {name: max_move(RAISED_DATA / f"{name}.geojson", scratch / f"{name}.geojson")
+                 for name in STORY if name != "vignettes"}
+        if max(moved.values()) > RAISE_TOLERANCE:
+            raise SystemExit(f"The published raised layers come out differently ({moved}, in degrees): the DEM or the "
+                             "story changed, so run the full build")
+        shutil.copy(scratch / "vignettes.geojson", RAISED_DATA / "vignettes.geojson")
+    print(f"data/raised/vignettes.geojson: {counts['vignettes']} drawings; the other layers within "
+          f"{max(moved.values()):.5f} degrees of their published copies; {time.monotonic() - started:.0f} s",
+          flush=True)
+
+
+def max_move(a: Path, b: Path) -> float:
+    """The largest difference, in degrees, between the coordinates of two copies of a layer, feature by feature."""
+    def coords(g: dict) -> np.ndarray:
+        return np.array(list(shapely.get_coordinates(shape(g))))
+    old = {f["properties"]["id"]: f["geometry"] for f in json.loads(a.read_text(encoding="utf-8"))["features"]}
+    worst = 0.0
+    for f in json.loads(b.read_text(encoding="utf-8"))["features"]:
+        x, y = coords(old[f["properties"]["id"]]), coords(f["geometry"])
+        worst = max(worst, float(np.abs(x - y).max()) if x.shape == y.shape else math.inf)
+    return worst
+
+
 def main() -> None:
     if sys.argv[1:] == ["--properties"]:
         changed = copy_story_properties()
         print(f"data/raised/: properties copied for {len(changed)} features")
+        return
+    if sys.argv[1:] == ["--vignettes"]:
+        raise_vignettes()
         return
     started = time.monotonic()
     area = strips()
@@ -482,14 +539,7 @@ def main() -> None:
         tmp = Path(folder)
         dems = [tmp / f"{s['name']}.tif" for s in area]
         with ProcessPoolExecutor(min(len(area), os.cpu_count() or 1)) as pool:
-            list(pool.map(prepare_dem, [s["bounds"] for s in area], [CELL] * len(area), dems))
-            # One lowest height for the whole area, so the strips meet.
-            lows = []
-            for s, dem_path in zip(area, dems, strict=True):
-                with rasterio.open(dem_path) as src:
-                    window = from_bounds(*s["core"], transform=src.transform).round_offsets().round_lengths()
-                    lows.append(float(src.read(1, window=window).min()))
-            base = min(lows)
+            base = prepare_heights(area, dems, pool)
             lines, mexico = base_lines(bbox, tmp)
             print(f"{len(area)} strips, lowest ground {base:.0f} m; "
                   f"base lines ready after {time.monotonic() - started:.0f} s", flush=True)

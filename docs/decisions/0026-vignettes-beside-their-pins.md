@@ -1,6 +1,6 @@
 # 0026. Vignettes beside their pins
 
-Status: accepted (2026-11-14); the upper zoom bound (`max_zoom`) dropped on 2026-11-16, since a drawing beside its pin needs none; amended 2026-11-16: each side and first zoom chosen by script, clear of the stops and route lines, and the drawings of other journeys lighter (below); the wait for a closer zoom capped at one step the same day (below). Amends design section 10's placement rules.
+Status: accepted (2026-11-14); the upper zoom bound (`max_zoom`) dropped on 2026-11-16, since a drawing beside its pin needs none; amended 2026-11-16: each side and first zoom chosen by script, clear of the stops and route lines, and the drawings of other journeys lighter (below); the wait for a closer zoom capped at one step the same day (below). Amends design section 10's placement rules. Drawn in the Raised view too, from raised copies, by 0039.
 Phase: P1
 
 ## Context

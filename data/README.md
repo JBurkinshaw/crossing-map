@@ -23,7 +23,7 @@ Every file is validated against its schema in `schema/` by `crossing.validate`, 
 | `translations.json` | 916 Spanish lines: an incipit of at most five words, this site's English, and where each was spoken. `common` marks 76 short replies and greetings ("Sí", "Gracias", "Buenas noches") that the panel leaves out of a place's lines; search still finds them | `translations` |
 | `open-questions.json` | 22 judgement calls about where something is, each shown from its own episode | `open-questions` |
 | `elsewhere.json` | 16 places the book names outside the story box, listed in the panel | `elsewhere` |
-| `raised/*.geojson` | The four story layers as drawn in the Raised view, each point moved north by its height (decisions 0018 and 0019). Use the flat files for analysis | `story-layer` |
+| `raised/*.geojson` | The four story layers and the drawings' anchors as drawn in the Raised view, each point moved north by its height (decisions 0018, 0019 and 0039). Use the flat files for analysis | `story-layer` |
 | `raised/archives.json` | The Raised view's tile archives, in drawing order | `archives` |
 | `parquet/*.parquet` | A GeoParquet 1.1 copy of each story layer, typed from the schema (decision 0009). CI checks they match the GeoJSON | |
 

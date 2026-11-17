@@ -334,7 +334,7 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 - The drawing is set beside its pin on that side, a fixed gap away on screen, so it never covers the marker; no leader lines. Place labels draw over it; its caption is placed before every other label. The key says its position is approximate.
 - The side is the one where the drawing and its caption cover the fewest stops, route lines and other drawings at its first zoom; the seed's side breaks a tie. A drawing that would cover another drawing, a stop or more than its own width of route line on every side waits one zoom step, no more, so the drawings stay in view for context; there it takes its clearest side. A drawing as crowded one step closer keeps its zoom. Its `reasoning` says which. With the cap, 19 of the 54 drawings still touch the story at their first zoom (5 of them a stop marker), against 36 with the seed's sides and 7 with no cap (decision 0026).
 - Each drawing belongs to a journey (`journey`). Those of the journey in focus are at full strength, the others at 60%, as other journeys' route lines are lighter.
-- Vignettes belong to the classic map only.
+- Vignettes belong to the classic map only. In the Raised view they stand at their raised copies (`data/raised/vignettes.geojson`), beside their raised pins (decision 0039).
 - Spoiler mode hides those first seen after the reader's progress.
 
 **First candidates** (the site now has 54 drawings; the anchors in `pipeline/seeds/vignettes.csv` are the current picks):

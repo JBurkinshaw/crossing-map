@@ -2,7 +2,7 @@
 // the app and check that nothing first seen later shows anywhere: the story data given to the map, the
 // features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop and
 // the road card of each stop with talk on the road, "Named elsewhere"), mountain glyphs, landform and pass names,
-// water and context places, vignettes,
+// water and context places, vignettes (in the Flat and Raised views),
 // search results and the cards they open (places and the translations "Spoken here"), the layer key, the
 // reading-progress dialog, every page (About, How it's built, Open questions, Data, Credits), the Tilted,
 // compare and Raised views, and the phone drawer at each height. A first visit straight to a page must leave
@@ -26,6 +26,7 @@ const layers = Object.fromEntries(
 const elsewhere = await read('elsewhere.json')
 const glyphs = (await read('mountain_glyphs.geojson')).features
 const vignettes = (await read('vignettes.geojson')).features
+const raisedVignettes = (await read('raised/vignettes.geojson')).features
 const landforms = (await read('landforms.geojson')).features
 const waterPlaces = (await read('water_places.geojson')).features
 const contextPlaces = (await read('context_places.geojson')).features
@@ -119,6 +120,19 @@ async function checkMap(page, reached, where) {
     if (!land && !allowed({ first_seen, role }, reached)) leak(where, `${kind} ${id} first seen ${first_seen}`)
   }
   return found.length
+}
+
+// Vignettes drawn later than this point: go to each, inside its zoom range, and look for it.
+async function checkVignettes(page, reached, where, list) {
+  for (const v of list.filter((f) => f.properties.first_seen > reached)) {
+    const [lon, lat] = v.geometry.coordinates
+    const zoom = Math.max(v.properties.min_zoom, 9)
+    await page.evaluate(([lo, la, z]) => window.__map.jumpTo({ center: [lo, la], zoom: z }), [lon, lat, zoom])
+    await idle(page)
+    const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['vignette', 'vignette-label'].filter((id) => window.__map.getLayer(id)) })
+      .map((f) => [f.properties.name, f.properties.first_seen]))
+    for (const [name, fs] of shown) if (fs > reached) leak(where, `vignette ${name} first seen ${fs}`)
+  }
 }
 
 // Until the map has drawn what it was asked for (at most 10 s: an idle event can be missed between checks).
@@ -348,17 +362,7 @@ for (const point of POINTS) {
     }
   }
 
-  // Vignettes drawn later than this point: go to each, inside its zoom range, and look for it.
-  for (const v of vignettes.filter((f) => f.properties.first_seen > reached)) {
-    // Leader lines are LineStrings: go to where they start.
-    const [lon, lat] = v.geometry.type === 'Point' ? v.geometry.coordinates : v.geometry.coordinates[0]
-    const zoom = Math.max(v.properties.min_zoom, 9)
-    await page.evaluate(([lo, la, z]) => window.__map.jumpTo({ center: [lo, la], zoom: z }), [lon, lat, zoom])
-    await idle(page)
-    const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['vignette', 'vignette-label'].filter((id) => window.__map.getLayer(id)) })
-      .map((f) => [f.properties.name, f.properties.first_seen]))
-    for (const [name, fs] of shown) if (fs > reached) leak(where, `vignette ${name} first seen ${fs}`)
-  }
+  await checkVignettes(page, reached, where, vignettes)
 
   // The Tilted view, then compare mode when satellite is available (it needs the MapTiler key). The switches
   // fold under the Map button; clicks inside the open box leave it open.
@@ -386,6 +390,8 @@ for (const point of POINTS) {
   await idle(page)
   await checkMap(page, reached, `${where}, raised`)
   await checkPanel(page, reached, `${where}, raised panel`, later, lines)
+  // In the Raised view the drawings stand where their raised copies put them.
+  await checkVignettes(page, reached, `${where}, raised`, raisedVignettes)
 
   console.log(`${where}: ${features} map features checked, ${options.length} journeys offered, ${steps} panel steps, ${searched} searches`)
   await page.context().close()

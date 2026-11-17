@@ -10,6 +10,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- New file `raised/vignettes.geojson`: the drawings' anchors as drawn in the Raised view, each moved north by the height under it, as the stops are (decision 0039).
 - Episode summaries: 3-01 says "“the girl”" and "travelling"; 3-11 no longer hints at what the servant brings ("Billy follows a servant into the hills"); 4-01 says Billy "goes to enlist".
 - The Parham house shows from 2-05, not 2-04 (decision 0038): its stop, drawing and open question, the SK Bar stop after it on J3, and the three legs between the Guadalupe pass and Animas.
 - The drawings' `stands_for` no longer tells what happens (decision 0038): 16 are rewritten after their place, such as "The river camp near San José (J4)".
@@ -26,6 +27,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- The drawings show in the Raised view, beside their raised pins, from zoom 9 or their own first zoom; they used to vanish there.
 - Each switch under the Map button has a frame as wide as its buttons, not as wide as the line under it.
 - While the map hides what you have not read, a leg's "How this line was drawn" text that cites a later episode is replaced by a notice, as "How this was placed" already was.
 - The site speaks in one voice (decision 0037): "I" only in the owner's note at the top of About, and "this site" or "the map" elsewhere, not "we" or "our". The Classic map is "This site's own map, in ink on paper", not "The book's map", and How it's built runs the pipeline on "the owner's computer".

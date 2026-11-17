@@ -1,5 +1,5 @@
 import type { ExpressionSpecification, LayerSpecification, StyleSpecification } from 'maplibre-gl'
-import { reliefLayers, reliefSources } from './relief'
+import { reliefLayers, reliefSources, VIGNETTE_LAYERS } from './relief'
 import { fonts, palette as tokens, SPRITE } from './tokens'
 import { contextPlaceLayer } from './contextPlaces'
 import { waterPlaceLayer } from './waterPlaces'
@@ -10,8 +10,9 @@ import type { Units } from '../units'
 const OVER_IMAGERY = new Set(['country-line'])
 // The Raised view hides the base layers that cannot move with the terrain (raisedLayers in relief.ts redraws
 // the boundaries, roads, streams and the Mexico side from raised copies). The paper, the paper tint above zoom
-// 10 and the lakes stay.
-const KEPT_IN_RAISED = new Set(['paper', 'relief-paper', 'lake'])
+// 10 and the lakes stay, and so do the drawings, which MapView feeds from their raised copy so each stays beside
+// its raised pin (decision 0039).
+const KEPT_IN_RAISED = new Set(['paper', 'relief-paper', 'lake', VIGNETTE_LAYERS.drawing, VIGNETTE_LAYERS.caption])
 
 export const baseLayerIds = (style: StyleSpecification) => style.layers.map((l) => l.id).filter((id) => !OVER_IMAGERY.has(id))
 export const notRaisedIds = (style: StyleSpecification) => style.layers.map((l) => l.id).filter((id) => !KEPT_IN_RAISED.has(id))

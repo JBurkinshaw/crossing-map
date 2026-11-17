@@ -1,6 +1,6 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState, type RefObject } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type RefObject } from 'react'
 import * as maplibregl from 'maplibre-gl'
-import type { LayerSpecification, StyleSpecification } from 'maplibre-gl'
+import type { GeoJSONSource, LayerSpecification, StyleSpecification } from 'maplibre-gl'
 import { AttributionControl, Map, NavigationControl, ScaleControl, type MapRef } from '@vis.gl/react-maplibre'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { Feature, Point } from 'geojson'
@@ -110,6 +110,8 @@ export function MapView(props: Props) {
   const [hovering, setHovering] = useState(false)
   // The Raised view's archives, fetched the first time the reader turns it on; 'failed' if the list is missing.
   const [raisedArchives, setRaisedArchives] = useState<string[] | 'failed' | null>(null)
+  // Which copy of the drawings the vignettes source holds: the style loads the flat one.
+  const vignettesShown = useRef(`${dataBase}vignettes.geojson`)
   useEffect(() => {
     if (view !== 'raised' || raisedArchives) return
     fetch(`${dataBase}raised/archives.json`)
@@ -168,6 +170,13 @@ export function MapView(props: Props) {
           for (const layer of group.layers) map.addLayer({ ...layer, id: `${layer.id}-${i + 1}`, source } as LayerSpecification, group.before)
         }
       })
+    }
+    // The drawings follow the story points north in the Raised view: their source swaps to the raised copy.
+    const vignettes = map.getSource('vignettes') as GeoJSONSource | undefined
+    const vignetteData = `${dataBase}${raised ? 'raised/' : ''}vignettes.geojson`
+    if (vignettes && vignettesShown.current !== vignetteData) {
+      vignettes.setData(vignetteData)
+      vignettesShown.current = vignetteData
     }
     for (const id of new Set([...BASE_LAYERS, ...NOT_RAISED])) {
       const hidden = (basemap !== 'literary' && BASE_LAYERS.has(id)) || (raised && NOT_RAISED.has(id))

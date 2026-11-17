@@ -40,7 +40,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0023 Landform names along computed axes | proposed |
 | 0024 Wheeler hachures in the journeys corridor | accepted |
 | 0025 A MapTiler-like hillshade | accepted |
-| 0026 Vignettes beside their pins | accepted |
+| 0026 Vignettes beside their pins | accepted; extended by 0039 |
 | 0027 Wheeler frame, water places and type scale on the map | accepted |
 | 0028 Context places of the period on the map | proposed |
 | 0029 Place pins apart from their stops | proposed |
@@ -53,6 +53,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0036 Stop names and drawing captions that give nothing away | accepted; extended by 0038 |
 | 0037 One voice, one spelling, and plain words in the site's text | accepted |
 | 0038 Drawings' subjects that give nothing away, and the Parham house dated 2-05 | accepted |
+| 0039 Drawings in the Raised view | accepted |
 
 ## Template
 
