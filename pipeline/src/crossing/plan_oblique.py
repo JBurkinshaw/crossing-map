@@ -2,6 +2,7 @@
 
 Run from the repo root, after crossing.hachures:
     uv run --project pipeline python -m crossing.plan_oblique
+    uv run --project pipeline python -m crossing.plan_oblique --properties  # after a text-only story change
 
 Plan oblique relief (Jenny and Patterson, Cartographic Perspectives 57, 2007) keeps a flat, north-up map but
 moves every point north in proportion to its height, so high ground stands up and leans over the ground behind
@@ -42,6 +43,7 @@ import math
 import os
 import shutil
 import subprocess
+import sys
 import tempfile
 import time
 import zipfile
@@ -445,7 +447,32 @@ def raise_story(heights: Heights) -> dict[str, int]:
     return counts
 
 
+def copy_story_properties() -> list[str]:
+    """data/raised/: copy each feature's properties from the flat layer, keeping the raised geometry.
+
+    For a change to the story's text only (names, reasoning), which moves nothing: the geometry is the same as a full
+    run would give, and this takes a second instead of hours. A feature added or removed still needs the full run."""
+    changed = []
+    for name in STORY:
+        flat = {f["properties"]["id"]: f["properties"]
+                for f in json.loads((DATA / f"{name}.geojson").read_text(encoding="utf-8"))["features"]}
+        path = RAISED_DATA / f"{name}.geojson"
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        if {f["properties"]["id"] for f in doc["features"]} != flat.keys():
+            raise SystemExit(f"raised/{name}.geojson holds other features than {name}.geojson: run the full build")
+        for f in doc["features"]:
+            if f["properties"] != flat[f["properties"]["id"]]:
+                f["properties"] = flat[f["properties"]["id"]]
+                changed.append(f["properties"]["id"])
+        path.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return changed
+
+
 def main() -> None:
+    if sys.argv[1:] == ["--properties"]:
+        changed = copy_story_properties()
+        print(f"data/raised/: properties copied for {len(changed)} features")
+        return
     started = time.monotonic()
     area = strips()
     west, south = to_wgs(min(s["bounds"][0] for s in area), min(s["bounds"][1] for s in area))

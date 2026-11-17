@@ -41,7 +41,7 @@ Rows marked **check** are provisional picks among several candidates. Reasoning 
 | [ ] | J4.15 | The plains, with the Tarahumaras | inferred | this-site | [OSM](https://www.openstreetmap.org/?mlat=30.32&mlon=-108.25#map=13/30.32/-108.25) · [satellite](https://www.google.com/maps/@30.32,-108.25,13z/data=!3m1!1e3) |  |
 | [ ] | J4.16 | Colonia Juárez | located | geonames 4003756 | [OSM](https://www.openstreetmap.org/?mlat=30.30869&mlon=-108.07587#map=13/30.30869/-108.07587) · [satellite](https://www.google.com/maps/@30.30869,-108.07587,13z/data=!3m1!1e3) |  |
 | [ ] | J4.17 | Casas Grandes | located | geonames 4015076 | [OSM](https://www.openstreetmap.org/?mlat=30.3775&mlon=-107.95202#map=13/30.3775/-107.95202) · [satellite](https://www.google.com/maps/@30.3775,-107.95202,13z/data=!3m1!1e3) |  |
-| [ ] | J4.18 | The girl, at a fire in an oak grove | inferred | this-site | [OSM](https://www.openstreetmap.org/?mlat=30.31&mlon=-107.96#map=13/30.31/-107.96) · [satellite](https://www.google.com/maps/@30.31,-107.96,13z/data=!3m1!1e3) |  |
+| [ ] | J4.18 | “The girl”, at a fire in an oak grove | inferred | this-site | [OSM](https://www.openstreetmap.org/?mlat=30.31&mlon=-107.96#map=13/30.31/-107.96) · [satellite](https://www.google.com/maps/@30.31,-107.96,13z/data=!3m1!1e3) |  |
 | [ ] | J4.19 | The Hacienda de San Diego | located | geonames 3987333 | [OSM](https://www.openstreetmap.org/?mlat=30.244&mlon=-108.01043#map=13/30.244/-108.01043) · [satellite](https://www.google.com/maps/@30.244,-108.01043,13z/data=!3m1!1e3) |  |
 
 ## Places named in passing

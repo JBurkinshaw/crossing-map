@@ -4,8 +4,8 @@ export const JOURNEYS: Record<string, string> = {
   J2: "Billy's first crossing, with the wolf",
   J3: 'Billy alone in the Sierras, and home',
   J4: 'Billy and Boyd, for the horses',
-  J5: 'Billy looking for Boyd and the girl',
-  J6: 'Boyd and the girl (reported)',
+  J5: 'Billy looking for Boyd and “the girl”',
+  J6: 'Boyd and “the girl” (reported)',
   J7: "Billy's war years and third crossing",
 }
 
@@ -17,6 +17,6 @@ export const JOURNEY_SHORT: Record<string, string> = {
   J3: 'Billy alone',
   J4: 'For the horses',
   J5: 'Looking for Boyd',
-  J6: 'Boyd and the girl',
+  J6: 'Boyd and “the girl”',
   J7: 'Third crossing',
 }

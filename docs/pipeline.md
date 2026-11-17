@@ -49,7 +49,7 @@ Order matters in four places:
 1. A first build runs `crossing.build_story` (it skips a missing regions file), then `crossing.regions`, then `crossing.build_story` again, because the region drafts sit on place pins.
 2. `crossing.build_vignettes`, `tiles.state_labels` and `crossing.water_places` follow `crossing.build_story` (the water places drop gazetteer points near the book's places and follow the journeys' corridor), and `crossing.context_places` follows `crossing.water_places`, whose names it does not repeat.
 3. After a change to a stop's pin or radius, run `crossing.area_drafts --force` before `crossing.build_story`, which stops if a draft lies outside its stop's circle.
-4. `crossing.validate` checks that `data/raised/` holds the same features, first seen at the same episodes, as the flat layers. After a `build_story` change that adds, removes, or redates a feature, rerun `crossing.plan_oblique` (section 5, hours) before committing, or CI fails.
+4. `crossing.validate` checks that `data/raised/` holds the same features, first seen at the same episodes, as the flat layers. After a `build_story` change that adds, removes, or redates a feature, rerun `crossing.plan_oblique` (section 5, hours) before committing, or CI fails. A change to the text alone (a name, a reasoning) moves nothing: `crossing.plan_oblique --properties` copies the flat layers' properties into `data/raised/` in a second.
 
 ## 2. Summits
 

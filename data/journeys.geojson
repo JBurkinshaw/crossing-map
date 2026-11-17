@@ -14566,7 +14566,7 @@
    },
    "properties": {
     "id": "j4-seg-17",
-    "name": "Casas Grandes to The girl, at a fire in an oak grove",
+    "name": "Casas Grandes to “The girl”, at a fire in an oak grove",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -14664,7 +14664,7 @@
    },
    "properties": {
     "id": "j4-seg-18",
-    "name": "The girl, at a fire in an oak grove to The Hacienda de San Diego",
+    "name": "“The girl”, at a fire in an oak grove to The Hacienda de San Diego",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -18838,7 +18838,7 @@
    },
    "properties": {
     "id": "j5-seg-07",
-    "name": "A stream of the Santa María headwaters to Back through Santa Ana, with the girl",
+    "name": "A stream of the Santa María headwaters to Back through Santa Ana, with “the girl”",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -18935,7 +18935,7 @@
    },
    "properties": {
     "id": "j5-seg-08",
-    "name": "Back through Santa Ana, with the girl to La Boquilla after dark",
+    "name": "Back through Santa Ana, with “the girl” to La Boquilla after dark",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -20684,7 +20684,7 @@
    },
    "properties": {
     "id": "j6-seg-03",
-    "name": "San Diego, the Muñoz house to Namiquipa, the girl's mother",
+    "name": "San Diego, the Muñoz house to Namiquipa, the mother of “the girl”",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -20782,7 +20782,7 @@
    },
    "properties": {
     "id": "j6-seg-04",
-    "name": "Namiquipa, the girl's mother to Bachíniva, in the corrido",
+    "name": "Namiquipa, the mother of “the girl” to Bachíniva, in the corrido",
     "kind": "route-segment",
     "characters": [
      "boyd",

@@ -10,6 +10,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- “The girl” is in inverted commas wherever the data names her, as the About page does: 3 stop names, 6 leg names, 12 stop reasonings, an episode summary, and the drawings' captions and notes (which had straight quotes or none). The journey picker and the key name J5 and J6 the same way.
 - `translations.json` has a new field, `common`: true for the 76 lines that are only "Sí", "No", "Gracias", "Bueno", "Adiós", "Buenas noches" or "Señor" (decision 0035). Set by `crossing.translations`.
 - Traced legs are simplified to 5 m, which halves `journeys.geojson` (1.1 MB to 497 KB) with no visible change on the map.
 - `vignettes` no longer has `max_zoom`: a drawing shows from its `min_zoom` at every closer zoom.

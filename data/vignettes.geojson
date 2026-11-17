@@ -229,7 +229,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "The brothers and the girl ride up to the hacienda of San Diego, whose house front carries its name in an arch over the initials of the old owner.",
+    "note_safe": "The brothers and “the girl” ride up to the hacienda of San Diego, whose house front carries its name in an arch over the initials of the old owner.",
     "reasoning": "The drawing is set on the south-east side of The Hacienda de San Diego (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would cover more. The country is still crowded at this zoom, so it sits on the side where it covers least rather than wait for a closer zoom.",
     "vignette": "vignette-san-diego-gate",
     "side": "se",
@@ -454,9 +454,9 @@
    },
    "properties": {
     "id": "vignette-brothers-and-the-girl",
-    "name": "The brothers and \"the girl\" riding south",
+    "name": "The brothers and “the girl” riding south",
     "kind": "vignette",
-    "stands_for": "The brothers' ride south from San Diego with \"the girl\" (J4)",
+    "stands_for": "The brothers' ride south from San Diego with “the girl” (J4)",
     "place_ref": "j4-mata-ortiz-south",
     "journey": "J4",
     "part": 3,
@@ -467,14 +467,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Billy and Boyd ride south from San Diego towards Las Varas, with \"the girl\" riding double behind Boyd on his horse.",
+    "note_safe": "Billy and Boyd ride south from San Diego towards Las Varas, with “the girl” riding double behind Boyd on his horse.",
     "reasoning": "A character vignette on the long, empty stretch of the J4 leg from Mata Ortiz to the opera camp (3-01). The point is on the route line (data/journeys.geojson, j4-seg-20, 85% along); the ref is the leg's first stop. Placed to the west so it clears the steers and the blind man's house. The drawing is set on the west side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-brothers-and-the-girl",
     "side": "w",
     "min_zoom": 9.0,
     "priority": 3,
     "label": "",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), drawn twice; \"the girl\" and the hats drawn"
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), drawn twice; “the girl” and the hats drawn"
    }
   },
   {
@@ -488,9 +488,9 @@
    },
    "properties": {
     "id": "vignette-boyd-and-the-girl",
-    "name": "Boyd and \"the girl\"",
+    "name": "Boyd and “the girl”",
     "kind": "vignette",
-    "stands_for": "Boyd and \"the girl\" gone from San Diego, as Billy later hears it (J6)",
+    "stands_for": "Boyd and “the girl” gone from San Diego, as Billy later hears it (J6)",
     "place_ref": "j6-san-diego",
     "journey": "J6",
     "part": 3,
@@ -501,14 +501,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "One morning Billy wakes at San Diego to find Boyd and \"the girl\" gone together, and he never sees them ride again.",
+    "note_safe": "One morning Billy wakes at San Diego to find Boyd and “the girl” gone together, and he never sees them ride again.",
     "reasoning": "A character vignette on the reported J6 leg from San Diego towards Namiquipa (3-14), on the route line (j6-seg-03, 25% along); the ref is the leg's first stop. J6 is told, not seen, so the drawing shows the pair as Billy pictures them. The drawing is set on the north-east side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-boyd-and-the-girl",
     "side": "ne",
     "min_zoom": 9.0,
     "priority": 3,
     "label": "",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), drawn twice; Boyd's straw hat and \"the girl\" drawn"
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), drawn twice; Boyd's straw hat and “the girl” drawn"
    }
   },
   {
@@ -705,7 +705,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Camped on a gravel bar in the river with \"the girl\", Billy watches the cranes pass south high overhead in the night.",
+    "note_safe": "Camped on a gravel bar in the river with “the girl”, Billy watches the cranes pass south high overhead in the night.",
     "reasoning": "The cranes come back in 3-13, 4-06 and 4-08. The drawing is set on the south-west side of Camp on the river south of Mata Ortiz (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-sandhill-cranes",
     "side": "sw",
@@ -1474,9 +1474,9 @@
    },
    "properties": {
     "id": "vignette-taking-the-girl",
-    "name": "Boyd rides in for \"the girl\"",
+    "name": "Boyd rides in for “the girl”",
     "kind": "vignette",
-    "stands_for": "The brothers take \"the girl\" from the two men at their fire (2-08)",
+    "stands_for": "The brothers take “the girl” from the two men at their fire (2-08)",
     "place_ref": "j4-the-girl",
     "journey": "J4",
     "part": 2,
@@ -1487,14 +1487,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "At a fire in an oak grove south of Casas Grandes, Billy takes \"the girl\" by the hand as Boyd gallops in on Keno with the shotgun and Billy's horse, and the three ride off south.",
-    "reasoning": "From zoom 10 at the earliest: further out it would sit on the Paquimé and San Diego drawings. The drawing is set on the south-east side of The girl, at a fire in an oak grove (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out, on every side, it would cover a stop, a route line or another drawing.",
+    "note_safe": "At a fire in an oak grove south of Casas Grandes, Billy takes “the girl” by the hand as Boyd gallops in on Keno with the shotgun and Billy's horse, and the three ride off south.",
+    "reasoning": "From zoom 10 at the earliest: further out it would sit on the Paquimé and San Diego drawings. The drawing is set on the south-east side of “The girl”, at a fire in an oak grove (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out, on every side, it would cover a stop, a route line or another drawing.",
     "vignette": "vignette-taking-the-girl",
     "side": "se",
     "min_zoom": 11.0,
     "priority": 1,
-    "label": "Taking \"the girl\" from the fire",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), and the same horse with the rider cut away; the oaks, the fire and \"the girl\" drawn"
+    "label": "Taking “the girl” from the fire",
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), and the same horse with the rider cut away; the oaks, the fire and “the girl” drawn"
    }
   },
   {
@@ -1793,7 +1793,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Looking for Boyd and \"the girl\", Billy rides back to Namiquipa and then west to La Norteña and the divide of the waters, getting thinner and paler with the dust.",
+    "note_safe": "Looking for Boyd and “the girl”, Billy rides back to Namiquipa and then west to La Norteña and the divide of the waters, getting thinner and paler with the dust.",
     "reasoning": "A character vignette on the long J5 leg from Namiquipa to La Norteña, on the route line (j5-seg-15, 85% along) in the sierra west of Las Varas, clear of the opera wagons; the ref is the nearer end of the leg. The leg from Cuauhtémoc to Namiquipa is left without one, as billy-searching already shows this search. The drawing is set on the east side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-billy-to-the-watershed",
     "side": "e",

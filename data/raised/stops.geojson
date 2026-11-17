@@ -2088,7 +2088,7 @@
    },
    "properties": {
     "id": "j4-the-girl",
-    "name": "The girl, at a fire in an oak grove",
+    "name": "“The girl”, at a fire in an oak grove",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -2108,7 +2108,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Riding south on the road toward San Diego they see a fire in a grove of oaks east of the road, where two men hold the girl; Boyd stampedes their horses. The area is east of the road between Casas Grandes and San Diego (15.8 km apart)."
+    "reasoning": "Riding south on the road toward San Diego they see a fire in a grove of oaks east of the road, where two men hold “the girl”; Boyd stampedes their horses. The area is east of the road between Casas Grandes and San Diego (15.8 km apart)."
    }
   },
   {
@@ -2176,7 +2176,7 @@
     "source_id": "3975330",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The opera caravans leave the hacienda by the road south to Mata Ortiz, Las Varas and Babícora, and two days later the brothers and the girl ride south the same way, nooning by the river. Mata Ortiz is the first town on that road, 7 km south of the hacienda."
+    "reasoning": "The opera caravans leave the hacienda by the road south to Mata Ortiz, Las Varas and Babícora, and two days later the brothers and “the girl” ride south the same way, nooning by the river. Mata Ortiz is the first town on that road, 7 km south of the hacienda."
    }
   },
   {
@@ -2278,7 +2278,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning the girl rides away east toward Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason."
+    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east toward Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason."
    }
   },
   {
@@ -2923,7 +2923,7 @@
     "source_id": "3987333",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Billy leaves the ejido at dusk to meet the girl at Santa Ana de Babícora, as Boyd asks, and takes the road south, under the cottonwoods by the river."
+    "reasoning": "Billy leaves the ejido at dusk to meet “the girl” at Santa Ana de Babícora, as Boyd asks, and takes the road south, under the cottonwoods by the river."
    }
   },
   {
@@ -3121,7 +3121,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "An hour along the road west he sleeps beside a stream, one of the Santa María's headwaters, and in the morning the girl rides past on his mother's old horse. The estimate is centred 4 km west of Santa Ana. The real Namiquipa lies north-north-east, not west (see docs/open-questions.md)."
+    "reasoning": "An hour along the road west he sleeps beside a stream, one of the Santa María's headwaters, and in the morning “the girl” rides past on his mother's old horse. The estimate is centred 4 km west of Santa Ana. The real Namiquipa lies north-north-east, not west (see docs/open-questions.md)."
    }
   },
   {
@@ -3135,7 +3135,7 @@
    },
    "properties": {
     "id": "j5-santa-ana-return",
-    "name": "Back through Santa Ana, with the girl",
+    "name": "Back through Santa Ana, with “the girl”",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -3352,7 +3352,7 @@
     "source_id": "4012406",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Boyd and the girl are gone. Billy looks for them for weeks, riding as far south as Cuauhtémoc. The book gives the turning points of the search, not its roads."
+    "reasoning": "Boyd and “the girl” are gone. Billy looks for them for weeks, riding as far south as Cuauhtémoc. The book gives the turning points of the search, not its roads."
    }
   },
   {
@@ -3385,7 +3385,7 @@
     "source_id": "3995134",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides north again to Namiquipa, where no one owns to knowing the girl."
+    "reasoning": "He rides north again to Namiquipa, where no one owns to knowing “the girl”."
    }
   },
   {
@@ -3652,7 +3652,7 @@
     "source_id": "3987333",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported by the Muñoz woman at the ejido: the truck brought Boyd there, the workers came back with gifts, and a curandera dressed his wound. He and the girl leave the ejido together in 3-14; Billy wakes to find them gone, and the book does not say which way."
+    "reasoning": "Reported by the Muñoz woman at the ejido: the truck brought Boyd there, the workers came back with gifts, and a curandera dressed his wound. He and “the girl” leave the ejido together in 3-14; Billy wakes to find them gone, and the book does not say which way."
    }
   },
   {
@@ -3666,7 +3666,7 @@
    },
    "properties": {
     "id": "j6-namiquipa",
-    "name": "Namiquipa, the girl's mother",
+    "name": "Namiquipa, the mother of “the girl”",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -3686,7 +3686,7 @@
     "source_id": "3995134",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported, and only as a likelihood: Boyd said in 3-03 that the girl wanted to go to her mother at Namiquipa. When Billy gets there in 3-14 no one owns to knowing her, and in 4-05 the townspeople say her mother has moved away. The book never shows the pair there."
+    "reasoning": "Reported, and only as a likelihood: Boyd said in 3-03 that “the girl” wanted to go to her mother at Namiquipa. When Billy gets there in 3-14 no one owns to knowing her, and in 4-05 the townspeople say her mother has moved away. The book never shows the pair there."
    }
   },
   {
@@ -3788,7 +3788,7 @@
     "source_id": "3985741",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported by Quijada (4-05): Boyd was shot dead at San Lorenzo, not at Ignacio Zaragoza as rumour had it. The girl was carried off covered in blood; she may have gone back to her family. Billy repeats San Lorenzo to the American in 4-07."
+    "reasoning": "Reported by Quijada (4-05): Boyd was shot dead at San Lorenzo, not at Ignacio Zaragoza as rumour had it. “The girl” was carried off covered in blood; she may have gone back to her family. Billy repeats San Lorenzo to the American in 4-07."
    }
   },
   {
@@ -4845,7 +4845,7 @@
     "source_id": "3995134",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He camps below the town in the river willows. At a wake (4-05) a woman tells him the girl is hunted and that his brother's bones lie at San Buenaventura."
+    "reasoning": "He camps below the town in the river willows. At a wake (4-05) a woman tells him “the girl” is hunted and that his brother's bones lie at San Buenaventura."
    }
   },
   {
@@ -4878,7 +4878,7 @@
     "source_id": "3982082",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides that country for weeks asking after the girl; the first time he hears the corrido of the güero is in a bodega in Temósachic, up in the mountains."
+    "reasoning": "He rides that country for weeks asking after “the girl”; the first time he hears the corrido of the güero is in a bodega in Temósachic, up in the mountains."
    }
   },
   {

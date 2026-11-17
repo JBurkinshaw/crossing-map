@@ -30860,7 +30860,7 @@
    },
    "properties": {
     "id": "area-j4-the-girl",
-    "name": "The girl, at a fire in an oak grove",
+    "name": "“The girl”, at a fire in an oak grove",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -30880,7 +30880,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Riding south on the road toward San Diego they see a fire in a grove of oaks east of the road, where two men hold the girl; Boyd stampedes their horses. The area is east of the road between Casas Grandes and San Diego (15.8 km apart).",
+    "reasoning": "Riding south on the road toward San Diego they see a fire in a grove of oaks east of the road, where two men hold “the girl”; Boyd stampedes their horses. The area is east of the road between Casas Grandes and San Diego (15.8 km apart).",
     "outline_rule": "East of the road: east of the straight line from Casas Grandes to the Hacienda de San Diego (no map of the old road is to hand) and within 3 km of it, where a fire can be seen from the road.",
     "straight_road": true
    }
@@ -32330,7 +32330,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning the girl rides away east toward Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason.",
+    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east toward Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason.",
     "outline_rule": "On the wagon road: within 8 km of the line La Norteña, La Babícora, Namiquipa, the road's ends and middle as the book gives them. The book's compass does not close here, so the band is wide.",
     "straight_road": true
    }
@@ -39910,7 +39910,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "An hour along the road west he sleeps beside a stream, one of the Santa María's headwaters, and in the morning the girl rides past on his mother's old horse. The estimate is centred 4 km west of Santa Ana. The real Namiquipa lies north-north-east, not west (see docs/open-questions.md).",
+    "reasoning": "An hour along the road west he sleeps beside a stream, one of the Santa María's headwaters, and in the morning “the girl” rides past on his mother's old horse. The estimate is centred 4 km west of Santa Ana. The real Namiquipa lies north-north-east, not west (see docs/open-questions.md).",
     "outline_rule": "Beside a stream: within 1 km of INEGI streams of order 3 and up (the Santa María headwaters on this valley floor).",
     "straight_road": false
    }
