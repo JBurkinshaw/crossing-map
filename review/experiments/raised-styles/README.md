@@ -2,7 +2,7 @@
 
 The owner finds the Oblique view flat and asked for looks after the oblique maps in Carl Churchill's "Variety in hachure" (`docs/inspiration/churchill.md`), with land cover and local features in one of them. This experiment draws two test boxes in 25 looks and shows them two at a time in the lab. The second round, after the owner picked the Atlas of Oblique Maps look, adds combinations of it with Guanabara's stipple and the comic look's simpler parts, on the site's paper, and with mapped land cover. The third round tries the CEC's continental land cover, which has no seam at the border, alone and read with Brown's height bands.
 
-**Outcome.** The owner chose `cec-brown` (classic tints), at lean 4. Decision 0034 records it, and `crossing.plan_oblique` and `crossing.landcover` now build it for the whole corridor. The lab section and its images were removed once the choice was made. `render.py` was written against the earlier `crossing.plan_oblique` (lean 2, Huffman's strokes, `po.FINE`), so it no longer runs as it stands; it is kept as the record of how each look was drawn. The sections below describe the experiment as it stood before the choice.
+**Outcome.** The owner chose `cec-brown` (classic tints), at lean 4. Decision 0040 records it, and `crossing.plan_oblique` and `crossing.landcover` now build it for the whole corridor. The lab section and its images were removed once the choice was made. `render.py` was written against the earlier `crossing.plan_oblique` (lean 2, Huffman's strokes, `po.FINE`), so it no longer runs as it stands; it is kept as the record of how each look was drawn. The sections below describe the experiment as it stood before the choice.
 
 ## How it was run
 

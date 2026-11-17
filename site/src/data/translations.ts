@@ -20,6 +20,9 @@ export type Translation = {
   location_kind: 'stop' | 'place' | 'area' | 'road' | null
   first_seen: string
   guide_page: number | null
+  // A very common line ("Sí", "Gracias", "Buenas noches"): the panel leaves it out of a place's lines, and search
+  // still finds it (crossing.translations sets it).
+  common: boolean
 }
 
 export const CAMPBELL_GUIDE =

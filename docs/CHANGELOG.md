@@ -11,12 +11,58 @@ A change is **released** when it is merged to `main`, which the public site serv
 #### Data
 
 - J5 leg 8, Santa Ana back to La Boquilla, follows the Soto Máynez road the book has them ride back on, instead of a curve straight over the ranges.
+- `raised/` is now `oblique/`, after the view's new name (decision 0040), and its story layers move with the Oblique view's larger lean: up to about 9.6 km north on the highest ground, from 4.8 km.
+- New file `oblique/vignettes.geojson`: the drawings' anchors as drawn in the Oblique view, each moved north by the height under it, as the stops are (decision 0039).
+- Episode summaries: 3-01 says "“the girl”" and "travelling"; 3-11 no longer hints at what the servant brings ("Billy follows a servant into the hills"); 4-01 says Billy "goes to enlist".
+- The Parham house shows from 2-05, not 2-04 (decision 0038): its stop, drawing and open question, the SK Bar stop after it on J3, and the three legs between the Guadalupe pass and Animas.
+- The drawings' `stands_for` no longer tells what happens (decision 0038): 16 are rewritten after their place, such as "The river camp near San José (J4)".
+- One spelling per place in the reasoning, names and summaries (decision 0037): the Cajón Bonito ("Down the Cajón Bonito"), the Sierra de la Madera, and La Boquilla, which two episode summaries (3-06, 3-07) and a stop had called Boquilla y Anexas, the other town the open question rules out. UK spelling throughout ("towards", "grey"), and "railway" for the railroad, except in a company's name.
+- Inferred areas' rules say "area", not "circle", as does a stop's reasoning; "Kept the circle" is now "Kept the whole area". Working notes are gone from the published text: "To be checked by hand in QGIS" from the two regions, "Worth a look by hand" from an area's rule, and "is a separate seed" from San Lorenzo's reasoning.
+- The drawings' `reasoning` no longer contradicts itself about zoom: a drawing that waited one step says it still covers something there but waits no longer, and one that never waits says no closer zoom would clear it.
+- New field `drawn_detail` on traced and modelled legs: the technical side of `drawn` (dataset and features, Strahler order or NHD watershed, grid, smoothing, cost model), for data users. `drawn` and the modelled legs' `reasoning` are now in plain words, without the model's version, Douglas-Peucker, Strahler orders or watershed codes: 20 modelled legs, 2 legs traced on INEGI rivers and the Whitewater Creek leg.
+- Stop names and drawing captions no longer give away what happens in the episode the reader is in (decision 0036): 21 stops (and the 32 legs and 9 areas named after them) and 8 drawings are renamed after their place, such as "The river camp where Boyd is shot" to "The river camp near San José" and "Turned away by the army" to "The army recruiting office". The event stays in the reasoning. Two drawings move to another side of their pin with their shorter captions, and Billy riding into the Pilares shows from zoom 11.
+- “The girl” is in inverted commas wherever the data names her, as the About page does: 3 stop names, 6 leg names, 12 stop reasonings, an episode summary, and the drawings' captions and notes (which had straight quotes or none). The journey picker and the key name J5 and J6 the same way.
+- `translations.json` has a new field, `common`: true for the 76 lines that are only "Sí", "No", "Gracias", "Bueno", "Adiós", "Buenas noches" or "Señor" (decision 0035). Set by `crossing.translations`.
 - Traced legs are simplified to 5 m, which halves `journeys.geojson` (1.1 MB to 497 KB) with no visible change on the map.
 - `vignettes` no longer has `max_zoom`: a drawing shows from its `min_zoom` at every closer zoom.
+- `vignettes` has a `journey`, the journey each drawing belongs to. Each drawing's `side` is now the side of its pin where it covers the fewest stops, route lines and other drawings, and its `min_zoom` waits one zoom step, no more, where it would cover a stop or a route line further out (decision 0026, amended): 34 sides and 27 first zooms changed, and its `reasoning` says why.
 
 #### Site
 
+- The Raised view is now the Oblique view, redrawn after the oblique maps of the mid-twentieth century: strokes down the fall line, dense in shade and sparse in light, stipple on the flats, heavier crests, and rivers as two inked banks (decision 0040). It leans twice as far.
+- A Ground option, Land cover, tints the ground by what grows there in every view of the Vintage map, from the CEC's 2020 land cover read with Brown's biotic communities, with an ink texture for each class (decisions 0040 and 0042). The key lists the classes.
+- The Classic map is now called the Vintage map (decision 0041).
+- The drawings show in the Oblique view, beside their shifted pins, from zoom 9 or their own first zoom; they used to vanish there.
+- Each switch under the Map button has a frame as wide as its buttons, not as wide as the line under it.
+- While the map hides what you have not read, a leg's "How this line was drawn" text that cites a later episode is replaced by a notice, as "How this was placed" already was.
+- The site speaks in one voice (decision 0037): "I" only in the owner's note at the top of About, and "this site" or "the map" elsewhere, not "we" or "our". The Vintage map is "This site's own map, in ink on paper", not "The book's map", and How it's built runs the pipeline on "the owner's computer".
+- An inferred area's card calls it an area, not a circle, as does How it's built.
+- The Data page says the drawings sit beside their place, not on it, and not to scale, and its water places line reads plainly.
+- The key says "Railway" and "Railway tunnel". The Open questions page uses curly apostrophes and calls Bell's work an annotated dissertation and Hazelton's the reader's map; How it's built writes "a mesa or a butte" in lower case.
+- A modelled leg's card says how its line was worked out in plain words and links to How it's built, which explains the model.
+- How it's built is up to date: the modelled legs' coarser grid on the two longest legs, the two parts of the elevation model, and a new Relief section on the hachures, Wheeler-style within 20 km of the journeys.
+- A stop says what happens there: its Part and episode ("Part I · *Two days later*") and the episode's summary.
+- Stops and place cards say how sure the map is in plain words: "Named and found", "Roughly here", "Worked out from clues" and "Someone in the book says so" (decision 0035), after the kind of place on a card ("Inferred area · Worked out from clues"). The source moves under "How this was placed", which on a card now holds the reasoning too.
+- "Spoken here" is now "Spanish here", and "Spoken on this road" "Spanish on this road". Very common lines ("Sí", "Gracias", "Buenas noches" and the like) are left out of these lists; search still finds them.
+- Each translation shows its Spanish, page, English and "Suggest a better translation"; the episode, confidence and Campbell's guide link fold under "About this translation".
+- Search's Part filter has a visible label, "Search in:".
+- The About page is rewritten: why a map, how to use it, how sure each place is, and how routes are drawn.
+- The panel opens with a header, "The Crossing · a reading map", with About and Introduction links. On phones, under the stepper, this slim header comes first, then the reading-progress badge, then the journey picker.
 - The vignettes stay on the map when zoomed in past 12; they used to disappear there, and the she-wolf past 11.
+- The key no longer runs off the bottom of a laptop screen: it is split into two tabs, "The story" and "The land", and scrolls if the screen is still too short. Journeys are listed in two columns under short names ("J2 First crossing").
+- The key now explains the international boundary, state lines, grouped stops, spot heights, and the small marks for forts, mines, churches, cemeteries, ruins, stations, ranches, camps, springs, wells, tanks and windmills. They are drawn the same way as on the map.
+- The key's drawing is twice as large and is a person or animal from the book once the reader has reached one. Its text now reads "People, animals and things from the book, set just beside their place, not on it. Not to scale."
+- Grouped-stop markers say what they hold ("9 stops", "9 places") instead of "+9", and a click or tap zooms in until all of them come apart.
+- The map's switches fold under one Map button on desktop as on phones, so the box no longer covers a stop. A line under each switch says what the chosen option does. Compare is labelled with its name.
+- On phones, the key opens as a sheet from the bottom of the screen with a Close button; a tap outside it or Escape closes it too, the "Where you are" inset is hidden, and the scale bar is shorter, so it no longer covers the first stop of J1.
+- The first visit opens one dialog, not two: the introduction, a line on how to use the map, and the question "Have you finished *The Crossing*?". "Yes" shows everything; "Not yet" asks where you are up to (decision 0034).
+- "Where are you up to?" lists the episodes by their opening words, grouped by Part, in place of the slider. You can also enter how far through the book you are as a percentage.
+- The reading-progress badge says what the map is hiding, such as "Hiding what's after Part I, episode 5: In the woods", and opens "Where are you up to?" directly.
+- Setting your progress to an episode opens the map at the stop you reached most recently.
+- Opening the Map menu closes the key, and opening the key closes the menu, so neither covers the other.
+- While the map hides what you have not read, How it's built hides its decision records too, as they name places and events from the whole book. A button shows them after a warning, as "Show everything" does.
+- Drawings no longer sit on the stops and route lines: each is set on the side of its pin with the least under it, and those in the busiest country, around Casas Grandes, San Diego, Cloverdale and the Peloncillos, show from one zoom closer, never more, so they stay in view. At each drawing's first zoom, none now covers another drawing (7 pairs did), and 5 cover a stop marker (26 did).
+- The drawings of the journey in focus are at full strength; those of other journeys are lighter, as their route lines are, in Compare too.
 
 ### 2026-11-15
 

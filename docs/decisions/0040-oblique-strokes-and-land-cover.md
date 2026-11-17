@@ -1,6 +1,6 @@
-# 0034. The Oblique view: oblique-map strokes, and land cover from the CEC read with Brown's bands
+# 0040. The Oblique view: oblique-map strokes, and land cover from the CEC read with Brown's bands
 
-Status: accepted (2026-11-16); the land cover is drawn in ink over its tints by 0036. Supersedes the name Raised, and the Raised lean, strokes, form lines and ridgelines of 0017, and the strokes and southern reach of 0018; extends 0019.
+Status: accepted (2026-11-16); the land cover is drawn in ink over its tints by 0042. Supersedes the name Raised, and the Raised lean, strokes, form lines and ridgelines of 0017, and the strokes and southern reach of 0018; extends 0019.
 Phase: P1
 
 ## Context

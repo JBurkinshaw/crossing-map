@@ -331,8 +331,8 @@ def drawn_traced(snap: dict, gaps: int) -> str:
     how = SNAPS[snap["source"]]
     what = f"the {how['what']}"
     if snap["source"] == "inegi-river":
-        text = (f"Traced along {snap['feature']} in {how['dataset']}: the main channel, its streams of Strahler "
-                f"order {snap['min_order']} and up, which INEGI's place names label {snap['feature']}.")
+        text = (f"Traced along {snap['feature']} in {how['dataset']}: the river's main channel, as INEGI's place "
+                f"names label it, without its small side streams.")
     else:
         names = snap["feature"].split(";")
         names = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
@@ -344,6 +344,20 @@ def drawn_traced(snap: dict, gaps: int) -> str:
                  "about a kilometre, is closed with a straight line.")
     return text + (" The book names the way, but not every bend: today's line may differ from the 1940s one "
                    "(decision 0032).")
+
+
+def drawn_traced_detail(snap: dict) -> str:
+    """The technical side of drawn_traced(), for data users: the lines read and how they are joined."""
+    how = SNAPS[snap["source"]]
+    extra = ""
+    if snap["source"] == "inegi-river":
+        extra = (f"; streams of Strahler order {snap['min_order']} and up, with an INEGI toponym for the river "
+                 f"within {RIVER_NAME_M} m of the line")
+    elif hu8 := re.search(r"NHD_H_(\d{8})_HU8", snap["shapefile"]):
+        extra = f"; NHD flowlines of watershed HU8 {hu8.group(1)}"
+    return (f"{how['dataset'][0].upper()}{how['dataset'][1:]}: {snap['feature'].replace(';', ', ')}{extra}. Shortest "
+            f"path along the lines between the points nearest each stop, simplified to {SIMPLIFY_M} m "
+            f"(crossing.build_story, decision 0032).")
 
 
 def feature(geometry: dict, **props) -> dict:
@@ -497,7 +511,7 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
                 source = SNAPS[snap["source"]]["source"]
                 how = dict(certainty="approximate", method="narrated-path", source=source,
                            source_licence=LICENCE[source], reasoning=snap["reasoning"],
-                           drawn=drawn_traced(snap, gaps))
+                           drawn=drawn_traced(snap, gaps), drawn_detail=drawn_traced_detail(snap))
             elif (jid, a["sequence"]) in modeled:
                 leg = modeled[(jid, a["sequence"])]
                 path = least_cost.route((a["lon"], a["lat"]), (b["lon"], b["lat"]), leg)
@@ -509,9 +523,9 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
                            source_licence=LICENCE["this-site"], cost_model=least_cost.MODEL,
                            reasoning=f"A modelled path, not the book's: the book does not trace this stretch, so the "
                                      f"line is the way of least effort for {who} between the two stops over the "
-                                     f"ground{corridor} (cost model {least_cost.MODEL}, decision 0021). It shows a "
-                                     f"plausible way, not the one taken." + (f" {leg['note']}" if leg["note"] else ""),
-                           drawn=least_cost.drawn(leg, path["res_m"]))
+                                     f"ground{corridor}. It shows a plausible way, not the one taken."
+                                     + (f" {leg['note']}" if leg["note"] else ""),
+                           drawn=least_cost.drawn(leg), drawn_detail=least_cost.drawn_detail(leg, path["res_m"]))
             else:
                 coords = curve((a["lon"], a["lat"]), (b["lon"], b["lat"]), 1 if i % 2 else -1)
                 reported = b["certainty"] == "reported"

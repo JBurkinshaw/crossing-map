@@ -1,7 +1,9 @@
-"""The Oblique view (decisions 0017, 0019 and 0034): plan oblique relief over the corridor of the journeys.
+"""The Oblique view (decisions 0017, 0019 and 0040): plan oblique relief over the corridor of the journeys.
 
 Run from the repo root, after crossing.hachures (whose fine tile grid sets the area) and crossing.fetch_landcover:
     uv run --project pipeline python -m crossing.plan_oblique
+    uv run --project pipeline python -m crossing.plan_oblique --properties  # after a text-only story change
+    uv run --project pipeline python -m crossing.plan_oblique --vignettes   # the drawings only (under a minute)
 
 Plan oblique relief (Jenny and Patterson, "Introducing plan oblique relief", Cartographic Perspectives 57, 2007)
 keeps a flat, north-up map but moves every point north in proportion to its height, so high ground stands up and
@@ -15,7 +17,7 @@ work and land cover, not to a raster:
      same place, so they are left out rather than drawn twice.)
 The direction of view is the same everywhere, so the result can be tiled like any other line data.
 
-The strokes follow the oblique maps the style is drawn after (decision 0034; docs/inspiration/churchill.md): long
+The strokes follow the oblique maps the style is drawn after (decision 0040; docs/inspiration/churchill.md): long
 strokes down the fall line, packed on the faces turned from the light and left out on lit ones, after Tau Rho
 Alpha's Atlas of Oblique Maps (1988); a second, closer set in the deepest shade, after the comic-book shading of
 Charles Owens's The Panama Canal (1928); and stipple on the flats, after Frank Holmes's Estado da Guanabara (1965).
@@ -45,6 +47,7 @@ for the US, and the Natural Earth and Census layers of crossing.basemap. Writes
 `python -m tiles.install` copies the archives into the local site.
 """
 
+import argparse
 import json
 import math
 import os
@@ -78,12 +81,16 @@ TILE = SCALES["fine"]["tile"]
 CELL = 30
 STEP = 8  # metres between samples along a line
 STORY_STEP = 60  # metres between samples along the story's lines and area edges
-LEAN = 4  # metres north per metre of height (decision 0034; 3 stays open if the larger shift reads badly)
+LEAN = 4  # metres north per metre of height (decision 0040; 3 stays open if the larger shift reads badly)
 FOLD = 0.5  # smallest north-south stretch at which strokes are kept
 PAD = 20 * CELL  # covers the 1 km relief window and the smoothing's edge
+# How far, in degrees, --vignettes lets the other shifted layers move when shifted again: 0.0001 degrees (about
+# 10 m) is the tolerance the published lines are simplified to, and a DEM tile added outside the corridor moves a far
+# point by a metre or two.
+RAISE_TOLERANCE = 0.0001
 SOUTH = 11_000  # ground this far south of the area can still hide ground in it: shifts reach about 9.6 km
 
-# The strokes (decision 0034). Light from the north-west, 45 degrees up, on the DEM smoothed again over GENERALISE
+# The strokes (decision 0040). Light from the north-west, 45 degrees up, on the DEM smoothed again over GENERALISE
 # cells. A seed on the STROKE_SPACING grid is kept with a chance that rises with shade and with slope above
 # STROKE_SLOPE; faces lit above LIT get none, and ground in shade below DEEP, steeper than DEEP_SLOPE, gets a second
 # grid DEEP_SPACING apart. Strokes run STROKE_LENGTH metres down the fall line, traced every TRACE_STEP metres, and
@@ -104,7 +111,7 @@ DOT_RELIEF = 40
 RAND_MINZOOM = (9, 10, 11, 11, 12, 12, 12, 12, 12, 12)
 LANDCOVER_ZOOMS = (7, 12)
 OBLIQUE_DATA = DATA / "oblique"
-STORY = ("stops", "places", "areas", "journeys")
+STORY = ("stops", "places", "areas", "journeys", "vignettes")
 # Archives over this size are split, by groups of whole strips, to stay under the design's 100 MB per file.
 MAX_ARCHIVE_MB = 95
 # Shown in the map's attribution while the Oblique view is on.
@@ -491,7 +498,7 @@ class Heights:
         return z
 
 
-def raise_story(heights: Heights) -> dict[str, int]:
+def raise_story(heights: Heights, out: Path = OBLIQUE_DATA) -> dict[str, int]:
     """data/oblique/: the story layers with every point moved north by its height, as the line work is.
     Lines and area edges are first sampled every STORY_STEP metres so that they follow the ground."""
     def shift(x: np.ndarray, y: np.ndarray) -> list:
@@ -520,19 +527,105 @@ def raise_story(heights: Heights) -> dict[str, int]:
             return {"type": kind, "coordinates": [[line(r) for r in p] for p in c]}
         raise ValueError(f"cannot raise a {kind}")
 
-    OBLIQUE_DATA.mkdir(exist_ok=True)
+    out.mkdir(exist_ok=True)
     counts = {}
     for name in STORY:
         doc = json.loads((DATA / f"{name}.geojson").read_text(encoding="utf-8"))
         for f in doc["features"]:
             f["geometry"] = oblique(f["geometry"])
         text = json.dumps(doc, ensure_ascii=False, indent=1) + "\n"
-        (OBLIQUE_DATA / f"{name}.geojson").write_text(text, encoding="utf-8")
+        (out / f"{name}.geojson").write_text(text, encoding="utf-8")
         counts[name] = len(doc["features"])
     return counts
 
 
+def copy_story_properties() -> list[str]:
+    """data/oblique/: copy each feature's properties from the flat layer, keeping the shifted geometry.
+
+    For a change to the story's text only (names, reasoning), which moves nothing: the geometry is the same as a full
+    run would give, and this takes a second instead of hours. A feature added or removed still needs the full run."""
+    changed = []
+    for name in STORY:
+        flat = {f["properties"]["id"]: f["properties"]
+                for f in json.loads((DATA / f"{name}.geojson").read_text(encoding="utf-8"))["features"]}
+        path = OBLIQUE_DATA / f"{name}.geojson"
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        if {f["properties"]["id"] for f in doc["features"]} != flat.keys():
+            raise SystemExit(f"oblique/{name}.geojson holds other features than {name}.geojson: run the full build")
+        for f in doc["features"]:
+            if f["properties"] != flat[f["properties"]["id"]]:
+                f["properties"] = flat[f["properties"]["id"]]
+                changed.append(f["properties"]["id"])
+        path.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return changed
+
+
+def prepare_heights(area: list[dict], dems: list[Path], pool: ProcessPoolExecutor) -> float:
+    """Each strip's smoothed DEM, written to `dems`, and the one lowest height of the whole area, so the strips meet."""
+    list(pool.map(prepare_dem, [s["bounds"] for s in area], [CELL] * len(area), dems))
+    lows = []
+    for s, dem_path in zip(area, dems, strict=True):
+        with rasterio.open(dem_path) as src:
+            window = from_bounds(*s["core"], transform=src.transform).round_offsets().round_lengths()
+            lows.append(float(src.read(1, window=window).min()))
+    return min(lows)
+
+
+def raise_vignettes() -> None:
+    """--vignettes: data/oblique/vignettes.geojson alone, in under a minute, without the line work or the archives.
+
+    The strips' DEMs and the lowest height are prepared as in a full run, and every story layer is shifted again into
+    a scratch folder by raise_story(), so each drawing moves by the same rule as the stops: by the height under its
+    own point. The other layers are not written; they must come out within RAISE_TOLERANCE of the published copies,
+    or the DEM or the story has changed and the full run is needed."""
+    started = time.monotonic()
+    area = strips()
+    with tempfile.TemporaryDirectory() as folder:
+        tmp = Path(folder)
+        dems = [tmp / f"{s['name']}.tif" for s in area]
+        with ProcessPoolExecutor(min(len(area), os.cpu_count() or 1)) as pool:
+            base = prepare_heights(area, dems, pool)
+        scratch = tmp / "oblique"
+        counts = raise_story(Heights(list(zip(area, dems, strict=True)), base, tmp), scratch)
+        moved = {name: max_move(OBLIQUE_DATA / f"{name}.geojson", scratch / f"{name}.geojson")
+                 for name in STORY if name != "vignettes"}
+        if max(moved.values()) > RAISE_TOLERANCE:
+            raise SystemExit(f"The published oblique layers come out differently ({moved}, in degrees): the DEM or the "
+                             "story changed, so run the full build")
+        shutil.copy(scratch / "vignettes.geojson", OBLIQUE_DATA / "vignettes.geojson")
+    print(f"data/oblique/vignettes.geojson: {counts['vignettes']} drawings; the other layers within "
+          f"{max(moved.values()):.5f} degrees of their published copies; {time.monotonic() - started:.0f} s",
+          flush=True)
+
+
+def max_move(a: Path, b: Path) -> float:
+    """The largest Hausdorff distance, in degrees, between the features of two copies of a layer, matched by id.
+    Hausdorff, not vertex by vertex, because simplifying a line can keep a different number of vertices."""
+    def features(path: Path) -> dict:
+        return {f["properties"]["id"]: shape(f["geometry"])
+                for f in json.loads(path.read_text(encoding="utf-8"))["features"]}
+    old, new = features(a), features(b)
+    if old.keys() != new.keys():
+        raise SystemExit(f"{a.name}: the features differ from the published copy ({len(old.keys() ^ new.keys())} ids "
+                         "in one copy only): the story changed, so run the full build")
+    return max((shapely.hausdorff_distance(old[fid], new[fid]) for fid in old), default=0.0)
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser(description="The Oblique view's archives and data/oblique/ (a full run: hours).",
+                                     allow_abbrev=False)
+    only = parser.add_mutually_exclusive_group()
+    only.add_argument("--properties", action="store_true",
+                      help="copy the flat layers' properties into data/oblique/ only, after a text-only story change")
+    only.add_argument("--vignettes", action="store_true", help="write data/oblique/vignettes.geojson only")
+    args = parser.parse_args()
+    if args.properties:
+        changed = copy_story_properties()
+        print(f"data/oblique/: properties copied for {len(changed)} features")
+        return
+    if args.vignettes:
+        raise_vignettes()
+        return
     started = time.monotonic()
     area = strips()
     west, south = to_wgs(min(s["bounds"][0] for s in area), min(s["bounds"][1] for s in area))
@@ -544,14 +637,7 @@ def main() -> None:
         tmp = Path(folder)
         dems = [tmp / f"{s['name']}.tif" for s in area]
         with ProcessPoolExecutor(min(len(area), os.cpu_count() or 1)) as pool:
-            list(pool.map(prepare_dem, [s["bounds"] for s in area], [CELL] * len(area), dems))
-            # One lowest height for the whole area, so the strips meet.
-            lows = []
-            for s, dem_path in zip(area, dems, strict=True):
-                with rasterio.open(dem_path) as src:
-                    window = from_bounds(*s["core"], transform=src.transform).round_offsets().round_lengths()
-                    lows.append(float(src.read(1, window=window).min()))
-            base = min(lows)
+            base = prepare_heights(area, dems, pool)
             lines, mexico = base_lines(bbox, tmp)
             print(f"{len(area)} strips, lowest ground {base:.0f} m; "
                   f"base lines ready after {time.monotonic() - started:.0f} s", flush=True)

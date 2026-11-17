@@ -16,7 +16,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
     credits: [
       {
         name: 'Cormac McCarthy, The Crossing',
-        use: 'The novel this map follows. Page numbers are to the Vintage edition. No passage of the novel is reproduced here; the notes are our own words.',
+        use: 'The novel this map follows. Page numbers are to the Vintage edition. No passage of the novel is reproduced here; the notes are this site’s own words.',
         licence: 'In copyright',
       },
       {
@@ -39,7 +39,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
           <>
             PhD dissertation, Texas Tech University, 2000. Its index of the novel’s places, its local research in the
             bootheel and its county map were used to check and correct places on this map. Notes that
-            draw on it cite the page, in our own words.
+            draw on it cite the page, in this site’s own words.
           </>
         ),
         licence: 'In copyright; facts used, text not copied',
@@ -125,7 +125,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         use: (
           <>
             University of Utah Press, 1994. The height bands that sort the CEC’s trees into gallery forest, oak
-            woodland and pine (<a href={repoUrl('docs/decisions/0034-oblique-strokes-and-land-cover.md')}>decision 0034</a>).
+            woodland and pine (<a href={repoUrl('docs/decisions/0040-oblique-strokes-and-land-cover.md')}>decision 0040</a>).
           </>
         ),
         licence: 'Facts used; cited',
@@ -173,7 +173,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'Natural Earth',
         link: 'https://www.naturalearthdata.com/',
-        use: 'Borders, the Mexican states, lakes outside Mexico, roads and railroads of the base map, and the choice of rivers, their names and their rank (their courses come from INEGI and NHD).',
+        use: 'Borders, the Mexican states, lakes outside Mexico, roads and railways of the base map, and the choice of rivers, their names and their rank (their courses come from INEGI and NHD).',
         licence: 'Public domain; no credit required',
         credit: 'Made with Natural Earth',
       },
@@ -277,7 +277,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         use: (
           <>
             A French navy chart that draws what grows on the ground in the same ink as its hachures. The land cover’s
-            ink textures follow the kind of mark it uses (<a href={repoUrl('docs/decisions/0036-land-cover-in-ink.md')}>decision 0036</a>).
+            ink textures follow the kind of mark it uses (<a href={repoUrl('docs/decisions/0042-land-cover-in-ink.md')}>decision 0042</a>).
             Nothing from it is reproduced.
           </>
         ),

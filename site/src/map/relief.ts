@@ -1,4 +1,4 @@
-import type { ExpressionSpecification, LayerSpecification, SourceSpecification } from 'maplibre-gl'
+import type { ExpressionSpecification, LayerSpecification, Map as MaplibreMap, SourceSpecification } from 'maplibre-gl'
 import { fonts, LAND_COVERS, typeScale, zoomedSize, type Palette } from './tokens'
 import { heightLabel, type Units } from '../units'
 
@@ -208,6 +208,7 @@ function landformLabel(p: Palette): LayerSpecification {
 // sits next to its pin at every zoom and never covers it. Each shows only in its own zoom range; its caption gives way
 // to other labels, the lowest `priority` placed first. The layer is in PROGRESS_LAYERS
 // (spoiler/filter.ts), so each vignette shows from its own first_seen.
+// crossing.build_vignettes picks each side and min_zoom from these sizes: change them there too.
 const VIGNETTE_HALF = 48 // half the 96 px drawing grid
 const VIGNETTE_GAP = 16 // between the pin and the drawing's nearest edge, in drawing pixels
 const VIGNETTE_SIZE: [number, number][] = [[6, 0.52], [9, 0.72], [12, 0.91]] // zoom, icon-size
@@ -223,6 +224,23 @@ const SIDES: Record<string, { anchor: string; dx: number; dy: number }> = {
   w: { anchor: 'right', dx: -1, dy: 0 },
   nw: { anchor: 'bottom-right', dx: -Math.SQRT1_2, dy: -Math.SQRT1_2 },
 }
+// The drawings of journeys other than the one in focus, drawing and caption, are this much lighter, as their route
+// lines are (StoryLayers.tsx).
+const VIGNETTE_OTHER_JOURNEY = 0.6
+export const VIGNETTE_LAYERS = { drawing: 'vignette', caption: 'vignette-label' }
+
+// Full strength for the drawings of the journey in focus (each vignette's `journey`), lighter for the rest.
+export function vignetteOpacity(journey: string): ExpressionSpecification {
+  return ['case', ['==', ['get', 'journey'], journey], 1, VIGNETTE_OTHER_JOURNEY]
+}
+
+// Sets it on a map that draws the drawings: the main map, and in compare mode the vintage underlay.
+export function setVignetteOpacity(map: MaplibreMap, journey: string) {
+  const opacity = vignetteOpacity(journey)
+  if (map.getLayer(VIGNETTE_LAYERS.drawing)) map.setPaintProperty(VIGNETTE_LAYERS.drawing, 'icon-opacity', opacity)
+  if (map.getLayer(VIGNETTE_LAYERS.caption)) map.setPaintProperty(VIGNETTE_LAYERS.caption, 'text-opacity', opacity)
+}
+
 const bySide = (f: (side: { anchor: string; dx: number; dy: number }) => unknown, fallback: unknown): ExpressionSpecification =>
   ['match', ['get', 'side'], ...Object.entries(SIDES).flatMap(([k, v]) => [k, f(v)]), fallback] as unknown as ExpressionSpecification
 
@@ -246,7 +264,7 @@ function vignettes(p: Palette): LayerSpecification[] {
     ['all', ['==', ['get', 'kind'], 'vignette'], ['>=', ['zoom'], ['get', 'min_zoom']]]
   return [
     {
-      id: 'vignette',
+      id: VIGNETTE_LAYERS.drawing,
       type: 'symbol',
       source: 'vignettes',
       filter,
@@ -267,7 +285,7 @@ function vignettes(p: Palette): LayerSpecification[] {
     {
       // The caption, under the drawing. Its own layer, which StoryLayers moves to the top of the stack, so it is
       // placed before every other label and the others make room for it.
-      id: 'vignette-label',
+      id: VIGNETTE_LAYERS.caption,
       type: 'symbol',
       source: 'vignettes',
       filter,
@@ -485,14 +503,14 @@ export function reliefLayers(p: Palette, units: Units): {
 export const OBLIQUE_BOUNDS: [number, number, number, number] = [-109.9, 28.23, -106.66, 34.0]
 export const OBLIQUE_MIN_ZOOM = 9
 
-// Land cover (decision 0034): crossing.landcover's classes as polygons, on the ground in landcover.pmtiles for the
+// Land cover (decision 0040): crossing.landcover's classes as polygons, on the ground in landcover.pmtiles for the
 // Flat and Tilted views, and shifted in the oblique archives for the Oblique view. MapView shows them when the
 // reader picks Land cover as the ground.
 export const LANDCOVER_ARCHIVE = 'landcover.pmtiles'
 export const landcoverColour = (p: Palette): ExpressionSpecification =>
   ['match', ['get', 'class'], ...LAND_COVERS.flatMap((c) => [c.id, p.landcover[c.id]]), p.paper] as unknown as ExpressionSpecification
 
-// Each class's ink texture (decision 0036; landcoverInk.ts draws them, MapView adds them to the map as `ink-<class>`).
+// Each class's ink texture (decision 0042; landcoverInk.ts draws them, MapView adds them to the map as `ink-<class>`).
 export const landcoverInk: ExpressionSpecification =
   ['match', ['get', 'class'], ...LAND_COVERS.flatMap((c) => [c.id, `ink-${c.id}`]), 'ink-scrub'] as unknown as ExpressionSpecification
 
@@ -512,7 +530,7 @@ const OBLIQUE_BASE: Record<string, string> = {
   railroad: 'railroad', 'railroad-ties': 'railroad', 'creek-label': 'stream',
 }
 
-// The Oblique view's strokes are spaced for about zoom 12.5 (decision 0034). A size given for 12.5 is half that at
+// The Oblique view's strokes are spaced for about zoom 12.5 (decision 0040). A size given for 12.5 is half that at
 // zoom 9 and grows a little past it.
 const obliqueSize = (size: number | ExpressionSpecification): ExpressionSpecification =>
   ['interpolate', ['linear'], ['zoom'], 9, ['*', 0.5, size], 12.5, size, 14, ['*', 1.3, size]] as ExpressionSpecification
@@ -559,7 +577,8 @@ export function obliqueLayers(vintage: LayerSpecification[], p: Palette): { befo
       ],
     },
     {
-      before: 'creek-label',
+      // Under the drawings, which the Oblique view keeps (decision 0039), so the lines do not cross them.
+      before: VIGNETTE_LAYERS.drawing,
       layers: [
         copy('county-line'), copy('state-line'), copy('country-line'),
         // Rivers as two inked banks with water between, wider with Strahler order (or NHD's stand-in for it).

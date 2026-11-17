@@ -1,4 +1,4 @@
-"""Download the CEC's North American Land Cover 2020 (30 m, version 2) for Mexico and the US (decision 0034).
+"""Download the CEC's North American Land Cover 2020 (30 m, version 2) for Mexico and the US (decision 0040).
 
 Run from the repo root: uv run --project pipeline python -m crossing.fetch_landcover
 

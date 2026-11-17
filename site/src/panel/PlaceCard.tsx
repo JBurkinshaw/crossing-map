@@ -7,12 +7,7 @@ import { TranslationList } from './TranslationList'
 import { FeatureQuestions } from './OpenQuestions'
 import type { OpenQuestion } from '../data/openQuestions'
 import { distance, type Units } from '../units'
-
-const KIND: Record<string, string> = {
-  'inferred-area': 'Inferred area',
-  region: 'Region',
-  'route-segment': 'Route segment',
-}
+import { CERTAINTY_LABEL } from './certainty'
 
 type Props = {
   feature: Feature<Geometry, StoryProps>
@@ -28,11 +23,22 @@ type Props = {
   title?: string
   spokenTitle?: string
   spokenNote?: ReactNode
+  // Whether "How this was placed" is open: shared with the stop section, so it stays as the reader left it.
+  placementOpen: boolean
+  onPlacement: (open: boolean) => void
 }
 
+// What kind of place it is, before how sure the map is of it: "Inferred area · Worked out from clues". The data's
+// kinds are single words ("town", "range") apart from these two.
+const KIND: Record<string, string> = { 'inferred-area': 'Inferred area', region: 'Region' }
+const kindWord = (kind: string | undefined) => (kind ? `${KIND[kind] ?? kind[0].toUpperCase() + kind.slice(1)} · ` : '')
+
 // The card for a place or area picked on the map or in search, or for the road a line was spoken on: what it
-// is, how it was placed, and what was said there in Spanish ("Spoken here", design section 8).
-export function PlaceCard({ feature, units, questions, spoken, currentTranslation, onClose, title, spokenTitle = 'Spoken here', spokenNote }: Props) {
+// is, how sure the map is of it and how it was placed, and what was said there in Spanish ("Spanish here", design
+// section 8).
+export function PlaceCard(props: Props) {
+  const { feature, units, questions, spoken, currentTranslation, onClose, title, spokenTitle = 'Spanish here', spokenNote } = props
+  const { placementOpen, onPlacement } = props
   const p = feature.properties
   const card = useRef<HTMLElement>(null)
   // The card's top, with its title: a card taller than the panel would otherwise show its foot. When the card
@@ -49,16 +55,27 @@ export function PlaceCard({ feature, units, questions, spoken, currentTranslatio
       {/* Only the title is announced when a card opens: the whole card would be read out on every pick. */}
       <h2 aria-live="polite">{title ?? p.name}</h2>
       <div className="meta">
-        {(p.kind === 'route-segment' && routeLabel(p.method)) || (KIND[p.kind ?? ''] ?? p.kind)} · {p.certainty}
-        {p.uncertainty_m ? `, within about ${distance(p.uncertainty_m, units)}` : ''} · {p.source}
-        {p.source_id ? ` ${p.source_id}` : ''}
+        {p.kind === 'route-segment' ? (routeLabel(p.method) ?? 'Route segment') : `${kindWord(p.kind)}${CERTAINTY_LABEL[p.certainty]}`}
+        {p.uncertainty_m ? ` · within about ${distance(p.uncertainty_m, units)}` : ''}
       </div>
       {(p.note_full || p.note_safe) && <p>{p.note_full || p.note_safe}</p>}
-      {p.reasoning && <p>{p.reasoning}</p>}
+      <details className="placement" open={placementOpen} onToggle={(e) => onPlacement(e.currentTarget.open)}>
+        <summary>How this was placed</summary>
+        {p.reasoning && <p>{p.reasoning}</p>}
+        <p className="meta">
+          Source: {p.source}
+          {p.source_id ? ` ${p.source_id}` : ''}
+        </p>
+      </details>
       {p.drawn && (
         <aside className="area-outline">
           <h3>How this line was drawn</h3>
           <p>{p.drawn}</p>
+          {p.method === 'modeled' && (
+            <p>
+              <a href="#/about/how-its-built">How it’s built</a> explains the model.
+            </p>
+          )}
         </aside>
       )}
       {p.kind === 'inferred-area' && <AreaOutline rule={p.outline_rule ?? null} straightRoad={p.straight_road ?? false} />}
@@ -82,15 +99,15 @@ function AreaOutline({ rule, straightRoad }: { rule: string | null; straightRoad
       <h3>How this area was drawn</h3>
       {rule ? (
         <p>
-          A draft: the circle around the stop, cut by a rule to the ground the reasoning describes. It was made by the rule from
+          A draft: the area around the stop, cut by a rule to the ground the reasoning describes. It was made by the rule from
           elevation, river and road data, not drawn by hand from a historical source. The rule: {rule}
         </p>
       ) : (
-        <p>A circle around the stop, as wide as the reasoning allows. Nothing in the book or the data narrows it further.</p>
+        <p>The area around the stop, as wide as the reasoning allows. Nothing in the book or the data narrows it further.</p>
       )}
       {straightRoad && (
         <p>
-          No source we have maps the old roads here, so a straight line between the towns stands in for the road. A historical
+          No source this site has found maps the old roads here, so a straight line between the towns stands in for the road. A historical
           map of the roads would improve this area.
         </p>
       )}

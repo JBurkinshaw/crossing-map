@@ -79,7 +79,13 @@ def test_oblique_copy_must_match(layers):
     oblique["features"].pop(0)
     errors = validate.check_oblique(layers["stops"], oblique, "stops")
     assert any("only in the flat layer" in e for e in errors)
-    assert any("differs" in e for e in errors)
+    assert any("first_seen differ" in e for e in errors)
+
+
+def test_oblique_copy_must_keep_the_flat_text(layers):
+    oblique = copy.deepcopy(layers["stops"])
+    oblique["features"][0]["properties"]["name"] = "An old name"
+    assert any("name differ" in e for e in validate.check_oblique(layers["stops"], oblique, "stops"))
 
 
 def question(**fields):

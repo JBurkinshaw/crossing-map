@@ -69,22 +69,31 @@
   color: var(--paper);
 }
 
-/* A cluster around Cloverdale and the Peloncillos (design 9): a double ring with the count, opened by a click,
-   Enter or zooming in. */
+/* A cluster around Cloverdale and the Peloncillos (design 9): a double ring round its count and, under the
+   count, what it holds ("stops" or "places"); opened by a click, Enter or zooming in. Round and about as small
+   as the old count alone, so neighbouring clusters (40 px apart, cluster.ts) still sit clear of each other. */
 .cluster-marker {
-  min-width: 30px;
-  height: 30px;
-  padding: 0 6px;
+  display: grid;
+  place-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   border: 1.5px solid var(--ink);
-  border-radius: 15px;
+  border-radius: 50%;
   outline: 1px solid var(--ink);
   outline-offset: 2px;
   color: var(--ink);
   background: var(--paper);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   line-height: 1;
   cursor: zoom-in;
+}
+
+.cluster-word {
+  font-size: 8.5px;
+  font-weight: normal;
+  font-style: italic;
 }
 
 .cluster-marker:focus-visible {
@@ -97,7 +106,8 @@
 }
 
 /* The title cartouche, bottom right, with the layer key folded under the title. Opened, the key grows the
-   cartouche upwards, over the inset, and the cartouche scrolls if the map is short. Its rule is a Wheeler
+   cartouche upwards, over the inset, up to just under the Map button; past that the key's tab panel scrolls,
+   so the title and the tabs stay in view. Its rule is a Wheeler
    sheet's: a thin neatline (the border) inside a thin-thick rule, drawn as outset box shadows from the inside
    out (a 3 px gap, a 3 px heavy rule, a 1.5 px gap, a 1 px thin rule; review/stage-9/wheeler-places/README.md).
    The rule reaches 8.5 px past the border, so the box sits that far and a little more from the edges, inside the
@@ -107,9 +117,10 @@
   z-index: 3;
   right: calc(var(--frame) + 17px);
   bottom: calc(var(--frame) + 33px);
-  /* Clear of the map's switches, top right. */
-  max-height: calc(100% - 233px - 2 * var(--frame));
-  overflow-y: auto;
+  /* Clear of the folded Map button, top right. */
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100% - 100px - 2 * var(--frame));
   max-width: min(320px, calc(100% - 40px - 2 * var(--frame)));
   box-sizing: border-box;
   padding: 8px 14px 4px;
@@ -156,7 +167,6 @@
   .cartouche {
     right: calc(var(--frame) + 13px);
     bottom: calc(var(--frame) + 13px);
-    max-height: calc(100% - 72px - 2 * var(--frame));
     padding: 4px 10px 2px;
     box-shadow:
       0 0 0 2px var(--paper),
@@ -200,13 +210,6 @@
   display: block;
 }
 
-@media (max-width: 720px) {
-  .overview {
-    right: calc(var(--frame) + 10px);
-    bottom: calc(var(--frame) + 84px);
-  }
-}
-
 .literary {
   position: absolute;
   inset: 0;
@@ -237,13 +240,17 @@
   background: var(--paper);
 }
 
-/* The map's switches: one framed box, top right, with the cartouche's and the inset's double rule. Each row
-   has a small italic label; View and Ground hang under Map on a ruled branch, as they change the vintage map. */
+/* The map's switches: one Map button top right, opening a framed box below it, with the cartouche's and the
+   inset's double rule. Each row has a small italic label and, under the switch, one line on the option chosen;
+   View and Ground hang under Map on a ruled branch, as they change the vintage map. */
 .map-controls-box {
   position: absolute;
   z-index: 4;
-  top: calc(var(--frame) + 10px);
+  top: calc(var(--frame) + max(10px, env(safe-area-inset-top)));
   right: calc(var(--frame) + 10px);
+  display: grid;
+  justify-items: end;
+  gap: 8px;
 }
 
 .map-controls {
@@ -262,15 +269,27 @@
 
 .control-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 6px;
 }
 
 .control-label {
   flex: none;
   width: 3.7rem;
+  /* Level with the switch's words. */
+  padding-top: 8px;
   font-size: 0.78rem;
   font-style: italic;
+  color: var(--ink-faint);
+}
+
+/* What the chosen option does: a small italic line, as the cartouche's subtitle is set. */
+.control-note {
+  max-width: 19rem;
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 1.25;
   color: var(--ink-faint);
 }
 
@@ -290,7 +309,6 @@
   opacity: 0.45;
 }
 
-/* Phones: one Map button, the switches below it when open. */
 .map-menu-button {
   display: flex;
   align-items: center;
@@ -311,17 +329,9 @@
   background: var(--ink);
 }
 
-@media (max-width: 720px) {
-  .map-controls-box {
-    top: calc(var(--frame) + max(10px, env(safe-area-inset-top)));
-    display: grid;
-    justify-items: end;
-    gap: 8px;
-  }
-}
-
 .basemap-switch {
   display: flex;
+  width: fit-content;
   border: 1px solid var(--ink);
   background: var(--paper);
 }
@@ -340,13 +350,11 @@
   background: var(--ink);
 }
 
-/* Compare: a narrow icon button between the two maps it compares. */
-.basemap-switch button[data-narrow] {
-  display: grid;
-  place-items: center;
-  padding: 4px 6px;
-  border-left: 1px solid var(--ink-faint);
-  border-right: 1px solid var(--ink-faint);
+/* Compare: its word after a split-frame icon. */
+.compare-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* In compare mode the two maps compared are half chosen: a light ink wash with an ink rule under the word,
@@ -361,10 +369,10 @@
   cursor: default;
 }
 
-/* Under the map's switches. */
+/* Under the Map button. */
 .notice {
   position: absolute;
-  top: calc(var(--frame) + 186px);
+  top: calc(var(--frame) + 58px);
   right: calc(var(--frame) + 10px);
   max-width: 260px;
   margin: 0;
@@ -374,14 +382,13 @@
   font-size: 0.8rem;
 }
 
-/* On phones the notices sit under the Map button. */
+/* On phones the notices take the width left of the zoom buttons. */
 @media (max-width: 720px) {
   .basemap-switch button {
     min-height: 36px;
     padding: 2px 9px;
   }
   .notice {
-    top: calc(var(--frame) + 58px);
     left: calc(var(--frame) + 50px);
     max-width: none;
   }
@@ -490,46 +497,117 @@
   color: var(--ink);
 }
 
-/* The layer key, folded in the cartouche under its title, behind a thin rule. */
+/* The layer key, folded in the cartouche under its title, behind a thin rule. Opened, its tab panel is the part
+   that scrolls. */
 .layer-key {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   margin-top: 6px;
   border-top: 1px solid var(--ink-faint);
   font-size: 0.82rem;
 }
 
-.layer-key summary {
+.layer-key-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   min-height: 30px;
   padding: 5px 0;
-  box-sizing: border-box;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-style: italic;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* The disclosure triangle a details summary would draw. */
+.layer-key-toggle::before {
+  content: '';
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent currentColor;
+}
+
+.layer-key-toggle[aria-expanded='true']::before {
+  border-width: 8px 5px 0;
+  border-color: currentColor transparent transparent;
+}
+
+.layer-key-toggle:focus-visible,
+.key-tabs button:focus-visible,
+.key-panel:focus-visible,
+.key-sheet-close:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 1px;
+}
+
+.layer-key-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Two tabs, the story's marks and the land's. Set like the key's italic headings; the chosen one upright with
+   an ink rule under it, as the cartouche's title sits over its rule. */
+.key-tabs {
+  display: flex;
+  gap: 14px;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.key-tabs button {
+  min-height: 30px;
+  margin-bottom: -1px;
+  padding: 4px 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--ink-faint);
+  font: inherit;
   font-style: italic;
   cursor: pointer;
 }
 
-.layer-key-body {
-  padding: 0 0 6px;
+.key-tabs button[aria-selected='true'] {
+  border-bottom-color: var(--ink);
+  color: var(--ink);
+  font-style: normal;
 }
 
-.layer-key h3 {
+.key-panel {
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 2px 6px 0;
+  overscroll-behavior: contain;
+}
+
+.key-panel[hidden] {
+  display: none;
+}
+
+:is(.layer-key, .key-sheet) h3 {
   margin: 6px 0 2px;
   font-size: 0.85rem;
   font-style: italic;
   font-weight: normal;
 }
 
-.layer-key ul {
+:is(.layer-key, .key-sheet) ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.layer-key li {
+:is(.layer-key, .key-sheet) li {
   display: flex;
   align-items: center;
   gap: 6px;
   min-height: 20px;
 }
 
-.layer-key li svg {
+:is(.layer-key, .key-sheet) li svg {
   flex: none;
 }
 
@@ -555,7 +633,7 @@
   grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
 }
 
-/* A land cover class in the key: its colour and ink texture (LayerKey.tsx, decision 0036). */
+/* A land cover class in the key: its colour and ink texture (LayerKey.tsx, decision 0042). */
 .key-swatch {
   display: inline-block;
   flex: none;
@@ -563,6 +641,115 @@
   height: 14px;
   margin: 0 5px;
   border: 0.6px solid var(--ink-faint);
+}
+
+/* Journeys and small marks in two columns, each name short enough for one line. */
+.key-journeys,
+.key-small-marks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+
+.key-journeys li {
+  gap: 4px;
+}
+
+:is(.layer-key, .key-sheet) .key-small-marks li {
+  gap: 6px;
+  min-height: 17px;
+  line-height: 1.15;
+}
+
+.key-wide {
+  grid-column: 1 / -1;
+}
+
+.key-small-marks img {
+  flex: none;
+  width: 8px;
+  height: 8px;
+}
+
+.key-mark-wide {
+  width: auto;
+  min-width: 34px;
+  /* The grouped-stops ring is as wide as its box: a margin keeps it off its label. */
+  margin-right: 4px;
+}
+
+/* A grouped-stop marker at the map's size. */
+:is(.layer-key, .key-sheet) .cluster-marker {
+  margin: 4px 4px 4px 1px;
+  cursor: default;
+}
+
+/* A spot height as the map sets it: a small italic figure (typeScale.spot, 10.5 px). */
+.key-spot {
+  font-size: 10.5px;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* Phones: the key opens as a modal sheet from the bottom of the screen, over the drawer, with its own close
+   button. A <dialog>: the reset clears the browser's centred box, and the backdrop is the progress dialog's veil. */
+.key-sheet {
+  inset: auto 0 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border: 0;
+  color: inherit;
+  flex-direction: column;
+  max-height: 70dvh;
+  padding: 10px 16px max(10px, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--ink);
+  box-shadow:
+    0 -3px 0 var(--paper),
+    0 -4px 0 var(--ink);
+  background: var(--paper);
+  font-size: 0.9rem;
+}
+
+.key-sheet[open] {
+  display: flex;
+}
+
+.key-sheet::backdrop {
+  background: var(--veil);
+}
+
+.key-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.key-sheet-head h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.key-sheet-close {
+  min-height: 40px;
+  padding: 4px 12px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font: inherit;
+  cursor: pointer;
+}
+
+.key-sheet .key-tabs button {
+  min-height: 40px;
+}
+
+/* The sheet is wider than the cartouche: give the wide ridge glyph room. */
+.key-sheet .key-glyphs {
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 }
 
 .key-glyph {

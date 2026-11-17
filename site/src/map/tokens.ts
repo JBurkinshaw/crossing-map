@@ -29,9 +29,9 @@ export type Palette = {
   hachure: string
   contour: string
   // Streams in the Oblique view, a little fainter than the flat map's water.
-  // The water between an Oblique river's two inked banks (decision 0034, after Owens's comic-book rivers).
+  // The water between an Oblique river's two inked banks (decision 0040, after Owens's comic-book rivers).
   obliqueWater: string
-  // Land cover (decision 0034), by crossing.landcover's classes: school-atlas tints mixed 60% over paperShown,
+  // Land cover (decision 0040), by crossing.landcover's classes: school-atlas tints mixed 60% over paperShown,
   // opaque so that neighbouring polygons show no seam.
   landcover: Record<LandCover, string>
 }

@@ -1,6 +1,6 @@
 # 0018. Raised over the first two journeys, with the story raised
 
-Status: accepted (2026-11-12); the area and archive size are superseded by 0019; the strokes and the DEM's reach south by 0034; the view is renamed Oblique by 0034. Extends 0017.
+Status: accepted (2026-11-12); the area and archive size are superseded by 0019; the strokes and the DEM's reach south by 0040; the view is renamed Oblique by 0040. Extends 0017.
 Phase: P1
 
 ## Context

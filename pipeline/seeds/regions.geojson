@@ -383,7 +383,7 @@
     "name": "The Animas Valley",
     "place": "animas-valley",
     "first_seen": "1-03",
-    "reasoning": "The valley floor between the Animas and Peloncillo ranges, where the wolf runs and the Parhams live (Part I) and the text's Animas Plain lies (2-04, 4-02). Drafted from the DEM as the ground below 1,600 m connected to J1's Animas Valley stop, between the border and Animas town; the ranges on either side rise above 1,800 m. To be checked by hand in QGIS (decision 0008)."
+    "reasoning": "The valley floor between the Animas and Peloncillo ranges, where the wolf runs and the Parhams live (Part I) and the text's Animas Plain lies (2-04, 4-02). Drafted from the DEM as the ground below 1,600 m connected to J1's Animas Valley stop, between the border and Animas town; the ranges on either side rise above 1,800 m."
    }
   },
   {
@@ -1002,7 +1002,7 @@
     "name": "La Babícora",
     "place": "la-babicora",
     "first_seen": "2-08",
-    "reasoning": "The plains of the Babícora, Hearst's ranch country, named at Casas Grandes (2-08) and ridden by Billy in Part IV. Drafted from the DEM as the basin floor below 2,200 m connected to the hacienda's pin, around the Laguna de Babícora; the estate's legal bounds are not known to this project. To be checked by hand in QGIS (decision 0008)."
+    "reasoning": "The plains of the Babícora, Hearst's ranch country, named at Casas Grandes (2-08) and ridden by Billy in Part IV. Drafted from the DEM as the basin floor below 2,200 m connected to the hacienda's pin, around the Laguna de Babícora; the estate's legal bounds are not known to this project."
    }
   }
  ]

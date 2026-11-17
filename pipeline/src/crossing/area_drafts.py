@@ -643,13 +643,13 @@ SK_BAR = Rule(
     "medium",
     "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State "
     "Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, "
-    "so the circle still fixes where along the road.",
+    "so the area still fixes where along the road.",
     lambda F: F.roads(CLOVERDALE_ROADS).buffer(2500),
 )
 TRUCK = Rule(
     "kept",
-    "Kept the circle. The truck meets them on a dirt road in open country; no road of the period is "
-    "mapped here and most of the circle is open country, so nothing narrows it.",
+    "Kept the whole area. The truck meets them on a dirt road in open country; no road of the period is "
+    "mapped here and most of the area is open country, so nothing narrows it.",
 )
 LORDSBURG = Rule(
     "medium",
@@ -663,31 +663,31 @@ RULES.update(
     {
         "j1-bavispe-crossing": Rule(
             "medium",
-            "On the river: the Bavispe's channel (the highest-order INEGI stream in the circle, its main "
+            "On the river: the Bavispe's channel (the highest-order INEGI stream in the area, its main "
             "stem) and 1.5 km either side. She crosses the river, so the crossing is on it; where along this "
-            "reach is still open, so the whole reach in the circle stays.",
+            "reach is still open, so the whole reach in the area stays.",
             lambda F: F.main_stream().buffer(1500),
         ),
         "j1-clanton-foster": Rule(
             "medium",
             "The ground between the two draws: the strip between lines through the GNIS points of Clanton "
-            "Draw and Foster Draw that run down the general slope of the circle (the way the draws run), with 400 m "
+            "Draw and Foster Draw that run down the general slope of the area (the way the draws run), with 400 m "
             "beyond each. NHD does not name the draws' channels here.",
             lambda F: F.between(F.place("clanton-draw"), F.place("foster-draw"), 400),
         ),
         "j2-robertson-crossfence": Rule(
             "medium",
             "On the creek road he leads the wolf down (1-08): within 500 m of the Cloverdale Creek road "
-            "(Census TIGER 2023, Cloverdale Rd C001, Co Rd C001 and Co Rd C106). The circle says where along the road.",
+            "(Census TIGER 2023, Cloverdale Rd C001, Co Rd C001 and Co Rd C106). The area says where along the road.",
             lambda F: F.roads(CREEK_ROAD).buffer(500),
         ),
         "j1-cloverdale-creek": Rule(
             "kept",
-            "Kept the circle. The trap was off the creek road, across a pasture, about two hours' ride from "
-            "Cloverdale; the circle already covers the road's upper reach and the pastures either side.",
+            "Kept the whole area. The trap was off the creek road, across a pasture, about two hours' ride from "
+            "Cloverdale; the area already covers the road's upper reach and the pastures either side.",
         ),
         "j2-cloverdale-creek": Rule(
-            "kept", "Kept the circle: the same trap site as the wolf's last stop (J1, stop 13)."
+            "kept", "Kept the whole area: the same trap site as the wolf's last stop (J1, stop 13)."
         ),
         "j2-volcanic-plain-ranch": Rule(
             "medium",
@@ -736,7 +736,7 @@ RULES.update(
         ),
         "j3-huisiachepic": Rule(
             "medium",
-            "The river town: ground within 1.5 km of the upper Bavispe (the circle's main stem in INEGI) and no "
+            "The river town: ground within 1.5 km of the upper Bavispe (the area's main stem in INEGI) and no "
             "more than 150 m above it, so benches above the canyon floor stay. The town is across a ford on the river; "
             "which bank is not known.",
             lambda F: F.valley_floor(F.main_stream(), 150, 1.5),
@@ -783,9 +783,9 @@ RULES.update(
         ),
         "j4-plains-camp": Rule(
             "kept",
-            "Kept the circle. The book has prairie below the rim; the DEM finds no plain in the circle, only "
-            "small flats along the streams, so the circle may sit too far west of the open ground toward Colonia "
-            "Juárez. Worth a look by hand.",
+            "Kept the whole area. The book has prairie below the rim; the DEM finds no plain in the area, only "
+            "small flats along the streams, so the area may sit too far west of the open ground towards Colonia "
+            "Juárez.",
         ),
         "j4-the-girl": Rule(
             "medium",
@@ -815,19 +815,19 @@ RULES.update(
         ),
         "j4-steer-herd": Rule(
             "medium",
-            "On the road east to Boquilla: within 3 km of the line from Las Varas to La Boquilla.",
+            "On the road east to La Boquilla: within 3 km of the line from Las Varas to La Boquilla.",
             lambda F: F.line("las-varas", "boquilla").buffer(3000),
         ),
         "j4-horses-found": Rule(
             "medium",
             "On the road, with the lake to the south: within 2.5 km of the line from Las Varas to La "
-            "Boquilla, north of the lake and not in it.",
+            "La Boquilla, north of the lake and not in it.",
             lambda F: F.line("las-varas", "boquilla").buffer(2500).difference(lake(F).buffer(300)),
         ),
         "j4-manco-roadblock": Rule(
             "medium",
             "On the road west of La Boquilla, east of the lake: within 2.5 km of the line from Las Varas to La "
-            "Boquilla, west of the town and out of the lake.",
+            "La Boquilla, west of the town and out of the lake.",
             lambda F: (
                 F.line("las-varas", "boquilla")
                 .buffer(2500)
@@ -837,17 +837,17 @@ RULES.update(
         ),
         "j4-tracking-north": Rule(
             "kept",
-            "Kept the circle. They follow the tracks north from the road all afternoon and camp in a swale; the "
+            "Kept the whole area. They follow the tracks north from the road all afternoon and camp in a swale; the "
             "circle already lies north of the road and the lake, and a swale cannot be told from the DEM.",
         ),
         "j4-quijada-remuda": Rule(
             "kept",
-            "Kept the circle. The book gives an east-west road, a crossroads and a track down from the mountains, "
+            "Kept the whole area. The book gives an east-west road, a crossroads and a track down from the mountains, "
             "but no distance or landmark to cut by.",
         ),
         "j4-leave-road": Rule(
             "medium",
-            "Between the road north of Boquilla and the river to its west: west of La Boquilla and north of the "
+            "Between the road north of La Boquilla and the river to its west: west of La Boquilla and north of the "
             "lake. They leave the road a mile above the town and ride west to a river (3-08).",
             lambda F: (
                 F.west_of(PLACES["boquilla"][0] + 0.01)
@@ -857,8 +857,8 @@ RULES.update(
         ),
         "j4-dry-camp": Rule(
             "kept",
-            "Kept the circle. The camp is on a rise a mile west of the river after a night's ride (3-08), but "
-            "which of the circle's streams is that river is not known: cutting to the side of the largest one (in the "
+            "Kept the whole area. The camp is on a rise a mile west of the river after a night's ride (3-08), but "
+            "which of the area's streams is that river is not known: cutting to the side of the largest one (in the "
             "circle's north-east corner) left a sliver, which the night's ride does not support.",
         ),
         "j4-shooting": Rule(
@@ -869,7 +869,7 @@ RULES.update(
         ),
         "j4-truck": TRUCK,
         "j4-blind-man": Rule(
-            "kept", "Kept the circle. An arroyo, a light to the north, a fence and a clay track: nothing to cut by."
+            "kept", "Kept the whole area. An arroyo, a light to the north, a fence and a clay track: nothing to cut by."
         ),
         "j4-crossroads": Rule(
             "low",
@@ -901,12 +901,12 @@ RULES.update(
             lambda F: F.stem(F.pin, 5).buffer(600),
         ),
         "j5-alamo": Rule(
-            "kept", "Kept the circle. Which Álamo is meant is unresolved; the circle covers both candidates."
+            "kept", "Kept the whole area. Which Álamo is meant is unresolved; the area covers both candidates."
         ),
         "j6-truck": TRUCK,
         "j7-salt-lake": Rule(
             "high",
-            "The lake bed and its flats: ground within 8 m of the lowest ground in the circle (Playas Lake's "
+            "The lake bed and its flats: ground within 8 m of the lowest ground in the area (Playas Lake's "
             "floor). He rides south along the flats and camps by a fence.",
             lambda F: F.low_ground(8),
         ),
@@ -942,12 +942,12 @@ RULES.update(
         "j7-quijada-cabin": Rule(
             "low",
             "On the plain: ground with a slope under 3 degrees. The cabin is a lone house on the plain on a road "
-            "toward a gap in the mountains.",
+            "towards a gap in the mountains.",
             lambda F: F.flat(3, 3),
         ),
         "j7-boyds-grave": Rule(
             "kept",
-            "Kept the circle. It is already small (3 km²); a bench in low hills is below what the 30 m DEM can "
+            "Kept the whole area. It is already small (3 km²); a bench in low hills is below what the 30 m DEM can "
             "find reliably.",
         ),
         "j7-past-casas-grandes": Rule(
@@ -972,12 +972,12 @@ RULES.update(
         "j7-dog-springs": Rule(
             "high",
             "At the boundary: within 1.5 km of the line along 31°47′ N. He passes an obelisk on the line; where "
-            "along it is the circle's estimate.",
+            "along it is the area's estimate.",
             lambda F: F.line(*BORDER_31_47).buffer(1500),
         ),
         "j7-cemetery": Rule(
             "medium",
-            "South of the town: the circle south of Animas's centre point.",
+            "South of the town: the part of the area south of Animas's centre point.",
             lambda F: F.south_of(PLACES["animas"][1]),
         ),
         "j7-black-range": Rule(
@@ -987,7 +987,7 @@ RULES.update(
         ),
         "j7-waystation": Rule(
             "medium",
-            "By the blacktop: within 500 m of the highways in the circle (Census TIGER secondary roads, NM 152 "
+            "By the blacktop: within 500 m of the highways in the area (Census TIGER secondary roads, NM 152 "
             "and NM 27). The waystation's adobes stand by the highway.",
             lambda F: F.roads("class IN ('S1100', 'S1200')").buffer(500),
         ),

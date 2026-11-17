@@ -129,7 +129,7 @@
  {
   "id": "q-parham-house",
   "title": "Where was the Parham house?",
-  "first_seen": "2-04",
+  "first_seen": "2-05",
   "features": [
    "j3-parham-house",
    "j3-sk-bar",
@@ -154,8 +154,8 @@
    "j7-casas-grandes-2"
   ],
   "shown": "The old town, beside the Paquimé ruins.",
-  "other": "Nuevo Casas Grandes, the railroad town 5 km north-east.",
-  "why": "The brothers pass the ruins but ride in over the railroad and past the depot, and the only station is in the new town."
+  "other": "Nuevo Casas Grandes, the railway town 5 km north-east.",
+  "why": "The brothers pass the ruins but ride in over the railway and past the depot, and the only station is in the new town."
  },
  {
   "id": "q-boquilla",

@@ -63,7 +63,9 @@ async function open(zoom, oblique) {
   await page.goto(`${baseUrl}?debug#map=${zoom}/${CENTRE[1]}/${CENTRE[0]}`, { waitUntil: 'load' })
   await page.waitForFunction(() => window.__map?.loaded(), null, { timeout: 30000 })
   if (oblique) {
+    await page.getByRole('button', { name: 'Map options' }).click()
     await page.getByRole('radio', { name: 'Oblique' }).click()
+    await page.keyboard.press('Escape')
     await page.waitForFunction(() => window.__map.getStyle().layers.some((l) => l.id.startsWith('oblique-') && l.layout?.visibility !== 'none'), null, { timeout: 30000 })
     await page.waitForTimeout(2500)
     await page.evaluate(([c, z]) => window.__map.jumpTo({ center: c, zoom: z }), [CENTRE, zoom])

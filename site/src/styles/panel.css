@@ -218,7 +218,30 @@ details.more summary:focus-visible,
   padding-left: 18px;
 }
 
-/* Links to the site's pages, at the foot of the panel. */
+/* The panel's header: what the site is, with About and Introduction beside it, on one line where it fits. */
+.panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 12px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--ink-faint);
+  font-size: 0.85rem;
+}
+
+.panel-title {
+  margin: 0;
+}
+
+.panel-header nav {
+  display: flex;
+  gap: 12px;
+  font-style: italic;
+}
+
+/* Links to the site's other pages, at the foot of the panel. */
 .site-links {
   display: flex;
   flex-wrap: wrap;
@@ -241,12 +264,13 @@ button.link {
 }
 
 button.link:focus-visible,
+.panel-header a:focus-visible,
 .introduction-more:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
 
-/* The introduction shares the progress dialog's frame; its secondary action is a link beside the button. */
+/* The introduction is the progress dialog's first step; its "More about this map" is a link beside the buttons. */
 .introduction-more {
   align-self: center;
   margin-left: 6px;
@@ -294,29 +318,67 @@ button.link:focus-visible,
   line-height: 1.4;
 }
 
-.progress-slider {
+/* The first step's question, and its two answers: full-width, so either is one easy tap on a phone. */
+.progress-dialog .progress-question {
+  margin: 18px 0 8px;
+  font-size: 1.1rem;
+}
+
+.progress-answers {
+  display: grid;
+  gap: 8px;
+}
+
+.progress-answers button {
+  min-height: 52px;
+  padding: 6px 14px;
+  border: 1px solid var(--ink);
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--ink);
+  background: var(--paper);
+  text-align: left;
+  cursor: pointer;
+}
+
+/* The second step: the episode picker, then the percentage and page shortcuts in smaller type. */
+.progress-episode {
   display: block;
   width: 100%;
-  min-height: 32px;
+  min-height: 44px;
   margin: 4px 0 0;
-  accent-color: var(--ink);
+  padding: 4px 8px;
+  border: 1px solid var(--ink);
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
 }
 
-.part-ticks {
-  position: relative;
-  height: 1.2em;
-  font-size: 0.75rem;
-  font-style: italic;
-  color: var(--ink-faint);
+.progress-shortcuts label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
 }
 
-.part-ticks span {
-  position: absolute;
+.progress-number {
   white-space: nowrap;
 }
 
+.progress-shortcuts input {
+  width: 5em;
+  min-height: 36px;
+  padding: 2px 6px;
+  border: 1px solid var(--ink);
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.progress-shortcuts p {
+  margin: 2px 0 0;
+}
+
 .progress-choice {
-  min-height: 5.5em;
   margin-top: 8px;
 }
 
@@ -347,7 +409,9 @@ button.link:focus-visible,
 
 .progress-badge:focus-visible,
 .progress-actions button:focus-visible,
-.progress-slider:focus-visible {
+.progress-answers button:focus-visible,
+.progress-episode:focus-visible,
+.progress-shortcuts input:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
@@ -382,10 +446,21 @@ button.link:focus-visible,
   color: inherit;
 }
 
-.search-row select {
-  padding: 4px;
+/* "Search in:" and the Part, under the box. */
+.search-part {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.search-part select {
+  padding: 2px 4px;
   border: 1px solid var(--ink);
   background: var(--paper);
+  font-style: normal;
 }
 
 .search .meta[role='status'] {
@@ -420,11 +495,10 @@ button.link:focus-visible,
 }
 
 .search-row input:focus-visible,
-.search-row select:focus-visible,
+.search-part select:focus-visible,
 .search-results button:focus-visible,
 .place-card .close:focus-visible,
-.text-button:focus-visible,
-.layer-key summary:focus-visible {
+.text-button:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 1px;
 }
@@ -471,7 +545,12 @@ button.link:focus-visible,
   font-size: 0.95rem;
 }
 
-/* "Spoken here": each line's opening, our English, the episode and the guide's page. */
+/* The stop's episode, under its name: which Part and episode, then what happens. */
+.stop-episode p {
+  margin: 2px 0 6px;
+}
+
+/* "Spanish here": each line's opening and our English, with its fine print folded under "About this translation". */
 .translations {
   margin: 0;
   padding: 0;
@@ -492,6 +571,15 @@ button.link:focus-visible,
 
 .translations .en {
   margin: 2px 0;
+}
+
+.translation-about summary {
+  cursor: pointer;
+}
+
+.translation-about p {
+  margin: 2px 0 0 12px;
+  font-size: inherit;
 }
 
 /* Talk on the road from the current stop: ruled off from the stop's own lines, with a full-width button. */

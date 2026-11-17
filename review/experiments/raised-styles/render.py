@@ -1,6 +1,6 @@
 """Raised-view style experiments: one test box over the Sierra de los Pilares de Teras drawn in several looks, after
 the oblique maps on Carl Churchill's "Variety in hachure" (docs/inspiration/churchill.md). Shown side by side in a
-lab section, since removed (decision 0034 records the outcome).
+lab section, since removed (decision 0040 records the outcome).
 
 Run from the repo root. It makes no network requests: it reads the Copernicus tiles, the production fine hachure
 cache and the base map's sources, as crossing.plan_oblique does.

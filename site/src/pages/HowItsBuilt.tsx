@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import facts from 'virtual:site-facts'
+import { CERTAINTY_LABEL } from '../panel/certainty'
 import { Architecture } from './Architecture'
 import { bytes, DATA_URL, layerLabel, REPO_URL, repoUrl } from './format'
 import { Markdown } from './markdown'
@@ -51,7 +53,44 @@ function CountTable({ by, caption }: { by: 'certainty' | 'source' | 'method'; ca
   )
 }
 
-export function HowItsBuilt() {
+// In place of the records while spoilers are hidden: what they hold, and a way to show them for this visit that
+// confirms first, as "Show everything" does. The reader's progress is left as it is.
+function RecordsHidden({ onShow }: { onShow: () => void }) {
+  const [confirming, setConfirming] = useState(false)
+  return (
+    <div className="records-hidden">
+      <p>
+        The records name places and events from the whole book, so they are hidden while the map hides what you have
+        not read yet.
+      </p>
+      {confirming ? (
+        <div className="progress-confirm">
+          <p>Show the decision records? They name places and events from the whole book, the ending included.</p>
+          <div className="progress-actions">
+            {/* oxlint-disable-next-line jsx-a11y/no-autofocus */}
+            <button type="button" autoFocus onClick={onShow}>
+              Show the records
+            </button>
+            <button type="button" onClick={() => setConfirming(false)}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div className="progress-actions">
+          <button type="button" onClick={() => setConfirming(true)}>
+            Show the decision records
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// `spoilers`: the map is hiding what the reader has not reached, so the decision records, which name places and
+// events from the whole book, wait behind a warning (design section 11: nothing later shows anywhere).
+export function HowItsBuilt({ spoilers }: { spoilers: boolean }) {
+  const [shown, setShown] = useState(false)
   const measured = facts.tiles.every((t) => t.bytes !== null)
   const tileTotal = facts.tiles.reduce((sum, t) => sum + (t.bytes ?? 0), 0)
   return (
@@ -65,7 +104,7 @@ export function HowItsBuilt() {
       <h2>The shape of the system</h2>
       <Architecture />
       <p>
-        The pipeline runs on the author’s machine, because it needs a copy of the book and hours of relief
+        The pipeline runs on the owner’s computer, because it needs a copy of the book and hours of relief
         processing. It writes the story layers to the repository as GeoJSON, and the tile archives to a GitHub
         release, because they are too large for git. GitHub Actions checks the data against its schemas, builds the
         site, and deploys it to GitHub Pages, which answers the range requests PMTiles needs.
@@ -77,17 +116,21 @@ export function HowItsBuilt() {
         A record is not edited once accepted; a later one supersedes it. These are the {records.length} records in{' '}
         <a href={repoUrl('docs/decisions')}>docs/decisions</a>, as they stand in this build.
       </p>
-      <div className="records">
-        {records.map((r) => (
-          <details key={r.number} className="record">
-            <summary>
-              <span className="record-number">{r.number}</span> {r.title}
-              <span className="meta"> {r.status}</span>
-            </summary>
-            <Markdown source={r.body} shift={1} />
-          </details>
-        ))}
-      </div>
+      {spoilers && !shown ? (
+        <RecordsHidden onShow={() => setShown(true)} />
+      ) : (
+        <div className="records">
+          {records.map((r) => (
+            <details key={r.number} className="record">
+              <summary>
+                <span className="record-number">{r.number}</span> {r.title}
+                <span className="meta"> {r.status}</span>
+              </summary>
+              <Markdown source={r.body} shift={1} />
+            </details>
+          ))}
+        </div>
+      )}
 
       <h2>Where the data comes from</h2>
       <p>
@@ -100,6 +143,14 @@ export function HowItsBuilt() {
         <CountTable by="method" caption="Features by method" />
       </div>
       <p>
+        The tables show the data’s own values. The map’s cards and the About page give each certainty a plain name:{' '}
+        {Object.entries(CERTAINTY_LABEL).map(([value, label], i, all) => (
+          <span key={value}>
+            <code>{value}</code> is “{label}”{i < all.length - 1 ? '; ' : '.'}
+          </span>
+        ))}
+      </p>
+      <p>
         <strong>Accuracy targets.</strong> Located: within 250 m of the gazetteer feature. Approximate: the note says
         what the pin stands in for. Inferred: never smaller than the evidence. Sources are gazetteers (GNIS,
         GeoNames, Wikidata), lines the text names (USGS NHD rivers, Census TIGER roads, Natural Earth rivers), the
@@ -108,12 +159,12 @@ export function HowItsBuilt() {
 
       <h2>Inferred areas</h2>
       <p>
-        Where the book gives no name, a stop gets a circle as wide as the clues allow. Most circles are then cut to
+        Where the book gives no name, a stop gets an area as wide as the clues allow. Most areas are then cut to
         the ground the stop’s reasoning describes: a river and its banks, a valley floor, a road’s verge, the flat
         of a playa, the side of a border line. Each cut is a short rule run on open data (the Copernicus elevation
         model, INEGI and USGS rivers, Census roads), written out on the area’s card. A rule is not a surveyor: it
         draws the ground the clue points to, not the place itself, and an escarpment or a ridge comes out in broken
-        pieces. No area grows beyond its circle. No open map of the 1940s roads in Chihuahua and Sonora was found, so
+        pieces. No area grows beyond the first, widest guess. No open map of the 1940s roads in Chihuahua and Sonora was found, so
         where the book puts a camp on an old road there, a straight line between the towns stands in for the road;
         the old roads need a historical source. One large region is drawn from the elevation model, not from its
         real boundary, until a period map of it is found. Any area can be redrawn when a
@@ -129,11 +180,18 @@ export function HowItsBuilt() {
         only that the way is unknown.
         Across the sierras and up the long valleys a curve reads badly, so those legs are modelled: the line is the
         way of least effort between the two stops over the ground, for a rider at a walk (or, on the first
-        journey, a wolf on foot). The model works on a 90 m grid of the Copernicus elevation model. A horse’s speed
-        falls with the slope by Tobler’s hiking function, about 6 km/h on the flat; steep ground and canyon walls
-        cost more; crossing a river costs a few minutes by its size; lakes are boggy; and where the book has the
-        rider on a road or a river trail, the line is drawn towards INEGI’s dirt tracks, the old railway, or the
-        river. A rider in Mexico crosses the border only where the book does.
+        journey, a wolf on foot). The model works on a 90 m grid of the Copernicus elevation model, or a coarser one
+        (120 m and 180 m) on the two longest legs. A horse’s speed falls with the slope by Tobler’s hiking function,
+        about 6 km/h on the flat, and the wolf’s is about 5 km/h; steep ground and canyon walls cost more; crossing
+        a river costs a few minutes by its size; lakes are boggy; the wolf keeps clear of towns; and where the book
+        has the rider on a road or a river trail, ground near INEGI’s dirt tracks, the old railway, or the river
+        costs a little less. A rider in Mexico crosses the border only where the book does. The path found from
+        cell to cell is then smoothed, so that it reads as a ride, not a staircase.
+      </p>
+      <p>
+        Each modelled leg’s card says this in brief under “How this line was drawn”. The technical side (the
+        grid, the smoothing tolerance and the model’s version) is in the data, in each leg’s{' '}
+        <code>drawn_detail</code> and <code>cost_model</code>, as it is for the traced legs’ datasets and features.
       </p>
       <p>
         A modelled line is a plausible way, not the one taken. The weights are judgements: on about a dozen legs a
@@ -142,6 +200,21 @@ export function HowItsBuilt() {
         has nothing to add there. The model also checks the story: on one leg, the book’s timing asks a horse
         for about 100 km in a day, some 16 hours at a walk by the model, which is listed as an open question
         (decision 0021).
+      </p>
+
+      <h2>Relief</h2>
+      <p>
+        The ground comes from the Copernicus 30 m elevation model, downloaded in two parts: the tiles along the
+        journeys, which the hachures, contours and mountain glyphs are drawn from, and the rest of the map’s box,
+        which the modelled routes, the inferred areas and the lines that set range and pass names read as well.
+      </p>
+      <p>
+        The hachures, the short strokes that run down every slope, are drawn by Daniel Huffman’s Hachures script,
+        run in QGIS. Within 20 km of the journeys they are then redrawn after the Wheeler Survey’s sheets of the
+        1870s: short strokes of one weight, packed closer where the ground is steeper, with crests and summits left
+        as thin white partings, mesa tops and valley floors left as blank paper, and each escarpment drawn as one
+        comb of strokes hanging from its rim (decision 0024). Outside that corridor, and in the Oblique view, the
+        map keeps the coarser strokes, whose darkness comes from their width.
       </p>
 
       <h2>Mountain glyphs</h2>
@@ -155,7 +228,7 @@ export function HowItsBuilt() {
       </p>
       <p>
         Each summit takes the name of the nearest summit, hill, mesa or ridge in the US and Mexican gazetteers (GNIS
-        and GeoNames) within 2 km, and the name decides the drawing: a Mesa or a Butte is drawn flat-topped, and
+        and GeoNames) within 2 km, and the name decides the drawing: a mesa or a butte is drawn flat-topped, and
         cones, domes and ridges have their own drawings; a summit whose name does not say is drawn as a peak. Named mesas, buttes and cones are kept down to 100 m of
         prominence, because few of them stand higher. Passes are the low points between two summits where the ground
         rises on both sides; named ones are lettered across the saddle, unnamed ones get a small pass glyph. The

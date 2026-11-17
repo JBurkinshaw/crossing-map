@@ -1,4 +1,5 @@
 import { showIntroduction } from '../welcome/showIntroduction'
+import { CERTAINTY_LABEL } from '../panel/certainty'
 import { REPO_URL } from './format'
 
 export function About() {
@@ -20,47 +21,74 @@ export function About() {
         </button>
       </p>
 
-      <h2>A story bound to place, with no map</h2>
+      <h2>Why a map</h2>
       <p>
-        <cite>The Crossing</cite> is a novel of place in the geographer’s sense: its places are not backdrops but
-        part of what happens. McCarthy names real towns, rivers, ranges, ranches and border crossings, and measures
-        the country the way a rider does, in days on horseback, in a creek followed upstream, in the light of a town
-        seen from the dark. A geographer would call these place names toponyms, and the book is thick with them,
-        in English and in Spanish.
+        <cite>The Crossing</cite> is a book about places as much as people. McCarthy names real towns, rivers,
+        mountain ranges, ranches and border crossings, in English and in Spanish. A geographer would call these place
+        names toponyms, and the book is packed with them. He measures the country the way a rider does: in days on
+        horseback, a creek followed upstream, the lights of a town seen in the dark.
       </p>
       <p>
-        Yet the book comes with no map. A reader builds one in the head, a mental map, and it is easy to get lost,
-        because the journeys cross scales, from a single canyon to three hundred miles of desert, and the text gives
-        directions and distances only now and then. This site turns that mental map into a drawn one. It ties each
-        place the book names to a point on the ground (georeferencing), and where the book only describes a place,
-        it marks an area as wide as the clues allow. It is a reading of the book, not the author’s own map, and it
-        says where it is unsure.
+        But the book has no map. Every reader builds one in their head, and it’s easy to get lost. The journeys run
+        from a single canyon to hundreds of miles of desert, and the book gives directions and distances only now and
+        then. This site draws that map. Where the book names a place, it gets a pin on the real spot. Where the book
+        only describes one, the map shows the area it could be in. It’s one reader’s best guess, not McCarthy’s own
+        map, and it says where it isn’t sure.
       </p>
 
-      <h2>How to read it</h2>
+      <h2>How to use it</h2>
+      <ol>
+        <li>
+          Tell the map how far you’ve read. It hides everything after that point, and you can change it any time from
+          the button at the top of the panel.
+        </li>
+        <li>
+          Pick a journey and press <strong>Next</strong> to follow it stop by stop.
+        </li>
+        <li>Tap anything on the map, such as a place or a route, to read about it.</li>
+      </ol>
+
+      <h2>How sure is each place?</h2>
+      <p>Every place, route and area says how sure the map is about it.</p>
+      {/* The names match the cards (panel/certainty.ts); How it's built maps them to the data's values. */}
+      <ul>
+        <li>
+          <strong>{CERTAINTY_LABEL.located}:</strong> the book names the place, and it’s on today’s maps.
+        </li>
+        <li>
+          <strong>{CERTAINTY_LABEL.approximate}:</strong> the pin stands in for something bigger, like a mountain
+          range marked at its highest point.
+        </li>
+        <li>
+          <strong>{CERTAINTY_LABEL.inferred}:</strong> the book doesn’t name the place, so the map shows the area its
+          clues point to. The reasoning is on the card.
+        </li>
+        <li>
+          <strong>{CERTAINTY_LABEL.reported}:</strong> a character tells of it, and the book gives nothing more.
+        </li>
+      </ul>
+      <p>Routes are drawn in three ways:</p>
+      {/* As the layer key draws them (map/tokens.ts, routeLines; decision 0033). */}
+      <ul>
+        <li>
+          <strong>Solid</strong> where they follow a road or river the book names.
+        </li>
+        <li>
+          <strong>Long dashes</strong> where this site has worked out a likely way over the ground.
+        </li>
+        <li>
+          <strong>Short dashes</strong> where the line only joins the stops.
+        </li>
+      </ul>
       <p>
-        Every place, stop, route and area on the map says how sure it is, and where it came from. There are four
-        levels of certainty:
-      </p>
-      <dl className="terms">
-        <dt>Located</dt>
-        <dd>A gazetteer has the very place the book names.</dd>
-        <dt>Approximate</dt>
-        <dd>The pin stands in for something larger, such as a range by its high point.</dd>
-        <dt>Inferred</dt>
-        <dd>The book gives no name; the place is worked out from clues in the text, and the reasoning is written down.</dd>
-        <dt>Reported</dt>
-        <dd>A character says it happened there, and the book gives us no more than that.</dd>
-      </dl>
-      <p>
-        Routes follow a road or river where the text names one, and are drawn as gentle curves where it does not.
-        Inferred areas are drawn no smaller than the evidence allows: a large honest area is better than a precise
-        wrong pin. Most are drafts, cut to the ground the clues describe by a rule, and any of them can be redrawn when a reader knows more.
+        If you know better, whether from a page of the book, an old map or the ground itself, every card has a link to
+        suggest a correction.
       </p>
 
-      <h2>What is here and what is not</h2>
+      <h2>About the text</h2>
       <p>
-        The notes are our own words. The site does not reproduce the novel’s text. Page numbers refer to the Vintage edition.
+        The notes are in this site’s own words, and the site doesn’t reproduce the novel. Spanish lines appear only as
+        their first few words, with the site’s own translation. Page numbers refer to the Vintage paperback.
       </p>
 
       <h2>Further reading</h2>
@@ -69,7 +97,7 @@ export function About() {
           <a href="https://ttu-ir.tdl.org/bitstreams/ec52ab01-a89b-423d-aee5-92df180a15c4/download">
             James Luther Bell, <cite>Contextualizing Cormac McCarthy’s Border Trilogy: An Annotative Approach</cite>
           </a>
-          , PhD dissertation, Texas Tech University, 2000. A place-by-place companion to the trilogy, with local research
+          , PhD dissertation, Texas Tech University, 2000. An annotated, place-by-place companion to the trilogy, with local research
           in the New Mexico bootheel.
         </li>
         <li>

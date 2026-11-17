@@ -6,21 +6,16 @@ import { chromium } from 'playwright'
 
 export const PROGRESS_KEY = 'crossing-map.progress'
 
-// Store a reading position before any page script runs. 'all' shows the whole book and keeps the spoiler
-// dialog shut, which is what screenshots of the map want.
+// Store a reading position before any page script runs. 'all' shows the whole book and keeps the first-visit
+// dialog (the introduction and the reading-progress question) shut, which is what screenshots of the map want.
 export const setProgress = (target, value) => target.addInitScript(([k, v]) => localStorage.setItem(k, v), [PROGRESS_KEY, value])
-
-// The introduction (site/src/welcome/) opens on a first visit before the reading-progress question. Scripts test the
-// map, so every page starts with it already seen; `introduction: true` keeps it, to test the introduction itself.
-export const INTRODUCTION_KEY = 'crossing-map.introduction-seen'
 
 export const launch = () => chromium.launch()
 
 // A page in its own context. `device` is a Playwright device descriptor; `progress: null` is a first visit.
-export async function newPage(browser, { viewport = { width: 1400, height: 900 }, deviceScaleFactor = 1, device, progress = 'all', introduction = false, ...options } = {}) {
+export async function newPage(browser, { viewport = { width: 1400, height: 900 }, deviceScaleFactor = 1, device, progress = 'all', ...options } = {}) {
   const context = await browser.newContext(device ? { ...device, ...options } : { viewport, deviceScaleFactor, ...options })
   if (progress !== null) await setProgress(context, progress)
-  if (!introduction) await context.addInitScript((k) => localStorage.setItem(k, 'yes'), INTRODUCTION_KEY)
   return context.newPage()
 }
 

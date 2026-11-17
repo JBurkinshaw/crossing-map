@@ -168,7 +168,10 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
             setActive(true)
           }}
         />
-        <select aria-label="Part" value={part} onChange={(e) => setPart(Number(e.target.value))}>
+      </div>
+      <label className="search-part">
+        <span>Search in:</span>
+        <select value={part} onChange={(e) => setPart(Number(e.target.value))}>
           <option value={0}>All Parts</option>
           {[1, 2, 3, 4].map((p) => (
             <option key={p} value={p}>
@@ -176,7 +179,7 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
             </option>
           ))}
         </select>
-      </div>
+      </label>
       {open && query.trim() && (
         <>
           <p className="meta" role="status">

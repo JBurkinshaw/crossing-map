@@ -31,8 +31,8 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0014 The relief treatment | superseded by 0016 |
 | 0015 A vendored hachure generator | accepted |
 | 0016 The relief style (S5) | accepted; paper and hachure ink amended by 0022, hillshade by 0025 |
-| 0017 Views of the literary map | accepted; Raised area superseded by 0018 and 0019; the Raised view renamed Oblique and redrawn by 0034 |
-| 0018 Raised over the first two journeys | accepted; area and archive size superseded by 0019; line work superseded by 0034 |
+| 0017 Views of the literary map | accepted; Raised area superseded by 0018 and 0019; the Raised view renamed Oblique and redrawn by 0040 |
+| 0018 Raised over the first two journeys | accepted; area and archive size superseded by 0019; line work superseded by 0040 |
 | 0019 Raised over every journey | accepted |
 | 0020 Inferred areas drafted by rule from the stop's circle | accepted |
 | 0021 Least-cost routes for the sierra and valley legs | accepted; J7 leg 41 traced instead by 0032 |
@@ -40,7 +40,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0023 Landform names along computed axes | proposed |
 | 0024 Wheeler hachures in the journeys corridor | accepted |
 | 0025 A MapTiler-like hillshade | accepted |
-| 0026 Vignettes beside their pins | accepted |
+| 0026 Vignettes beside their pins | accepted; extended by 0039 |
 | 0027 Wheeler frame, water places and type scale on the map | accepted |
 | 0028 Context places of the period on the map | proposed |
 | 0029 Place pins apart from their stops | proposed |
@@ -48,9 +48,15 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0031 Reservoirs built after the book left off the base map | proposed |
 | 0032 Traced legs, and how each line was drawn | accepted |
 | 0033 One ink per journey, and a line's dash for how sure it is | accepted |
-| 0034 The Oblique view: oblique-map strokes, and land cover from the CEC read with Brown's bands | accepted |
-| 0035 The classic map is called the Vintage map | accepted |
-| 0036 Land cover drawn in ink over its colour | accepted |
+| 0034 Ask on the first visit, then where the reader is up to | accepted |
+| 0035 Plain names for certainty, and common Spanish lines left out of the panel | accepted |
+| 0036 Stop names and drawing captions that give nothing away | accepted; extended by 0038 |
+| 0037 One voice, one spelling, and plain words in the site's text | accepted |
+| 0038 Drawings' subjects that give nothing away, and the Parham house dated 2-05 | accepted |
+| 0039 Drawings in the Oblique view | accepted |
+| 0040 The Oblique view: oblique-map strokes, and land cover from the CEC read with Brown's bands | accepted |
+| 0041 The classic map is called the Vintage map | accepted |
+| 0042 Land cover drawn in ink over its colour | accepted |
 
 ## Template
 

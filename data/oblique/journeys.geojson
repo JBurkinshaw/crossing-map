@@ -571,8 +571,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a wolf on foot between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a wolf on foot (Tobler's hiking speed, about 5 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time and the wolf keeps clear of towns. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a wolf on foot between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a wolf on foot, about 5 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time, and the wolf keeps clear of towns. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -2609,8 +2610,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a wolf on foot between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a wolf on foot (Tobler's hiking speed, about 5 km/h on the flat), found over a 180 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time and the wolf keeps clear of towns. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a wolf on foot between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a wolf on foot, about 5 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time, and the wolf keeps clear of towns. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 180 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -3195,8 +3197,9 @@
     "method": "narrated-path",
     "source": "usgs-nhd",
     "source_licence": "Public domain",
-    "reasoning": "The book says she followed Whitewater Creek west from the border toward the San Luis Mountains. The path follows the USGS NHD course of the creek (HU8 13030201) between the two stops.",
-    "drawn": "Traced along Whitewater Creek in the USGS National Hydrography Dataset (high resolution). The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "reasoning": "The book says she followed Whitewater Creek west from the border towards the San Luis Mountains. The path follows the USGS NHD course of the creek between the two stops.",
+    "drawn": "Traced along Whitewater Creek in the USGS National Hydrography Dataset (high resolution). The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The USGS National Hydrography Dataset (high resolution): Whitewater Creek; NHD flowlines of watershed HU8 13030201. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -5163,7 +5166,7 @@
    },
    "properties": {
     "id": "j1-seg-12",
-    "name": "Between Clanton and Foster draws to Cloverdale Creek (the trap)",
+    "name": "Between Clanton and Foster draws to Up Cloverdale Creek",
     "kind": "route-segment",
     "characters": [
      "wolf"
@@ -5350,7 +5353,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "From Cloverdale at first light Billy turns up the Cloverdale Creek road, the sun rising behind him, so west, up the creek. The route follows that road in Census TIGER 2023 (Hidalgo County), where its stretches are Cloverdale Rd C001, Co Rd C001 and Co Rd C106.",
-    "drawn": "Traced along Cloverdale Rd C001, Co Rd C001 and Co Rd C106 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Cloverdale Rd C001, Co Rd C001 and Co Rd C106 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): Cloverdale Rd C001, Co Rd C001, Co Rd C106. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -5456,7 +5460,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "He leads the wolf back down the same road for an hour to the crossfence. The route follows the creek road in Census TIGER 2023 (Hidalgo County).",
-    "drawn": "Traced along Cloverdale Rd C001, Co Rd C001 and Co Rd C106 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Cloverdale Rd C001, Co Rd C001 and Co Rd C106 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): Cloverdale Rd C001, Co Rd C001, Co Rd C106. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -6282,7 +6287,7 @@
    },
    "properties": {
     "id": "j2-seg-06",
-    "name": "The boundary, a monument in sight to Down the Cajon Bonita",
+    "name": "The boundary, a monument in sight to Down the Cajón Bonito",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -6300,8 +6305,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. Ground within 300 m of the river costs a fifth less, for the river trail. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near the river costs a little less, for the river trail. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 300 m of INEGI streams of Strahler order 4 and up cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -6977,7 +6983,7 @@
    },
    "properties": {
     "id": "j2-seg-07",
-    "name": "Down the Cajon Bonita to Passes of the Sierra de la Cabellera",
+    "name": "Down the Cajón Bonito to Passes of the Sierra de la Cabellera",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -6995,8 +7001,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. Ground within 300 m of the river costs a fifth less, for the river trail. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near the river costs a little less, for the river trail. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 300 m of INEGI streams of Strahler order 4 and up cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -7498,8 +7505,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -8399,8 +8407,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -11825,7 +11834,8 @@
     "source": "natural-earth",
     "source_licence": "Public domain",
     "reasoning": "He goes down from the escarpment to the river and rides north along the river track to the ford at Huisiachepic; the route follows the Bavispe's main stem as Natural Earth draws it (the river line on the map).",
-    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -12558,7 +12568,8 @@
     "source": "natural-earth",
     "source_licence": "Public domain",
     "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map).",
-    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -12851,7 +12862,8 @@
     "source": "natural-earth",
     "source_licence": "Public domain",
     "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map).",
-    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -12980,7 +12992,8 @@
     "source": "natural-earth",
     "source_licence": "Public domain",
     "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map).",
-    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -13505,7 +13518,8 @@
     "source": "natural-earth",
     "source_licence": "Public domain",
     "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map).",
-    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -13934,7 +13948,8 @@
     "source": "natural-earth",
     "source_licence": "Public domain",
     "reasoning": "He keeps riding north down the Bavispe through its river towns, past Colonia Oaxaca and on to Morelos, and crosses the river for the last time only after Morelos (2-03). The route follows the river's main stem as Natural Earth draws it, as on the legs before.",
-    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -14070,7 +14085,7 @@
    },
    "properties": {
     "id": "j3-seg-11",
-    "name": "Colonia Morelos to The road north toward Ojito",
+    "name": "Colonia Morelos to The road north towards Ojito",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -14086,8 +14101,9 @@
     "method": "narrated-path",
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
-    "reasoning": "He goes on through Morelos and takes the road north toward Ojito (2-03). That road is today's Agua Prieta to Bavispe road, in INEGI's road network.",
-    "drawn": "Traced along Agua Prieta - Bavispe and Agua Prieta Bavispe in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "reasoning": "He goes on through Morelos and takes the road north towards Ojito (2-03). That road is today's Agua Prieta to Bavispe road, in INEGI's road network.",
+    "drawn": "Traced along Agua Prieta - Bavispe and Agua Prieta Bavispe in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Agua Prieta - Bavispe, Agua Prieta Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -14627,7 +14643,7 @@
    },
    "properties": {
     "id": "j3-seg-12",
-    "name": "The road north toward Ojito to The border at Douglas",
+    "name": "The road north towards Ojito to The border at Douglas",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -14644,8 +14660,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. Ground within 1 km of today's unpaved tracks and the railways costs a fifth less, standing in for the roads of the time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of the time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -15397,8 +15414,9 @@
     "method": "narrated-path",
     "source": "census-tiger",
     "source_licence": "Public domain",
-    "reasoning": "From Douglas he rides the old road east toward Cloverdale all day (2-04). That road is today's Geronimo Trail, in Census TIGER 2023 (Cochise and Hidalgo counties).",
-    "drawn": "Traced along E Geronimo Trl and Geronimo Trl in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "reasoning": "From Douglas he rides the old road east towards Cloverdale all day (2-04). That road is today's Geronimo Trail, in Census TIGER 2023 (Cochise and Hidalgo counties).",
+    "drawn": "Traced along E Geronimo Trl and Geronimo Trl in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): E Geronimo Trl, Geronimo Trl. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -15962,7 +15980,7 @@
    },
    "properties": {
     "id": "j3-seg-14",
-    "name": "A pass in the Guadalupes on the old Cloverdale road to The Parham house, found empty",
+    "name": "A pass in the Guadalupes on the old Cloverdale road to The Parham house",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -15970,8 +15988,8 @@
     "journey": "J3",
     "sequence": 14,
     "part": 2,
-    "episode": "2-04",
-    "first_seen": "2-04",
+    "episode": "2-05",
+    "first_seen": "2-05",
     "travel": null,
     "note_safe": "",
     "certainty": "approximate",
@@ -15979,7 +15997,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "Over the pass at dusk he comes down the east side of the Guadalupes and on to the house late in the night (2-04). The route follows Geronimo Trail down to the Animas Valley road and along it to Cloverdale, in Census TIGER 2023 (Hidalgo County).",
-    "drawn": "Traced along Geronimo Trl, Cloverdale Rd C001 and Co Rd C001 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Geronimo Trl, Cloverdale Rd C001 and Co Rd C001 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): Geronimo Trl, Cloverdale Rd C001, Co Rd C001. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -16051,7 +16070,7 @@
    },
    "properties": {
     "id": "j3-seg-15",
-    "name": "The Parham house, found empty to Sanders' (the SK Bar)",
+    "name": "The Parham house to Sanders' (the SK Bar)",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -16059,16 +16078,17 @@
     "journey": "J3",
     "sequence": 15,
     "part": 2,
-    "episode": "2-04",
-    "first_seen": "2-04",
+    "episode": "2-05",
+    "first_seen": "2-05",
     "travel": null,
     "note_safe": "",
     "certainty": "approximate",
     "method": "narrated-path",
     "source": "census-tiger",
     "source_licence": "Public domain",
-    "reasoning": "In the morning he takes the road north from the house toward the SK Bar (2-04): the Animas Valley road out of Cloverdale, in Census TIGER 2023 (Hidalgo County). The route leaves it for the SK Bar's estimated place at the end.",
-    "drawn": "Traced along Cloverdale Rd C001 and Co Rd C001 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "reasoning": "In the morning he takes the road north from the house towards the SK Bar (2-04): the Animas Valley road out of Cloverdale, in Census TIGER 2023 (Hidalgo County). The route leaves it for the SK Bar's estimated place at the end.",
+    "drawn": "Traced along Cloverdale Rd C001 and Co Rd C001 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): Cloverdale Rd C001, Co Rd C001. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -16373,7 +16393,7 @@
    },
    "properties": {
     "id": "j3-seg-17",
-    "name": "Animas to Lordsburg, the sheriff's office",
+    "name": "Animas to Lordsburg",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -16418,7 +16438,7 @@
    },
    "properties": {
     "id": "j3-seg-18",
-    "name": "Lordsburg, the sheriff's office to The Websters' (Boyd)",
+    "name": "Lordsburg to The Websters', Lordsburg",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -17473,7 +17493,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "The text has them on route 666 down the Sulphur Springs Valley through Elfrida and McNeal; US 666 there is today's US 191 (renumbered in 1992). The route follows US 191 in Census TIGER.",
-    "drawn": "Traced along US Hwy 191 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along US Hwy 191 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): US Hwy 191. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -17607,7 +17628,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "Route 666 (today's US 191) from McNeal down to Douglas, in Census TIGER.",
-    "drawn": "Traced along US Hwy 191 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along US Hwy 191 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): US Hwy 191. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -20287,7 +20309,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "They leave the road at the south edge of Agua Prieta and follow the stony river bed south all the next day to Ojito (2-07). INEGI names the river the Arroyo Agua Prieta.",
-    "drawn": "Traced along Arroyo Agua Prieta in INEGI's 1:50,000 hydrography: the main channel, its streams of Strahler order 4 and up, which INEGI's place names label Arroyo Agua Prieta. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The source breaks the river in one place; each gap, under about a kilometre, is closed with a straight line. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Arroyo Agua Prieta in INEGI's 1:50,000 hydrography: the river's main channel, as INEGI's place names label it, without its small side streams. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The source breaks the river in one place; each gap, under about a kilometre, is closed with a straight line. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's 1:50,000 hydrography: Arroyo Agua Prieta; streams of Strahler order 4 and up, with an INEGI toponym for the river within 300 m of the line. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -20437,7 +20460,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "From Ojito they ride on down the empty road south and pass through Morelos after midnight (2-07): today's Agua Prieta to Bavispe road, in INEGI's road network.",
-    "drawn": "Traced along Agua Prieta - Bavispe and Agua Prieta Bavispe in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Agua Prieta - Bavispe and Agua Prieta Bavispe in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Agua Prieta - Bavispe, Agua Prieta Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -21373,7 +21397,7 @@
    },
    "properties": {
     "id": "j4-seg-12",
-    "name": "Colonia Morelos at midnight to Bacerac (Keno)",
+    "name": "Colonia Morelos at midnight to Bacerac",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -21391,7 +21415,8 @@
     "source": "natural-earth",
     "source_licence": "Public domain",
     "reasoning": "A week of riding past one river town after another: from Colonia Morelos the route follows the Bavispe's main stem upriver to Bacerac, as Natural Earth draws it (the river line on the map).",
-    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -22587,7 +22612,7 @@
    },
    "properties": {
     "id": "j4-seg-13",
-    "name": "Bacerac (Keno) to The eastern rim of the escarpment at sunrise",
+    "name": "Bacerac to The eastern rim of the escarpment at sunrise",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -22605,8 +22630,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -23080,8 +23106,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -23431,8 +23458,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -23698,7 +23726,7 @@
    },
    "properties": {
     "id": "j4-seg-17",
-    "name": "Casas Grandes to The girl, at a fire in an oak grove",
+    "name": "Casas Grandes to “The girl”, at a fire in an oak grove",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -23860,7 +23888,7 @@
    },
    "properties": {
     "id": "j4-seg-18",
-    "name": "The girl, at a fire in an oak grove to The Hacienda de San Diego",
+    "name": "“The girl”, at a fire in an oak grove to The Hacienda de San Diego",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -23948,7 +23976,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "They take the road south from San Diego to Mata Ortiz (3-01): today's Casas Grandes to Mata Ortiz road, in INEGI's road network.",
-    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Casas Grandes - Juan Mata Ortiz. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -24914,8 +24943,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken. With the leg before it, the book has this ride done in a single day from San Diego: about 100 km, some 16 hours for a horse at a walk by the model. The line follows the story; the ride as told may not be realistic (see the open question).",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. Ground within 1 km of today's unpaved tracks and the railways costs a fifth less, standing in for the roads of the time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken. With the leg before it, the book has this ride done in a single day from San Diego: about 100 km, some 16 hours for a horse at a walk by the model. The line follows the story; the ride as told may not be realistic (see the open question).",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of the time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -25637,7 +25667,7 @@
    },
    "properties": {
     "id": "j4-seg-24",
-    "name": "Las Varas to The steer herd on the road to Boquilla",
+    "name": "Las Varas to The steer herd on the road to La Boquilla",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -25703,7 +25733,7 @@
    },
    "properties": {
     "id": "j4-seg-25",
-    "name": "The steer herd on the road to Boquilla to Their horses, up from the lake",
+    "name": "The steer herd on the road to La Boquilla to The road north of the Babícora lake",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -25769,7 +25799,7 @@
    },
    "properties": {
     "id": "j4-seg-26",
-    "name": "Their horses, up from the lake to The manco's riders, the Boquilla hacienda in sight",
+    "name": "The road north of the Babícora lake to In sight of the Boquilla hacienda",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -25871,7 +25901,7 @@
    },
    "properties": {
     "id": "j4-seg-27",
-    "name": "The manco's riders, the Boquilla hacienda in sight to Following the horses' tracks north",
+    "name": "In sight of the Boquilla hacienda to Following the horses' tracks north",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -26199,7 +26229,7 @@
    },
    "properties": {
     "id": "j4-seg-29",
-    "name": "Quijada's remuda to Boquilla y Anexas (the manco falls)",
+    "name": "Quijada's remuda to La Boquilla",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -26269,7 +26299,7 @@
    },
    "properties": {
     "id": "j4-seg-30",
-    "name": "Boquilla y Anexas (the manco falls) to Off the road north of Boquilla, west to a river",
+    "name": "La Boquilla to Off the road north of La Boquilla, west to a river",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -26411,7 +26441,7 @@
    },
    "properties": {
     "id": "j4-seg-31",
-    "name": "Off the road north of Boquilla, west to a river to The dry camp after the night ride",
+    "name": "Off the road north of La Boquilla, west to a river to The dry camp after the night ride",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -26667,7 +26697,7 @@
    },
    "properties": {
     "id": "j4-seg-33",
-    "name": "San José to The river camp where Boyd is shot",
+    "name": "San José to The river camp near San José",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -26869,7 +26899,7 @@
    },
    "properties": {
     "id": "j4-seg-34",
-    "name": "The river camp where Boyd is shot to The road where the workers' truck takes Boyd",
+    "name": "The river camp near San José to The dirt road in open country",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -26987,7 +27017,7 @@
    },
    "properties": {
     "id": "j4-seg-35",
-    "name": "The road where the workers' truck takes Boyd to The blind man's house",
+    "name": "The dirt road in open country to The blind man's house",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -27593,7 +27623,7 @@
    },
    "properties": {
     "id": "j4-seg-38",
-    "name": "Mata Ortiz, the blue tienda to San Diego, where he finds Boyd",
+    "name": "Mata Ortiz, the blue tienda to San Diego, after dark",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -27611,7 +27641,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "He rides the road north from Mata Ortiz back to San Diego (3-09): today's Casas Grandes to Mata Ortiz road, in INEGI's road network.",
-    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Casas Grandes - Juan Mata Ortiz. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -27807,7 +27838,7 @@
    },
    "properties": {
     "id": "j4-seg-39",
-    "name": "San Diego, where he finds Boyd to Casas Grandes at 3 a.m., for the doctor",
+    "name": "San Diego, after dark to Casas Grandes at 3 a.m.",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -27825,7 +27856,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "He rides through the night on the road from San Diego to Casas Grandes for the doctor (3-09): today's Casas Grandes to Mata Ortiz road, in INEGI's road network, which is paved now.",
-    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Casas Grandes - Juan Mata Ortiz. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -28021,7 +28053,7 @@
    },
    "properties": {
     "id": "j4-seg-40",
-    "name": "Casas Grandes at 3 a.m., for the doctor to Back to San Diego, in the doctor's car",
+    "name": "Casas Grandes at 3 a.m. to Back to San Diego, in the doctor's car",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -28039,7 +28071,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "The doctor drives him back to San Diego on the same road (3-10): today's Casas Grandes to Mata Ortiz road, in INEGI's road network.",
-    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Casas Grandes - Juan Mata Ortiz. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -28108,7 +28141,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "He leaves San Diego at dusk on the road south to Mata Ortiz (3-09): today's Casas Grandes to Mata Ortiz road, in INEGI's road network.",
-    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Casas Grandes - Juan Mata Ortiz. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -29037,8 +29071,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. Ground within 1 km of today's unpaved tracks and the railways costs a fifth less, standing in for the roads of the time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of the time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -29418,7 +29453,7 @@
    },
    "properties": {
     "id": "j5-seg-03",
-    "name": "Within earshot of the Las Varas crossing to Boquilla at noon",
+    "name": "Within earshot of the Las Varas crossing to La Boquilla at noon",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -29531,7 +29566,7 @@
    },
    "properties": {
     "id": "j5-seg-04",
-    "name": "Boquilla at noon to La Pinta by moonlight",
+    "name": "La Boquilla at noon to La Pinta by moonlight",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -29547,8 +29582,9 @@
     "method": "narrated-path",
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
-    "reasoning": "At Boquilla he takes the road south toward Santa Ana de Babícora and passes La Pinta by moonlight (3-12): today's Soto Máynez to Buenaventura road, in INEGI's road network.",
-    "drawn": "Traced along Soto Máynez - Gómez Farías - Buenaventura in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "reasoning": "At La Boquilla he takes the road south towards Santa Ana de Babícora and passes La Pinta by moonlight (3-12): today's Soto Máynez to Buenaventura road, in INEGI's road network.",
+    "drawn": "Traced along Soto Máynez - Gómez Farías - Buenaventura in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Soto Máynez - Gómez Farías - Buenaventura. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -29825,7 +29861,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "He keeps to the same road south from La Pinta to Santa Ana de Babícora, arriving at midnight (3-12): today's Soto Máynez to Buenaventura road, in INEGI's road network.",
-    "drawn": "Traced along Soto Máynez - Gómez Farías - Buenaventura in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Soto Máynez - Gómez Farías - Buenaventura in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Soto Máynez - Gómez Farías - Buenaventura. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -29930,7 +29967,7 @@
    },
    "properties": {
     "id": "j5-seg-07",
-    "name": "A stream of the Santa María headwaters to Back through Santa Ana, with the girl",
+    "name": "A stream of the Santa María headwaters to Back through Santa Ana",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -30299,7 +30336,7 @@
    },
    "properties": {
     "id": "j5-seg-08",
-    "name": "Back through Santa Ana, with the girl to La Boquilla after dark",
+    "name": "Back through Santa Ana to La Boquilla after dark",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -31471,8 +31508,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. Ground within 1 km of today's unpaved tracks and the railways costs a fifth less, standing in for the roads of the time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of the time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -40736,7 +40774,7 @@
    },
    "properties": {
     "id": "j6-seg-01",
-    "name": "Boyd lifted onto the workers' truck to Mata Ortiz, the truck passing",
+    "name": "The dirt road in open country to Mata Ortiz, the truck passing",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -43216,7 +43254,7 @@
    },
    "properties": {
     "id": "j6-seg-03",
-    "name": "San Diego, the Muñoz house to Namiquipa, the girl's mother",
+    "name": "San Diego, the Muñoz house to Namiquipa, the mother of “the girl”",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -43398,7 +43436,7 @@
    },
    "properties": {
     "id": "j6-seg-04",
-    "name": "Namiquipa, the girl's mother to Bachíniva, in the corrido",
+    "name": "Namiquipa, the mother of “the girl” to Bachíniva, in the corrido",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -44648,7 +44686,7 @@
    },
    "properties": {
     "id": "j6-seg-05",
-    "name": "Bachíniva, in the corrido to Galeana, two men killed",
+    "name": "Bachíniva, in the corrido to Galeana",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -45166,7 +45204,7 @@
    },
    "properties": {
     "id": "j6-seg-06",
-    "name": "Galeana, two men killed to San Lorenzo, where Boyd fell",
+    "name": "Galeana to San Lorenzo, Chihuahua",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -45900,7 +45938,7 @@
    },
    "properties": {
     "id": "j6-seg-07",
-    "name": "San Lorenzo, where Boyd fell to San Buenaventura, the grave",
+    "name": "San Lorenzo, Chihuahua to San Buenaventura",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -46043,7 +46081,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "From the Columbus gate he rides the long straight road north to Deming all day; that road is today's NM 11, in Census TIGER. It passes west of the Florida Mountains, whose low foothills he crosses at evening.",
-    "drawn": "Traced along State Hwy 11 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along State Hwy 11 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): State Hwy 11. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -48970,7 +49009,7 @@
    },
    "properties": {
     "id": "j7-seg-05",
-    "name": "Past Socorro at nightfall to Albuquerque, rejected again",
+    "name": "Past Socorro at nightfall to Albuquerque",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -52047,7 +52086,7 @@
    },
    "properties": {
     "id": "j7-seg-06",
-    "name": "Albuquerque, rejected again to Deming at three in the morning",
+    "name": "Albuquerque to Deming at three in the morning",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -52173,7 +52212,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "He takes the old road south from Deming to Hermanas; the road that runs from Deming to Hermanas today is the Hermanas Grade, in Census TIGER (Luna County).",
-    "drawn": "Traced along Hermanas Grade SW in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The source breaks the road in 2 places; each gap, under about a kilometre, is closed with a straight line. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Hermanas Grade SW in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The source breaks the road in 2 places; each gap, under about a kilometre, is closed with a straight line. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): Hermanas Grade SW. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -52358,7 +52398,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "The old road on from Hermanas to Hachita is today's NM 9, in Census TIGER (Luna and Grant counties).",
-    "drawn": "Traced along State Hwy 9 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along State Hwy 9 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): State Hwy 9. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -53435,7 +53476,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "He takes the road south from Animas, today's NM 338 down the Animas Valley, in Census TIGER (Hidalgo County). The route leaves it for the SK Bar estimate at the end.",
-    "drawn": "Traced along State Hwy 338 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along State Hwy 338 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): State Hwy 338. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -63329,8 +63371,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -63575,8 +63618,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -63772,7 +63816,7 @@
    },
    "properties": {
     "id": "j7-seg-25",
-    "name": "Casas Grandes to San Diego, the families gone",
+    "name": "Casas Grandes to San Diego, on the road south",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -63789,7 +63833,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "He rides the road from Casas Grandes past the ruins to San Diego (4-04): today's Casas Grandes to Mata Ortiz road, in INEGI's road network, which is paved now.",
-    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Casas Grandes - Juan Mata Ortiz. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -64709,7 +64754,7 @@
    },
    "properties": {
     "id": "j7-seg-26",
-    "name": "San Diego, the families gone to Las Varas",
+    "name": "San Diego, on the road south to Las Varas",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -64726,8 +64771,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. Ground within 1 km of today's unpaved tracks and the railways costs a fifth less, standing in for the roads of the time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of the time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -68877,8 +68923,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -69463,8 +69510,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -69496,7 +69544,7 @@
    },
    "properties": {
     "id": "j7-seg-38",
-    "name": "San Buenaventura to Boyd's grave, on the Gallego road",
+    "name": "San Buenaventura to The cemetery on the Gallego road",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -69713,7 +69761,7 @@
    },
    "properties": {
     "id": "j7-seg-39",
-    "name": "Boyd's grave, on the Gallego road to Past the lights of Casas Grandes, to the west",
+    "name": "The cemetery on the Gallego road to Past the lights of Casas Grandes, to the west",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -70399,8 +70447,9 @@
     "method": "narrated-path",
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
-    "reasoning": "He takes the trail north along the Casas Grandes River toward Corralitos (4-06). INEGI names the river the Río Casas Grandes.",
-    "drawn": "Traced along Río Casas Grandes in INEGI's 1:50,000 hydrography: the main channel, its streams of Strahler order 6 and up, which INEGI's place names label Río Casas Grandes. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "reasoning": "He takes the trail north along the Casas Grandes River towards Corralitos (4-06). INEGI names the river the Río Casas Grandes.",
+    "drawn": "Traced along Río Casas Grandes in INEGI's 1:50,000 hydrography: the river's main channel, as INEGI's place names label it, without its small side streams. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's 1:50,000 hydrography: Río Casas Grandes; streams of Strahler order 6 and up, with an INEGI toponym for the river within 300 m of the line. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -70448,7 +70497,7 @@
    },
    "properties": {
     "id": "j7-seg-42",
-    "name": "Corralitos before dawn to The attack on the river trail, and the gypsies' camp",
+    "name": "Corralitos before dawn to The river trail north of Corralitos",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -70465,8 +70514,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 90 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. Ground within 300 m of the river costs a fifth less, for the river trail. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near the river costs a little less, for the river trail. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 300 m of INEGI streams of Strahler order 5 and up cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -70970,7 +71020,7 @@
    },
    "properties": {
     "id": "j7-seg-43",
-    "name": "The attack on the river trail, and the gypsies' camp to The border, west of Dog Springs",
+    "name": "The river trail north of Corralitos to The border, west of Dog Springs",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -70987,8 +71037,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail (cost model lc-0.4, decision 0021). It shows a plausible way, not the one taken.",
-    "drawn": "Computed, not traced: the quickest way between the two stops for a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat), found over a 120 m grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost more time. Ground within 300 m of the river costs a fifth less, for the river trail. The cell path is then smoothed (Douglas-Peucker at 150 m, one round of corner cutting). Cost model lc-0.4, decision 0021."
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail. It shows a plausible way, not the one taken.",
+    "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near the river costs a little less, for the river trail. The line is then smoothed.",
+    "drawn_detail": "Least-cost path over a 120 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 300 m of INEGI streams of Strahler order 5 and up cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -71238,7 +71289,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "From Hermanas he rides the dusty road west to Hachita, today's NM 9, in Census TIGER (Luna and Grant counties).",
-    "drawn": "Traced along State Hwy 9 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along State Hwy 9 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): State Hwy 9. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -75590,7 +75642,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "Leaving Silver City, he rides east on the old road by the mines at Santa Rita (4-08): today's US 180 out of town, then NM 152, in Census TIGER 2023 (Grant County).",
-    "drawn": "Traced along US Hwy 180 and State Hwy 152 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along US Hwy 180 and State Hwy 152 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): US Hwy 180, State Hwy 152. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -75839,7 +75892,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "The old road east from the Santa Rita mines to San Lorenzo is today's NM 152, in Census TIGER (Grant County).",
-    "drawn": "Traced along State Hwy 152 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along State Hwy 152 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): State Hwy 152. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -76684,7 +76738,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "From San Lorenzo the old road east climbs over the Black Range at Emory Pass; today's NM 152, in Census TIGER (Grant and Sierra counties).",
-    "drawn": "Traced along State Hwy 152 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along State Hwy 152 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): State Hwy 152. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -77645,7 +77700,8 @@
     "source": "census-tiger",
     "source_licence": "Public domain",
     "reasoning": "Down from the Black Range onto the plain the old road east is today's NM 152 through Kingston and Hillsboro, in Census TIGER (Sierra County).",
-    "drawn": "Traced along State Hwy 152 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along State Hwy 152 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): State Hwy 152. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {

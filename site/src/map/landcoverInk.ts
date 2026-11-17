@@ -1,6 +1,6 @@
 import type { LandCover } from './tokens'
 
-// Land cover drawn in ink (decision 0036), one repeating texture per class, drawn over the land cover's colour, after the engraved land cover of the Carte générale de
+// Land cover drawn in ink (decision 0042), one repeating texture per class, drawn over the land cover's colour, after the engraved land cover of the Carte générale de
 // la Martinique (Dépôt général de la Marine, 1831): woods as dots, plantations and gardens as small marks in rows,
 // fields as ruled parcels, buildings as small black blocks. Each texture is drawn on a canvas in the browser, with
 // a fixed seed, so the same tile always looks the same; nothing here is copied from the map.

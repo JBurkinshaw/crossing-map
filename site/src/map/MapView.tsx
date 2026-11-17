@@ -1,6 +1,6 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState, type RefObject } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type RefObject } from 'react'
 import * as maplibregl from 'maplibre-gl'
-import type { LayerSpecification, StyleSpecification } from 'maplibre-gl'
+import type { GeoJSONSource, LayerSpecification, StyleSpecification } from 'maplibre-gl'
 import { AttributionControl, Map, NavigationControl, ScaleControl, type MapRef } from '@vis.gl/react-maplibre'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { Feature, Point } from 'geojson'
@@ -16,7 +16,7 @@ import type { Basemap, Ground, View } from './mode'
 import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
 import { WaterMarks } from './WaterMarks'
-import { contourText, glyphText, LANDCOVER_ARCHIVE, landcoverLayers, OBLIQUE_BOUNDS, OBLIQUE_MIN_ZOOM, obliqueLayers } from './relief'
+import { contourText, glyphText, LANDCOVER_ARCHIVE, landcoverLayers, OBLIQUE_BOUNDS, OBLIQUE_MIN_ZOOM, obliqueLayers, setVignetteOpacity } from './relief'
 import { closeAttribution, dataBase, exposeForScripts, fontsBase, motion, TERRAIN_EXAGGERATION, tilesBase } from './setup'
 import { baseLayerIds, literaryStyle, notObliqueIds } from './style'
 import { inkPatterns, RATIO as INK_RATIO } from './landcoverInk'
@@ -91,10 +91,15 @@ export function MapView(props: Props) {
   const [unavailable, setUnavailable] = useState(false)
   // Once created, the satellite map stays (hidden on the literary basemap): MapTiler counts each new map as a session.
   const [satelliteStarted, setSatelliteStarted] = useState(false)
-  // The ground of the vintage map: plain paper, land cover (decision 0034) in every view, or the satellite tint,
+  // The ground of the vintage map: plain paper, land cover (decision 0040) in every view, or the satellite tint,
   // the satellite map faded under the literary map in the Flat and Tilted views. The Oblique view's line work is
   // shifted north, so imagery would not line up under it; its land cover is shifted with it.
   const [ground, setGround] = useState<Ground>('paper')
+  // The Map menu and the open layer key share the map's right-hand side, and on desktop the menu would cover the
+  // top of the key: opening one closes the other.
+  const [opened, setOpened] = useState<'menu' | 'key' | null>(null)
+  const onMenuOpen = useCallback((open: boolean) => setOpened((o) => (open ? 'menu' : o === 'menu' ? null : o)), [])
+  const onKeyOpen = useCallback((open: boolean) => setOpened((o) => (open ? 'key' : o === 'key' ? null : o)), [])
   const tintAvailable = basemap === 'literary' && view !== 'oblique' && !unavailable
   const landcoverAvailable = basemap === 'literary'
   const wash = ground === 'tint' && tintAvailable
@@ -109,6 +114,8 @@ export function MapView(props: Props) {
   const [hovering, setHovering] = useState(false)
   // The Oblique view's archives, fetched the first time the reader turns it on; 'failed' if the list is missing.
   const [obliqueArchives, setObliqueArchives] = useState<string[] | 'failed' | null>(null)
+  // Which copy of the drawings the vignettes source holds: the style loads the flat one.
+  const vignettesShown = useRef(`${dataBase}vignettes.geojson`)
   useEffect(() => {
     if (view !== 'oblique' || obliqueArchives) return
     fetch(`${dataBase}oblique/archives.json`)
@@ -137,6 +144,14 @@ export function MapView(props: Props) {
     map.setLayoutProperty('contour-label', 'text-field', contourText(units))
   }, [units, loaded, mapRef])
 
+  // The drawings of the journey in focus at full strength, the others lighter.
+  const journey = stops[0]?.properties.journey ?? ''
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (!map || !loaded) return
+    setVignetteOpacity(map, journey)
+  }, [journey, loaded, mapRef])
+
   const onUnavailable = useCallback(() => {
     setUnavailable(true)
     onBasemap('literary')
@@ -160,11 +175,18 @@ export function MapView(props: Props) {
         }
       })
     }
+    // The drawings follow the story points north in the Oblique view: their source swaps to the oblique copy.
+    const vignettes = map.getSource('vignettes') as GeoJSONSource | undefined
+    const vignetteData = `${dataBase}${oblique ? 'oblique/' : ''}vignettes.geojson`
+    if (vignettes && vignettesShown.current !== vignetteData) {
+      vignettes.setData(vignetteData)
+      vignettesShown.current = vignetteData
+    }
     for (const id of new Set([...BASE_LAYERS, ...NOT_OBLIQUE])) {
       const hidden = (basemap !== 'literary' && BASE_LAYERS.has(id)) || (oblique && NOT_OBLIQUE.has(id))
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', hidden ? 'none' : 'visible')
     }
-    // The land cover's ink textures (decision 0036), drawn and added the first time the reader asks for land cover.
+    // The land cover's ink textures (decision 0042), drawn and added the first time the reader asks for land cover.
     if (landcover && !map.hasImage('ink-scrub')) {
       for (const { id, image } of inkPatterns(palette.ink, palette.water)) map.addImage(id, image, { pixelRatio: INK_RATIO })
     }
@@ -233,6 +255,7 @@ export function MapView(props: Props) {
         <VintageUnderlay
           main={mapRef}
           style={underlayStyle}
+          journey={journey}
           units={units}
           terrain={view === 'tilted' ? { url: `pmtiles://${tilesBase}terrain.pmtiles`, exaggeration: TERRAIN_EXAGGERATION } : null}
         />
@@ -271,7 +294,8 @@ export function MapView(props: Props) {
         >
           <NavigationControl position="top-left" showCompass={false} />
           <HomeControl onHome={onHome} />
-          <ScaleControl position="bottom-left" unit={units} maxWidth={140} />
+          {/* Narrower on phones, where a 140 px bar covered the stops framed near the map's bottom edge. */}
+          <ScaleControl position="bottom-left" unit={units} maxWidth={phone ? 72 : 140} />
           {/* Added after the scale, so MapLibre stacks it above. Each archive brings its own credit (the terrain
               lines wherever the hillshade shows); the Credits page has the rest. */}
           <AttributionControl position="bottom-left" compact customAttribution='<a href="#/credits">Credits</a>' />
@@ -294,7 +318,6 @@ export function MapView(props: Props) {
       {basemap === 'compare' && <CompareSwipe />}
       {loaded && <MapFrame mapRef={mapRef} shown={framed} />}
       <MapControls
-        phone={phone}
         basemap={basemap}
         onBasemap={onBasemap}
         unavailable={unavailable}
@@ -306,8 +329,11 @@ export function MapView(props: Props) {
         onGround={setGround}
         units={units}
         onUnits={onUnits}
+        menuOpen={opened === 'menu'}
+        onMenuOpen={onMenuOpen}
       />
-      {loaded && view !== 'oblique' && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}
+      {/* Not on phones: the inset would cover a fifth of a small map, and the Home button already brings back the whole journey. */}
+      {loaded && view !== 'oblique' && !phone && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}
       {view === 'oblique' && (
         <p className="notice" role="status">
           {obliqueArchives === 'failed' || obliqueFailed
@@ -330,7 +356,7 @@ export function MapView(props: Props) {
           </div>
         </div>
         {(basemap === 'literary' || basemap === 'compare') && (
-          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} landcover={landcover} />
+          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} units={units} phone={phone} open={opened === 'key'} onOpen={onKeyOpen} landcover={landcover} />
         )}
       </div>
     </div>

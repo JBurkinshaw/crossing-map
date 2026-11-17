@@ -1,4 +1,4 @@
-# 0035. The classic map is called the Vintage map
+# 0041. The classic map is called the Vintage map
 
 Status: accepted (2026-11-16).
 Phase: P1

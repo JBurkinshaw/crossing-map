@@ -77,4 +77,4 @@ Run locally, `tools/build-site.sh <checkout> <base> <out>` with no fourth argume
 
 ## Pending
 
-- The Oblique archives and `landcover.pmtiles` need a release (decision 0034). See [`roadmap.md`](roadmap.md).
+- The Oblique archives and `landcover.pmtiles` need a release (decision 0040). See [`roadmap.md`](roadmap.md).

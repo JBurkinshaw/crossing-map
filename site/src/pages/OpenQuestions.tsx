@@ -7,14 +7,14 @@ export function OpenQuestions({ questions }: { questions: OpenQuestion[] }) {
   return (
     <>
       <p className="lede">
-        Where the book, the gazetteers and other readers' maps disagree, the map shows one reading and says so.
+        Where the book, the gazetteers and other readers disagree, the map shows one reading and says so.
         These are the places still in question. Each card on the map carries its own, and a link to suggest a
         correction.
       </p>
       <p>
-        Other readers' maps used here: James Luther Bell's{' '}
+        Other readings used here: James Luther Bell’s{' '}
         <a href="https://ttu-ir.tdl.org/bitstreams/ec52ab01-a89b-423d-aee5-92df180a15c4/download">annotated dissertation</a> (Texas Tech University, 2000) and
-        Joe Hazelton's map of the novel on Gaia GPS. Questions about places you have not reached yet stay hidden.
+        Joe Hazelton’s reader’s map of the novel on Gaia GPS. Questions about places you have not reached yet stay hidden.
       </p>
       {questions.length === 0 ? (
         <p className="meta">No open questions up to this point in the book.</p>

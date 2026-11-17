@@ -61,9 +61,9 @@ Each journey is a route layer, with stops in the order the book tells them. "(ar
 
 **J2. Billy's first crossing, with the wolf (Part I).** Cloverdale → Cloverdale Creek road → Robertson's crossfence (area) → a low pass in the easternmost Guadalupes → a ranch house on the volcanic plain (area) → the boundary, a monument in sight → the Cajon Bonita (the book's spelling) trail south → passes of the Sierra de la Cabellera → the Bavispe valley → the river crossing where deputies take him (named Colonia de Oaxaca only in 1-10) → an unnamed mud-house settlement (area) → Colonia Morelos and the fair → the hacienda by the river (area; the book does not name it, and calls the river beside it the Batopito, which GeoNames spells Batepito) → the fight → into the Pilares Teras with the dead wolf.
 
-**J3. Billy alone in the Sierras, and home (Part II).** The Bavispe from a promontory → deep into the Sierras among the Indians' rancherías (area, weeks) → El Tigre, a mining town → a view east over the Bavispe barranca and the Carretas plain → the heretic's house at Huisiachepic, the ruined church, and the tale of Caborca → Tamichopa → Bacerac → Bavispe → Colonia de Oaxaca → Morelos → the road north toward Ojito → the border at Douglas → the old Douglas–Cloverdale road and a pass in the Guadalupes → the Animas Plain → the Parham house → Animas → Lordsburg (the sheriff) → the Websters' (Boyd).
+**J3. Billy alone in the Sierras, and home (Part II).** The Bavispe from a promontory → deep into the Sierras among the Indians' rancherías (area, weeks) → El Tigre, a mining town → a view east over the Bavispe barranca and the Carretas plain → the heretic's house at Huisiachepic, the ruined church, and the tale of Caborca → Tamichopa → Bacerac → Bavispe → Colonia de Oaxaca → Morelos → the road north towards Ojito → the border at Douglas → the old Douglas–Cloverdale road and a pass in the Guadalupes → the Animas Plain → the Parham house → Animas → Lordsburg (the sheriff) → the Websters' (Boyd).
 
-**J4. Billy and Boyd, for the horses (Parts II and III).** Lordsburg → the alkali flats → San Simon Valley → the highway east of Bowie → the old road over the Dos Cabezas → Apache Pass → route 666 down the Sulphur Springs Valley → Elfrida → McNeal → Douglas → Agua Prieta → Ojito → Morelos (midnight) → the river towns → Bacerac (the one-eyed horse) → along the western flank of the ranges that close the Bavispe valley → the trail to the plains of Chihuahua → Colonia Juárez and the Casas Grandes River bridge → the walled ruins of an ancient mud city (Paquimé, unnamed in the text) → Casas Grandes (the Ferrocarril Noroeste de México; Soto; La Babícora and Hearst named) → the road south toward San Diego → "the girl" rescued (area, on the road) → the Hacienda de San Diego ("L. T.", Luis Terrazas; the opera troupe) → south toward Mata Ortiz, Las Varas, and Babícora → the opera caravan on the Madera road below Las Varas (area) → river camps → the old wagon road from La Norteña across the Babícora plains and the Santa María valley → Las Varas → the road to Boquilla → the hacienda at Boquilla → Quijada → leave the road north of town for the river → San José → the river camp where Boyd is shot (area) → the workers' truck → the blind man's house, then Mata Ortiz → San Diego, where Billy finds Boyd → Casas Grandes at 3 a.m. for the doctor → back to San Diego → Boyd and "the girl" gone. The book's compass does not close between the wagon road and Las Varas; the stops keep the text's order (decision recorded in the roadmap's modelled-routes notes).
+**J4. Billy and Boyd, for the horses (Parts II and III).** Lordsburg → the alkali flats → San Simon Valley → the highway east of Bowie → the old road over the Dos Cabezas → Apache Pass → route 666 down the Sulphur Springs Valley → Elfrida → McNeal → Douglas → Agua Prieta → Ojito → Morelos (midnight) → the river towns → Bacerac (the one-eyed horse) → along the western flank of the ranges that close the Bavispe valley → the trail to the plains of Chihuahua → Colonia Juárez and the Casas Grandes River bridge → the walled ruins of an ancient mud city (Paquimé, unnamed in the text) → Casas Grandes (the Ferrocarril Noroeste de México; Soto; La Babícora and Hearst named) → the road south towards San Diego → "the girl" rescued (area, on the road) → the Hacienda de San Diego ("L. T.", Luis Terrazas; the opera troupe) → south towards Mata Ortiz, Las Varas, and Babícora → the opera caravan on the Madera road below Las Varas (area) → river camps → the old wagon road from La Norteña across the Babícora plains and the Santa María valley → Las Varas → the road to Boquilla → the hacienda at Boquilla → Quijada → leave the road north of town for the river → San José → the river camp where Boyd is shot (area) → the workers' truck → the blind man's house, then Mata Ortiz → San Diego, where Billy finds Boyd → Casas Grandes at 3 a.m. for the doctor → back to San Diego → Boyd and "the girl" gone. The book's compass does not close between the wagon road and Las Varas; the stops keep the text's order (decision recorded in the roadmap's modelled-routes notes).
 
 **J5. Billy looking for Boyd and "the girl" (Part III).** San Diego → Mata Ortiz → Boquilla → Santa Ana de Babícora (midnight) → the road west to Namiquipa, home of "the girl" → back through Santa Ana, La Boquilla, Las Varas → a camp on the river south of Mata Ortiz → south as far as Cuauhtémoc, north again to Namiquipa, the Buenaventura crossroads, Álamo, Galeana → Casas Grandes (December, broke).
 
@@ -109,7 +109,7 @@ The novel and Campbell's guide are under copyright, and the public site republis
 | GeoNames | CC BY 4.0 | "GeoNames", with a link |
 | Wikidata | CC0 | Courtesy link |
 | MapTiler | The free plan is non-commercial; logo and attribution required on screen | MapTiler logo and "© MapTiler © OpenStreetMap contributors" |
-| CEC North American Land Cover 2020 (30 m; the land cover, decision 0034) | CC BY 4.0; its classes are re-read with height, so the classes shown are ours | The CEC's citation, on the Credits page and in `data/README.md`; a short credit on the map wherever land cover shows |
+| CEC North American Land Cover 2020 (30 m; the land cover, decision 0040) | CC BY 4.0; its classes are re-read with height, so the classes shown are ours | The CEC's citation, on the Credits page and in `data/README.md`; a short credit on the map wherever land cover shows |
 | Huffman's Hachures script | GPL-3.0, vendored with its licence in `pipeline/relief/hachures/`, whose README lists every change; called as a separate process (decision 0015). The generated lines are our data | Credits page and README |
 | Reference images (Cartographers' Guild, Rumsey scans) | Not ours to republish. Images stay in `private/inspiration/`; the repo holds only indexes of titles and links (`docs/inspiration/`) | Links on the Credits page |
 | Public-domain art traced for vignettes and glyphs | Only works with clear PD status (US government reports, pre-1929 plates) | Credits page |
@@ -164,7 +164,7 @@ State is a `useReducer` plus the URL hash. Search is MiniSearch over places, sto
 The site explains itself at `#/about/how-its-built`:
 
 1. **The architecture diagram** (4.1), drawn in the site's ink style.
-2. **Decision records.** Vite imports `docs/decisions/*.md` at build time and the page lists them, so the page and the real decision log cannot drift.
+2. **Decision records.** Vite imports `docs/decisions/*.md` at build time and the page lists them, so the page and the real decision log cannot drift. The records name places and events from the whole book, so while spoilers are hidden the page shows a note in their place, with a button that confirms first, as "Show everything" does, and then shows them for that visit without changing the reader's progress. Vetting every record for later names would be more work and break with each new record.
 3. **Data lineage.** Counts by `certainty`, `source`, and `method`, computed from the GeoJSON at build time.
 4. **Numbers.** Each tile archive's size and the total data size, read at build time.
 5. **Links** to the repository, the downloads and schemas, and the credits.
@@ -184,7 +184,7 @@ The **vintage map** is ours, self-hosted, and the default. Satellite and Topo co
 
 ### 5.1 The vintage map: design brief
 
-The look is an endpaper map from a 1940s novel, drawn by a surveyor who also sketches: ink on toned paper, a hand-lettered feel, mountains drawn as mountains, rivers as living lines, and small drawings in the empty quarters. Everything under it is real geodata.
+The look is an endpaper map from a 1940s novel, drawn by a surveyor who also sketches: ink on toned paper, a hand-lettered feel, mountains drawn as mountains, rivers as living lines, and small drawings beside the places they stand for. Everything under it is real geodata.
 
 **References**, in three families:
 
@@ -225,9 +225,9 @@ The glyph families are still generated, now drawn with a pen treatment (`art/pen
 
 **Hillshade and 3D terrain** (`terrain.pmtiles`, decision 0011). AWS Terrain Tiles for the story box at zoom 5–10, repacked into our own raster-dem archive. MapLibre shades it in the browser and uses it for the Tilted view.
 
-**The Oblique view** (`crossing.plan_oblique`, decisions 0017, 0019 and 0034). Plan oblique relief: every point of the line work moves north in proportion to its height, so ranges stand up from a flat, north-up map. Its strokes follow the oblique maps in Carl Churchill's "Variety in hachure": long downhill strokes packed in shade, stipple on the flats, and heavy shadows. It covers the corridor of the legs ridden or walked, and the story layers are shifted to match in `data/oblique/`.
+**The Oblique view** (`crossing.plan_oblique`, decisions 0017, 0019 and 0040). Plan oblique relief: every point of the line work moves north in proportion to its height, so ranges stand up from a flat, north-up map. Its strokes follow the oblique maps in Carl Churchill's "Variety in hachure": long downhill strokes packed in shade, stipple on the flats, and heavy shadows. It covers the corridor of the legs ridden or walked, and the story layers are shifted to match in `data/oblique/`.
 
-**Land cover** (`crossing.landcover`, decisions 0034 and 0036). The CEC's North American Land Cover 2020, one classification for both countries, with its trees sorted by height after Brown's biotic communities, in eight classes. It covers the same corridor as the Oblique view: on the ground in `landcover.pmtiles` for Flat and Tilted, and shifted in the oblique archives for Oblique. Each class is drawn in its tint with an ink texture over it, after the engraved land cover of the 1831 *Carte générale de la Martinique* (decision 0036). Readers turn it on with the Ground switch.
+**Land cover** (`crossing.landcover`, decisions 0040 and 0042). The CEC's North American Land Cover 2020, one classification for both countries, with its trees sorted by height after Brown's biotic communities, in eight classes. It covers the same corridor as the Oblique view: on the ground in `landcover.pmtiles` for Flat and Tilted, and shifted in the oblique archives for Oblique. Each class is drawn in its tint with an ink texture over it, after the engraved land cover of the 1831 *Carte générale de la Martinique* (decision 0042). Readers turn it on with the Ground switch.
 
 ### 5.3 Satellite and Topo: MapTiler
 
@@ -276,7 +276,7 @@ The pipeline runs locally in Python, keeps the book text private, and writes onl
 1. **Episodes and mentions (private).** `crossing.extract` reads the owner's DRM-free EPUB. It splits the text into the 41 episodes at the capitalised scene openings, and finds the first episode that names each seed place, under any spelling the seeds list. It writes only episode numbers and counts, to `private/book/`.
 2. **Resolve names.** `crossing.gazetteer` matches each seed against USGS GNIS, GeoNames, and Wikidata inside the story box (about 104°–113° W, 27°–36° N). It scores candidates by expected feature type and region and by distance to the neighbouring stops. A seed is resolved only when every candidate agrees; otherwise it goes to review, with every candidate listed.
 3. **Review.** The owner checks picks against imagery and the text. Hand decisions are recorded in the place-override seeds, each with its reasoning.
-4. **Build the story.** `crossing.build_story` writes the places, stops, areas, and journeys. A segment follows the NHD flowline, TIGER road, or Natural Earth river its snap names, and is a gentle curve elsewhere. Inferred areas are circles sized to the doubt until they are drawn by hand (decision 0008).
+4. **Build the story.** `crossing.build_story` writes the places, stops, areas, and journeys. A segment follows the NHD flowline, TIGER road, or Natural Earth river its snap names, and is a gentle curve elsewhere. An inferred area starts as the ground within the stop's radius of doubt, cut by a rule to the ground its reasoning describes (decision 0020), until it is drawn by hand (decision 0008).
 5. **Relief and glyphs.** `crossing.peaks`, `crossing.landforms`, `crossing.hachures`, and `crossing.plan_oblique`, as in section 5.2.
 6. **Translations.** `crossing.translations`, as in section 8.
 7. **Validate.** `crossing.validate` checks every published file against its schema, and the spoiler rules that link files. `crossing.echo_check` checks that no run of eight words is shared with the novel.
@@ -292,11 +292,11 @@ The base is Lt. Jim Campbell's [A Translation of Spanish Passages in The Crossin
 
 **Method** (`crossing.translations`). Every Spanish sentence and phrase in the text is found by language identification (lingua) plus a Spanish word list, accent- and case-folded, and matched to guide entries by fuzzy matching (rapidfuzz). Matched entries anchor page numbers. Every line gets our own English, never the guide's, with a confidence, and a link to the guide page where one exists. The guide's English is never stored or compared.
 
-**Review.** Readers review translations: each line has a "Suggest a better translation" link to a prefilled GitHub issue, and accepted suggestions are credited in the changelog. A guide entry is never overwritten; a note sits beside it.
+**Review.** Readers review translations: each line has a "Suggest a better translation" link to a prefilled GitHub issue, and accepted suggestions are credited in the changelog. A guide entry is never overwritten; a note sits beside it. The episode, our confidence and the guide link fold under "About this translation" beneath each line.
 
-**Where it was spoken.** Each line points to a stop, place, or area where the text allows. Talk on the road points to a route segment, and the map outlines a corridor 2 km either side of it, labelled "on the road between X and Y". A selected place shows "Spoken here", and a selected line flies to its place.
+**Where it was spoken.** Each line points to a stop, place, or area where the text allows. Talk on the road points to a route segment, and the map outlines a corridor 2 km either side of it, labelled "on the road between X and Y". A selected place or stop shows "Spanish here", and a road "Spanish on this road"; a selected line flies to its place. Very common lines ("Sí", "No", "Gracias", "Bueno", "Adiós", "Buenas noches", "Señor", alone) are marked `common` by the pipeline and left out of these lists and the road's count, unless picked in search; "Vámonos" and "Está bien" are kept (decision 0035).
 
-**Search** covers Spanish, English, and place names, accent-insensitive, and obeys the reading progress ("Se murió" is itself a spoiler).
+**Search** covers Spanish, English, and place names, accent-insensitive, and obeys the reading progress ("Se murió" is itself a spoiler). It finds the common lines too. A visible "Search in:" select narrows it to one Part.
 
 ## 9. Interface
 
@@ -304,22 +304,24 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 
 | Pattern | Use |
 | --- | --- |
-| Onboarding | On the first visit only, an introduction says what the site is, then the reading-progress dialog opens. Both are remembered in `localStorage`; the panel's Introduction link and the About page bring the introduction back |
-| Timeline slider | Reading progress, one step per episode, labelled by Part |
+| Onboarding | One dialog on the first visit (decision 0034). It says what the site is and how to use the map, then asks "Have you finished *The Crossing*?". "Yes" shows everything; "Not yet" asks where the reader is up to. It opens again on each visit until the reader answers; the panel's Introduction link and the About page bring it back |
+| Timeline | Reading progress: the episodes' opening words, grouped by Part, plus "I haven't started". Shortcuts take a percentage (for ebooks) or, once `episodes.json` has pages, a Vintage page. A summary shows only for episodes up to the stored progress |
 | Data dimming | Routes not in focus fade; once the reader goes to a stop, the legs after it fade |
 | Route positioning | Back and Next through a journey's stops; the camera flies to each |
-| Basemap switch and swipe | Vintage, Compare, Satellite, Topo; Flat, Tilted, Oblique; the ground as Paper, Land cover, or Satellite tint |
-| Layer key | Journeys by ink, how sure each line is, passing places, tale places, inferred areas and regions, vignettes; the land cover classes when Land cover is on |
+| Basemap switch and swipe | Vintage, Compare, Satellite, Topo; Flat, Tilted, Oblique; the ground as Paper, Land cover, or Satellite tint. Folded under one Map button top right, on desktop and phone; a line under each row says what the chosen option does |
+| Layer key | In the title cartouche, in two tabs. The story: journeys by ink, how sure each line is, stops, grouped stops, places, inferred areas and regions, the false dawn. The land: the international boundary, state lines, the railway, unnamed towns, spot heights, the land cover classes when Land cover is on, the small marks of context and water places, mountains, drawings. Its tab panel scrolls if the screen is short; on phones it opens as a sheet from the bottom |
 | Feature selection | Tap to select; names on hover on desktop |
 | Search | Places, stops, and translations in one box |
-| Overview map | An inset of the whole region when zoomed in |
-| Cluster marker | Only where the map is crowded, around Cloverdale and the Peloncillos |
+| Overview map | An inset of the whole region when zoomed in; not on phones, where it would cover too much of the map |
+| Cluster marker | Only where the map is crowded, around Cloverdale and the Peloncillos. It says what it holds ("9 stops", "9 places"); a click or tap frames all its points at a zoom where they come apart |
 | Home button | Back to the whole journey |
 | How it's built | Section 4.3 |
 
+**The panel** opens with a slim header, "The Crossing · a reading map", with About and Introduction links; the footer links to the other pages. Then come reading progress, search, the journey and its stepper, and the card and stop. On phones the stepper is the drawer's peek row, and the header and progress badge sit straight under it, before the journey picker. A stop says what happens there: its episode ("Part I · *Two days later*") and that episode's spoiler-safe summary from `episodes.json`, then any note. Stops and cards name their certainty in plain words, from one table in the code (decision 0035): `located` is "Named and found", `approximate` "Roughly here", `inferred` "Worked out from clues", `reported` "Someone in the book says so", followed by the radius. A card puts the kind of place first ("Inferred area · Worked out from clues · within about 3 mi"). The source and its id sit under "How this was placed" with the reasoning. A route leg's card names its line as the key does instead.
+
 Avoid the kitchen sink (every layer on) and desert fog (an empty view with no cue). Empty desert is part of the book, so every view keeps a faint label or a route.
 
-**Spoiler mode.** On until the reader sets progress. A header badge always shows the setting and opens the slider. "Show everything" asks for confirmation. Progress is stored in `localStorage`.
+**Spoiler mode.** On until the reader answers the first-visit question. A header badge always says what is hidden ("Showing everything", "Hiding what's after Part I, episode 5: In the woods", or "Not set") and opens "Where are you up to?". There, "Show everything" asks for confirmation; the first visit's "Yes" does not, as it answers a direct question. Setting progress to an episode brings the stop the reader reached most recently into focus. Progress is stored in `localStorage`.
 
 **Usability targets.** Keyboard-reachable controls, safe-area insets, reduced motion respected, one-handed use on a phone, and smooth panning with every Part I layer on.
 
@@ -333,10 +335,12 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 
 - Each vignette stands on the stop or place it is for, with a `side`, a `min_zoom` from which it shows at every closer zoom, and a `priority` (decision 0026).
 - The drawing is set beside its pin on that side, a fixed gap away on screen, so it never covers the marker; no leader lines. Place labels draw over it; its caption is placed before every other label. The key says its position is approximate.
-- Vignettes belong to the vintage map only.
+- The side is the one where the drawing and its caption cover the fewest stops, route lines and other drawings at its first zoom; the seed's side breaks a tie. A drawing that would cover another drawing, a stop or more than its own width of route line on every side waits one zoom step, no more, so the drawings stay in view for context; there it takes its clearest side. A drawing as crowded one step closer keeps its zoom. Its `reasoning` says which. With the cap, 19 of the 54 drawings still touch the story at their first zoom (5 of them a stop marker), against 36 with the seed's sides and 7 with no cap (decision 0026).
+- Each drawing belongs to a journey (`journey`). Those of the journey in focus are at full strength, the others at 60%, as other journeys' route lines are lighter.
+- Vignettes belong to the vintage map only. In the Oblique view they stand at their shifted copies (`data/oblique/vignettes.geojson`), beside their shifted pins (decision 0039).
 - Spoiler mode hides those first seen after the reader's progress.
 
-**Candidates** (about 30; the anchors in `pipeline/seeds/vignettes.csv` are the current picks):
+**First candidates** (the site now has 54 drawings; the anchors in `pipeline/seeds/vignettes.csv` are the current picks):
 
 | Vignette | Anchor | Part |
 | --- | --- | --- |
@@ -385,12 +389,12 @@ One name per thing. Code identifiers that predate a name are noted.
 
 | Term | Meaning | Not |
 | --- | --- | --- |
-| Vintage map | Our own basemap: paper, ink, relief, labels. Code and tile names call it `literary` | "literary map" in reader-facing text; "Classic", its name until decision 0035 |
+| Vintage map | This site's own basemap: paper, ink, relief, labels. Code and tile names call it `literary` | "literary map" in reader-facing text; "Classic", its name until decision 0041 |
 | Satellite, Topo | MapTiler's imagery and topographic basemaps | |
 | Compare | The vintage map and satellite side by side, split by a swipe | "swipe mode" |
 | Satellite tint | The Ground option that puts faded satellite colour under the vintage map | "Land colour" |
 | Land cover | The Ground option that colours the vintage map by what grows or stands on it, in every view | "vegetation", "biomes" |
-| Flat, Tilted, Oblique | The three views of the vintage map. Oblique is plan oblique relief; its archives are `oblique-*.pmtiles` and its story layers `data/oblique/` | "Raised", its name until decision 0034 |
+| Flat, Tilted, Oblique | The three views of the vintage map. Oblique is plan oblique relief; its archives are `oblique-*.pmtiles` and its story layers `data/oblique/` | "Raised", its name until decision 0040 |
 | Episode | One of the novel's 41 scenes, written `part-number` (`3-09`) | chapter |
 | Journey | One of the seven route layers, J1 to J7 | trip, route (a route segment is one leg of a journey) |
 | Stop | A point in sequence on a journey | place (a place is a named location, which several stops may share) |

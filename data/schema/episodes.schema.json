@@ -13,7 +13,7 @@
       "opening": { "type": "string", "minLength": 1, "description": "The episode's opening words, which McCarthy sets in capitals." },
       "words": { "type": "integer", "minimum": 1, "description": "Length in words, for weighting the progress slider." },
       "pages": { "type": ["string", "null"], "description": "Vintage International page range, from the Campbell guide anchors." },
-      "summary": { "type": "string", "description": "A spoiler-safe one-line summary in our own words." }
+      "summary": { "type": "string", "description": "A spoiler-safe one-line summary in this site's own words." }
     }
   }
 }

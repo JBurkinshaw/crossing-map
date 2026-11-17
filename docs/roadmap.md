@@ -24,7 +24,6 @@ These were "open questions" in the build plan; they are project decisions, not q
 
 - **[decide] Licences.** MIT for code (except the GPL-3.0 hachure folder) and CC BY 4.0 for data and notes are in place but provisional. Confirm or change before launch.
 - **[decide] Name and domain.** "Map Enough" (from the trilogy's last line) or "The Crossing: A Reading Map"; a custom domain or `jburkinshaw.github.io/crossing-map`.
-- **[decide] Spoiler default.** On until set (as built) or ask on first visit only. "Show everything" confirms every time as built; the design once said once.
 - **[decide] Interface language.** English only for launch, or Spanish too.
 - **[decide] Portfolio framing.** Should How it's built carry the owner's name and links, or stay anonymous with a link in the footer?
 - **[decide] Vignette drawing.** Draw or trace them, or commission an illustrator for a consistent set of about 30.
@@ -34,6 +33,7 @@ These were "open questions" in the build plan; they are project decisions, not q
 - **[decide] Spoiler mode.**
   - Almost every mountain glyph is dated 1-01. Is that fine?
   - 21 reasoning texts cite later episodes. Rewrite them, or keep the notice?
+  - Rename the ids that name an event (`j4-shooting`, `j7-boyds-grave`, `vignette-taking-the-girl` and others, decision 0036)? They show in the published data and the sprite index.
 - **[decide] The drawer.** It opens at half height on first load so the progress badge and search show. Open at peek instead? Which places count as "far" for off-map arrows: the next stop when off screen, or every place named in the current episode? Should the terrain tile size (WebP or 512 px) be taken on with the relief work?
 - **[decide] Photos** (`review/stage-6/photos-README.md`). Drop aerial views (as now), or keep USDA orthophotos and ISS photos as a last resort for back-country places? Should the 55 places with no Wikidata link get one by search, to reach their images? And the picks themselves, in `review/stage-6/photos.csv`.
 - **[decide] Vignettes** (`review/stage-6/vignettes/README.md`): the next picks (the locomotive at Las Varas and the cranes are next in line). Placement is decided (decision 0026).
@@ -80,7 +80,7 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
 
 ### Stage 8 packets (2026-11-14)
 
-- **[decide] Interface** (`review/stage-8/ui/README.md`). The desktop controls box can cover a stop in the top-right corner: more padding in `frameStops`, or let the box fold on desktop too? "Satellite tint" or "Ground colour"? Should a click on a stop's town also open the town's card?
+- **[decide] Interface** (`review/stage-8/ui/README.md`). "Satellite tint" or "Ground colour"? Should a click on a stop's town also open the town's card? (The controls box covering a stop is settled: the box now folds under one Map button on desktop too.)
 - **[decide] Hillshade** (`review/stage-8/lab-hillshade/README.md`; MapTiler-like adopted, decision 0025). Build and release the 76 MB `terrain-hi.pmtiles` (tile zoom 11), then make the site change? Add localhost to the MapTiler key so the lab can show Topo? Publish the lab, or keep it dev-only?
 - **[decide] Wheeler study** (`review/stage-8/wheeler/README.md`; decisions 0022 to 0024 record what was adopted). Still open: long valley names, and the test-area questions in `review/stage-9/`.
 - **[decide] Streams** (`review/stage-8/streams/README.md`). Zoom 12 density; the box for order 2 streams, or a corridor (which could hint at later journeys); fetching the missing US HU8 units for full creek coverage; the braid fix in `rivers.strahler`; Mexican stream labels from toponym points.
@@ -150,9 +150,9 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - more traced legs (decision 0032): roads in US counties with no cached TIGER file, roads INEGI does not name, J7 leg 42 (its stop sits on a side channel), and the rest of `private/review/snap-candidates.md`
 - **Small:**
   - **[owner]** Restore the spoiler-leak job in `.github/workflows/deploy.yml` (paused 2026-11-14 to speed up deploys): delete its `if: false` and add it back to `build`'s `needs`. Until then, run `tools/spoiler-leak.mjs` locally before each push.
-  - **[owner]** Release the rebuilt Oblique archives with the new `landcover.pmtiles` (decision 0034): `oblique-*.pmtiles`, `landcover.pmtiles` and `data/oblique/` go out together ([`releasing-tiles.md`](releasing-tiles.md)). Until then the deployed site must keep `tiles-v11` and the old `data/oblique/archives.json`: the v11 Oblique archives lack the new strokes' `shade`, dots and land cover, `oblique-3.pmtiles` is missing, and the Land cover option draws nothing, so this branch stays off `main` and the preview until the release is cut and `tiles/release.txt` bumped in the same push.
-  - **[decide]** The Oblique view's lean is 4 (decision 0034). If the larger shift reads badly, or the story's pins jump too far between Flat and Oblique, try 3.
-  - **[decide]** Land cover covers the Oblique corridor only (decision 0034). Extending it to the story box needs the DEM of `copernicus-region/` and makes `landcover.pmtiles` larger.
+  - **[owner]** Release the rebuilt Oblique archives with the new `landcover.pmtiles` (decision 0040): `oblique-*.pmtiles`, `landcover.pmtiles` and `data/oblique/` go out together ([`releasing-tiles.md`](releasing-tiles.md)). Until then the deployed site must keep `tiles-v11` and the old `data/oblique/archives.json`: the v11 Oblique archives lack the new strokes' `shade`, dots and land cover, `oblique-3.pmtiles` is missing, and the Land cover option draws nothing, so this branch stays off `main` and the preview until the release is cut and `tiles/release.txt` bumped in the same push.
+  - **[decide]** The Oblique view's lean is 4 (decision 0040). If the larger shift reads badly, or the story's pins jump too far between Flat and Oblique, try 3.
+  - **[decide]** Land cover covers the Oblique corridor only (decision 0040). Extending it to the story box needs the DEM of `copernicus-region/` and makes `landcover.pmtiles` larger.
   - **[owner]** Review the Apache Pass glyph: its entry in `data/mountain_glyphs.geojson` is stale against what `crossing.peaks` now produces.
   - **[decide]** Stop `j2-colonia-oaxaca` is first seen in 1-09, before its place, which the book names in 1-10. `crossing.validate` allows it, because the stop's own name gives nothing away until then. Confirm, or date the stop 1-10.
   - **[decide]** The Oblique view's US streams come from NHD's display scale (`visibility`), not Strahler order as on the vintage map, so the two views rank streams differently.

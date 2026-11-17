@@ -61,7 +61,7 @@ What to learn from each:
 
 **Not found:** a Rumsey map of the Mexico North Western Railway (the Rio Grande, Sierra Madre and Pacific before 1909) or its surveys through Casas Grandes and Madera, and any Comisión Geográfico-Exploradora sheet for Chihuahua or Sonora. A browser search of the catalogue for "Nor-Oeste", "Sierra Madre" and "Casas Grandes" is the next step.
 
-## Land cover in ink (decision 0036)
+## Land cover in ink (decision 0042)
 
 | Map | Date | Scale | Author or publisher | Record |
 | --- | --- | --- | --- | --- |

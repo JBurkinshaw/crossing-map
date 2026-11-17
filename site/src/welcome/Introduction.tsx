@@ -1,25 +1,25 @@
-import { useEffect, useId, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
+import { useId } from 'react'
 
-// The introduction dialog: what the site is (showIntroduction.ts opens and remembers it).
-export function Introduction({ onClose }: { onClose: () => void }) {
-  const ref = useRef<HTMLDialogElement>(null)
-  const id = useId()
-  // Whatever had focus when it opened (the link), read at first render: the Start button's autoFocus takes focus
-  // before any effect runs. Focus returns there on close, as a modal dialog should.
-  const [opener] = useState(() => document.activeElement)
-  useEffect(() => {
-    const dialog = ref.current
-    if (dialog && !dialog.open) dialog.showModal()
-    // After the dialog has left the page: removing it would otherwise drop focus on the body.
-    return () => {
-      const back = opener as HTMLElement | null
-      requestAnimationFrame(() => back?.focus?.())
-    }
-  }, [opener])
-  return createPortal(
-    <dialog ref={ref} className="progress-dialog introduction" aria-labelledby={`${id}-title`} onCancel={onClose}>
-      <h2 id={`${id}-title`}>
+// The introduction: what the site is, then the one question that sets spoiler mode (decision 0034). It is the
+// first step of the reading-progress dialog (spoiler/ReadingProgress.tsx), which owns the <dialog>.
+
+type Props = {
+  titleId: string
+  // "Yes": the reader has finished the book; nothing is hidden.
+  onFinished: () => void
+  // "Not yet": on to the step that asks where they are.
+  onNotYet: () => void
+  // The reader has set their progress before: they may close it without answering again.
+  onClose?: () => void
+  // "More about this map" opens the About page, so the dialog closes.
+  onMore: () => void
+}
+
+export function Introduction({ titleId, onFinished, onNotYet, onClose, onMore }: Props) {
+  const question = useId()
+  return (
+    <>
+      <h2 id={titleId}>
         A reading map of <cite>The Crossing</cite>
       </h2>
       <p>
@@ -28,26 +28,34 @@ export function Introduction({ onClose }: { onClose: () => void }) {
         episode by episode, on real geographic data.
       </p>
       <p>
-        Every place says how sure it is. Places the book names come from gazetteers; places it only describes are
-        worked out from its clues and drawn as areas, with the reasoning written down. Where the book leaves us
-        guessing, the map says so, and readers can suggest a correction.
+        Every place says how sure it is. Places the book names come from gazetteers; where it only describes a place,
+        the map draws an area and writes down its reasoning; where it leaves the reader guessing, the map says so, and
+        readers can suggest a correction.
       </p>
-      <p>The map shows only what you have read so far. Next, tell it how far you are; you can change that at any time.</p>
-      <div className="progress-actions">
-        <button type="button" className="primary" autoFocus onClick={onClose}>
-          Start
+      <p>Press Next to follow a journey stop by stop, or tap anything on the map.</p>
+      <p id={question} className="progress-question">
+        Have you finished <cite>The Crossing</cite>?
+      </p>
+      <div className="progress-answers" role="group" aria-labelledby={question}>
+        <button type="button" onClick={onFinished}>
+          Yes – show me everything
         </button>
-        <a
-          className="introduction-more"
-          href="#/about"
-          onClick={() => {
-            onClose()
-          }}
-        >
+        {/* Focus starts here (ReadingProgress.tsx), so a reader who presses Enter straight away keeps spoilers
+            hidden. */}
+        <button type="button" data-autofocus onClick={onNotYet}>
+          Not yet – hide what’s ahead
+        </button>
+      </div>
+      <div className="progress-actions">
+        <a className="introduction-more" href="#/about" onClick={onMore}>
           More about this map
         </a>
+        {onClose && (
+          <button type="button" onClick={onClose}>
+            Close
+          </button>
+        )}
       </div>
-    </dialog>,
-    document.body,
+    </>
   )
 }

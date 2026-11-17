@@ -1,4 +1,4 @@
-"""Land cover for the vintage map (decision 0034): the CEC's North American Land Cover 2020, read with height bands
+"""Land cover for the vintage map (decision 0040): the CEC's North American Land Cover 2020, read with height bands
 after Brown's biotic communities, in eight classes.
 
 crossing.plan_oblique calls classify() for each strip of the corridor, and turns the classes into polygons twice:

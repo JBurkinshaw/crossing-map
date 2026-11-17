@@ -2,7 +2,7 @@
 // the app and check that nothing first seen later shows anywhere: the story data given to the map, the
 // features it renders, the stop markers, the panel (journey picker, stop list, stepping through every stop and
 // the road card of each stop with talk on the road, "Named elsewhere"), mountain glyphs, landform and pass names,
-// water and context places, vignettes,
+// water and context places, vignettes (in the Flat and Oblique views),
 // search results and the cards they open (places and the translations "Spoken here"), the layer key, the
 // reading-progress dialog, every page (About, How it's built, Open questions, Data, Credits), the Tilted,
 // compare and Oblique views, and the phone drawer at each height. A first visit straight to a page must leave
@@ -26,6 +26,7 @@ const layers = Object.fromEntries(
 const elsewhere = await read('elsewhere.json')
 const glyphs = (await read('mountain_glyphs.geojson')).features
 const vignettes = (await read('vignettes.geojson')).features
+const obliqueVignettes = (await read('oblique/vignettes.geojson')).features
 const landforms = (await read('landforms.geojson')).features
 const waterPlaces = (await read('water_places.geojson')).features
 const contextPlaces = (await read('context_places.geojson')).features
@@ -121,6 +122,19 @@ async function checkMap(page, reached, where) {
   return found.length
 }
 
+// Vignettes drawn later than this point: go to each, inside its zoom range, and look for it.
+async function checkVignettes(page, reached, where, list) {
+  for (const v of list.filter((f) => f.properties.first_seen > reached)) {
+    const [lon, lat] = v.geometry.coordinates
+    const zoom = Math.max(v.properties.min_zoom, 9)
+    await page.evaluate(([lo, la, z]) => window.__map.jumpTo({ center: [lo, la], zoom: z }), [lon, lat, zoom])
+    await idle(page)
+    const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['vignette', 'vignette-label'].filter((id) => window.__map.getLayer(id)) })
+      .map((f) => [f.properties.name, f.properties.first_seen]))
+    for (const [name, fs] of shown) if (fs > reached) leak(where, `vignette ${name} first seen ${fs}`)
+  }
+}
+
 // Until the map has drawn what it was asked for (at most 10 s: an idle event can be missed between checks).
 async function idle(page) {
   await page.evaluate(
@@ -150,26 +164,38 @@ async function checkPage(page, route, reached, where, later) {
     text: document.querySelector('.page').innerText,
   }))
   for (const [label, first_seen] of pageText.firstSeen) if (!allowed({ first_seen }, reached)) leak(`${where}, ${route}`, `item first seen ${first_seen}: ${label}`)
+  // The decision records name places and events from the whole book in prose the name check cannot catch, so they
+  // stay hidden behind a warning until the reader has reached the end.
+  if (route === '/about/how-its-built' && reached < episodes.at(-1).episode && (await page.locator('.page .record').count())) {
+    leak(`${where}, ${route}`, 'decision records shown')
+  }
   const known = [...reachedNames(reached)]
   for (const name of later) {
     if (pageText.text.includes(name) && !known.some((k) => k.includes(name))) leak(`${where}, ${route}`, `later name shown: ${name}`)
   }
 }
 
-// The reading-progress dialog: moved to the last episode, it must not summarise episodes past the stored
-// progress.
-async function checkProgressDialog(page, reached, where) {
-  if (!(await page.locator('dialog.progress-dialog[open]').count())) await page.locator('.progress-badge').click()
-  await page.locator('dialog[open] .progress-slider').focus()
-  await page.keyboard.press('End')
-  await page.waitForTimeout(200)
+// The text of the open dialog must not summarise any episode past `reached`.
+async function checkDialogText(page, reached, where) {
   const text = await page.locator('dialog[open]').innerText()
   for (const e of episodes) if (e.episode > reached && e.summary && text.includes(e.summary)) leak(where, `progress dialog summarises ${e.episode}`)
+}
+
+// The reading-progress dialog, opened from the badge: moved to the last episode with the picker, then with the
+// percentage shortcut, it must not summarise episodes past the stored progress.
+async function checkProgressDialog(page, reached, where) {
+  if (!(await page.locator('dialog.progress-dialog[open]').count())) await page.locator('.progress-badge').click()
+  await page.locator('dialog[open] .progress-episode').selectOption(episodes.at(-1).episode)
+  await page.waitForTimeout(200)
+  await checkDialogText(page, reached, `${where}, picker`)
+  await page.locator('dialog[open]').getByLabel(/percentage/).fill('100')
+  await page.waitForTimeout(200)
+  await checkDialogText(page, reached, `${where}, percentage`)
   await page.keyboard.press('Escape')
 }
 
 // A first visit opened straight on a page: the page and the progress dialog must both be usable (nothing open
-// inside an inert subtree), and choosing a position must work.
+// inside an inert subtree), and choosing a position must work: "Not yet", then "Show the map up to here".
 async function checkFirstVisitPages(browser, point) {
   for (const route of PAGES) {
     const where = `progress ${point ?? 'unset'}, first visit to ${route}`
@@ -181,8 +207,12 @@ async function checkFirstVisitPages(browser, point) {
     const blocked = await page.evaluate(() => [...document.querySelectorAll('dialog[open], .page')].filter((e) => e.closest('[inert]')).map((e) => e.className))
     for (const c of blocked) leak(where, `${c} is inside an inert element`)
     if (await page.locator('dialog[open]').count()) {
-      const choose = page.locator('dialog[open] button.primary')
-      if (await choose.count()) await choose.click({ timeout: 3000 }).catch(() => leak(where, 'progress dialog cannot be used'))
+      await page
+        .locator('dialog[open]')
+        .getByRole('button', { name: /^Not yet/ })
+        .click({ timeout: 3000 })
+        .then(() => page.locator('dialog[open] button.primary').click({ timeout: 3000 }))
+        .catch(() => leak(where, 'progress dialog cannot be used'))
     }
     // The page's own links must answer too.
     await page.locator('.page nav a', { hasText: 'Credits' }).click({ timeout: 3000 }).catch(() => leak(where, 'page links cannot be used'))
@@ -226,6 +256,7 @@ for (const point of POINTS) {
   const dialogOpen = await page.locator('dialog[open]').count()
   if (point === null) {
     if (!dialogOpen) leak(where, 'onboarding dialog did not open')
+    await checkDialogText(page, reached, `${where}, onboarding`)
     await page.keyboard.press('Escape')
     if (await page.locator('dialog[open]').count()) leak(where, 'Escape did not close the dialog')
   } else if (dialogOpen) leak(where, 'dialog opened although progress is stored')
@@ -289,10 +320,13 @@ for (const point of POINTS) {
   await page.selectOption('.search select', '0')
   await page.fill('.search input', '')
 
-  // The layer key, opened.
-  await page.locator('.layer-key summary').click()
-  await page.waitForTimeout(300)
-  await checkPanel(page, reached, `${where}, layer key`, later, lines)
+  // The layer key, opened, on each of its tabs.
+  await page.locator('.layer-key-toggle').click()
+  for (const tab of ['The story', 'The land']) {
+    await page.getByRole('tab', { name: tab }).click()
+    await page.waitForTimeout(300)
+    await checkPanel(page, reached, `${where}, layer key, ${tab}`, later, lines)
+  }
 
   // Glyphs named later than this point: go to each and look at what the map draws there.
   // Glyphs first seen 1-01 are the land itself, named from gazetteers; they show at every position.
@@ -328,19 +362,11 @@ for (const point of POINTS) {
     }
   }
 
-  // Vignettes drawn later than this point: go to each, inside its zoom range, and look for it.
-  for (const v of vignettes.filter((f) => f.properties.first_seen > reached)) {
-    // Leader lines are LineStrings: go to where they start.
-    const [lon, lat] = v.geometry.type === 'Point' ? v.geometry.coordinates : v.geometry.coordinates[0]
-    const zoom = Math.max(v.properties.min_zoom, 9)
-    await page.evaluate(([lo, la, z]) => window.__map.jumpTo({ center: [lo, la], zoom: z }), [lon, lat, zoom])
-    await idle(page)
-    const shown = await page.evaluate(() => window.__map.queryRenderedFeatures({ layers: ['vignette', 'vignette-label'].filter((id) => window.__map.getLayer(id)) })
-      .map((f) => [f.properties.name, f.properties.first_seen]))
-    for (const [name, fs] of shown) if (fs > reached) leak(where, `vignette ${name} first seen ${fs}`)
-  }
+  await checkVignettes(page, reached, where, vignettes)
 
-  // The Tilted view, then compare mode when satellite is available (it needs the MapTiler key).
+  // The Tilted view, then compare mode when satellite is available (it needs the MapTiler key). The switches
+  // fold under the Map button; clicks inside the open box leave it open.
+  await page.getByRole('button', { name: 'Map options' }).click()
   await page.getByRole('radio', { name: 'Tilted', exact: true }).click()
   await page.waitForTimeout(500)
   await idle(page)
@@ -364,6 +390,8 @@ for (const point of POINTS) {
   await idle(page)
   await checkMap(page, reached, `${where}, oblique`)
   await checkPanel(page, reached, `${where}, oblique panel`, later, lines)
+  // In the Oblique view the drawings stand where their oblique copies put them.
+  await checkVignettes(page, reached, `${where}, oblique`, obliqueVignettes)
 
   console.log(`${where}: ${features} map features checked, ${options.length} journeys offered, ${steps} panel steps, ${searched} searches`)
   await page.context().close()

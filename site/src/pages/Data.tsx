@@ -8,9 +8,9 @@ const LAYERS: Record<string, string> = {
   journeys: 'Route segments between consecutive stops, for all seven journeys: narrated paths, modelled paths and schematic curves.',
   mountain_glyphs: 'Summits and passes found in the Copernicus elevation model, named from GNIS and GeoNames.',
   landforms: 'Lines along the long axis of ranges, valleys, plains and mesas, for lettering their names.',
-  water_places: 'Springs, tanks, ranches and stations within 20 km of the journeys, from GNIS and GeoNames, with the book’s own pointing at their place.',
+  water_places: 'Springs, tanks, ranches and stations within 20 km of the journeys, from GNIS and GeoNames. The few the book names point to their own entry in the places layer.',
   context_places: 'Forts, ghost towns, mines, sawmills, churches, cemeteries, post offices, corrals, named wells, dry lakes and flats within 20 km of the journeys, from GNIS (with its 2021 national file) and GeoNames. None is dated: see the caveats.',
-  vignettes: 'Anchors for the map’s drawings, each in empty country near what it stands for, with its label and credit.',
+  vignettes: 'Anchors for the map’s drawings, each on or near the stop or place it stands for, with the side of the pin it is drawn on (beside the place, not on it, and not to scale), its label and its credit.',
 }
 
 // The other published files, by name.
@@ -32,13 +32,13 @@ const FIELDS: Record<string, string> = {
   part: 'Part of the novel, 1 to 4.',
   episode: 'Part and episode where it happens, for example 1-09.',
   first_seen: 'The earliest episode in which the feature may appear.',
-  certainty: 'located, approximate, inferred or reported (see the About page).',
+  certainty: 'located, approximate, inferred or reported (How it’s built maps each to the plain words the site shows).',
   uncertainty_m: 'Rough radius of doubt, in metres.',
   method: 'How the geometry was made: gazetteer match, computed, hand-drawn, a path the text names, modelled, schematic curve, or generated from elevation.',
   source: 'Where the geometry or name came from.',
   source_id: 'The feature’s identifier in that source.',
   source_licence: 'The licence of that source.',
-  note_safe: 'A short note in our own words that gives nothing away.',
+  note_safe: 'A short note in this site’s own words that gives nothing away.',
   reasoning: 'For inferred features: the clues used, in plain words.',
 }
 

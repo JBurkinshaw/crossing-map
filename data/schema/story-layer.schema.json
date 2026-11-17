@@ -153,7 +153,7 @@
           "description": "context: a real town the book never names, shown at every reading position so the map is not empty."
         },
         "characters": {"type": "array", "items": {"enum": ["billy", "boyd", "wolf", "girl"]}},
-        "journey": {"type": ["string", "null"], "pattern": "^J[1-7]$"},
+        "journey": {"type": ["string", "null"], "pattern": "^J[1-7]$", "description": "Stops and route segments: their journey. Vignettes: the journey of the stop the drawing stands for; for a place, of its first stop in reading order (or, where no journey stops there, of the nearest stop in the drawing's episode). The map draws the drawings of other journeys lighter."},
         "sequence": {"type": ["integer", "null"], "minimum": 1},
         "place_ref": {
           "type": ["string", "null"],
@@ -180,11 +180,15 @@
         "reasoning": {"type": ["string", "null"]},
         "outline_rule": {
           "type": ["string", "null"],
-          "description": "Inferred areas: how the outline was drawn. A draft is the stop's circle (uncertainty_m about the pin) cut by a rule to the ground its reasoning describes (crossing.area_drafts, decision 0020); null for a plain circle."
+          "description": "Inferred areas: how the outline was drawn. A draft is the stop's area (the ground within uncertainty_m of the pin) cut by a rule to the ground its reasoning describes (crossing.area_drafts, decision 0020); null where nothing cut the area."
         },
         "drawn": {
           "type": "string",
           "description": "Route segments: how the line was drawn (traced on a named road or river, computed as a least-cost path, or drawn as a curve), in words for the reader (decision 0032)."
+        },
+        "drawn_detail": {
+          "type": "string",
+          "description": "Route segments traced or modelled: the technical side of drawn (the dataset and features read, the grid, the smoothing, the model version), for data users. The card does not show it."
         },
         "cost_model": {
           "type": "string",
@@ -202,13 +206,13 @@
         "vignette": {"type": ["string", "null"], "description": "Vignettes: the drawing's name in the map sprite."},
         "stands_for": {"type": "string", "description": "Vignettes: what the drawing stands for in the book."},
         "label": {"type": "string", "description": "Vignettes: the short caption drawn under the drawing."},
-        "side": {"enum": ["n", "ne", "e", "se", "s", "sw", "w", "nw"], "description": "Vignettes: the side of the point the drawing is drawn on, beside the pin rather than on it."},
+        "side": {"enum": ["n", "ne", "e", "se", "s", "sw", "w", "nw"], "description": "Vignettes: the side of the point the drawing is drawn on, beside the pin rather than on it: the side where it covers the fewest stops, route lines and other drawings (crossing.build_vignettes), unless the seed fixes it."},
         "credit": {"type": "string", "description": "Vignettes: how the drawing was made and from what sources, with their licences."},
         "min_zoom": {
           "type": "number",
           "minimum": 0,
           "maximum": 24,
-          "description": "Vignettes: the first zoom at which the drawing may show; it shows at every zoom above it."
+          "description": "Vignettes: the first zoom at which the drawing may show; it shows at every zoom above it. crossing.build_vignettes raises the seed's zoom where the drawing would cover a stop or a route line further out, and says so in its reasoning."
         },
         "priority": {
           "type": "integer",
@@ -437,7 +441,7 @@
                   "required": ["place_ref"],
                   "properties": {"kind": {"enum": ["vignette", "vignette-leader"]}},
                   "if": {"properties": {"kind": {"const": "vignette"}}},
-                  "then": {"required": ["vignette", "stands_for", "min_zoom", "priority"]}
+                  "then": {"required": ["vignette", "stands_for", "min_zoom", "priority", "journey"]}
                 }
               }
             }

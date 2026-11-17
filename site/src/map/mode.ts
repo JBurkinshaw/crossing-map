@@ -6,7 +6,7 @@ import { useCallback, useState } from 'react'
 export type Basemap = 'literary' | 'satellite' | 'topo' | 'compare'
 // Views of the literary map: flat (the default), tilted (live 3D terrain) and oblique (plan oblique relief).
 export type View = 'flat' | 'tilted' | 'oblique'
-// The ground under the vintage map: plain paper, land cover (decision 0034), or the faded satellite map.
+// The ground under the vintage map: plain paper, land cover (decision 0040), or the faded satellite map.
 export type Ground = 'paper' | 'landcover' | 'tint'
 
 // The views apply to the vintage basemap, and Flat and Tilted to compare mode too (the Oblique view's line work

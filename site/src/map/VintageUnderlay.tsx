@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type RefObject } from 'react'
 import * as maplibregl from 'maplibre-gl'
 import type { StyleSpecification } from 'maplibre-gl'
 import type { MapRef } from '@vis.gl/react-maplibre'
-import { contourText, glyphText } from './relief'
+import { contourText, glyphText, setVignetteOpacity } from './relief'
 import { palette } from './tokens'
 import { addWaterMarks } from './waterPlaces'
 import type { Units } from '../units'
@@ -19,6 +19,8 @@ type Props = {
   units: Units
   // In the Tilted view, the same 3D terrain as the main map, so the base stays under the story layers.
   terrain: { url: string; exaggeration: number } | null
+  // The journey in focus: its drawings at full strength, the others lighter, as on the main map.
+  journey: string
 }
 
 function setUnits(map: maplibregl.Map, units: Units) {
@@ -26,7 +28,7 @@ function setUnits(map: maplibregl.Map, units: Units) {
   map.setLayoutProperty('contour-label', 'text-field', contourText(units))
 }
 
-export default function VintageUnderlay({ main, style, units, terrain }: Props) {
+export default function VintageUnderlay({ main, style, units, terrain, journey }: Props) {
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
   // map.loaded() is false again whenever tiles load, so the first load is recorded here.
@@ -61,6 +63,11 @@ export default function VintageUnderlay({ main, style, units, terrain }: Props) 
     const map = mapRef.current
     if (map && ready) setUnits(map, units)
   }, [units, ready])
+
+  useEffect(() => {
+    const map = mapRef.current
+    if (map && ready) setVignetteOpacity(map, journey)
+  }, [journey, ready])
 
   const terrainUrl = terrain?.url
   const exaggeration = terrain?.exaggeration

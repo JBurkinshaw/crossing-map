@@ -10,6 +10,6 @@ Oblique and block-diagram maps from Carl Churchill's post [Variety in hachure](h
 | Charles H. Owens, *The Panama Canal*, Los Angeles Times | 1928 | The "comic-book" strokes: shade as solid black flames, lit faces left blank | [UWM Libraries, AGS Library](https://collections.lib.uwm.edu/digital/collection/agdm/id/32853) |
 | U.S. Exploring Expedition, *Map of Upolu Island, Samoa* | 1839 | Hachures with land cover drawn in profile at an exaggerated size; villages as small blocks | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Upolu_map,_US_Ex._Ex.,_1839.jpg) |
 
-The Oblique view follows three of them, Alpha, Holmes and Owens (decision 0034).
+The Oblique view follows three of them, Alpha, Holmes and Owens (decision 0040).
 
 The post also points to Daniel Huffman's 3D hachures, [A new take on an old style](https://somethingaboutmaps.wordpress.com/2024/10/29/a-new-take-on-an-old-style/) (2024), the closest modern example of strict hachures in perspective.

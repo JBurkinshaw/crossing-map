@@ -33,7 +33,9 @@ for (const [name, v] of Object.entries(site)) {
   await gotoMap(page, baseUrl, v)
   await page.waitForTimeout(2500)
   if (v.tilted) {
+    await page.getByRole('button', { name: 'Map options' }).click()
     await page.getByRole('radio', { name: 'Tilted' }).click()
+    await page.keyboard.press('Escape')
     await page.waitForTimeout(4000)
   }
   await page.screenshot({ path: path.join(out, `${name}.jpg`), type: 'jpeg', quality: 80 })

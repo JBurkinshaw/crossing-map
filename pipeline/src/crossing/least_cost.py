@@ -356,19 +356,30 @@ def route(a: tuple[float, float], b: tuple[float, float], leg: dict) -> dict:
     return out
 
 
-def drawn(leg: dict, res_m: float) -> str:
-    """How a modelled leg was drawn, in words, for the "How this line was drawn" section of its card."""
-    who = ("a wolf on foot (Tobler's hiking speed, about 5 km/h on the flat)" if leg["mode"] == "wolf"
-           else "a horse at a walk (Tobler's hiking function scaled to 6 km/h on the flat)")
-    corridor = (" Ground within 1 km of today's unpaved tracks and the railways costs a fifth less, standing in "
-                "for the roads of the time." if leg.get("road")
-                else " Ground within 300 m of the river costs a fifth less, for the river trail." if leg.get("river")
-                else "")
-    return (f"Computed, not traced: the quickest way between the two stops for {who}, found over a {res_m:.0f} m "
-            f"grid of the Copernicus 30 m elevation model. Steep ground, canyon walls, river fords and lakes cost "
-            f"more time{' and the wolf keeps clear of towns' if leg['mode'] == 'wolf' else ''}.{corridor} The "
-            f"cell path is then smoothed (Douglas-Peucker at {SIMPLIFY_M:.0f} m, one round of corner cutting). "
-            f"Cost model {MODEL}, decision 0021.")
+def drawn(leg: dict) -> str:
+    """How a modelled leg was drawn, in plain words, for the "How this line was drawn" section of its card. The
+    grid, the smoothing and the model version are in drawn_detail(), which the card does not show."""
+    wolf = leg["mode"] == "wolf"
+    who = "a wolf on foot, about 5 km/h on the flat" if wolf else "a horse at a walk, about 6 km/h on the flat"
+    corridor = (" Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of "
+                "the time." if leg.get("road")
+                else " Ground near the river costs a little less, for the river trail." if leg.get("river") else "")
+    return (f"Worked out, not traced: the quickest way between the two stops for {who}, over the ground as the "
+            f"elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time"
+            f"{', and the wolf keeps clear of towns' if wolf else ''}.{corridor} The line is then smoothed.")
+
+
+def drawn_detail(leg: dict, res_m: float) -> str:
+    """The technical side of drawn(), for data users: grid, speed rule, corridor, smoothing and model version."""
+    speed = ("Tobler's hiking function" if leg["mode"] == "wolf"
+             else "Tobler's hiking function scaled to 6 km/h on the flat")
+    corridor = ("; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times"
+                if leg.get("road") else
+                f"; cells within 300 m of INEGI streams of Strahler order {leg['river']} and up cost 0.8 times"
+                if leg.get("river") else "")
+    return (f"Least-cost path over a {res_m:.0f} m grid of the Copernicus GLO-30 elevation model, {speed}{corridor}; "
+            f"simplified by Douglas-Peucker at {SIMPLIFY_M:.0f} m and one round of Chaikin corner cutting. Cost model "
+            f"{MODEL} (crossing.least_cost, decision 0021).")
 
 
 def main() -> None:

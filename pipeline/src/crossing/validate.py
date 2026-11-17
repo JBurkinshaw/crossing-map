@@ -23,7 +23,7 @@ SCHEMAS = DATA / "schema"
 SPRITE_INDEX = SITE_PUBLIC / "sprites" / "glyphs.json"
 LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs", "vignettes", "landforms", "water_places",
           "context_places"]
-OBLIQUE_LAYERS = ["places", "stops", "areas", "journeys"]
+OBLIQUE_LAYERS = ["places", "stops", "areas", "journeys", "vignettes"]
 MAX_DECIMALS = 5  # about 1 m; docs/design.md, section 6, rounds all coordinates to this
 INCIPIT_WORDS = 5  # the most Spanish words of a line the site may publish (docs/design.md, section 3)
 
@@ -139,13 +139,17 @@ def check_region_rings(doc) -> list[str]:
 
 
 def check_oblique(flat: dict, oblique: dict, layer: str) -> list[str]:
-    """The Oblique copy holds the same features as the flat layer, each first seen at the same episode."""
-    a = {p["id"]: p.get("first_seen") for p in properties(flat)}
-    b = {p["id"]: p.get("first_seen") for p in properties(oblique)}
+    """The Oblique copy holds the same features as the flat layer, with the same properties: only the points move.
+    A text change in the flat layer needs `crossing.plan_oblique --properties`, or the copy keeps the old text."""
+    a = {p["id"]: p for p in properties(flat)}
+    b = {p["id"]: p for p in properties(oblique)}
     errors = [f"{fid}: only in the flat layer" for fid in sorted(a.keys() - b.keys())]
     errors += [f"{fid}: only in the oblique layer" for fid in sorted(b.keys() - a.keys())]
-    errors += [f"{fid}: first_seen {b[fid]} differs from the flat layer's {a[fid]}"
-               for fid in sorted(a.keys() & b.keys()) if a[fid] != b[fid]]
+    for fid in sorted(a.keys() & b.keys()):
+        differ = sorted(k for k in a[fid].keys() | b[fid].keys() if a[fid].get(k) != b[fid].get(k))
+        if differ:
+            errors.append(f"{fid}: {', '.join(differ)} differ from the flat layer's; "
+                          "run crossing.plan_oblique --properties")
     return errors
 
 

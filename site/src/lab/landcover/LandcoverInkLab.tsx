@@ -8,7 +8,7 @@ import { LAND_COVERS, palette } from '../../map/tokens'
 import { dataUrl, inkPatterns, RATIO as INK_RATIO } from '../../map/landcoverInk'
 import './landcover.css'
 
-// The land cover drawn in ink (decision 0036): each class as a repeating texture over its colour, after the engraved
+// The land cover drawn in ink (decision 0042): each class as a repeating texture over its colour, after the engraved
 // land cover of the Carte générale de la Martinique (1831), which an r/mapmaking thread on "land cover hachures"
 // pointed to. The wash of the site's colours under the ink can be turned down to the ink alone. Vintage map, Flat view only; the same fills would
 // cover the Oblique view's shifted polygons.

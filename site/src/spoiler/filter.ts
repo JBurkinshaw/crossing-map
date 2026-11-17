@@ -12,6 +12,7 @@ export function shownAt(props: GeoJsonProperties, reached: string): boolean {
 
 const EPISODE_ID = /\b[1-4]-(0[1-9]|1[0-4])\b/g
 const REASONING_HIDDEN = 'How this was placed draws on later episodes; it shows once you have read further.'
+const DRAWN_HIDDEN = 'How this line was drawn cites later episodes; it shows once you have read further.'
 
 function safeProps(props: GeoJsonProperties, reached: string, spoilers: boolean): GeoJsonProperties {
   if (!spoilers || !props) return props
@@ -19,8 +20,10 @@ function safeProps(props: GeoJsonProperties, reached: string, spoilers: boolean)
   // Some reasoning cites the episode that confirms a place, which can be later than the place's first mention.
   const later = (text: unknown) => typeof text === 'string' && (text.match(EPISODE_ID) ?? []).some((id) => id > reached)
   if (later(rest.reasoning)) rest.reasoning = REASONING_HIDDEN
-  // An inferred area's outline rule is reasoning too.
+  // An inferred area's outline rule is reasoning too, and so is how a leg's line was drawn.
   if (later(rest.outline_rule)) rest.outline_rule = REASONING_HIDDEN
+  if (later(rest.drawn)) rest.drawn = DRAWN_HIDDEN
+  if (later(rest.drawn_detail)) rest.drawn_detail = DRAWN_HIDDEN
   return rest
 }
 
