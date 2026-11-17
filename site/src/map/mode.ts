@@ -17,15 +17,19 @@ export const viewAvailable = (basemap: Basemap, view: View) =>
   basemap === 'literary' || (basemap === 'compare' && view !== 'oblique')
 
 export function useMapMode() {
-  const [basemap, setBasemap] = useState<Basemap>('literary')
+  const [{ basemap, compareWith }, setMode] = useState<{ basemap: Basemap; compareWith: CompareWith }>({ basemap: 'literary', compareWith: 'satellite' })
   const [chosenView, setView] = useState<View>('flat')
-  const [compareWith, setCompareWith] = useState<CompareWith>('satellite')
   const view: View = viewAvailable(basemap, chosenView) ? chosenView : 'flat'
-  // Compare from the Oblique view keeps the relief standing up, as Tilted.
+  // Compare from the Oblique view keeps the relief standing up, as Tilted. In Compare, Satellite or Topo sets the
+  // map right of the swipe; choosing the map already there shows it on its own (decision 0046).
   // Stable across renders: SatelliteMap rebuilds its map when a handler it depends on changes.
   const chooseBasemap = useCallback((next: Basemap) => {
     if (next === 'compare') setView((v) => (v === 'oblique' ? 'tilted' : v))
-    setBasemap(next)
+    setMode((m) =>
+      m.basemap === 'compare' && (next === 'satellite' || next === 'topo') && next !== m.compareWith
+        ? { ...m, compareWith: next }
+        : { ...m, basemap: next },
+    )
   }, [])
-  return { basemap, chooseBasemap, view, setView, compareWith, setCompareWith }
+  return { basemap, chooseBasemap, view, setView, compareWith }
 }

@@ -66,8 +66,8 @@ type Props = {
   onBasemap: (basemap: Basemap) => void
   view: View
   onView: (view: View) => void
+  // The map compare mode sets against the vintage map.
   compareWith: CompareWith
-  onCompareWith: (compareWith: CompareWith) => void
   // The latest episode whose features may show (spoiler mode); the story layers arrive already filtered.
   reached: string
   // The oblique copies of the story layers could not be loaded.
@@ -81,7 +81,7 @@ type Props = {
 
 export function MapView(props: Props) {
   const { mapRef, story, stops, stopIndex, onSelectStop, onMapClick, selectedId, aheadFrom, onHome, reached } = props
-  const { basemap, onBasemap, view, onView, compareWith, onCompareWith, obliqueFailed, corridor, units, onUnits } = props
+  const { basemap, onBasemap, view, onView, compareWith, obliqueFailed, corridor, units, onUnits } = props
   // Built once with the progress and units at first render; later changes go through setFilter and
   // setLayoutProperty below.
   const [style] = useState(() => styleUpTo(literary(units), reached))
@@ -338,7 +338,6 @@ export function MapView(props: Props) {
         view={view}
         onView={onView}
         compareWith={compareWith}
-        onCompareWith={onCompareWith}
         ground={ground}
         tintAvailable={tintAvailable}
         landcoverAvailable={landcoverAvailable}

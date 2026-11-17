@@ -57,7 +57,7 @@ export default function App() {
     for (const t of translations) if (t.location_ref) at.set(t.location_ref, [...(at.get(t.location_ref) ?? []), t])
     return at
   }, [translations])
-  const { basemap, chooseBasemap, view, setView, compareWith, setCompareWith } = useMapMode()
+  const { basemap, chooseBasemap, view, setView, compareWith } = useMapMode()
   // The Oblique view draws the story where the oblique line work puts it: the copies in data/oblique/, fetched the
   // first time the reader turns it on.
   const [obliqueWanted, setObliqueWanted] = useState(false)
@@ -180,7 +180,6 @@ export default function App() {
         view={view}
         onView={setView}
         compareWith={compareWith}
-        onCompareWith={setCompareWith}
         reached={reached}
         obliqueFailed={obliqueAll === 'failed'}
         corridor={corridor}

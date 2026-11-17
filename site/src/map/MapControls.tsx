@@ -16,13 +16,9 @@ const COMPARE_LABEL = (
 )
 const BASEMAPS: { id: Basemap; label: ReactNode; description: string }[] = [
   { id: 'literary', label: 'Vintage', description: "This site’s own map, in ink on paper" },
-  { id: 'compare', label: COMPARE_LABEL, description: 'Vintage and satellite or Topo side by side: drag the line' },
+  { id: 'compare', label: COMPARE_LABEL, description: 'Vintage beside satellite or Topo: drag the line. Pick Satellite or Topo for the right side, and pick it again to see it alone' },
   { id: 'satellite', label: 'Satellite', description: 'Satellite imagery of today, from MapTiler' },
   { id: 'topo', label: 'Topo', description: 'Roads, places and contours of today, from MapTiler' },
-]
-const COMPARE_WITH: { id: CompareWith; label: string; description: string }[] = [
-  { id: 'satellite', label: 'Satellite', description: 'Satellite imagery right of the line' },
-  { id: 'topo', label: 'Topo', description: 'Roads, places and contours of today right of the line' },
 ]
 const VIEWS: { id: View; label: string; description: string }[] = [
   { id: 'flat', label: 'Flat', description: 'The map seen straight down' },
@@ -39,7 +35,6 @@ type Props = {
   onView: (view: View) => void
   // The map compare mode sets against the vintage map.
   compareWith: CompareWith
-  onCompareWith: (compareWith: CompareWith) => void
   ground: Ground
   tintAvailable: boolean
   landcoverAvailable: boolean
@@ -54,7 +49,7 @@ type Props = {
 // The map's switches, folded into one Map button top right, so the open box never sits over a stop the reader
 // is looking at (the folded button is small enough for frameStops' padding to clear).
 export function MapControls(props: Props) {
-  const { basemap, onBasemap, unavailable, view, onView, compareWith, onCompareWith, ground, tintAvailable, landcoverAvailable, onGround, units, onUnits, menuOpen, onMenuOpen: setMenuOpen } = props
+  const { basemap, onBasemap, unavailable, view, onView, compareWith, ground, tintAvailable, landcoverAvailable, onGround, units, onUnits, menuOpen, onMenuOpen: setMenuOpen } = props
   // A choice the current view cannot draw shows as paper, and comes back when the view can draw it again.
   const shown = (ground === 'tint' && !tintAvailable) || (ground === 'landcover' && !landcoverAvailable) ? 'paper' : ground
   const menuBox = useRef<HTMLDivElement>(null)
@@ -117,12 +112,6 @@ export function MapControls(props: Props) {
             onChange={onBasemap}
           />
         </div>
-        {basemap === 'compare' && (
-          <div className="control-row">
-            <span className="control-label" aria-hidden="true">With</span>
-            <Switch label="Compare the vintage map with" options={COMPARE_WITH.map((c) => ({ ...c, disabled: false }))} value={compareWith} onChange={onCompareWith} />
-          </div>
-        )}
         <div className="control-sub" data-off={off || undefined}>
           <div className="control-row">
             <span className="control-label" aria-hidden="true">View</span>

@@ -308,7 +308,7 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 | Timeline | Reading progress: the episodes' opening words, grouped by Part, plus "I haven't started". Shortcuts take a percentage (for ebooks) or, once `episodes.json` has pages, a Vintage page. A summary shows only for episodes up to the stored progress |
 | Data dimming | Routes not in focus fade; once the reader goes to a stop, the legs after it fade |
 | Route positioning | Back and Next through a journey's stops; the camera flies to each |
-| Basemap switch and swipe | Vintage, Compare, Satellite, Topo; in Compare, Satellite or Topo as the other side; Flat, Tilted, Oblique; the ground as Paper, Land cover, or Satellite tint. Folded under one Map button top right, on desktop and phone; a line under each row says what the chosen option does |
+| Basemap switch and swipe | Vintage, Compare, Satellite, Topo (in Compare, Satellite or Topo picks the other side); Flat, Tilted, Oblique; the ground as Paper, Land cover, or Satellite tint. Folded under one Map button top right, on desktop and phone; a line under each row says what the chosen option does |
 | Layer key | In the title cartouche, in two tabs. The story: journeys by ink, how sure each line is, stops, grouped stops, places, inferred areas and regions, the false dawn. The land: the international boundary, state lines, the railway, unnamed towns, spot heights, the land cover classes when Land cover is on, the small marks of context and water places, mountains, drawings. Its tab panel scrolls if the screen is short; on phones it opens as a sheet from the bottom |
 | Feature selection | Tap to select; names on hover on desktop |
 | Search | Places, stops, and translations in one box |
