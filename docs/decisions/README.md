@@ -60,6 +60,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0043 MapTiler's logo and credits in the map's own controls | accepted |
 | 0044 Reader feedback through a Tally form, discussion on Reddit | accepted |
 | 0045 The data and notes stay under CC BY 4.0 | accepted |
+| 0046 Compare with satellite or Topo | accepted |
 
 ## Template
 

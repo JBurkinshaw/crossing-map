@@ -8,6 +8,8 @@ export type Basemap = 'literary' | 'satellite' | 'topo' | 'compare'
 export type View = 'flat' | 'tilted' | 'oblique'
 // The ground under the vintage map: plain paper, land cover (decision 0040), or the faded satellite map.
 export type Ground = 'paper' | 'landcover' | 'tint'
+// The MapTiler map compare mode sets against the vintage map, right of the swipe (decision 0046).
+export type CompareWith = 'satellite' | 'topo'
 
 // The views apply to the vintage basemap, and Flat and Tilted to compare mode too (the Oblique view's line work
 // is shifted north, so it would not line up with the imagery); satellite and topo are always flat.
@@ -17,6 +19,7 @@ export const viewAvailable = (basemap: Basemap, view: View) =>
 export function useMapMode() {
   const [basemap, setBasemap] = useState<Basemap>('literary')
   const [chosenView, setView] = useState<View>('flat')
+  const [compareWith, setCompareWith] = useState<CompareWith>('satellite')
   const view: View = viewAvailable(basemap, chosenView) ? chosenView : 'flat'
   // Compare from the Oblique view keeps the relief standing up, as Tilted.
   // Stable across renders: SatelliteMap rebuilds its map when a handler it depends on changes.
@@ -24,5 +27,5 @@ export function useMapMode() {
     if (next === 'compare') setView((v) => (v === 'oblique' ? 'tilted' : v))
     setBasemap(next)
   }, [])
-  return { basemap, chooseBasemap, view, setView }
+  return { basemap, chooseBasemap, view, setView, compareWith, setCompareWith }
 }

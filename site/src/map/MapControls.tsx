@@ -1,6 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import type { Units } from '../units'
-import { viewAvailable, type Basemap, type Ground, type View } from './mode'
+import { viewAvailable, type Basemap, type CompareWith, type Ground, type View } from './mode'
 import { Switch } from './Switch'
 
 // Compare sits between the two maps it compares: its word, after a split-frame icon.
@@ -16,12 +16,14 @@ const COMPARE_LABEL = (
 )
 const BASEMAPS: { id: Basemap; label: ReactNode; description: string }[] = [
   { id: 'literary', label: 'Vintage', description: "This site’s own map, in ink on paper" },
-  { id: 'compare', label: COMPARE_LABEL, description: 'Vintage and satellite side by side: drag the line' },
+  { id: 'compare', label: COMPARE_LABEL, description: 'Vintage and satellite or Topo side by side: drag the line' },
   { id: 'satellite', label: 'Satellite', description: 'Satellite imagery of today, from MapTiler' },
   { id: 'topo', label: 'Topo', description: 'Roads, places and contours of today, from MapTiler' },
 ]
-// In compare mode the two maps it compares show as paired, in a lighter way than the switch that is on.
-const PAIRED: Basemap[] = ['literary', 'satellite']
+const COMPARE_WITH: { id: CompareWith; label: string; description: string }[] = [
+  { id: 'satellite', label: 'Satellite', description: 'Satellite imagery right of the line' },
+  { id: 'topo', label: 'Topo', description: 'Roads, places and contours of today right of the line' },
+]
 const VIEWS: { id: View; label: string; description: string }[] = [
   { id: 'flat', label: 'Flat', description: 'The map seen straight down' },
   { id: 'tilted', label: 'Tilted', description: 'The terrain in 3D, tilted towards the horizon' },
@@ -35,6 +37,9 @@ type Props = {
   unavailable: boolean
   view: View
   onView: (view: View) => void
+  // The map compare mode sets against the vintage map.
+  compareWith: CompareWith
+  onCompareWith: (compareWith: CompareWith) => void
   ground: Ground
   tintAvailable: boolean
   landcoverAvailable: boolean
@@ -49,7 +54,7 @@ type Props = {
 // The map's switches, folded into one Map button top right, so the open box never sits over a stop the reader
 // is looking at (the folded button is small enough for frameStops' padding to clear).
 export function MapControls(props: Props) {
-  const { basemap, onBasemap, unavailable, view, onView, ground, tintAvailable, landcoverAvailable, onGround, units, onUnits, menuOpen, onMenuOpen: setMenuOpen } = props
+  const { basemap, onBasemap, unavailable, view, onView, compareWith, onCompareWith, ground, tintAvailable, landcoverAvailable, onGround, units, onUnits, menuOpen, onMenuOpen: setMenuOpen } = props
   // A choice the current view cannot draw shows as paper, and comes back when the view can draw it again.
   const shown = (ground === 'tint' && !tintAvailable) || (ground === 'landcover' && !landcoverAvailable) ? 'paper' : ground
   const menuBox = useRef<HTMLDivElement>(null)
@@ -102,11 +107,22 @@ export function MapControls(props: Props) {
           <span className="control-label" aria-hidden="true">Map</span>
           <Switch
             label="Basemap"
-            options={BASEMAPS.map((b) => ({ ...b, disabled: b.id !== 'literary' && unavailable, paired: basemap === 'compare' && PAIRED.includes(b.id) }))}
+            // In compare mode the two maps it compares show as paired, in a lighter way than the switch that is on.
+            options={BASEMAPS.map((b) => ({
+              ...b,
+              disabled: b.id !== 'literary' && unavailable,
+              paired: basemap === 'compare' && (b.id === 'literary' || b.id === compareWith),
+            }))}
             value={basemap}
             onChange={onBasemap}
           />
         </div>
+        {basemap === 'compare' && (
+          <div className="control-row">
+            <span className="control-label" aria-hidden="true">With</span>
+            <Switch label="Compare the vintage map with" options={COMPARE_WITH.map((c) => ({ ...c, disabled: false }))} value={compareWith} onChange={onCompareWith} />
+          </div>
+        )}
         <div className="control-sub" data-off={off || undefined}>
           <div className="control-row">
             <span className="control-label" aria-hidden="true">View</span>

@@ -1,8 +1,9 @@
 import { useEffect, useRef, type PointerEvent } from 'react'
+import type { CompareWith } from './mode'
 
-// Compare mode's swipe: the vintage base shows left of the split. The split lives in a CSS variable, --split, on
-// the map area, which VintageUnderlay's clip and this handle read, so a drag repaints two elements instead of
-// re-rendering the map tree.
+// Compare mode's swipe: the vintage base shows left of the split, satellite or Topo right of it. The split lives
+// in a CSS variable, --split, on the map area, which VintageUnderlay's clip and this handle read, so a drag
+// repaints two elements instead of re-rendering the map tree.
 const MIN = 5
 const MAX = 95
 const STEP = 5
@@ -10,7 +11,7 @@ const STEP = 5
 // Kept at module level so the split survives leaving and re-entering compare mode.
 let lastSplit = 50
 
-export function CompareSwipe() {
+export function CompareSwipe({ compareWith }: { compareWith: CompareWith }) {
   const handle = useRef<HTMLDivElement>(null)
   const split = useRef(lastSplit)
   const set = (value: number) => {
@@ -45,7 +46,7 @@ export function CompareSwipe() {
       className="swipe"
       onPointerDown={drag}
       role="slider"
-      aria-label="Compare the vintage map and satellite"
+      aria-label={`Compare the vintage map and ${compareWith === 'topo' ? 'Topo' : 'satellite'}`}
       aria-valuemin={MIN}
       aria-valuemax={MAX}
       aria-valuenow={50}

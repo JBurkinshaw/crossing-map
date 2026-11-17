@@ -12,7 +12,7 @@ import { HomeControl } from './HomeControl'
 import { LayerKey } from './LayerKey'
 import { MapFrame } from './MapFrame'
 import { MapControls } from './MapControls'
-import type { Basemap, Ground, View } from './mode'
+import type { Basemap, CompareWith, Ground, View } from './mode'
 import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
 import { WaterMarks } from './WaterMarks'
@@ -66,6 +66,8 @@ type Props = {
   onBasemap: (basemap: Basemap) => void
   view: View
   onView: (view: View) => void
+  compareWith: CompareWith
+  onCompareWith: (compareWith: CompareWith) => void
   // The latest episode whose features may show (spoiler mode); the story layers arrive already filtered.
   reached: string
   // The oblique copies of the story layers could not be loaded.
@@ -79,7 +81,7 @@ type Props = {
 
 export function MapView(props: Props) {
   const { mapRef, story, stops, stopIndex, onSelectStop, onMapClick, selectedId, aheadFrom, onHome, reached } = props
-  const { basemap, onBasemap, view, onView, obliqueFailed, corridor, units, onUnits } = props
+  const { basemap, onBasemap, view, onView, compareWith, onCompareWith, obliqueFailed, corridor, units, onUnits } = props
   // Built once with the progress and units at first render; later changes go through setFilter and
   // setLayoutProperty below.
   const [style] = useState(() => styleUpTo(literary(units), reached))
@@ -254,7 +256,7 @@ export function MapView(props: Props) {
             <SatelliteMap
               literary={mapRef}
               hidden={satelliteHidden}
-              topo={basemap === 'topo'}
+              topo={basemap === 'topo' || (basemap === 'compare' && compareWith === 'topo')}
               terrain={(wash || basemap === 'compare') && view === 'tilted' ? TERRAIN_EXAGGERATION : null}
               onUnavailable={onUnavailable}
               onCredits={setMapTilerCredits}
@@ -327,7 +329,7 @@ export function MapView(props: Props) {
           )}
         </Map>
       </div>
-      {basemap === 'compare' && <CompareSwipe />}
+      {basemap === 'compare' && <CompareSwipe compareWith={compareWith} />}
       {loaded && <MapFrame mapRef={mapRef} shown={framed} />}
       <MapControls
         basemap={basemap}
@@ -335,6 +337,8 @@ export function MapView(props: Props) {
         unavailable={unavailable}
         view={view}
         onView={onView}
+        compareWith={compareWith}
+        onCompareWith={onCompareWith}
         ground={ground}
         tintAvailable={tintAvailable}
         landcoverAvailable={landcoverAvailable}

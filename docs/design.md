@@ -180,7 +180,7 @@ Every place card also shows its certainty, source, and method, so the craft is v
 
 ## 5. Basemaps
 
-The **vintage map** is ours, self-hosted, and the default. Satellite and Topo come from MapTiler, and Compare splits the view between the vintage map and satellite. The vintage map has three views: Flat, Tilted, and Oblique (decision 0017).
+The **vintage map** is ours, self-hosted, and the default. Satellite and Topo come from MapTiler, and Compare splits the view between the vintage map and satellite or Topo (decision 0046). The vintage map has three views: Flat, Tilted, and Oblique (decision 0017).
 
 ### 5.1 The vintage map: design brief
 
@@ -308,7 +308,7 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 | Timeline | Reading progress: the episodes' opening words, grouped by Part, plus "I haven't started". Shortcuts take a percentage (for ebooks) or, once `episodes.json` has pages, a Vintage page. A summary shows only for episodes up to the stored progress |
 | Data dimming | Routes not in focus fade; once the reader goes to a stop, the legs after it fade |
 | Route positioning | Back and Next through a journey's stops; the camera flies to each |
-| Basemap switch and swipe | Vintage, Compare, Satellite, Topo; Flat, Tilted, Oblique; the ground as Paper, Land cover, or Satellite tint. Folded under one Map button top right, on desktop and phone; a line under each row says what the chosen option does |
+| Basemap switch and swipe | Vintage, Compare, Satellite, Topo; in Compare, Satellite or Topo as the other side; Flat, Tilted, Oblique; the ground as Paper, Land cover, or Satellite tint. Folded under one Map button top right, on desktop and phone; a line under each row says what the chosen option does |
 | Layer key | In the title cartouche, in two tabs. The story: journeys by ink, how sure each line is, stops, grouped stops, places, inferred areas and regions, the false dawn. The land: the international boundary, state lines, the railway, unnamed towns, spot heights, the land cover classes when Land cover is on, the small marks of context and water places, mountains, drawings. Its tab panel scrolls if the screen is short; on phones it opens as a sheet from the bottom |
 | Feature selection | Tap to select; names on hover on desktop |
 | Search | Places, stops, and translations in one box |
@@ -391,7 +391,7 @@ One name per thing. Code identifiers that predate a name are noted.
 | --- | --- | --- |
 | Vintage map | This site's own basemap: paper, ink, relief, labels. Code and tile names call it `literary` | "literary map" in reader-facing text; "Classic", its name until decision 0041 |
 | Satellite, Topo | MapTiler's imagery and topographic basemaps | |
-| Compare | The vintage map and satellite side by side, split by a swipe | "swipe mode" |
+| Compare | The vintage map and satellite or Topo side by side, split by a swipe | "swipe mode" |
 | Satellite tint | The Ground option that puts faded satellite colour under the vintage map | "Land colour" |
 | Land cover | The Ground option that colours the vintage map by what grows or stands on it, in every view | "vegetation", "biomes" |
 | Flat, Tilted, Oblique | The three views of the vintage map. Oblique is plan oblique relief; its archives are `oblique-*.pmtiles` and its story layers `data/oblique/` | "Raised", its name until decision 0040 |
