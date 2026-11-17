@@ -50,6 +50,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0033 One ink per journey, and a line's dash for how sure it is | accepted |
 | 0034 Ask on the first visit, then where the reader is up to | accepted |
 | 0035 Plain names for certainty, and common Spanish lines left out of the panel | accepted |
+| 0036 Stop names and drawing captions that give nothing away | accepted |
 
 ## Template
 

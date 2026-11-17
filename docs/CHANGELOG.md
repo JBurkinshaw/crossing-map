@@ -10,6 +10,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- Stop names and drawing captions no longer give away what happens in the episode the reader is in (decision 0036): 21 stops (and the 32 legs and 9 areas named after them) and 8 drawings are renamed after their place, such as "The river camp where Boyd is shot" to "The river camp near San José" and "Turned away by the army" to "The army recruiting office". The event stays in the reasoning. Two drawings move to another side of their pin with their shorter captions, and Billy riding into the Pilares shows from zoom 11.
 - “The girl” is in inverted commas wherever the data names her, as the About page does: 3 stop names, 6 leg names, 12 stop reasonings, an episode summary, and the drawings' captions and notes (which had straight quotes or none). The journey picker and the key name J5 and J6 the same way.
 - `translations.json` has a new field, `common`: true for the 76 lines that are only "Sí", "No", "Gracias", "Bueno", "Adiós", "Buenas noches" or "Señor" (decision 0035). Set by `crossing.translations`.
 - Traced legs are simplified to 5 m, which halves `journeys.geojson` (1.1 MB to 497 KB) with no visible change on the map.

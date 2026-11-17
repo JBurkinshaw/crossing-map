@@ -2487,7 +2487,7 @@
    },
    "properties": {
     "id": "j1-seg-12",
-    "name": "Between Clanton and Foster draws to Cloverdale Creek (the trap)",
+    "name": "Between Clanton and Foster draws to Up Cloverdale Creek",
     "kind": "route-segment",
     "characters": [
      "wolf"
@@ -7442,7 +7442,7 @@
    },
    "properties": {
     "id": "j3-seg-14",
-    "name": "A pass in the Guadalupes on the old Cloverdale road to The Parham house, found empty",
+    "name": "A pass in the Guadalupes on the old Cloverdale road to The Parham house",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -7559,7 +7559,7 @@
    },
    "properties": {
     "id": "j3-seg-15",
-    "name": "The Parham house, found empty to Sanders' (the SK Bar)",
+    "name": "The Parham house to Sanders' (the SK Bar)",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -7753,7 +7753,7 @@
    },
    "properties": {
     "id": "j3-seg-17",
-    "name": "Animas to Lordsburg, the sheriff's office",
+    "name": "Animas to Lordsburg",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -7850,7 +7850,7 @@
    },
    "properties": {
     "id": "j3-seg-18",
-    "name": "Lordsburg, the sheriff's office to The Websters' (Boyd)",
+    "name": "Lordsburg to The Websters', Lordsburg",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -13701,7 +13701,7 @@
    },
    "properties": {
     "id": "j4-seg-12",
-    "name": "Colonia Morelos at midnight to Bacerac (Keno)",
+    "name": "Colonia Morelos at midnight to Bacerac",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -14035,7 +14035,7 @@
    },
    "properties": {
     "id": "j4-seg-13",
-    "name": "Bacerac (Keno) to The eastern rim of the escarpment at sunrise",
+    "name": "Bacerac to The eastern rim of the escarpment at sunrise",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -15807,7 +15807,7 @@
    },
    "properties": {
     "id": "j4-seg-25",
-    "name": "The steer herd on the road to Boquilla to Their horses, up from the lake",
+    "name": "The steer herd on the road to Boquilla to The road north of the Babícora lake",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -15905,7 +15905,7 @@
    },
    "properties": {
     "id": "j4-seg-26",
-    "name": "Their horses, up from the lake to The manco's riders, the Boquilla hacienda in sight",
+    "name": "The road north of the Babícora lake to In sight of the Boquilla hacienda",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -16003,7 +16003,7 @@
    },
    "properties": {
     "id": "j4-seg-27",
-    "name": "The manco's riders, the Boquilla hacienda in sight to Following the horses' tracks north",
+    "name": "In sight of the Boquilla hacienda to Following the horses' tracks north",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -16199,7 +16199,7 @@
    },
    "properties": {
     "id": "j4-seg-29",
-    "name": "Quijada's remuda to Boquilla y Anexas (the manco falls)",
+    "name": "Quijada's remuda to La Boquilla",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -16297,7 +16297,7 @@
    },
    "properties": {
     "id": "j4-seg-30",
-    "name": "Boquilla y Anexas (the manco falls) to Off the road north of Boquilla, west to a river",
+    "name": "La Boquilla to Off the road north of Boquilla, west to a river",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -16591,7 +16591,7 @@
    },
    "properties": {
     "id": "j4-seg-33",
-    "name": "San José to The river camp where Boyd is shot",
+    "name": "San José to The river camp near San José",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -16689,7 +16689,7 @@
    },
    "properties": {
     "id": "j4-seg-34",
-    "name": "The river camp where Boyd is shot to The road where the workers' truck takes Boyd",
+    "name": "The river camp near San José to The dirt road in open country",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -16787,7 +16787,7 @@
    },
    "properties": {
     "id": "j4-seg-35",
-    "name": "The road where the workers' truck takes Boyd to The blind man's house",
+    "name": "The dirt road in open country to The blind man's house",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -17053,7 +17053,7 @@
    },
    "properties": {
     "id": "j4-seg-38",
-    "name": "Mata Ortiz, the blue tienda to San Diego, where he finds Boyd",
+    "name": "Mata Ortiz, the blue tienda to San Diego, after dark",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -17279,7 +17279,7 @@
    },
    "properties": {
     "id": "j4-seg-39",
-    "name": "San Diego, where he finds Boyd to Casas Grandes at 3 a.m., for the doctor",
+    "name": "San Diego, after dark to Casas Grandes at 3 a.m.",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -17505,7 +17505,7 @@
    },
    "properties": {
     "id": "j4-seg-40",
-    "name": "Casas Grandes at 3 a.m., for the doctor to Back to San Diego, in the doctor's car",
+    "name": "Casas Grandes at 3 a.m. to Back to San Diego, in the doctor's car",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -18838,7 +18838,7 @@
    },
    "properties": {
     "id": "j5-seg-07",
-    "name": "A stream of the Santa María headwaters to Back through Santa Ana, with “the girl”",
+    "name": "A stream of the Santa María headwaters to Back through Santa Ana",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -18935,7 +18935,7 @@
    },
    "properties": {
     "id": "j5-seg-08",
-    "name": "Back through Santa Ana, with “the girl” to La Boquilla after dark",
+    "name": "Back through Santa Ana to La Boquilla after dark",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -20488,7 +20488,7 @@
    },
    "properties": {
     "id": "j6-seg-01",
-    "name": "Boyd lifted onto the workers' truck to Mata Ortiz, the truck passing",
+    "name": "The dirt road in open country to Mata Ortiz, the truck passing",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -20880,7 +20880,7 @@
    },
    "properties": {
     "id": "j6-seg-05",
-    "name": "Bachíniva, in the corrido to Galeana, two men killed",
+    "name": "Bachíniva, in the corrido to Galeana",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -20978,7 +20978,7 @@
    },
    "properties": {
     "id": "j6-seg-06",
-    "name": "Galeana, two men killed to San Lorenzo, where Boyd fell",
+    "name": "Galeana to San Lorenzo, Chihuahua",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -21076,7 +21076,7 @@
    },
    "properties": {
     "id": "j6-seg-07",
-    "name": "San Lorenzo, where Boyd fell to San Buenaventura, the grave",
+    "name": "San Lorenzo, Chihuahua to San Buenaventura",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -21598,7 +21598,7 @@
    },
    "properties": {
     "id": "j7-seg-05",
-    "name": "Past Socorro at nightfall to Albuquerque, rejected again",
+    "name": "Past Socorro at nightfall to Albuquerque",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -21695,7 +21695,7 @@
    },
    "properties": {
     "id": "j7-seg-06",
-    "name": "Albuquerque, rejected again to Deming at three in the morning",
+    "name": "Albuquerque to Deming at three in the morning",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -24504,7 +24504,7 @@
    },
    "properties": {
     "id": "j7-seg-25",
-    "name": "Casas Grandes to San Diego, the families gone",
+    "name": "Casas Grandes to San Diego, on the road south",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -25077,7 +25077,7 @@
    },
    "properties": {
     "id": "j7-seg-26",
-    "name": "San Diego, the families gone to Las Varas",
+    "name": "San Diego, on the road south to Las Varas",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -26548,7 +26548,7 @@
    },
    "properties": {
     "id": "j7-seg-38",
-    "name": "San Buenaventura to Boyd's grave, on the Gallego road",
+    "name": "San Buenaventura to The cemetery on the Gallego road",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -26645,7 +26645,7 @@
    },
    "properties": {
     "id": "j7-seg-39",
-    "name": "Boyd's grave, on the Gallego road to Past the lights of Casas Grandes, to the west",
+    "name": "The cemetery on the Gallego road to Past the lights of Casas Grandes, to the west",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -27404,7 +27404,7 @@
    },
    "properties": {
     "id": "j7-seg-42",
-    "name": "Corralitos before dawn to The attack on the river trail, and the gypsies' camp",
+    "name": "Corralitos before dawn to The river trail north of Corralitos",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -27850,7 +27850,7 @@
    },
    "properties": {
     "id": "j7-seg-43",
-    "name": "The attack on the river trail, and the gypsies' camp to The border, west of Dog Springs",
+    "name": "The river trail north of Corralitos to The border, west of Dog Springs",
     "kind": "route-segment",
     "characters": [
      "billy"

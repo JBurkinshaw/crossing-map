@@ -408,7 +408,7 @@
    },
    "properties": {
     "id": "j1-cloverdale-creek",
-    "name": "Cloverdale Creek (the trap)",
+    "name": "Up Cloverdale Creek",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -1345,7 +1345,7 @@
    },
    "properties": {
     "id": "j3-parham-house",
-    "name": "The Parham house, found empty",
+    "name": "The Parham house",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -1444,7 +1444,7 @@
    },
    "properties": {
     "id": "j3-lordsburg",
-    "name": "Lordsburg, the sheriff's office",
+    "name": "Lordsburg",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -1477,7 +1477,7 @@
    },
    "properties": {
     "id": "j3-websters",
-    "name": "The Websters' (Boyd)",
+    "name": "The Websters', Lordsburg",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -1918,7 +1918,7 @@
    },
    "properties": {
     "id": "j4-bacerac",
-    "name": "Bacerac (Keno)",
+    "name": "Bacerac",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -2360,7 +2360,7 @@
    },
    "properties": {
     "id": "j4-horses-found",
-    "name": "Their horses, up from the lake",
+    "name": "The road north of the Babícora lake",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -2394,7 +2394,7 @@
    },
    "properties": {
     "id": "j4-manco-roadblock",
-    "name": "The manco's riders, the Boquilla hacienda in sight",
+    "name": "In sight of the Boquilla hacienda",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -2496,7 +2496,7 @@
    },
    "properties": {
     "id": "j4-boquilla",
-    "name": "Boquilla y Anexas (the manco falls)",
+    "name": "La Boquilla",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -2632,7 +2632,7 @@
    },
    "properties": {
     "id": "j4-shooting",
-    "name": "The river camp where Boyd is shot",
+    "name": "The river camp near San José",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -2666,7 +2666,7 @@
    },
    "properties": {
     "id": "j4-truck",
-    "name": "The road where the workers' truck takes Boyd",
+    "name": "The dirt road in open country",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -2802,7 +2802,7 @@
    },
    "properties": {
     "id": "j4-san-diego-boyd",
-    "name": "San Diego, where he finds Boyd",
+    "name": "San Diego, after dark",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -2836,7 +2836,7 @@
    },
    "properties": {
     "id": "j4-casas-grandes-doctor",
-    "name": "Casas Grandes at 3 a.m., for the doctor",
+    "name": "Casas Grandes at 3 a.m.",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -3135,7 +3135,7 @@
    },
    "properties": {
     "id": "j5-santa-ana-return",
-    "name": "Back through Santa Ana, with “the girl”",
+    "name": "Back through Santa Ana",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -3564,7 +3564,7 @@
    },
    "properties": {
     "id": "j6-truck",
-    "name": "Boyd lifted onto the workers' truck",
+    "name": "The dirt road in open country",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -3734,7 +3734,7 @@
    },
    "properties": {
     "id": "j6-galeana",
-    "name": "Galeana, two men killed",
+    "name": "Galeana",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -3768,7 +3768,7 @@
    },
    "properties": {
     "id": "j6-san-lorenzo",
-    "name": "San Lorenzo, where Boyd fell",
+    "name": "San Lorenzo, Chihuahua",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -3802,7 +3802,7 @@
    },
    "properties": {
     "id": "j6-san-buenaventura",
-    "name": "San Buenaventura, the grave",
+    "name": "San Buenaventura",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -4001,7 +4001,7 @@
    },
    "properties": {
     "id": "j7-albuquerque",
-    "name": "Albuquerque, rejected again",
+    "name": "Albuquerque",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -4661,7 +4661,7 @@
    },
    "properties": {
     "id": "j7-san-diego",
-    "name": "San Diego, the families gone",
+    "name": "San Diego, on the road south",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -5090,7 +5090,7 @@
    },
    "properties": {
     "id": "j7-boyds-grave",
-    "name": "Boyd's grave, on the Gallego road",
+    "name": "The cemetery on the Gallego road",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -5222,7 +5222,7 @@
    },
    "properties": {
     "id": "j7-attack",
-    "name": "The attack on the river trail, and the gypsies' camp",
+    "name": "The river trail north of Corralitos",
     "kind": "stop",
     "role": "stop",
     "characters": [

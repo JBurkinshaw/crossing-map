@@ -1554,7 +1554,7 @@
    },
    "properties": {
     "id": "area-j1-cloverdale-creek",
-    "name": "Cloverdale Creek (the trap)",
+    "name": "Up Cloverdale Creek",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -24849,7 +24849,7 @@
    },
    "properties": {
     "id": "area-j3-websters",
-    "name": "The Websters' (Boyd)",
+    "name": "The Websters', Lordsburg",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -32994,7 +32994,7 @@
    },
    "properties": {
     "id": "area-j4-horses-found",
-    "name": "Their horses, up from the lake",
+    "name": "The road north of the Babícora lake",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -33298,7 +33298,7 @@
    },
    "properties": {
     "id": "area-j4-manco-roadblock",
-    "name": "The manco's riders, the Boquilla hacienda in sight",
+    "name": "In sight of the Boquilla hacienda",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -36134,7 +36134,7 @@
    },
    "properties": {
     "id": "area-j4-shooting",
-    "name": "The river camp where Boyd is shot",
+    "name": "The river camp near San José",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -36806,7 +36806,7 @@
    },
    "properties": {
     "id": "area-j4-truck",
-    "name": "The road where the workers' truck takes Boyd",
+    "name": "The dirt road in open country",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -42653,7 +42653,7 @@
    },
    "properties": {
     "id": "area-j6-truck",
-    "name": "Boyd lifted onto the workers' truck",
+    "name": "The dirt road in open country",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -53517,7 +53517,7 @@
    },
    "properties": {
     "id": "area-j7-boyds-grave",
-    "name": "Boyd's grave, on the Gallego road",
+    "name": "The cemetery on the Gallego road",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -56590,7 +56590,7 @@
    },
    "properties": {
     "id": "area-j7-attack",
-    "name": "The attack on the river trail, and the gypsies' camp",
+    "name": "The river trail north of Corralitos",
     "kind": "inferred-area",
     "role": null,
     "characters": [

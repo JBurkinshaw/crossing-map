@@ -366,7 +366,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "On the river trail north of Corralitos Billy falls in with gypsies who are hauling the bones of an old airplane north on a cart.",
-    "reasoning": "The drawing is set on the east side of The attack on the river trail, and the gypsies' camp (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would cover a stop, a route line or another drawing.",
+    "reasoning": "The drawing is set on the east side of The river trail north of Corralitos (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would cover a stop, a route line or another drawing.",
     "vignette": "vignette-gypsy-plane",
     "side": "e",
     "min_zoom": 9.0,
@@ -590,7 +590,7 @@
    },
    "properties": {
     "id": "vignette-bones-travois",
-    "name": "The travois with Boyd's bones",
+    "name": "The travois, going north",
     "kind": "vignette",
     "stands_for": "Billy taking his brother's remains north to the border (J7)",
     "place_ref": "j7-dog-springs",
@@ -609,7 +609,7 @@
     "side": "e",
     "min_zoom": 8.0,
     "priority": 2,
-    "label": "North with Boyd's bones",
+    "label": "North to the border",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the travois drawn after a photograph of a man on a mule travois, about 1876, Little Bighorn Battlefield National Monument (public domain)"
    }
   },
@@ -740,7 +740,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Near San José the brothers make camp under the river cottonwoods and swim at night; at dawn riders on the far bank shoot Boyd.",
-    "reasoning": "The drawing is set on the south-west side of The river camp where Boyd is shot (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would cover more. The country is still crowded at this zoom, so it sits on the side where it covers least rather than wait for a closer zoom.",
+    "reasoning": "The drawing is set on the south-west side of The river camp near San José (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would cover more. The country is still crowded at this zoom, so it sits on the side where it covers least rather than wait for a closer zoom.",
     "vignette": "vignette-cottonwood-camp",
     "side": "sw",
     "min_zoom": 10.0,
@@ -774,7 +774,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Billy flags down an old flatbed truck full of farmworkers on the dirt road, and they lift the wounded Boyd into its bed and drive him away.",
-    "reasoning": "From zoom 10 only: at lower zooms it would crowd the cottonwood camp and the blind man's house. The drawing is set on the south-west side of Boyd lifted onto the workers' truck (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "reasoning": "From zoom 10 only: at lower zooms it would crowd the cottonwood camp and the blind man's house. The drawing is set on the south-west side of The dirt road in open country (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-workers-truck",
     "side": "sw",
     "min_zoom": 10.0,
@@ -794,7 +794,7 @@
    },
    "properties": {
     "id": "vignette-boyds-grave",
-    "name": "Boyd's grave on the Gallego road",
+    "name": "The cemetery on the Gallego road",
     "kind": "vignette",
     "stands_for": "Boyd's grave at San Buenaventura (J7)",
     "place_ref": "j7-boyds-grave",
@@ -808,12 +808,12 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "In the walled burial ground above San Buenaventura Billy lifts the board cross from his brother's cairn and digs all day and into the night.",
-    "reasoning": "The drawing is set on the east side of Boyd's grave, on the Gallego road (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would cover more. The country is still crowded at this zoom, so it sits on the side where it covers least rather than wait for a closer zoom.",
+    "reasoning": "The drawing is set on the east side of The cemetery on the Gallego road (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would cover more. The country is still crowded at this zoom, so it sits on the side where it covers least rather than wait for a closer zoom.",
     "vignette": "vignette-boyds-grave",
     "side": "e",
     "min_zoom": 10.0,
     "priority": 1,
-    "label": "Boyd's grave, Gallego road",
+    "label": "Cemetery on the Gallego road",
     "credit": "Drawn from the book's description"
    }
   },
@@ -1066,7 +1066,7 @@
    },
    "properties": {
     "id": "vignette-carrying-the-wolf",
-    "name": "Billy carrying the dead wolf to the mountains",
+    "name": "Billy riding into the Pilares",
     "kind": "vignette",
     "stands_for": "Billy's night ride from the hacienda to the Pilares de Teras with the wolf's body (J2)",
     "place_ref": "j2-pilares-de-teras",
@@ -1080,12 +1080,12 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Billy rides out of the hacienda with the dead wolf wrapped in a sheet across the bow of his saddle, fords the river and climbs towards the Pilares before dawn.",
-    "reasoning": "A character drawing on J2's last leg: its own point is halfway from the hacienda to the Pilares de Teras, on the route line. Its ref is the leg's end. The drawing is set on the east side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "reasoning": "A character drawing on J2's last leg: its own point is halfway from the hacienda to the Pilares de Teras, on the route line. Its ref is the leg's end. The drawing is set on the south-west side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out, on every side, it would cover a stop, a route line or another drawing.",
     "vignette": "vignette-carrying-the-wolf",
-    "side": "e",
-    "min_zoom": 10.0,
+    "side": "sw",
+    "min_zoom": 11.0,
     "priority": 3,
-    "label": "Carrying her into the Pilares",
+    "label": "Into the Pilares",
     "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the bundle and the mountains drawn"
    }
   },
@@ -1372,7 +1372,7 @@
    },
    "properties": {
     "id": "vignette-wolf-in-the-cholla",
-    "name": "The she-wolf caught, the drag in a cholla",
+    "name": "The she-wolf and the cholla",
     "kind": "vignette",
     "stands_for": "Where Billy finds the she-wolf in his trap on Cloverdale Creek (1-08)",
     "place_ref": "j1-cloverdale-creek",
@@ -1386,12 +1386,12 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Billy finds the she-wolf caught by her right forefoot, the trap's drag snagged in a cholla not far from his fire, and gets his rope on her.",
-    "reasoning": "The cholla of the brief's bootheel flats is this one, at the trap, so it is drawn with the wolf. West of the pin, which a journey stop's number covers on the north side, and from zoom 10, as the bootheel is crowded at zoom 9; clear of Billy and the dog at Cloverdale and the trap at Hog Canyon. The drawing is set on the west side of Cloverdale Creek (the trap) (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "reasoning": "The cholla of the brief's bootheel flats is this one, at the trap, so it is drawn with the wolf. West of the pin, which a journey stop's number covers on the north side, and from zoom 10, as the bootheel is crowded at zoom 9; clear of Billy and the dog at Cloverdale and the trap at Hog Canyon. The drawing is set on the west side of Up Cloverdale Creek (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-wolf-in-the-cholla",
     "side": "w",
     "min_zoom": 10.0,
     "priority": 1,
-    "label": "Caught, the drag in a cholla",
+    "label": "Cholla on the bootheel flats",
     "credit": "Drawn; the wolf is the she-wolf traced from a US Fish and Wildlife Service photograph (public domain); the cholla after a photograph of cane cholla by White Sands National Park (public domain)"
    }
   },
@@ -1406,7 +1406,7 @@
    },
    "properties": {
     "id": "vignette-parham-house",
-    "name": "The Parham house, found empty",
+    "name": "The Parham house",
     "kind": "vignette",
     "stands_for": "Billy's home at Cloverdale as he finds it on his return (2-04)",
     "place_ref": "j3-parham-house",
@@ -1420,12 +1420,12 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Coming home past midnight, Billy finds no light, no horses in the barn and no dog, and the house empty and stripped of its furniture.",
-    "reasoning": "The house stands where the Cloverdale pin is, which also carries the drawing of Billy and the dog. Dated 2-04, the episode that shows the house empty. From zoom 10: at zoom 9 the bootheel is too crowded for the labels. The drawing is set on the south-east side of The Parham house, found empty (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "reasoning": "The house stands where the Cloverdale pin is, which also carries the drawing of Billy and the dog. Dated 2-04, the episode that shows the house empty. From zoom 10: at zoom 9 the bootheel is too crowded for the labels. The drawing is set on the south-east side of The Parham house (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-parham-house",
     "side": "se",
     "min_zoom": 10.0,
     "priority": 1,
-    "label": "The house, found empty",
+    "label": "The Parham house",
     "credit": "Drawn from the book's description"
    }
   },
@@ -1454,12 +1454,12 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Riding double down the river towns, the brothers find Boyd's horse Keno standing head down under an elder in front of a whitewashed house at Bacerac, and Billy takes him back.",
-    "reasoning": "A fresh subject for the horses, which the riding drawings already show under their riders: here Keno stands alone. The drawing is set on the north-east side of Bacerac (Keno) (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would cover more. The country is still crowded at this zoom, so it sits on the side where it covers least rather than wait for a closer zoom.",
+    "reasoning": "A fresh subject for the horses, which the riding drawings already show under their riders: here Keno stands alone. The drawing is set on the south-east side of Bacerac (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it; it is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would cover more. The country is still crowded at this zoom, so it sits on the side where it covers least rather than wait for a closer zoom.",
     "vignette": "vignette-keno-bacerac",
-    "side": "ne",
+    "side": "se",
     "min_zoom": 10.0,
     "priority": 2,
-    "label": "Keno, found at Bacerac",
+    "label": "Keno at Bacerac",
     "credit": "The horses are the traced Muybridge horse with the rider cut away, Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the house and tree drawn"
    }
   },
@@ -1474,7 +1474,7 @@
    },
    "properties": {
     "id": "vignette-taking-the-girl",
-    "name": "Boyd rides in for “the girl”",
+    "name": "The fire in the oak grove",
     "kind": "vignette",
     "stands_for": "The brothers take “the girl” from the two men at their fire (2-08)",
     "place_ref": "j4-the-girl",
@@ -1493,7 +1493,7 @@
     "side": "se",
     "min_zoom": 11.0,
     "priority": 1,
-    "label": "Taking “the girl” from the fire",
+    "label": "The fire in the oak grove",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), and the same horse with the rider cut away; the oaks, the fire and “the girl” drawn"
    }
   },
@@ -1644,7 +1644,7 @@
    },
    "properties": {
     "id": "vignette-recruiting-office",
-    "name": "Turned away by the army",
+    "name": "The army recruiting office",
     "kind": "vignette",
     "stands_for": "Billy's attempts to enlist at Deming, El Paso and Albuquerque (4-01)",
     "place_ref": "j7-el-paso",
@@ -1663,7 +1663,7 @@
     "side": "sw",
     "min_zoom": 8.0,
     "priority": 2,
-    "label": "Turned away by the army",
+    "label": "The army recruiting office",
     "credit": "Drawn from the book's description (Deming's office is in the armory)"
    }
   },
