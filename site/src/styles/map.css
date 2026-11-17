@@ -331,6 +331,7 @@
 
 .basemap-switch {
   display: flex;
+  width: fit-content;
   border: 1px solid var(--ink);
   background: var(--paper);
 }

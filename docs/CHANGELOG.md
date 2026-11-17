@@ -26,6 +26,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- Each switch under the Map button has a frame as wide as its buttons, not as wide as the line under it.
 - While the map hides what you have not read, a leg's "How this line was drawn" text that cites a later episode is replaced by a notice, as "How this was placed" already was.
 - The site speaks in one voice (decision 0037): "I" only in the owner's note at the top of About, and "this site" or "the map" elsewhere, not "we" or "our". The Classic map is "This site's own map, in ink on paper", not "The book's map", and How it's built runs the pipeline on "the owner's computer".
 - An inferred area's card calls it an area, not a circle, as does How it's built.
