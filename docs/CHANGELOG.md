@@ -36,6 +36,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - The reading-progress badge says what the map is hiding, such as "Hiding what's after Part I, episode 5: In the woods", and opens "Where are you up to?" directly.
 - Setting your progress to an episode opens the map at the stop you reached most recently.
 - Opening the Map menu closes the key, and opening the key closes the menu, so neither covers the other.
+- While the map hides what you have not read, How it's built hides its decision records too, as they name places and events from the whole book. A button shows them after a warning, as "Show everything" does.
 - Drawings no longer sit on the stops and route lines: each is set on the side of its pin with the least under it, and those in the busiest country, around Casas Grandes, San Diego, Cloverdale and the Peloncillos, show from one zoom closer, never more, so they stay in view. At each drawing's first zoom, none now covers another drawing (7 pairs did), and 5 cover a stop marker (26 did).
 - The drawings of the journey in focus are at full strength; those of other journeys are lighter, as their route lines are, in Compare too.
 

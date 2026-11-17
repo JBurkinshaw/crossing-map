@@ -150,6 +150,11 @@ async function checkPage(page, route, reached, where, later) {
     text: document.querySelector('.page').innerText,
   }))
   for (const [label, first_seen] of pageText.firstSeen) if (!allowed({ first_seen }, reached)) leak(`${where}, ${route}`, `item first seen ${first_seen}: ${label}`)
+  // The decision records name places and events from the whole book in prose the name check cannot catch, so they
+  // stay hidden behind a warning until the reader has reached the end.
+  if (route === '/about/how-its-built' && reached < episodes.at(-1).episode && (await page.locator('.page .record').count())) {
+    leak(`${where}, ${route}`, 'decision records shown')
+  }
   const known = [...reachedNames(reached)]
   for (const name of later) {
     if (pageText.text.includes(name) && !known.some((k) => k.includes(name))) leak(`${where}, ${route}`, `later name shown: ${name}`)

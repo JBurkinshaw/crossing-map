@@ -17,8 +17,11 @@ const PAGES: { route: Exclude<Route, '/'>; label: string; title: string }[] = [
 
 // The site's pages, over the map (which stays loaded underneath, so returning to it is instant).
 // Loaded as their own chunk the first time a page opens.
-// `questions` are the open questions the reader has reached; `reached` is the latest episode that may show.
-export default function Pages({ route, questions, reached }: { route: Exclude<Route, '/'>; questions: OpenQuestion[]; reached: string }) {
+// `questions` are the open questions the reader has reached; `reached` is the latest episode that may show, and
+// `spoilers` whether anything is hidden.
+type Props = { route: Exclude<Route, '/'>; questions: OpenQuestion[]; reached: string; spoilers: boolean }
+
+export default function Pages({ route, questions, reached, spoilers }: Props) {
   const page = PAGES.find((p) => p.route === route)!
   const scroller = useRef<HTMLDivElement>(null)
   const heading = useRef<HTMLHeadingElement>(null)
@@ -65,7 +68,7 @@ export default function Pages({ route, questions, reached }: { route: Exclude<Ro
           {page.title}
         </h1>
         {route === '/about' && <About />}
-        {route === '/about/how-its-built' && <HowItsBuilt />}
+        {route === '/about/how-its-built' && <HowItsBuilt spoilers={spoilers} />}
         {route === '/open-questions' && <OpenQuestions questions={questions} />}
         {route === '/data' && <Data />}
         {route === '/credits' && <Credits reached={reached} />}

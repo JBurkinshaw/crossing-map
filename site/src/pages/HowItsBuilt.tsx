@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import facts from 'virtual:site-facts'
 import { CERTAINTY_LABEL } from '../panel/certainty'
 import { Architecture } from './Architecture'
@@ -52,7 +53,44 @@ function CountTable({ by, caption }: { by: 'certainty' | 'source' | 'method'; ca
   )
 }
 
-export function HowItsBuilt() {
+// In place of the records while spoilers are hidden: what they hold, and a way to show them for this visit that
+// confirms first, as "Show everything" does. The reader's progress is left as it is.
+function RecordsHidden({ onShow }: { onShow: () => void }) {
+  const [confirming, setConfirming] = useState(false)
+  return (
+    <div className="records-hidden">
+      <p>
+        The records name places and events from the whole book, so they are hidden while the map hides what you have
+        not read yet.
+      </p>
+      {confirming ? (
+        <div className="progress-confirm">
+          <p>Show the decision records? They name places and events from the whole book, the ending included.</p>
+          <div className="progress-actions">
+            {/* oxlint-disable-next-line jsx-a11y/no-autofocus */}
+            <button type="button" autoFocus onClick={onShow}>
+              Show the records
+            </button>
+            <button type="button" onClick={() => setConfirming(false)}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div className="progress-actions">
+          <button type="button" onClick={() => setConfirming(true)}>
+            Show the decision records
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// `spoilers`: the map is hiding what the reader has not reached, so the decision records, which name places and
+// events from the whole book, wait behind a warning (design section 11: nothing later shows anywhere).
+export function HowItsBuilt({ spoilers }: { spoilers: boolean }) {
+  const [shown, setShown] = useState(false)
   const measured = facts.tiles.every((t) => t.bytes !== null)
   const tileTotal = facts.tiles.reduce((sum, t) => sum + (t.bytes ?? 0), 0)
   return (
@@ -78,17 +116,21 @@ export function HowItsBuilt() {
         A record is not edited once accepted; a later one supersedes it. These are the {records.length} records in{' '}
         <a href={repoUrl('docs/decisions')}>docs/decisions</a>, as they stand in this build.
       </p>
-      <div className="records">
-        {records.map((r) => (
-          <details key={r.number} className="record">
-            <summary>
-              <span className="record-number">{r.number}</span> {r.title}
-              <span className="meta"> {r.status}</span>
-            </summary>
-            <Markdown source={r.body} shift={1} />
-          </details>
-        ))}
-      </div>
+      {spoilers && !shown ? (
+        <RecordsHidden onShow={() => setShown(true)} />
+      ) : (
+        <div className="records">
+          {records.map((r) => (
+            <details key={r.number} className="record">
+              <summary>
+                <span className="record-number">{r.number}</span> {r.title}
+                <span className="meta"> {r.status}</span>
+              </summary>
+              <Markdown source={r.body} shift={1} />
+            </details>
+          ))}
+        </div>
+      )}
 
       <h2>Where the data comes from</h2>
       <p>

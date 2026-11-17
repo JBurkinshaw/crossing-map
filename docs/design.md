@@ -163,7 +163,7 @@ State is a `useReducer` plus the URL hash. Search is MiniSearch over places, sto
 The site explains itself at `#/about/how-its-built`:
 
 1. **The architecture diagram** (4.1), drawn in the site's ink style.
-2. **Decision records.** Vite imports `docs/decisions/*.md` at build time and the page lists them, so the page and the real decision log cannot drift.
+2. **Decision records.** Vite imports `docs/decisions/*.md` at build time and the page lists them, so the page and the real decision log cannot drift. The records name places and events from the whole book, so while spoilers are hidden the page shows a note in their place, with a button that confirms first, as "Show everything" does, and then shows them for that visit without changing the reader's progress. Vetting every record for later names would be more work and break with each new record.
 3. **Data lineage.** Counts by `certainty`, `source`, and `method`, computed from the GeoJSON at build time.
 4. **Numbers.** Each tile archive's size and the total data size, read at build time.
 5. **Links** to the repository, the downloads and schemas, and the credits.
