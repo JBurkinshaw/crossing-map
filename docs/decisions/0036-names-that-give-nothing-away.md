@@ -1,6 +1,6 @@
 # 0036. Stop names and drawing captions that give nothing away
 
-Status: accepted (2026-11-16). Owner's decision, after a review of the site's text.
+Status: accepted (2026-11-16). Owner's decision, after a review of the site's text. Extended to the drawings' `stands_for` by 0038.
 Phase: P1
 
 ## Context

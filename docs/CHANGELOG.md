@@ -10,6 +10,9 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- Episode summaries: 3-01 says "“the girl”" and "travelling"; 3-11 no longer hints at what the servant brings ("Billy follows a servant into the hills"); 4-01 says Billy "goes to enlist".
+- The Parham house shows from 2-05, not 2-04 (decision 0038): its stop, drawing and open question, the SK Bar stop after it on J3, and the three legs between the Guadalupe pass and Animas.
+- The drawings' `stands_for` no longer tells what happens (decision 0038): 16 are rewritten after their place, such as "The river camp near San José (J4)".
 - One spelling per place in the reasoning, names and summaries (decision 0037): the Cajón Bonito ("Down the Cajón Bonito"), the Sierra de la Madera, and La Boquilla, which two episode summaries (3-06, 3-07) and a stop had called Boquilla y Anexas, the other town the open question rules out. UK spelling throughout ("towards", "grey"), and "railway" for the railroad, except in a company's name.
 - Inferred areas' rules say "area", not "circle", as does a stop's reasoning; "Kept the circle" is now "Kept the whole area". Working notes are gone from the published text: "To be checked by hand in QGIS" from the two regions, "Worth a look by hand" from an area's rule, and "is a separate seed" from San Lorenzo's reasoning.
 - The drawings' `reasoning` no longer contradicts itself about zoom: a drawing that waited one step says it still covers something there but waits no longer, and one that never waits says no closer zoom would clear it.

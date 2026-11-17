@@ -24438,8 +24438,8 @@
     "sequence": null,
     "place_ref": null,
     "part": 2,
-    "episode": "2-04",
-    "first_seen": "2-04",
+    "episode": "2-05",
+    "first_seen": "2-05",
     "certainty": "inferred",
     "uncertainty_m": 4000.0,
     "method": "computed",
@@ -24447,7 +24447,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Old man Sanders and Leona tell him what happened. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is the point nine miles (14.5 km) along the Animas Valley road north from Cloverdale (Census TIGER 2023; pipeline/measure/road_points.py).",
+    "reasoning": "Old man Sanders and Leona tell him what happened (2-04). The stop is dated 2-05 with the Parham house before it, so neither shows while the reader is still in 2-04. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is the point nine miles (14.5 km) along the Animas Valley road north from Cloverdale (Census TIGER 2023; pipeline/measure/road_points.py).",
     "outline_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the area still fixes where along the road.",
     "straight_road": false
    }
