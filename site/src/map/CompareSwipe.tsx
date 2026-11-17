@@ -1,7 +1,7 @@
 import { useEffect, useRef, type PointerEvent } from 'react'
 
-// Compare mode's swipe: the classic base shows left of the split. The split lives in a CSS variable, --split, on
-// the map area, which ClassicUnderlay's clip and this handle read, so a drag repaints two elements instead of
+// Compare mode's swipe: the vintage base shows left of the split. The split lives in a CSS variable, --split, on
+// the map area, which VintageUnderlay's clip and this handle read, so a drag repaints two elements instead of
 // re-rendering the map tree.
 const MIN = 5
 const MAX = 95
@@ -45,7 +45,7 @@ export function CompareSwipe() {
       className="swipe"
       onPointerDown={drag}
       role="slider"
-      aria-label="Compare the classic map and satellite"
+      aria-label="Compare the vintage map and satellite"
       aria-valuemin={MIN}
       aria-valuemax={MAX}
       aria-valuenow={50}

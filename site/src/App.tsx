@@ -58,16 +58,16 @@ export default function App() {
     return at
   }, [translations])
   const { basemap, chooseBasemap, view, setView } = useMapMode()
-  // The Raised view draws the story where the raised line work puts it: the copies in data/raised/, fetched the
+  // The Oblique view draws the story where the oblique line work puts it: the copies in data/oblique/, fetched the
   // first time the reader turns it on.
-  const [raisedWanted, setRaisedWanted] = useState(false)
-  if (view === 'raised' && !raisedWanted) setRaisedWanted(true)
-  const raisedAll = useStory('raised/', raisedWanted)
-  const raised = useMemo(
-    () => (raisedAll && raisedAll !== 'failed' ? storyUpTo(raisedAll, reached, spoilers) : raisedAll),
-    [raisedAll, reached, spoilers],
+  const [obliqueWanted, setObliqueWanted] = useState(false)
+  if (view === 'oblique' && !obliqueWanted) setObliqueWanted(true)
+  const obliqueAll = useStory('oblique/', obliqueWanted)
+  const oblique = useMemo(
+    () => (obliqueAll && obliqueAll !== 'failed' ? storyUpTo(obliqueAll, reached, spoilers) : obliqueAll),
+    [obliqueAll, reached, spoilers],
   )
-  const shown = view === 'raised' ? raised : loaded
+  const shown = view === 'oblique' ? oblique : loaded
   const story = shown === 'failed' ? null : shown
   const flat = loaded === 'failed' ? null : loaded
   const mapRef = useRef<MapRef>(null)
@@ -111,7 +111,7 @@ export default function App() {
   const road = selection?.layer === 'journeys' ? selected : undefined
   const corridor = useMemo((): Corridor | null => {
     if (!road) return null
-    // In the Raised view the corridor follows the raised copy of the route.
+    // In the Oblique view the corridor follows the oblique copy of the route.
     const segment = byId(story, 'journeys', road.properties.id) ?? road
     return { segment, label: roadLabel(flat, road).replace(/^On /, 'on ') }
   }, [road, story, flat])
@@ -173,7 +173,7 @@ export default function App() {
         view={view}
         onView={setView}
         reached={reached}
-        raisedFailed={raisedAll === 'failed'}
+        obliqueFailed={obliqueAll === 'failed'}
         corridor={corridor}
         units={units}
         onUnits={setUnits}

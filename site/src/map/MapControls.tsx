@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import type { Units } from '../units'
-import { viewAvailable, type Basemap, type View } from './mode'
+import { viewAvailable, type Basemap, type Ground, type View } from './mode'
 import { Switch } from './Switch'
 
 // Compare sits between the two maps it compares, as a narrow button with a split-frame icon.
@@ -12,12 +12,12 @@ const COMPARE_ICON = (
   </svg>
 )
 const BASEMAPS: { id: Basemap; label: ReactNode; title?: string; ariaLabel?: string; narrow?: boolean }[] = [
-  { id: 'literary', label: 'Classic' },
+  { id: 'literary', label: 'Vintage' },
   {
     id: 'compare',
     label: COMPARE_ICON,
-    title: 'Compare: the classic map and satellite, side by side',
-    ariaLabel: 'Compare the classic map and satellite, side by side',
+    title: 'Compare: the vintage map and satellite, side by side',
+    ariaLabel: 'Compare the vintage map and satellite, side by side',
     narrow: true,
   },
   { id: 'satellite', label: 'Satellite' },
@@ -28,27 +28,30 @@ const PAIRED: Basemap[] = ['literary', 'satellite']
 const VIEWS: { id: View; label: string; title: string }[] = [
   { id: 'flat', label: 'Flat', title: 'The map seen straight down' },
   { id: 'tilted', label: 'Tilted', title: 'The terrain in 3D, tilted towards the horizon' },
-  { id: 'raised', label: 'Raised', title: 'A flat map on which the ranges stand up, like a block diagram' },
+  { id: 'oblique', label: 'Oblique', title: 'A flat map on which the ranges stand up, like a block diagram' },
 ]
 
 type Props = {
   phone: boolean
   basemap: Basemap
   onBasemap: (basemap: Basemap) => void
-  // The MapTiler basemaps refused (no key, or the quota is spent): only Classic can be chosen.
+  // The MapTiler basemaps refused (no key, or the quota is spent): only Vintage can be chosen.
   unavailable: boolean
   view: View
   onView: (view: View) => void
-  tint: boolean
+  ground: Ground
   tintAvailable: boolean
-  onTint: (tint: boolean) => void
+  landcoverAvailable: boolean
+  onGround: (ground: Ground) => void
   units: Units
   onUnits: (units: Units) => void
 }
 
 // The map's switches, top right. On phones they fold into one Map button, so they do not cover the map.
 export function MapControls(props: Props) {
-  const { phone, basemap, onBasemap, unavailable, view, onView, tint, tintAvailable, onTint, units, onUnits } = props
+  const { phone, basemap, onBasemap, unavailable, view, onView, ground, tintAvailable, landcoverAvailable, onGround, units, onUnits } = props
+  // A choice the current view cannot draw shows as paper, and comes back when the view can draw it again.
+  const shown = (ground === 'tint' && !tintAvailable) || (ground === 'landcover' && !landcoverAvailable) ? 'paper' : ground
   const [menuOpen, setMenuOpen] = useState(false)
   const menuBox = useRef<HTMLDivElement>(null)
   const menuButton = useRef<HTMLButtonElement>(null)
@@ -95,7 +98,7 @@ export function MapControls(props: Props) {
         </button>
       )}
       {/* One family of switches. View and Ground hang under the basemap switch, ruled off with it, because
-          they change the classic map (and View the compare mode); on Satellite and Topo they fade out. */}
+          they change the vintage map (and View the compare mode); on Satellite and Topo they fade out. */}
       <div className="map-controls" id="map-controls" hidden={phone && !menuOpen}>
         <div className="control-row">
           <span className="control-label" aria-hidden="true">Map</span>
@@ -110,7 +113,7 @@ export function MapControls(props: Props) {
           <div className="control-row">
             <span className="control-label" aria-hidden="true">View</span>
             <Switch
-              label="View of the classic map"
+              label="View of the vintage map"
               options={VIEWS.map((v) => ({ ...v, disabled: !viewAvailable(basemap, v.id) }))}
               value={view}
               onChange={onView}
@@ -119,18 +122,24 @@ export function MapControls(props: Props) {
           <div className="control-row">
             <span className="control-label" aria-hidden="true">Ground</span>
             <Switch
-              label="Ground of the classic map"
+              label="Ground of the vintage map"
               options={[
-                { id: 'paper', label: 'Paper', title: 'The paper colour of the map', disabled: !tintAvailable },
+                { id: 'paper', label: 'Paper', title: 'The paper colour of the map', disabled: !landcoverAvailable },
+                {
+                  id: 'landcover',
+                  label: 'Land cover',
+                  title: landcoverAvailable ? 'Forest, woodland, grass, scrub, fields and towns along the journeys' : 'Vintage map only',
+                  disabled: !landcoverAvailable,
+                },
                 {
                   id: 'tint',
                   label: 'Satellite tint',
-                  title: tintAvailable ? 'Faint colour from satellite imagery under the map' : 'Classic map in Flat or Tilted only',
+                  title: tintAvailable ? 'Faint colour from satellite imagery under the map' : 'Vintage map in Flat or Tilted only',
                   disabled: !tintAvailable,
                 },
               ]}
-              value={tint ? 'tint' : 'paper'}
-              onChange={(v) => onTint(v === 'tint')}
+              value={shown}
+              onChange={onGround}
             />
           </div>
         </div>

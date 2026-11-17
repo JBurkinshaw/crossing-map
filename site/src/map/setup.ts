@@ -7,7 +7,7 @@ import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url'
 // MapLibre 6 looks for its worker beside its own module file. Bundling moves that module into an app chunk, so
 // point MapLibre at the copy Vite emits.
 maplibregl.setWorkerUrl(workerUrl)
-// With metadata, each archive's attribution (terrain, relief, raised) reaches the map's attribution control.
+// With metadata, each archive's attribution (terrain, relief, oblique) reaches the map's attribution control.
 maplibregl.addProtocol('pmtiles', new Protocol({ metadata: true }).tile)
 
 // The pmtiles protocol needs absolute URLs to make range requests against. VITE_TILES_BASE points a build at

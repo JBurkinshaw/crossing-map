@@ -23,3 +23,12 @@ The plan's research-based vignettes can take these points from it (`docs/roadmap
 - A small legend separates chapters, scenes and place names.
 
 Its captions quote the novel. Ours cannot (design section 3): each of our vignettes gets a short caption in our own words instead.
+
+## r/mapmaking: land cover hachures
+
+Read in a browser on 16 November 2026. The drawings the second thread posts are in `private/inspiration/reddit/land-cover-hachures/`.
+
+| Thread | What it gives the project |
+| --- | --- |
+| [Example of Land Cover Hachure Lines](https://www.reddit.com/r/mapmaking/comments/1w1xxt1/example_of_land_cover_hachure_lines/), u/lost-my-glasses | Points to the *Carte générale de la Martinique* (1831; `rumsey.md`) and Carl Churchill's "Variety in hachure" (`churchill.md`). The idea behind the land cover's ink textures (decision 0036). |
+| [An experiment in land cover hachures](https://www.reddit.com/r/mapmaking/comments/1w1pr3x/an_experiment_in_land_cover_hachures/), u/TheCountVonZeppelin | A hand-drawn island in hachures laid in rows round each peak, with settlements stippled. The thread above follows it. |

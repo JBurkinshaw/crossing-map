@@ -49,7 +49,7 @@ Order matters in four places:
 1. A first build runs `crossing.build_story` (it skips a missing regions file), then `crossing.regions`, then `crossing.build_story` again, because the region drafts sit on place pins.
 2. `crossing.build_vignettes`, `tiles.state_labels` and `crossing.water_places` follow `crossing.build_story` (the water places drop gazetteer points near the book's places and follow the journeys' corridor), and `crossing.context_places` follows `crossing.water_places`, whose names it does not repeat.
 3. After a change to a stop's pin or radius, run `crossing.area_drafts --force` before `crossing.build_story`, which stops if a draft lies outside its stop's circle.
-4. `crossing.validate` checks that `data/raised/` holds the same features, first seen at the same episodes, as the flat layers. After a `build_story` change that adds, removes, or redates a feature, rerun `crossing.plan_oblique` (section 5, hours) before committing, or CI fails.
+4. `crossing.validate` checks that `data/oblique/` holds the same features, first seen at the same episodes, as the flat layers. After a `build_story` change that adds, removes, or redates a feature, rerun `crossing.plan_oblique` (section 5, hours) before committing, or CI fails.
 
 ## 2. Summits
 
@@ -82,7 +82,7 @@ Span ids (`tr-<episode>-<nnn>`) number the lines in reading order. Do not rerun 
 
 `--dry-run` counts the requests still needed. `--offline` writes the CSV from the cache only.
 
-## 5. Relief and the Raised view
+## 5. Relief and the Oblique view
 
 These need QGIS 4. Set `QGIS_ENV` to its micromamba environment.
 
@@ -91,7 +91,7 @@ These need QGIS 4. Set `QGIS_ENV` to its micromamba environment.
 | Hachures | `QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures [--scale fine\|coarse\|dense\|all] [--jobs 4]` | The DEM, `data/journeys.geojson` | `private/cache/relief/production/` | Yes |
 | Wheeler hachures | `QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures --style wheeler --region corridor --out private/cache/relief/wheeler [--jobs 9]` (or `--bbox W S E N` for one box) | The DEM, `data/journeys.geojson`, `data/mountain_glyphs.geojson` | `private/cache/relief/wheeler/` | Yes |
 | Full-region run (optional) | `QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.full_region [--jobs 10]` | `copernicus-region/` | The same tile cache; a report in `private/overnight/full-region.md` | Yes |
-| Raised view | `uv run --project pipeline python -m crossing.plan_oblique` | The hachure cache, the DEM, INEGI, NHD, Natural Earth, Census | `tiles/out/oblique-<n>.pmtiles`, `data/raised/*.geojson`, `data/raised/archives.json` | Yes |
+| Oblique view | `uv run --project pipeline python -m crossing.plan_oblique` | The hachure cache, the DEM, the CEC land cover (`crossing.fetch_landcover`), INEGI, NHD, Natural Earth, Census | `tiles/out/oblique-<n>.pmtiles`, `tiles/out/landcover.pmtiles`, `data/oblique/*.geojson`, `data/oblique/archives.json` | Yes |
 
 Hachure tiles are cached one file per tile. Delete a tile's file to run it again. The Wheeler build (decision 0024) keeps its generator tiles in `<out>/tiles/`; they depend only on the tile and the Wheeler settings, so a box's tiles can be copied into the corridor's folder. It cuts, clears and measures the strokes again on every run, which takes a few minutes. `crossing.full_region` sizes a whole-region run and does not change the production build.
 
@@ -105,7 +105,7 @@ Hachure tiles are cached one file per tile. Delete a tile's file to run it again
 | Wheeler relief | `uv run --project pipeline python -m tiles.build_relief --style wheeler --region corridor` | The Wheeler cache, the production `coarse.geojson` | `tiles/out/relief-wheeler.pmtiles` (zoom 10-11), `relief-wheeler-12.pmtiles` (zoom 12) | Yes |
 | Terrain | `uv run --project pipeline python -m tiles.build_terrain` | AWS Terrain Tiles (cached in `private/cache/terrain/`) | `tiles/out/terrain.pmtiles` | Yes (network once) |
 | Sharper terrain (not released) | `uv run --project pipeline python -m tiles.build_terrain_hi [--estimate N] [--zooms MIN MAX] [--bbox W S E N] [--quantum M] [--out PATH]` | The Copernicus tiles | `tiles/out/terrain-hi.pmtiles` | Yes |
-| Into the local site | `uv run --project pipeline python -m tiles.install` | `tiles/out/` | `site/public/tiles/`, removing Raised archives that `archives.json` no longer lists | No |
+| Into the local site | `uv run --project pipeline python -m tiles.install` | `tiles/out/` | `site/public/tiles/`, removing Oblique archives that `archives.json` no longer lists | No |
 
 Each archive must stay under 100 MB. `tiles.build_relief` and `crossing.plan_oblique` split their output to keep under it.
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Raised view archives",
-  "description": "The tile archives of the Raised view's line work, in drawing order, as named in the tiles release.",
+  "title": "Oblique view archives",
+  "description": "The tile archives of the Oblique view's line work, in drawing order, as named in the tiles release.",
   "type": "array",
   "minItems": 1,
   "uniqueItems": true,

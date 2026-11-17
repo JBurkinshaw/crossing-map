@@ -2,7 +2,7 @@ import type { ExpressionSpecification, LayerSpecification, StyleSpecification } 
 import { palette } from '../../map/tokens'
 import { labHillshadePaint, SITE, type HillshadeMethod, type HillshadeSettings } from './paint'
 
-// The hillshade lab's presets, and how its settings change the classic style. The site's relief (relief.ts, decision
+// The hillshade lab's presets, and how its settings change the vintage style. The site's relief (relief.ts, decision
 // 0016) has two looks either side of a zoom fade: below it a chromatic Imhof hillshade over the desert tint, above
 // it a light grey hillshade over near-white paper, with the hachures and contours. Light, method and fade are
 // shared; strength is set for each side. The settings extend relief.ts's Hillshade (paint.ts), so the lab's JSON,
@@ -77,7 +77,7 @@ function scaleStops(e: unknown, k: number): unknown {
 // 256 px tiles are sharp one map zoom below their own: the test archive's tile zoom 11 at map zoom 10.
 const SHARPER_FROM = 10
 
-// The classic style with these settings: the hillshade's paint, the tint and paper fading over `fade`, the
+// The vintage style with these settings: the hillshade's paint, the tint and paper fading over `fade`, the
 // hachures scaled (relative to the site's, which the style was built with), and, with `sharper`, the hillshade
 // drawn from the test archive of tile zoom 11-12 from map zoom 10.
 export function applySettings(style: StyleSpecification, s: HillshadeSettings, sharper: string | null): StyleSpecification {

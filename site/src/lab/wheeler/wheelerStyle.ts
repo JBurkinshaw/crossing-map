@@ -10,7 +10,7 @@ import { addTypeHierarchy } from './subset/type'
 import { subsetHachures } from './subset/hachures'
 
 // The Wheeler study's parameters (review/stage-8/wheeler/README.md). Each one, at its "today" value, leaves the
-// classic style exactly as the site draws it, so the lab can show the map before and after one change at a time.
+// vintage style exactly as the site draws it, so the lab can show the map before and after one change at a time.
 export type Paper = 'today' | 'cream' | 'grey'
 export type Params = {
   // Major rivers in spaced roman capitals along the line, the smaller rivers and creeks in small italic.
@@ -219,7 +219,7 @@ function paperLayer(layer: Layer, p: Params): Layer {
   return layer
 }
 
-// The classic style with the parameters applied. Units are imperial: the spot heights are in feet, as on the sheets.
+// The vintage style with the parameters applied. Units are imperial: the spot heights are in feet, as on the sheets.
 export function wheelerStyle(p: Params): StyleSpecification {
   const base = literaryStyle(tilesBase, fontsBase, dataBase, 'imperial')
   const halo = p.paper === 'today' ? palette.paper : PAPERS[p.paper].halo

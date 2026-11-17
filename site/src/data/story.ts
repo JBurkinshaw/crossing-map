@@ -48,9 +48,9 @@ export type Elsewhere = { id: string; name: string; first_seen: string; role: st
 
 export const useElsewhere = (): Loaded<Elsewhere[]> => useJson<Elsewhere[]>('elsewhere.json')
 
-// The story layers from data/, or from the raised copies in data/raised/ (the Raised view), fetched once
+// The story layers from data/, or from the oblique copies in data/oblique/ (the Oblique view), fetched once
 // `enabled` is first true.
-export function useStory(folder: '' | 'raised/' = '', enabled = true): Story | 'failed' | null {
+export function useStory(folder: '' | 'oblique/' = '', enabled = true): Story | 'failed' | null {
   const [story, setStory] = useState<Story | 'failed' | null>(null)
   useEffect(() => {
     if (!enabled) return

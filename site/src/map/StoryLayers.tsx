@@ -26,8 +26,8 @@ type Props = {
   aheadFrom: number | null
   // The corridor to outline, when the line picked was spoken on the road.
   corridor: Corridor | null
-  // The classic map letters ranges and valleys along their axis (relief.ts, landform-label); their point labels
-  // then step aside. Off where the base map is hidden or replaced (satellite, the Raised view).
+  // The vintage map letters ranges and valleys along their axis (relief.ts, landform-label); their point labels
+  // then step aside. Off where the base map is hidden or replaced (satellite, the Oblique view).
   lineLabels: boolean
 }
 

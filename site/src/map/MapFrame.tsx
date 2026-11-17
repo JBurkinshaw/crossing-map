@@ -1,10 +1,10 @@
 import { useEffect, useRef, type RefObject } from 'react'
 import type { MapRef } from '@vis.gl/react-maplibre'
 
-// The Wheeler sheet's frame round the classic map (review/stage-9/wheeler-places/README.md and
+// The Wheeler sheet's frame round the vintage map (review/stage-9/wheeler-places/README.md and
 // review/stage-9/wheeler-site/README.md): a thin-thick-thin rule, a margin band holding the 15′ graticule's
 // labels, and a thin neatline, drawn by map.css over the map's edges so the map keeps its size. MapView shows it
-// on the classic map in the Flat and Tilted views; on phones it is the rule alone (map.css), with no band.
+// on the vintage map in the Flat and Tilted views; on phones it is the rule alone (map.css), with no band.
 //
 // MapLibre cannot place a label at the edge of the viewport, so the margin labels are HTML: on every move, each 15′
 // meridian and parallel in view is projected to the screen and its label set in the band where it meets the edge,

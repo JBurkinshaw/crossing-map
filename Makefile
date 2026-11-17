@@ -4,7 +4,7 @@
 
 PY := uv run --project pipeline python -m
 
-.PHONY: help check extract story summits translations relief raised tiles art install-tiles dev
+.PHONY: help check extract story summits translations relief oblique tiles art install-tiles dev
 
 help:
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sed -E 's/:.*## /\t/'
@@ -19,7 +19,7 @@ check: ## The checks CI runs: lint, tests, schemas, GeoParquet parity
 extract: ## Episodes, mentions and episode texts from the book (needs the epub in private/book/)
 	$(PY) crossing.extract
 
-story: ## Episode list, story layers and vignette anchors; run `make raised` after, as validate compares data/raised/
+story: ## Episode list, story layers and vignette anchors; run `make oblique` after, as validate compares data/oblique/
 	$(PY) crossing.build_episodes
 	$(PY) crossing.build_story
 	$(PY) crossing.build_vignettes
@@ -36,7 +36,7 @@ translations: ## Spanish lines and their placement (needs private/)
 relief: ## Hachure strokes for every scale; set QGIS_ENV (hours)
 	$(PY) crossing.hachures --scale all
 
-raised: ## The Raised view's archives and data/raised/ (hours)
+oblique: ## The Oblique view's archives and data/oblique/ (hours)
 	$(PY) crossing.plan_oblique
 
 tiles: ## Base, relief and terrain archives into tiles/out/

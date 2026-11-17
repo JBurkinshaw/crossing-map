@@ -7,7 +7,7 @@ import { palette } from './tokens'
 import { addWaterMarks } from './waterPlaces'
 import type { Units } from '../units'
 
-// Compare mode: the classic base on its own map, clipped to the left of the swipe, between the satellite map
+// Compare mode: the vintage base on its own map, clipped to the left of the swipe, between the satellite map
 // and the main map. The main map then draws only the story layers, across the whole width, as in satellite
 // mode. This map takes no input and follows the main map's camera. It shows left of the swipe's split, which
 // CompareSwipe keeps in the --split CSS variable on the map area.
@@ -26,7 +26,7 @@ function setUnits(map: maplibregl.Map, units: Units) {
   map.setLayoutProperty('contour-label', 'text-field', contourText(units))
 }
 
-export default function ClassicUnderlay({ main, style, units, terrain }: Props) {
+export default function VintageUnderlay({ main, style, units, terrain }: Props) {
   const container = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
   // map.loaded() is false again whenever tiles load, so the first load is recorded here.

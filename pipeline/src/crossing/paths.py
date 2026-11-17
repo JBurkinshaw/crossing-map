@@ -14,6 +14,6 @@ TILES_OUT = REPO / "tiles" / "out"
 STORY_BOX = (-113.0, 27.0, -104.0, 36.0)
 # The story box widened by half a degree, so base-map lines run off the edge cleanly.
 STORY_BOX_PADDED = (-113.5, 26.5, -103.5, 36.5)
-# UTM zone 12N: the bootheel and eastern Sonora; Chihuahua lies just east of the zone. The relief, the Raised view
+# UTM zone 12N: the bootheel and eastern Sonora; Chihuahua lies just east of the zone. The relief, the Oblique view
 # and the summit search all work in it.
 UTM_CRS = "EPSG:32612"

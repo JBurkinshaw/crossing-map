@@ -5,7 +5,7 @@
 // water and context places, vignettes,
 // search results and the cards they open (places and the translations "Spoken here"), the layer key, the
 // reading-progress dialog, every page (About, How it's built, Open questions, Data, Credits), the Tilted,
-// compare and Raised views, and the phone drawer at each height. A first visit straight to a page must leave
+// compare and Oblique views, and the phone drawer at each height. A first visit straight to a page must leave
 // the page and the progress dialog usable.
 //
 // Usage, with the app running on the dev server or a build made with VITE_DEBUG=1 (the map handle
@@ -353,17 +353,17 @@ for (const point of POINTS) {
     await idle(page)
     await checkMap(page, reached, `${where}, compare`)
     await checkPanel(page, reached, `${where}, compare panel`, later, lines)
-    await page.getByRole('radio', { name: 'Classic', exact: true }).click()
+    await page.getByRole('radio', { name: 'Vintage', exact: true }).click()
   }
 
-  // The Raised view loads its own copies of the story layers.
-  const raisedLoaded = page.waitForResponse((r) => r.url().includes('/data/raised/journeys.geojson'))
-  await page.getByRole('radio', { name: 'Raised', exact: true }).click()
-  await raisedLoaded
+  // The Oblique view loads its own copies of the story layers.
+  const obliqueLoaded = page.waitForResponse((r) => r.url().includes('/data/oblique/journeys.geojson'))
+  await page.getByRole('radio', { name: 'Oblique', exact: true }).click()
+  await obliqueLoaded
   await page.waitForTimeout(500)
   await idle(page)
-  await checkMap(page, reached, `${where}, raised`)
-  await checkPanel(page, reached, `${where}, raised panel`, later, lines)
+  await checkMap(page, reached, `${where}, oblique`)
+  await checkPanel(page, reached, `${where}, oblique panel`, later, lines)
 
   console.log(`${where}: ${features} map features checked, ${options.length} journeys offered, ${steps} panel steps, ${searched} searches`)
   await page.context().close()

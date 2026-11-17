@@ -1,4 +1,4 @@
-"""Reading vector sources through ogr2ogr, and small line helpers shared by the tile and Raised builds."""
+"""Reading vector sources through ogr2ogr, and small line helpers shared by the tile and Oblique builds."""
 
 import json
 import subprocess

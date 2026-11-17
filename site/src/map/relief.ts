@@ -1,5 +1,5 @@
 import type { ExpressionSpecification, LayerSpecification, SourceSpecification } from 'maplibre-gl'
-import { fonts, typeScale, zoomedSize, type Palette } from './tokens'
+import { fonts, LAND_COVERS, typeScale, zoomedSize, type Palette } from './tokens'
 import { heightLabel, type Units } from '../units'
 
 // Relief (docs/design.md, section 5.2; decision 0016, "S5"): an Imhof desert tint below zoom 10, then
@@ -479,55 +479,94 @@ export function reliefLayers(p: Palette, units: Units): {
   return { hillshade: s5Ground(p), hachures: s5Lines(p), glyphs: [...glyphs(p, units), landformLabel(p)], vignettes: vignettes(p) }
 }
 
-// The Raised view (plan oblique relief): line work from oblique-<n>.pmtiles in which every point has moved north
+// The Oblique view (plan oblique relief): line work from oblique-<n>.pmtiles in which every point has moved north
 // by its height, so ranges stand up and hide the ground behind them. It covers the corridor of the stretches
 // ridden or walked in every journey (decisions 0018 and 0019); the map's layers that cannot move with the terrain are hidden by MapView.
-export const RAISED_BOUNDS: [number, number, number, number] = [-109.9, 28.23, -106.66, 34.0]
-export const RAISED_MIN_ZOOM = 9
+export const OBLIQUE_BOUNDS: [number, number, number, number] = [-109.9, 28.23, -106.66, 34.0]
+export const OBLIQUE_MIN_ZOOM = 9
 
-// Classic base layers drawn again from the raised copies of their lines, by the `kind` in the oblique archives.
-const RAISED_BASE: Record<string, string> = {
+// Land cover (decision 0034): crossing.landcover's classes as polygons, on the ground in landcover.pmtiles for the
+// Flat and Tilted views, and shifted in the oblique archives for the Oblique view. MapView shows them when the
+// reader picks Land cover as the ground.
+export const LANDCOVER_ARCHIVE = 'landcover.pmtiles'
+export const landcoverColour = (p: Palette): ExpressionSpecification =>
+  ['match', ['get', 'class'], ...LAND_COVERS.flatMap((c) => [c.id, p.landcover[c.id]]), p.paper] as unknown as ExpressionSpecification
+
+// Each class's ink texture (decision 0036; landcoverInk.ts draws them, MapView adds them to the map as `ink-<class>`).
+export const landcoverInk: ExpressionSpecification =
+  ['match', ['get', 'class'], ...LAND_COVERS.flatMap((c) => [c.id, `ink-${c.id}`]), 'ink-scrub'] as unknown as ExpressionSpecification
+
+// The land cover on the ground: its colour under the hillshade, so the hillshade still shades it, and its ink
+// above, so the hillshade does not grey the ink. MapView puts each below the layer named by `before`.
+export function landcoverLayers(p: Palette): { before: string; layer: LayerSpecification }[] {
+  const source = { source: 'landcover', 'source-layer': 'landcover', layout: { visibility: 'none' } } as const
+  return [
+    { before: 'hillshade', layer: { ...source, id: 'landcover', type: 'fill', paint: { 'fill-color': landcoverColour(p) } } },
+    { before: 'contour', layer: { ...source, id: 'landcover-ink', type: 'fill', paint: { 'fill-pattern': landcoverInk } } },
+  ]
+}
+
+// Vintage base layers drawn again from the oblique copies of their lines, by the `kind` in the oblique archives.
+const OBLIQUE_BASE: Record<string, string> = {
   mexico: 'mexico', 'county-line': 'county', 'state-line': 'state', 'country-line': 'country', road: 'road',
   railroad: 'railroad', 'railroad-ties': 'railroad', 'creek-label': 'stream',
 }
 
-// Each group of raised layers goes in below the classic layer named by `before`: the Mexico side under the
-// paper tint, the relief under the journeys' halo, and the boundaries, water and roads over it. `classic` is the
-// literary style's layers in the palette `p`.
-export function raisedLayers(classic: LayerSpecification[], p: Palette): { before: string; layers: LayerSpecification[] }[] {
+// The Oblique view's strokes are spaced for about zoom 12.5 (decision 0034). A size given for 12.5 is half that at
+// zoom 9 and grows a little past it.
+const obliqueSize = (size: number | ExpressionSpecification): ExpressionSpecification =>
+  ['interpolate', ['linear'], ['zoom'], 9, ['*', 0.5, size], 12.5, size, 14, ['*', 1.3, size]] as ExpressionSpecification
+// The build tiles fewer strokes and dots at each zoom out by Rand (crossing.plan_oblique.RAND_MINZOOM); at zoom 12
+// the style still leaves out Rand 7 to 9, which the zoom-12 tiles carry, until zoom 13 (filters see whole zooms only).
+const obliqueThin = (kind: string): ExpressionSpecification =>
+  ['all', ['==', ['get', 'kind'], kind], ['step', ['zoom'], ['<', ['get', 'Rand'], 7], 13, true]]
+// Stroke width from shade (0 lit, 100 in full shade): thin in light, heavy in shade, and heavier again in the
+// deepest shade, after the comic-book shading of Owens's The Panama Canal.
+const strokeWidth: ExpressionSpecification =
+  ['+', 0.3, ['*', 0.008, ['get', 'shade']], ['*', 0.03, ['max', 0, ['-', ['get', 'shade'], 70]]]]
+
+// Each group of oblique layers goes in below the vintage layer named by `before`: the Mexico side under the
+// paper tint, the land cover and relief under the journeys' halo, and the boundaries, water and roads over it.
+// `vintage` is the literary style's layers in the palette `p`.
+export function obliqueLayers(vintage: LayerSpecification[], p: Palette): { before: string; layers: LayerSpecification[] }[] {
   const source = { source: 'oblique', 'source-layer': 'oblique' } as const
-  const base = { ...source, minzoom: RAISED_MIN_ZOOM, layout: { 'line-cap': 'round', 'line-join': 'round', visibility: 'none' } } as const
+  const base = { ...source, minzoom: OBLIQUE_MIN_ZOOM, layout: { 'line-cap': 'round', 'line-join': 'round', visibility: 'none' } } as const
   const kind = (k: string): ExpressionSpecification => ['==', ['get', 'kind'], k]
-  // The classic layer's look, drawn from the raised lines of its kind.
+  // The vintage layer's look, drawn from the oblique lines of its kind.
   const copy = (id: string): LayerSpecification => {
-    const layer = classic.find((l) => l.id === id) as LayerSpecification & { filter?: ExpressionSpecification; layout?: object }
-    return { ...layer, ...source, id: `raised-${id}`, filter: layer.filter ? ['all', kind(RAISED_BASE[id]), layer.filter] : kind(RAISED_BASE[id]),
+    const layer = vintage.find((l) => l.id === id) as LayerSpecification & { filter?: ExpressionSpecification; layout?: object }
+    return { ...layer, ...source, id: `oblique-${id}`, filter: layer.filter ? ['all', kind(OBLIQUE_BASE[id]), layer.filter] : kind(OBLIQUE_BASE[id]),
       layout: { ...layer.layout, visibility: 'none' } } as LayerSpecification
   }
+  const order = ['-', ['get', 'ord'], 3] as ExpressionSpecification
   return [
     { before: 'relief-tint', layers: [copy('mexico')] },
     {
       before: 'contour',
       layers: [
-        { ...base, id: 'raised-contour', type: 'line', filter: kind('contour'),
-          paint: { 'line-color': p.contour, 'line-width': 0.4, 'line-opacity': 0.45 } },
-        { ...base, id: 'raised-stroke', type: 'line', filter: strokeFilter('stroke'), paint: strokePaint(p.hachure, [10, 40], false) },
-        { ...base, id: 'raised-stroke-copy', type: 'line', filter: strokeFilter('stroke'), paint: strokePaint(p.hachure, [10, 40], true) },
-        // Ridgelines, heavier on higher ridges (rel: height above the ground around, metres); below zoom 12 only the higher ones.
-        { ...base, id: 'raised-ridge', type: 'line',
-          filter: ['all', kind('ridge'), ['step', ['zoom'], ['>=', ['get', 'rel'], 160], 12, true]],
-          paint: { 'line-color': p.ink, 'line-width': ['interpolate', ['linear'], ['get', 'rel'], 100, 0.5, 300, 1.1], 'line-opacity': 0.7 } },
-        { ...base, id: 'raised-crest', type: 'line', filter: kind('crest'),
-          paint: { 'line-color': p.ink, 'line-width': 0.9, 'line-opacity': 0.8 } },
+        { ...source, id: 'oblique-landcover', type: 'fill', minzoom: OBLIQUE_MIN_ZOOM, filter: kind('landcover'),
+          layout: { visibility: 'none' }, paint: { 'fill-color': landcoverColour(p) } },
+        { ...source, id: 'oblique-landcover-ink', type: 'fill', minzoom: OBLIQUE_MIN_ZOOM, filter: kind('landcover'),
+          layout: { visibility: 'none' }, paint: { 'fill-pattern': landcoverInk } },
+        // Stipple on the flats, after Holmes's Estado da Guanabara.
+        { ...source, id: 'oblique-dot', type: 'circle', minzoom: OBLIQUE_MIN_ZOOM, filter: obliqueThin('dot'), layout: { visibility: 'none' },
+          paint: { 'circle-color': p.ink, 'circle-opacity': 0.75, 'circle-radius': obliqueSize(0.65) } },
+        // Long strokes down the fall line, after Tau Rho Alpha's Atlas of Oblique Maps.
+        { ...base, id: 'oblique-stroke', type: 'line', filter: obliqueThin('stroke'),
+          paint: { 'line-color': p.ink, 'line-width': obliqueSize(strokeWidth) } },
+        { ...base, id: 'oblique-crest', type: 'line', filter: kind('crest'),
+          paint: { 'line-color': p.ink, 'line-width': obliqueSize(1.6), 'line-opacity': 0.9 } },
       ],
     },
     {
       before: 'creek-label',
       layers: [
         copy('county-line'), copy('state-line'), copy('country-line'),
-        // Streams on both sides of the border, wider with Strahler order (or NHD's stand-in for it).
-        { ...base, id: 'raised-stream', type: 'line', filter: kind('stream'),
-          paint: { 'line-color': p.raisedStream, 'line-width': ['interpolate', ['linear'], ['get', 'ord'], 3, 0.6, 8, 2.2], 'line-opacity': 0.6 } },
+        // Rivers as two inked banks with water between, wider with Strahler order (or NHD's stand-in for it).
+        { ...base, id: 'oblique-stream-bank', type: 'line', filter: kind('stream'),
+          paint: { 'line-color': p.ink, 'line-width': obliqueSize(['+', 2.2, ['*', 0.6, order]]) } },
+        { ...base, id: 'oblique-stream', type: 'line', filter: kind('stream'),
+          paint: { 'line-color': p.obliqueWater, 'line-width': obliqueSize(['+', 1.1, ['*', 0.6, order]]) } },
         copy('road'), copy('railroad'), copy('railroad-ties'), copy('creek-label'),
       ],
     },

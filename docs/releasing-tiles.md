@@ -12,11 +12,11 @@ Rebuild only the archives whose inputs changed. The commands are in [`pipeline.m
 | `relief.pmtiles`, `relief-dense.pmtiles`, `contours.pmtiles` | `crossing.hachures`, then `tiles.build_relief` |
 | `relief-wheeler.pmtiles`, `relief-wheeler-12.pmtiles` | `crossing.hachures --style wheeler --region corridor`, then `tiles.build_relief --style wheeler --region corridor` |
 | `terrain.pmtiles` | `tiles.build_terrain` |
-| `oblique-1.pmtiles`, `oblique-2.pmtiles` | `crossing.hachures`, then `crossing.plan_oblique` |
+| `oblique-1.pmtiles` to `oblique-3.pmtiles`, `landcover.pmtiles` | `crossing.hachures` (for its tile grid) and `crossing.fetch_landcover`, then `crossing.plan_oblique` |
 
 The site draws one of two hachure sets inside the journeys corridor, chosen by `HACHURE_SET` in `site/src/map/relief.ts` (decision 0024): the Wheeler set reads `relief-wheeler*.pmtiles`, the production set `relief.pmtiles` and `relief-dense.pmtiles`. Release both sets, so switching back needs no new release.
 
-`crossing.plan_oblique` also rewrites `data/raised/*.geojson` and `data/raised/archives.json`, which list the Raised archives in drawing order. Commit those with the release bump: the site draws every archive the list names, and only those.
+`crossing.plan_oblique` also rewrites `data/oblique/*.geojson` and `data/oblique/archives.json`, which list the Oblique archives in drawing order. Commit those with the release bump: the site draws every archive the list names, and only those.
 
 ## 2. Check
 
@@ -55,6 +55,8 @@ Warning: a release is public as soon as it is created.
      tiles/out/terrain.pmtiles \
      tiles/out/oblique-1.pmtiles \
      tiles/out/oblique-2.pmtiles \
+     tiles/out/oblique-3.pmtiles \
+     tiles/out/landcover.pmtiles \
      --title "Tiles vN: <what changed>" \
      --notes "<what changed, and each archive's sources>"
    ```
@@ -63,7 +65,7 @@ Warning: a release is public as soon as it is created.
 
 3. Write the new tag into `tiles/release.txt`.
 4. Add a line under Unreleased in [`CHANGELOG.md`](CHANGELOG.md) naming the tag and what readers will see.
-5. Commit `tiles/release.txt`, the changelog, and any changed `data/raised/` files together, then push the branch.
+5. Commit `tiles/release.txt`, the changelog, and any changed `data/oblique/` files together, then push the branch.
 
 ## 4. How the deploy uses it
 
@@ -75,4 +77,4 @@ Run locally, `tools/build-site.sh <checkout> <base> <out>` with no fourth argume
 
 ## Pending
 
-- The Raised archives need a rebuild and a release: the hachure strokes in `oblique-*.pmtiles` now take the same `Rand` and `Slope` as `relief.pmtiles` (`crossing.hachures.stroke_properties`), so the two views thin strokes alike. See [`roadmap.md`](roadmap.md).
+- The Oblique archives and `landcover.pmtiles` need a release (decision 0034). See [`roadmap.md`](roadmap.md).

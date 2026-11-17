@@ -61,6 +61,14 @@ What to learn from each:
 
 **Not found:** a Rumsey map of the Mexico North Western Railway (the Rio Grande, Sierra Madre and Pacific before 1909) or its surveys through Casas Grandes and Madera, and any Comisión Geográfico-Exploradora sheet for Chihuahua or Sonora. A browser search of the catalogue for "Nor-Oeste", "Sierra Madre" and "Casas Grandes" is the next step.
 
+## Land cover in ink (decision 0036)
+
+| Map | Date | Scale | Author or publisher | Record |
+| --- | --- | --- | --- | --- |
+| *Carte générale de la Martinique* | 1831 | not checked | M. Monnier, assisted by C. G. Le Bourguignon-Duperré; Dépôt général de la Marine | [detail](https://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~372081~90137794:Carte-Generale-De-La-Martinique) |
+
+Hachures with the land cover engraved in the same ink: woods as dots, plantations and gardens as marks in rows, fields as ruled parcels, buildings as small blocks, rocks. Found through an r/mapmaking thread (`reddit.md`). A copy of the image the thread posted, downloaded on 16 November 2026, is in `private/inspiration/rumsey/`.
+
 ## Phase 2: georeferenced overlays
 
 P2 shows period maps as raster overlays through the same swipe as satellite. From what was seen:

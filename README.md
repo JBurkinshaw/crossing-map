@@ -27,7 +27,7 @@ You need Node 22 (`.nvmrc`) and, for the checks, [uv](https://docs.astral.sh/uv/
    (cd site && npm ci)
    ```
 
-2. Optional: for Satellite, Topo, and Compare, put a MapTiler key in `site/.env.local`. The key must allow your dev server's origin. Without a key, those switches show as unavailable and the classic map works as normal.
+2. Optional: for Satellite, Topo, and Compare, put a MapTiler key in `site/.env.local`. The key must allow your dev server's origin. Without a key, those switches show as unavailable and the vintage map works as normal.
 
    ```ini
    VITE_MAPTILER_KEY=your-key

@@ -5,7 +5,7 @@ Checks every file, lists every error, and exits 1 if any file has errors or is m
 
 Besides each schema, it checks what a schema cannot: every episode id names a real episode, every
 reference points at a feature that exists and is reached no later than the thing pointing at it,
-each journey's stops and segments are numbered without gaps, and the Raised view's copies hold the
+each journey's stops and segments are numbered without gaps, and the Oblique view's copies hold the
 same features, first seen at the same episodes, as the flat layers. It also checks that every glyph and
 vignette the data names has an icon in the committed sprite, which CI cannot rebuild.
 """
@@ -23,7 +23,7 @@ SCHEMAS = DATA / "schema"
 SPRITE_INDEX = SITE_PUBLIC / "sprites" / "glyphs.json"
 LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs", "vignettes", "landforms", "water_places",
           "context_places"]
-RAISED_LAYERS = ["places", "stops", "areas", "journeys"]
+OBLIQUE_LAYERS = ["places", "stops", "areas", "journeys"]
 MAX_DECIMALS = 5  # about 1 m; docs/design.md, section 6, rounds all coordinates to this
 INCIPIT_WORDS = 5  # the most Spanish words of a line the site may publish (docs/design.md, section 3)
 
@@ -138,12 +138,12 @@ def check_region_rings(doc) -> list[str]:
     return errors
 
 
-def check_raised(flat: dict, raised: dict, layer: str) -> list[str]:
-    """The Raised copy holds the same features as the flat layer, each first seen at the same episode."""
+def check_oblique(flat: dict, oblique: dict, layer: str) -> list[str]:
+    """The Oblique copy holds the same features as the flat layer, each first seen at the same episode."""
     a = {p["id"]: p.get("first_seen") for p in properties(flat)}
-    b = {p["id"]: p.get("first_seen") for p in properties(raised)}
+    b = {p["id"]: p.get("first_seen") for p in properties(oblique)}
     errors = [f"{fid}: only in the flat layer" for fid in sorted(a.keys() - b.keys())]
-    errors += [f"{fid}: only in the raised layer" for fid in sorted(b.keys() - a.keys())]
+    errors += [f"{fid}: only in the oblique layer" for fid in sorted(b.keys() - a.keys())]
     errors += [f"{fid}: first_seen {b[fid]} differs from the flat layer's {a[fid]}"
                for fid in sorted(a.keys() & b.keys()) if a[fid] != b[fid]]
     return errors
@@ -255,8 +255,8 @@ def report(name: str, errors: list[str]) -> bool:
 
 
 def main() -> int:
-    expected = ([f"{name}.geojson" for name in LAYERS] + [f"raised/{name}.geojson" for name in RAISED_LAYERS]
-                + ["raised/archives.json", "episodes.json", "translations.json", "open-questions.json",
+    expected = ([f"{name}.geojson" for name in LAYERS] + [f"oblique/{name}.geojson" for name in OBLIQUE_LAYERS]
+                + ["oblique/archives.json", "episodes.json", "translations.json", "open-questions.json",
                    "elsewhere.json"])
     missing = [name for name in expected if not (DATA / name).exists()]
     if missing:
@@ -270,12 +270,12 @@ def main() -> int:
     for name, doc in layers.items():
         failed |= report(f"{name}.geojson", check_layer(doc, name, episodes)
                          + (check_region_rings(doc) if name == "areas" else []))
-    for name in RAISED_LAYERS:
-        doc = load(DATA / "raised" / f"{name}.geojson")
-        errors = (check_layer(doc, name, episodes) + check_raised(layers[name], doc, name)
+    for name in OBLIQUE_LAYERS:
+        doc = load(DATA / "oblique" / f"{name}.geojson")
+        errors = (check_layer(doc, name, episodes) + check_oblique(layers[name], doc, name)
                   + (check_region_rings(doc) if name == "areas" else []))
-        failed |= report(f"raised/{name}.geojson", errors)
-    failed |= report("raised/archives.json", schema_errors(load(DATA / "raised" / "archives.json"),
+        failed |= report(f"oblique/{name}.geojson", errors)
+    failed |= report("oblique/archives.json", schema_errors(load(DATA / "oblique" / "archives.json"),
                                                           load(SCHEMAS / "archives.schema.json")))
     failed |= report("references", check_references(layers))
     failed |= report("sprites", check_sprites(layers, load(SPRITE_INDEX)))

@@ -2,9 +2,10 @@ import { useEffect, useMemo, useState } from 'react'
 import { JOURNEYS } from '../data/journeys'
 import { ROUTE_LABEL } from '../data/routeLabels'
 import type { Story } from '../data/story'
-import { journeyInks, palette as tokens, routeLines, SPRITE } from './tokens'
+import { dataUrl, inkPatterns, TILE as INK_TILE } from './landcoverInk'
+import { journeyInks, LAND_COVERS, palette as tokens, routeLines, SPRITE } from './tokens'
 
-// The layer key (legend, design section 9) for the classic map: one row per kind of mark the map draws, from
+// The layer key (legend, design section 9) for the vintage map: one row per kind of mark the map draws, from
 // the story it is given. That story is already filtered to the reader's progress, so a journey, a region or
 // the false dawn appears in the key only once it can appear on the map; so does the vignettes' row, from the
 // vignettes reached.
@@ -91,6 +92,17 @@ function Area({ colour }: { colour: string }) {
   )
 }
 
+// A land cover class as relief.ts fills it: its colour, with its ink texture over it (decision 0036).
+function Swatch({ colour, ink }: { colour: string; ink?: string }) {
+  return (
+    <span className="key-swatch" aria-hidden="true"
+      style={{ backgroundColor: colour, backgroundImage: ink ? `url(${ink})` : undefined, backgroundSize: `${INK_TILE}px` }} />
+  )
+}
+
+// Each class's ink texture as an image, for the key's swatches.
+const inkUrls = () => Object.fromEntries(inkPatterns(tokens.ink, tokens.water).map(({ id, image }) => [id, dataUrl(image)]))
+
 // A region as StoryLayers draws it: no fill, a fine ink line with a broad soft band inside it.
 function Region() {
   return (
@@ -124,9 +136,11 @@ type Props = {
   journey: string
   // The latest episode whose features may show (spoiler mode).
   reached: string
+  // The reader has picked Land cover as the ground (decision 0034).
+  landcover: boolean
 }
 
-export function LayerKey({ story, journey, reached }: Props) {
+export function LayerKey({ story, journey, reached, landcover }: Props) {
   const journeyInk = journeyInks(tokens)
   const [open, setOpen] = useState(false)
   const [sprite, setSprite] = useState<Sprite | null>(null)
@@ -161,6 +175,8 @@ export function LayerKey({ story, journey, reached }: Props) {
     return { journeys: [...journeys].sort(), roles, areaKinds, sightline, modeled }
   }, [story])
   const ink = journeyInk[journey] ?? tokens.ink
+  // Drawn only once the key is open with land cover on.
+  const landcoverInk = useMemo(() => (open && landcover ? inkUrls() : null), [open, landcover])
 
   return (
     <details className="layer-key" open={open} onToggle={(e) => setOpen(e.currentTarget.open)}>
@@ -258,6 +274,19 @@ export function LayerKey({ story, journey, reached }: Props) {
             Railroad
           </li>
         </ul>
+        {landcover && (
+          <>
+            <h3>Land cover, along the journeys</h3>
+            <ul>
+              {LAND_COVERS.map((c) => (
+                <li key={c.id}>
+                  <Swatch colour={tokens.landcover[c.id]} ink={landcoverInk?.[`ink-${c.id}`]} />
+                  {c.label}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
         <h3>Mountains</h3>
         <ul className="key-glyphs">
           {GLYPHS.map(([name, label]) => (

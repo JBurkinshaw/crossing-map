@@ -1,6 +1,6 @@
 # 0019. Raised over every journey, in archives under 100 MB
 
-Status: accepted (2026-11-13). Extends 0018.
+Status: accepted (2026-11-13); the view is renamed Oblique, and `data/raised/` is `data/oblique/`, by 0034. Extends 0018.
 Phase: P1
 
 ## Context

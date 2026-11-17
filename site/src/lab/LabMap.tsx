@@ -10,13 +10,13 @@ import { WaterMarks } from '../map/WaterMarks'
 import { reachedEpisode, useProgress } from '../spoiler/progress'
 import { styleUpTo } from '../spoiler/filter'
 
-// The lab's map: the site's classic map, built by the same style builder from the same tiles, so whatever a
+// The lab's map: the site's vintage map, built by the same style builder from the same tiles, so whatever a
 // lab section shows on it is what the site would show.
 
 export type LabView = { center: [number, number]; zoom: number }
 
 // Props of LabMap, for any lab section (Hillshade, Wheeler, ...):
-//   styleOverrides  Optional. Gets a fresh copy of the classic style (already filtered to the reader's progress,
+//   styleOverrides  Optional. Gets a fresh copy of the vintage style (already filtered to the reader's progress,
 //                   as on the site) and returns the style to draw; it may change the copy in place. It runs
 //                   again whenever the function changes, and MapLibre applies only the difference, so keep it
 //                   stable (useCallback or useMemo) and make a new one when the section's settings change.
@@ -25,9 +25,9 @@ export type LabView = { center: [number, number]; zoom: number }
 //   mapRef          Optional. A ref to the react-maplibre MapRef; mapRef.current.getMap() is the MapLibre map.
 //   onLoad          Optional. Called once with the MapLibre map when its style first loads.
 //   onMove          Optional. Called with the map whenever the camera moves (to show the zoom, sync a second map).
-//   label           Optional. The map's accessible name (default "Classic map").
+//   label           Optional. The map's accessible name (default "Vintage map").
 //   children        Optional. Overlays drawn on the map: react-maplibre <Source> and <Layer>, <Marker>, <Popup>
-//                   or controls. They draw above the classic layers unless a <Layer> sets beforeId.
+//                   or controls. They draw above the vintage layers unless a <Layer> sets beforeId.
 // The map fills its parent, which must have a size (position: relative and a height).
 export type LabMapProps = {
   styleOverrides?: (style: StyleSpecification) => StyleSpecification
@@ -39,7 +39,7 @@ export type LabMapProps = {
   children?: ReactNode
 }
 
-export function LabMap({ styleOverrides, initialView, mapRef, onLoad, onMove, label = 'Classic map', children }: LabMapProps) {
+export function LabMap({ styleOverrides, initialView, mapRef, onLoad, onMove, label = 'Vintage map', children }: LabMapProps) {
   // The reader's own progress from the site (same storage): features first seen later stay hidden here too.
   const { progress } = useProgress()
   const reached = reachedEpisode(progress)

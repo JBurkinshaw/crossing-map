@@ -2,8 +2,8 @@
 
 Run from the repo root: uv run --project pipeline python -m tiles.install
 The published site does not use this: tools/build-site.sh downloads the release named in tiles/release.txt.
-Raised-view archives in site/public/tiles that data/raised/archives.json no longer lists are removed, so a rebuilt
-Raised view with fewer parts leaves no stale archive behind.
+Oblique-view archives in site/public/tiles that data/oblique/archives.json no longer lists are removed, so a rebuilt
+Oblique view with fewer parts leaves no stale archive behind.
 """
 
 import json
@@ -16,9 +16,9 @@ SITE_TILES = SITE_PUBLIC / "tiles"
 
 def main() -> None:
     SITE_TILES.mkdir(parents=True, exist_ok=True)
-    raised = set(json.loads((DATA / "raised" / "archives.json").read_text()))
+    oblique = set(json.loads((DATA / "oblique" / "archives.json").read_text()))
     for old in SITE_TILES.glob("oblique*.pmtiles"):
-        if old.name not in raised:
+        if old.name not in oblique:
             old.unlink()
             print(f"Removed {old.name}")
     for archive in sorted(TILES_OUT.glob("*.pmtiles")):

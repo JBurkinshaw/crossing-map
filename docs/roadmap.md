@@ -16,7 +16,7 @@ Tags say who moves each item:
 3. **[owner]** Sign off the stage 4 place checklists (`review/stage-4/batch-a/checklist.md`, `review/stage-4/batch-b/checklist.md`) and tick the acceptance criteria (section 9 below).
 4. **[owner]** Send the permission message to Joe Hazelton. A courtesy note to James Bell is optional.
 5. **[decide]** How readers discuss. Cusdis was archived in July 2026. The options are Giscus (posting needs a GitHub account), Hyvor Talk (guest comments, about €50 a year), or a Tally form beside Giscus. The GitHub issue link stays for corrections.
-6. **[owner]** Soft launch to a few readers, testing spoiler mode and the inferred places. Send the McCarthy Society a link as a courtesy and offer the data back. Then post on r/cormacmccarthy (draft in `private/launch/reddit-post.md`; it needs the link and two screenshots, classic and Compare) after reading the self-promotion rules, and reply in the 2024 Gaia-map thread. Log every correction in the changelog with credit.
+6. **[owner]** Soft launch to a few readers, testing spoiler mode and the inferred places. Send the McCarthy Society a link as a courtesy and offer the data back. Then post on r/cormacmccarthy (draft in `private/launch/reddit-post.md`; it needs the link and two screenshots, vintage and Compare) after reading the self-promotion rules, and reply in the 2024 Gaia-map thread. Log every correction in the changelog with credit.
 
 ## 2. Decisions pending
 
@@ -38,11 +38,11 @@ These were "open questions" in the build plan; they are project decisions, not q
 - **[decide] Photos** (`review/stage-6/photos-README.md`). Drop aerial views (as now), or keep USDA orthophotos and ISS photos as a last resort for back-country places? Should the 55 places with no Wikidata link get one by search, to reach their images? And the picks themselves, in `review/stage-6/photos.csv`.
 - **[decide] Vignettes** (`review/stage-6/vignettes/README.md`): the next picks (the locomotive at Las Varas and the cranes are next in line). Placement is decided (decision 0026).
 - **[decide] Relief.**
-  - Full-region relief and Raised, about 710 MB: Cloudflare R2, the preview only, or a thinner treatment?
+  - Full-region relief and Oblique, about 710 MB: Cloudflare R2, the preview only, or a thinner treatment?
   - Coarse relief and contours over the whole story box?
   - Two hachure sets are kept for now (decision 0024): the Wheeler strokes, which the site draws in the corridor, and the production fine and dense strokes (`relief.pmtiles`, `relief-dense.pmtiles`, `private/cache/relief/production/`), one switch away (`HACHURE_SET` in `site/src/map/relief.ts`). Keep both in every tile release until one is dropped; then remove the other's archives, cache and code.
   - The corridor edge, where hachures stop in a hard line (Mesa Atravesada shows it): fade the last few kilometres, or wait for full-region relief?
-  - Thinning pass labels, glyph thresholds, and Raised details.
+  - Thinning pass labels, glyph thresholds, and Oblique details.
 
 ### Stage 4 questions
 
@@ -143,20 +143,22 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - the hand finish of the regions and the drafted areas in QGIS
 - **Large:**
   - street-level places (lookups, `maxZoom` 15)
-  - shipping full-region relief and Raised (hosting)
+  - shipping full-region relief and Oblique (hosting)
   - the remaining vignettes (design section 10)
   - hand-drawn glyphs
   - translation review by a speaker
   - more traced legs (decision 0032): roads in US counties with no cached TIGER file, roads INEGI does not name, J7 leg 42 (its stop sits on a side channel), and the rest of `private/review/snap-candidates.md`
 - **Small:**
   - **[owner]** Restore the spoiler-leak job in `.github/workflows/deploy.yml` (paused 2026-11-14 to speed up deploys): delete its `if: false` and add it back to `build`'s `needs`. Until then, run `tools/spoiler-leak.mjs` locally before each push.
-  - **[owner]** Rebuild and release the Raised archives. The hachure strokes in `oblique-*.pmtiles` now take the same `Rand` and `Slope` as `relief.pmtiles`, so the Raised view thins strokes as the flat view does once rebuilt ([`releasing-tiles.md`](releasing-tiles.md)).
+  - **[owner]** Release the rebuilt Oblique archives with the new `landcover.pmtiles` (decision 0034): `oblique-*.pmtiles`, `landcover.pmtiles` and `data/oblique/` go out together ([`releasing-tiles.md`](releasing-tiles.md)). Until then the deployed site must keep `tiles-v11` and the old `data/oblique/archives.json`: the v11 Oblique archives lack the new strokes' `shade`, dots and land cover, `oblique-3.pmtiles` is missing, and the Land cover option draws nothing, so this branch stays off `main` and the preview until the release is cut and `tiles/release.txt` bumped in the same push.
+  - **[decide]** The Oblique view's lean is 4 (decision 0034). If the larger shift reads badly, or the story's pins jump too far between Flat and Oblique, try 3.
+  - **[decide]** Land cover covers the Oblique corridor only (decision 0034). Extending it to the story box needs the DEM of `copernicus-region/` and makes `landcover.pmtiles` larger.
   - **[owner]** Review the Apache Pass glyph: its entry in `data/mountain_glyphs.geojson` is stale against what `crossing.peaks` now produces.
   - **[decide]** Stop `j2-colonia-oaxaca` is first seen in 1-09, before its place, which the book names in 1-10. `crossing.validate` allows it, because the stop's own name gives nothing away until then. Confirm, or date the stop 1-10.
-  - **[decide]** The Raised view's US streams come from NHD's display scale (`visibility`), not Strahler order as on the classic map, so the two views rank streams differently.
-  - **[decide]** Summits, landforms, regions, coarse hachures, and the Raised view read only `private/cache/dem/copernicus/` (18 corridor tiles). Only `tiles.build_terrain_hi` and `crossing.full_region` read `copernicus-region/` (63 more tiles). Decide whether summits and coarse relief should cover the whole story box.
+  - **[decide]** The Oblique view's US streams come from NHD's display scale (`visibility`), not Strahler order as on the vintage map, so the two views rank streams differently.
+  - **[decide]** Summits, landforms, regions, coarse hachures, and the Oblique view read only `private/cache/dem/copernicus/` (18 corridor tiles). Only `tiles.build_terrain_hi` and `crossing.full_region` read `copernicus-region/` (63 more tiles). Decide whether summits and coarse relief should cover the whole story box.
   - **[build]** The creek zoom table is written twice: `MIN_ZOOM` in `tiles/creeks.py` and the matching expression in `site/src/map/style.ts`. Derive the style's from the tiles, or test that they agree.
-  - **[decide]** `data/raised/*.geojson` repeats every property of the flat layers; only geometry differs. Slimming them to id and geometry changes the published format, so it waits for a decision.
+  - **[decide]** `data/oblique/*.geojson` repeats every property of the flat layers; only geometry differs. Slimming them to id and geometry changes the published format, so it waits for a decision.
   - **[decide]** Rewrite git history to drop about 102 MB of deleted `review/stage-3/sheet/` images, most of the repository's size. It needs a force-push to every branch, so it is the owner's call, and is cheapest while the history is short.
   - **[owner]** Install Inkscape and `potrace` or `vtracer`, needed for real vignettes.
   - **[build]** Revisit decision 0012 when MapTiler ships an SDK on a fixed MapLibre: `npm audit` reports the advisory until then.
@@ -211,6 +213,6 @@ The criteria are in [`design.md`, section 11](design.md#11-acceptance-criteria).
 | Attribution where shown and on the Credits page; MapTiler logo on satellite | Mostly met | Each tile archive carries its credit; no photos are shown yet. The MapTiler logo must be checked on the preview |
 | No passage of the novel in the repo or the built site | Met | `crossing.echo_check` scans tracked text and the built site (it skips in CI, where the private text is absent) |
 | Downloads validate and open in QGIS | Met | `crossing.validate`; every GeoJSON and GeoParquet file opens with `ogrinfo` |
-| Classic map works with MapTiler unreachable | Met | Locally MapTiler always refuses, and the classic map, views, search, and pages work |
+| Vintage map works with MapTiler unreachable | Met | Locally MapTiler always refuses, and the vintage map, views, search, and pages work |
 | One-handed phone test and keyboard-only use | Mostly met | 33 of 34 keyboard checks pass (the Compare swipe needs satellite). Open items are in section 3, stage 6. The phone test is the owner's |
 | $0 a month at 10,000 visits | Met by design | Pages and release assets are free; MapTiler pauses at its limits. The tile set is about 285 MB per build, and Pages' 1 GB limit counts `main` and the preview together |

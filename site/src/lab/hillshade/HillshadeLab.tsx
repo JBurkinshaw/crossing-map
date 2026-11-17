@@ -4,7 +4,7 @@ import type { MapRef } from '@vis.gl/react-maplibre'
 import { LabMap, type LabView } from '../LabMap'
 import { applySettings, METHODS, PRESETS, SITE, usesAltitude, type HillshadeSettings, type Side } from './settings'
 
-// The MapTiler Topo map beside the classic one: the site's own satellite/topo map component, on the same camera.
+// The MapTiler Topo map beside the vintage one: the site's own satellite/topo map component, on the same camera.
 const SatelliteMap = lazy(() => import('../../map/SatelliteMap'))
 
 // Test places: centres for the relief the owner asked to compare.
@@ -40,7 +40,7 @@ export default function HillshadeLab() {
   const [sharper, setSharper] = useState(false)
   const [showTopo, setShowTopo] = useState(true)
   const [topoUnavailable, setTopoUnavailable] = useState(false)
-  // A refused key (the dev server's address not among its allowed origins) leaves the classic map on its own.
+  // A refused key (the dev server's address not among its allowed origins) leaves the vintage map on its own.
   const topoShown = showTopo && !topoUnavailable
   const [loaded, setLoaded] = useState(false)
   const [zoom, setZoom] = useState(START.zoom)
@@ -190,9 +190,9 @@ export default function HillshadeLab() {
 
       <div className={`lab-maps${topoShown ? ' two' : ''}`}>
         <div className="lab-pane">
-          <LabMap mapRef={mapRef} initialView={START} styleOverrides={overrides} label="Classic map with these settings"
+          <LabMap mapRef={mapRef} initialView={START} styleOverrides={overrides} label="Vintage map with these settings"
             onLoad={(map) => { setLoaded(true); setZoom(map.getZoom()) }} onMove={(map) => setZoom(map.getZoom())} />
-          <span className="lab-pane-label">Classic map</span>
+          <span className="lab-pane-label">Vintage map</span>
         </div>
         {topoShown && (
           <div className="lab-pane">

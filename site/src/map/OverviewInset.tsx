@@ -7,7 +7,7 @@ import { journeyInks, palette as tokens, storyBounds } from './tokens'
 
 // The overview map (docs/design.md, section 9): a small inset of the whole story region, shown once the reader
 // has zoomed in, with the journeys reached so far and a box where the view is. In the Tilted view the box is
-// the view's footprint on the ground. MapView leaves it out of the Raised view, whose line work is shifted
+// the view's footprint on the ground. MapView leaves it out of the Oblique view, whose line work is shifted
 // north and would not sit under the box.
 
 // The land and the international border, from Natural Earth 1:10m (public domain): admin-1 polygons merged,

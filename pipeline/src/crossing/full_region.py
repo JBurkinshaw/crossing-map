@@ -6,7 +6,7 @@ Run from the repo root, after `crossing.fetch_dem --story-box`, with QGIS_ENV se
 Design section 5.2 builds fine hachures in the journeys corridor first, then returns to the whole region "and times it".
 This runs the fine scale over every 40 km tile the DEM covers, outside the corridor too, into the same per-tile
 cache (tiles already done are reused), and writes a report to private/overnight/full-region.md: tiles, run time,
-strokes, and the sizes the relief and Raised archives would reach, scaled from the corridor's. It does not change
+strokes, and the sizes the relief and Oblique archives would reach, scaled from the corridor's. It does not change
 the production build, which reads only the corridor's tiles.
 """
 
@@ -60,7 +60,7 @@ def main() -> None:
     scale = all_strokes / max(corridor_strokes, 1)
     sizes = {p.name: p.stat().st_size / 1e6 for p in TILES_OUT.glob("*.pmtiles")}
     fine_mb, dense_mb = sizes.get("relief.pmtiles", 0), sizes.get("relief-dense.pmtiles", 0)
-    raised_mb = sum(v for k, v in sizes.items() if k.startswith("oblique"))
+    oblique_mb = sum(v for k, v in sizes.items() if k.startswith("oblique"))
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(f"""# Full-region hachure run (design 5.2)
 
@@ -73,7 +73,7 @@ def main() -> None:
   ({scale:.1f} times).
 - Projected archives at the same density, scaled by strokes: relief fine and coarse about {fine_mb * scale:.0f} MB
   (corridor {fine_mb:.0f} MB), zoom-12 dense about {dense_mb * scale:.0f} MB (corridor {dense_mb:.0f} MB),
-  Raised about {raised_mb * scale:.0f} MB (corridor {raised_mb:.0f} MB). Each would need splitting to stay under
+  Oblique about {oblique_mb * scale:.0f} MB (corridor {oblique_mb:.0f} MB). Each would need splitting to stay under
   100 MB per file, and the total counts against GitHub Pages' 1 GB site limit twice (main and preview).
 """, encoding="utf-8")
     print(REPORT.read_text())

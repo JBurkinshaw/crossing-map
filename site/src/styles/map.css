@@ -238,7 +238,7 @@
 }
 
 /* The map's switches: one framed box, top right, with the cartouche's and the inset's double rule. Each row
-   has a small italic label; View and Ground hang under Map on a ruled branch, as they change the classic map. */
+   has a small italic label; View and Ground hang under Map on a ruled branch, as they change the vintage map. */
 .map-controls-box {
   position: absolute;
   z-index: 4;
@@ -387,7 +387,7 @@
   }
 }
 
-/* The Wheeler sheet's frame (MapFrame.tsx), on the classic map in the Flat and Tilted views. Measured on sheet 70A
+/* The Wheeler sheet's frame (MapFrame.tsx), on the vintage map in the Flat and Tilted views. Measured on sheet 70A
    (review/stage-9/wheeler-places/README.md): from the outside in, a thin rule, a gap, a heavy rule, a gap, a thin
    rule, a margin band holding the graticule's labels, and a thin neatline round the map; here 1, 2, 4, 2 and 1 px,
    a 20 px band and a 1 px neatline. It is drawn over the map's edges by inset box shadows, so the map keeps its
@@ -467,7 +467,7 @@
   left: 100px;
 }
 
-/* Satellite tint: the imagery, brightened, saturated and faded over white, tints the classic map multiplied
+/* Satellite tint: the imagery, brightened, saturated and faded over white, tints the vintage map multiplied
    over it. Bright imagery darkens the map very little, so the tint adds colour without murk, and ink and
    water keep nearly their own colour. Only the imagery fades; the MapTiler logo and attribution stay at
    full strength. */
@@ -553,6 +553,16 @@
 .key-glyphs {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+}
+
+/* A land cover class in the key: its colour and ink texture (LayerKey.tsx, decision 0036). */
+.key-swatch {
+  display: inline-block;
+  flex: none;
+  width: 24px;
+  height: 14px;
+  margin: 0 5px;
+  border: 0.6px solid var(--ink-faint);
 }
 
 .key-glyph {

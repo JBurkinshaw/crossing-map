@@ -124,8 +124,8 @@ export function Data() {
           .
         </li>
         <li>
-          <code>raised/</code> <span className="meta">{bytes(facts.raisedBytes)}</span>: the story layers as drawn in
-          the Raised view, shifted north with the height of the ground. Use the layers above for analysis.
+          <code>oblique/</code> <span className="meta">{bytes(facts.obliqueBytes)}</span>: the story layers as drawn in
+          the Oblique view, shifted north with the height of the ground. Use the layers above for analysis.
         </li>
       </ul>
 

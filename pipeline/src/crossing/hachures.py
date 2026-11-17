@@ -210,8 +210,7 @@ def sampler(dem_path: Path):
 
 
 def stroke_properties(sample, line: LineString) -> tuple[dict, list[tuple[float, float]]]:
-    """The style's attributes for a hachure line in UTM, and its coordinates in WGS 84 rounded for the tiles.
-    crossing.plan_oblique uses this too, so a stroke shades and thins the same in the flat and Raised views."""
+    """The style's attributes for a hachure line in UTM, and its coordinates in WGS 84 rounded for the tiles."""
     slope, aspect = sample(line)
     coords = [(round(x, 5), round(y, 5)) for x, y in reproject(to_wgs, line).coords]
     rand = zlib.crc32(json.dumps(coords[0]).encode()) % 10

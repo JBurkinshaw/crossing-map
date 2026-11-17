@@ -45,7 +45,7 @@ function frameStops(map: MapRef | null, stops: StoryFeature[]) {
 
 type Options = {
   mapRef: RefObject<MapRef | null>
-  // The story the map draws (the raised copies in the Raised view), and the flat story, which lists every
+  // The story the map draws (the oblique copies in the Oblique view), and the flat story, which lists every
   // journey reached; both already filtered to the reader's progress.
   story: Story | null
   flat: Story | null
@@ -60,7 +60,7 @@ export function useNavigation({ mapRef, story, flat, translations, showCard }: O
   const [selection, setSelection] = useState<Selection>(null)
   const [translationId, setTranslationId] = useState<string | null>(null)
 
-  // The journeys drawn so far and reached, from the flat story data (the raised copies cover fewer).
+  // The journeys drawn so far and reached, from the flat story data (the oblique copies cover fewer).
   const journeys = useMemo(() => journeysOf(flat), [flat])
   // A journey not reached yet (after the reader moves progress back) gives way to the first one reached.
   const journey = journeys.some((j) => j.id === state.journey) ? state.journey : (journeys[0]?.id ?? '')

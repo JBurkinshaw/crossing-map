@@ -57,14 +57,14 @@ for (const rate of [1, 4, 6]) {
 await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 })
 console.log(`Fixed loop, ms at 1x/4x/6x: ${Object.values(throttleCheck).join(' / ')}`)
 
-async function open(zoom, raised) {
+async function open(zoom, oblique) {
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 })
   await page.goto('about:blank')
   await page.goto(`${baseUrl}?debug#map=${zoom}/${CENTRE[1]}/${CENTRE[0]}`, { waitUntil: 'load' })
   await page.waitForFunction(() => window.__map?.loaded(), null, { timeout: 30000 })
-  if (raised) {
-    await page.getByRole('radio', { name: 'Raised' }).click()
-    await page.waitForFunction(() => window.__map.getStyle().layers.some((l) => l.id.startsWith('raised-') && l.layout?.visibility !== 'none'), null, { timeout: 30000 })
+  if (oblique) {
+    await page.getByRole('radio', { name: 'Oblique' }).click()
+    await page.waitForFunction(() => window.__map.getStyle().layers.some((l) => l.id.startsWith('oblique-') && l.layout?.visibility !== 'none'), null, { timeout: 30000 })
     await page.waitForTimeout(2500)
     await page.evaluate(([c, z]) => window.__map.jumpTo({ center: c, zoom: z }), [CENTRE, zoom])
   }
@@ -152,8 +152,8 @@ const record = (row) => {
 }
 
 // Cold: the first pass over fresh ground in a fresh page, so tiles load, parse and upload while the map moves.
-async function measureCold(zoom, raised, rate) {
-  await open(zoom, raised)
+async function measureCold(zoom, oblique, rate) {
+  await open(zoom, oblique)
   await cdp.send('Emulation.setCPUThrottlingRate', { rate })
   const result = stats(await motion())
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 })
@@ -176,13 +176,13 @@ for (const zoom of zooms) {
     await settle()
   }
 }
-// The Raised view starts at zoom 9.
+// The Oblique view starts at zoom 9.
 for (const zoom of quick ? [] : [10, 12]) {
   for (const rate of rates.filter((r) => r > 1)) {
-    record({ view: 'raised', zoom, throttle: rate, layers: 'all, cold (tiles loading)', ...(await measureCold(zoom, true, rate)) })
+    record({ view: 'oblique', zoom, throttle: rate, layers: 'all, cold (tiles loading)', ...(await measureCold(zoom, true, rate)) })
   }
   await open(zoom, true)
-  for (const rate of rates) record({ view: 'raised', zoom, throttle: rate, layers: 'all', ...(await measure(rate)) })
+  for (const rate of rates) record({ view: 'oblique', zoom, throttle: rate, layers: 'all', ...(await measure(rate)) })
 }
 await browser.close()
 

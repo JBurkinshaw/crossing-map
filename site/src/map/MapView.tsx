@@ -5,20 +5,21 @@ import { AttributionControl, Map, NavigationControl, ScaleControl, type MapRef }
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { Feature, Point } from 'geojson'
 import type { Story, StoryProps } from '../data/story'
-import ClassicUnderlay from './ClassicUnderlay'
+import VintageUnderlay from './VintageUnderlay'
 import { ChunkBoundary } from '../ChunkBoundary'
 import { CompareSwipe } from './CompareSwipe'
 import { HomeControl } from './HomeControl'
 import { LayerKey } from './LayerKey'
 import { MapFrame } from './MapFrame'
 import { MapControls } from './MapControls'
-import type { Basemap, View } from './mode'
+import type { Basemap, Ground, View } from './mode'
 import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
 import { WaterMarks } from './WaterMarks'
-import { contourText, glyphText, RAISED_BOUNDS, RAISED_MIN_ZOOM, raisedLayers } from './relief'
+import { contourText, glyphText, LANDCOVER_ARCHIVE, landcoverLayers, OBLIQUE_BOUNDS, OBLIQUE_MIN_ZOOM, obliqueLayers } from './relief'
 import { closeAttribution, dataBase, exposeForScripts, fontsBase, motion, TERRAIN_EXAGGERATION, tilesBase } from './setup'
-import { baseLayerIds, literaryStyle, notRaisedIds } from './style'
+import { baseLayerIds, literaryStyle, notObliqueIds } from './style'
+import { inkPatterns, RATIO as INK_RATIO } from './landcoverInk'
 import { palette, storyBounds } from './tokens'
 import { layerFilterUpTo, PROGRESS_LAYERS, styleUpTo } from '../spoiler/filter'
 import type { MapPick } from '../story/select'
@@ -36,8 +37,8 @@ const TERRAIN_TILT = 50
 const literary = (units: Units) => literaryStyle(tilesBase, fontsBase, dataBase, units)
 const LITERARY = literary('metric')
 const BASE_LAYERS = new Set(baseLayerIds(LITERARY))
-const NOT_RAISED = new Set(notRaisedIds(LITERARY))
-const RAISED_GROUPS = raisedLayers(LITERARY.layers, palette)
+const NOT_OBLIQUE = new Set(notObliqueIds(LITERARY))
+const OBLIQUE_GROUPS = obliqueLayers(LITERARY.layers, palette)
 // The base filters of the layers spoiler mode narrows (spoiler/filter.ts), before the reading-progress clause.
 const BASE_FILTERS = Object.fromEntries(LITERARY.layers
   .filter((l) => l.id in PROGRESS_LAYERS).map((l) => [l.id, 'filter' in l ? l.filter : undefined]))
@@ -47,7 +48,7 @@ const CLICKABLE: Record<string, MapPick['layer']> = { 'places-point': 'places', 
 
 type Props = {
   mapRef: RefObject<MapRef | null>
-  // In the Raised view, the raised copies of the story layers (App swaps them in).
+  // In the Oblique view, the oblique copies of the story layers (App swaps them in).
   story: Story | null
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
@@ -67,8 +68,8 @@ type Props = {
   onView: (view: View) => void
   // The latest episode whose features may show (spoiler mode); the story layers arrive already filtered.
   reached: string
-  // The raised copies of the story layers could not be loaded.
-  raisedFailed: boolean
+  // The oblique copies of the story layers could not be loaded.
+  obliqueFailed: boolean
   // Talk on the road: the route segment to outline as a corridor, with its label.
   corridor: Corridor | null
   // Miles and feet, or kilometres and metres: the scale bar, and heights on summits, passes and contours.
@@ -78,11 +79,11 @@ type Props = {
 
 export function MapView(props: Props) {
   const { mapRef, story, stops, stopIndex, onSelectStop, onMapClick, selectedId, aheadFrom, onHome, reached } = props
-  const { basemap, onBasemap, view, onView, raisedFailed, corridor, units, onUnits } = props
+  const { basemap, onBasemap, view, onView, obliqueFailed, corridor, units, onUnits } = props
   // Built once with the progress and units at first render; later changes go through setFilter and
   // setLayoutProperty below.
   const [style] = useState(() => styleUpTo(literary(units), reached))
-  // Compare mode's classic underlay gets its own copy: a map may change the style object it is given.
+  // Compare mode's vintage underlay gets its own copy: a map may change the style object it is given.
   const underlayStyle = useMemo<StyleSpecification | null>(
     () => (basemap === 'compare' ? styleUpTo(literary('metric'), reached) : null),
     [basemap, reached],
@@ -90,33 +91,36 @@ export function MapView(props: Props) {
   const [unavailable, setUnavailable] = useState(false)
   // Once created, the satellite map stays (hidden on the literary basemap): MapTiler counts each new map as a session.
   const [satelliteStarted, setSatelliteStarted] = useState(false)
-  // Satellite tint: the satellite map, faded, under the literary map in the Flat and Tilted views. The Raised
-  // view's line work is shifted north, so imagery would not line up under it.
-  const [tint, setTint] = useState(false)
-  const tintAvailable = basemap === 'literary' && view !== 'raised' && !unavailable
-  const wash = tint && tintAvailable
+  // The ground of the vintage map: plain paper, land cover (decision 0034) in every view, or the satellite tint,
+  // the satellite map faded under the literary map in the Flat and Tilted views. The Oblique view's line work is
+  // shifted north, so imagery would not line up under it; its land cover is shifted with it.
+  const [ground, setGround] = useState<Ground>('paper')
+  const tintAvailable = basemap === 'literary' && view !== 'oblique' && !unavailable
+  const landcoverAvailable = basemap === 'literary'
+  const wash = ground === 'tint' && tintAvailable
+  const landcover = ground === 'landcover' && landcoverAvailable
   const phone = usePhone()
-  // The Wheeler frame and its graticule labels, on the classic map in the Flat and Tilted views (MapFrame).
-  const framed = basemap === 'literary' && view !== 'raised'
+  // The Wheeler frame and its graticule labels, on the vintage map in the Flat and Tilted views (MapFrame).
+  const framed = basemap === 'literary' && view !== 'oblique'
   if ((basemap !== 'literary' || wash) && !satelliteStarted) setSatelliteStarted(true)
   // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
   // tiles are loading, and 'load' fires only once.
   const [loaded, setLoaded] = useState(false)
   const [hovering, setHovering] = useState(false)
-  // The Raised view's archives, fetched the first time the reader turns it on; 'failed' if the list is missing.
-  const [raisedArchives, setRaisedArchives] = useState<string[] | 'failed' | null>(null)
+  // The Oblique view's archives, fetched the first time the reader turns it on; 'failed' if the list is missing.
+  const [obliqueArchives, setObliqueArchives] = useState<string[] | 'failed' | null>(null)
   useEffect(() => {
-    if (view !== 'raised' || raisedArchives) return
-    fetch(`${dataBase}raised/archives.json`)
+    if (view !== 'oblique' || obliqueArchives) return
+    fetch(`${dataBase}oblique/archives.json`)
       .then((r) => {
-        if (!r.ok) throw new Error(`raised/archives.json: HTTP ${r.status}`)
+        if (!r.ok) throw new Error(`oblique/archives.json: HTTP ${r.status}`)
         return r.json()
       })
-      .then(setRaisedArchives, (e: unknown) => {
-        console.error('Raised view failed to load:', e)
-        setRaisedArchives('failed')
+      .then(setObliqueArchives, (e: unknown) => {
+        console.error('Oblique view failed to load:', e)
+        setObliqueArchives('failed')
       })
-  }, [view, raisedArchives])
+  }, [view, obliqueArchives])
 
   useEffect(() => {
     const map = mapRef.current?.getMap()
@@ -139,41 +143,62 @@ export function MapView(props: Props) {
   }, [onBasemap])
 
   // In satellite and compare modes the literary paper and base layers hide, so the story layers draw over the
-  // imagery (in compare mode, ClassicUnderlay draws the classic base left of the swipe);
-  // in the Raised view the base layers that cannot move with the terrain hide, and the raised line work shows.
+  // imagery (in compare mode, VintageUnderlay draws the vintage base left of the swipe);
+  // in the Oblique view the base layers that cannot move with the terrain hide, and the oblique line work shows.
   useEffect(() => {
     const map = mapRef.current?.getMap()
     if (!map || !loaded) return
-    const raised = view === 'raised'
-    // The raised line work comes in several archives (each under 100 MB), listed in data/raised/archives.json;
-    // every raised layer is drawn once per archive.
-    if (raised && Array.isArray(raisedArchives) && !map.getSource('oblique-1')) {
-      raisedArchives.forEach((file, i) => {
+    const oblique = view === 'oblique'
+    // The oblique line work comes in several archives (each under 100 MB), listed in data/oblique/archives.json;
+    // every oblique layer is drawn once per archive.
+    if (oblique && Array.isArray(obliqueArchives) && !map.getSource('oblique-1')) {
+      obliqueArchives.forEach((file, i) => {
         const source = `oblique-${i + 1}`
         map.addSource(source, { type: 'vector', url: `pmtiles://${tilesBase}${file}` })
-        for (const group of RAISED_GROUPS) {
+        for (const group of OBLIQUE_GROUPS) {
           for (const layer of group.layers) map.addLayer({ ...layer, id: `${layer.id}-${i + 1}`, source } as LayerSpecification, group.before)
         }
       })
     }
-    for (const id of new Set([...BASE_LAYERS, ...NOT_RAISED])) {
-      const hidden = (basemap !== 'literary' && BASE_LAYERS.has(id)) || (raised && NOT_RAISED.has(id))
+    for (const id of new Set([...BASE_LAYERS, ...NOT_OBLIQUE])) {
+      const hidden = (basemap !== 'literary' && BASE_LAYERS.has(id)) || (oblique && NOT_OBLIQUE.has(id))
       if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', hidden ? 'none' : 'visible')
     }
-    for (const layer of map.getStyle().layers) {
-      if (layer.id.startsWith('raised-')) map.setLayoutProperty(layer.id, 'visibility', raised ? 'visible' : 'none')
+    // The land cover's ink textures (decision 0036), drawn and added the first time the reader asks for land cover.
+    if (landcover && !map.hasImage('ink-scrub')) {
+      for (const { id, image } of inkPatterns(palette.ink, palette.water)) map.addImage(id, image, { pixelRatio: INK_RATIO })
     }
-    // Below the raised line work's first zoom the view would be bare paper.
-    map.setMinZoom(raised ? RAISED_MIN_ZOOM : MIN_ZOOM)
-    // The raised data covers the corridor of the stretches ridden or walked, from zoom 9: from outside it, go to its middle;
+    // The land cover on the ground, added the first time the reader asks for it: colour under the hillshade, ink over it.
+    if (landcover && !oblique && !map.getSource('landcover')) {
+      map.addSource('landcover', { type: 'vector', url: `pmtiles://${tilesBase}${LANDCOVER_ARCHIVE}` })
+      for (const { before, layer } of landcoverLayers(palette)) map.addLayer(layer, before)
+    }
+    for (const id of ['landcover', 'landcover-ink']) {
+      if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', landcover && !oblique ? 'visible' : 'none')
+    }
+    for (const layer of map.getStyle().layers) {
+      if (!layer.id.startsWith('oblique-')) continue
+      const shown = oblique && (landcover || !layer.id.startsWith('oblique-landcover'))
+      map.setLayoutProperty(layer.id, 'visibility', shown ? 'visible' : 'none')
+    }
+  }, [basemap, view, loaded, obliqueArchives, landcover, mapRef])
+
+  // Only when the view changes, so changing the ground does not move the map.
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (!map || !loaded) return
+    const oblique = view === 'oblique'
+    // Below the oblique line work's first zoom the view would be bare paper.
+    map.setMinZoom(oblique ? OBLIQUE_MIN_ZOOM : MIN_ZOOM)
+    // The oblique data covers the corridor of the stretches ridden or walked, from zoom 9: from outside it, go to its middle;
     // from too far out, close in where the view is, enough to see the line work.
-    const [w, s, e, n] = RAISED_BOUNDS
+    const [w, s, e, n] = OBLIQUE_BOUNDS
     const { lng, lat } = map.getCenter()
     const inside = lng >= w && lng <= e && lat >= s && lat <= n
-    if (raised && (!inside || map.getZoom() < 11)) {
+    if (oblique && (!inside || map.getZoom() < 11)) {
       map.flyTo({ center: inside ? [lng, lat] : [(w + e) / 2, (s + n) / 2], zoom: Math.max(map.getZoom(), 11.5), duration: motion(1600) })
     }
-  }, [basemap, view, loaded, raisedArchives, mapRef])
+  }, [view, loaded, mapRef])
 
   useEffect(() => {
     const map = mapRef.current?.getMap()
@@ -205,7 +230,7 @@ export function MapView(props: Props) {
         </ChunkBoundary>
       )}
       {underlayStyle && (
-        <ClassicUnderlay
+        <VintageUnderlay
           main={mapRef}
           style={underlayStyle}
           units={units}
@@ -261,7 +286,7 @@ export function MapView(props: Props) {
               selectedId={selectedId}
               aheadFrom={aheadFrom}
               corridor={corridor}
-              lineLabels={basemap === 'literary' && view !== 'raised'}
+              lineLabels={basemap === 'literary' && view !== 'oblique'}
             />
           )}
         </Map>
@@ -275,23 +300,24 @@ export function MapView(props: Props) {
         unavailable={unavailable}
         view={view}
         onView={onView}
-        tint={tint}
+        ground={ground}
         tintAvailable={tintAvailable}
-        onTint={setTint}
+        landcoverAvailable={landcoverAvailable}
+        onGround={setGround}
         units={units}
         onUnits={onUnits}
       />
-      {loaded && view !== 'raised' && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}
-      {view === 'raised' && (
+      {loaded && view !== 'oblique' && <OverviewInset mapRef={mapRef} story={story} journey={stops[0]?.properties.journey ?? ''} />}
+      {view === 'oblique' && (
         <p className="notice" role="status">
-          {raisedArchives === 'failed' || raisedFailed
-            ? 'The Raised view could not be loaded. Try reloading the page, or switch back to Flat.'
-            : 'The Raised view covers the country the journeys ride through; bus rides and reported journeys stay flat.'}
+          {obliqueArchives === 'failed' || obliqueFailed
+            ? 'The Oblique view could not be loaded. Try reloading the page, or switch back to Flat.'
+            : 'The Oblique view covers the country the journeys ride through; bus rides and reported journeys stay flat.'}
         </p>
       )}
-      {unavailable && <p className="notice" role="status">Satellite and Topo are unavailable right now. The classic map works as normal.</p>}
+      {unavailable && <p className="notice" role="status">Satellite and Topo are unavailable right now. The vintage map works as normal.</p>}
       {/* The title cartouche holds the layer key, folded. The title itself is decoration: the page's heading
-          names the map for screen readers. The key describes the classic map, so it shows with it. */}
+          names the map for screen readers. The key describes the vintage map, so it shows with it. */}
       <div className="cartouche">
         <div className="cartouche-head" aria-hidden="true">
           <svg className="north" viewBox="0 0 24 48" width="14" height="28">
@@ -304,7 +330,7 @@ export function MapView(props: Props) {
           </div>
         </div>
         {(basemap === 'literary' || basemap === 'compare') && (
-          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} />
+          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} landcover={landcover} />
         )}
       </div>
     </div>

@@ -1,4 +1,4 @@
-// What the two Wheeler Survey sheets teach the classic map: our own descriptions and measurements, made from the
+// What the two Wheeler Survey sheets teach the vintage map: our own descriptions and measurements, made from the
 // David Rumsey Map Collection scans (CC BY-NC-SA). No image or crop of the sheets is kept in the repository.
 // Measurements: sheet 70A scanned at about 115 px per cm, sheet 83 at about 119 px per cm (from the graticule);
 // sizes are on the printed sheet. Full notes: review/stage-8/wheeler/README.md.
@@ -95,8 +95,8 @@ export const LEARNINGS: Learning[] = [
     title: 'Ridges, flat tops and valley floors left white',
     wheeler:
       'Every crest and spur line is a thin white parting between the hachures of its two sides; summits are white dots inside a rosette of radial strokes; mesa and plateau tops are pure paper inside a hard rim. Valley floors are blank, so the drainage reads as a white tree.',
-    ours: 'The hachure generator already leaves flats blank; crests are not opened, so strokes from both sides meet at the ridge.',
-    proposal: 'In the hachure build, drop strokes within one stroke length of a ridge line (from the geomorphons or the Raised view’s ridge lines), and add a short white gap at summits.',
+    ours: 'Done in the Wheeler hachure build (decision 0024, tiles-v11): strokes are cleared within one stroke length of every ridge line (ridge_network) and inside a disc at each summit (summits), and flats are left blank. Wider summit discs and ridge clearance were left for later.',
+    proposal: 'In the hachure build, drop strokes within one stroke length of a ridge line (from the geomorphons), and add a short white gap at summits.',
     sheets: ['70A', '83'],
   },
   {
@@ -123,7 +123,7 @@ export const LEARNINGS: Learning[] = [
     wheeler:
       'Main rivers are a heavier wavy line with a stippled bank; tributaries thin to a hairline toward their heads; dry streams and washes are fine dotted lines. Canyons are drawn by their walls (a comb each side) with the stream between.',
     ours: 'Rivers 0.9 to 2 px, minor rivers 0.5 to 1.2 px, every one at the same weight in its class; intermittent NHD creeks dashed 3-2.',
-    proposal: 'Weight rivers by Natural Earth scalerank (1.3 to 3.6 px for the main stems), creeks as hairlines, intermittent creeks a fine dotted 0.5-2 pattern. A true taper along each line needs Strahler order on the river lines (the Raised view’s streams already carry it).',
+    proposal: 'Weight rivers by Natural Earth scalerank (1.3 to 3.6 px for the main stems), creeks as hairlines, intermittent creeks a fine dotted 0.5-2 pattern. A true taper along each line needs Strahler order on the river lines (the Oblique view’s streams already carry it).',
     param: 'taper',
     sheets: ['70A', '83'],
   },

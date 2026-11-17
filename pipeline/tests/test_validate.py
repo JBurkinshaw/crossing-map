@@ -73,11 +73,11 @@ def test_missing_place_ref_target_is_reported(layers):
     assert any("place-nowhere" in e for e in validate.check_references(layers))
 
 
-def test_raised_copy_must_match(layers):
-    raised = copy.deepcopy(layers["stops"])
-    raised["features"][1]["properties"]["first_seen"] = "1-01"
-    raised["features"].pop(0)
-    errors = validate.check_raised(layers["stops"], raised, "stops")
+def test_oblique_copy_must_match(layers):
+    oblique = copy.deepcopy(layers["stops"])
+    oblique["features"][1]["properties"]["first_seen"] = "1-01"
+    oblique["features"].pop(0)
+    errors = validate.check_oblique(layers["stops"], oblique, "stops")
     assert any("only in the flat layer" in e for e in errors)
     assert any("differs" in e for e in errors)
 

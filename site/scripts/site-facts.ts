@@ -35,14 +35,14 @@ function size(path: string): number | null {
   return existsSync(path) ? statSync(path).size : null
 }
 
-// The tile archives the site reads: those the map's styles name (src/map/), and the Raised view's list. Anything
+// The tile archives the site reads: those the map's styles name (src/map/), and the Oblique view's list. Anything
 // else in public/tiles, such as a local test archive, is not part of the site.
 function archivesUsed(): Set<string> {
   const mapSource = join(repo, 'site', 'src', 'map')
   const named = readdirSync(mapSource)
     .flatMap((f) => [...readFileSync(join(mapSource, f), 'utf8').matchAll(/([\w-]+\.pmtiles)/g)].map((m) => m[1]))
-  const raised: string[] = JSON.parse(readFileSync(join(data, 'raised', 'archives.json'), 'utf8'))
-  return new Set([...named, ...raised])
+  const oblique: string[] = JSON.parse(readFileSync(join(data, 'oblique', 'archives.json'), 'utf8'))
+  return new Set([...named, ...oblique])
 }
 
 // The commit this build is made from, so links into the repository match the deployed code. The deploy builds
@@ -89,7 +89,7 @@ function facts() {
     schemas: SCHEMAS.filter((file) => existsSync(join(data, 'schema', file))),
     commit: commit(),
     dataBytes: dirBytes(data),
-    raisedBytes: dirBytes(join(data, 'raised')),
+    obliqueBytes: dirBytes(join(data, 'oblique')),
     tileRelease: readFileSync(join(repo, 'tiles', 'release.txt'), 'utf8').trim(),
     // A build that reads another build's tiles (VITE_TILES_BASE) has none of its own to measure: the sizes are
     // then null and the page says so.

@@ -1,5 +1,5 @@
-// The vignette review shots (docs/design.md, section 10): the classic map at zooms 7, 9 and 11 over three areas,
-// with the vignettes drawn in each, then a check that they hide over satellite and in the Raised view, and a
+// The vignette review shots (docs/design.md, section 10): the vintage map at zooms 7, 9 and 11 over three areas,
+// with the vignettes drawn in each, then a check that they hide over satellite and in the Oblique view, and a
 // console check. Saves review/stage-6/vignettes/<area>-z<zoom>.png and prints what each shot shows.
 // Usage: node vignette-sheet.mjs [base-url]   (needs the site served, e.g. npx vite in site/)
 import { mkdir } from 'node:fs/promises'
@@ -30,7 +30,7 @@ const shown = () => page.evaluate(() => {
   const names = map.queryRenderedFeatures({ layers: ['vignette'] }).map((f) => f.properties.id.replace('vignette-', ''))
   return [...new Set(names)]
 })
-const view = (label) => page.getByRole('radiogroup', { name: 'View of the classic map' }).getByRole('radio', { name: label })
+const view = (label) => page.getByRole('radiogroup', { name: 'View of the vintage map' }).getByRole('radio', { name: label })
 const basemap = (label) => page.getByRole('radiogroup', { name: 'Basemap' }).getByRole('radio', { name: label })
 const map = page.locator('.map-area')
 
@@ -45,20 +45,20 @@ for (const [name, p] of Object.entries(areas)) {
   }
 }
 
-// Hidden over satellite (when MapTiler answers) and in the Raised view.
+// Hidden over satellite (when MapTiler answers) and in the Oblique view.
 const visibility = () => page.evaluate(() => ['mountain-glyph', 'vignette'].map((id) => window.__map.getLayoutProperty(id, 'visibility') ?? 'visible').join('/'))
 if (await basemap('Satellite').isEnabled()) {
   await basemap('Satellite').click()
   await page.waitForTimeout(2500)
   console.log(`Satellite: glyph and vignette layers ${await visibility()}`)
-  await basemap('Classic').click()
+  await basemap('Vintage').click()
   await page.waitForTimeout(1000)
 } else {
   console.log('Satellite: disabled (satellite unavailable)')
 }
-await view('Raised').click()
+await view('Oblique').click()
 await settle()
-console.log(`Raised: glyph and vignette layers ${await visibility()}`)
+console.log(`Oblique: glyph and vignette layers ${await visibility()}`)
 await view('Flat').click()
 await settle()
 console.log(`Flat: glyph and vignette layers ${await visibility()}`)

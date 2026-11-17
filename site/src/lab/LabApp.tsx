@@ -1,14 +1,15 @@
 import { lazy, Suspense, useState } from 'react'
 
 // The lab's sections, one at a time; each is loaded when first opened. A section is a default-exported component
-// with no props that fills the space below the tabs; sections that need the classic map use LabMap (LabMap.tsx).
+// with no props that fills the space below the tabs; sections that need the vintage map use LabMap (LabMap.tsx).
 const SECTIONS = [
   { id: 'hillshade', label: 'Hillshade', component: lazy(() => import('./hillshade/HillshadeLab')) },
   { id: 'wheeler', label: 'Wheeler', component: lazy(() => import('./wheeler/WheelerLab')) },
+  { id: 'landcover-ink', label: 'Land cover ink', component: lazy(() => import('./landcover/LandcoverInkLab')) },
 ] as const
 type SectionId = (typeof SECTIONS)[number]['id']
 
-// The open section is kept in the address (#hillshade, #wheeler), so a reload or a shared link opens it again.
+// The open section is kept in the address (#hillshade, #wheeler, #landcover-ink), so a reload or a shared link opens it again.
 const fromHash = (): SectionId => SECTIONS.find((s) => `#${s.id}` === window.location.hash)?.id ?? SECTIONS[0].id
 
 export default function LabApp() {

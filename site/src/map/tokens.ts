@@ -28,9 +28,25 @@ export type Palette = {
   shadeHigh: Shade
   hachure: string
   contour: string
-  // Streams in the Raised view, a little fainter than the flat map's water.
-  raisedStream: string
+  // Streams in the Oblique view, a little fainter than the flat map's water.
+  // The water between an Oblique river's two inked banks (decision 0034, after Owens's comic-book rivers).
+  obliqueWater: string
+  // Land cover (decision 0034), by crossing.landcover's classes: school-atlas tints mixed 60% over paperShown,
+  // opaque so that neighbouring polygons show no seam.
+  landcover: Record<LandCover, string>
 }
+export type LandCover = 'water' | 'riparian' | 'pine' | 'oak' | 'grass' | 'scrub' | 'fields' | 'town'
+// The order the layer key lists them in.
+export const LAND_COVERS: { id: LandCover; label: string }[] = [
+  { id: 'pine', label: 'Pine forest' },
+  { id: 'oak', label: 'Oak woodland' },
+  { id: 'riparian', label: 'Gallery forest and wetland' },
+  { id: 'grass', label: 'Grassland' },
+  { id: 'scrub', label: 'Desert scrub' },
+  { id: 'fields', label: 'Fields' },
+  { id: 'town', label: 'Towns' },
+  { id: 'water', label: 'Water' },
+]
 type Shade = { shadow: string; highlight: string; accent: string }
 
 export const palette: Palette = {
@@ -66,7 +82,13 @@ export const palette: Palette = {
   // Wheeler's brown-black (his darkest ink, #110600 to #221802, lifted a little for the screen).
   hachure: '#2e2010',
   contour: '#b0622e',
-  raisedStream: '#6f8796',
+  obliqueWater: '#8fb3c4',
+  // Blue water, bright green gallery forest, sage pine, olive oak, straw grass, adobe scrub, yellow-green fields
+  // and brick towns: #9cc3d3, #7fae63, #86a26c, #b3bf80, #ecdc98, #e3c39b, #c9d27c and #d4876a before the mix.
+  landcover: {
+    water: '#c0d4d3', riparian: '#aec790', pine: '#b2c095', oak: '#cdd1a1',
+    grass: '#f0e3b0', scrub: '#ead4b1', fields: '#dbdd9f', town: '#e1b094',
+  },
 }
 
 // Font stacks: folder names under public/fonts/, built by tiles/build_glyphs.sh.

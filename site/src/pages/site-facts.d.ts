@@ -24,7 +24,7 @@ declare module 'virtual:site-facts' {
     schemas: string[]
     commit: string
     dataBytes: number
-    raisedBytes: number
+    obliqueBytes: number
     tileRelease: string
     tiles: { file: string; bytes: number | null }[]
   }

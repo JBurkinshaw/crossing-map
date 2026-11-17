@@ -1,4 +1,4 @@
-// Screenshots for the hillshade lab packet (review/stage-8/lab-hillshade/): the classic map in the lab page under
+// Screenshots for the hillshade lab packet (review/stage-8/lab-hillshade/): the vintage map in the lab page under
 // each named preset, at the test places and zooms, and, with --topo, MapTiler Topo at the same views from the
 // published preview (the MapTiler key only works on the Pages origin). Each shot is an 800 x 600 JPEG cut from
 // the middle of the map.

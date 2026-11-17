@@ -103,12 +103,13 @@ The novel and Campbell's guide are under copyright, and the public site republis
 | The book text in the pipeline | The owner's own copy, on the owner's machine only. Never commit text, or offsets that would rebuild it | n/a |
 | Wikimedia Commons photos | PD, CC0, CC BY, and CC BY-SA only. No NC, ND, or non-free files | Title, author, source, licence |
 | Natural Earth; USGS GNIS, NHD, 3DEP; US Census TIGER | Public domain | Courtesy credit |
-| Copernicus GLO-30 DEM (hachures, peaks, Raised) | Free licence; the exact notice is required | The notice, on the Credits page and in `data/README.md` |
+| Copernicus GLO-30 DEM (hachures, peaks, Oblique) | Free licence; the exact notice is required | The notice, on the Credits page and in `data/README.md` |
 | AWS Terrain Tiles (the hillshade and 3D terrain) | Mixed sources, each credited | "3DEP, SRTM and GMTED2010 terrain data courtesy of the U.S. Geological Survey" and "Source: INEGI, Continental relief, 2016", on the map wherever terrain shows and on the Credits page |
 | INEGI | Free-use terms, attribution required | "Fuente: INEGI" and the dataset |
 | GeoNames | CC BY 4.0 | "GeoNames", with a link |
 | Wikidata | CC0 | Courtesy link |
 | MapTiler | The free plan is non-commercial; logo and attribution required on screen | MapTiler logo and "© MapTiler © OpenStreetMap contributors" |
+| CEC North American Land Cover 2020 (30 m; the land cover, decision 0034) | CC BY 4.0; its classes are re-read with height, so the classes shown are ours | The CEC's citation, on the Credits page and in `data/README.md`; a short credit on the map wherever land cover shows |
 | Huffman's Hachures script | GPL-3.0, vendored with its licence in `pipeline/relief/hachures/`, whose README lists every change; called as a separate process (decision 0015). The generated lines are our data | Credits page and README |
 | Reference images (Cartographers' Guild, Rumsey scans) | Not ours to republish. Images stay in `private/inspiration/`; the repo holds only indexes of titles and links (`docs/inspiration/`) | Links on the Credits page |
 | Public-domain art traced for vignettes and glyphs | Only works with clear PD status (US government reports, pre-1929 plates) | Credits page |
@@ -154,7 +155,7 @@ Each choice is a record in [`decisions/`](decisions/README.md), checked against 
 | Spoiler dates | Each feature dated by the episode that first names it | 0010 |
 | Elevation | Terrain Tiles for display, Copernicus for analysis | 0011 |
 | Relief | Vendored hachure generator, S5 style | 0015, 0016 |
-| Views | Flat, Tilted, and Raised | 0017, 0019 |
+| Views | Flat, Tilted, and Oblique | 0017, 0019 |
 
 State is a `useReducer` plus the URL hash. Search is MiniSearch over places, stops, and translations, built in the browser.
 
@@ -179,9 +180,9 @@ Every place card also shows its certainty, source, and method, so the craft is v
 
 ## 5. Basemaps
 
-The **classic map** is ours, self-hosted, and the default. Satellite and Topo come from MapTiler, and Compare splits the view between the classic map and satellite. The classic map has three views: Flat, Tilted, and Raised (decision 0017).
+The **vintage map** is ours, self-hosted, and the default. Satellite and Topo come from MapTiler, and Compare splits the view between the vintage map and satellite. The vintage map has three views: Flat, Tilted, and Oblique (decision 0017).
 
-### 5.1 The classic map: design brief
+### 5.1 The vintage map: design brief
 
 The look is an endpaper map from a 1940s novel, drawn by a surveyor who also sketches: ink on toned paper, a hand-lettered feel, mountains drawn as mountains, rivers as living lines, and small drawings in the empty quarters. Everything under it is real geodata.
 
@@ -224,7 +225,9 @@ The glyph families are still generated, now drawn with a pen treatment (`art/pen
 
 **Hillshade and 3D terrain** (`terrain.pmtiles`, decision 0011). AWS Terrain Tiles for the story box at zoom 5–10, repacked into our own raster-dem archive. MapLibre shades it in the browser and uses it for the Tilted view.
 
-**The Raised view** (`crossing.plan_oblique`, decisions 0017 to 0019). Plan oblique relief: every point of the line work moves north in proportion to its height, so ranges stand up from a flat, north-up map. It covers the corridor of the legs ridden or walked, and the story layers are shifted to match in `data/raised/`.
+**The Oblique view** (`crossing.plan_oblique`, decisions 0017, 0019 and 0034). Plan oblique relief: every point of the line work moves north in proportion to its height, so ranges stand up from a flat, north-up map. Its strokes follow the oblique maps in Carl Churchill's "Variety in hachure": long downhill strokes packed in shade, stipple on the flats, and heavy shadows. It covers the corridor of the legs ridden or walked, and the story layers are shifted to match in `data/oblique/`.
+
+**Land cover** (`crossing.landcover`, decisions 0034 and 0036). The CEC's North American Land Cover 2020, one classification for both countries, with its trees sorted by height after Brown's biotic communities, in eight classes. It covers the same corridor as the Oblique view: on the ground in `landcover.pmtiles` for Flat and Tilted, and shifted in the oblique archives for Oblique. Each class is drawn in its tint with an ink texture over it, after the engraved land cover of the 1831 *Carte générale de la Martinique* (decision 0036). Readers turn it on with the Ground switch.
 
 ### 5.3 Satellite and Topo: MapTiler
 
@@ -239,9 +242,9 @@ MapTiler gives satellite imagery and a modern topographic style through an SDK b
 
 Three rules protect the quota (decision 0005):
 
-1. The classic map is the default and never touches MapTiler, so the site works in full without it.
-2. The MapTiler map is created only when a reader first leaves the classic map or turns on Satellite tint, then kept, so switching back and forth costs one session.
-3. A refused key or a paused quota shows a "satellite unavailable" notice, and the classic map carries on.
+1. The vintage map is the default and never touches MapTiler, so the site works in full without it.
+2. The MapTiler map is created only when a reader first leaves the vintage map or turns on Satellite tint, then kept, so switching back and forth costs one session.
+3. A refused key or a paused quota shows a "satellite unavailable" notice, and the vintage map carries on.
 
 [ArcGIS Location Platform](https://location.arcgis.com/pricing/) (2 million basemap tiles a month free) is the alternative if the quota becomes a problem.
 
@@ -250,7 +253,7 @@ Three rules protect the quota (decision 0005):
 The [David Rumsey Map Collection](https://www.davidrumsey.com/) holds period maps of this country, many of them hachured surveys. Its images are CC BY-NC-SA, so anything derived from them must be shared the same way, and none of it goes into this MIT repository.
 
 - **P1:** style references. The shortlist and links are in `docs/inspiration/rumsey.md`; downloaded previews stay in `private/inspiration/rumsey/`. The catalogue cannot be fetched by script, so pages are opened in a browser by hand.
-- **P2:** georeferenced overlays, shown through the same swipe as satellite, so a reader can compare an 1876 survey, the classic map, and today's imagery over one view.
+- **P2:** georeferenced overlays, shown through the same swipe as satellite, so a reader can compare an 1876 survey, the vintage map, and today's imagery over one view.
 
 ## 6. Data model
 
@@ -305,8 +308,8 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 | Timeline slider | Reading progress, one step per episode, labelled by Part |
 | Data dimming | Routes not in focus fade; once the reader goes to a stop, the legs after it fade |
 | Route positioning | Back and Next through a journey's stops; the camera flies to each |
-| Basemap switch and swipe | Classic, Compare, Satellite, Topo; Flat, Tilted, Raised |
-| Layer key | Journeys by ink, how sure each line is, passing places, tale places, inferred areas and regions, vignettes |
+| Basemap switch and swipe | Vintage, Compare, Satellite, Topo; Flat, Tilted, Oblique; the ground as Paper, Land cover, or Satellite tint |
+| Layer key | Journeys by ink, how sure each line is, passing places, tale places, inferred areas and regions, vignettes; the land cover classes when Land cover is on |
 | Feature selection | Tap to select; names on hover on desktop |
 | Search | Places, stops, and translations in one box |
 | Overview map | An inset of the whole region when zoomed in |
@@ -330,7 +333,7 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 
 - Each vignette stands on the stop or place it is for, with a `side`, a `min_zoom` from which it shows at every closer zoom, and a `priority` (decision 0026).
 - The drawing is set beside its pin on that side, a fixed gap away on screen, so it never covers the marker; no leader lines. Place labels draw over it; its caption is placed before every other label. The key says its position is approximate.
-- Vignettes belong to the classic map only.
+- Vignettes belong to the vintage map only.
 - Spoiler mode hides those first seen after the reader's progress.
 
 **Candidates** (about 30; the anchors in `pipeline/seeds/vignettes.csv` are the current picks):
@@ -372,7 +375,7 @@ The site is ready to launch when all of these hold. [`roadmap.md`](roadmap.md#9-
 - Every photo, tile set, and dataset has visible attribution where shown and on the Credits page, and the MapTiler logo shows on satellite.
 - No passage of the novel is in the repository or the built site, and Spanish appears only as incipits.
 - The GeoJSON downloads validate against the schemas and open in QGIS.
-- The classic map works with MapTiler unreachable.
+- The vintage map works with MapTiler unreachable.
 - The panel and drawer pass a one-handed phone test and keyboard-only use.
 - The site costs $0 a month at 10,000 visits, and satellite pauses rather than bills.
 
@@ -382,11 +385,12 @@ One name per thing. Code identifiers that predate a name are noted.
 
 | Term | Meaning | Not |
 | --- | --- | --- |
-| Classic map | Our own basemap: paper, ink, relief, labels. Code and tile names call it `literary` | "literary map" in reader-facing text |
+| Vintage map | Our own basemap: paper, ink, relief, labels. Code and tile names call it `literary` | "literary map" in reader-facing text; "Classic", its name until decision 0035 |
 | Satellite, Topo | MapTiler's imagery and topographic basemaps | |
-| Compare | The classic map and satellite side by side, split by a swipe | "swipe mode" |
-| Satellite tint | The Ground option that puts faded satellite colour under the classic map | "Land colour" |
-| Flat, Tilted, Raised | The three views of the classic map. Raised is plan oblique relief; its archives are `oblique-*.pmtiles` | "oblique view" |
+| Compare | The vintage map and satellite side by side, split by a swipe | "swipe mode" |
+| Satellite tint | The Ground option that puts faded satellite colour under the vintage map | "Land colour" |
+| Land cover | The Ground option that colours the vintage map by what grows or stands on it, in every view | "vegetation", "biomes" |
+| Flat, Tilted, Oblique | The three views of the vintage map. Oblique is plan oblique relief; its archives are `oblique-*.pmtiles` and its story layers `data/oblique/` | "Raised", its name until decision 0034 |
 | Episode | One of the novel's 41 scenes, written `part-number` (`3-09`) | chapter |
 | Journey | One of the seven route layers, J1 to J7 | trip, route (a route segment is one leg of a journey) |
 | Stop | A point in sequence on a journey | place (a place is a named location, which several stops may share) |

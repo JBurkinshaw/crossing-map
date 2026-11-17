@@ -165,6 +165,22 @@ export function HowItsBuilt() {
         portrait of that mountain.
       </p>
 
+      <h2>The Oblique view</h2>
+      <p>
+        The Oblique view owes a lot to Carl Churchill, whose post{' '}
+        <a href="https://churchillgeo.com/variety-in-hachure/"><cite>Variety in hachure</cite></a> gathers some
+        wonderful oblique maps. Three of them shaped this one: Tau Rho Alpha’s <cite>Atlas of Oblique Maps</cite> (1988)
+        for its long downhill strokes, Frank Holmes’s <cite>Estado da Guanabara</cite> (1965) for its stippled flats,
+        and Charles Owens’s <cite>The Panama Canal</cite> (1928) for its bold shadows. The trick behind it comes from
+        Bernhard Jenny and Tom Patterson’s paper{' '}
+        <a href="https://doi.org/10.14714/CP57.279">“Introducing Plan Oblique Relief”</a> (2007): every point is
+        nudged north in proportion to its height, so the mountains stand up off a flat, north-up map, and ground that
+        ends up behind a higher ridge is cut away. The strokes run downhill, crowding on slopes turned from the light
+        and thinning on sunlit ones, with dots on the flats. Set the ground to Land cover and the colour under them
+        comes from the CEC’s North American Land Cover map, which treats both sides of the border alike. It can’t tell pine from oak, so I sorted the trees by height,
+        after David Brown’s biotic communities of the Southwest.
+      </p>
+
       <h2>Caveats</h2>
       <p>
         <strong>Springs, ranches and stations.</strong> The springs, ranches, stations and tanks along the journeys

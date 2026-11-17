@@ -1,4 +1,4 @@
-// Screenshots for the Wheeler study (review/stage-8/wheeler): the classic map today at the kinds of places the
+// Screenshots for the Wheeler study (review/stage-8/wheeler): the vintage map today at the kinds of places the
 // Wheeler sheets are studied for (a range and its plain, mesas, a river, an escarpment), flat and tilted, and the
 // lab section's toggles. Saves review/stage-8/wheeler/shots/<name>.jpg.
 // Usage, with the dev server running: node wheeler-shots.mjs [base-url] [only-name,...]

@@ -8,13 +8,13 @@ import type { Units } from '../units'
 // Every layer literaryStyle draws is part of the literary base, which satellite, topo and compare modes hide,
 // except the international line, which stays over the imagery.
 const OVER_IMAGERY = new Set(['country-line'])
-// The Raised view hides the base layers that cannot move with the terrain (raisedLayers in relief.ts redraws
-// the boundaries, roads, streams and the Mexico side from raised copies). The paper, the paper tint above zoom
+// The Oblique view hides the base layers that cannot move with the terrain (obliqueLayers in relief.ts redraws
+// the boundaries, roads, streams and the Mexico side from oblique copies). The paper, the paper tint above zoom
 // 10 and the lakes stay.
-const KEPT_IN_RAISED = new Set(['paper', 'relief-paper', 'lake'])
+const KEPT_IN_OBLIQUE = new Set(['paper', 'relief-paper', 'lake'])
 
 export const baseLayerIds = (style: StyleSpecification) => style.layers.map((l) => l.id).filter((id) => !OVER_IMAGERY.has(id))
-export const notRaisedIds = (style: StyleSpecification) => style.layers.map((l) => l.id).filter((id) => !KEPT_IN_RAISED.has(id))
+export const notObliqueIds = (style: StyleSpecification) => style.layers.map((l) => l.id).filter((id) => !KEPT_IN_OBLIQUE.has(id))
 
 const byRank = (heavy: number, light: number): ExpressionSpecification =>
   ['interpolate', ['linear'], ['coalesce', ['get', 'scalerank'], 8], 2, heavy, 10, light]
@@ -183,7 +183,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
         source: base,
         'source-layer': 'creek',
         minzoom: 11,
-        // Only on the creeks drawn at this zoom. The Raised view reuses this filter on its own streams, which
+        // Only on the creeks drawn at this zoom. The Oblique view reuses this filter on its own streams, which
         // carry no `o`, so they count as shown.
         filter: ['all', ['has', 'name'], ['any', ['!', ['has', 'o']], creekShown]],
         layout: {

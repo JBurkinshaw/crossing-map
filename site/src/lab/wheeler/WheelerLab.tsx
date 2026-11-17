@@ -10,7 +10,7 @@ import { addFrame } from './subset/frame'
 import { addPlaceMarks, READING, type PlacesParams } from './subset/places'
 import './wheeler.css'
 
-// The lab section for the Wheeler Survey study (review/stage-8/wheeler/README.md): the classic map with a few
+// The lab section for the Wheeler Survey study (review/stage-8/wheeler/README.md): the vintage map with a few
 // parameters that try what the 1870s survey sheets do, and the list of what was learned from them. The map is its
 // own MapLibre instance, so the section works on any page; the site's map module is not loaded here.
 
@@ -105,9 +105,9 @@ export default function WheelerLab() {
 
   return (
     <section className="wheeler-lab" aria-labelledby="wheeler-lab-title">
-      <h2 id="wheeler-lab-title">Wheeler Survey sheets: lessons for the classic map</h2>
+      <h2 id="wheeler-lab-title">Wheeler Survey sheets: lessons for the vintage map</h2>
       <p className="wheeler-intro">
-        Two atlas sheets of the US Geographical Surveys West of the 100th Meridian, studied at full resolution: what they do, what our classic map does
+        Two atlas sheets of the US Geographical Surveys West of the 100th Meridian, studied at full resolution: what they do, what our vintage map does
         now, and a small set of parameters to try their devices on our own data. The scans are CC BY-NC-SA and are not reproduced here; open them from the
         catalogue links.
       </p>

@@ -66,7 +66,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'Copernicus DEM GLO-30',
         link: 'https://registry.opendata.aws/copernicus-dem/',
-        use: 'The 30 m elevation model behind the hachures, contours, summits and passes, and the Raised view.',
+        use: 'The 30 m elevation model behind the hachures, contours, summits and passes, and the Oblique view.',
         licence: 'Copernicus DEM licence: free use, with this notice. The organisations in charge of the Copernicus programme by law or by delegation do not incur any liability for any use of the Copernicus WorldDEM-30.',
         credit: COPERNICUS,
       },
@@ -89,6 +89,47 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         ),
         licence: 'GPL-3.0',
       },
+      {
+        name: 'Bernhard Jenny and Tom Patterson, Introducing Plan Oblique Relief',
+        link: 'https://doi.org/10.14714/CP57.279',
+        use: (
+          <>
+            <cite>Cartographic Perspectives</cite> 57 (2007). The method behind the Oblique view: every point moves
+            north in proportion to its height, and ground behind higher ground is hidden. The site’s own code
+            applies it to the map’s lines and land cover.
+          </>
+        ),
+        licence: 'Method; cited',
+      },
+    ],
+  },
+  {
+    title: 'Land cover',
+    credits: [
+      {
+        name: 'Commission for Environmental Cooperation, North American Land Cover 2020 (30 m)',
+        link: 'https://www.cec.org/north-american-environmental-atlas/land-cover-30m-2020/',
+        use: (
+          <>
+            The land cover under the map, when the ground is set to Land cover: one Landsat classification for Mexico
+            and the US, so the colours do not change at the border. Its classes are re-read with height (below), so
+            the map’s classes are this site’s, not the CEC’s.
+          </>
+        ),
+        licence: 'CC BY 4.0',
+        credit:
+          'Commission for Environmental Cooperation (CEC). 2024. “North American Environmental Atlas - Land Cover 2020 30m”. North American Land Change Monitoring System. Canada Centre for Remote Sensing (CCRS), U.S. Geological Survey (USGS), Comisión Nacional para el Conocimiento y Uso de la Biodiversidad (CONABIO), Comisión Nacional Forestal (CONAFOR), Instituto Nacional de Estadística y Geografía (INEGI). Ed. 2.0, Raster digital data [30-m].',
+      },
+      {
+        name: 'David E. Brown, ed., Biotic Communities: Southwestern United States and Northwestern Mexico',
+        use: (
+          <>
+            University of Utah Press, 1994. The height bands that sort the CEC’s trees into gallery forest, oak
+            woodland and pine (<a href={repoUrl('docs/decisions/0034-oblique-strokes-and-land-cover.md')}>decision 0034</a>).
+          </>
+        ),
+        licence: 'Facts used; cited',
+      },
     ],
   },
   {
@@ -97,7 +138,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
         link: 'https://www.inegi.org.mx/temas/hidrografia/',
-        use: 'The named rivers, the smaller streams and the lakes on the Mexico side of the classic map, and streams on the Mexico side in the Raised view.',
+        use: 'The named rivers, the smaller streams and the lakes on the Mexico side of the vintage map, and streams on the Mexico side in the Oblique view.',
         licence: 'INEGI free-use terms, attribution required',
         credit: 'Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
       },
@@ -111,14 +152,14 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
       {
         name: 'Global Dam Watch database v1.0, with GRanD v1.3',
         link: 'https://doi.org/10.6084/m9.figshare.25988293',
-        use: 'The year each dam was finished, which decides the reservoirs the classic map leaves out as built after the book (decision 0031). The map draws none of its shapes.',
+        use: 'The year each dam was finished, which decides the reservoirs the vintage map leaves out as built after the book (decision 0031). The map draws none of its shapes.',
         licence: 'CC BY 4.0; transformed by this site',
         credit: 'Global Dam Watch database v1.0 (Lehner et al. 2024), CC BY 4.0',
       },
       {
         name: 'USGS National Hydrography Dataset (NHD)',
         link: 'https://www.usgs.gov/national-hydrography',
-        use: 'The courses of the named rivers on the US side of the classic map, streams on the US side, and the rivers some routes follow.',
+        use: 'The courses of the named rivers on the US side of the vintage map, streams on the US side, and the rivers some routes follow.',
         licence: 'Public domain',
         credit: 'USGS National Hydrography Dataset courtesy of the U.S. Geological Survey',
       },
@@ -212,6 +253,44 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
             The Wheeler Survey’s Atlas Sheet 83 (1876) and other period maps, studied for the hachure style; the{' '}
             <a href={repoUrl('docs/inspiration/rumsey.md')}>list</a> gives each one. Nothing from them is
             reproduced.
+          </>
+        ),
+        licence: 'Links only',
+      },
+      {
+        name: 'Carl Churchill, Variety in hachure',
+        link: 'https://churchillgeo.com/variety-in-hachure/',
+        use: (
+          <>
+            A post gathering oblique and block-diagram maps, which set the Oblique view’s style. It follows three of
+            them: Tau Rho Alpha’s <cite>Atlas of Oblique Maps</cite> (USGS, 1988) for its long downhill strokes,
+            Frank Holmes’s <cite>Estado da Guanabara</cite> (1965) for its stippled lowlands, and Charles Owens’s{' '}
+            <cite>The Panama Canal</cite> (1928) for its bold shadows. The{' '}
+            <a href={repoUrl('docs/inspiration/churchill.md')}>list</a> links each map. Nothing from them is reproduced.
+          </>
+        ),
+        licence: 'Links only',
+      },
+      {
+        name: 'Monnier and Le Bourguignon-Duperré, Carte générale de la Martinique (1831), David Rumsey Map Collection',
+        link: 'https://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~372081~90137794:Carte-Generale-De-La-Martinique',
+        use: (
+          <>
+            A French navy chart that draws what grows on the ground in the same ink as its hachures. The land cover’s
+            ink textures follow the kind of mark it uses (<a href={repoUrl('docs/decisions/0036-land-cover-in-ink.md')}>decision 0036</a>).
+            Nothing from it is reproduced.
+          </>
+        ),
+        licence: 'Links only',
+      },
+      {
+        name: 'u/lost-my-glasses, Example of Land Cover Hachure Lines (r/mapmaking)',
+        link: 'https://www.reddit.com/r/mapmaking/comments/1w1xxt1/example_of_land_cover_hachure_lines/',
+        use: (
+          <>
+            The thread that pointed to the Martinique chart, after u/TheCountVonZeppelin’s{' '}
+            <a href="https://www.reddit.com/r/mapmaking/comments/1w1pr3x/an_experiment_in_land_cover_hachures/">An experiment
+            in land cover hachures</a>, and the idea of drawing land cover in ink.
           </>
         ),
         licence: 'Links only',
