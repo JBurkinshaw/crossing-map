@@ -71,6 +71,12 @@ export function PlaceCard(props: Props) {
         <aside className="area-outline">
           <h3>How this line was drawn</h3>
           <p>{p.drawn}</p>
+          {/* The grid, smoothing and model version are in the data's drawn_detail, not on the card. */}
+          {p.method === 'modeled' && (
+            <p>
+              <a href="#/about/how-its-built">How it’s built</a> explains the model.
+            </p>
+          )}
         </aside>
       )}
       {p.kind === 'inferred-area' && <AreaOutline rule={p.outline_rule ?? null} straightRoad={p.straight_road ?? false} />}

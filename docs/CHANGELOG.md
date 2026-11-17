@@ -10,6 +10,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- New field `drawn_detail` on traced and modelled legs: the technical side of `drawn` (dataset and features, Strahler order or NHD watershed, grid, smoothing, cost model), for data users. `drawn` and the modelled legs' `reasoning` are now in plain words, without the model's version, Douglas-Peucker, Strahler orders or watershed codes: 20 modelled legs, 2 legs traced on INEGI rivers and the Whitewater Creek leg.
 - Stop names and drawing captions no longer give away what happens in the episode the reader is in (decision 0036): 21 stops (and the 32 legs and 9 areas named after them) and 8 drawings are renamed after their place, such as "The river camp where Boyd is shot" to "The river camp near San José" and "Turned away by the army" to "The army recruiting office". The event stays in the reasoning. Two drawings move to another side of their pin with their shorter captions, and Billy riding into the Pilares shows from zoom 11.
 - “The girl” is in inverted commas wherever the data names her, as the About page does: 3 stop names, 6 leg names, 12 stop reasonings, an episode summary, and the drawings' captions and notes (which had straight quotes or none). The journey picker and the key name J5 and J6 the same way.
 - `translations.json` has a new field, `common`: true for the 76 lines that are only "Sí", "No", "Gracias", "Bueno", "Adiós", "Buenas noches" or "Señor" (decision 0035). Set by `crossing.translations`.
@@ -19,6 +20,8 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- A modelled leg's card says how its line was worked out in plain words and links to How it's built, which explains the model.
+- How it's built is up to date: the modelled legs' coarser grid on the two longest legs, the two parts of the elevation model, and a new Relief section on the hachures, Wheeler-style within 20 km of the journeys.
 - A stop says what happens there: its Part and episode ("Part I · *Two days later*") and the episode's summary.
 - Stops and place cards say how sure the map is in plain words: "Named and found", "Roughly here", "Worked out from clues" and "Someone in the book says so" (decision 0035), after the kind of place on a card ("Inferred area · Worked out from clues"). The source moves under "How this was placed", which on a card now holds the reasoning too.
 - "Spoken here" is now "Spanish here", and "Spoken on this road" "Spanish on this road". Very common lines ("Sí", "Gracias", "Buenas noches" and the like) are left out of these lists; search still finds them.

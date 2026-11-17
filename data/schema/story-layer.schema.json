@@ -186,6 +186,10 @@
           "type": "string",
           "description": "Route segments: how the line was drawn (traced on a named road or river, computed as a least-cost path, or drawn as a curve), in words for the reader (decision 0032)."
         },
+        "drawn_detail": {
+          "type": "string",
+          "description": "Route segments traced or modelled: the technical side of drawn (the dataset and features read, the grid, the smoothing, the model version), for data users. The card does not show it."
+        },
         "cost_model": {
           "type": "string",
           "description": "Route segments with method modeled: the least-cost model version that drew the line (crossing.least_cost, decision 0021)."

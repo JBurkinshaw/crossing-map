@@ -180,11 +180,18 @@ export function HowItsBuilt({ spoilers }: { spoilers: boolean }) {
         only that the way is unknown.
         Across the sierras and up the long valleys a curve reads badly, so those legs are modelled: the line is the
         way of least effort between the two stops over the ground, for a rider at a walk (or, on the first
-        journey, a wolf on foot). The model works on a 90 m grid of the Copernicus elevation model. A horse’s speed
-        falls with the slope by Tobler’s hiking function, about 6 km/h on the flat; steep ground and canyon walls
-        cost more; crossing a river costs a few minutes by its size; lakes are boggy; and where the book has the
-        rider on a road or a river trail, the line is drawn towards INEGI’s dirt tracks, the old railway, or the
-        river. A rider in Mexico crosses the border only where the book does.
+        journey, a wolf on foot). The model works on a 90 m grid of the Copernicus elevation model, or a coarser one
+        (120 m and 180 m) on the two longest legs. A horse’s speed falls with the slope by Tobler’s hiking function,
+        about 6 km/h on the flat, and the wolf’s is about 5 km/h; steep ground and canyon walls cost more; crossing
+        a river costs a few minutes by its size; lakes are boggy; the wolf keeps clear of towns; and where the book
+        has the rider on a road or a river trail, ground near INEGI’s dirt tracks, the old railway, or the river
+        costs a little less. A rider in Mexico crosses the border only where the book does. The path found from
+        cell to cell is then smoothed, so that it reads as a ride, not a staircase.
+      </p>
+      <p>
+        Each modelled leg’s card says this in brief under “How this line was drawn”. The technical side (the
+        grid, the smoothing tolerance and the model’s version) is in the data, in each leg’s{' '}
+        <code>drawn_detail</code> and <code>cost_model</code>, as it is for the traced legs’ datasets and features.
       </p>
       <p>
         A modelled line is a plausible way, not the one taken. The weights are judgements: on about a dozen legs a
@@ -193,6 +200,21 @@ export function HowItsBuilt({ spoilers }: { spoilers: boolean }) {
         has nothing to add there. The model also checks the story: on one leg, the book’s timing asks a horse
         for about 100 km in a day, some 16 hours at a walk by the model, which is listed as an open question
         (decision 0021).
+      </p>
+
+      <h2>Relief</h2>
+      <p>
+        The ground comes from the Copernicus 30 m elevation model, downloaded in two parts: the tiles along the
+        journeys, which the hachures, contours and mountain glyphs are drawn from, and the rest of the map’s box,
+        which the modelled routes, the inferred areas and the lines that set range and pass names read as well.
+      </p>
+      <p>
+        The hachures, the short strokes that run down every slope, are drawn by Daniel Huffman’s Hachures script,
+        run in QGIS. Within 20 km of the journeys they are then redrawn after the Wheeler Survey’s sheets of the
+        1870s: short strokes of one weight, packed closer where the ground is steeper, with crests and summits left
+        as thin white partings, mesa tops and valley floors left as blank paper, and each escarpment drawn as one
+        comb of strokes hanging from its rim (decision 0024). Outside that corridor, and in the Raised view, the
+        map keeps the coarser strokes, whose darkness comes from their width.
       </p>
 
       <h2>Mountain glyphs</h2>
