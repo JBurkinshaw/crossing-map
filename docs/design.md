@@ -61,9 +61,9 @@ Each journey is a route layer, with stops in the order the book tells them. "(ar
 
 **J2. Billy's first crossing, with the wolf (Part I).** Cloverdale → Cloverdale Creek road → Robertson's crossfence (area) → a low pass in the easternmost Guadalupes → a ranch house on the volcanic plain (area) → the boundary, a monument in sight → the Cajon Bonita (the book's spelling) trail south → passes of the Sierra de la Cabellera → the Bavispe valley → the river crossing where deputies take him (named Colonia de Oaxaca only in 1-10) → an unnamed mud-house settlement (area) → Colonia Morelos and the fair → the hacienda by the river (area; the book does not name it, and calls the river beside it the Batopito, which GeoNames spells Batepito) → the fight → into the Pilares Teras with the dead wolf.
 
-**J3. Billy alone in the Sierras, and home (Part II).** The Bavispe from a promontory → deep into the Sierras among the Indians' rancherías (area, weeks) → El Tigre, a mining town → a view east over the Bavispe barranca and the Carretas plain → the heretic's house at Huisiachepic, the ruined church, and the tale of Caborca → Tamichopa → Bacerac → Bavispe → Colonia de Oaxaca → Morelos → the road north toward Ojito → the border at Douglas → the old Douglas–Cloverdale road and a pass in the Guadalupes → the Animas Plain → the Parham house → Animas → Lordsburg (the sheriff) → the Websters' (Boyd).
+**J3. Billy alone in the Sierras, and home (Part II).** The Bavispe from a promontory → deep into the Sierras among the Indians' rancherías (area, weeks) → El Tigre, a mining town → a view east over the Bavispe barranca and the Carretas plain → the heretic's house at Huisiachepic, the ruined church, and the tale of Caborca → Tamichopa → Bacerac → Bavispe → Colonia de Oaxaca → Morelos → the road north towards Ojito → the border at Douglas → the old Douglas–Cloverdale road and a pass in the Guadalupes → the Animas Plain → the Parham house → Animas → Lordsburg (the sheriff) → the Websters' (Boyd).
 
-**J4. Billy and Boyd, for the horses (Parts II and III).** Lordsburg → the alkali flats → San Simon Valley → the highway east of Bowie → the old road over the Dos Cabezas → Apache Pass → route 666 down the Sulphur Springs Valley → Elfrida → McNeal → Douglas → Agua Prieta → Ojito → Morelos (midnight) → the river towns → Bacerac (the one-eyed horse) → along the western flank of the ranges that close the Bavispe valley → the trail to the plains of Chihuahua → Colonia Juárez and the Casas Grandes River bridge → the walled ruins of an ancient mud city (Paquimé, unnamed in the text) → Casas Grandes (the Ferrocarril Noroeste de México; Soto; La Babícora and Hearst named) → the road south toward San Diego → "the girl" rescued (area, on the road) → the Hacienda de San Diego ("L. T.", Luis Terrazas; the opera troupe) → south toward Mata Ortiz, Las Varas, and Babícora → the opera caravan on the Madera road below Las Varas (area) → river camps → the old wagon road from La Norteña across the Babícora plains and the Santa María valley → Las Varas → the road to Boquilla → the hacienda at Boquilla → Quijada → leave the road north of town for the river → San José → the river camp where Boyd is shot (area) → the workers' truck → the blind man's house, then Mata Ortiz → San Diego, where Billy finds Boyd → Casas Grandes at 3 a.m. for the doctor → back to San Diego → Boyd and "the girl" gone. The book's compass does not close between the wagon road and Las Varas; the stops keep the text's order (decision recorded in the roadmap's modelled-routes notes).
+**J4. Billy and Boyd, for the horses (Parts II and III).** Lordsburg → the alkali flats → San Simon Valley → the highway east of Bowie → the old road over the Dos Cabezas → Apache Pass → route 666 down the Sulphur Springs Valley → Elfrida → McNeal → Douglas → Agua Prieta → Ojito → Morelos (midnight) → the river towns → Bacerac (the one-eyed horse) → along the western flank of the ranges that close the Bavispe valley → the trail to the plains of Chihuahua → Colonia Juárez and the Casas Grandes River bridge → the walled ruins of an ancient mud city (Paquimé, unnamed in the text) → Casas Grandes (the Ferrocarril Noroeste de México; Soto; La Babícora and Hearst named) → the road south towards San Diego → "the girl" rescued (area, on the road) → the Hacienda de San Diego ("L. T.", Luis Terrazas; the opera troupe) → south towards Mata Ortiz, Las Varas, and Babícora → the opera caravan on the Madera road below Las Varas (area) → river camps → the old wagon road from La Norteña across the Babícora plains and the Santa María valley → Las Varas → the road to Boquilla → the hacienda at Boquilla → Quijada → leave the road north of town for the river → San José → the river camp where Boyd is shot (area) → the workers' truck → the blind man's house, then Mata Ortiz → San Diego, where Billy finds Boyd → Casas Grandes at 3 a.m. for the doctor → back to San Diego → Boyd and "the girl" gone. The book's compass does not close between the wagon road and Las Varas; the stops keep the text's order (decision recorded in the roadmap's modelled-routes notes).
 
 **J5. Billy looking for Boyd and "the girl" (Part III).** San Diego → Mata Ortiz → Boquilla → Santa Ana de Babícora (midnight) → the road west to Namiquipa, home of "the girl" → back through Santa Ana, La Boquilla, Las Varas → a camp on the river south of Mata Ortiz → south as far as Cuauhtémoc, north again to Namiquipa, the Buenaventura crossroads, Álamo, Galeana → Casas Grandes (December, broke).
 
@@ -183,7 +183,7 @@ The **classic map** is ours, self-hosted, and the default. Satellite and Topo co
 
 ### 5.1 The classic map: design brief
 
-The look is an endpaper map from a 1940s novel, drawn by a surveyor who also sketches: ink on toned paper, a hand-lettered feel, mountains drawn as mountains, rivers as living lines, and small drawings in the empty quarters. Everything under it is real geodata.
+The look is an endpaper map from a 1940s novel, drawn by a surveyor who also sketches: ink on toned paper, a hand-lettered feel, mountains drawn as mountains, rivers as living lines, and small drawings beside the places they stand for. Everything under it is real geodata.
 
 **References**, in three families:
 
@@ -273,7 +273,7 @@ The pipeline runs locally in Python, keeps the book text private, and writes onl
 1. **Episodes and mentions (private).** `crossing.extract` reads the owner's DRM-free EPUB. It splits the text into the 41 episodes at the capitalised scene openings, and finds the first episode that names each seed place, under any spelling the seeds list. It writes only episode numbers and counts, to `private/book/`.
 2. **Resolve names.** `crossing.gazetteer` matches each seed against USGS GNIS, GeoNames, and Wikidata inside the story box (about 104°–113° W, 27°–36° N). It scores candidates by expected feature type and region and by distance to the neighbouring stops. A seed is resolved only when every candidate agrees; otherwise it goes to review, with every candidate listed.
 3. **Review.** The owner checks picks against imagery and the text. Hand decisions are recorded in the place-override seeds, each with its reasoning.
-4. **Build the story.** `crossing.build_story` writes the places, stops, areas, and journeys. A segment follows the NHD flowline, TIGER road, or Natural Earth river its snap names, and is a gentle curve elsewhere. Inferred areas are circles sized to the doubt until they are drawn by hand (decision 0008).
+4. **Build the story.** `crossing.build_story` writes the places, stops, areas, and journeys. A segment follows the NHD flowline, TIGER road, or Natural Earth river its snap names, and is a gentle curve elsewhere. An inferred area starts as the ground within the stop's radius of doubt, cut by a rule to the ground its reasoning describes (decision 0020), until it is drawn by hand (decision 0008).
 5. **Relief and glyphs.** `crossing.peaks`, `crossing.landforms`, `crossing.hachures`, and `crossing.plan_oblique`, as in section 5.2.
 6. **Translations.** `crossing.translations`, as in section 8.
 7. **Validate.** `crossing.validate` checks every published file against its schema, and the spoiler rules that link files. `crossing.echo_check` checks that no run of eight words is shared with the novel.
@@ -306,7 +306,7 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 | Data dimming | Routes not in focus fade; once the reader goes to a stop, the legs after it fade |
 | Route positioning | Back and Next through a journey's stops; the camera flies to each |
 | Basemap switch and swipe | Classic, Compare, Satellite, Topo; Flat, Tilted, Raised. Folded under one Map button top right, on desktop and phone; a line under each row says what the chosen option does |
-| Layer key | In the title cartouche, in two tabs. The story: journeys by ink, how sure each line is, stops, grouped stops, places, inferred areas and regions, the false dawn. The land: the international boundary, state lines, the railroad, unnamed towns, spot heights, the small marks of context and water places, mountains, drawings. Its tab panel scrolls if the screen is short; on phones it opens as a sheet from the bottom |
+| Layer key | In the title cartouche, in two tabs. The story: journeys by ink, how sure each line is, stops, grouped stops, places, inferred areas and regions, the false dawn. The land: the international boundary, state lines, the railway, unnamed towns, spot heights, the small marks of context and water places, mountains, drawings. Its tab panel scrolls if the screen is short; on phones it opens as a sheet from the bottom |
 | Feature selection | Tap to select; names on hover on desktop |
 | Search | Places, stops, and translations in one box |
 | Overview map | An inset of the whole region when zoomed in; not on phones, where it would cover too much of the map |
@@ -337,7 +337,7 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 - Vignettes belong to the classic map only.
 - Spoiler mode hides those first seen after the reader's progress.
 
-**Candidates** (about 30; the anchors in `pipeline/seeds/vignettes.csv` are the current picks):
+**First candidates** (the site now has 54 drawings; the anchors in `pipeline/seeds/vignettes.csv` are the current picks):
 
 | Vignette | Anchor | Part |
 | --- | --- | --- |
@@ -386,7 +386,7 @@ One name per thing. Code identifiers that predate a name are noted.
 
 | Term | Meaning | Not |
 | --- | --- | --- |
-| Classic map | Our own basemap: paper, ink, relief, labels. Code and tile names call it `literary` | "literary map" in reader-facing text |
+| Classic map | This site's own basemap: paper, ink, relief, labels. Code and tile names call it `literary` | "literary map" in reader-facing text |
 | Satellite, Topo | MapTiler's imagery and topographic basemaps | |
 | Compare | The classic map and satellite side by side, split by a swipe | "swipe mode" |
 | Satellite tint | The Ground option that puts faded satellite colour under the classic map | "Land colour" |

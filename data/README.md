@@ -13,7 +13,7 @@ Every file is validated against its schema in `schema/` by `crossing.validate`, 
 | `places.geojson` | 132 named places, including context towns the book never names. 35 carry `name_in_text`, the book's own spelling | `story-layer` |
 | `stops.geojson` | 171 stops, in order, on the seven journeys J1 to J7 | `story-layer` |
 | `journeys.geojson` | 165 route segments between stops, each with its `travel` | `story-layer` |
-| `areas.geojson` | 59 inferred areas and named regions, each with its reasoning | `story-layer` |
+| `areas.geojson` | 60 inferred areas and 2 named regions, each with its reasoning | `story-layer` |
 | `vignettes.geojson` | 54 anchors for the map's drawings, each on the stop or place it stands for, with the `side` of the pin it is drawn on, the zoom it shows from, and its `journey` | `story-layer` |
 | `landforms.geojson` | 313 label lines along ranges, valleys, plains, mesas and plateaus, for names set along the landform (decision 0023) | `story-layer` |
 | `water_places.geojson` | 1,233 springs, tanks, ranches and stations within 20 km of the journeys ridden or walked, from GNIS and GeoNames, with the book's own 4 (they point at their place) | `story-layer` |
