@@ -28,7 +28,7 @@
     "source_id": "9028461",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Sierra La Madera is the Sky Island range in the municipios of Cumpas, Granados, Huásabas, Moctezuma and Villa Hidalgo (Bermudez-Enriquez et al. 2013, USDA RMRS-P-67). GeoNames 9028461 lies between those towns: 27 km east of Cumpas and 21 km west of Huásabas on the Bavispe (pipeline/measure/distances.py). The book puts the wolf on its eastern slopes, then across the Bavispe and north, which fits a range bounded on the east by the river. Readers disagree: Bell (2000) and Joe Hazelton's map take the other Sierra de la Madera, on the upper Bavispe (GeoNames 3996948), 81 km north-east. That range lies east of the river, so from it the wolf would reach the border without crossing the Bavispe, which the text has her do."
+    "reasoning": "This Sierra de la Madera is the Sky Island range in the municipios of Cumpas, Granados, Huásabas, Moctezuma and Villa Hidalgo (Bermudez-Enriquez et al. 2013, USDA RMRS-P-67, who call it Sierra La Madera). GeoNames 9028461 lies between those towns: 27 km east of Cumpas and 21 km west of Huásabas on the Bavispe (pipeline/measure/distances.py). The book puts the wolf on its eastern slopes, then across the Bavispe and north, which fits a range bounded on the east by the river. Readers disagree: Bell (2000) and Joe Hazelton's map take the other Sierra de la Madera, on the upper Bavispe (GeoNames 3996948), 81 km north-east. That range lies east of the river, so from it the wolf would reach the border without crossing the Bavispe, which the text has her do."
    }
   },
   {
@@ -1556,7 +1556,7 @@
     "source_id": "3990426",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The text says Ojito, a roadside hamlet on the road north from Colonia Morelos toward the border (2-03), reached by the brothers the evening before they pass Morelos after midnight (2-07). GeoNames 3990426 El Ojito is 7 km straight-line north of Colonia Morelos, which fits both; the gazetteer's pick, a spring in Cibola County NM, is wrong, Ojitos in Chihuahua is 66 km east across the mountains, and Rancho El Ojito near the border is 51 km from Morelos, too far for an evening ride."
+    "reasoning": "The text says Ojito, a roadside hamlet on the road north from Colonia Morelos towards the border (2-03), reached by the brothers the evening before they pass Morelos after midnight (2-07). GeoNames 3990426 El Ojito is 7 km straight-line north of Colonia Morelos, which fits both; the gazetteer's pick, a spring in Cibola County NM, is wrong, Ojitos in Chihuahua is 66 km east across the mountains, and Rancho El Ojito near the border is 51 km from Morelos, too far for an evening ride."
    }
   },
   {
@@ -1618,7 +1618,7 @@
     "source_id": "899504",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 899504, Animas Peak in the Animas Mountains, Hidalgo County: 23 km straight-line northeast of Cloverdale and 58 km southwest of Hachita, matching the text's view from Hachita toward the southwest (4-08). The Sierra County Animas Peak (GNIS 885763) is 139 km northeast of Hachita in the Black Range and does not fit."
+    "reasoning": "GNIS 899504, Animas Peak in the Animas Mountains, Hidalgo County: 23 km straight-line northeast of Cloverdale and 58 km southwest of Hachita, matching the text's view from Hachita towards the southwest (4-08). The Sierra County Animas Peak (GNIS 885763) is 139 km northeast of Hachita in the Black Range and does not fit."
    }
   },
   {
@@ -1805,7 +1805,7 @@
     "source_id": "7855",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 7855, McNeal in Cochise County, on the same highway south of Elfrida toward Douglas; the only namesake."
+    "reasoning": "GNIS 7855, McNeal in Cochise County, on the same highway south of Elfrida towards Douglas; the only namesake."
    }
   },
   {
@@ -1899,7 +1899,7 @@
     "source_id": "3986261",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "San José Babícora (GeoNames 3986261, Gómez Farías municipio) is the Hacienda de San José de Babícora that Hearst-era photographs in the Bancroft Library (UC Berkeley digital collections) show as the ranch headquarters. It lies 13 km straight-line south-east of Laguna de Babícora and 12 km south-south-west of La Boquilla, on Billy's way from Boquilla to Santa Ana. The ranch itself covered about 360,000 ha (INAH Gaceta 2021), so per plan 2.4 draw it as a region; this point marks only the headquarters. Other Babícoras (Babícora de Conoachic, 28.71,-108.21) are outside the ranch country of the text."
+    "reasoning": "San José Babícora (GeoNames 3986261, Gómez Farías municipio) is the Hacienda de San José de Babícora that Hearst-era photographs in the Bancroft Library (UC Berkeley digital collections) show as the ranch headquarters. It lies 13 km straight-line south-east of Laguna de Babícora and 12 km south-south-west of La Boquilla, on Billy's way from La Boquilla to Santa Ana. The ranch itself covered about 360,000 ha (INAH Gaceta 2021), so per plan 2.4 draw it as a region; this point marks only the headquarters. Other Babícoras (Babícora de Conoachic, 28.71,-108.21) are outside the ranch country of the text."
    }
   },
   {
@@ -1995,7 +1995,7 @@
     "source_id": "4006519",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The gazetteer's pick (GeoNames 3999149, 29.73,-107.44) is a different Las Varas, 79 km south-east of San Diego and off the railroad. GeoNames 4006519, Las Varas (Estación Babícora), Madera municipio, agrees with Wikidata Q20215019 and with GeoNames 3999157. It is on the Ferrocarril Noroeste line 77 km straight-line due south of Mata Ortiz and 32 km west-north-west of La Boquilla, which fits the railroad town, the Madera road south and the road east to Boquilla."
+    "reasoning": "The gazetteer's pick (GeoNames 3999149, 29.73,-107.44) is a different Las Varas, 79 km south-east of San Diego and off the railway. GeoNames 4006519, Las Varas (Estación Babícora), Madera municipio, agrees with Wikidata Q20215019 and with GeoNames 3999157. It is on the Ferrocarril Noroeste line 77 km straight-line due south of Mata Ortiz and 32 km west-north-west of La Boquilla, which fits the railway town, the Madera road south and the road east to La Boquilla."
    }
   },
   {
@@ -2087,7 +2087,7 @@
     "source_id": "8749710",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The gazetteer's pick, Boquilla y Anexas in Guerrero municipio (GeoNames 3976048, the INEGI locality the plan names), is 135 km straight-line south-east of Las Varas and nowhere near the lake, so it does not fit. GeoNames 8749710, La Boquilla in Gómez Farías municipio, is 32 km east-south-east of Las Varas and 10 km east of Laguna de Babícora, on the route Boquilla to La Pinta (15 km) to Santa Ana (44 km), matching the road east from Las Varas by the lake and the road south to Santa Ana. It sits 2 km east of the town of Valentín Gómez Farías; I found no source confirming the name Boquilla y Anexas there."
+    "reasoning": "The gazetteer's pick, Boquilla y Anexas in Guerrero municipio (GeoNames 3976048, the INEGI locality the plan names), is 135 km straight-line south-east of Las Varas and nowhere near the lake, so it does not fit. GeoNames 8749710, La Boquilla in Gómez Farías municipio, is 32 km east-south-east of Las Varas and 10 km east of Laguna de Babícora, on the route La Boquilla to La Pinta (15 km) to Santa Ana (44 km), matching the road east from Las Varas by the lake and the road south to Santa Ana. It sits 2 km east of the town of Valentín Gómez Farías; no source was found that gives the name Boquilla y Anexas there."
    }
   },
   {
@@ -2149,7 +2149,7 @@
     "source_id": "3974647",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "In the text the brothers leave the road north of Boquilla, ride west and then north through the night, and reach San José by following a river north; after the shooting Billy flees north to Mata Ortiz. San José de Ermita (GeoNames 3974647, Ignacio Zaragoza municipio, duplicated as 3986374) is on the upper Casas Grandes drainage 48 km straight-line north-north-west of La Boquilla and 48 km south of Mata Ortiz, which fits. The gazetteer's pick (3986371, 30.44,-107.95) is north of Casas Grandes, and San José 3986377 is only 4 km from Boquilla; neither fits. Many San Josés exist, so this remains a best fit."
+    "reasoning": "In the text the brothers leave the road north of La Boquilla, ride west and then north through the night, and reach San José by following a river north; after the shooting Billy flees north to Mata Ortiz. San José de Ermita (GeoNames 3974647, Ignacio Zaragoza municipio, duplicated as 3986374) is on the upper Casas Grandes drainage 48 km straight-line north-north-west of La Boquilla and 48 km south of Mata Ortiz, which fits. The gazetteer's pick (3986371, 30.44,-107.95) is north of Casas Grandes, and San José 3986377 is only 4 km from La Boquilla; neither fits. Many San Josés exist, so this remains a best fit."
    }
   },
   {
@@ -2270,7 +2270,7 @@
     "source_id": "4016722",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 4016722 is San Buenaventura, the municipal seat of Buenaventura on the Santa María; no other town of the name is in the region. It is 33 km straight-line south-south-east of Galeana, and the old road toward Gallego runs from it, as in 4-06."
+    "reasoning": "GeoNames 4016722 is San Buenaventura, the municipal seat of Buenaventura on the Santa María; no other town of the name is in the region. It is 33 km straight-line south-south-east of Galeana, and the old road towards Gallego runs from it, as in 4-06."
    }
   },
   {
@@ -2877,7 +2877,7 @@
     "source_id": "3996956",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 3996956, the municipal seat Madera (Wikidata Q2447269 agrees within 1 km), a sawmill and railroad town as the text describes. The only other Madera town is in southern Sonora. The 3-01 Madero the troupe's men go to is the same place: the troupe is camped on the Madera road south of Las Varas."
+    "reasoning": "GeoNames 3996956, the municipal seat Madera (Wikidata Q2447269 agrees within 1 km), a sawmill and railway town as the text describes. The only other Madera town is in southern Sonora. The 3-01 Madero the troupe's men go to is the same place: the troupe is camped on the Madera road south of Las Varas."
    }
   },
   {
@@ -2908,7 +2908,7 @@
     "source_id": "3982082",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 3982082, the municipal seat Temósachic (Wikidata Q2455181 agrees), 40 km SE of Madera (straight-line), which fits the road south out of Madera toward it. GeoNames 3982081 puts a Temósachic in Sonora with rounded coordinates and is likely an error; Temosachi 3982083 is a different hamlet 36 km NW of Madera."
+    "reasoning": "GeoNames 3982082, the municipal seat Temósachic (Wikidata Q2455181 agrees), 40 km SE of Madera (straight-line), which fits the road south out of Madera towards it. GeoNames 3982081 puts a Temósachic in Sonora with rounded coordinates and is likely an error; Temosachi 3982083 is a different hamlet 36 km NW of Madera."
    }
   },
   {
@@ -3028,7 +3028,7 @@
     "source_id": "923604",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 923604, Glenwood in Catron County, on the road north through the mountains from Duncan toward Reserve (4-08); the only namesake."
+    "reasoning": "GNIS 923604, Glenwood in Catron County, on the road north through the mountains from Duncan towards Reserve (4-08); the only namesake."
    }
   },
   {
@@ -3119,7 +3119,7 @@
     "source_id": "920693",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 920693, San Lorenzo in Grant County on the Mimbres, 13 km east of Santa Rita on the old road to the Black Range (4-08). The Chihuahua San Lorenzo where Boyd was killed is a separate seed."
+    "reasoning": "GNIS 920693, San Lorenzo in Grant County on the Mimbres, 13 km east of Santa Rita on the old road to the Black Range (4-08). The Chihuahua San Lorenzo where Boyd was killed is a different place, on J6."
    }
   },
   {
@@ -3264,7 +3264,7 @@
     "source_id": "3971312",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 3971312 La Ramada lies 28 km straight-line east-south-east of Bacerac in the mountains toward Chihuahua, and Ciénega de Horcones (GeoNames 8881777) lies 7 km beyond it to the east, which matches the text's track east from Bacerac ending at Las Ramadas before the divide to Los Horcones (2-08). The spelling differs (singular), and the gazetteer's pick, a picnic ground near Phoenix, is wrong."
+    "reasoning": "GeoNames 3971312 La Ramada lies 28 km straight-line east-south-east of Bacerac in the mountains towards Chihuahua, and Ciénega de Horcones (GeoNames 8881777) lies 7 km beyond it to the east, which matches the text's track east from Bacerac ending at Las Ramadas before the divide to Los Horcones (2-08). The spelling differs (singular), and the gazetteer's pick, a picnic ground near Phoenix, is wrong."
    }
   },
   {
@@ -3377,7 +3377,7 @@
     "source_id": "3984699",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Open question (docs/open-questions.md). INEGI (locality 080480065) and GeoNames 3984699 give Soto Máynez as the official name of Santa Ana de Babícora, so the two share this point. But in 3-12 girls are walking toward Soto Maynez after the riders have passed back through Santa Ana, as if it were a separate town. Shown as one place with both names until evidence settles it."
+    "reasoning": "Open question (docs/open-questions.md). INEGI (locality 080480065) and GeoNames 3984699 give Soto Máynez as the official name of Santa Ana de Babícora, so the two share this point. But in 3-12 girls are walking towards Soto Maynez after the riders have passed back through Santa Ana, as if it were a separate town. Shown as one place with both names until evidence settles it."
    }
   },
   {
@@ -3547,7 +3547,7 @@
     "source_id": "3975006",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 3975006 El Galleguito (alt Hacienda de Gallego), with the duplicate 4009777 and the El Gallego railway station 4006048 3 km west, 107 km due east (bearing 91 degrees) of San Buenaventura (straight-line), which fits the old road east out of town through a gap toward Gallego. No other Gallego exists in the region."
+    "reasoning": "GeoNames 3975006 El Galleguito (alt Hacienda de Gallego), with the duplicate 4009777 and the El Gallego railway station 4006048 3 km west, 107 km due east (bearing 91 degrees) of San Buenaventura (straight-line), which fits the old road east out of town through a gap towards Gallego. No other Gallego exists in the region."
    }
   },
   {

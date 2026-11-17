@@ -513,7 +513,7 @@
    "properties": {
     "id": "area-j1-bavispe-crossing",
     "stop": "j1-bavispe-crossing",
-    "draft_rule": "On the river: the Bavispe's channel (the highest-order INEGI stream in the circle, its main stem) and 1.5 km either side. She crosses the river, so the crossing is on it; where along this reach is still open, so the whole reach in the circle stays.",
+    "draft_rule": "On the river: the Bavispe's channel (the highest-order INEGI stream in the area, its main stem) and 1.5 km either side. She crosses the river, so the crossing is on it; where along this reach is still open, so the whole reach in the area stays.",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -610,7 +610,7 @@
    "properties": {
     "id": "area-j1-clanton-foster",
     "stop": "j1-clanton-foster",
-    "draft_rule": "The ground between the two draws: the strip between lines through the GNIS points of Clanton Draw and Foster Draw that run down the general slope of the circle (the way the draws run), with 400 m beyond each. NHD does not name the draws' channels here.",
+    "draft_rule": "The ground between the two draws: the strip between lines through the GNIS points of Clanton Draw and Foster Draw that run down the general slope of the area (the way the draws run), with 400 m beyond each. NHD does not name the draws' channels here.",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -1655,7 +1655,7 @@
    "properties": {
     "id": "area-j1-cloverdale-creek",
     "stop": "j1-cloverdale-creek",
-    "draft_rule": "Kept the circle. The trap was off the creek road, across a pasture, about two hours' ride from Cloverdale; the circle already covers the road's upper reach and the pastures either side.",
+    "draft_rule": "Kept the whole area. The trap was off the creek road, across a pasture, about two hours' ride from Cloverdale; the area already covers the road's upper reach and the pastures either side.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -2700,7 +2700,7 @@
    "properties": {
     "id": "area-j2-cloverdale-creek",
     "stop": "j2-cloverdale-creek",
-    "draft_rule": "Kept the circle: the same trap site as the wolf's last stop (J1, stop 13).",
+    "draft_rule": "Kept the whole area: the same trap site as the wolf's last stop (J1, stop 13).",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -2853,7 +2853,7 @@
    "properties": {
     "id": "area-j2-robertson-crossfence",
     "stop": "j2-robertson-crossfence",
-    "draft_rule": "On the creek road he leads the wolf down (1-08): within 500 m of the Cloverdale Creek road (Census TIGER 2023, Cloverdale Rd C001, Co Rd C001 and Co Rd C106). The circle says where along the road.",
+    "draft_rule": "On the creek road he leads the wolf down (1-08): within 500 m of the Cloverdale Creek road (Census TIGER 2023, Cloverdale Rd C001, Co Rd C001 and Co Rd C106). The area says where along the road.",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -16849,7 +16849,7 @@
    "properties": {
     "id": "area-j3-huisiachepic",
     "stop": "j3-huisiachepic",
-    "draft_rule": "The river town: ground within 1.5 km of the upper Bavispe (the circle's main stem in INEGI) and no more than 150 m above it, so benches above the canyon floor stay. The town is across a ford on the river; which bank is not known.",
+    "draft_rule": "The river town: ground within 1.5 km of the upper Bavispe (the area's main stem in INEGI) and no more than 150 m above it, so benches above the canyon floor stay. The town is across a ford on the river; which bank is not known.",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -17327,7 +17327,7 @@
    "properties": {
     "id": "area-j3-sk-bar",
     "stop": "j3-sk-bar",
-    "draft_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the circle still fixes where along the road.",
+    "draft_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the area still fixes where along the road.",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -19115,7 +19115,7 @@
    "properties": {
     "id": "area-j4-san-simon",
     "stop": "j4-san-simon",
-    "draft_rule": "At the river: within 1 km of the San Simon River (NHD flowline). Where along the river is the circle's estimate.",
+    "draft_rule": "At the river: within 1 km of the San Simon River (NHD flowline). Where along the river is the area's estimate.",
     "draft_confidence": "high",
     "straight_road": false
    }
@@ -22341,7 +22341,7 @@
    "properties": {
     "id": "area-j4-plains-camp",
     "stop": "j4-plains-camp",
-    "draft_rule": "Kept the circle. The book has prairie below the rim; the DEM finds no plain in the circle, only small flats along the streams, so the circle may sit too far west of the open ground toward Colonia Juárez. Worth a look by hand.",
+    "draft_rule": "Kept the whole area. The book has prairie below the rim; the DEM finds no plain in the area, only small flats along the streams, so the area may sit too far west of the open ground towards Colonia Juárez.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -23476,7 +23476,7 @@
    "properties": {
     "id": "area-j4-steer-herd",
     "stop": "j4-steer-herd",
-    "draft_rule": "On the road east to Boquilla: within 3 km of the line from Las Varas to La Boquilla.",
+    "draft_rule": "On the road east to La Boquilla: within 3 km of the line from Las Varas to La Boquilla.",
     "draft_confidence": "medium",
     "straight_road": true
    }
@@ -25035,7 +25035,7 @@
    "properties": {
     "id": "area-j4-tracking-north",
     "stop": "j4-tracking-north",
-    "draft_rule": "Kept the circle. They follow the tracks north from the road all afternoon and camp in a swale; the circle already lies north of the road and the lake, and a swale cannot be told from the DEM.",
+    "draft_rule": "Kept the whole area. They follow the tracks north from the road all afternoon and camp in a swale; the area already lies north of the road and the lake, and a swale cannot be told from the DEM.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -26080,7 +26080,7 @@
    "properties": {
     "id": "area-j4-quijada-remuda",
     "stop": "j4-quijada-remuda",
-    "draft_rule": "Kept the circle. The book gives an east-west road, a crossroads and a track down from the mountains, but no distance or landmark to cut by.",
+    "draft_rule": "Kept the whole area. The book gives an east-west road, a crossroads and a track down from the mountains, but no distance or landmark to cut by.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -26465,7 +26465,7 @@
    "properties": {
     "id": "area-j4-leave-road",
     "stop": "j4-leave-road",
-    "draft_rule": "Between the road north of Boquilla and the river to its west: west of La Boquilla and north of the lake. They leave the road a mile above the town and ride west to a river (3-08).",
+    "draft_rule": "Between the road north of La Boquilla and the river to its west: west of La Boquilla and north of the lake. They leave the road a mile above the town and ride west to a river (3-08).",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -27510,7 +27510,7 @@
    "properties": {
     "id": "area-j4-dry-camp",
     "stop": "j4-dry-camp",
-    "draft_rule": "Kept the circle. The camp is on a rise a mile west of the river after a night's ride (3-08), but which of the circle's streams is that river is not known: cutting to the side of the largest one (in the circle's north-east corner) left a sliver, which the night's ride does not support.",
+    "draft_rule": "Kept the whole area. The camp is on a rise a mile west of the river after a night's ride (3-08), but which of the area's streams is that river is not known: cutting to the side of the largest one (in the area's north-east corner) left a sliver, which the night's ride does not support.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -28900,7 +28900,7 @@
    "properties": {
     "id": "area-j4-truck",
     "stop": "j4-truck",
-    "draft_rule": "Kept the circle. The truck meets them on a dirt road in open country; no road of the period is mapped here and most of the circle is open country, so nothing narrows it.",
+    "draft_rule": "Kept the whole area. The truck meets them on a dirt road in open country; no road of the period is mapped here and most of the area is open country, so nothing narrows it.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -29945,7 +29945,7 @@
    "properties": {
     "id": "area-j4-blind-man",
     "stop": "j4-blind-man",
-    "draft_rule": "Kept the circle. An arroyo, a light to the north, a fence and a clay track: nothing to cut by.",
+    "draft_rule": "Kept the whole area. An arroyo, a light to the north, a fence and a clay track: nothing to cut by.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -32903,7 +32903,7 @@
    "properties": {
     "id": "area-j5-alamo",
     "stop": "j5-alamo",
-    "draft_rule": "Kept the circle. Which Álamo is meant is unresolved; the circle covers both candidates.",
+    "draft_rule": "Kept the whole area. Which Álamo is meant is unresolved; the area covers both candidates.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -33948,7 +33948,7 @@
    "properties": {
     "id": "area-j6-truck",
     "stop": "j6-truck",
-    "draft_rule": "Kept the circle. The truck meets them on a dirt road in open country; no road of the period is mapped here and most of the circle is open country, so nothing narrows it.",
+    "draft_rule": "Kept the whole area. The truck meets them on a dirt road in open country; no road of the period is mapped here and most of the area is open country, so nothing narrows it.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -34389,7 +34389,7 @@
    "properties": {
     "id": "area-j7-salt-lake",
     "stop": "j7-salt-lake",
-    "draft_rule": "The lake bed and its flats: ground within 8 m of the lowest ground in the circle (Playas Lake's floor). He rides south along the flats and camps by a fence.",
+    "draft_rule": "The lake bed and its flats: ground within 8 m of the lowest ground in the area (Playas Lake's floor). He rides south along the flats and camps by a fence.",
     "draft_confidence": "high",
     "straight_road": false
    }
@@ -35543,7 +35543,7 @@
    "properties": {
     "id": "area-j7-sanders",
     "stop": "j7-sanders",
-    "draft_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the circle still fixes where along the road.",
+    "draft_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the area still fixes where along the road.",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -36465,7 +36465,7 @@
    "properties": {
     "id": "area-j7-sk-bar",
     "stop": "j7-sk-bar",
-    "draft_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the circle still fixes where along the road.",
+    "draft_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the area still fixes where along the road.",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -41680,7 +41680,7 @@
    "properties": {
     "id": "area-j7-quijada-cabin",
     "stop": "j7-quijada-cabin",
-    "draft_rule": "On the plain: ground with a slope under 3 degrees. The cabin is a lone house on the plain on a road toward a gap in the mountains.",
+    "draft_rule": "On the plain: ground with a slope under 3 degrees. The cabin is a lone house on the plain on a road towards a gap in the mountains.",
     "draft_confidence": "low",
     "straight_road": false
    }
@@ -42725,7 +42725,7 @@
    "properties": {
     "id": "area-j7-boyds-grave",
     "stop": "j7-boyds-grave",
-    "draft_rule": "Kept the circle. It is already small (3 km²); a bench in low hills is below what the 30 m DEM can find reliably.",
+    "draft_rule": "Kept the whole area. It is already small (3 km²); a bench in low hills is below what the 30 m DEM can find reliably.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -45205,7 +45205,7 @@
    "properties": {
     "id": "area-j7-dog-springs",
     "stop": "j7-dog-springs",
-    "draft_rule": "At the boundary: within 1.5 km of the line along 31°47′ N. He passes an obelisk on the line; where along it is the circle's estimate.",
+    "draft_rule": "At the boundary: within 1.5 km of the line along 31°47′ N. He passes an obelisk on the line; where along it is the area's estimate.",
     "draft_confidence": "high",
     "straight_road": false
    }
@@ -45330,7 +45330,7 @@
    "properties": {
     "id": "area-j7-cemetery",
     "stop": "j7-cemetery",
-    "draft_rule": "South of the town: the circle south of Animas's centre point.",
+    "draft_rule": "South of the town: the part of the area south of Animas's centre point.",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -46120,7 +46120,7 @@
    "properties": {
     "id": "area-j7-waystation",
     "stop": "j7-waystation",
-    "draft_rule": "By the blacktop: within 500 m of the highways in the circle (Census TIGER secondary roads, NM 152 and NM 27). The waystation's adobes stand by the highway.",
+    "draft_rule": "By the blacktop: within 500 m of the highways in the area (Census TIGER secondary roads, NM 152 and NM 27). The waystation's adobes stand by the highway.",
     "draft_confidence": "medium",
     "straight_road": false
    }

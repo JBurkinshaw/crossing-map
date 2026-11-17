@@ -87,8 +87,8 @@ export function About() {
 
       <h2>About the text</h2>
       <p>
-        The notes are written in our own words, and the site doesn’t reproduce the novel. Spanish lines appear only as
-        their first few words, with our own translation. Page numbers refer to the Vintage paperback.
+        The notes are in this site’s own words, and the site doesn’t reproduce the novel. Spanish lines appear only as
+        their first few words, with the site’s own translation. Page numbers refer to the Vintage paperback.
       </p>
 
       <h2>Further reading</h2>
@@ -97,7 +97,7 @@ export function About() {
           <a href="https://ttu-ir.tdl.org/bitstreams/ec52ab01-a89b-423d-aee5-92df180a15c4/download">
             James Luther Bell, <cite>Contextualizing Cormac McCarthy’s Border Trilogy: An Annotative Approach</cite>
           </a>
-          , PhD dissertation, Texas Tech University, 2000. A place-by-place companion to the trilogy, with local research
+          , PhD dissertation, Texas Tech University, 2000. An annotated, place-by-place companion to the trilogy, with local research
           in the New Mexico bootheel.
         </li>
         <li>

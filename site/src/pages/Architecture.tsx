@@ -36,7 +36,7 @@ export function Architecture() {
   return (
     <svg className="architecture" viewBox="0 0 860 330" role="img" aria-labelledby="architecture-title">
       <title id="architecture-title">
-        A Python pipeline on the author's machine writes GeoJSON to the GitHub repository and PMTiles to a GitHub
+        A Python pipeline on the owner's computer writes GeoJSON to the GitHub repository and PMTiles to a GitHub
         release; GitHub Actions validates and deploys the site to GitHub Pages; the reader's browser loads the
         story data and tiles from Pages, and satellite imagery from MapTiler only when asked.
       </title>
@@ -45,7 +45,7 @@ export function Architecture() {
         y={20}
         w={240}
         h={210}
-        title="The author's machine"
+        title="The owner's computer"
         lines={['Python pipeline (uv)', 'gazetteers: GNIS, GeoNames,', '  Wikidata', 'Copernicus DEM, hachures', '  (QGIS), peaks, glyphs', 'tippecanoe: PMTiles', 'review CSVs, signed off']}
       />
       <Box

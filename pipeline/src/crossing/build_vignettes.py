@@ -266,12 +266,12 @@ def main() -> None:
             held = (f"Shown from zoom {zoom:g}, not {float(s['min_zoom']):g}: further out, on every side, it would "
                     "cover a stop, a route line or another drawing.")
         elif zoom > float(s["min_zoom"]):
-            held = (f"Shown from zoom {zoom:g}, not {float(s['min_zoom']):g}: further out it would cover more. The "
-                    "country is still crowded at this zoom, so it sits on the side where it covers least rather than "
-                    "wait for a closer zoom.")
+            held = (f"Shown from zoom {zoom:g}, not {float(s['min_zoom']):g}: further out it would cover more. At "
+                    f"zoom {zoom:g} it still covers a stop, a route line or another drawing on every side, but a "
+                    "drawing waits one zoom step at most, so it sits on the side where it covers least.")
         elif not clash.clear:
-            held = ("The country here is crowded at every zoom, so the drawing shows from its first zoom on the side "
-                    "where it covers least.")
+            held = ("On every side it covers a stop, a route line or another drawing from its first zoom, and no "
+                    "closer zoom would clear it, so it shows from that zoom on the side where it covers least.")
         props = dict(
             id=f"vignette-{s['id']}", name=s["name"], kind="vignette", stands_for=s["stands_for"], place_ref=s["ref"],
             journey=journey_of(s["ref"], s["first_seen"], stops, place_by_id),

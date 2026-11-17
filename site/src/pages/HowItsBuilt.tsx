@@ -104,7 +104,7 @@ export function HowItsBuilt({ spoilers }: { spoilers: boolean }) {
       <h2>The shape of the system</h2>
       <Architecture />
       <p>
-        The pipeline runs on the author’s machine, because it needs a copy of the book and hours of relief
+        The pipeline runs on the owner’s computer, because it needs a copy of the book and hours of relief
         processing. It writes the story layers to the repository as GeoJSON, and the tile archives to a GitHub
         release, because they are too large for git. GitHub Actions checks the data against its schemas, builds the
         site, and deploys it to GitHub Pages, which answers the range requests PMTiles needs.
@@ -159,12 +159,12 @@ export function HowItsBuilt({ spoilers }: { spoilers: boolean }) {
 
       <h2>Inferred areas</h2>
       <p>
-        Where the book gives no name, a stop gets a circle as wide as the clues allow. Most circles are then cut to
+        Where the book gives no name, a stop gets an area as wide as the clues allow. Most areas are then cut to
         the ground the stop’s reasoning describes: a river and its banks, a valley floor, a road’s verge, the flat
         of a playa, the side of a border line. Each cut is a short rule run on open data (the Copernicus elevation
         model, INEGI and USGS rivers, Census roads), written out on the area’s card. A rule is not a surveyor: it
         draws the ground the clue points to, not the place itself, and an escarpment or a ridge comes out in broken
-        pieces. No area grows beyond its circle. No open map of the 1940s roads in Chihuahua and Sonora was found, so
+        pieces. No area grows beyond the first, widest guess. No open map of the 1940s roads in Chihuahua and Sonora was found, so
         where the book puts a camp on an old road there, a straight line between the towns stands in for the road;
         the old roads need a historical source. One large region is drawn from the elevation model, not from its
         real boundary, until a period map of it is found. Any area can be redrawn when a
@@ -228,7 +228,7 @@ export function HowItsBuilt({ spoilers }: { spoilers: boolean }) {
       </p>
       <p>
         Each summit takes the name of the nearest summit, hill, mesa or ridge in the US and Mexican gazetteers (GNIS
-        and GeoNames) within 2 km, and the name decides the drawing: a Mesa or a Butte is drawn flat-topped, and
+        and GeoNames) within 2 km, and the name decides the drawing: a mesa or a butte is drawn flat-topped, and
         cones, domes and ridges have their own drawings; a summit whose name does not say is drawn as a peak. Named mesas, buttes and cones are kept down to 100 m of
         prominence, because few of them stand higher. Passes are the low points between two summits where the ground
         rises on both sides; named ones are lettered across the saddle, unnamed ones get a small pass glyph. The

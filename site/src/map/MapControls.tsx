@@ -15,7 +15,7 @@ const COMPARE_LABEL = (
   </span>
 )
 const BASEMAPS: { id: Basemap; label: ReactNode; description: string }[] = [
-  { id: 'literary', label: 'Classic', description: "The book's map, in ink on paper" },
+  { id: 'literary', label: 'Classic', description: "This site’s own map, in ink on paper" },
   { id: 'compare', label: COMPARE_LABEL, description: 'Classic and satellite side by side: drag the line' },
   { id: 'satellite', label: 'Satellite', description: 'Satellite imagery of today, from MapTiler' },
   { id: 'topo', label: 'Topo', description: 'Roads, places and contours of today, from MapTiler' },

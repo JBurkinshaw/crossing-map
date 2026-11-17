@@ -46,7 +46,7 @@ const SMALL_MARKS: SmallMark[] = [
   { label: 'Ranch', context: 'square', opacity: CONTEXT_OPACITY },
   { label: 'Camp', context: 'tent', opacity: CONTEXT_OPACITY },
   { label: 'Sawmill', context: 'saw', opacity: CONTEXT_OPACITY },
-  { label: 'Railroad tunnel', context: 'tunnel', opacity: CONTEXT_OPACITY },
+  { label: 'Railway tunnel', context: 'tunnel', opacity: CONTEXT_OPACITY },
   { label: 'Corral (ink ring)', context: 'ring', opacity: CONTEXT_OPACITY },
   { label: 'Spring (blue ring)', water: 'ring', opacity: WATER_OPACITY },
   { label: 'Well', context: 'well', opacity: CONTEXT_OPACITY },
@@ -386,7 +386,7 @@ export function LayerKey({ story, journey, reached, units, phone, open, onOpen }
         </li>
         <li>
           <Railroad />
-          Railroad
+          Railway
         </li>
         <li>
           <Dot r={2} fill={tokens.inkFaint} />

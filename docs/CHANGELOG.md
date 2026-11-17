@@ -10,6 +10,9 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- One spelling per place in the reasoning, names and summaries (decision 0037): the Cajón Bonito ("Down the Cajón Bonito"), the Sierra de la Madera, and La Boquilla, which two episode summaries (3-06, 3-07) and a stop had called Boquilla y Anexas, the other town the open question rules out. UK spelling throughout ("towards", "grey"), and "railway" for the railroad, except in a company's name.
+- Inferred areas' rules say "area", not "circle", as does a stop's reasoning; "Kept the circle" is now "Kept the whole area". Working notes are gone from the published text: "To be checked by hand in QGIS" from the two regions, "Worth a look by hand" from an area's rule, and "is a separate seed" from San Lorenzo's reasoning.
+- The drawings' `reasoning` no longer contradicts itself about zoom: a drawing that waited one step says it still covers something there but waits no longer, and one that never waits says no closer zoom would clear it.
 - New field `drawn_detail` on traced and modelled legs: the technical side of `drawn` (dataset and features, Strahler order or NHD watershed, grid, smoothing, cost model), for data users. `drawn` and the modelled legs' `reasoning` are now in plain words, without the model's version, Douglas-Peucker, Strahler orders or watershed codes: 20 modelled legs, 2 legs traced on INEGI rivers and the Whitewater Creek leg.
 - Stop names and drawing captions no longer give away what happens in the episode the reader is in (decision 0036): 21 stops (and the 32 legs and 9 areas named after them) and 8 drawings are renamed after their place, such as "The river camp where Boyd is shot" to "The river camp near San José" and "Turned away by the army" to "The army recruiting office". The event stays in the reasoning. Two drawings move to another side of their pin with their shorter captions, and Billy riding into the Pilares shows from zoom 11.
 - “The girl” is in inverted commas wherever the data names her, as the About page does: 3 stop names, 6 leg names, 12 stop reasonings, an episode summary, and the drawings' captions and notes (which had straight quotes or none). The journey picker and the key name J5 and J6 the same way.
@@ -20,6 +23,10 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- The site speaks in one voice (decision 0037): "I" only in the owner's note at the top of About, and "this site" or "the map" elsewhere, not "we" or "our". The Classic map is "This site's own map, in ink on paper", not "The book's map", and How it's built runs the pipeline on "the owner's computer".
+- An inferred area's card calls it an area, not a circle, as does How it's built.
+- The Data page says the drawings sit beside their place, not on it, and not to scale, and its water places line reads plainly.
+- The key says "Railway" and "Railway tunnel". The Open questions page uses curly apostrophes and calls Bell's work an annotated dissertation and Hazelton's the reader's map; How it's built writes "a mesa or a butte" in lower case.
 - A modelled leg's card says how its line was worked out in plain words and links to How it's built, which explains the model.
 - How it's built is up to date: the modelled legs' coarser grid on the two longest legs, the two parts of the elevation model, and a new Relief section on the hachures, Wheeler-style within 20 km of the journeys.
 - A stop says what happens there: its Part and episode ("Part I · *Two days later*") and the episode's summary.

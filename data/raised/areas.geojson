@@ -1191,8 +1191,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The book names no crossing point. The Bavispe runs south along the eastern foot of the Sierra La Madera past Villa Hidalgo, Huásabas and Granados, so a wolf leaving the eastern slopes crosses it there; the point is on INEGI's channel of the river, and the area runs along it towards Granados and Villa Hidalgo. The Bavispe is one river bent into a long U: it flows north past Bacerac, turns west at Colonia Morelos and comes back south here. So her way north to the line at 108°30′ W must cross it a second time, on the eastern arm, which the book does not mention.",
-    "outline_rule": "On the river: the Bavispe's channel (the highest-order INEGI stream in the circle, its main stem) and 1.5 km either side. She crosses the river, so the crossing is on it; where along this reach is still open, so the whole reach in the circle stays.",
+    "reasoning": "The book names no crossing point. The Bavispe runs south along the eastern foot of the Sierra de la Madera past Villa Hidalgo, Huásabas and Granados, so a wolf leaving the eastern slopes crosses it there; the point is on INEGI's channel of the river, and the area runs along it towards Granados and Villa Hidalgo. The Bavispe is one river bent into a long U: it flows north past Bacerac, turns west at Colonia Morelos and comes back south here. So her way north to the line at 108°30′ W must cross it a second time, on the eastern arm, which the book does not mention.",
+    "outline_rule": "On the river: the Bavispe's channel (the highest-order INEGI stream in the area, its main stem) and 1.5 km either side. She crosses the river, so the crossing is on it; where along this reach is still open, so the whole reach in the area stays.",
     "straight_road": false
    }
   },
@@ -1371,7 +1371,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "The high country between Clanton Draw (GNIS 887634) and Foster Draw (GNIS 889164), which lie 3 km apart.",
-    "outline_rule": "The ground between the two draws: the strip between lines through the GNIS points of Clanton Draw and Foster Draw that run down the general slope of the circle (the way the draws run), with 400 m beyond each. NHD does not name the draws' channels here.",
+    "outline_rule": "The ground between the two draws: the strip between lines through the GNIS points of Clanton Draw and Foster Draw that run down the general slope of the area (the way the draws run), with 400 m beyond each. NHD does not name the draws' channels here.",
     "straight_road": false
    }
   },
@@ -1962,7 +1962,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "On the creek road: leading the wolf back down it, Billy stops at the crossfence after an hour, with Cloverdale an hour's ride further on, so about halfway, 4 km from Cloverdale by the road (Census TIGER 2023). From there he turns south across open country. The Robertson family ran the Cloverdale Ranch from the early 1900s (Range Magazine, winter 2000, rangemagazine.com/archives/stories/winter00/bootheel.htm), so the fence is likely theirs. GNIS has no Robertson ranch; the area covers the stretch of road the halfway estimate could miss by.",
-    "outline_rule": "On the creek road he leads the wolf down (1-08): within 500 m of the Cloverdale Creek road (Census TIGER 2023, Cloverdale Rd C001, Co Rd C001 and Co Rd C106). The circle says where along the road.",
+    "outline_rule": "On the creek road he leads the wolf down (1-08): within 500 m of the Cloverdale Creek road (Census TIGER 2023, Cloverdale Rd C001, Co Rd C001 and Co Rd C106). The area says where along the road.",
     "straight_road": false
    }
   },
@@ -4195,7 +4195,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Boundary monuments stand along 31°20′ N here. The area covers the stretch south of the volcanic plain and north of the Cajon Bonita.",
+    "reasoning": "Boundary monuments stand along 31°20′ N here. The area covers the stretch south of the volcanic plain and north of the Cajón Bonito.",
     "outline_rule": "Within 3 km of the boundary along 31°20′ N, where the monuments stand: they are at the line with a monument in sight.",
     "straight_road": false
    }
@@ -23590,7 +23590,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "No gazetteer or source has Huisiachepic (see docs/open-questions.md). The text puts it across a ford on the upper Bavispe, reached by riding north along the river, and several days upriver (south) of Tamichopa. The pin is on the upper Bavispe's main stem (INEGI), at the point of the river nearest the midpoint of the reach between Mesa Tres Ríos and Huachinera; that midpoint is 28.2 km straight-line south of Tamichopa.",
-    "outline_rule": "The river town: ground within 1.5 km of the upper Bavispe (the circle's main stem in INEGI) and no more than 150 m above it, so benches above the canyon floor stay. The town is across a ford on the river; which bank is not known.",
+    "outline_rule": "The river town: ground within 1.5 km of the upper Bavispe (the area's main stem in INEGI) and no more than 150 m above it, so benches above the canyon floor stay. The town is across a ford on the river; which bank is not known.",
     "straight_road": false
    }
   },
@@ -24448,7 +24448,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "Old man Sanders and Leona tell him what happened. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is the point nine miles (14.5 km) along the Animas Valley road north from Cloverdale (Census TIGER 2023; pipeline/measure/road_points.py).",
-    "outline_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the circle still fixes where along the road.",
+    "outline_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the area still fixes where along the road.",
     "straight_road": false
    }
   },
@@ -26387,7 +26387,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "They cross a low range and descend into the San Simon Valley where it comes down from the north, and noon at the river under cottonwoods. GNIS pins the valley 54 km north of Bowie, so the stop is a point on the San Simon River between the state line and San Simon town (see the place's reasoning). The pin is on the river itself (NHD).",
-    "outline_rule": "At the river: within 1 km of the San Simon River (NHD flowline). Where along the river is the circle's estimate.",
+    "outline_rule": "At the river: within 1 km of the San Simon River (NHD flowline). Where along the river is the area's estimate.",
     "straight_road": false
    }
   },
@@ -26718,7 +26718,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They follow an old road southward into the Dos Cabezas and make camp. The old road south from Bowie is today's Apache Pass Road (Census TIGER 2023). The book does not say how far they rode before camping, so the pin is where the road climbs into the foothills, 12.4 km south of the Bowie stop (pipeline/measure/road_points.py), with a wide circle.",
+    "reasoning": "They follow an old road southward into the Dos Cabezas and make camp. The old road south from Bowie is today's Apache Pass Road (Census TIGER 2023). The book does not say how far they rode before camping, so the pin is where the road climbs into the foothills, 12.4 km south of the Bowie stop (pipeline/measure/road_points.py), with a wide area.",
     "outline_rule": "On the old road south into the Dos Cabezas: within 1 km of Apache Pass Road (Census TIGER), where they camped. The book does not say how far along.",
     "straight_road": false
    }
@@ -30880,7 +30880,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Riding south on the road toward San Diego they see a fire in a grove of oaks east of the road, where two men hold “the girl”; Boyd stampedes their horses. The area is east of the road between Casas Grandes and San Diego (15.8 km apart).",
+    "reasoning": "Riding south on the road towards San Diego they see a fire in a grove of oaks east of the road, where two men hold “the girl”; Boyd stampedes their horses. The area is east of the road between Casas Grandes and San Diego (15.8 km apart).",
     "outline_rule": "East of the road: east of the straight line from Casas Grandes to the Hacienda de San Diego (no map of the old road is to hand) and within 3 km of it, where a fire can be seen from the road.",
     "straight_road": true
    }
@@ -31012,7 +31012,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Late in the day they come on the troupe's wagons halted in a roadside field on the Madera road, a few miles below Las Varas, with a dead mule on the road nearby. The estimate is centred 5 km (about three miles) from Las Varas toward Madera, on the bearing between the two towns (200 degrees, pyproj, WGS 84).",
+    "reasoning": "Late in the day they come on the troupe's wagons halted in a roadside field on the Madera road, a few miles below Las Varas, with a dead mule on the road nearby. The estimate is centred 5 km (about three miles) from Las Varas towards Madera, on the bearing between the two towns (200 degrees, pyproj, WGS 84).",
     "outline_rule": "A roadside field on the Madera road: within 2 km of the line from Las Varas to Madera (the road is not mapped here) on ground flatter than 4 degrees.",
     "straight_road": true
    }
@@ -32330,7 +32330,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east toward Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason.",
+    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east towards Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason.",
     "outline_rule": "On the wagon road: within 8 km of the line La Norteña, La Babícora, Namiquipa, the road's ends and middle as the book gives them. The book's compass does not close here, so the band is wide.",
     "straight_road": true
    }
@@ -32646,7 +32646,7 @@
    },
    "properties": {
     "id": "area-j4-steer-herd",
-    "name": "The steer herd on the road to Boquilla",
+    "name": "The steer herd on the road to La Boquilla",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -32666,8 +32666,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "In the evening, on the road east to Boquilla, they meet about a thousand steers being trailed from La Quemada to the pens at Naco; after dark they pass a hamlet of log houses on the high plain. The area is on the road between Las Varas and the Babícora lake.",
-    "outline_rule": "On the road east to Boquilla: within 3 km of the line from Las Varas to La Boquilla.",
+    "reasoning": "In the evening, on the road east to La Boquilla, they meet about a thousand steers being trailed from La Quemada to the pens at Naco; after dark they pass a hamlet of log houses on the high plain. The area is on the road between Las Varas and the Babícora lake.",
+    "outline_rule": "On the road east to La Boquilla: within 3 km of the line from Las Varas to La Boquilla.",
     "straight_road": true
    }
   },
@@ -35078,7 +35078,7 @@
    },
    "properties": {
     "id": "area-j4-leave-road",
-    "name": "Off the road north of Boquilla, west to a river",
+    "name": "Off the road north of La Boquilla, west to a river",
     "kind": "inferred-area",
     "role": null,
     "characters": [
@@ -35099,7 +35099,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "About a mile above the town they turn off the road and head west to a river with nine horses, turning the Boquilla horses back. The book does not name the river; the area is north-west of La Boquilla.",
-    "outline_rule": "Between the road north of Boquilla and the river to its west: west of La Boquilla and north of the lake. They leave the road a mile above the town and ride west to a river (3-08).",
+    "outline_rule": "Between the road north of La Boquilla and the river to its west: west of La Boquilla and north of the lake. They leave the road a mile above the town and ride west to a river (3-08).",
     "straight_road": false
    }
   },
@@ -35718,7 +35718,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They cross the river upcountry, ride all night through open country away from it, and make a dry camp toward morning in a burned grove on a rise a mile west of the river. The area is between Boquilla and San José, which are 48 km apart (bearing 340 degrees).",
+    "reasoning": "They cross the river upcountry, ride all night through open country away from it, and make a dry camp towards morning in a burned grove on a rise a mile west of the river. The area is between La Boquilla and San José, which are 48 km apart (bearing 340 degrees).",
     "outline_rule": null,
     "straight_road": false
    }
@@ -37858,7 +37858,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Alone, Billy leads his horse up an arroyo, sees a light far to the north at dusk and goes toward it; near midnight he reaches a fence, turns east to a gate and rides up a clay track to a lone house, where the blind man and his wife take him in. The area is north of the shooting, about a day and a half south of Mata Ortiz by the text's timing.",
+    "reasoning": "Alone, Billy leads his horse up an arroyo, sees a light far to the north at dusk and goes towards it; near midnight he reaches a fence, turns east to a gate and rides up a clay track to a lone house, where the blind man and his wife take him in. The area is north of the shooting, about a day and a half south of Mata Ortiz by the text's timing.",
     "outline_rule": null,
     "straight_road": false
    }
@@ -39377,7 +39377,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides all day, meets the workers' truck in the evening, and in the night hears a train whistle for the crossing at Las Varas. The area is north-east of Las Varas, on the way to Boquilla.",
+    "reasoning": "He rides all day, meets the workers' truck in the evening, and in the night hears a train whistle for the crossing at Las Varas. The area is north-east of Las Varas, on the way to La Boquilla.",
     "outline_rule": "Within earshot of the crossing: within 15 km of Las Varas, a generous reach for a train whistle at night.",
     "straight_road": false
    }
@@ -41022,7 +41022,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They take the road north by the railroad; the ride to San Diego takes three days, and the last night they stop for the night on a gravel bar by the river, several miles below Mata Ortiz, as cranes pass over heading south. The area is about 9 km south of Mata Ortiz on the river.",
+    "reasoning": "They take the road north by the railway; the ride to San Diego takes three days, and the last night they stop for the night on a gravel bar by the river, several miles below Mata Ortiz, as cranes pass over heading south. The area is about 9 km south of Mata Ortiz on the river.",
     "outline_rule": "On the river: within 600 m of the main river by Mata Ortiz (the INEGI stream nearest the stop, order 5 and up). A gravel bar by the river; 'below Mata Ortiz' could also mean downstream (north).",
     "straight_road": false
    }
@@ -43225,7 +43225,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "At sunset he reaches a shallow salt lake his horse will not cross, rides south along the flats with snow on Gillespie Mountain and the Animas Peaks beyond, and camps by an old fence. The lake is Playas Lake (GNIS 893357, 31.88 N, 108.59 W), the salt flat west of the Little Hatchets; the area is its southern end.",
-    "outline_rule": "The lake bed and its flats: ground within 8 m of the lowest ground in the circle (Playas Lake's floor). He rides south along the flats and camps by a fence.",
+    "outline_rule": "The lake bed and its flats: ground within 8 m of the lowest ground in the area (Playas Lake's floor). He rides south along the flats and camps by a fence.",
     "straight_road": false
    }
   },
@@ -44671,7 +44671,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "He reaches the Sanders ranch two hours after dark, eats supper and will not stay the night. In 4-02 it is called the SK Bar. No source names the ranch (docs/open-questions.md); the estimate is the same as J3's, nine miles north of the Parham house.",
-    "outline_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the circle still fixes where along the road.",
+    "outline_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the area still fixes where along the road.",
     "straight_road": false
    }
   },
@@ -45793,7 +45793,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "Two days later he reaches the SK Bar gate, learns that Miller died on Kwajalein, and stays the night in the rain. The estimate is J3's (docs/open-questions.md).",
-    "outline_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the circle still fixes where along the road.",
+    "outline_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the area still fixes where along the road.",
     "straight_road": false
    }
   },
@@ -46631,7 +46631,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "On the road east toward La Boquilla a north wind blows dust off Babícora beyond the lake, a red plane flies in from the west, and he camps on the plain. The area is north-east of the Babícora lake. The pin is on the flat ground by the road.",
+    "reasoning": "On the road east towards La Boquilla a north wind blows dust off Babícora beyond the lake, a red plane flies in from the west, and he camps on the plain. The area is north-east of the Babícora lake. The pin is on the flat ground by the road.",
     "outline_rule": "On the plain by the road: ground flatter than 2 degrees within 4 km of the line from Las Varas to La Boquilla, out of the lake.",
     "straight_road": true
    }
@@ -53369,8 +53369,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "One evening he follows a road west toward a gap in the mountains and after dark reaches a lone weatherboard cabin on the plain, where Quijada, still manager of the Nahuerichic division, tells him where Boyd fell and lies. Next day he rides north all day to San Buenaventura, so the area is about a day's ride (47 km) south-south-west of it. It is 57 km from Nahuerachi, the open-questions pick for the division's name.",
-    "outline_rule": "On the plain: ground with a slope under 3 degrees. The cabin is a lone house on the plain on a road toward a gap in the mountains.",
+    "reasoning": "One evening he follows a road west towards a gap in the mountains and after dark reaches a lone weatherboard cabin on the plain, where Quijada, still manager of the Nahuerichic division, tells him where Boyd fell and lies. Next day he rides north all day to San Buenaventura, so the area is about a day's ride (47 km) south-south-west of it. It is 57 km from Nahuerachi, the open-questions pick for the division's name.",
+    "outline_rule": "On the plain: ground with a slope under 3 degrees. The cabin is a lone house on the plain on a road towards a gap in the mountains.",
     "straight_road": false
    }
   },
@@ -56849,7 +56849,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "Four days later he sets out north along the river with the bones on a travois; it takes three days to reach the border, where he passes the first boundary obelisk west of Dog Springs and an old dry reservoir. No Dog Springs is known on the line (docs/open-questions.md); the estimate is the boundary south of Hermanas.",
-    "outline_rule": "At the boundary: within 1.5 km of the line along 31°47′ N. He passes an obelisk on the line; where along it is the circle's estimate.",
+    "outline_rule": "At the boundary: within 1.5 km of the line along 31°47′ N. He passes an obelisk on the line; where along it is the area's estimate.",
     "straight_road": false
    }
   },
@@ -57004,7 +57004,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "He buys a spade and goes south from the town to a little cemetery, where he buries Boyd; the sheriff tells him to report at Lordsburg. GNIS lists no cemetery here; the area is just south of the town.",
-    "outline_rule": "South of the town: the circle south of Animas's centre point.",
+    "outline_rule": "South of the town: the part of the area south of Animas's centre point.",
     "straight_road": false
    }
   },
@@ -58286,7 +58286,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "Beyond the range he crosses a plain of catclaw and creosote, strikes the blacktop a few miles on, sees the Organ Mountains about eighty miles off, and turns back along the highway to three ruined adobes with a rusted gas pump, once a waystation. There he drives off the crippled dog, and wakes to the false dawn (4-09). The area is on the plain east of Hillsboro; the pin, by the highway, is 113 km (70 miles) straight-line from the Organ Mountains point (GNIS 920657, pyproj, WGS 84), and Emory Pass is 131 km (81 miles), so the book's eighty miles fits the range's eastern foot.",
-    "outline_rule": "By the blacktop: within 500 m of the highways in the circle (Census TIGER secondary roads, NM 152 and NM 27). The waystation's adobes stand by the highway.",
+    "outline_rule": "By the blacktop: within 500 m of the highways in the area (Census TIGER secondary roads, NM 152 and NM 27). The waystation's adobes stand by the highway.",
     "straight_road": false
    }
   },
@@ -60390,7 +60390,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The valley floor between the Animas and Peloncillo ranges, where the wolf runs and the Parhams live (Part I) and the text's Animas Plain lies (2-04, 4-02). Drafted from the DEM as the ground below 1,600 m connected to J1's Animas Valley stop, between the border and Animas town; the ranges on either side rise above 1,800 m. To be checked by hand in QGIS (decision 0008)."
+    "reasoning": "The valley floor between the Animas and Peloncillo ranges, where the wolf runs and the Parhams live (Part I) and the text's Animas Plain lies (2-04, 4-02). Drafted from the DEM as the ground below 1,600 m connected to J1's Animas Valley stop, between the border and Animas town; the ranges on either side rise above 1,800 m."
    }
   },
   {
@@ -62715,7 +62715,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The plains of the Babícora, Hearst's ranch country, named at Casas Grandes (2-08) and ridden by Billy in Part IV. Drafted from the DEM as the basin floor below 2,200 m connected to the hacienda's pin, around the Laguna de Babícora; the estate's legal bounds are not known to this project. To be checked by hand in QGIS (decision 0008)."
+    "reasoning": "The plains of the Babícora, Hearst's ranch country, named at Casas Grandes (2-08) and ridden by Billy in Part IV. Drafted from the DEM as the basin floor below 2,200 m connected to the hacienda's pin, around the Laguna de Babícora; the estate's legal bounds are not known to this project."
    }
   }
  ]

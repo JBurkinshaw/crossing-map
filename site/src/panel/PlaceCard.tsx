@@ -100,15 +100,15 @@ function AreaOutline({ rule, straightRoad }: { rule: string | null; straightRoad
       <h3>How this area was drawn</h3>
       {rule ? (
         <p>
-          A draft: the circle around the stop, cut by a rule to the ground the reasoning describes. It was made by the rule from
+          A draft: the area around the stop, cut by a rule to the ground the reasoning describes. It was made by the rule from
           elevation, river and road data, not drawn by hand from a historical source. The rule: {rule}
         </p>
       ) : (
-        <p>A circle around the stop, as wide as the reasoning allows. Nothing in the book or the data narrows it further.</p>
+        <p>The area around the stop, as wide as the reasoning allows. Nothing in the book or the data narrows it further.</p>
       )}
       {straightRoad && (
         <p>
-          No source we have maps the old roads here, so a straight line between the towns stands in for the road. A historical
+          No source this site has found maps the old roads here, so a straight line between the towns stands in for the road. A historical
           map of the roads would improve this area.
         </p>
       )}

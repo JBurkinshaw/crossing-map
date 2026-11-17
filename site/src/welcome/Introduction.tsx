@@ -29,7 +29,7 @@ export function Introduction({ titleId, onFinished, onNotYet, onClose, onMore }:
       </p>
       <p>
         Every place says how sure it is. Places the book names come from gazetteers; where it only describes a place,
-        the map draws an area and writes down its reasoning; where it leaves us guessing, the map says so, and
+        the map draws an area and writes down its reasoning; where it leaves the reader guessing, the map says so, and
         readers can suggest a correction.
       </p>
       <p>Press Next to follow a journey stop by stop, or tap anything on the map.</p>

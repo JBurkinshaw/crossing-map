@@ -180,7 +180,7 @@
         "reasoning": {"type": ["string", "null"]},
         "outline_rule": {
           "type": ["string", "null"],
-          "description": "Inferred areas: how the outline was drawn. A draft is the stop's circle (uncertainty_m about the pin) cut by a rule to the ground its reasoning describes (crossing.area_drafts, decision 0020); null for a plain circle."
+          "description": "Inferred areas: how the outline was drawn. A draft is the stop's area (the ground within uncertainty_m of the pin) cut by a rule to the ground its reasoning describes (crossing.area_drafts, decision 0020); null where nothing cut the area."
         },
         "drawn": {
           "type": "string",

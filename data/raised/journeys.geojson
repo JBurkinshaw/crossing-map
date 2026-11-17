@@ -2581,7 +2581,7 @@
     "method": "narrated-path",
     "source": "usgs-nhd",
     "source_licence": "Public domain",
-    "reasoning": "The book says she followed Whitewater Creek west from the border toward the San Luis Mountains. The path follows the USGS NHD course of the creek between the two stops.",
+    "reasoning": "The book says she followed Whitewater Creek west from the border towards the San Luis Mountains. The path follows the USGS NHD course of the creek between the two stops.",
     "drawn": "Traced along Whitewater Creek in the USGS National Hydrography Dataset (high resolution). The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "The USGS National Hydrography Dataset (high resolution): Whitewater Creek; NHD flowlines of watershed HU8 13030201. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -4863,7 +4863,7 @@
    },
    "properties": {
     "id": "j2-seg-06",
-    "name": "The boundary, a monument in sight to Down the Cajon Bonita",
+    "name": "The boundary, a monument in sight to Down the Cajón Bonito",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -5359,7 +5359,7 @@
    },
    "properties": {
     "id": "j2-seg-07",
-    "name": "Down the Cajon Bonita to Passes of the Sierra de la Cabellera",
+    "name": "Down the Cajón Bonito to Passes of the Sierra de la Cabellera",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -10665,7 +10665,7 @@
    },
    "properties": {
     "id": "j3-seg-11",
-    "name": "Colonia Morelos to The road north toward Ojito",
+    "name": "Colonia Morelos to The road north towards Ojito",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -10681,7 +10681,7 @@
     "method": "narrated-path",
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
-    "reasoning": "He goes on through Morelos and takes the road north toward Ojito (2-03). That road is today's Agua Prieta to Bavispe road, in INEGI's road network.",
+    "reasoning": "He goes on through Morelos and takes the road north towards Ojito (2-03). That road is today's Agua Prieta to Bavispe road, in INEGI's road network.",
     "drawn": "Traced along Agua Prieta - Bavispe and Agua Prieta Bavispe in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Agua Prieta - Bavispe, Agua Prieta Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -11039,7 +11039,7 @@
    },
    "properties": {
     "id": "j3-seg-12",
-    "name": "The road north toward Ojito to The border at Douglas",
+    "name": "The road north towards Ojito to The border at Douglas",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -11786,7 +11786,7 @@
     "method": "narrated-path",
     "source": "census-tiger",
     "source_licence": "Public domain",
-    "reasoning": "From Douglas he rides the old road east toward Cloverdale all day (2-04). That road is today's Geronimo Trail, in Census TIGER 2023 (Cochise and Hidalgo counties).",
+    "reasoning": "From Douglas he rides the old road east towards Cloverdale all day (2-04). That road is today's Geronimo Trail, in Census TIGER 2023 (Cochise and Hidalgo counties).",
     "drawn": "Traced along E Geronimo Trl and Geronimo Trl in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): E Geronimo Trl, Geronimo Trl. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -12450,7 +12450,7 @@
     "method": "narrated-path",
     "source": "census-tiger",
     "source_licence": "Public domain",
-    "reasoning": "In the morning he takes the road north from the house toward the SK Bar (2-04): the Animas Valley road out of Cloverdale, in Census TIGER 2023 (Hidalgo County). The route leaves it for the SK Bar's estimated place at the end.",
+    "reasoning": "In the morning he takes the road north from the house towards the SK Bar (2-04): the Animas Valley road out of Cloverdale, in Census TIGER 2023 (Hidalgo County). The route leaves it for the SK Bar's estimated place at the end.",
     "drawn": "Traced along Cloverdale Rd C001 and Co Rd C001 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): Cloverdale Rd C001, Co Rd C001. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -20495,7 +20495,7 @@
    },
    "properties": {
     "id": "j4-seg-24",
-    "name": "Las Varas to The steer herd on the road to Boquilla",
+    "name": "Las Varas to The steer herd on the road to La Boquilla",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -20561,7 +20561,7 @@
    },
    "properties": {
     "id": "j4-seg-25",
-    "name": "The steer herd on the road to Boquilla to The road north of the Babícora lake",
+    "name": "The steer herd on the road to La Boquilla to The road north of the Babícora lake",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -21031,7 +21031,7 @@
    },
    "properties": {
     "id": "j4-seg-30",
-    "name": "La Boquilla to Off the road north of Boquilla, west to a river",
+    "name": "La Boquilla to Off the road north of La Boquilla, west to a river",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -21145,7 +21145,7 @@
    },
    "properties": {
     "id": "j4-seg-31",
-    "name": "Off the road north of Boquilla, west to a river to The dry camp after the night ride",
+    "name": "Off the road north of La Boquilla, west to a river to The dry camp after the night ride",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -23417,7 +23417,7 @@
    },
    "properties": {
     "id": "j5-seg-03",
-    "name": "Within earshot of the Las Varas crossing to Boquilla at noon",
+    "name": "Within earshot of the Las Varas crossing to La Boquilla at noon",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -23510,7 +23510,7 @@
    },
    "properties": {
     "id": "j5-seg-04",
-    "name": "Boquilla at noon to La Pinta by moonlight",
+    "name": "La Boquilla at noon to La Pinta by moonlight",
     "kind": "route-segment",
     "characters": [
      "billy"
@@ -23526,7 +23526,7 @@
     "method": "narrated-path",
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
-    "reasoning": "At Boquilla he takes the road south toward Santa Ana de Babícora and passes La Pinta by moonlight (3-12): today's Soto Máynez to Buenaventura road, in INEGI's road network.",
+    "reasoning": "At La Boquilla he takes the road south towards Santa Ana de Babícora and passes La Pinta by moonlight (3-12): today's Soto Máynez to Buenaventura road, in INEGI's road network.",
     "drawn": "Traced along Soto Máynez - Gómez Farías - Buenaventura in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Soto Máynez - Gómez Farías - Buenaventura. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -52431,7 +52431,7 @@
     "method": "narrated-path",
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
-    "reasoning": "He takes the trail north along the Casas Grandes River toward Corralitos (4-06). INEGI names the river the Río Casas Grandes.",
+    "reasoning": "He takes the trail north along the Casas Grandes River towards Corralitos (4-06). INEGI names the river the Río Casas Grandes.",
     "drawn": "Traced along Río Casas Grandes in INEGI's 1:50,000 hydrography: the river's main channel, as INEGI's place names label it, without its small side streams. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "INEGI's 1:50,000 hydrography: Río Casas Grandes; streams of Strahler order 6 and up, with an INEGI toponym for the river within 300 m of the line. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
