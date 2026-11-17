@@ -11,8 +11,8 @@ class HomeButton implements IControl {
     const button = document.createElement('button')
     button.type = 'button'
     button.className = 'home-button'
-    button.title = 'Show the whole journey'
-    button.setAttribute('aria-label', 'Show the whole journey')
+    button.title = 'Zoom to the current journey'
+    button.setAttribute('aria-label', 'Zoom to the current journey')
     button.innerHTML =
       '<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor">' +
       '<path d="M2.5 7 V2.5 H7 M13 2.5 H17.5 V7 M17.5 13 V17.5 H13 M7 17.5 H2.5 V13" stroke-width="1.6"/>' +

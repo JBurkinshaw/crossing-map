@@ -16,3 +16,14 @@ The notice and disclaimer it requires are in data/README.md.
 
 Quotations from The Crossing (the Spanish incipits of a few words each) are
 © Cormac McCarthy, used for commentary, and are not licensed here.
+
+The word lists in translations.json (`es_words`: a line's other Spanish
+words, in alphabetical order, for search) come from the same text and are
+not licensed here either.
+
+The English translations of the novel's Spanish (the `en` field of
+translations.json) are this site's own wording, but they translate
+McCarthy's text, and the right to translate it is his. They are published
+as a reading aid and commentary and are not licensed here. The rest of each
+translation record (ids, pages, episodes, confidence, speakers and where
+each line was spoken) is CC BY 4.0 like the other data.

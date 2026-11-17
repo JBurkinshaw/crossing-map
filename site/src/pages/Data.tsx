@@ -111,7 +111,7 @@ export function Data() {
         ))}
         <li>
           <a href={`${DATA_URL}README.md`}>README.md</a>: each layer’s sources and licence.{' '}
-          <a href={`${DATA_URL}LICENSE`}>LICENSE</a>: CC BY 4.0.
+          <a href={`${DATA_URL}LICENSE`}>LICENSE</a>: CC BY 4.0, except the novel’s Spanish and the English translations of it.
         </li>
         <li>
           The JSON Schemas the files are checked against:{' '}

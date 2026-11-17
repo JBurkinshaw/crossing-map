@@ -8,6 +8,9 @@ export type Translation = {
   episode: string
   page: number | null
   es_incipit: string
+  // For search only: the line's other words, folded and in alphabetical order, so they cannot be read as the line
+  // (decision 0047). Null when the incipit is the whole line.
+  es_words: string[] | null
   en: string | null
   source: 'site' | 'campbell'
   confidence: 'high' | 'medium' | 'low' | null

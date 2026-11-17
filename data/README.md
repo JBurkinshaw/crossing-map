@@ -20,7 +20,7 @@ Every file is validated against its schema in `schema/` by `crossing.validate`, 
 | `context_places.geojson` | 2,391 forts, ghost towns, mines, sawmills, churches, cemeteries, schools, old post offices, corrals, camps, ranches, named wells and windmills, dry lakes and flats within 20 km of the journeys, from GNIS (with its national file of 2021) and GeoNames; none dated (decision 0028) | `story-layer` |
 | `mountain_glyphs.geojson` | 836 summits and 168 passes found in the Copernicus DEM, each with its landform | `story-layer` |
 | `episodes.json` | The novel's 41 episodes: opening words, length, and a spoiler-safe summary | `episodes` |
-| `translations.json` | 916 Spanish lines: an incipit of at most five words, this site's English, and where each was spoken. `common` marks 76 short replies and greetings ("Sí", "Gracias", "Buenas noches") that the panel leaves out of a place's lines; search still finds them | `translations` |
+| `translations.json` | 916 Spanish lines: an incipit of at most five words, this site's English, and where each was spoken. `es_words` lists a long line's other words in alphabetical order, for search only (decision 0047). `common` marks 76 short replies and greetings ("Sí", "Gracias", "Buenas noches") that the panel leaves out of a place's lines; search still finds them | `translations` |
 | `open-questions.json` | 22 judgement calls about where something is, each shown from its own episode | `open-questions` |
 | `elsewhere.json` | 16 places the book names outside the story box, listed in the panel | `elsewhere` |
 | `oblique/*.geojson` | The four story layers and the drawings' anchors as drawn in the Oblique view, each point moved north by its height (decisions 0018, 0019 and 0039). Use the flat files for analysis | `story-layer` |
@@ -31,11 +31,11 @@ Every feature carries `certainty`, `source`, `source_licence`, and `first_seen`.
 
 ## Licences and attribution
 
-This site's own data, notes, and translations are CC BY 4.0 (`LICENSE`). Each feature's `source_licence` gives the terms of the dataset that fixed its coordinates. The same credits appear on the site's Credits page and, for tiles, in each archive's attribution.
+This site's own data and notes are CC BY 4.0 (`LICENSE`). The English translations, the Spanish incipits and the word lists are not licensed, because the novel's words and the right to translate them are McCarthy's (decision 0047). Each feature's `source_licence` gives the terms of the dataset that fixed its coordinates. The same credits appear on the site's Credits page and, for tiles, in each archive's attribution.
 
 | Source | Used for | Licence | Credit |
 | --- | --- | --- | --- |
-| This project | Notes, reasoning, translations, inferred areas, routes | CC BY 4.0 | "The Crossing reading map, Joe Burkinshaw" |
+| This project | Notes, reasoning, inferred areas, routes, and the translation records apart from their text | CC BY 4.0 | "The Crossing reading map, Joe Burkinshaw" |
 | GeoNames | Places, summits, passes, springs, ranches, and stations in Mexico | CC BY 4.0 | "GeoNames" |
 | USGS GNIS | Places, summits, passes, and springs in the US | Public domain | Courtesy of the U.S. Geological Survey (GNIS) |
 | Wikidata | A few place locations | CC0 | Courtesy link |
@@ -65,7 +65,7 @@ The tile archives are release assets, not files in this folder; their credits tr
 
 ## No passages of the novel
 
-Notes and reasoning are this site's own words, and Spanish appears only as an incipit of at most five words (`docs/design.md`, section 3). `crossing.echo_check` checks the first rule. It compares every tracked text file, and `site/dist/` if it has been built, with the private text of the novel, and reports each run of 8 or more consecutive words that they share. Words are compared after folding case, accents, curly quotes and punctuation. Each report line gives the file, the line and only the first 8 words of the run. The check exits 1 on a match. The novel's text is not in the repo, so in CI the check skips with a message and exits 0. Run it locally from the repo root after a data change:
+Notes and reasoning are this site's own words, and Spanish appears only as an incipit of at most five words, with a long line's other words in alphabetical order for search (`docs/design.md`, section 3). `crossing.echo_check` checks the first rule. It compares every tracked text file, and `site/dist/` if it has been built, with the private text of the novel, and reports each run of 8 or more consecutive words that they share. Words are compared after folding case, accents, curly quotes and punctuation. Each report line gives the file, the line and only the first 8 words of the run. The check exits 1 on a match. The novel's text is not in the repo, so in CI the check skips with a message and exits 0. Run it locally from the repo root after a data change:
 
 ```bash
 uv run --project pipeline python -m crossing.echo_check                # tracked files and site/dist/

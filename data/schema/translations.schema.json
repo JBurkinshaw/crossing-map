@@ -5,7 +5,7 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["id", "part", "episode", "page", "es_incipit", "en", "source", "confidence", "speaker", "listener", "location_ref", "location_kind", "first_seen", "guide_page", "common"],
+    "required": ["id", "part", "episode", "page", "es_incipit", "es_words", "en", "source", "confidence", "speaker", "listener", "location_ref", "location_kind", "first_seen", "guide_page", "common"],
     "additionalProperties": false,
     "properties": {
       "id": { "type": "string", "pattern": "^tr-[1-4]-(0[1-9]|1[0-4])-[0-9]{3}$" },
@@ -13,6 +13,7 @@
       "episode": { "type": "string", "pattern": "^[1-4]-(0[1-9]|1[0-4])$" },
       "page": { "type": ["integer", "null"], "minimum": 1, "maximum": 426, "description": "Approximate Vintage International page, interpolated between Campbell guide anchors." },
       "es_incipit": { "type": "string", "minLength": 1, "description": "The span's opening words, at most five, with an ellipsis when cut. The full span is never published." },
+      "es_words": { "type": ["array", "null"], "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9]+$" }, "description": "For search only: the distinct words of the line that its incipit leaves out, lower-cased, without accents or punctuation, in alphabetical order, so the line cannot be read back from them (decision 0047). Null when the incipit holds the whole line." },
       "en": { "type": ["string", "null"], "minLength": 1, "description": "This site's own English translation; null while a draft is pending." },
       "source": { "enum": ["site", "campbell"], "description": "Who wrote the English. Only site translations are published until permission arrives (plan section 3)." },
       "confidence": { "enum": ["high", "medium", "low", null] },

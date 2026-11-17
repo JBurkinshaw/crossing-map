@@ -5,7 +5,7 @@ This page explains which licences the project uses, why, and what to avoid. It i
 ## Recommendation
 
 - **Code: keep MIT.** The vendored hachure generator in `pipeline/relief/hachures/` stays GPL-3.0 with its own `LICENSE`. It doesn't make the rest of the repository GPL, and the hachure lines it draws are not GPL.
-- **Data and notes: CC BY 4.0, with two stated exceptions** (decision 0045). Layers made from the Copernicus DEM stay under the Copernicus DEM licence as well, and quotations from the novel are not licensed at all.
+- **Data and notes: CC BY 4.0, with two stated exceptions** (decision 0045). Layers made from the Copernicus DEM stay under the Copernicus DEM licence as well, and quotations from the novel, with the word lists and English translations made from them, are not licensed at all (decision 0047).
 - **Don't switch to CC0, ODbL, CC BY-SA, or any NonCommercial (NC) licence.** Each one breaks a source's terms or a reader's freedom to reuse.
 
 ## Code
@@ -47,6 +47,8 @@ CC BY forbids adding conditions downstream. So the DEM-derived layers (glyphs, h
 ## Text
 
 - **Your notes.** Summaries and reasoning in your own words can be CC BY. Copyright covers expression, not facts, places, or plot.
+- **English translations.** They are this site's wording, but translating the novel is McCarthy's right, so they stay out of the CC BY grant (decision 0047). They are published as a reading aid and commentary.
+- **Spanish word lists.** A long line's other words, in alphabetical order, for search only. Sorted, they are not the line, but they come from it, so they stay out of the grant too.
 - **Spanish incipits.** These are the opening words of short lines, a few words each. Words and short phrases aren't copyrightable ([US Copyright Office, Circular 33](https://www.copyright.gov/circs/circ33.pdf)), and brief quotation for commentary is the classic fair-use case. Keep them short, credit the novel, and leave them out of the CC BY grant.
 
 ## Foot-guns
@@ -59,7 +61,7 @@ CC BY forbids adding conditions downstream. So the DEM-derived layers (glyphs, h
 
 ## What `data/LICENSE` says
 
-CC BY 4.0 was confirmed on 2026-11-16 (decision 0045). `data/LICENSE` grants it for the data and notes, except where a feature's `source_licence` says otherwise. It adds two lines: the Copernicus-derived layers are also under the Copernicus DEM licence, and the quotations from the novel are not licensed.
+CC BY 4.0 was confirmed on 2026-11-16 (decision 0045). `data/LICENSE` grants it for the data and notes, except where a feature's `source_licence` says otherwise. It adds two exceptions: the Copernicus-derived layers are also under the Copernicus DEM licence, and the quotations from the novel, the word lists and the English translations are not licensed.
 
 ## Not verified
 

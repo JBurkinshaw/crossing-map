@@ -6,6 +6,20 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ## Unreleased
 
+### 2026-11-17
+
+#### Data
+
+- `translations.json` has a new field, `es_words`: the Spanish words of a long line that its incipit leaves out, in alphabetical order, for search only (decision 0047). 151 lines have one.
+- The English translations, the incipits and the word lists are no longer under CC BY 4.0, because the novel's words and the right to translate them are McCarthy's (decision 0047). The rest of each translation record still is.
+
+#### Site
+
+- Search finds a Spanish line from any of its words, not only its opening words.
+- The introduction and the About page say that every Spanish line has the site's English, and how to find it.
+- The vignettes draw above the inferred areas' tint, in every view.
+- The Home button is now "Zoom to the current journey", and its icon sits centred.
+
 ### 2026-11-16
 
 #### Tiles

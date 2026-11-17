@@ -167,7 +167,7 @@ def check_episodes(doc) -> list[str]:
 
 
 def check_translations(doc, layers: dict[str, dict], episodes: set[str]) -> list[str]:
-    """Schema, plus the copyright guardrail (incipits only) and links to known features."""
+    """Schema, plus the copyright guardrail (incipits only, word lists sorted) and links to known features."""
     errors = schema_errors(doc, load(SCHEMAS / "translations.schema.json"))
     if errors or not isinstance(doc, list):
         return errors
@@ -185,6 +185,9 @@ def check_translations(doc, layers: dict[str, dict], episodes: set[str]) -> list
         seen.add(t["id"])
         if len(t["es_incipit"].split()) > INCIPIT_WORDS:
             errors.append(f"{where}: es_incipit is longer than {INCIPIT_WORDS} words; only an opening may be published")
+        # The word list must stay in alphabetical order: in the line's own order it would publish the line.
+        if t["es_words"] is not None and t["es_words"] != sorted(t["es_words"]):
+            errors.append(f"{where}: es_words is not in alphabetical order")
         for key in ("episode", "first_seen"):
             if t[key] not in episodes:
                 errors.append(f"{where}: {key} {t[key]} is not an episode in episodes.json")

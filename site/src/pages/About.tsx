@@ -89,8 +89,10 @@ export function About() {
 
       <h2>About the text</h2>
       <p>
-        The notes are in this site’s own words, and the site doesn’t reproduce the novel. Spanish lines appear only as
-        their first few words, with the site’s own translation. Page numbers refer to the Vintage paperback.
+        The notes are in this site’s own words, and the site doesn’t reproduce the novel. Much of the dialogue is in
+        Spanish, and every Spanish line has the site’s own English translation, in full. The lines themselves appear
+        only as their first few words, but search finds a line from any word in it, accents or not, so you can type
+        what you see on the page and read the English. Page numbers refer to the Vintage paperback.
       </p>
 
       <h2>Further reading</h2>
@@ -115,7 +117,8 @@ export function About() {
           data comes from.
         </li>
         <li>
-          <a href="#/data">The data</a>: every layer as GeoJSON and GeoParquet, free to reuse under CC BY 4.0.
+          <a href="#/data">The data</a>: every layer as GeoJSON and GeoParquet, free to reuse under CC BY 4.0, apart from
+          the novel’s words and the translations of them.
         </li>
         <li>
           <a href="#/credits">Credits</a>: the sources of the map and their licences.

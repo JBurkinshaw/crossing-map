@@ -14,7 +14,8 @@ private/translations/spans.json holds each full Spanish span with its context, f
 private/translations/drafts/*.json) and the hand placements (pipeline/seeds/road-refs.csv and where-spoken.csv),
 and writes data/translations.json, pipeline/seeds/translations.csv and review/stage-5/translation-gaps.csv.
 Committed files hold only an incipit (at most INCIPIT_WORDS words) of each Spanish span, never the full span,
-and nothing from the guide but its page numbers (see docs/design.md, sections 3 and 8).
+and, for search, the span's other words in alphabetical order. Nothing from the guide is kept but its page
+numbers (see docs/design.md, sections 3 and 8, and docs/decisions/0047).
 """
 
 import csv
@@ -105,8 +106,11 @@ EPISODE_FILE = re.compile(r"^([1-4])-(\d\d)\.txt$")
 # A speech tag in the narration (", he said.", "? she said.", ", Billy said."): the incipit stops before it, so it
 # holds only the speaker's Spanish. A rare Spanish "he" (I have) after a comma is cut too, which only shortens it.
 # The text sometimes closes a line with a curly apostrophe where a comma belongs, so that counts as a break too.
-SPEECH_TAG = re.compile(rf"(?<=[,?!\u2019])\s+(?:(?:{SPEECH_VERBS}|wrote|he|she|they|it|the|his|her|their)\b"
-                        rf"|[A-Z][a-z]+\s+(?:{SPEECH_VERBS}|wrote)\b).*$", re.S)
+TAG_START = (rf"(?<=[,?!\u2019])\s+(?:(?:{SPEECH_VERBS}|wrote|he|she|they|it|the|his|her|their)\b"
+             rf"|[A-Z][a-z]+\s+(?:{SPEECH_VERBS}|wrote)\b)")
+SPEECH_TAG = re.compile(rf"{TAG_START}.*$", re.S)
+# The tag alone, up to the end of its sentence: a line often goes on in Spanish after it.
+TAG_CLAUSE = re.compile(rf"{TAG_START}[^.?!]*[.?!]?")
 
 
 def incipit(es: str, n: int = INCIPIT_WORDS) -> str:
@@ -116,6 +120,15 @@ def incipit(es: str, n: int = INCIPIT_WORDS) -> str:
     words = spoken.split()
     cut = " ".join(words[:n])
     return cut + ("…" if len(words) > n or spoken != text else "")
+
+
+def other_words(es: str) -> list[str] | None:
+    """The distinct folded words of a span's Spanish that its incipit leaves out, on both sides of any speech tag,
+    sorted alphabetically, so that search can find a long line by any of its words. The order is lost, so the list
+    cannot be read back as the line (docs/decisions/0047). None when the incipit already holds every word."""
+    said = fold(TAG_CLAUSE.sub(" ", " ".join(es.split()))).split()
+    words = sorted(set(said) - set(fold(incipit(es)).split()))
+    return words or None
 
 
 # Lines so common that the panel leaves them out of a place's Spanish, where dozens of "Sí" and "Bueno" would bury
@@ -665,6 +678,7 @@ def cmd_build() -> None:
             "episode": s["episode"],
             "page": s.get("page"),
             "es_incipit": incipit(s["es"]),
+            "es_words": other_words(s["es"]),
             "en": d.get("en") or None,
             "source": "site",
             "confidence": d.get("confidence") or None,

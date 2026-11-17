@@ -18,6 +18,8 @@ export type SearchHit = {
   ref: string
   title: string
   en: string
+  // A translation's other Spanish words (es_words), searched but never shown.
+  words?: string
   detail: string
   part: number | null
   first_seen: string
@@ -91,13 +93,14 @@ export function SearchBox({ places, stops, translations, onPick }: Props) {
         ref: t.id,
         title: t.es_incipit,
         en: t.en ?? '',
+        words: t.es_words?.join(' ') ?? '',
         detail: `${episodeLabel(t.episode)}${t.page ? `, p. ${t.page}` : ''}`,
         part: t.part,
         first_seen: t.first_seen,
       })),
     ]
     const search = new Search<SearchHit>({
-      fields: ['title', 'en'],
+      fields: ['title', 'en', 'words'],
       storeFields: ['kind', 'ref', 'title', 'en', 'detail', 'part', 'first_seen', 'role'],
       processTerm: (term) => fold(term),
       // On a name, the place comes first, then its stops, then lines said there.

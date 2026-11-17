@@ -90,11 +90,25 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
     if (map && !map.hasImage(TALE_ICON)) map.addImage(TALE_ICON, taleDiamond(), { pixelRatio: 2 })
   }, [mapRef])
   // The vignettes' captions (relief.ts) belong to the base style, under these layers; moved to the top, they are
-  // placed before every other label, so the other labels make room for them. The story layers above are added
-  // first: a child's effects run before its parent's.
+  // placed before every other label, so the other labels make room for them. The drawings move up too, just above
+  // the inferred areas, so an area's tint never covers them, and below the journey lines and pins. The story layers
+  // above are added first: a child's effects run before its parent's. A change of view or basemap rebuilds the
+  // style, so this runs again on every style change, and moves a layer only when it is out of place.
   useEffect(() => {
     const map = mapRef?.getMap()
-    if (map?.getLayer('vignette-label')) map.moveLayer('vignette-label')
+    if (!map) return
+    const lift = () => {
+      const ids = (map.getStyle()?.layers ?? []).map((l) => l.id)
+      if (ids.includes('vignette-label') && ids.at(-1) !== 'vignette-label') map.moveLayer('vignette-label')
+      const areas = ids.indexOf('areas-selected')
+      const above = ids.slice(areas + 1).find((id) => id !== 'vignette')
+      if (areas >= 0 && above && ids.includes('vignette') && ids[areas + 1] !== 'vignette') map.moveLayer('vignette', above)
+    }
+    lift()
+    map.on('styledata', lift)
+    return () => {
+      map.off('styledata', lift)
+    }
   }, [mapRef, story])
   const zoneIds = useMemo(() => places.zone.features.map((f) => String(f.properties?.id)), [places.zone])
   // The journey's stops grouped by spot (to about 100 m), in order: a journey that comes back to a place, such as

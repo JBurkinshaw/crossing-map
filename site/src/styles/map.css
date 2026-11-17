@@ -497,8 +497,9 @@
 .satellite-tint .literary .maplibregl-canvas {
   mix-blend-mode: multiply;
 }
-/* The Home button sits with the zoom buttons. */
-.home-button {
+/* The Home button sits with the zoom buttons. MapLibre's `.maplibregl-ctrl-group button` makes it a block, which
+   leaves the icon on the text baseline, so this rule needs the extra class to centre it. */
+.maplibregl-ctrl-group button.home-button {
   display: grid;
   place-items: center;
   color: var(--ink);
