@@ -33,6 +33,7 @@ These were "open questions" in the build plan; they are project decisions, not q
 - **[decide] Spoiler mode.**
   - Almost every mountain glyph is dated 1-01. Is that fine?
   - 21 reasoning texts cite later episodes. Rewrite them, or keep the notice?
+  - Rename the ids that name an event (`j4-shooting`, `j7-boyds-grave`, `vignette-taking-the-girl` and others, decision 0036)? They show in the published data and the sprite index.
 - **[decide] The drawer.** It opens at half height on first load so the progress badge and search show. Open at peek instead? Which places count as "far" for off-map arrows: the next stop when off screen, or every place named in the current episode? Should the terrain tile size (WebP or 512 px) be taken on with the relief work?
 - **[decide] Photos** (`review/stage-6/photos-README.md`). Drop aerial views (as now), or keep USDA orthophotos and ISS photos as a last resort for back-country places? Should the 55 places with no Wikidata link get one by search, to reach their images? And the picks themselves, in `review/stage-6/photos.csv`.
 - **[decide] Vignettes** (`review/stage-6/vignettes/README.md`): the next picks (the locomotive at Las Varas and the cranes are next in line). Placement is decided (decision 0026).

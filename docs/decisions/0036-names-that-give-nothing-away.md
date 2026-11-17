@@ -53,3 +53,5 @@ The spoiler filter shows a stop, its legs and its drawing from the episode the s
 ## Consequences
 
 Stop names are plainer, and a few share a name with another journey's stop at the same town (Bacerac, Lordsburg, Albuquerque, San Buenaventura); the stepper's journey and number tell them apart. The drawings themselves still show their scene (Billy with the travois, the wolf in the cholla); only the words change. A new stop or drawing follows the same rule, and a name with a death, a wound, a loss or an outcome in it is a review finding.
+
+The rule covers what a reader sees, not ids. A few ids still name an event (`j4-shooting`, `j7-attack`, `j7-boyds-grave`, `j4-horses-found`, and the drawings `vignette-boyds-grave`, `vignette-bones-travois` and `vignette-taking-the-girl`, which are also sprite names in `glyphs.json`). They are in the published data and the sprite index, so a reader who opens them can see them. Renaming them touches the seeds, the sprites and every reference, and is left to the roadmap.

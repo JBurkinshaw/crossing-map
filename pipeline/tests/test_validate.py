@@ -79,7 +79,13 @@ def test_raised_copy_must_match(layers):
     raised["features"].pop(0)
     errors = validate.check_raised(layers["stops"], raised, "stops")
     assert any("only in the flat layer" in e for e in errors)
-    assert any("differs" in e for e in errors)
+    assert any("first_seen differ" in e for e in errors)
+
+
+def test_raised_copy_must_keep_the_flat_text(layers):
+    raised = copy.deepcopy(layers["stops"])
+    raised["features"][0]["properties"]["name"] = "An old name"
+    assert any("name differ" in e for e in validate.check_raised(layers["stops"], raised, "stops"))
 
 
 def question(**fields):

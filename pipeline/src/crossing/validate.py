@@ -139,13 +139,17 @@ def check_region_rings(doc) -> list[str]:
 
 
 def check_raised(flat: dict, raised: dict, layer: str) -> list[str]:
-    """The Raised copy holds the same features as the flat layer, each first seen at the same episode."""
-    a = {p["id"]: p.get("first_seen") for p in properties(flat)}
-    b = {p["id"]: p.get("first_seen") for p in properties(raised)}
+    """The Raised copy holds the same features as the flat layer, with the same properties: only the points move.
+    A text change in the flat layer needs `crossing.plan_oblique --properties`, or Raised keeps the old text."""
+    a = {p["id"]: p for p in properties(flat)}
+    b = {p["id"]: p for p in properties(raised)}
     errors = [f"{fid}: only in the flat layer" for fid in sorted(a.keys() - b.keys())]
     errors += [f"{fid}: only in the raised layer" for fid in sorted(b.keys() - a.keys())]
-    errors += [f"{fid}: first_seen {b[fid]} differs from the flat layer's {a[fid]}"
-               for fid in sorted(a.keys() & b.keys()) if a[fid] != b[fid]]
+    for fid in sorted(a.keys() & b.keys()):
+        differ = sorted(k for k in a[fid].keys() | b[fid].keys() if a[fid].get(k) != b[fid].get(k))
+        if differ:
+            errors.append(f"{fid}: {', '.join(differ)} differ from the flat layer's; "
+                          "run crossing.plan_oblique --properties")
     return errors
 
 

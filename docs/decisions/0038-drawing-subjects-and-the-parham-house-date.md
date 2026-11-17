@@ -21,4 +21,4 @@ The Parham house stop was dated 2-04, the episode in which Billy comes home, fin
 
 ## Consequences
 
-A reader in 2-04 sees J3 end at the pass in the Guadalupes, and the house, the SK Bar and the legs between them appear from 2-05, one episode later than the book reaches them. The Echols cabin drawing, which stands at the SK Bar's point from 1-02, waits for the SK Bar pin until 2-05.
+A reader in 2-04 sees J3 end at the pass in the Guadalupes, and the house, the SK Bar and the legs between them appear from 2-05, one episode later than the book reaches them. The Echols cabin drawing stands at the SK Bar's point from 1-02; the SK Bar's own pin appears only from 2-05.

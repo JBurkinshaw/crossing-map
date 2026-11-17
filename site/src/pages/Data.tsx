@@ -10,7 +10,7 @@ const LAYERS: Record<string, string> = {
   landforms: 'Lines along the long axis of ranges, valleys, plains and mesas, for lettering their names.',
   water_places: 'Springs, tanks, ranches and stations within 20 km of the journeys, from GNIS and GeoNames. The few the book names point to their own entry in the places layer.',
   context_places: 'Forts, ghost towns, mines, sawmills, churches, cemeteries, post offices, corrals, named wells, dry lakes and flats within 20 km of the journeys, from GNIS (with its 2021 national file) and GeoNames. None is dated: see the caveats.',
-  vignettes: 'Anchors for the map’s drawings, each on the stop or place it stands for, with the side of the pin it is drawn on (beside the place, not on it, and not to scale), its label and its credit.',
+  vignettes: 'Anchors for the map’s drawings, each on or near the stop or place it stands for, with the side of the pin it is drawn on (beside the place, not on it, and not to scale), its label and its credit.',
 }
 
 // The other published files, by name.

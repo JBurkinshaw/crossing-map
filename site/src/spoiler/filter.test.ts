@@ -49,6 +49,12 @@ describe('storyUpTo', () => {
     expect(storyUpTo(s, '3-04', true).journeys.features[0].properties?.drawn).toBe('Traced along the road he takes in 3-04.')
     expect(storyUpTo(s, '1-02', false).journeys.features[0].properties?.drawn).toBe('Traced along the road he takes in 3-04.')
   })
+  it('hides the technical detail of a leg when it cites a later episode while spoilers are hidden', () => {
+    const s = story()
+    s.journeys.features[0].properties = { ...s.journeys.features[0].properties, drawn_detail: 'Grid as in 3-04.' }
+    expect(storyUpTo(s, '1-02', true).journeys.features[0].properties?.drawn_detail).toMatch(/later episodes/)
+    expect(storyUpTo(s, '3-04', true).journeys.features[0].properties?.drawn_detail).toBe('Grid as in 3-04.')
+  })
   it('keeps reasoning that cites only episodes reached', () => {
     const s = story()
     s.stops.features[0].properties.reasoning = 'Named in 1-01.'

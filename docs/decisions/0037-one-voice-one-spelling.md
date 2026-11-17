@@ -24,4 +24,4 @@ A review of everything a reader sees found the same things written several ways.
 
 ## Consequences
 
-The site reads as one voice. A new text follows these rules; a review that finds "we", "circle" on a card, a US spelling or a second spelling of a place treats it as a defect. Episode summaries 3-01, 3-11 and 4-01 are left as they are until the owner decides on their wording, so 3-01 still says "traveling" and "a girl".
+The site reads as one voice. A new text follows these rules; a review that finds "we", "circle" on a card, a US spelling or a second spelling of a place treats it as a defect. The owner reworded episode summaries 3-01, 3-11 and 4-01 the same day (see the changelog), so 3-01 now says "travelling" and “the girl”.

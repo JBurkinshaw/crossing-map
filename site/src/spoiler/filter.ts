@@ -12,7 +12,7 @@ export function shownAt(props: GeoJsonProperties, reached: string): boolean {
 
 const EPISODE_ID = /\b[1-4]-(0[1-9]|1[0-4])\b/g
 const REASONING_HIDDEN = 'How this was placed draws on later episodes; it shows once you have read further.'
-const DRAWN_HIDDEN = 'How this line was drawn draws on later episodes; it shows once you have read further.'
+const DRAWN_HIDDEN = 'How this line was drawn cites later episodes; it shows once you have read further.'
 
 function safeProps(props: GeoJsonProperties, reached: string, spoilers: boolean): GeoJsonProperties {
   if (!spoilers || !props) return props
