@@ -17,7 +17,7 @@ Most legs in Mexico are schematic curves, because the book names no road or rive
 
 ## Alternatives
 
-- **A band instead of a line** (the spread between the full model and slope alone), to carry the doubt. More honest, heavier on a crowded map; the owner chose a line with its own style.
+- **A band instead of a line** (the spread between the full model and slope alone), to carry the doubt. More honest, heavier on a crowded map; the owner chose a line with its own style. Closed on 2026-11-16: the long dashes of decision 0033 and the key's "worked out by this site" carry the doubt, so the band will not be built.
 - **Modelling every leg.** On flat ground the model returns the curve with wiggles, which suggests a precision the book does not have.
 - **Period roads** from the Army Map Service 1:250,000 sheets or the USGS historical topographic maps, which would make the road legs better than today's tracks. Left for later (roadmap).
 

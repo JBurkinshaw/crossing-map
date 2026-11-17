@@ -89,6 +89,8 @@ export function MapView(props: Props) {
     [basemap, reached],
   )
   const [unavailable, setUnavailable] = useState(false)
+  // The MapTiler style's credits, shown in the map's attribution control while its map shows (decision 0043).
+  const [mapTilerCredits, setMapTilerCredits] = useState<string[]>([])
   // Once created, the satellite map stays (hidden on the literary basemap): MapTiler counts each new map as a session.
   const [satelliteStarted, setSatelliteStarted] = useState(false)
   // The ground of the vintage map: plain paper, land cover (decision 0040) in every view, or the satellite tint,
@@ -108,9 +110,17 @@ export function MapView(props: Props) {
   // The Wheeler frame and its graticule labels, on the vintage map in the Flat and Tilted views (MapFrame).
   const framed = basemap === 'literary' && view !== 'oblique'
   if ((basemap !== 'literary' || wash) && !satelliteStarted) setSatelliteStarted(true)
+  const satelliteHidden = basemap === 'literary' && !wash
+  const credits = ['<a href="#/credits">Credits</a>', ...(satelliteHidden || unavailable ? [] : mapTilerCredits)]
   // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
   // tiles are loading, and 'load' fires only once.
   const [loaded, setLoaded] = useState(false)
+  // A new attribution control (new credits) opens itself, as the first one does on load.
+  const creditKey = credits.join('|')
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (map && loaded) closeAttribution(map)
+  }, [creditKey, loaded, mapRef])
   const [hovering, setHovering] = useState(false)
   // The Oblique view's archives, fetched the first time the reader turns it on; 'failed' if the list is missing.
   const [obliqueArchives, setObliqueArchives] = useState<string[] | 'failed' | null>(null)
@@ -243,10 +253,11 @@ export function MapView(props: Props) {
           <Suspense fallback={null}>
             <SatelliteMap
               literary={mapRef}
-              hidden={basemap === 'literary' && !wash}
+              hidden={satelliteHidden}
               topo={basemap === 'topo'}
               terrain={(wash || basemap === 'compare') && view === 'tilted' ? TERRAIN_EXAGGERATION : null}
               onUnavailable={onUnavailable}
+              onCredits={setMapTilerCredits}
             />
           </Suspense>
         </ChunkBoundary>
@@ -297,8 +308,9 @@ export function MapView(props: Props) {
           {/* Narrower on phones, where a 140 px bar covered the stops framed near the map's bottom edge. */}
           <ScaleControl position="bottom-left" unit={units} maxWidth={phone ? 72 : 140} />
           {/* Added after the scale, so MapLibre stacks it above. Each archive brings its own credit (the terrain
-              lines wherever the hillshade shows); the Credits page has the rest. */}
-          <AttributionControl position="bottom-left" compact customAttribution='<a href="#/credits">Credits</a>' />
+              lines wherever the hillshade shows), and MapTiler's join them while its map shows. The Credits page
+              has the rest. The control takes its custom credits only when made, so new credits make a new one. */}
+          <AttributionControl key={creditKey} position="bottom-left" compact customAttribution={credits} />
           <WaterMarks palette={palette} />
           {story && (
             <StoryLayers

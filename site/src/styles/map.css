@@ -468,10 +468,17 @@
   outline-offset: calc(-4px - var(--frame));
 }
 
-/* Clear the MapTiler logo, which the satellite map draws bottom left. */
-.has-satellite .literary .maplibregl-ctrl-bottom-left,
-.satellite-tint .literary .maplibregl-ctrl-bottom-left {
-  left: 100px;
+/* MapTiler's logo heads the bottom-left controls, over the credits and the scale (decision 0043). MapLibre stacks
+   each new bottom control on top, and the attribution control is made again whenever its credits change, so a
+   column with an order keeps the logo first whichever came last. */
+.literary .maplibregl-ctrl-bottom-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.literary .maplibregl-ctrl-bottom-left .maptiler-logo {
+  order: -1;
 }
 
 /* Satellite tint: the imagery, brightened, saturated and faded over white, tints the vintage map multiplied

@@ -1,5 +1,5 @@
 import type { OpenQuestion } from '../data/openQuestions'
-import { issueUrl } from '../pages/format'
+import { feedbackUrl } from '../pages/format'
 
 // One judgement call: what the map shows, the other reading, and why.
 // `label` goes before the title on cards; the Open questions page leaves it out.
@@ -20,28 +20,26 @@ export function OpenQuestionNote({ q, label }: { q: OpenQuestion; label?: string
 }
 
 // The open questions about one feature, already filtered to the reader's progress, and a way to send a
-// correction: a GitHub issue form with the feature named.
+// correction: the feedback form, with the feature named.
 export function FeatureQuestions({ id, name, questions }: { id: string; name: string; questions: OpenQuestion[] }) {
   const mine = questions.filter((q) => q.features.includes(id))
-  const issue = issueUrl(
-    `Correction: ${name}`,
-    `Feature: ${id} (${name})\n\nWhat is wrong, and how do you know? A page of the book, a map or a source helps.\n`,
-  )
+  const form = feedbackUrl({ kind: 'correction', feature: id, name })
   return (
     <>
       {mine.map((q) => (
         <OpenQuestionNote key={q.id} q={q} label="Open question" />
       ))}
-      <p className="correction">
-        {mine.length > 0 && (
-          <>
-            <a href="#/open-questions">All open questions</a> ·{' '}
-          </>
-        )}
-        <a href={issue} target="_blank" rel="noreferrer">
-          Suggest a correction
-        </a>
-      </p>
+      {(mine.length > 0 || form) && (
+        <p className="correction">
+          {mine.length > 0 && <a href="#/open-questions">All open questions</a>}
+          {mine.length > 0 && form && ' · '}
+          {form && (
+            <a href={form} target="_blank" rel="noreferrer">
+              Suggest a correction
+            </a>
+          )}
+        </p>
+      )}
     </>
   )
 }

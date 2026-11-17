@@ -17,14 +17,8 @@ export function reliefSources(tilesBase: string, dataBase: string): Record<strin
   }
 }
 
-// Which hachures draw inside the journeys corridor (decision 0024). 'wheeler': Wheeler-style strokes from
-// relief-wheeler*.pmtiles (crossing.wheeler_hachures). 'production': the fine and dense sepia strokes from
-// relief.pmtiles and relief-dense.pmtiles (decision 0016). Outside the corridor the coarse strokes draw either way,
-// in the same paint; the Wheeler archives carry their own copy of them, so that set fetches no other hachure archive.
-// Both sets are built and released, so this one line swaps them.
-type HachureSet = 'wheeler' | 'production'
-export const HACHURE_SET = 'wheeler' as HachureSet
-
+// The hachures (decision 0024): Wheeler-style strokes inside the journeys corridor (crossing.wheeler_hachures), and
+// the coarse sepia strokes outside it (crossing.hachures), both from relief-wheeler*.pmtiles.
 // The Wheeler archives, split by zoom so each stays under 100 MB (design 5.2) and a reader who stays zoomed out
 // never fetches the zoom 12 tiles. Each holds the layers `coarse`, `hachure` and `rim` (tiles.build_relief).
 const WHEELER_PARTS: { source: string; file: string; zooms: [number, number] }[] = [
@@ -33,15 +27,7 @@ const WHEELER_PARTS: { source: string; file: string; zooms: [number, number] }[]
 ]
 
 function hachureSources(tilesBase: string): Record<string, SourceSpecification> {
-  if (HACHURE_SET === 'wheeler') {
-    return Object.fromEntries(WHEELER_PARTS.map((w) => [w.source, { type: 'vector', url: `pmtiles://${tilesBase}${w.file}` }]))
-  }
-  return {
-    relief: { type: 'vector', url: `pmtiles://${tilesBase}relief.pmtiles` },
-    // Split from relief.pmtiles so each archive stays under 100 MB (design 5.2) and readers who stay zoomed out
-    // never fetch the dense strokes.
-    'relief-dense': { type: 'vector', url: `pmtiles://${tilesBase}relief-dense.pmtiles` },
-  }
+  return Object.fromEntries(WHEELER_PARTS.map((w) => [w.source, { type: 'vector', url: `pmtiles://${tilesBase}${w.file}` }]))
 }
 
 // Named summits from medium size up, and every named pass (passes are all small), with their height.
@@ -401,15 +387,11 @@ const shade: ExpressionSpecification = ['-', 1, ['max', 0, ['min', 1, ['+', ['*'
 // Between 1 - amount and 1 + 1.5 * amount: about 1 on typical ground, more on slopes facing away from the light.
 const byShade = (amount: number): ExpressionSpecification => ['+', 1 - amount, ['*', amount * 2.5, shade]]
 
-// Sepia strokes, heavier and darker on shaded slopes, steeper is wider. They fade in from zoom 10 to 13,
-// and below zoom 12 only 70% of them draw (Rand is a fixed digit, 0-9). The 90 m coarse DEM gives gentler
-// slopes, so coarse lines get their own slope range. In the corridor a denser set takes over from zoom 12:
-// the fine strokes fade out (`out`) as the dense ones fade in (`in`) by zoom 12.6.
-const FADE = {
-  none: [10, 0.55, 13, 1],
-  out: [10, 0.55, 12, 0.85, 12.6, 0],
-  in: [12, 0, 12.6, 0.94, 13, 1],
-} as const
+// The coarse sepia strokes, heavier and darker on shaded slopes, steeper is wider. They fade in from zoom 10 to 13,
+// and below zoom 12 only 70% of them draw (Rand is a fixed digit, 0-9). The slope range (5 to 25 degrees) suits
+// the gentler slopes of the 90 m DEM they are drawn from.
+const COARSE_SLOPE: [number, number] = [5, 25]
+const FADE = [10, 0.55, 13, 1] as const
 // Contrast after the Wheeler sheets: their hachures run from a faint broken stipple on gentle ground (about 5% ink)
 // to a near-solid mass on steep slopes (40 to 50%). At HACHURE_CONTRAST t, a stroke's width is scaled by 1 + t * k
 // with k from -0.4 on gentle ground to +0.25 on steep, and its opacity by 1 + t * k with k from -0.6 to +0.45. Width
@@ -418,11 +400,11 @@ const HACHURE_CONTRAST = 0.5
 const bySlope = (slope: [number, number], gentle: number, steep: number): ExpressionSpecification =>
   ['+', 1, ['*', HACHURE_CONTRAST, ['interpolate', ['linear'], ['get', 'Slope'], slope[0], gentle, slope[1], steep]]]
 
-function strokePaint(ink: string, slope: [number, number], copy: boolean, fade: keyof typeof FADE = 'none') {
+function strokePaint(ink: string, slope: [number, number], copy: boolean) {
   const w: ExpressionSpecification = ['*', 0.9, ['interpolate', ['linear'], ['get', 'Slope'], slope[0], 0.25, slope[1], 1.3], byShade(0.4),
     bySlope(slope, -0.4, 0.25)]
   const o: ExpressionSpecification = ['*', copy ? 0.4 : 1, ['min', 1, ['*', 0.65, byShade(0.6), bySlope(slope, -0.6, 0.45)]]]
-  const stops = FADE[fade].flatMap((v, i) => (i % 2 ? [['min', 1, ['*', v, o]]] : [v]))
+  const stops = FADE.flatMap((v, i) => (i % 2 ? [['min', 1, ['*', v, o]]] : [v]))
   return {
     'line-color': ink,
     'line-width': ['interpolate', ['linear'], ['zoom'], 10, ['*', 0.8, w], 13, w] as ExpressionSpecification,
@@ -431,9 +413,7 @@ function strokePaint(ink: string, slope: [number, number], copy: boolean, fade: 
     ...(copy ? { 'line-offset': 0.35 } : {}),
   }
 }
-const strokeFilter = (kind?: string): ExpressionSpecification => ['all',
-  ...(kind ? [['==', ['get', 'kind'], kind] as ExpressionSpecification] : []),
-  ['step', ['zoom'], ['<', ['get', 'Rand'], 7], 12, true]]
+const strokeFilter: ExpressionSpecification = ['step', ['zoom'], ['<', ['get', 'Rand'], 7], 12, true]
 
 // Wheeler-style strokes (decision 0024; review/stage-9/wheeler-hachures/README.md): one width, Wheeler's 0.14 mm at
 // zoom 11 on a 96 dpi screen (0.53 px), and one opacity. Steep ground darkens because the build packs the strokes
@@ -444,11 +424,11 @@ const WHEELER_WIDTH: ExpressionSpecification = ['interpolate', ['linear'], ['zoo
 const WHEELER_OPACITY = 0.92
 
 // A sepia stroke layer and its faint copy.
-const strokes = (p: Palette, id: string, source: string, layer: string, fade: keyof typeof FADE, minzoom = S5_SPLIT): LayerSpecification[] =>
+const strokes = (p: Palette, id: string, source: string, layer: string, minzoom: number): LayerSpecification[] =>
   [false, true].map((copy) => ({
     id: copy ? `${id}-copy` : id, type: 'line', source, 'source-layer': layer, minzoom,
-    filter: strokeFilter(), layout: { 'line-cap': 'round' },
-    paint: strokePaint(p.hachure, layer === 'coarse' ? [5, 25] : [10, 40], copy, fade),
+    filter: strokeFilter, layout: { 'line-cap': 'round' },
+    paint: strokePaint(p.hachure, COARSE_SLOPE, copy),
   }))
 
 function wheelerLines(p: Palette): LayerSpecification[] {
@@ -458,7 +438,7 @@ function wheelerLines(p: Palette): LayerSpecification[] {
     const range = { minzoom: from, ...(last ? {} : { maxzoom: to + 1 }) }
     const suffix = i ? `-${from}` : ''
     return [
-      ...strokes(p, `hachure-coarse${suffix}`, source, 'coarse', 'none', from).map((l) => ({ ...l, ...range }) as LayerSpecification),
+      ...strokes(p, `hachure-coarse${suffix}`, source, 'coarse', from).map((l) => ({ ...l, ...range }) as LayerSpecification),
       {
         id: `hachure-wheeler${suffix}`, type: 'line', source, 'source-layer': 'hachure', ...range,
         filter: ['step', ['zoom'], ['<', ['get', 'Rand'], 7], 11, true], layout: { 'line-cap': 'round' },
@@ -471,13 +451,7 @@ function wheelerLines(p: Palette): LayerSpecification[] {
 }
 
 function s5Lines(p: Palette): LayerSpecification[] {
-  const hachures = HACHURE_SET === 'wheeler'
-    ? wheelerLines(p)
-    : [
-        ...strokes(p, 'hachure-coarse', 'relief', 'coarse', 'none'),
-        ...strokes(p, 'hachure-fine', 'relief', 'fine', 'out'),
-        ...strokes(p, 'hachure-dense', 'relief-dense', 'dense', 'in', 12),
-      ]
+  const hachures = wheelerLines(p)
   return [
     {
       // Orange-brown, as on the Siegfried sheets: every 100 m below zoom 12, every 50 m from 12, heavier every 200 m.

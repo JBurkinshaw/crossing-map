@@ -2,16 +2,16 @@
 
 Run from the repo root, with QGIS_ENV set to the QGIS 4 environment:
     QGIS_ENV=/path/to/qgis uv run --project pipeline python -m crossing.hachures \
-        [--scale fine|coarse|dense|all] [--jobs 4]
+        [--scale fine|coarse|all] [--jobs 4]
 or, for the Wheeler build (crossing.wheeler_hachures; never writes to the production cache), over one box or over
 the same corridor as the fine scale:
     ... python -m crossing.hachures --style wheeler --bbox W S E N --out private/cache/relief/wheeler-test
     ... python -m crossing.hachures --style wheeler --region corridor --out private/cache/relief/wheeler
 
-Three scales, each with absolute settings so that tiles match where they meet:
+Two scales, each with absolute settings so that tiles match where they meet:
   fine    30 m DEM, inside the journeys corridor (journeys buffered CORRIDOR_HALF_M each side),
-          as short strokes split at each 10 m contour band (decision 0016)
-  dense   the fine strokes closer together, over the same corridor, for zoom 12
+          as short strokes split at each 10 m contour band (decision 0016). The site draws the Wheeler
+          strokes there instead (decision 0024), so only this scale's contours reach the map
   coarse  90 m DEM, everywhere the Copernicus tiles in private/cache/dem/copernicus cover;
           drawn only outside the corridor
 
@@ -30,7 +30,7 @@ attributes the style shades it with, rounded to keep the tiles small:
   Slope   mean slope under the line, whole degrees
   Aspect  the direction the ground under the line faces (downslope), degrees clockwise from north, in 5s
   Rand    a fixed random digit, 0-9, for drawing a share of the lines at lower zooms
-Fine and coarse are tiled from zoom 10 to 12, dense at zoom 12; the map over-zooms to 13. contour.geojson
+Both are tiled from zoom 10 to 12, and the map over-zooms to 13. contour.geojson
 holds 50 m contours (`Ele`, metres) from the same smoothed DEMs, fine inside the
 corridor and coarse outside it.
 """
@@ -76,7 +76,9 @@ GRID_ORIGIN = (500_000, 3_000_000)  # UTM 12N metres; tile edges fall on multipl
 # spacing step compares every contour with every hachure, so run time grows faster than tile area: a
 # 120 km coarse tile over the Sierra Madre ran for over 30 minutes, which 60 km tiles avoid.
 # Fine lines are split into short strokes, one per 10 m contour band ("split"); coarse lines stay whole ("main").
-# Dense is the fine set closer together (density B, design 5.2), drawn from zoom 12 over the same corridor.
+# The site draws the coarse strokes outside the corridor. Inside it the Wheeler strokes replace the fine ones
+# (decision 0024), but the fine run still makes the corridor's contours, and its settings set the tile grid that
+# crossing.plan_oblique and crossing.wheeler_hachures share.
 FINE = {"cell": 30, "tile": 40_000, "overlap": 3_000, "min_spacing": 2, "max_spacing": 4.5, "min_slope": 10,
         "max_slope": 40, "interval": 10, "folder": "fine-s2-4.5-split", "output": "split", "zooms": (10, 12)}
 SCALES = {
@@ -84,7 +86,6 @@ SCALES = {
     "coarse": {"cell": 90, "tile": 60_000, "overlap": 6_000, "min_spacing": 3, "max_spacing": 8,
                "min_slope": 5, "max_slope": 38, "interval": 10, "folder": "coarse", "output": "main",
                "zooms": (10, 12)},
-    "dense": FINE | {"min_spacing": 1.3, "max_spacing": 3, "folder": "fine-s1.3-3-split", "zooms": (12, 12)},
 }
 CONTOUR_ZOOMS = (10, 12)
 # Route segments travelled this way get no fine relief (design 5.2): the corridor follows the rides and walks.
@@ -119,7 +120,7 @@ def corridor() -> Polygon:
 
 
 def fine_region(cover: Polygon) -> Polygon:
-    """Where the fine (and dense) scale draws: the corridor, less the lines within two cells of the DEM's edge,
+    """Where the fine scale draws: the corridor, less the lines within two cells of the DEM's edge,
     which come from filled ground. The Wheeler build's corridor mode uses the same region."""
     return corridor().intersection(cover.buffer(-60))
 
@@ -294,7 +295,7 @@ def main() -> None:
     # Lines within two cells of the DEM's edge come from filled ground, so they are dropped.
     # The fine lines cover the corridor; the coarse lines, everywhere else.
     fine = fine_region(cover)
-    regions = {"fine": fine, "dense": fine, "coarse": cover.buffer(-180).difference(fine)}
+    regions = {"fine": fine, "coarse": cover.buffer(-180).difference(fine)}
     lines = []
     for scale in (SCALES if a.scale == "all" else [a.scale]):
         s = SCALES[scale]
@@ -306,8 +307,7 @@ def main() -> None:
         merged = OUT / f"{scale}.geojson"
         merged.write_text(json.dumps({"type": "FeatureCollection", "features": features}))
         print(f"{merged.relative_to(REPO)}: {len(features):,} lines, {merged.stat().st_size / 1e6:.0f} MB", flush=True)
-        if scale != "dense":
-            lines += [f for name, core in grid for f in contours(name, core, regions[scale], s)]
+        lines += [f for name, core in grid for f in contours(name, core, regions[scale], s)]
     if a.scale == "all":
         merged = OUT / "contour.geojson"
         merged.write_text(json.dumps({"type": "FeatureCollection", "features": lines}))

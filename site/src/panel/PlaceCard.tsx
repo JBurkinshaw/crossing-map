@@ -8,6 +8,7 @@ import { FeatureQuestions } from './OpenQuestions'
 import type { OpenQuestion } from '../data/openQuestions'
 import { distance, type Units } from '../units'
 import { CERTAINTY_LABEL } from './certainty'
+import { FEEDBACK_FORM } from '../pages/format'
 
 type Props = {
   feature: Feature<Geometry, StoryProps>
@@ -111,7 +112,10 @@ function AreaOutline({ rule, straightRoad }: { rule: string | null; straightRoad
           map of the roads would improve this area.
         </p>
       )}
-      <p>If you know more, such as a page of the book, an old map or the ground itself, the area can be redrawn. Suggest a correction below.</p>
+      <p>
+        If you know more, such as a page of the book, an old map or the ground itself, the area can be redrawn.
+        {FEEDBACK_FORM && ' Suggest a correction below.'}
+      </p>
     </aside>
   )
 }

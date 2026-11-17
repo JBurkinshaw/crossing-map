@@ -9,12 +9,12 @@ Rebuild only the archives whose inputs changed. The commands are in [`pipeline.m
 | Archive | Built by |
 | --- | --- |
 | `base.pmtiles` | `tiles.build_base` |
-| `relief.pmtiles`, `relief-dense.pmtiles`, `contours.pmtiles` | `crossing.hachures`, then `tiles.build_relief` |
-| `relief-wheeler.pmtiles`, `relief-wheeler-12.pmtiles` | `crossing.hachures --style wheeler --region corridor`, then `tiles.build_relief --style wheeler --region corridor` |
+| `contours.pmtiles` | `crossing.hachures`, then `tiles.build_relief` |
+| `relief-wheeler.pmtiles`, `relief-wheeler-12.pmtiles` | `crossing.hachures` (for the coarse strokes), `crossing.hachures --style wheeler --region corridor`, then `tiles.build_relief --style wheeler --region corridor` |
 | `terrain.pmtiles` | `tiles.build_terrain` |
 | `oblique-1.pmtiles` to `oblique-3.pmtiles`, `landcover.pmtiles` | `crossing.hachures` (for its tile grid) and `crossing.fetch_landcover`, then `crossing.plan_oblique` |
 
-The site draws one of two hachure sets inside the journeys corridor, chosen by `HACHURE_SET` in `site/src/map/relief.ts` (decision 0024): the Wheeler set reads `relief-wheeler*.pmtiles`, the production set `relief.pmtiles` and `relief-dense.pmtiles`. Release both sets, so switching back needs no new release.
+The site's hachures are all in `relief-wheeler*.pmtiles`: the Wheeler strokes inside the journeys corridor and the coarse strokes outside it (decision 0024). `relief.pmtiles` and `relief-dense.pmtiles` were dropped after `tiles-v11`. Don't release them.
 
 `crossing.plan_oblique` also rewrites `data/oblique/*.geojson` and `data/oblique/archives.json`, which list the Oblique archives in drawing order. Commit those with the release bump: the site draws every archive the list names, and only those.
 
@@ -47,8 +47,6 @@ Warning: a release is public as soon as it is created.
    ```bash
    gh release create tiles-vN \
      tiles/out/base.pmtiles \
-     tiles/out/relief.pmtiles \
-     tiles/out/relief-dense.pmtiles \
      tiles/out/relief-wheeler.pmtiles \
      tiles/out/relief-wheeler-12.pmtiles \
      tiles/out/contours.pmtiles \

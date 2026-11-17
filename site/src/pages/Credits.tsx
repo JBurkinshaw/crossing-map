@@ -55,7 +55,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
             Its pins were compared with every place here, and led to some corrections.
           </>
         ),
-        licence: 'Credited; permission not yet requested',
+        licence: 'Credited, with the author’s permission',
         credit: 'Joe Hazelton’s map',
       },
     ],
@@ -116,7 +116,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
             the map’s classes are this site’s, not the CEC’s.
           </>
         ),
-        licence: 'CC BY 4.0',
+        licence: 'CC BY 4.0, transformed by this site',
         credit:
           'Commission for Environmental Cooperation (CEC). 2024. “North American Environmental Atlas - Land Cover 2020 30m”. North American Land Change Monitoring System. Canada Centre for Remote Sensing (CCRS), U.S. Geological Survey (USGS), Comisión Nacional para el Conocimiento y Uso de la Biodiversidad (CONABIO), Comisión Nacional Forestal (CONAFOR), Instituto Nacional de Estadística y Geografía (INEGI). Ed. 2.0, Raster digital data [30-m].',
       },
@@ -139,21 +139,21 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         name: 'INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
         link: 'https://www.inegi.org.mx/temas/hidrografia/',
         use: 'The named rivers, the smaller streams and the lakes on the Mexico side of the vintage map, and streams on the Mexico side in the Oblique view.',
-        licence: 'INEGI free-use terms, attribution required',
+        licence: 'INEGI free-use terms, attribution required, transformed by this site',
         credit: 'Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
       },
       {
         name: 'INEGI, Red Nacional de Caminos (RNC) 2024',
         link: 'https://www.inegi.org.mx/app/biblioteca/ficha.html?upc=794551132166',
         use: 'Its unpaved tracks and footpaths draw the modelled routes towards a road where the book has the rider on one (decision 0021). They are today’s tracks, standing in for the roads of the 1940s; the map does not draw them.',
-        licence: 'INEGI free-use terms, attribution required; transformed by this site',
+        licence: 'INEGI free-use terms, attribution required, transformed by this site',
         credit: 'Fuente: INEGI, Red Nacional de Caminos (RNC) 2024',
       },
       {
         name: 'Global Dam Watch database v1.0, with GRanD v1.3',
         link: 'https://doi.org/10.6084/m9.figshare.25988293',
         use: 'The year each dam was finished, which decides the reservoirs the vintage map leaves out as built after the book (decision 0031). The map draws none of its shapes.',
-        licence: 'CC BY 4.0; transformed by this site',
+        licence: 'CC BY 4.0, transformed by this site',
         credit: 'Global Dam Watch database v1.0 (Lehner et al. 2024), CC BY 4.0',
       },
       {

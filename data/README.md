@@ -58,7 +58,7 @@ The tile archives are release assets, not files in this folder; their credits tr
 | Archive | Credit |
 | --- | --- |
 | `base.pmtiles` | INEGI (rivers, creeks, and lakes in Mexico), USGS NHD (US streams), US Census Bureau (county lines), Natural Earth |
-| `relief.pmtiles`, `relief-dense.pmtiles`, `contours.pmtiles` | Copernicus DEM GLO-30 |
+| `relief-wheeler.pmtiles`, `relief-wheeler-12.pmtiles`, `contours.pmtiles` | Copernicus DEM GLO-30 |
 | `terrain.pmtiles` | AWS Terrain Tiles (USGS; INEGI) |
 | `oblique-*.pmtiles` | INEGI streams, USGS NHD, US Census Bureau, Natural Earth, Copernicus DEM GLO-30, and CEC land cover |
 | `landcover.pmtiles` | CEC land cover |

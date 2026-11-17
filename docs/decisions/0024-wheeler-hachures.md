@@ -1,6 +1,6 @@
 # 0024. Wheeler hachures in the journeys corridor
 
-Status: accepted (2026-11-14). Amends 0016 (the hachures in the corridor).
+Status: accepted (2026-11-14), amended 2026-11-16 (the production set dropped). Amends 0016 (the hachures in the corridor).
 Phase: P1
 
 ## Context
@@ -28,3 +28,7 @@ Decision 0022 brought the Wheeler Survey's paper and brown-black ink to the map,
 - A tile release now carries two hachure sets, about 100 MB more. The GitHub Pages limit of 1 GB per artifact should be checked when both the root and the preview ship their own tiles.
 - The Raised view still draws the production strokes (`crossing.plan_oblique`), so its hachures differ from the flat map's in the corridor.
 - The Wheeler build cuts and clears strokes again on every run (a few minutes); only the generator tiles are cached.
+
+## Amendment, 2026-11-16: the production set dropped
+
+The owner dropped the production fine and dense strokes. `relief.pmtiles` (40 MB) and `relief-dense.pmtiles` (25 MB) are no longer built or released, which takes 65 MB off each tile release, and the `HACHURE_SET` switch is gone from `site/src/map/relief.ts`. `crossing.hachures` keeps its fine and coarse scales: the coarse strokes are copied into the Wheeler archives for the ground outside the corridor, and the fine run makes the corridor's contours and sets the tile grid `crossing.plan_oblique` and `crossing.wheeler_hachures` share. The dense scale is gone. Going back to the production look would mean restoring the code from git and rebuilding, over an hour.

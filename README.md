@@ -47,7 +47,7 @@ You need Node 22 (`.nvmrc`) and, for the checks, [uv](https://docs.astral.sh/uv/
    (cd site && npm run dev)
    ```
 
-The dev server also serves the map lab at `/lab.html` and the route review at `?review=routes`. Two optional variables help scripted checks: `VITE_DEBUG=1` keeps the `window.__map` handle (opened with `?debug`) in a production build, and `VITE_TILES_BASE` points a build at tiles served from another path.
+The dev server also serves the map lab at `/lab.html`. Two optional variables help scripted checks: `VITE_DEBUG=1` keeps the `window.__map` handle (opened with `?debug`) in a production build, and `VITE_TILES_BASE` points a build at tiles served from another path.
 
 Before a commit, run the checks from the repo root:
 

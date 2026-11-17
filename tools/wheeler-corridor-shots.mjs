@@ -1,6 +1,6 @@
 // Screenshots for the Wheeler hachures on the site (review/stage-9/wheeler-hachures-corridor): the main map,
-// desktop, at four places in the journeys corridor at zooms 10, 11 and 12. Run once with HACHURE_SET = 'production'
-// (prefix "before") and once with 'wheeler' (prefix "after") in site/src/map/relief.ts.
+// desktop, at four places in the journeys corridor at zooms 10, 11 and 12, saved under the given prefix. The
+// production set it was first compared with is gone (decision 0024), so a new run shows the Wheeler set only.
 // Saves private/review/stage-9/wheeler-hachures-corridor/<place>-z<zoom>-<prefix>.jpg.
 // Usage, with the dev server running: node tools/wheeler-corridor-shots.mjs <prefix> [base-url]
 import { mkdir } from 'node:fs/promises'

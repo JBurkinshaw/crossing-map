@@ -211,7 +211,7 @@ Relief is drawn as the 1850s–1880s survey maps drew it, with hachures, plus sm
 - Fine strokes (30 m DEM) cover a corridor 20 km either side of the legs ridden or walked. Bus and train legs, ranch work told in summary, and the reported J6 get coarse relief only.
 - Coarse lines (90 m DEM) cover wherever the cached DEM tiles reach.
 - A denser set draws from zoom 12, cross-faded with the zoom 10–11 set.
-- Inside the corridor the site draws Wheeler-style strokes in place of the fine and dense sets (decision 0024, `crossing.wheeler_hachures`): short strokes of one width, packed closer on steep ground, with crests, summits, mesa tops and valley floors left white and escarpments drawn as a comb of wedges. The fine and dense sets are still built and released, and one switch in the style (`HACHURE_SET`) brings them back.
+- Inside the corridor the site draws Wheeler-style strokes in place of the fine and dense sets (decision 0024, `crossing.wheeler_hachures`): short strokes of one width, packed closer on steep ground, with crests, summits, mesa tops and valley floors left white and escarpments drawn as a comb of wedges. The fine and dense sets were dropped on 16 November 2026.
 - Basin floors stay blank, which is what makes the Animas Valley and the Chihuahua plains read as open country.
 
 **Mountain glyphs** (`crossing.peaks`, `crossing.landforms`, `art/glyphs/`).
@@ -292,7 +292,7 @@ The base is Lt. Jim Campbell's [A Translation of Spanish Passages in The Crossin
 
 **Method** (`crossing.translations`). Every Spanish sentence and phrase in the text is found by language identification (lingua) plus a Spanish word list, accent- and case-folded, and matched to guide entries by fuzzy matching (rapidfuzz). Matched entries anchor page numbers. Every line gets our own English, never the guide's, with a confidence, and a link to the guide page where one exists. The guide's English is never stored or compared.
 
-**Review.** Readers review translations: each line has a "Suggest a better translation" link to a prefilled GitHub issue, and accepted suggestions are credited in the changelog. A guide entry is never overwritten; a note sits beside it. The episode, our confidence and the guide link fold under "About this translation" beneath each line.
+**Review.** Readers review translations: each line has a "Suggest a better translation" link to the feedback form (decision 0044), and accepted suggestions are credited in the changelog. A guide entry is never overwritten; a note sits beside it. The episode, our confidence and the guide link fold under "About this translation" beneath each line.
 
 **Where it was spoken.** Each line points to a stop, place, or area where the text allows. Talk on the road points to a route segment, and the map outlines a corridor 2 km either side of it, labelled "on the road between X and Y". A selected place or stop shows "Spanish here", and a road "Spanish on this road"; a selected line flies to its place. Very common lines ("Sí", "No", "Gracias", "Bueno", "Adiós", "Buenas noches", "Señor", alone) are marked `common` by the pipeline and left out of these lists and the road's count, unless picked in search; "Vámonos" and "Está bien" are kept (decision 0035).
 

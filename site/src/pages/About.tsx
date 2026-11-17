@@ -1,6 +1,6 @@
 import { showIntroduction } from '../welcome/showIntroduction'
 import { CERTAINTY_LABEL } from '../panel/certainty'
-import { REPO_URL } from './format'
+import { FEEDBACK_FORM, REPO_URL } from './format'
 
 export function About() {
   return (
@@ -80,10 +80,12 @@ export function About() {
           <strong>Short dashes</strong> where the line only joins the stops.
         </li>
       </ul>
-      <p>
-        If you know better, whether from a page of the book, an old map or the ground itself, every card has a link to
-        suggest a correction.
-      </p>
+      {FEEDBACK_FORM && (
+        <p>
+          If you know better, whether from a page of the book, an old map or the ground itself, every card has a link to
+          suggest a correction.
+        </p>
+      )}
 
       <h2>About the text</h2>
       <p>

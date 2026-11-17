@@ -167,3 +167,17 @@ The guide is one 15-page PDF with no anchors, so a link cannot go to an entry. T
 8. The 7 lines in 3-11 and 3-13 point at the place `place-hacienda-de-san-diego`, because neither episode has a stop. Would you rather they took a San Diego stop (for example `j4-san-diego-doctor`, the last one before them)?
 9. The ranch where the old Mexican sews the wolf's leg is reached at the end of 1-08, but its stop `j2-volcanic-plain-ranch` has `first_seen` 1-09. Its 8 lines (`tr-1-08-007` to `-014`) take `j2-guadalupe-pass` for now. Should the stop's `first_seen` move to 1-08, so they can point at it?
 10. Should an empty `ref` in `pipeline/seeds/where-spoken.csv` clear the heuristic (make the line null)? Now it changes nothing, and the `none` cell in `pipeline/seeds/translations.csv` does not survive a second build. This pass needed no nulls, but a later review may.
+
+## Owner's answers, 2026-11-16
+
+Settled as built, so nothing changes in the data. Numbers are this packet's, under "Open questions for the owner":
+
+- 2. One glossary entry for a recurring word across the book, not one per Part.
+- 3. Each short line stays its own entry, and runs in one exchange are not grouped.
+- 6. Lines inside a tale keep pointing at the place where the tale is told.
+- 7. The two lines in 3-14 stay null.
+- 8. The seven lines in 3-11 and 3-13 keep pointing at `place-hacienda-de-san-diego`.
+- 9. `j2-volcanic-plain-ranch` keeps its `first_seen`, and its eight lines stay as they are.
+- The misprinted guide pages in Part IV (353-357 listed after 368): links keep the guide's printed page.
+
+Questions 1, 4, 5 and 10, and the spot-check list under "Pass 2", stay open.

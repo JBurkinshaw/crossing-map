@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
 import { CAMPBELL_CREDIT, CAMPBELL_GUIDE, type Translation } from '../data/translations'
-import { issueUrl } from '../pages/format'
+import { feedbackUrl } from '../pages/format'
 import { episodeLabel } from '../spoiler/progress'
 
 const SHOWN_AT_FIRST = 6
@@ -12,12 +12,7 @@ type Props = {
 }
 
 // The translations are drafts: readers who know the Spanish, northern Mexican usage above all, review them.
-function suggestion(t: Translation): string {
-  return issueUrl(
-    `Translation: ${t.id}`,
-    `Line: ${t.id} (${t.episode}, page ${t.page ?? 'unknown'})\nSpanish begins: ${t.es_incipit}\nThe map's English: ${t.en ?? '(none yet)'}\n\nA better translation, and why:\n`,
-  )
-}
+const suggestion = (t: Translation) => feedbackUrl({ kind: 'translation', line: t.id, episode: t.episode })
 
 // Lines of Spanish with this site's English (design sections 3 and 8): the opening words only, our English, and a
 // link to suggest better English. "About this translation" holds the episode, our confidence, and the Campbell
@@ -67,11 +62,13 @@ function Lines({ items, current, marked }: Props & { marked: RefObject<HTMLLIEle
               {t.page && <span className="meta" title="Vintage edition, approximate"> p. {t.page}</span>}
             </div>
             <div className="en">{t.en ?? 'Translation still to come.'}</div>
-            <div className="meta">
-              <a href={suggestion(t)} target="_blank" rel="noreferrer">
-                Suggest a better translation
-              </a>
-            </div>
+            {suggestion(t) && (
+              <div className="meta">
+                <a href={suggestion(t) ?? undefined} target="_blank" rel="noreferrer">
+                  Suggest a better translation
+                </a>
+              </div>
+            )}
             {/* The fine print, folded away: most readers want only the line and its English. */}
             <details className="translation-about meta">
               <summary>About this translation</summary>

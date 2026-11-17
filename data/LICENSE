@@ -1,5 +1,6 @@
-The data and notes in this folder are licensed under the Creative Commons
-Attribution 4.0 International licence (CC BY 4.0):
+The data and notes in this folder are © 2026 Joe Burkinshaw and licensed
+under the Creative Commons Attribution 4.0 International licence (CC BY 4.0),
+except where a feature's `source_licence` property says otherwise:
 https://creativecommons.org/licenses/by/4.0/
 
 Attribution: "The Crossing reading map, Joe Burkinshaw", with a link to
@@ -7,3 +8,11 @@ https://github.com/JBurkinshaw/crossing-map
 
 The terms of each source are listed per layer in data/README.md, and each
 feature's `source_licence` property states the licence of its source.
+
+Layers derived from the Copernicus DEM GLO-30 (the mountain glyphs, and the
+hachures, contours and Oblique archives among the tiles) are also subject to
+the Copernicus DEM licence, and anyone who reuses them is bound by it too.
+The notice and disclaimer it requires are in data/README.md.
+
+Quotations from The Crossing (the Spanish incipits of a few words each) are
+© Cormac McCarthy, used for commentary, and are not licensed here.

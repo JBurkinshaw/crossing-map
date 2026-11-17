@@ -3,13 +3,9 @@
 Run from the repo root, after crossing.hachures:
     uv run --project pipeline python -m tiles.build_relief
 
-From private/cache/relief/production/, three archives so each stays under 100 MB (design 5.2), and a reader who
-stays zoomed out never fetches the dense strokes:
-  relief.pmtiles        coarse  hachures from the 90 m DEM, outside the journeys corridor, zoom 10-12
-                        fine    short hachure strokes from the 30 m DEM, inside the corridor, zoom 10-12
-  relief-dense.pmtiles  dense   the fine strokes closer together, for zoom 12 and up
+From private/cache/relief/production/:
   contours.pmtiles      contour 50 m contours (`Ele`, metres), zoom 10-12
-The map over-zooms each to 13. Hachures carry `Slope`, `Aspect` and `Rand`; crossing.hachures describes them.
+The map over-zooms it to 13. The site's hachures are the Wheeler corridor build below (decision 0024).
 
 With `--style wheeler [--src private/cache/relief/wheeler-test]`, it packs the Wheeler test build of
 crossing.wheeler_hachures instead, into tiles/out/lab-wheeler-hachures.pmtiles (layers `hachure` and `rim`, zoom
@@ -17,10 +13,9 @@ crossing.wheeler_hachures instead, into tiles/out/lab-wheeler-hachures.pmtiles (
 
 With `--style wheeler --region corridor [--src private/cache/relief/wheeler]`, it packs the Wheeler corridor build
 for the site (decision 0024), split by zoom so each archive stays under 100 MB:
-  relief-wheeler.pmtiles     zoom 10-11  coarse (the production coarse strokes, outside the corridor), hachure, rim
+  relief-wheeler.pmtiles     zoom 10-11  coarse (crossing.hachures' coarse strokes, outside the corridor), hachure, rim
   relief-wheeler-12.pmtiles  zoom 12     the same layers
-The coarse strokes are copied in so the site's Wheeler set needs no other hachure archive. The production archives
-are left alone, so site/src/map/relief.ts can switch back to them (HACHURE_SET).
+The coarse strokes carry `Slope`, `Aspect` and `Rand`, which crossing.hachures describes.
 """
 
 import argparse
@@ -34,8 +29,6 @@ from crossing.tiling import tippecanoe
 
 # archive: (name, zooms, layers)
 ARCHIVES = {
-    "relief": ("The Crossing: hachures", (10, 12), ["coarse", "fine"]),
-    "relief-dense": ("The Crossing: dense hachures", (12, 12), ["dense"]),
     "contours": ("The Crossing: contours", (10, 12), ["contour"]),
 }
 

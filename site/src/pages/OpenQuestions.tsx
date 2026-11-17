@@ -1,15 +1,16 @@
 import type { OpenQuestion } from '../data/openQuestions'
 import { OpenQuestionNote } from '../panel/OpenQuestions'
-import { REPO_URL } from './format'
+import { feedbackUrl } from './format'
 
 // Every judgement call about where something is, as far as the reader has read.
 export function OpenQuestions({ questions }: { questions: OpenQuestion[] }) {
+  const general = feedbackUrl({ kind: 'general' })
   return (
     <>
       <p className="lede">
         Where the book, the gazetteers and other readers disagree, the map shows one reading and says so.
-        These are the places still in question. Each card on the map carries its own, and a link to suggest a
-        correction.
+        These are the places still in question. Each card on the map carries its own
+        {general ? ', and a link to suggest a correction.' : '.'}
       </p>
       <p>
         Other readings used here: James Luther Bell’s{' '}
@@ -21,12 +22,13 @@ export function OpenQuestions({ questions }: { questions: OpenQuestion[] }) {
       ) : (
         questions.map((q) => <OpenQuestionNote key={q.id} q={q} />)
       )}
-      <p>
-        <a href={`${REPO_URL}/issues/new`} target="_blank" rel="noreferrer">
-          Suggest a correction or a new reading
-        </a>{' '}
-        on GitHub.
-      </p>
+      {general && (
+        <p>
+          <a href={general} target="_blank" rel="noreferrer">
+            Suggest a correction or a new reading
+          </a>
+        </p>
+      )}
     </>
   )
 }

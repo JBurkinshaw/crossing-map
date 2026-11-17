@@ -59,7 +59,7 @@ def main() -> None:
     all_strokes, corridor_strokes = strokes(n for n, _ in grid), strokes(corridor_names)
     scale = all_strokes / max(corridor_strokes, 1)
     sizes = {p.name: p.stat().st_size / 1e6 for p in TILES_OUT.glob("*.pmtiles")}
-    fine_mb, dense_mb = sizes.get("relief.pmtiles", 0), sizes.get("relief-dense.pmtiles", 0)
+    hachure_mb = sizes.get("relief-wheeler.pmtiles", 0) + sizes.get("relief-wheeler-12.pmtiles", 0)
     oblique_mb = sum(v for k, v in sizes.items() if k.startswith("oblique"))
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(f"""# Full-region hachure run (design 5.2)
@@ -71,9 +71,9 @@ def main() -> None:
   longest {max(times.values(), default=0):.0f} s).
 - Strokes (today's fine density): {all_strokes:,} over the region against {corridor_strokes:,} in the corridor
   ({scale:.1f} times).
-- Projected archives at the same density, scaled by strokes: relief fine and coarse about {fine_mb * scale:.0f} MB
-  (corridor {fine_mb:.0f} MB), zoom-12 dense about {dense_mb * scale:.0f} MB (corridor {dense_mb:.0f} MB),
-  Oblique about {oblique_mb * scale:.0f} MB (corridor {oblique_mb:.0f} MB). Each would need splitting to stay under
+- Projected archives at the same density, scaled by strokes: Wheeler hachures about {hachure_mb * scale:.0f} MB
+  (corridor {hachure_mb:.0f} MB), Oblique about {oblique_mb * scale:.0f} MB (corridor {oblique_mb:.0f} MB).
+  Each would need splitting to stay under
   100 MB per file, and the total counts against GitHub Pages' 1 GB site limit twice (main and preview).
 """, encoding="utf-8")
     print(REPORT.read_text())

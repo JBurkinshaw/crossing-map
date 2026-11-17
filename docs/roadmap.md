@@ -14,22 +14,21 @@ Tags say who moves each item:
 1. **[owner]** Merge into `main`, or launch on `/preview/`. `main` and the public root still show stage 2 with `tiles-v2`, and stages 3 to 8 are not merged.
 2. **[owner]** Check the preview, which localhost cannot test: the MapTiler logo, Satellite, Topo, Compare (including in Tilted), and Satellite tint against the key's allowed origins; and a one-handed phone test.
 3. **[owner]** Sign off the stage 4 place checklists (`review/stage-4/batch-a/checklist.md`, `review/stage-4/batch-b/checklist.md`) and tick the acceptance criteria (section 9 below).
-4. **[owner]** Send the permission message to Joe Hazelton. A courtesy note to James Bell is optional.
-5. **[decide]** How readers discuss. Cusdis was archived in July 2026. The options are Giscus (posting needs a GitHub account), Hyvor Talk (guest comments, about €50 a year), or a Tally form beside Giscus. The GitHub issue link stays for corrections.
+4. **[owner]** A courtesy note to James Bell is optional. (Joe Hazelton gave permission on 2026-11-16, asking only for credit.)
+5. **[owner]** Make the Tally feedback form and put its id in `FEEDBACK_FORM` (`site/src/pages/format.ts`). Until then the suggestion links stay hidden. The fields are in decision 0044: hidden `kind`, `feature`, `name`, `line`, `episode`; then "What should change, and why?", a source, a name for credit, and an email, the last two optional.
 6. **[owner]** Soft launch to a few readers, testing spoiler mode and the inferred places. Send the McCarthy Society a link as a courtesy and offer the data back. Then post on r/cormacmccarthy (draft in `private/launch/reddit-post.md`; it needs the link and two screenshots, vintage and Compare) after reading the self-promotion rules, and reply in the 2024 Gaia-map thread. Log every correction in the changelog with credit.
+7. **[build]** Once the Reddit post is up, link it from the About page as the place to discuss the map, with a note that it may hold spoilers (decision 0044).
 
 ## 2. Decisions pending
 
 These were "open questions" in the build plan; they are project decisions, not questions about places. Questions about places are in `data/open-questions.json` and [`open-questions.md`](open-questions.md).
 
-- **[decide] Licences.** MIT for code (except the GPL-3.0 hachure folder) and CC BY 4.0 for data and notes are in place but provisional. Confirm or change before launch.
+- **[decide] Licences.** CC BY 4.0 for the data and notes is settled (decision 0045). MIT for the code (except the GPL-3.0 hachure folder) is in place but provisional. Confirm it before launch. [`licensing.md`](licensing.md) explains both, and `review/licences/README.md` is the checklist of what each source asks.
 - **[decide] Name and domain.** "Map Enough" (from the trilogy's last line) or "The Crossing: A Reading Map"; a custom domain or `jburkinshaw.github.io/crossing-map`.
-- **[decide] Interface language.** English only for launch, or Spanish too.
 - **[decide] Portfolio framing.** Should How it's built carry the owner's name and links, or stay anonymous with a link in the footer?
 - **[decide] Vignette drawing.** Draw or trace them, or commission an illustrator for a consistent set of about 30.
 - **[decide] Relief tool (P2).** Is about $100 for Eduard acceptable if a test on the Peloncillos looks much better?
 - **[decide] Analytics.** Cookie-free (GoatCounter or Cloudflare Web Analytics, no consent banner) or Google Analytics (acceptable, not preferred).
-- **[decide] CI.** Bundle size and a Lighthouse score in the deploy workflow, written to a JSON the How it's built page reads.
 - **[decide] Spoiler mode.**
   - Almost every mountain glyph is dated 1-01. Is that fine?
   - 21 reasoning texts cite later episodes. Rewrite them, or keep the notice?
@@ -40,7 +39,6 @@ These were "open questions" in the build plan; they are project decisions, not q
 - **[decide] Relief.**
   - Full-region relief and Oblique, about 710 MB: Cloudflare R2, the preview only, or a thinner treatment?
   - Coarse relief and contours over the whole story box?
-  - Two hachure sets are kept for now (decision 0024): the Wheeler strokes, which the site draws in the corridor, and the production fine and dense strokes (`relief.pmtiles`, `relief-dense.pmtiles`, `private/cache/relief/production/`), one switch away (`HACHURE_SET` in `site/src/map/relief.ts`). Keep both in every tile release until one is dropped; then remove the other's archives, cache and code.
   - The corridor edge, where hachures stop in a hard line (Mesa Atravesada shows it): fade the last few kilometres, or wait for full-region relief?
   - Thinning pass labels, glyph thresholds, and Oblique details.
 
@@ -56,16 +54,11 @@ These were "open questions" in the build plan; they are project decisions, not q
 Details and context are in `review/stage-5/README.md`, "Open questions for the owner".
 
 1. **[decide]** Is a whole short line (five words or fewer) acceptable as its own incipit?
-2. **[decide]** A recurring word in the narration: one glossary entry for the book (as now), or one per Part?
-3. **[decide]** Group a run of short lines in one exchange into one entry? It would about halve the count.
-4. **[decide]** Episode page ranges: the page model could fill `pages` in `episodes.json`, which is null now.
-5. **[decide]** Lines inside a tale (the blind man's wife's tale in 3-09, 32 lines) point at the place where the tale is told. Keep, or leave them null?
-6. **[decide]** Two lines in 3-14 stay null. Give them the nearest stop of the search, or leave them?
-7. **[decide]** Seven lines in 3-11 and 3-13 point at the Hacienda de San Diego place. Use the last San Diego stop instead?
-8. **[decide]** Move `j2-volcanic-plain-ranch`'s `first_seen` to 1-08, so the eight lines spoken there (`tr-1-08-007` to `-014`) can point at it?
-9. **[decide]** Should an empty `ref` in `pipeline/seeds/where-spoken.csv` clear the heuristic? Today it changes nothing, and a `none` cell in `pipeline/seeds/translations.csv` does not survive a second build.
-10. **[decide]** The misprinted guide pages in Part IV (353–357 listed after 368): keep the guide's printed page in links, as now?
-11. **[decide]** The spot-check list under "Pass 2", and the alguacil's house: `j3-colonia-oaxaca` (2-03) against `j2-mud-settlement` (1-09).
+2. **[decide]** Episode page ranges: the page model could fill `pages` in `episodes.json`, which is null now.
+3. **[decide]** Should an empty `ref` in `pipeline/seeds/where-spoken.csv` clear the heuristic? Today it changes nothing, and a `none` cell in `pipeline/seeds/translations.csv` does not survive a second build.
+4. **[decide]** The spot-check list under "Pass 2", and the alguacil's house: `j3-colonia-oaxaca` (2-03) against `j2-mud-settlement` (1-09).
+
+Seven more were settled as built on 2026-11-16, and the packet lists them under "Owner's answers".
 
 ### Stage 7: second sources
 
@@ -76,12 +69,12 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
 - **[decide]** Item 14: street-level places in Deming, Silver City, El Paso, Casas Grandes, and Caborca, with `maxZoom` raised from 13 to 15 (about ten network lookups).
 - **[decide]** Item 16: about 20 notes paraphrased from Bell, cited by page, reviewed together for spoilers.
 - **[decide]** Item 17: raise five overrides from medium to high confidence where Hazelton's pins or Bell's distances agree.
-- **[build]** The data model for second sources: `bell-2000` and `reddit-gaia` source ids with licence and credit lines; a `leads` array naming any second source that points to or agrees with a feature; "Also placed by" lines on cards; "Readers disagree" where readings conflict. Points that rest on Hazelton's map alone must be tagged so they can be removed if he declines.
+- **[build]** The data model for second sources: `bell-2000` and `reddit-gaia` source ids with licence and credit lines; a `leads` array naming any second source that points to or agrees with a feature; "Also placed by" lines on cards; "Readers disagree" where readings conflict.
 
 ### Stage 8 packets (2026-11-14)
 
 - **[decide] Interface** (`review/stage-8/ui/README.md`). "Satellite tint" or "Ground colour"? Should a click on a stop's town also open the town's card? (The controls box covering a stop is settled: the box now folds under one Map button on desktop too.)
-- **[decide] Hillshade** (`review/stage-8/lab-hillshade/README.md`; MapTiler-like adopted, decision 0025). Build and release the 76 MB `terrain-hi.pmtiles` (tile zoom 11), then make the site change? Add localhost to the MapTiler key so the lab can show Topo? Publish the lab, or keep it dev-only?
+- **[decide] Hillshade** (`review/stage-8/lab-hillshade/README.md`; MapTiler-like adopted, decision 0025). Build and release the 76 MB `terrain-hi.pmtiles` (tile zoom 11), then make the site change? Add localhost to the MapTiler key so the lab can show Topo? (The lab stays dev-only.)
 - **[decide] Wheeler study** (`review/stage-8/wheeler/README.md`; decisions 0022 to 0024 record what was adopted). Still open: long valley names, and the test-area questions in `review/stage-9/`.
 - **[decide] Streams** (`review/stage-8/streams/README.md`). Zoom 12 density; the box for order 2 streams, or a corridor (which could hint at later journeys); fetching the missing US HU8 units for full creek coverage; the braid fix in `rivers.strahler`; Mexican stream labels from toponym points.
 - **[decide] Tiles v8** (`review/stage-8/tiles-v8/README.md`). Clip creeks by the lakes where they cross the Babícora lake? Capitalised, letter-spaced names for the major rivers, as on the Wheeler sheets?
@@ -93,10 +86,10 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - Inferred areas are drafts cut from each stop's circle by a rule (decision 0020), waiting for the hand finish in `pipeline/qgis/areas.qgs`. The four low-confidence drafts that miss their pins (the two escarpments, the river camps, the wagon-road crossing) want a look first.
   - The episode summaries are drafts for the owner to edit.
 - **Stage 2.**
-  - Where INEGI's or NHD's network breaks, a traced river runs along Natural Earth's line for a stretch. The base build prints the total (816 km, mostly the Fuerte, Rio Grande, and Colorado, far from the story). Joining broken channel ends was measured and dropped (1.6% less). The Río Batepito's 7.8 km above Colonia Morelos remains. A draft check of every river against the valley floor was never run to the end and is parked in `private/parked/check_rivers.py`.
-  - 60 fps panning on a mid-range phone is measured only by a desktop proxy (`review/experiments/stage-2/README.md`, section 3): the CPU side has room to spare; a real phone GPU is untested.
+  - Where INEGI's or NHD's network breaks, a traced river runs along Natural Earth's line for a stretch. The base build prints the total (816 km, mostly the Fuerte, Rio Grande, and Colorado, far from the story). Joining broken channel ends was measured and dropped (1.6% less). The Río Batepito's 7.8 km above Colonia Morelos remains. A draft check of every river against the valley floor was dropped on 2026-11-16; its script, `private/parked/check_rivers.py`, can be deleted.
+  - 60 fps panning on a phone is covered by the owner's phone test (section 1).
 - **Stage 3.**
-  - The mountain glyphs are generated shapes with a pen treatment (`art/pen.py`); glyphs drawn wholly by hand remain open.
+  - The mountain glyphs are generated shapes with a pen treatment (`art/pen.py`). Glyphs drawn wholly by hand were dropped on 2026-11-16.
   - Full-region relief is not decided (section 2).
 - **Stage 4.**
   - The checklists are unsigned.
@@ -119,11 +112,9 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
 
 20 sierra and valley legs are least-cost paths (`pipeline/seeds/modeled-legs.csv`, cost model lc-0.4); J7 leg 41 is now traced on the Río Casas Grandes (decision 0032). Left to do:
 
-- **[decide]** Draw a modelled leg as a band (the spread between the full model and slope alone) to carry its doubt, if the line reads as too certain.
 - **[research]** Period roads from the Army Map Service 1:250,000 sheets or the USGS historical topographic maps, to replace today's INEGI tracks as the road corridors on the important legs.
 - **[decide]** A faint base layer of the roads the book names (the Douglas to Cloverdale road, Apache Pass Road, the Casas Grandes to Madera road and the rest in `snaps.csv`), drawn as dotted period trails, each cut to 10 km beyond its traced legs and shown from its first leg's episode. Scoped 2026-11-16 and held.
 - **[decide]** `q-j4-one-day-ride`: the ride from San Diego to the opera camp, about 100 km in one day.
-- **[build]** The local review mode (`?review=routes`) still shows the lc-0.3 experiment's lines from `review/experiments/least-cost/` (not in git), not the built ones.
 
 ## 5. Build work, by size
 
@@ -145,7 +136,6 @@ Details and context are in `review/stage-5/README.md`, "Open questions for the o
   - street-level places (lookups, `maxZoom` 15)
   - shipping full-region relief and Oblique (hosting)
   - the remaining vignettes (design section 10)
-  - hand-drawn glyphs
   - translation review by a speaker
   - more traced legs (decision 0032): roads in US counties with no cached TIGER file, roads INEGI does not name, J7 leg 42 (its stop sits on a side channel), and the rest of `private/review/snap-candidates.md`
 - **Small:**
@@ -183,23 +173,17 @@ Work does not wait for these. Where one is missing, the work builds up to that p
 
 Pick by demand, not in order.
 
+- **The Oblique view's generator as its own repository.** The owner wants to break `crossing.plan_oblique` (about 700 lines) out into a separate, reusable repository. Today it leans on this project's modules: the tile grid, corridor and DEM preparation in `crossing.hachures`, the DEM notice in `crossing.dem`, land cover in `crossing.landcover`, the streams in `crossing.hydro` and `crossing.basemap`, `crossing.tiling.tippecanoe`, and the story data in `data/`. The split needs those passed in as inputs (a DEM, a region, line layers) instead of imported, and a licence for the new repository (MIT, as here, unless it takes in GPL code). Noted 2026-11-16.
 - **Historic roads, traced.** Trace the roads the book's riders use (about 30 to 60 lines) from the USGS 1:62,500 sheets of 1917 to 1923, as the Wheeler test area did for 9 roads (`review/stage-9/wheeler-roads/`). About 24 to 48 hours by hand in QGIS for the 12 core sheets; by agent, about 1 to 2.5 million tokens. Mexico has no usable period source yet. Shelved by the owner on 14 November 2026 as a later improvement.
 - **Land-cover marks** among the hachures (scrub stipple, tree marks) from a land-cover dataset such as ESA WorldCover, checking its licence.
 - **Cloudflare R2** for larger tiles.
 - **Blender or Eduard relief.**
 - **Least-cost routes and constraint-built areas.** Section 4 covers the routes; areas would come from travel-time rings, bearing sectors, viewsheds, and slope classes.
-- **Rumsey overlays** with the swipe.
 - **Story mode:** a pinned map with scrolling episodes.
-- **A Spanish interface.**
 - **Illustrator vignettes** for the remaining candidates.
 - **Speaker-reviewed translations.**
-- **A paid MapTiler month** around a traffic spike.
 - **Analytics** (section 2).
-- **Reader feedback beyond the issue link:** a form, from the card, that carries the feature id, with each accepted correction credited in the changelog.
-- **Propose a different location:** from any stop, place, or area, a reader drops a pin or draws a rough area and says why (a page of the book, a source, local knowledge). Proposals carry the feature id, the geometry, and the reason, and arrive in one queue (a prefilled GitHub issue with GeoJSON at first). The owner reviews them in the local review mode, and an accepted one becomes a seed edit with the reader credited.
 - **Alternative readings on the map:** where readers disagree, such as the two Sierras de la Madera, draw the other reading faintly and let readers discuss or vote.
-- **"What Billy saw":** a line-drawn panorama from a chosen stop, peaks labelled, computed by marching rays over the 30 m DEM with the Earth's curvature corrected. Parked: it may be clutter.
-- **Block diagrams on place cards:** pen-and-ink diagrams of key landscapes from the map's own strokes and contours, with hidden lines removed (a test renderer took about 3 s and 200–800 KB each).
 - **A general declutter** across map and panel, including whether every decision and placement note belongs on the map.
 
 ## 9. Acceptance criteria
