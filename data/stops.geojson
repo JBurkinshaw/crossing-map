@@ -1438,7 +1438,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Old man Sanders and Leona tell him what happened (2-04). The stop is dated 2-05 with the Parham house before it, so neither shows while the reader is still in 2-04. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is the point nine miles (14.5 km) along the Animas Valley road north from Cloverdale (Census TIGER 2023; pipeline/measure/road_points.py).",
+    "reasoning": "At the SK Bar old man Sanders does not know him and calls Leona, who comes out and stands with a hand on the old man's shoulder (2-04). The book never shows what they tell him, only that he rides back to the house sure the old man is crazy yet unable to explain Leona (2-05). The stop is dated 2-05 with the Parham house before it, so neither shows while the reader is still in 2-04. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is the point nine miles (14.5 km) along the Animas Valley road north from Cloverdale (Census TIGER 2023; pipeline/measure/road_points.py).",
     "synopsis": "Billy rides north to the SK Bar, where old man Sanders, sitting on his porch, recognises neither him nor his horse. When Billy calls out his name, the old man summons his granddaughter Leona, who comes out and stands with a hand on his shoulder. What they tell Billy is not shown, but he rides back to the house half refusing to believe the old man."
    }
   },
@@ -1497,8 +1497,8 @@
     "sequence": 18,
     "place_ref": "place-lordsburg",
     "part": 2,
-    "episode": "2-05",
-    "first_seen": "2-05",
+    "episode": "2-06",
+    "first_seen": "2-06",
     "certainty": "located",
     "uncertainty_m": null,
     "method": "gazetteer",
@@ -1506,8 +1506,8 @@
     "source_id": "891335",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He tells the sheriff at Lordsburg, and learns Boyd is staying on the east side of town.",
-    "synopsis": "Billy rides into Lordsburg at noon the day after he finds the bloodstain, after a hungry night on the plain beyond Animas."
+    "reasoning": "He rides into Lordsburg at noon the day after passing through Animas (2-05), and the sheriff questions him in his office in the town.",
+    "synopsis": "Billy rides into Lordsburg at noon after a hungry night out and goes to the sheriff. He learns that two men, Indians by the trackers' account, came on foot, shot his parents and took the six horses, and that Boyd hid out all night and has the dog, which survived its cut throat but is mute. Billy takes two papers from the deedbox and says he will fetch Boyd."
    }
   },
   {
@@ -1540,8 +1540,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Boyd is lodging with the Websters on the east side of Lordsburg; the book gives no street. The area covers the east side of town.",
-    "synopsis": "The Websters' comes up only once, in passing, while Billy answers the sheriff's questions in his office elsewhere in town: it is where some of the Parham family's household goods have been taken."
+    "reasoning": "In 2-06 the sheriff names the Websters' only as the place where some of the family's household things are. Boyd is lodging in a house on the east side of Lordsburg, which a later talk between the brothers shows to be the Websters' (2-07). The book gives no street, so the area covers the east side of town.",
+    "synopsis": "The sheriff names the Websters' only in passing, as the place where some of the Parham family's household things now are. The book says nothing more about it in this episode."
    }
   },
   {
@@ -2030,8 +2030,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "From Bacerac a rough trail climbs through pine and scrub oak; the next morning, within an hour of setting out, they reach the eastern rim of the escarpment and watch the sun come up over the plains of Chihuahua. The book names no pass; the area is on the eastern edge of the sierra on the line from Bacerac to Colonia Juárez (82.4 km apart).",
-    "synopsis": "Below Bacerac Billy tells Boyd the stranger is a German doctor with papers from a Casas Grandes broker, and they climb east on a track that dwindles to a footpath. After camps by a hillside farm and in an old burn, then two cold, wet days past ruined sawmills and a family working an old silver mine, they reach the eastern rim at sunrise above the Chihuahua plains."
+    "reasoning": "From Bacerac a rough trail climbs east through pine and scrub oak. After a camp above a hillside farm, a night in an old burn and two days of riding in the high country, they set out one grey morning and within the hour reach the escarpment's eastern rim, where they watch the sun come up over the plains of Chihuahua. The book names no pass; the area is on the eastern edge of the sierra on the line from Bacerac to Colonia Juárez (82.4 km apart).",
+    "synopsis": "Billy tells Boyd the stranger is a German doctor with papers from a Casas Grandes broker. An old man in Bacerac draws the way ahead in the dust while men on a bench argue over it, and the brothers ford the river and climb east. After camps above a hill farm and in an old burn, then two cold, wet days, they reach the eastern rim at sunrise."
    }
   },
   {
@@ -2100,7 +2100,7 @@
     "source_id": "4003756",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They reach the Mormon settlement in the late afternoon and pick apples in the orchards.",
+    "reasoning": "They reach the Mormon settlement in the late afternoon and pick apples in the orchards. The book puts their crossing of the Casas Grandes River here, by a narrow plank bridge, before they ride on through the town.",
     "synopsis": "Late in the afternoon they ride through the Mormon colony's orchards and vineyards, stuffing apples into their clothes. They cross the river on a narrow plank bridge and pass neat white houses with lawns and picket fences, and at the first bend the desert closes in again."
    }
   },
@@ -2135,7 +2135,7 @@
     "source_id": "4015076",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They cross the Casas Grandes River on a plank bridge, pass the ruins and the railway, and in town find the ganadero's office, Soto y Gillian.",
+    "reasoning": "After crossing the Casas Grandes River at Colonia Juárez, they pass the ruins of the old mud city in the evening, ride into Casas Grandes over the railway tracks, and in town find the ganadero's office, Soto y Gillian.",
     "synopsis": "Past the ruined mud city at dusk, they eat steak under electric light and sleep by the railway. Next day Gillian, of Soto y Gillian, shows Billy that Keno came in a lot of horses sold at auction by La Babícora, a ranch owned by Hearst, and urges the brothers to go home."
    }
   },
@@ -2626,7 +2626,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "About a mile above the town they turn off the road and head west to a river with nine horses, turning the Boquilla horses back. The book does not name the river; the area is north-west of La Boquilla.",
-    "synopsis": "A mile out of town they turn west to the river with nine horses, Boyd having driven off the riders' mounts in the confusion in the street. At dusk Billy takes the one-armed man's pistol, saying he will return it, and herds the five Boquilla horses over a rise and back towards the town."
+    "synopsis": "At La Boquilla, as the one-armed man and four riders come for the horses, Billy flaps his hat at the man's horse and it goes over backwards, breaking the man's back. Boyd drives off the riders' mounts, and a mile out of town they turn west to the river with nine horses. At dusk Billy takes the man's pistol, saying he will return it, and drives the Boquilla horses back."
    }
   },
   {
@@ -3009,7 +3009,7 @@
     "source_id": "3987333",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Billy leaves the ejido at dusk to meet “the girl” at Santa Ana de Babícora, as Boyd asks, and takes the road south, under the cottonwoods by the river.",
+    "reasoning": "Billy leaves the ejido at dusk for Namiquipa, as Boyd asked him to, so that “the girl” would not think they had abandoned her (3-11), and takes the road south, under the cottonwoods by the river.",
     "synopsis": "Billy sets out at dusk, refusing the Muñoz woman's plea to wait for morning, with food she has packed for him. He checks that the pistol lies under Boyd's pillow and learns that men have come to the ejido twice. She shrugs off the danger and counts Boyd as one of their own."
    }
   },
@@ -3900,7 +3900,7 @@
     "source_id": "3985741",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported by Quijada (4-05): Boyd was shot dead at San Lorenzo, not at Ignacio Zaragoza as rumour had it. “The girl” was carried off covered in blood; she may have gone back to her family. Billy repeats San Lorenzo to the American in 4-07.",
+    "reasoning": "Reported by Quijada (4-05): Boyd was killed at San Lorenzo, not at Ignacio Zaragoza as rumour had it. “The girl” was taken away covered in blood, and Quijada guesses she may have gone back to her family.",
     "synopsis": "Quijada says Boyd was killed here, not at Ignacio Zaragoza as Billy has heard. “The girl” was taken away bloodied and stumbling, so many thought she had been shot, but she was not. What became of her Quijada does not know, though he guesses she may have gone home to her family."
    }
   },
@@ -4003,7 +4003,7 @@
     "source_id": "920584",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He rides north all day on the long straight road to Deming, crosses the low foothills of the Florida Mountains at evening, and reaches Deming at midnight; the sergeant at the armory finds a heart murmur and turns him down.",
+    "reasoning": "He rides north all day on the long straight road to Deming, passes through the Florida Mountains' foothills at evening, and reaches Deming at midnight. The sergeant at the armory gives him his enlistment forms, but a doctor in town finds a heart murmur and he is turned down. He then works ten days at a stable on the highway before taking the bus to El Paso.",
     "synopsis": "Billy sleeps on the bus station floor with his horse tied to a lamp post outside. In the morning the woman at the cafe feeds him for nothing, he forges a name on the parental consent form, and a doctor hears a heart murmur and turns him away. He takes ten days' work at a stable to pay for clothes and a bus ticket."
    }
   },
@@ -4513,7 +4513,7 @@
     "source_id": "908353",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "Nine months on, he heads south over the high plains on the west side of Socorro and passes through Magdalena.",
+    "reasoning": "After nine more months' work, he heads south over the high plains on the west side of Socorro and passes through Magdalena.",
     "synopsis": "Nine more months on, Billy rides south with a traded packhorse, a proper bedroll and an old single-shot Stevens rifle. His route takes him through Magdalena."
    }
   },
@@ -5023,8 +5023,8 @@
     "source_id": "3982082",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides that country for weeks asking after “the girl”; the first time he hears the corrido of the güero is in a bodega in Temósachic, up in the mountains.",
-    "synopsis": "After weeks of asking after “the girl” across that country, he hears verses of a corrido about a fair-haired young man from the north in a bodega here. The singer tells him only that the youth wanted justice and has been dead for years."
+    "reasoning": "He rides that country for weeks asking after “the girl”; the first time he hears the corrido of the güero is in a bodega in Temósachic, up in the mountains. The book tells this before the Madera fair of late April, so the stop comes before Madera, although he leaves the fair on the road south to Temósachic.",
+    "synopsis": "At the old man's wake in Namiquipa a young woman tells him “the girl” is an outlaw with a rumoured price on her head, and that Boyd's bones lie at San Buenaventura. After weeks of asking after her, he hears verses of a corrido about a fair-haired young man from the north in a bodega here. The singer says only that the youth wanted justice and is long dead."
    }
   },
   {
@@ -5397,7 +5397,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "An hour north of the town four riders stop him on the trail, cut open the bones and stab Niño; the next day gypsies hauling an old airplane north camp with him by the river and doctor the horse (4-06, 4-07). An hour's ride is about 6 km; the pin is on the river trail beside the Casas Grandes River (INEGI), 7.3 km north of Corralitos (pyproj, WGS 84).",
+    "reasoning": "An hour's ride north of the town four riders stop him on the trail, cut open the bones and stab Niño; the next day gypsies hauling an old airplane north camp with him by the river and doctor the horse (4-06). An hour's ride is about 6 km; the pin is on the river trail beside the Casas Grandes River (INEGI), 7.3 km north of Corralitos (pyproj, WGS 84).",
     "synopsis": "One of four riders who stop him at dawn slashes open the bundle of bones, stabs Niño in the chest and takes Billy's pistol. Billy stops the bleeding with river clay and loses the packhorse. Next morning gypsies from Durango, hauling an old airplane north by oxen, tell him its story while a herbal brew boils, then pour it into Niño and poultice the wound."
    }
   },
@@ -5567,7 +5567,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He buys a spade and goes south from the town to a little cemetery, where he buries Boyd; the sheriff tells him to report at Lordsburg. GNIS lists no cemetery here; the area is just south of the town.",
+    "reasoning": "He buys a spade and goes south from the town to a little cemetery, and is waist deep in the grave he is digging for Boyd when the sheriff arrives, says he cannot simply bury people where he likes, and tells him to report at Lordsburg. The book does not say whether the burial is finished. GNIS lists no cemetery here; the area is just south of the town.",
     "synopsis": "With a spade from the town's hardware store, Billy hobbles his horse outside a small cemetery and digs a grave for Boyd. He is waist deep in caliche when the sheriff arrives, guesses who he is, and says a man may not bury his dead just anywhere. He will try to get a death certificate from the judge, and Billy must report to him in Lordsburg next day."
    }
   },

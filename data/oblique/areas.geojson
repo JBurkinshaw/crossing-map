@@ -29315,7 +29315,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Old man Sanders and Leona tell him what happened (2-04). The stop is dated 2-05 with the Parham house before it, so neither shows while the reader is still in 2-04. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is the point nine miles (14.5 km) along the Animas Valley road north from Cloverdale (Census TIGER 2023; pipeline/measure/road_points.py).",
+    "reasoning": "At the SK Bar old man Sanders does not know him and calls Leona, who comes out and stands with a hand on the old man's shoulder (2-04). The book never shows what they tell him, only that he rides back to the house sure the old man is crazy yet unable to explain Leona (2-05). The stop is dated 2-05 with the Parham house before it, so neither shows while the reader is still in 2-04. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is the point nine miles (14.5 km) along the Animas Valley road north from Cloverdale (Census TIGER 2023; pipeline/measure/road_points.py).",
     "outline_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the area still fixes where along the road.",
     "straight_road": false
    }
@@ -29740,7 +29740,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Boyd is lodging with the Websters on the east side of Lordsburg; the book gives no street. The area covers the east side of town.",
+    "reasoning": "In 2-06 the sheriff names the Websters' only as the place where some of the family's household things are. Boyd is lodging in a house on the east side of Lordsburg, which a later talk between the brothers shows to be the Websters' (2-07). The book gives no street, so the area covers the east side of town.",
     "outline_rule": "The east side of Lordsburg: the town's streets (within 250 m of Census TIGER local streets) east of the town's centre point. Today's town is larger than the town of the 1940s.",
     "straight_road": false
    }
@@ -35068,7 +35068,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "From Bacerac a rough trail climbs through pine and scrub oak; the next morning, within an hour of setting out, they reach the eastern rim of the escarpment and watch the sun come up over the plains of Chihuahua. The book names no pass; the area is on the eastern edge of the sierra on the line from Bacerac to Colonia Juárez (82.4 km apart).",
+    "reasoning": "From Bacerac a rough trail climbs east through pine and scrub oak. After a camp above a hillside farm, a night in an old burn and two days of riding in the high country, they set out one grey morning and within the hour reach the escarpment's eastern rim, where they watch the sun come up over the plains of Chihuahua. The book names no pass; the area is on the eastern edge of the sierra on the line from Bacerac to Colonia Juárez (82.4 km apart).",
     "outline_rule": "The eastern rim: ground that looks down at least 300 m within 10 km to the east, within 8 km of the line from Bacerac to Colonia Juárez.",
     "straight_road": true
    }
@@ -67233,7 +67233,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "An hour north of the town four riders stop him on the trail, cut open the bones and stab Niño; the next day gypsies hauling an old airplane north camp with him by the river and doctor the horse (4-06, 4-07). An hour's ride is about 6 km; the pin is on the river trail beside the Casas Grandes River (INEGI), 7.3 km north of Corralitos (pyproj, WGS 84).",
+    "reasoning": "An hour's ride north of the town four riders stop him on the trail, cut open the bones and stab Niño; the next day gypsies hauling an old airplane north camp with him by the river and doctor the horse (4-06). An hour's ride is about 6 km; the pin is on the river trail beside the Casas Grandes River (INEGI), 7.3 km north of Corralitos (pyproj, WGS 84).",
     "outline_rule": "On the river trail: within 1 km of the Casas Grandes River (INEGI, order 6).",
     "straight_road": false
    }
@@ -67695,7 +67695,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He buys a spade and goes south from the town to a little cemetery, where he buries Boyd; the sheriff tells him to report at Lordsburg. GNIS lists no cemetery here; the area is just south of the town.",
+    "reasoning": "He buys a spade and goes south from the town to a little cemetery, and is waist deep in the grave he is digging for Boyd when the sheriff arrives, says he cannot simply bury people where he likes, and tells him to report at Lordsburg. The book does not say whether the burial is finished. GNIS lists no cemetery here; the area is just south of the town.",
     "outline_rule": "South of the town: the part of the area south of Animas's centre point.",
     "straight_road": false
    }
