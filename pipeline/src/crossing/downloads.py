@@ -2,6 +2,7 @@
 
 Run from the repo root: uv run --project pipeline python -m crossing.downloads
 With --check, write nothing and exit non-zero if any copy no longer matches its GeoJSON.
+`crossing.build_story` and `crossing.build_vignettes` also write each layer's copy with the layer.
 
 Each layer in data/ becomes data/parquet/<layer>.parquet: one row per feature, one column per property,
 and the geometry as WKB in a `geometry` column, with GeoParquet 1.1 metadata (WGS 84, the default CRS).
@@ -67,22 +68,33 @@ def layer_table(name: str, props_schema: dict) -> pa.Table:
     return pa.Table.from_arrays(arrays, schema=schema)
 
 
+def properties_schema() -> dict:
+    return json.loads(SCHEMA.read_text(encoding="utf-8"))["$defs"]["properties"]["properties"]
+
+
+def write_copy(name: str) -> None:
+    """Write data/parquet/<name>.parquet from data/<name>.geojson."""
+    table = layer_table(name, properties_schema())
+    OUT.mkdir(exist_ok=True)
+    path = OUT / f"{name}.parquet"
+    pq.write_table(table, path, compression="zstd")
+    print(f"{path.relative_to(REPO)}: {table.num_rows} rows, {path.stat().st_size:,} bytes")
+
+
 def main() -> None:
     check = "--check" in sys.argv[1:]
-    props_schema = json.loads(SCHEMA.read_text(encoding="utf-8"))["$defs"]["properties"]["properties"]
+    props_schema = properties_schema()
     stale = []
-    OUT.mkdir(exist_ok=True)
     for name in LAYERS:
+        if not check:
+            write_copy(name)
+            continue
         table = layer_table(name, props_schema)
         path = OUT / f"{name}.parquet"
-        if check:
-            current = pq.read_table(path) if path.exists() else None
-            same_geo = current is not None and current.schema.metadata.get(b"geo") == table.schema.metadata[b"geo"]
-            if current is None or not current.equals(table) or not same_geo:
-                stale.append(path.relative_to(REPO))
-            continue
-        pq.write_table(table, path, compression="zstd")
-        print(f"{path.relative_to(REPO)}: {table.num_rows} rows, {path.stat().st_size:,} bytes")
+        current = pq.read_table(path) if path.exists() else None
+        same_geo = current is not None and current.schema.metadata.get(b"geo") == table.schema.metadata[b"geo"]
+        if current is None or not current.equals(table) or not same_geo:
+            stale.append(path.relative_to(REPO))
     if stale:
         print("Out of date; run uv run --project pipeline python -m crossing.downloads:", *stale, sep="\n  ")
         sys.exit(1)

@@ -10,6 +10,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- The GeoParquet copies of `stops`, `areas`, `journeys` and `vignettes` match their GeoJSON again. They had missed the synopses, the Animas Valley and Babícora regions, and the drawings' new episodes listed below.
 - The open question on Huisiachepic no longer places it "about 28 km south of Tamichopa": it showed from 2-01, and the book first names Tamichopa in 2-03 (decision 0054).
 - `translations.json` has a new field, `es_words`: the Spanish words of a long line that its incipit leaves out, in alphabetical order, for search only (decision 0047). 151 lines have one.
 - The English translations, the incipits and the word lists are no longer under CC BY 4.0, because the novel's words and the right to translate them are McCarthy's (decision 0047). The rest of each translation record still is.

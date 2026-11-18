@@ -18,4 +18,4 @@ The published GeoJSON is the download. Each layer also gets a GeoParquet copy (w
 
 ## Consequences
 
-Two formats, generated from one source, so they cannot drift.
+Two formats, generated from one source. They can still drift if a layer changes and the copy is not rewritten: on 2026-11-17 three commits changed `stops`, `areas`, `journeys` and `vignettes` without it, and CI's `crossing.downloads --check` blocked every deploy until the copies were rewritten. So `crossing.build_story` and `crossing.build_vignettes`, which write those layers, now write each layer's copy with it. The other steps that write a layer still need `crossing.downloads` run after them, and the CI check still catches a copy left behind.

@@ -130,4 +130,4 @@ Install the Rust tools with `cargo install spreet build_pbf_glyphs`.
 | Validate | `uv run --project pipeline python -m crossing.validate` | No |
 | Echo check | `uv run --project pipeline python -m crossing.echo_check [--words N] [PATH ...]` | Yes; skips without the text |
 
-Run `crossing.downloads` after any change to a story layer, then `crossing.validate`, then `crossing.echo_check`. A full data rebuild is sections 1 to 4 in order, then section 8.
+`crossing.build_story` and `crossing.build_vignettes` write the GeoParquet copy of each layer they write. Run `crossing.downloads` after any other change to a story layer, then `crossing.validate`, then `crossing.echo_check`. A full data rebuild is sections 1 to 4 in order, then section 8.

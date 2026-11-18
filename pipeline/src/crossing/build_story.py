@@ -37,7 +37,7 @@ from scipy.sparse.csgraph import connected_components, dijkstra
 from shapely import STRtree, make_valid
 from shapely.geometry import LineString, MultiLineString, Point, shape
 
-from crossing import least_cost
+from crossing import downloads, least_cost
 from crossing.paths import DATA, REPO, SEEDS, STORY_BOX
 
 GEOD = Geod(ellps="WGS84")
@@ -369,8 +369,12 @@ def write_json(path: Path, doc) -> None:
 
 
 def write(name: str, features: list[dict]) -> None:
+    """Write a layer to data/, and its GeoParquet download if it is published (decision 0009)."""
     write_json(DATA / name, {"type": "FeatureCollection", "features": features})
     print(f"{name}: {len(features)} features")
+    layer = name.removesuffix(".geojson")
+    if layer in downloads.LAYERS:
+        downloads.write_copy(layer)
 
 
 def in_box(lat: float, lon: float) -> bool:
