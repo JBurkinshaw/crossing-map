@@ -140,7 +140,6 @@ Seven more were settled as built on 2026-11-16, and the packet lists them under 
   - translation review by a speaker
   - more traced legs (decision 0032): roads in US counties with no cached TIGER file, roads INEGI does not name, J7 leg 42 (its stop sits on a side channel), and the rest of `private/review/snap-candidates.md`
 - **Small:**
-  - **[owner]** Restore the spoiler-leak job in `.github/workflows/deploy.yml` (paused 2026-11-14 to speed up deploys): delete its `if: false` and add it back to `build`'s `needs`. Until then, run `tools/spoiler-leak.mjs` locally before each push.
   - **[owner]** Release the rebuilt Oblique archives with the new `landcover.pmtiles` (decision 0040): `oblique-*.pmtiles`, `landcover.pmtiles` and `data/oblique/` go out together ([`releasing-tiles.md`](releasing-tiles.md)). Until then the deployed site must keep `tiles-v11` and the old `data/oblique/archives.json`: the v11 Oblique archives lack the new strokes' `shade`, dots and land cover, `oblique-3.pmtiles` is missing, and the Land cover option draws nothing, so this branch stays off `main` and the preview until the release is cut and `tiles/release.txt` bumped in the same push.
   - **[decide]** The Oblique view's lean is 4 (decision 0040). If the larger shift reads badly, or the story's pins jump too far between Flat and Oblique, try 3.
   - **[decide]** Land cover covers the Oblique corridor only (decision 0040). Extending it to the story box needs the DEM of `copernicus-region/` and makes `landcover.pmtiles` larger.
@@ -194,7 +193,7 @@ The criteria are in [`design.md`, section 11](design.md#11-acceptance-criteria).
 | Criterion | Status | Evidence |
 | --- | --- | --- |
 | Every feature has `certainty`, `source`, `source_licence`, `first_seen` | Met | All 1,546 features in places, stops, areas, journeys, mountain glyphs, and vignettes; `crossing.validate` enforces it through the schemas |
-| Nothing past the reader's progress shows anywhere; automated test | Met | `tools/spoiler-leak.mjs` runs in CI on every deploy at four reading positions (all ten locally) and covers story layers, markers, panel text, stepping, search, cards, translations, the layer key, glyphs, vignettes, the views, the phone drawer, the progress dialog, and every page |
+| Nothing past the reader's progress shows anywhere; automated test | Met | `site/src/spoiler/leak.test.ts` runs the spoiler filters on the data at all 43 reading positions with the site's tests, and `tools/spoiler-leak.mjs` walks the site through all 41 episodes and checks story layers, map filters, markers, panel text, every stop, links and saved places past progress, "Read on", search, cards, translations, the layer key, glyphs, vignettes, the views, the phone drawer, the progress dialog, and every page (decision 0054). CI runs both before every deploy |
 | Attribution where shown and on the Credits page; MapTiler logo on satellite | Mostly met | Each tile archive carries its credit; no photos are shown yet. The MapTiler logo must be checked on the preview |
 | No passage of the novel in the repo or the built site | Met | `crossing.echo_check` scans tracked text and the built site (it skips in CI, where the private text is absent) |
 | Downloads validate and open in QGIS | Met | `crossing.validate`; every GeoJSON and GeoParquet file opens with `ogrinfo` |

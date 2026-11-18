@@ -50,9 +50,6 @@ jobs:
   # The pushed commit, built with the map handle (VITE_DEBUG=1) and served locally, must show nothing past each
   # reading position (tools/spoiler-leak.mjs).
   spoiler-leak:
-    # Paused by the owner on 14 November 2026 to speed up deploys; run tools/spoiler-leak.mjs locally before a
-    # release. To restore: delete this `if` and add spoiler-leak back to build's `needs` (roadmap section 5).
-    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -96,16 +93,14 @@ jobs:
             npx playwright install --with-deps chromium
           fi
       - name: Run the spoiler-leak test
-        # Four reading positions take about seven minutes; run all ten locally before a release.
-        env:
-          SPOILER_POINTS: unset,1-08,3-08,all
+        # One walk through every episode (decision 0054).
         run: |
           (cd site && npx vite preview --port 5185 --strictPort) &
           for _ in $(seq 60); do curl -sf -o /dev/null http://localhost:5185/ && break; sleep 1; done
           cd tools && node spoiler-leak.mjs http://localhost:5185/
 
   build:
-    needs: [check]
+    needs: [check, spoiler-leak]
     runs-on: ubuntu-latest
     env:
       # Public by design: the key ships in the browser bundle and MapTiler restricts it by origin.

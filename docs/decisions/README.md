@@ -65,6 +65,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0051 A synopsis for each stop, folded while its episode is read | accepted |
 | 0052 Episodes named by their quoted opening words, and the stop card's two blocks | accepted |
 | 0053 The reader's place in the address and on the device, and "Read on" | accepted |
+| 0054 The spoiler-leak test in two halves: the data at every position, the site in one walk through the book | accepted |
 
 ## Template
 
