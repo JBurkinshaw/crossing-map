@@ -5,7 +5,7 @@ Phase: P1
 
 ## Context
 
-The spoiler-leak test (design section 11) loaded the site at each of ten reading positions, four in CI, and checked everything at each one. CI's four positions took about seven minutes there and 31 minutes on the owner's machine. The owner paused the CI job on 2026-11-14 because it slowed every deploy.
+The spoiler-leak test (design section 11) loaded the site at each of ten reading positions, four in CI, and checked everything at each one. CI's four positions took 11 to 19 minutes there and 31 minutes on the owner's machine. The owner paused the CI job on 2026-11-14 because it slowed every deploy.
 
 Two loops took most of that time. At early positions, the test went to every glyph, landform, pass, water place and vignette first seen later, about 130 places, and waited for the map's tiles at each. At late positions, it stepped through every stop reached, up to 171, so each position checked again the stops the one before had checked. Positions in between, such as 2-01, were never checked.
 
@@ -39,5 +39,12 @@ Every base-map layer is hidden by one filter, `layerFilterUpTo` in `site/src/spo
   | After: the browser half | all 41 episodes, a first visit, and a move back | 220 s |
   | After: the data half, in `npm test` | 43 | under 1 s |
 
-  CI ran the four positions in about seven minutes, so the walk should take about a minute there.
+  In CI the test step is slower and varies from run to run. GitHub's job records give these times for the step:
+
+  | Test | Runs | Test step | Whole job |
+  | --- | --- | --- | --- |
+  | Before: CI's four | `93414f7`, `03e3b16` | 664 s, 1,154 s | 700 s, 1,196 s |
+  | After: the browser half | `9ea36d2`, `ba68c98` | 412 s, 623 s | 452 s, 658 s |
+
+  The walk takes about 40% less time than the four positions did in CI, not the eight-fold cut measured on the owner's machine: CI's runners draw the map more slowly. The job runs beside `check`, so it adds about 7 to 11 minutes to a deploy.
 - `@maplibre/maplibre-gl-style-spec`, which `maplibre-gl` already installs, is now a direct development dependency of the site, pinned to the same version.
