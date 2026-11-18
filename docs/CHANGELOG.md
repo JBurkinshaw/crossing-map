@@ -18,6 +18,8 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- The site remembers your place: the stop in focus is kept in the address, for bookmarks and links, and on your device, so the next visit opens there. A link to a stop you have not reached opens where your own progress puts you (decision 0053).
+- The stop you reached most recently has a "Read on" button that moves your progress on one episode, so you can follow the book without opening "Where are you up to?" (decision 0053).
 - Search finds a Spanish line from any of its words, not only its opening words.
 - The introduction and the About page say that every Spanish line has the site's English, and how to find it.
 - The vignettes draw above the inferred areas' tint, in every view.

@@ -18,9 +18,10 @@ import { TranslationList } from './panel/TranslationList'
 import { usePhone } from './panel/usePhone'
 import { useRoute } from './route'
 import { shownAt, storyUpTo, translationsUpTo } from './spoiler/filter'
-import { reachedEpisode, spoilersHidden, useEpisodes, useProgress } from './spoiler/progress'
+import { nextEpisode, progressLabel, reachedEpisode, spoilersHidden, useEpisodes, useProgress } from './spoiler/progress'
 import { useReadingProgress } from './spoiler/progressDialog'
 import { ProgressBadge, ReadingProgressDialog } from './spoiler/ReadingProgress'
+import { resumeStop } from './spoiler/resume'
 import { byId, roadLabel } from './story/select'
 import { distance, useUnits } from './units'
 import { useRememberedFold } from './panel/folds'
@@ -105,6 +106,8 @@ export default function App() {
   const ref = translation?.location_ref
   const placed = !!ref && (!!byId(flat, 'stops', ref) || selected?.properties.id === ref)
   const stop = stops[stopIndex]
+  // At the stop the reader reached most recently, "Read on" sets progress to the next episode (decision 0053).
+  const next = stop && resumeStop(flat?.stops.features ?? [], progress)?.id === stop.properties.id ? nextEpisode(progress, episodes) : null
   // The road from the current stop to the next, and the lines spoken on it.
   const roadAhead = stop
     ? (flat?.journeys.features as Feature<Geometry, StoryProps>[] | undefined)?.find(
@@ -211,6 +214,8 @@ export default function App() {
           setTranslationId(null)
           nav.showRoad(roadAhead.properties.id)
         }}
+        readOn={next && progressLabel(next, episodes)}
+        onReadOn={() => next && setProgress(next)}
         currentTranslation={translationId}
         onJourney={nav.onJourney}
         onStop={nav.goToStop}

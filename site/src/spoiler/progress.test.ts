@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { badgeLabel, episodeLabel, progressLabel, reachedEpisode, spoilersHidden, type Episode } from './progress'
+import { badgeLabel, episodeLabel, nextEpisode, progressLabel, reachedEpisode, spoilersHidden, type Episode } from './progress'
 
 const episodes: Episode[] = [
   { episode: '1-01', part: 1, opening: 'When they came', words: 1, pages: null, summary: '' },
@@ -12,6 +12,18 @@ describe('reachedEpisode', () => {
     expect(reachedEpisode('none') < '1-01').toBe(true)
     expect(reachedEpisode('all') > '4-14').toBe(true)
     expect(reachedEpisode('2-05')).toBe('2-05')
+  })
+})
+
+describe('nextEpisode', () => {
+  it('reads on into the next episode, across Parts', () => {
+    expect(nextEpisode('1-01', episodes)).toBe('1-02')
+    expect(nextEpisode('1-02', episodes)).toBe('2-01')
+  })
+  it('has nowhere to go from the last episode, not started, or finished', () => {
+    expect(nextEpisode('2-01', episodes)).toBeNull()
+    expect(nextEpisode('none', episodes)).toBeNull()
+    expect(nextEpisode('all', episodes)).toBeNull()
   })
 })
 

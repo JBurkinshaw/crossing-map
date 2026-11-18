@@ -5,6 +5,8 @@ import type { Story, StoryProps } from './data/story'
 import type { Translation } from './data/translations'
 import { isPhone, motion } from './map/setup'
 import type { SearchHit } from './panel/SearchBox'
+import { hashParam } from './route'
+import { savedPlaces, savePlace } from './spoiler/place'
 import type { Progress } from './spoiler/progress'
 import { resumeStop } from './spoiler/resume'
 import { bounds, byId, clickResult, corridorBounds, journeyStops, journeysOf, type MapPick } from './story/select'
@@ -84,18 +86,29 @@ export function useNavigation({ mapRef, story, flat, translations, progress, sho
 
   // Frame the whole journey when the data arrives and whenever the reader switches journey.
   // A shared link with a #map= view keeps its view on first load.
-  const framed = useRef<string | null>(window.location.hash.includes('map=') ? 'from-link' : null)
-  // The progress already turned into a journey and stop. On first load, and whenever the reader sets their
-  // progress to an episode, the stop they reached most recently comes into focus and the map flies to it
-  // (spoiler/resume.ts); not started and finished keep the journey in focus. The link's view still wins on first
-  // load: the stop comes into focus without the map moving. One effect does both this and the framing, so the
-  // framing cannot first fly to the journey the stop replaces.
+  const framed = useRef<string | null>(hashParam('map') ? 'from-link' : null)
+  // The reader's place from the link or their last visit (spoiler/place.ts). It waits for the first story with a
+  // stop in it: a first visit shows none until the reader sets their progress.
+  const saved = useRef(savedPlaces())
+  // The progress already turned into a journey and stop. On first load the reader's saved place comes into focus,
+  // if they have reached it. Otherwise, and whenever the reader sets their progress, the stop they reached most
+  // recently does (spoiler/resume.ts). Not started and finished keep the journey in focus. The map flies to the
+  // stop, but the link's view wins on first load: the stop comes into focus without the map moving. One effect
+  // does both this and the framing, so the framing cannot first fly to the journey the stop replaces.
   const resumed = useRef<Progress | null>(null)
+  // The current stop is the reader's place from then on. This effect runs before the one below in the same
+  // commit, so the opening stop cannot overwrite the saved place before it is restored.
+  const stopId = stops[stopIndex]?.properties.id
+  useEffect(() => {
+    if (resumed.current !== null && stopId) savePlace(stopId)
+  }, [stopId])
   useEffect(() => {
     if (!mapRef.current || !story) return
     if (resumed.current !== progress) {
       resumed.current = progress
-      const at = resumeStop(story.stops.features, progress)
+      const place = saved.current.map((id) => byId(story, 'stops', id)).find((f) => f?.properties.journey)
+      if (story.stops.features.length > 0) saved.current = []
+      const at = place ? { journey: place.properties.journey!, id: place.properties.id } : resumeStop(story.stops.features, progress)
       const list = at ? journeyStops(story, at.journey) : []
       const index = list.findIndex((s) => s.properties.id === at?.id)
       if (at && index >= 0) {
@@ -218,6 +231,7 @@ export function useNavigation({ mapRef, story, flat, translations, progress, sho
     setSelection,
     setTranslationId,
     goToStop,
+    showStop,
     showRoad,
     onMapClick,
     onPick,

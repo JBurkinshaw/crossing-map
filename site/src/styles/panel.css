@@ -615,14 +615,17 @@ button.link:focus-visible,
   font-size: inherit;
 }
 
-/* Talk on the road from the current stop: ruled off from the stop's own lines, with a full-width button. */
-.road-ahead {
+/* Talk on the road from the current stop, and reading on from the last stop reached: each ruled off from the
+   stop's own text, with a full-width button. */
+.road-ahead,
+.read-on {
   margin-top: 14px;
   padding-top: 2px;
   border-top: 1px solid var(--ink-faint);
 }
 
-.road-lines {
+.road-lines,
+.read-on button {
   width: 100%;
   min-height: 44px;
   padding: 6px 10px;
@@ -633,7 +636,8 @@ button.link:focus-visible,
   cursor: pointer;
 }
 
-.road-lines:hover {
+.road-lines:hover,
+.read-on button:hover {
   background: color-mix(in srgb, var(--ink) 8%, transparent);
 }
 

@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { showIntroduction } from '../welcome/showIntroduction'
 import type { Feature, Point } from 'geojson'
 import { JOURNEYS } from '../data/journeys'
@@ -9,7 +9,7 @@ import { TranslationList } from './TranslationList'
 import { distance, type Units } from '../units'
 import type { OpenQuestion } from '../data/openQuestions'
 import { FeatureQuestions } from './OpenQuestions'
-import { progressLabel, type Episode } from '../spoiler/progress'
+import { episodeLabel, progressLabel, type Episode } from '../spoiler/progress'
 import { CERTAINTY_LABEL } from './certainty'
 import { synopsisFolded } from './folds'
 
@@ -40,6 +40,9 @@ type Props = {
   // Lines spoken on the road from the current stop to the next (talk on the road), and how to show that road.
   spokenOnRoad: number
   onShowRoad: () => void
+  // At the stop the reader reached most recently, the next episode's label, and how to set progress to it.
+  readOn: string | null
+  onReadOn: () => void
   currentTranslation: string | null
   onJourney: (journey: string) => void
   onStop: (index: number) => void
@@ -57,7 +60,7 @@ type Props = {
 
 export function Panel(props: Props) {
   const { header, search, card, failed, failures, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
-  const { spokenOnRoad, onShowRoad } = props
+  const { spokenOnRoad, onShowRoad, readOn, onReadOn } = props
   const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement, episodes, reached } = props
   const { spanishOpen, onSpanish } = props
   const stop = stops[stopIndex]
@@ -83,6 +86,14 @@ export function Panel(props: Props) {
     if (!open && picked) setShutOnPick(currentTranslation)
     onSpanish(open)
   }
+  // "Read on" can vanish with the stop it was on, so focus moves to the stop's name once the new episode shows.
+  const heading = useRef<HTMLHeadingElement>(null)
+  const readingOn = useRef(false)
+  useEffect(() => {
+    if (!readingOn.current) return
+    readingOn.current = false
+    heading.current?.focus()
+  }, [reached])
 
   // What the site is, and the two pages a new reader wants first; the footer links hold the rest.
   const siteHeader = (
@@ -132,7 +143,9 @@ export function Panel(props: Props) {
 
   const stopSection = stop && (
     <section className="stop" data-first-seen={stop.properties.first_seen}>
-      <h2>{stop.properties.name}</h2>
+      <h2 ref={heading} tabIndex={-1}>
+        {stop.properties.name}
+      </h2>
       {/* What happens here: the stop's episode and its summary in the faint meta style, written to give nothing away
           past its opening. Then, below a rule, the stop's own synopsis at full ink (decision 0052), which can tell the
           rest of the episode. While that episode is being read the synopsis is folded, and the fold starts closed on
@@ -184,6 +197,21 @@ export function Panel(props: Props) {
           <h3>On the road{next ? ` to ${next.properties.name}` : ''}</h3>
           <button type="button" className="road-lines" onClick={onShowRoad}>
             Show the {spokenOnRoad === 1 ? 'line' : `${spokenOnRoad} lines`} of Spanish on this road, and the road on the map
+          </button>
+        </div>
+      )}
+      {/* The end of what the reader has reached: reading on shows one more episode (decision 0053). */}
+      {readOn && (
+        <div className="read-on">
+          <p className="meta">Finished {episodeLabel(reached)}?</p>
+          <button
+            type="button"
+            onClick={() => {
+              readingOn.current = true
+              onReadOn()
+            }}
+          >
+            Read on: {readOn}
           </button>
         </div>
       )}

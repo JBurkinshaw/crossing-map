@@ -33,6 +33,22 @@ export function useRoute(): Route {
 
 export function mapHref(): string {
   // Opened straight on a page: MapLibre may still have added the camera after the route.
-  const camera = window.location.hash.split('&').find((part) => part.startsWith('map='))
-  return lastMapHash || (camera ? `#${camera}` : '#')
+  const camera = hashParam('map')
+  return lastMapHash || (camera ? `#map=${camera}` : '#')
+}
+
+// The hash's other parts are `name=value` pairs joined by `&`: MapLibre's `map=` camera, and the reader's `stop=`
+// (spoiler/place.ts).
+const hashParts = () => window.location.hash.slice(1).split('&')
+
+export function hashParam(name: string): string | null {
+  const part = hashParts().find((p) => p.startsWith(`${name}=`))
+  return part ? part.slice(name.length + 1) : null
+}
+
+// Sets one pair and keeps the rest. Like MapLibre's camera, it replaces the history entry, which fires no
+// hashchange: Back still leaves the site rather than stepping back through the reader's moves.
+export function setHashParam(name: string, value: string) {
+  const rest = hashParts().filter((p) => p && !p.startsWith(`${name}=`))
+  history.replaceState(history.state, '', `#${[...rest, `${name}=${value}`].join('&')}`)
 }

@@ -157,7 +157,7 @@ Each choice is a record in [`decisions/`](decisions/README.md), checked against 
 | Relief | Vendored hachure generator, S5 style | 0015, 0016 |
 | Views | Flat, Tilted, and Oblique | 0017, 0019 |
 
-State is a `useReducer` plus the URL hash. Search is MiniSearch over places, stops, and translations, built in the browser.
+State is a `useReducer` plus the URL hash, which holds the camera (`map=`) and the reader's stop (`stop=`). Search is MiniSearch over places, stops, and translations, built in the browser.
 
 ### 4.3 The "How it's built" page
 
@@ -321,7 +321,7 @@ The map fills the screen, with a panel docked right on desktop (about 380 px) an
 
 Avoid the kitchen sink (every layer on) and desert fog (an empty view with no cue). Empty desert is part of the book, so every view keeps a faint label or a route.
 
-**Spoiler mode.** On until the reader answers the first-visit question. A header badge always says what is hidden ("Showing everything", "Hiding what's after Part I, episode 5: In the woods", or "Not set") and opens "Where are you up to?". There, "Show everything" asks for confirmation; the first visit's "Yes" does not, as it answers a direct question. Setting progress to an episode brings the stop the reader reached most recently into focus. Progress is stored in `localStorage`.
+**Spoiler mode.** On until the reader answers the first-visit question. A header badge always says what is hidden ("Showing everything", "Hiding what's after Part I, episode 5: In the woods", or "Not set") and opens "Where are you up to?". There, "Show everything" asks for confirmation; the first visit's "Yes" does not, as it answers a direct question. Setting progress to an episode brings the stop the reader reached most recently into focus. Progress is stored in `localStorage`. The stop in focus is the reader's place: it is kept in the address (`#stop=`) and in `localStorage`, and the site opens there if the reader has reached it, else at the stop reached most recently. On that stop, "Read on" sets progress to the next episode (decision 0053).
 
 **Usability targets.** Keyboard-reachable controls, safe-area insets, reduced motion respected, one-handed use on a phone, and smooth panning with every Part I layer on.
 

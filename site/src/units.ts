@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import type { ExpressionSpecification } from 'maplibre-gl'
+import { readStored, store } from './storage'
 
 // Units for distances and heights: miles and feet, or kilometres and metres. The reader's choice is remembered;
 // until then, US English browsers get imperial and everyone else metric.
@@ -10,23 +11,15 @@ const FEET = 3.28084
 const MILE = 1609.344
 
 function initialUnits(): Units {
-  try {
-    const value = localStorage.getItem(KEY)
-    if (value === 'imperial' || value === 'metric') return value
-  } catch {
-    // Storage blocked: fall through to the browser's language.
-  }
+  const value = readStored(KEY)
+  if (value === 'imperial' || value === 'metric') return value
   return /-US$/i.test(navigator.language) ? 'imperial' : 'metric'
 }
 
 export function useUnits(): [Units, (units: Units) => void] {
   const [units, setState] = useState(initialUnits)
   const setUnits = useCallback((next: Units) => {
-    try {
-      localStorage.setItem(KEY, next)
-    } catch {
-      // Storage blocked: the choice lasts for this visit only.
-    }
+    store(KEY, next)
     setState(next)
   }, [])
   return [units, setUnits]

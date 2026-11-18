@@ -64,6 +64,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0047 Spanish word lists for search, and the translations outside CC BY | accepted |
 | 0051 A synopsis for each stop, folded while its episode is read | accepted |
 | 0052 Episodes named by their quoted opening words, and the stop card's two blocks | accepted |
+| 0053 The reader's place in the address and on the device, and "Read on" | accepted |
 
 ## Template
 

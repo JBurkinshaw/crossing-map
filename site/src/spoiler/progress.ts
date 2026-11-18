@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import { useJson, type Loaded } from '../data/json'
+import { readStored, store } from '../storage'
 
 // Reading progress: how far the reader has read, by episode (data/episodes.json). Spoiler mode hides every
 // feature first seen after it (docs/design.md, sections 6 and 9).
@@ -15,24 +16,16 @@ export type Progress = string
 const KEY = 'crossing-map.progress'
 const VALID = /^(none|all|[1-4]-(0[1-9]|1[0-4]))$/
 
-function readStored(): Progress | null {
-  try {
-    const value = localStorage.getItem(KEY)
-    return value && VALID.test(value) ? value : null
-  } catch {
-    return null
-  }
+function storedProgress(): Progress | null {
+  const value = readStored(KEY)
+  return value && VALID.test(value) ? value : null
 }
 
 // Until the reader answers, spoiler mode is on and shows nothing past the start of the book.
 export function useProgress(): { progress: Progress; isSet: boolean; setProgress: (p: Progress) => void } {
-  const [stored, setStored] = useState<Progress | null>(readStored)
+  const [stored, setStored] = useState<Progress | null>(storedProgress)
   const setProgress = useCallback((p: Progress) => {
-    try {
-      localStorage.setItem(KEY, p)
-    } catch {
-      // Private browsing can refuse storage; the setting then lasts for this visit only.
-    }
+    store(KEY, p)
     setStored(p)
   }, [])
   return { progress: stored ?? 'none', isSet: stored !== null, setProgress }
@@ -51,6 +44,13 @@ export function spoilersHidden(progress: Progress, episodes: Episode[]): boolean
   const last = episodes.at(-1)?.episode
   // Compared as episode ids: 'none' itself sorts after every id, so it goes through reachedEpisode.
   return progress !== 'all' && (!last || reachedEpisode(progress) < last)
+}
+
+// The episode after the one being read: what "Read on" sets progress to. Null when not started, finished, or
+// reading the last episode (which already shows everything).
+export function nextEpisode(progress: Progress, episodes: Episode[]): string | null {
+  const i = episodes.findIndex((e) => e.episode === progress)
+  return i < 0 ? null : (episodes[i + 1]?.episode ?? null)
 }
 
 export const PART_NUMERALS = ['', 'I', 'II', 'III', 'IV']
