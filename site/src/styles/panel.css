@@ -194,7 +194,8 @@ details.all-stops {
 }
 
 details.more summary,
-.placement summary {
+.placement summary,
+.synopsis summary {
   min-height: 32px;
   padding: 6px 0;
   box-sizing: border-box;
@@ -202,13 +203,16 @@ details.more summary,
   cursor: pointer;
 }
 
-.placement summary {
+.placement summary,
+.synopsis summary {
   font-style: italic;
   color: var(--ink-faint);
 }
 
 details.more summary:focus-visible,
-.placement summary:focus-visible {
+.placement summary:focus-visible,
+.synopsis summary:focus-visible,
+.spanish-here > summary:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 1px;
 }
@@ -548,6 +552,22 @@ button.link:focus-visible,
 /* The stop's episode, under its name: which Part and episode, then what happens. */
 .stop-episode p {
   margin: 2px 0 6px;
+}
+
+/* The stop's synopsis, under the episode's summary: in full, or folded while its episode is being read. The fold's
+   summary is styled with "How this was placed", the panel's other fold of extra detail. */
+.synopsis p {
+  margin: 2px 0 6px;
+}
+
+/* "Spanish here" folds under its heading: the heading sits inside the summary, beside the disclosure marker. */
+.spanish-here > summary {
+  min-height: 32px;
+  cursor: pointer;
+}
+
+.spanish-here > summary h3 {
+  display: inline;
 }
 
 /* "Spanish here": each line's opening and our English, with its fine print folded under "About this translation". */

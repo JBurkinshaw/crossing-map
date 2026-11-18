@@ -85,6 +85,7 @@ Seven more were settled as built on 2026-11-16, and the packet lists them under 
 - **Stage 1.**
   - Inferred areas are drafts cut from each stop's circle by a rule (decision 0020), waiting for the hand finish in `pipeline/qgis/areas.qgs`. The four low-confidence drafts that miss their pins (the two escarpments, the river camps, the wagon-road crossing) want a look first.
   - The episode summaries are drafts for the owner to edit.
+  - Stop synopses (decision 0051): Part I's 26 are drafts for the owner to edit in `pipeline/seeds/stops.csv`. `review/synopses/part1.csv` marks which of them tell a later turn of their episode. Parts II to IV (145 stops) are not written.
 - **Stage 2.**
   - Where INEGI's or NHD's network breaks, a traced river runs along Natural Earth's line for a stretch. The base build prints the total (816 km, mostly the Fuerte, Rio Grande, and Colorado, far from the story). Joining broken channel ends was measured and dropped (1.6% less). The Río Batepito's 7.8 km above Colonia Morelos remains. A draft check of every river against the valley floor was dropped on 2026-11-16; its script, `private/parked/check_rivers.py`, can be deleted.
   - 60 fps panning on a phone is covered by the owner's phone test (section 1).

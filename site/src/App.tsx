@@ -23,6 +23,7 @@ import { useReadingProgress } from './spoiler/progressDialog'
 import { ProgressBadge, ReadingProgressDialog } from './spoiler/ReadingProgress'
 import { byId, roadLabel } from './story/select'
 import { distance, useUnits } from './units'
+import { useRememberedFold } from './panel/folds'
 
 // The About, How it's built, Data and Credits pages, loaded the first time one opens.
 const Pages = lazy(() => import('./pages/Pages'))
@@ -74,6 +75,8 @@ export default function App() {
   // "How this was placed" stays open or closed as the reader left it, whichever stop or card shows.
   const [placementOpen, setPlacementOpen] = useState(false)
   const [units, setUnits] = useUnits()
+  // "Spanish here" starts closed and then stays as the reader left it, on every stop and on later visits.
+  const [spanishOpen, setSpanishOpen] = useRememberedFold('crossing-map.spanish-here')
   // Phones: the panel is a bottom drawer. It opens half way, so the reading-progress badge and search show.
   const phone = usePhone()
   const [drawer, setDrawer] = useState<DrawerHeight>('half')
@@ -198,6 +201,7 @@ export default function App() {
         journeys={nav.journeys}
         elsewhere={elsewhere}
         episodes={episodesReached}
+        reached={reached}
         stops={stops}
         stopIndex={stopIndex}
         spokenAtStop={listed(stop?.properties.id)}
@@ -212,6 +216,8 @@ export default function App() {
         onStop={nav.goToStop}
         placementOpen={placementOpen}
         onPlacement={setPlacementOpen}
+        spanishOpen={spanishOpen}
+        onSpanish={setSpanishOpen}
         phone={phone}
         drawer={drawer}
         onDrawer={setDrawer}

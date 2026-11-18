@@ -178,6 +178,10 @@
         "note_safe": {"type": "string"},
         "note_full": {"type": ["string", "null"]},
         "reasoning": {"type": ["string", "null"]},
+        "synopsis": {
+          "type": ["string", "null"],
+          "description": "Stops: what happens at the stop, in one to three sentences of the site's own words, up to the end of its episode (decision 0051). Null where none is written yet."
+        },
         "outline_rule": {
           "type": ["string", "null"],
           "description": "Inferred areas: how the outline was drawn. A draft is the stop's area (the ground within uncertainty_m of the pin) cut by a rule to the ground its reasoning describes (crossing.area_drafts, decision 0020); null where nothing cut the area."

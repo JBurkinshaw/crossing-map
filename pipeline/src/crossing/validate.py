@@ -11,6 +11,7 @@ vignette the data names has an icon in the committed sprite, which CI cannot reb
 """
 
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -26,6 +27,7 @@ LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs", "vignettes"
 OBLIQUE_LAYERS = ["places", "stops", "areas", "journeys", "vignettes"]
 MAX_DECIMALS = 5  # about 1 m; docs/design.md, section 6, rounds all coordinates to this
 INCIPIT_WORDS = 5  # the most Spanish words of a line the site may publish (docs/design.md, section 3)
+SYNOPSIS_SENTENCES, SYNOPSIS_WORDS = 3, 70  # a stop's synopsis is a short card text (decision 0051)
 
 
 def load(path: Path):
@@ -70,6 +72,20 @@ def check_layer(doc, layer: str, episodes: set[str]) -> list[str]:
         part, first = p.get("part"), p.get("first_seen")
         if isinstance(part, int) and isinstance(first, str) and first[:1] != str(part):
             errors.append(f"features/{i} ({fid}): part {p['part']} does not match first_seen {p['first_seen']}")
+        if isinstance(p.get("synopsis"), str):
+            errors += [f"features/{i} ({fid}): synopsis {e}" for e in synopsis_errors(p["synopsis"])]
+    return errors
+
+
+def synopsis_errors(text: str) -> list[str]:
+    """What breaks the house rules for a stop's synopsis: its length, and the punctuation the site never uses."""
+    errors = []
+    sentences = len(re.findall(r"[.!?][”’\")\]]*(?=\s|$)", text.strip()))
+    if sentences > SYNOPSIS_SENTENCES:
+        errors.append(f"has {sentences} sentences, more than {SYNOPSIS_SENTENCES}")
+    if len(text.split()) > SYNOPSIS_WORDS:
+        errors.append(f"has {len(text.split())} words, more than {SYNOPSIS_WORDS}")
+    errors += [f"contains {name}" for char, name in (("\u2014", "an em dash"), (";", "a semicolon")) if char in text]
     return errors
 
 

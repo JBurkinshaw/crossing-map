@@ -53,6 +53,24 @@ def test_unknown_episode_is_reported(layers):
     assert any("2-12 is not an episode" in e for e in errors)
 
 
+def test_synopsis_within_the_rules_passes():
+    doc = collection(feature("s1", sequence=1, synopsis="Billy rides south. He crosses the line at noon."))
+    assert validate.check_layer(doc, "stops", EPISODES) == []
+
+
+@pytest.mark.parametrize("text, error", [
+    ("One. Two. Three. Four.", "4 sentences"),
+    ("He says “Go.” She waits. He rides. She follows.", "4 sentences"),
+    (" ".join(["word"] * 71) + ".", "71 words"),
+    ("Billy rides south\u2014alone.", "an em dash"),
+    ("Billy rides south; the wolf follows.", "a semicolon"),
+])
+def test_synopsis_breaking_the_rules_is_reported(text, error):
+    doc = collection(feature("s1", sequence=1, synopsis=text))
+    errors = validate.check_layer(doc, "stops", EPISODES)
+    assert any(error in e for e in errors), errors
+
+
 def test_layer_requires_its_own_properties():
     stop = feature("s1", sequence=1)
     del stop["properties"]["journey"]

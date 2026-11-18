@@ -17,6 +17,8 @@ export type StoryProps = {
   // Absent while spoiler mode is on: spoiler/filter.ts drops it so only note_safe can show.
   note_full?: string | null
   reasoning: string | null
+  // Stops: what happens there, up to the end of the stop's episode (decision 0051); null where none is written yet.
+  synopsis?: string | null
   // Present on some layers only: places and areas have a kind and a role, stops an episode.
   kind?: string
   role?: string | null

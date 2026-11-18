@@ -5944,8 +5944,8 @@
     "journey": "J2",
     "sequence": 4,
     "part": 1,
-    "episode": "1-09",
-    "first_seen": "1-09",
+    "episode": "1-08",
+    "first_seen": "1-08",
     "travel": null,
     "note_safe": "",
     "certainty": "inferred",
@@ -6287,7 +6287,7 @@
    },
    "properties": {
     "id": "j2-seg-06",
-    "name": "The boundary, a monument in sight to Down the Cajón Bonito",
+    "name": "The boundary, a monument in sight to Up the Cajón Bonito",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -6983,7 +6983,7 @@
    },
    "properties": {
     "id": "j2-seg-07",
-    "name": "Down the Cajón Bonito to Passes of the Sierra de la Cabellera",
+    "name": "Up the Cajón Bonito to Passes of the Sierra de la Cabellera",
     "kind": "route-segment",
     "characters": [
      "billy",
@@ -30353,7 +30353,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "With the girl he rides back north the way he came, through Santa Ana and past girls walking to Soto Máynez, reaching La Boquilla after dark (3-12): the same Soto Máynez to Buenaventura road, in INEGI's road network.",
-    "drawn": "Traced along Soto Máynez - Gómez Farías - Buenaventura in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032)."
+    "drawn": "Traced along Soto Máynez - Gómez Farías - Buenaventura in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Soto Máynez - Gómez Farías - Buenaventura. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {

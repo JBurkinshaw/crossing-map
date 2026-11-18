@@ -455,7 +455,8 @@ def build_stops(pins: dict[str, tuple]) -> tuple[list[dict], list[dict], dict[st
             method=method, source=source, source_id=source_id, source_licence=LICENCE[source],
             note_safe="", reasoning=s["reasoning"] or None,
         )
-        stops.append(feature(point(lat, lon), **props))
+        # The synopsis is the stop's alone: the area built from props below does not carry it.
+        stops.append(feature(point(lat, lon), **props, synopsis=s["synopsis"] or None))
         by_journey.setdefault(s["journey"], []).append(props | {"lat": lat, "lon": lon, "travel": s["travel"] or None})
         if s["radius_km"]:
             area = props | {"id": f"area-{s['id']}", "kind": "inferred-area",

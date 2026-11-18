@@ -12,6 +12,9 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 - `translations.json` has a new field, `es_words`: the Spanish words of a long line that its incipit leaves out, in alphabetical order, for search only (decision 0047). 151 lines have one.
 - The English translations, the incipits and the word lists are no longer under CC BY 4.0, because the novel's words and the right to translate them are McCarthy's (decision 0047). The rest of each translation record still is.
+- `stops.geojson` has a new field, `synopsis`: one to three sentences on what happens at the stop, up to the end of its episode (decision 0051). Part I's 26 stops have one, and the rest are `null` for now.
+- The stop `j2-cajon-bonito` is now "Up the Cajón Bonito", because Billy rides south up the trail into the mountains. Its two legs' names follow.
+- The ranch on the volcanic plain (`j2-volcanic-plain-ranch`), its area, and the leg to it now show from 1-08, the episode in which Billy reaches it, not 1-09. The eight Spanish lines spoken there (`tr-1-08-007` to `-014`) now point at the ranch, not at the Guadalupe pass.
 
 #### Site
 
@@ -19,6 +22,8 @@ A change is **released** when it is merged to `main`, which the public site serv
 - The introduction and the About page say that every Spanish line has the site's English, and how to find it.
 - The vignettes draw above the inferred areas' tint, in every view.
 - The Home button is now "Zoom to the current journey", and its icon sits centred.
+- A stop's card adds the stop's own synopsis under its episode's summary. While you are reading that episode, the synopsis is folded under "What happens here", because it can tell what happens later in the episode (decision 0051).
+- "Spanish here" on a stop's card is folded, closed at first. It stays as you leave it, on every stop and on later visits. A line picked in search still opens it.
 
 ### 2026-11-16
 

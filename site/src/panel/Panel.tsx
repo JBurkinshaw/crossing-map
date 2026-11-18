@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { showIntroduction } from '../welcome/showIntroduction'
 import type { Feature, Point } from 'geojson'
 import { JOURNEYS } from '../data/journeys'
@@ -11,6 +11,7 @@ import type { OpenQuestion } from '../data/openQuestions'
 import { FeatureQuestions } from './OpenQuestions'
 import { PART_NUMERALS, type Episode } from '../spoiler/progress'
 import { CERTAINTY_LABEL } from './certainty'
+import { synopsisFolded } from './folds'
 
 type Props = {
   units: Units
@@ -30,6 +31,8 @@ type Props = {
   elsewhere: Elsewhere[]
   // The episodes reached so far: the stop section says what happens in its stop's episode.
   episodes: Episode[]
+  // The episode being read ('9-99' once the book is finished): a stop's synopsis folds while its episode is read.
+  reached: string
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
   // What was said in Spanish at the current stop (less the common lines), and the line picked in search, if any.
@@ -43,6 +46,9 @@ type Props = {
   // Whether "How this was placed" is open: App holds it, so it stays as the reader left it between stops.
   placementOpen: boolean
   onPlacement: (open: boolean) => void
+  // Whether "Spanish here" is open: closed at first, then as the reader left it, on later visits too.
+  spanishOpen: boolean
+  onSpanish: (open: boolean) => void
   // On phones the panel is a bottom drawer (Drawer.tsx) at this height.
   phone: boolean
   drawer: DrawerHeight
@@ -52,12 +58,31 @@ type Props = {
 export function Panel(props: Props) {
   const { header, search, card, failed, failures, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
   const { spokenOnRoad, onShowRoad } = props
-  const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement, episodes } = props
+  const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement, episodes, reached } = props
+  const { spanishOpen, onSpanish } = props
   const stop = stops[stopIndex]
   // The stop's episode: reached, as the stop is, so its summary is safe to show.
   const episode = stop && episodes.find((e) => e.episode === stop.properties.episode)
   // The stop the road from this one leads to.
   const next = stops[stopIndex + 1]
+  const synopsis = stop?.properties.synopsis
+  // A line picked in search opens "Spanish here", whatever the reader left it as, so the line can be seen. The reader
+  // can still close it, and the fold then stays shut for that line.
+  const [shutOnPick, setShutOnPick] = useState<string | null>(null)
+  // A new pick, or the same line picked again after another, opens the fold afresh.
+  const [lastPick, setLastPick] = useState(currentTranslation)
+  if (lastPick !== currentTranslation) {
+    setLastPick(currentTranslation)
+    setShutOnPick(null)
+  }
+  const picked = spokenAtStop.some((t) => t.id === currentTranslation) && shutOnPick !== currentTranslation
+  const spanishShown = spanishOpen || picked
+  // The toggle event also fires when the open prop changes; only a change the reader made is saved.
+  const toggleSpanish = (open: boolean) => {
+    if (open === spanishShown) return
+    if (!open && picked) setShutOnPick(currentTranslation)
+    onSpanish(open)
+  }
 
   // What the site is, and the two pages a new reader wants first; the footer links hold the rest.
   const siteHeader = (
@@ -108,7 +133,10 @@ export function Panel(props: Props) {
   const stopSection = stop && (
     <section className="stop" data-first-seen={stop.properties.first_seen}>
       <h2>{stop.properties.name}</h2>
-      {/* What happens here: the stop's episode and its summary, written to give nothing away past its opening. */}
+      {/* What happens here: the stop's episode and its summary, written to give nothing away past its opening. Then
+          the stop's own synopsis, which can tell the rest of the episode. While that episode is being read the
+          synopsis is folded, and the fold starts closed on every stop (keyed by stop), so each one is the reader's
+          choice (decision 0051). */}
       {episode && (
         <div className="stop-episode" data-first-seen={episode.episode}>
           <p className="meta">
@@ -117,6 +145,15 @@ export function Panel(props: Props) {
           <p>{episode.summary}</p>
         </div>
       )}
+      {synopsis &&
+        (synopsisFolded(stop.properties.first_seen, reached) ? (
+          <details key={stop.properties.id} className="synopsis">
+            <summary>What happens here</summary>
+            <p>{synopsis}</p>
+          </details>
+        ) : (
+          <p className="synopsis">{synopsis}</p>
+        ))}
       {(stop.properties.note_full || stop.properties.note_safe) && <p>{stop.properties.note_full || stop.properties.note_safe}</p>}
       {/* Open or closed as the reader last left it, from stop to stop and journey to journey. */}
       <details className="placement" open={placementOpen} onToggle={(e) => onPlacement(e.currentTarget.open)}>
@@ -133,10 +170,12 @@ export function Panel(props: Props) {
       </details>
       <FeatureQuestions id={stop.properties.id} name={stop.properties.name} questions={questions} />
       {spokenAtStop.length > 0 && (
-        <>
-          <h3>Spanish here</h3>
+        <details className="spanish-here" open={spanishShown} onToggle={(e) => toggleSpanish(e.currentTarget.open)}>
+          <summary>
+            <h3>Spanish here ({spokenAtStop.length})</h3>
+          </summary>
           <TranslationList key={stop.properties.id} items={spokenAtStop} current={currentTranslation} />
-        </>
+        </details>
       )}
       {/* Talk on the road to the next stop: its own block, so it does not run on from the stop's lines above,
           and a button that opens the road's card (only that road's lines) and outlines the road on the map. */}

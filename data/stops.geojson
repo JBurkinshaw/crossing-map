@@ -31,7 +31,8 @@
     "source_id": "9028461",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "This Sierra de la Madera is the Sky Island range in the municipios of Cumpas, Granados, Huásabas, Moctezuma and Villa Hidalgo (Bermudez-Enriquez et al. 2013, USDA RMRS-P-67, who call it Sierra La Madera). GeoNames 9028461 lies between those towns: 27 km east of Cumpas and 21 km west of Huásabas on the Bavispe (pipeline/measure/distances.py). The book puts the wolf on its eastern slopes, then across the Bavispe and north, which fits a range bounded on the east by the river. Readers disagree: Bell (2000) and Joe Hazelton's map take the other Sierra de la Madera, on the upper Bavispe (GeoNames 3996948), 81 km north-east. That range lies east of the river, so from it the wolf would reach the border without crossing the Bavispe, which the text has her do."
+    "reasoning": "This Sierra de la Madera is the Sky Island range in the municipios of Cumpas, Granados, Huásabas, Moctezuma and Villa Hidalgo (Bermudez-Enriquez et al. 2013, USDA RMRS-P-67, who call it Sierra La Madera). GeoNames 9028461 lies between those towns: 27 km east of Cumpas and 21 km west of Huásabas on the Bavispe (pipeline/measure/distances.py). The book puts the wolf on its eastern slopes, then across the Bavispe and north, which fits a range bounded on the east by the river. Readers disagree: Bell (2000) and Joe Hazelton's map take the other Sierra de la Madera, on the upper Bavispe (GeoNames 3996948), 81 km north-east. That range lies east of the river, so from it the wolf would reach the border without crossing the Bavispe, which the text has her do.",
+    "synopsis": "Somewhere in Sonora her mate is caught in a trap and killed by men on horseback, after she refuses to leave him. Alone, she roams the eastern slopes of this range for a week and finds almost nothing to eat."
    }
   },
   {
@@ -64,7 +65,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The book names no crossing point. The Bavispe runs south along the eastern foot of the Sierra de la Madera past Villa Hidalgo, Huásabas and Granados, so a wolf leaving the eastern slopes crosses it there; the point is on INEGI's channel of the river, and the area runs along it towards Granados and Villa Hidalgo. The Bavispe is one river bent into a long U: it flows north past Bacerac, turns west at Colonia Morelos and comes back south here. So her way north to the line at 108°30′ W must cross it a second time, on the eastern arm, which the book does not mention."
+    "reasoning": "The book names no crossing point. The Bavispe runs south along the eastern foot of the Sierra de la Madera past Villa Hidalgo, Huásabas and Granados, so a wolf leaving the eastern slopes crosses it there; the point is on INEGI's channel of the river, and the area runs along it towards Granados and Villa Hidalgo. The Bavispe is one river bent into a long U: it flows north past Bacerac, turns west at Colonia Morelos and comes back south here. So her way north to the line at 108°30′ W must cross it a second time, on the eastern arm, which the book does not mention.",
+    "synopsis": "She crosses the Bavispe and turns north. She is pregnant for the first time, and she is leaving because the other wolves are gone, not the game."
    }
   },
   {
@@ -97,7 +99,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The book gives this exactly. West of 108°12′ W the boundary follows the parallel 31°20′ N (Gadsden Purchase, 1853), so the point is 31.33333 N, 108.5 W."
+    "reasoning": "The book gives this exactly. West of 108°12′ W the boundary follows the parallel 31°20′ N (Gadsden Purchase, 1853), so the point is 31.33333 N, 108.5 W.",
+    "synopsis": "She crosses into New Mexico where the boundary meets this meridian, and a mile on she crosses the old Nations road."
    }
   },
   {
@@ -130,7 +133,8 @@
     "source_id": "896564",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 896564: the only Whitewater Creek between the border point and the San Luis Mountains."
+    "reasoning": "GNIS 896564: the only Whitewater Creek between the border point and the San Luis Mountains.",
+    "synopsis": "She follows the creek west and climbs with it into the San Luis Mountains."
    }
   },
   {
@@ -163,7 +167,8 @@
     "source_id": "920694",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": null,
+    "synopsis": "She crosses the range and goes north through its gap towards the Animas Mountains. The book names the range only in passing."
    }
   },
   {
@@ -196,7 +201,8 @@
     "source_id": "885762",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": null,
+    "synopsis": "She passes through the Animas range on her way north. The book names it only in passing."
    }
   },
   {
@@ -229,7 +235,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The GNIS pin for the valley is 108 km north, at 32.57 N. The stop is where her route from the Animas Mountains to the Peloncillos crosses the valley floor."
+    "reasoning": "The GNIS pin for the valley is 108 km north, at 32.57 N. The stop is where her route from the Animas Mountains to the Peloncillos crosses the valley floor.",
+    "synopsis": "She crosses the valley floor towards the Peloncillos. Later, at night, she comes down onto these plains to run the antelope, watching the herd for a weak one."
    }
   },
   {
@@ -262,7 +269,8 @@
     "source_id": "889164",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 889164 in Hidalgo County; the other two Foster Draws are 158 km and 284 km away."
+    "reasoning": "GNIS 889164 in Hidalgo County; the other two Foster Draws are 158 km and 284 km away.",
+    "synopsis": "After two weeks of living on carrion she pulls down a calf in deep snow where the draw begins, and eats until she can hardly move. She never goes back to a kill, and she now keeps strict rules about roads, rail lines and fences."
    }
   },
   {
@@ -295,7 +303,8 @@
     "source_id": "11603",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS has no Skeleton Creek here; Skeleton Canyon (GNIS 11397) carries its south fork in Cochise County."
+    "reasoning": "GNIS has no Skeleton Creek here; Skeleton Canyon (GNIS 11397) carries its south fork in Cochise County.",
+    "synopsis": "She ranges west into Arizona and crosses the south fork of the creek."
    }
   },
   {
@@ -328,7 +337,8 @@
     "source_id": "11797",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 11797, Cochise County, 6 km from Skeleton Canyon."
+    "reasoning": "GNIS 11797, Cochise County, 6 km from Skeleton Canyon.",
+    "synopsis": "She works west to the head of the canyon, still finding no sign of other wolves."
    }
   },
   {
@@ -361,7 +371,8 @@
     "source_id": "5857",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 5857, Cochise County, 9 km from Starvation Canyon."
+    "reasoning": "GNIS 5857, Cochise County, 9 km from Starvation Canyon.",
+    "synopsis": "She turns south as far as the springs before heading back east. Later Billy tracks her as she crosses back towards Hog Canyon after killing a heifer."
    }
   },
   {
@@ -394,7 +405,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The high country between Clanton Draw (GNIS 887634) and Foster Draw (GNIS 889164), which lie 3 km apart."
+    "reasoning": "The high country between Clanton Draw (GNIS 887634) and Foster Draw (GNIS 889164), which lie 3 km apart.",
+    "synopsis": "Back in the high country she smells another wolf at one of the Parhams' trap sets and spends an hour reading the ground. Over the next day she digs out all eight sets and leaves the traps bare for Billy and his father to find."
    }
   },
   {
@@ -427,7 +439,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Where the trap was set: the vaqueros' noon fire, off the Cloverdale Creek road. In episode 1-08 Billy rides out of Cloverdale at dawn, turns west up the creek road and leaves it about two hours later to cross a pasture to the fire. At a horse's walk that is some 8 to 12 km. In Census TIGER 2023 the road follows the creek for 7 km from Cloverdale, to where Co Rd C106 branches west, and ends 9.6 km out; the point is on the road 8 km from Cloverdale and the area covers its upper reach and the pastures either side. The GNIS point for Cloverdale Creek (887693) lies downstream, east of Cloverdale, which the ride west rules out."
+    "reasoning": "Where the trap was set: the vaqueros' noon fire, off the Cloverdale Creek road. In episode 1-08 Billy rides out of Cloverdale at dawn, turns west up the creek road and leaves it about two hours later to cross a pasture to the fire. At a horse's walk that is some 8 to 12 km. In Census TIGER 2023 the road follows the creek for 7 km from Cloverdale, to where Co Rd C106 branches west, and ends 9.6 km out; the point is on the road 8 km from Cloverdale and the area covers its upper reach and the pastures either side. The GNIS point for Cloverdale Creek (887693) lies downstream, east of Cloverdale, which the ride west rules out.",
+    "synopsis": "She keeps coming back to dig in the ashes of the vaqueros' noon fire, where Billy has buried a trap. One morning she is caught in it by her right forefoot."
    }
   },
   {
@@ -461,7 +474,8 @@
     "source_id": "920578",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": null,
+    "synopsis": "Billy rides out before his father is awake and passes through Cloverdale at first light, then turns west up the creek road to check his set."
    }
   },
   {
@@ -495,7 +509,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The same trap site as the wolf's last stop (J1, stop 13; the reasoning is there): about two hours' ride west up the creek road from Cloverdale."
+    "reasoning": "The same trap site as the wolf's last stop (J1, stop 13; the reasoning is there): about two hours' ride west up the creek road from Cloverdale.",
+    "synopsis": "Billy finds the wolf in the trap and, instead of fetching his father, ropes her, wedges a stick in her jaws and ties her mouth shut. He frees her ruined foot, loses his horse while she fights the rope, and an old rancher in a Model A catches it for him."
    }
   },
   {
@@ -529,7 +544,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "On the creek road: leading the wolf back down it, Billy stops at the crossfence after an hour, with Cloverdale an hour's ride further on, so about halfway, 4 km from Cloverdale by the road (Census TIGER 2023). From there he turns south across open country. The Robertson family ran the Cloverdale Ranch from the early 1900s (Range Magazine, winter 2000, rangemagazine.com/archives/stories/winter00/bootheel.htm), so the fence is likely theirs. GNIS has no Robertson ranch; the area covers the stretch of road the halfway estimate could miss by."
+    "reasoning": "On the creek road: leading the wolf back down it, Billy stops at the crossfence after an hour, with Cloverdale an hour's ride further on, so about halfway, 4 km from Cloverdale by the road (Census TIGER 2023). From there he turns south across open country. The Robertson family ran the Cloverdale Ranch from the early 1900s (Range Magazine, winter 2000, rangemagazine.com/archives/stories/winter00/bootheel.htm), so the fence is likely theirs. GNIS has no Robertson ranch; the area covers the stretch of road the halfway estimate could miss by.",
+    "synopsis": "Leading the wolf home along the road, Billy stops for a long time at the crossfence, an hour short of Cloverdale. Then he turns off the road and heads south across open country towards Mexico."
    }
   },
   {
@@ -563,7 +579,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The east flank of the Guadalupe Mountains (GNIS 920606), where a pass would lead south-west towards the boundary."
+    "reasoning": "The east flank of the Guadalupe Mountains (GNIS 920606), where a pass would lead south-west towards the boundary.",
+    "synopsis": "At midday Billy and the wolf cross a low pass at the eastern end of the Guadalupes and ride down the open valley. Riders far off on the plain pass them by."
    }
   },
   {
@@ -588,8 +605,8 @@
     "sequence": 5,
     "place_ref": null,
     "part": 1,
-    "episode": "1-09",
-    "first_seen": "1-09",
+    "episode": "1-08",
+    "first_seen": "1-08",
     "certainty": "inferred",
     "uncertainty_m": 8000.0,
     "method": "schematic",
@@ -597,7 +614,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Past the Guadalupe pass and before the boundary. The book crosses a broad volcanic plain here. The Geronimo–San Bernardino volcanic field covers the northern San Bernardino Valley in basalt, from Cochise County into Hidalgo County and Sonora (New Mexico Geological Society guidebook; Arizona Geological Survey), which is the ground south-west of the pass. The ranch house itself is unnamed."
+    "reasoning": "Past the Guadalupe pass and before the boundary. The book crosses a broad volcanic plain here. The Geronimo–San Bernardino volcanic field covers the northern San Bernardino Valley in basalt, from Cochise County into Hidalgo County and Sonora (New Mexico Geological Society guidebook; Arizona Geological Survey), which is the ground south-west of the pass. The ranch house itself is unnamed.",
+    "synopsis": "At a ranch on the last fence before the line, three hounds rush the wolf and Billy's horse bolts. The rancher shuts her in the smokehouse, feeds Billy supper, and has an old Mexican stitch and dress her leg. Billy leaves at dark with food, a blanket and a collar bearing the rancher's name."
    }
   },
   {
@@ -631,7 +649,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Boundary monuments stand along 31°20′ N here. The area covers the stretch south of the volcanic plain and north of the Cajón Bonito."
+    "reasoning": "Boundary monuments stand along 31°20′ N here. The area covers the stretch south of the volcanic plain and north of the Cajón Bonito.",
+    "synopsis": "Billy camps in sleet south of a pass, and in the morning he feels the pups move inside her. Near noon they cross into Sonora, with a concrete boundary marker standing off to the east."
    }
   },
   {
@@ -645,7 +664,7 @@
    },
    "properties": {
     "id": "j2-cajon-bonito",
-    "name": "Down the Cajón Bonito",
+    "name": "Up the Cajón Bonito",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -665,7 +684,8 @@
     "source_id": "4016262",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The book spells it Cajon Bonita. GeoNames 4016262, the Cajón Bonito nearest the boundary; the other two are 89 km and 122 km away."
+    "reasoning": "The book spells it Cajon Bonita. GeoNames 4016262, the Cajón Bonito nearest the boundary; the other two are 89 km and 122 km away.",
+    "synopsis": "On the main trail south Billy passes a ruined waystation, and that night he finds the wolf has slipped her mouth ties, so he cuts her a muzzle from saddle leather. Her scent stampedes a burro train, an old woman and a girl warn him she will need her mouth free when the pups come, and five armed riders try to buy her."
    }
   },
   {
@@ -699,7 +719,8 @@
     "source_id": "4016437",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": null,
+    "synopsis": "Snow lies in the high passes, printed with the tracks of travellers who leave the trail when a rider comes. Billy camps in a stone ravine, and next day from a gap above the Bavispe valley he shares a meal with Indian miners carrying a dead companion home."
    }
   },
   {
@@ -733,7 +754,8 @@
     "source_id": "4013341",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 4013341 (named Oaxaca), on the Bavispe 19 km from Colonia Morelos. Colonia Oaxaca (El Marquesote) in Chihuahua, 89 km east, is a different place."
+    "reasoning": "GeoNames 4013341 (named Oaxaca), on the Bavispe 19 km from Colonia Morelos. Colonia Oaxaca (El Marquesote) in Chihuahua, 89 km east, is a different place.",
+    "synopsis": "Billy tries to swim the wolf across the Bavispe towards the Pilares Teras, but the current and the muzzle nearly drown her and his horse gets away. Two armed men watch from the gravel bar, ask for his papers, and take him downriver."
    }
   },
   {
@@ -767,7 +789,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Unnamed. Between the crossing at Colonia Oaxaca and Colonia Morelos. The pin is on the Bavispe's valley floor, the ground the area is drawn on."
+    "reasoning": "Unnamed. Between the crossing at Colonia Oaxaca and Colonia Morelos. The pin is on the Bavispe's valley floor, the ground the area is drawn on.",
+    "synopsis": "In a crumbling settlement of mud houses the alguacil seizes the wolf as contraband and lets Billy go because of his age. A deputy hauls her off in a mule cart, and Billy learns from the people following it that she is bound for the fair at Morelos."
    }
   },
   {
@@ -801,7 +824,8 @@
     "source_id": "4013350",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": null,
+    "synopsis": "Billy reaches the old Mormon town with the fairgoers and finds the wolf chained in a cart under a sheet, shown for ten centavos. The man at the tent lets him in free, and Billy promises her he will take her to the mountains. Then the alguacil's hunting party rides into town and the cart is hurried away."
    }
   },
   {
@@ -835,7 +859,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Unnamed in the book. The text sets it on flat ground beside the Batopito River, with the road on the other side (1-10): the Batepito stream near Colonia Morelos (GeoNames 4017287), 1.7 km from the estimate. The area is bounded by the reach within a day of Morelos and the Pilares Teras. Bell 2000 (p. 107) also puts the hacienda on this river."
+    "reasoning": "Unnamed in the book. The text sets it on flat ground beside the Batopito River, with the road on the other side (1-10): the Batepito stream near Colonia Morelos (GeoNames 4017287), 1.7 km from the estimate. The area is bounded by the reach within a day of Morelos and the Pilares Teras. Bell 2000 (p. 107) also puts the hacienda on this river.",
+    "synopsis": "Billy follows the hunting party to a hacienda on the Batopito, where the wolf is set to fight relays of dogs in a pit. He walks in, pulls the dogs off and claims her, but is forced at gunpoint to chain her again. He rides away, turns back, shoots her himself, and trades his rifle for her body."
    }
   },
   {
@@ -869,7 +894,8 @@
     "source_id": "8688585",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The range point, GeoNames 8688585, Serranía Pilares de Teras, inside the Bavispe's great bend south of Colonia Morelos; the book does not say where Billy enters the range."
+    "reasoning": "The range point, GeoNames 8688585, Serranía Pilares de Teras, inside the Bavispe's great bend south of Colonia Morelos; the book does not say where Billy enters the range.",
+    "synopsis": "Billy fords the river after dark with the wolf's body across his saddle and rides west all night, singing. At the foot of the Pilares he washes the blood out of the sheet and waits by a fire for daylight to bury her."
    }
   },
   {
@@ -902,7 +928,8 @@
     "source_id": "8688585",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Part II opens where Part I ended: he took the dead wolf up into the range and laid her under a pile of loose rock in a high pass. The book does not say which pass; the pin is the range."
+    "reasoning": "Part II opens where Part I ended: he took the dead wolf up into the range and laid her under a pile of loose rock in a high pass. The book does not say which pass; the pin is the range.",
+    "synopsis": null
    }
   },
   {
@@ -935,7 +962,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Two days later, from a promontory, he sees the Bavispe seeming to flow the wrong way and realises that his ride has brought him back over the range to the reach where the river flows north, east of the Sierras. That north-running reach is the upper Bavispe between Bacerac and Bavispe town, so the promontory is on the sierra's eastern edge above it; the area covers that edge."
+    "reasoning": "Two days later, from a promontory, he sees the Bavispe seeming to flow the wrong way and realises that his ride has brought him back over the range to the reach where the river flows north, east of the Sierras. That north-running reach is the upper Bavispe between Bacerac and Bavispe town, so the promontory is on the sierra's eastern edge above it; the area covers that edge.",
+    "synopsis": null
    }
   },
   {
@@ -968,7 +996,8 @@
     "source_id": "4007229",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "A week later he rides, ragged and starving, into the mining town of El Tigre, where a woman feeds him. GeoNames 4007229 is the old silver camp in the Sierra El Tigre, 27.1 km straight-line south of Colonia Morelos (pyproj, WGS 84)."
+    "reasoning": "A week later he rides, ragged and starving, into the mining town of El Tigre, where a woman feeds him. GeoNames 4007229 is the old silver camp in the Sierra El Tigre, 27.1 km straight-line south of Colonia Morelos (pyproj, WGS 84).",
+    "synopsis": null
    }
   },
   {
@@ -1001,7 +1030,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He wanders the high country for weeks and Indians feed him; the book names no range or camp. The area covers the Sierra El Tigre country south of the mining town and west of the upper Bavispe, between his stop at El Tigre and his descent to the river."
+    "reasoning": "He wanders the high country for weeks and Indians feed him; the book names no range or camp. The area covers the Sierra El Tigre country south of the mining town and west of the upper Bavispe, between his stop at El Tigre and his descent to the river.",
+    "synopsis": null
    }
   },
   {
@@ -1034,7 +1064,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "From the eastern escarpment he looks east over the Bavispe's barranca to the Carretas Plain beyond, then goes down, sleeps by the river and rides north along the river track to a ford. So the escarpment is on the sierra's eastern edge upriver (south) of Huisiachepic; the area is set south-west of the Huisiachepic estimate."
+    "reasoning": "From the eastern escarpment he looks east over the Bavispe's barranca to the Carretas Plain beyond, then goes down, sleeps by the river and rides north along the river track to a ford. So the escarpment is on the sierra's eastern edge upriver (south) of Huisiachepic; the area is set south-west of the Huisiachepic estimate.",
+    "synopsis": null
    }
   },
   {
@@ -1067,7 +1098,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "No gazetteer or source has Huisiachepic (see docs/open-questions.md). The text puts it across a ford on the upper Bavispe, reached by riding north along the river, and several days upriver (south) of Tamichopa. The pin is on the upper Bavispe's main stem (INEGI), at the point of the river nearest the midpoint of the reach between Mesa Tres Ríos and Huachinera; that midpoint is 28.2 km straight-line south of Tamichopa."
+    "reasoning": "No gazetteer or source has Huisiachepic (see docs/open-questions.md). The text puts it across a ford on the upper Bavispe, reached by riding north along the river, and several days upriver (south) of Tamichopa. The pin is on the upper Bavispe's main stem (INEGI), at the point of the river nearest the midpoint of the reach between Mesa Tres Ríos and Huachinera; that midpoint is 28.2 km straight-line south of Tamichopa.",
+    "synopsis": null
    }
   },
   {
@@ -1100,7 +1132,8 @@
     "source_id": "3982557",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He passes through Tamichopa riding north; the text gives its history (burned by Apaches in 1758)."
+    "reasoning": "He passes through Tamichopa riding north; the text gives its history (burned by Apaches in 1758).",
+    "synopsis": null
    }
   },
   {
@@ -1133,7 +1166,8 @@
     "source_id": "4017806",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He is fed and lodged at Bacerac; the text gives its old name, Santa María, founded 1642."
+    "reasoning": "He is fed and lodged at Bacerac; the text gives its old name, Santa María, founded 1642.",
+    "synopsis": null
    }
   },
   {
@@ -1166,7 +1200,8 @@
     "source_id": "4017239",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides through Bavispe, the earthquake town of the heretic's tale, without stopping."
+    "reasoning": "He rides through Bavispe, the earthquake town of the heretic's tale, without stopping.",
+    "synopsis": null
    }
   },
   {
@@ -1199,7 +1234,8 @@
     "source_id": "4013341",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He halts by the house of the alguacil who arrested him in Part I, spits, and rides on."
+    "reasoning": "He halts by the house of the alguacil who arrested him in Part I, spits, and rides on.",
+    "synopsis": null
    }
   },
   {
@@ -1232,7 +1268,8 @@
     "source_id": "4013350",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He passes through Colonia Morelos going north."
+    "reasoning": "He passes through Colonia Morelos going north.",
+    "synopsis": null
    }
   },
   {
@@ -1265,7 +1302,8 @@
     "source_id": "3990426",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He takes the road north towards Ojito. GeoNames 3990426 El Ojito is 7 km north of Colonia Morelos on the road to the border (see the place's reasoning)."
+    "reasoning": "He takes the road north towards Ojito. GeoNames 3990426 El Ojito is 7 km north of Colonia Morelos on the road to the border (see the place's reasoning).",
+    "synopsis": null
    }
   },
   {
@@ -1298,7 +1336,8 @@
     "source_id": "4069",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He crosses back into the United States at Douglas, where the guard John Gilchrist lends him a half dollar."
+    "reasoning": "He crosses back into the United States at Douglas, where the guard John Gilchrist lends him a half dollar.",
+    "synopsis": null
    }
   },
   {
@@ -1331,7 +1370,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names carved in the rock, and looks down on the Animas Plain at dusk. The book does not name the pass; the old Douglas to Cloverdale road is today's Geronimo Trail (Census TIGER 2023), north of the low pass of J2. The pin is the trail's highest point over the range (pipeline/measure/road_points.py), and the area follows the road."
+    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names carved in the rock, and looks down on the Animas Plain at dusk. The book does not name the pass; the old Douglas to Cloverdale road is today's Geronimo Trail (Census TIGER 2023), north of the low pass of J2. The pin is the trail's highest point over the range (pipeline/measure/road_points.py), and the area follows the road.",
+    "synopsis": null
    }
   },
   {
@@ -1364,7 +1404,8 @@
     "source_id": "920578",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He reaches the house at midnight and finds it empty (2-04); the bloodstain is found in 2-05. The stop is dated 2-05, so the empty house does not show while the reader is still in 2-04. The family's house is at Cloverdale, as in Part I."
+    "reasoning": "He reaches the house at midnight and finds it empty (2-04); the bloodstain is found in 2-05. The stop is dated 2-05, so the empty house does not show while the reader is still in 2-04. The family's house is at Cloverdale, as in Part I.",
+    "synopsis": null
    }
   },
   {
@@ -1397,7 +1438,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Old man Sanders and Leona tell him what happened (2-04). The stop is dated 2-05 with the Parham house before it, so neither shows while the reader is still in 2-04. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is the point nine miles (14.5 km) along the Animas Valley road north from Cloverdale (Census TIGER 2023; pipeline/measure/road_points.py)."
+    "reasoning": "Old man Sanders and Leona tell him what happened (2-04). The stop is dated 2-05 with the Parham house before it, so neither shows while the reader is still in 2-04. No source names an SK Bar ranch (see docs/open-questions.md); the text puts it nine miles north of the Parham house by road, so the estimate is the point nine miles (14.5 km) along the Animas Valley road north from Cloverdale (Census TIGER 2023; pipeline/measure/road_points.py).",
+    "synopsis": null
    }
   },
   {
@@ -1430,7 +1472,8 @@
     "source_id": "885759",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He fills his canteen at the store in Animas."
+    "reasoning": "He fills his canteen at the store in Animas.",
+    "synopsis": null
    }
   },
   {
@@ -1463,7 +1506,8 @@
     "source_id": "891335",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He tells the sheriff at Lordsburg, and learns Boyd is staying on the east side of town."
+    "reasoning": "He tells the sheriff at Lordsburg, and learns Boyd is staying on the east side of town.",
+    "synopsis": null
    }
   },
   {
@@ -1496,7 +1540,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Boyd is lodging with the Websters on the east side of Lordsburg; the book gives no street. The area covers the east side of town."
+    "reasoning": "Boyd is lodging with the Websters on the east side of Lordsburg; the book gives no street. The area covers the east side of town.",
+    "synopsis": null
    }
   },
   {
@@ -1530,7 +1575,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The brothers leave the Websters' with the shotgun, money and food, and cross the Southern Pacific tracks out of Lordsburg."
+    "reasoning": "The brothers leave the Websters' with the shotgun, money and food, and cross the Southern Pacific tracks out of Lordsburg.",
+    "synopsis": null
    }
   },
   {
@@ -1564,7 +1610,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They camp on alkali flats the text puts fifteen miles west of Lordsburg, burning fenceposts. Fifteen miles due west of Lordsburg (pyproj, WGS 84) falls on the playa west of town; the area allows for the direction."
+    "reasoning": "They camp on alkali flats the text puts fifteen miles west of Lordsburg, burning fenceposts. Fifteen miles due west of Lordsburg (pyproj, WGS 84) falls on the playa west of town; the area allows for the direction.",
+    "synopsis": null
    }
   },
   {
@@ -1598,7 +1645,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They cross a low range and descend into the San Simon Valley where it comes down from the north, and noon at the river under cottonwoods. GNIS pins the valley 54 km north of Bowie, so the stop is a point on the San Simon River between the state line and San Simon town (see the place's reasoning). The pin is on the river itself (NHD)."
+    "reasoning": "They cross a low range and descend into the San Simon Valley where it comes down from the north, and noon at the river under cottonwoods. GNIS pins the valley 54 km north of Bowie, so the stop is a point on the San Simon River between the state line and San Simon town (see the place's reasoning). The pin is on the river itself (NHD).",
+    "synopsis": null
    }
   },
   {
@@ -1632,7 +1680,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "That evening they cross the highway just past Bowie, on its east side, and pick up an old southbound road into the Dos Cabezas."
+    "reasoning": "That evening they cross the highway just past Bowie, on its east side, and pick up an old southbound road into the Dos Cabezas.",
+    "synopsis": null
    }
   },
   {
@@ -1666,7 +1715,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They follow an old road southward into the Dos Cabezas and make camp. The old road south from Bowie is today's Apache Pass Road (Census TIGER 2023). The book does not say how far they rode before camping, so the pin is where the road climbs into the foothills, 12.4 km south of the Bowie stop (pipeline/measure/road_points.py), with a wide area."
+    "reasoning": "They follow an old road southward into the Dos Cabezas and make camp. The old road south from Bowie is today's Apache Pass Road (Census TIGER 2023). The book does not say how far they rode before camping, so the pin is where the road climbs into the foothills, 12.4 km south of the Bowie stop (pipeline/measure/road_points.py), with a wide area.",
+    "synopsis": null
    }
   },
   {
@@ -1700,7 +1750,8 @@
     "source_id": "732",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "They cross the high gap at Apache Pass the next day; Billy points out Mexico."
+    "reasoning": "They cross the high gap at Apache Pass the next day; Billy points out Mexico.",
+    "synopsis": null
    }
   },
   {
@@ -1734,7 +1785,8 @@
     "source_id": "4408",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "By midday next day they reach route 666 and keep to the paved highway as it runs south through Elfrida and out of the Sulphur Springs Valley."
+    "reasoning": "By midday next day they reach route 666 and keep to the paved highway as it runs south through Elfrida and out of the Sulphur Springs Valley.",
+    "synopsis": null
    }
   },
   {
@@ -1768,7 +1820,8 @@
     "source_id": "7855",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "They ride through McNeal on route 666."
+    "reasoning": "They ride through McNeal on route 666.",
+    "synopsis": null
    }
   },
   {
@@ -1802,7 +1855,8 @@
     "source_id": "4069",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "They return through Douglas heading south; Billy repays Gilchrist's half dollar through another guard."
+    "reasoning": "They return through Douglas heading south; Billy repays Gilchrist's half dollar through another guard.",
+    "synopsis": null
    }
   },
   {
@@ -1836,7 +1890,8 @@
     "source_id": "4019260",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Ice cream, supplies, and their money changed to pesos."
+    "reasoning": "Ice cream, supplies, and their money changed to pesos.",
+    "synopsis": null
    }
   },
   {
@@ -1870,7 +1925,8 @@
     "source_id": "3990426",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They stop at Ojito in the evening and ask for food."
+    "reasoning": "They stop at Ojito in the evening and ask for food.",
+    "synopsis": null
    }
   },
   {
@@ -1904,7 +1960,8 @@
     "source_id": "4013350",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They pass Colonia Morelos after midnight."
+    "reasoning": "They pass Colonia Morelos after midnight.",
+    "synopsis": null
    }
   },
   {
@@ -1938,7 +1995,8 @@
     "source_id": "4017806",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "A week into Mexico, after passing one mud town after another along the river, they reach Bacerac, where they find the one-eyed horse Keno."
+    "reasoning": "A week into Mexico, after passing one mud town after another along the river, they reach Bacerac, where they find the one-eyed horse Keno.",
+    "synopsis": null
    }
   },
   {
@@ -1972,7 +2030,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "From Bacerac a rough trail climbs through pine and scrub oak; the next morning, within an hour of setting out, they reach the eastern rim of the escarpment and watch the sun come up over the plains of Chihuahua. The book names no pass; the area is on the eastern edge of the sierra on the line from Bacerac to Colonia Juárez (82.4 km apart)."
+    "reasoning": "From Bacerac a rough trail climbs through pine and scrub oak; the next morning, within an hour of setting out, they reach the eastern rim of the escarpment and watch the sun come up over the plains of Chihuahua. The book names no pass; the area is on the eastern edge of the sierra on the line from Bacerac to Colonia Juárez (82.4 km apart).",
+    "synopsis": null
    }
   },
   {
@@ -2006,7 +2065,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Below the rim they cross prairie to a ciénega where Tarahumaras afoot are watering, headed back into the sierras. The area covers the plain between the escarpment and Colonia Juárez."
+    "reasoning": "Below the rim they cross prairie to a ciénega where Tarahumaras afoot are watering, headed back into the sierras. The area covers the plain between the escarpment and Colonia Juárez.",
+    "synopsis": null
    }
   },
   {
@@ -2040,7 +2100,8 @@
     "source_id": "4003756",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They reach the Mormon settlement in the late afternoon and pick apples in the orchards."
+    "reasoning": "They reach the Mormon settlement in the late afternoon and pick apples in the orchards.",
+    "synopsis": null
    }
   },
   {
@@ -2074,7 +2135,8 @@
     "source_id": "4015076",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They cross the Casas Grandes River on a plank bridge, pass the ruins and the railway, and in town find the ganadero's office, Soto y Gillian."
+    "reasoning": "They cross the Casas Grandes River on a plank bridge, pass the ruins and the railway, and in town find the ganadero's office, Soto y Gillian.",
+    "synopsis": null
    }
   },
   {
@@ -2108,7 +2170,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Riding south on the road towards San Diego they see a fire in a grove of oaks east of the road, where two men hold “the girl”; Boyd stampedes their horses. The area is east of the road between Casas Grandes and San Diego (15.8 km apart)."
+    "reasoning": "Riding south on the road towards San Diego they see a fire in a grove of oaks east of the road, where two men hold “the girl”; Boyd stampedes their horses. The area is east of the road between Casas Grandes and San Diego (15.8 km apart).",
+    "synopsis": null
    }
   },
   {
@@ -2142,7 +2205,8 @@
     "source_id": "3987333",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "In the evening they reach the hacienda of San Diego, on a hill above tilled lands running to the Casas Grandes and the Piedras Verdes."
+    "reasoning": "In the evening they reach the hacienda of San Diego, on a hill above tilled lands running to the Casas Grandes and the Piedras Verdes.",
+    "synopsis": null
    }
   },
   {
@@ -2176,7 +2240,8 @@
     "source_id": "3975330",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The opera caravans leave the hacienda by the road south to Mata Ortiz, Las Varas and Babícora, and two days later the brothers and “the girl” ride south the same way, nooning by the river. Mata Ortiz is the first town on that road, 7 km south of the hacienda."
+    "reasoning": "The opera caravans leave the hacienda by the road south to Mata Ortiz, Las Varas and Babícora, and two days later the brothers and “the girl” ride south the same way, nooning by the river. Mata Ortiz is the first town on that road, 7 km south of the hacienda.",
+    "synopsis": null
    }
   },
   {
@@ -2210,7 +2275,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Late in the day they come on the troupe's wagons halted in a roadside field on the Madera road, a few miles below Las Varas, with a dead mule on the road nearby. The estimate is centred 5 km (about three miles) from Las Varas towards Madera, on the bearing between the two towns (200 degrees, pyproj, WGS 84)."
+    "reasoning": "Late in the day they come on the troupe's wagons halted in a roadside field on the Madera road, a few miles below Las Varas, with a dead mule on the road nearby. The estimate is centred 5 km (about three miles) from Las Varas towards Madera, on the bearing between the two towns (200 degrees, pyproj, WGS 84).",
+    "synopsis": null
    }
   },
   {
@@ -2244,7 +2310,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They camp in an oak grove by a river, then leave the dirt road for a path past a pepper field and an irrigation ditch to a ford where boys are swimming. The book names neither the river nor a town; the area covers the country along the road between the opera camp and Madera."
+    "reasoning": "They camp in an oak grove by a river, then leave the dirt road for a path past a pepper field and an irrigation ditch to a ford where boys are swimming. The book names neither the river nor a town; the area covers the country along the road between the opera camp and Madera.",
+    "synopsis": null
    }
   },
   {
@@ -2278,7 +2345,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east towards Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason."
+    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east towards Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason.",
+    "synopsis": null
    }
   },
   {
@@ -2312,7 +2380,8 @@
     "source_id": "4006519",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Two days without food, they cross the railway tracks into Las Varas, pass the maize warehouses and the station, and eat at a café."
+    "reasoning": "Two days without food, they cross the railway tracks into Las Varas, pass the maize warehouses and the station, and eat at a café.",
+    "synopsis": null
    }
   },
   {
@@ -2346,7 +2415,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "In the evening, on the road east to La Boquilla, they meet about a thousand steers being trailed from La Quemada to the pens at Naco; after dark they pass a hamlet of log houses on the high plain. The area is on the road between Las Varas and the Babícora lake."
+    "reasoning": "In the evening, on the road east to La Boquilla, they meet about a thousand steers being trailed from La Quemada to the pens at Naco; after dark they pass a hamlet of log houses on the high plain. The area is on the road between Las Varas and the Babícora lake.",
+    "synopsis": null
    }
   },
   {
@@ -2380,7 +2450,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Next morning two young vaqueros drive their own horses up from a high-country laguna south of the road, and the brothers rope Niño and Bailey. The laguna is the Babícora lake (GeoNames 4017246, 29.35 N, 107.83 W); the area is on the road north of it, and the pin on the line of the road (a straight line from Las Varas to La Boquilla stands in for the old road)."
+    "reasoning": "Next morning two young vaqueros drive their own horses up from a high-country laguna south of the road, and the brothers rope Niño and Bailey. The laguna is the Babícora lake (GeoNames 4017246, 29.35 N, 107.83 W); the area is on the road north of it, and the pin on the line of the road (a straight line from Las Varas to La Boquilla stands in for the old road).",
+    "synopsis": null
    }
   },
   {
@@ -2414,7 +2485,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "At noon, with the walls of the hacienda in the distance and the lake to the south, riders led by a one-armed man block the road and take the horses. The area is on the road west of La Boquilla, east of the lake."
+    "reasoning": "At noon, with the walls of the hacienda in the distance and the lake to the south, riders led by a one-armed man block the road and take the horses. The area is on the road west of La Boquilla, east of the lake.",
+    "synopsis": null
    }
   },
   {
@@ -2448,7 +2520,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They ride back west for an hour to where the tracks leave the road above the lake and follow them north all afternoon, sighting the riders at twilight, and camp in a swale. The area is north of the lake."
+    "reasoning": "They ride back west for an hour to where the tracks leave the road above the lake and follow them north all afternoon, sighting the riders at twilight, and camp in a swale. The area is north of the lake.",
+    "synopsis": null
    }
   },
   {
@@ -2482,7 +2555,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Next day they reach an east-west road, follow it east to a crossroads where a track comes down from the mountains to the north, and Quijada, superintendent of the Nahuerichic division, leads them up the road to the remuda and lets Boyd cut out three horses. The book gives no distances; the area is north-east of the tracking camp."
+    "reasoning": "Next day they reach an east-west road, follow it east to a crossroads where a track comes down from the mountains to the north, and Quijada, superintendent of the Nahuerichic division, leads them up the road to the remuda and lets Boyd cut out three horses. The book gives no distances; the area is north-east of the tracking camp.",
+    "synopsis": null
    }
   },
   {
@@ -2516,7 +2590,8 @@
     "source_id": "8749710",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After a night at a stone tank with a windmill on the high prairie (3-05), they ride into La Boquilla at noon and buy rope; in the alameda the manco's horse falls back on him (3-07)."
+    "reasoning": "After a night at a stone tank with a windmill on the high prairie (3-05), they ride into La Boquilla at noon and buy rope; in the alameda the manco's horse falls back on him (3-07).",
+    "synopsis": null
    }
   },
   {
@@ -2550,7 +2625,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "About a mile above the town they turn off the road and head west to a river with nine horses, turning the Boquilla horses back. The book does not name the river; the area is north-west of La Boquilla."
+    "reasoning": "About a mile above the town they turn off the road and head west to a river with nine horses, turning the Boquilla horses back. The book does not name the river; the area is north-west of La Boquilla.",
+    "synopsis": null
    }
   },
   {
@@ -2584,7 +2660,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They cross the river upcountry, ride all night through open country away from it, and make a dry camp towards morning in a burned grove on a rise a mile west of the river. The area is between La Boquilla and San José, which are 48 km apart (bearing 340 degrees)."
+    "reasoning": "They cross the river upcountry, ride all night through open country away from it, and make a dry camp towards morning in a burned grove on a rise a mile west of the river. The area is between La Boquilla and San José, which are 48 km apart (bearing 340 degrees).",
+    "synopsis": null
    }
   },
   {
@@ -2618,7 +2695,8 @@
     "source_id": "3974647",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Next morning they head north, cross the river, find no road and follow the river north to the pueblito of San José, where a woman feeds them. The pick is a best fit (see the place's reasoning and docs/open-questions.md)."
+    "reasoning": "Next morning they head north, cross the river, find no road and follow the river north to the pueblito of San José, where a woman feeds them. The pick is a best fit (see the place's reasoning and docs/open-questions.md).",
+    "synopsis": null
    }
   },
   {
@@ -2652,7 +2730,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They camp in a cottonwood grove by the river near San José. At dawn five riders come upriver on the far bank and Boyd is shot from across the river. The book gives no distance from the pueblito; the area is around it."
+    "reasoning": "They camp in a cottonwood grove by the river near San José. At dawn five riders come upriver on the far bank and Boyd is shot from across the river. The book gives no distance from the pueblito; the area is around it.",
+    "synopsis": null
    }
   },
   {
@@ -2686,7 +2765,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Billy rides double with Boyd into open country, sees a vehicle crossing in the distance, and on the dirt road meets a flatbed truck of farmworkers coming from the south; they lift Boyd aboard and it goes on north. The area is between the river camp and the main road north to Mata Ortiz."
+    "reasoning": "Billy rides double with Boyd into open country, sees a vehicle crossing in the distance, and on the dirt road meets a flatbed truck of farmworkers coming from the south; they lift Boyd aboard and it goes on north. The area is between the river camp and the main road north to Mata Ortiz.",
+    "synopsis": null
    }
   },
   {
@@ -2720,7 +2800,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Alone, Billy leads his horse up an arroyo, sees a light far to the north at dusk and goes towards it; near midnight he reaches a fence, turns east to a gate and rides up a clay track to a lone house, where the blind man and his wife take him in. The area is north of the shooting, about a day and a half south of Mata Ortiz by the text's timing."
+    "reasoning": "Alone, Billy leads his horse up an arroyo, sees a light far to the north at dusk and goes towards it; near midnight he reaches a fence, turns east to a gate and rides up a clay track to a lone house, where the blind man and his wife take him in. The area is north of the shooting, about a day and a half south of Mata Ortiz by the text's timing.",
+    "synopsis": null
    }
   },
   {
@@ -2754,7 +2835,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Next morning he rides north along the road and before noon strikes the main road north to Casas Grandes at an empty desert crossroads; he sleeps in a field near the river breaks and rides on in rain. The area is on the road south of Mata Ortiz."
+    "reasoning": "Next morning he rides north along the road and before noon strikes the main road north to Casas Grandes at an empty desert crossroads; he sleeps in a field near the river breaks and rides on in rain. The area is on the road south of Mata Ortiz.",
+    "synopsis": null
    }
   },
   {
@@ -2788,7 +2870,8 @@
     "source_id": "3975330",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "In the evening he crosses the railway into Mata Ortiz, where the woman at a small blue tienda tells him his brother passed alive in the truck."
+    "reasoning": "In the evening he crosses the railway into Mata Ortiz, where the woman at a small blue tienda tells him his brother passed alive in the truck.",
+    "synopsis": null
    }
   },
   {
@@ -2822,7 +2905,8 @@
     "source_id": "3987333",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides north up the mud street, crosses the bridge after dark, and finds Boyd alive in the Muñoz house at the ejido."
+    "reasoning": "He rides north up the mud street, crosses the bridge after dark, and finds Boyd alive in the Muñoz house at the ejido.",
+    "synopsis": null
    }
   },
   {
@@ -2856,7 +2940,8 @@
     "source_id": "4015076",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides through the night to Casas Grandes, crosses the railway embankment and asks at a cantina on Alameda Street for the doctor."
+    "reasoning": "He rides through the night to Casas Grandes, crosses the railway embankment and asks at a cantina on Alameda Street for the doctor.",
+    "synopsis": null
    }
   },
   {
@@ -2890,7 +2975,8 @@
     "source_id": "3987333",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides back with the doctor in the doctor's old Dodge, south on the road and up the ejido road over the wooden bridge; the doctor treats Boyd and leaves at dawn."
+    "reasoning": "He rides back with the doctor in the doctor's old Dodge, south on the road and up the ejido road over the wooden bridge; the doctor treats Boyd and leaves at dawn.",
+    "synopsis": null
    }
   },
   {
@@ -2923,7 +3009,8 @@
     "source_id": "3987333",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Billy leaves the ejido at dusk to meet “the girl” at Santa Ana de Babícora, as Boyd asks, and takes the road south, under the cottonwoods by the river."
+    "reasoning": "Billy leaves the ejido at dusk to meet “the girl” at Santa Ana de Babícora, as Boyd asks, and takes the road south, under the cottonwoods by the river.",
+    "synopsis": null
    }
   },
   {
@@ -2956,7 +3043,8 @@
     "source_id": "3975330",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He passes through Mata Ortiz the first night and sleeps in a grove off the road."
+    "reasoning": "He passes through Mata Ortiz the first night and sleeps in a grove off the road.",
+    "synopsis": null
    }
   },
   {
@@ -2989,7 +3077,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides all day, meets the workers' truck in the evening, and in the night hears a train whistle for the crossing at Las Varas. The area is north-east of Las Varas, on the way to La Boquilla."
+    "reasoning": "He rides all day, meets the workers' truck in the evening, and in the night hears a train whistle for the crossing at Las Varas. The area is north-east of Las Varas, on the way to La Boquilla.",
+    "synopsis": null
    }
   },
   {
@@ -3022,7 +3111,8 @@
     "source_id": "8749710",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He reaches La Boquilla at noon and takes the road south towards Santa Ana de Babícora."
+    "reasoning": "He reaches La Boquilla at noon and takes the road south towards Santa Ana de Babícora.",
+    "synopsis": null
    }
   },
   {
@@ -3055,7 +3145,8 @@
     "source_id": "4000793",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He passes La Pinta under the moon; it sits on a high plain of juniper over the Santa María valley."
+    "reasoning": "He passes La Pinta under the moon; it sits on a high plain of juniper over the Santa María valley.",
+    "synopsis": null
    }
   },
   {
@@ -3088,7 +3179,8 @@
     "source_id": "3984699",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He waters his horse in the alameda at midnight and takes the road west towards Namiquipa."
+    "reasoning": "He waters his horse in the alameda at midnight and takes the road west towards Namiquipa.",
+    "synopsis": null
    }
   },
   {
@@ -3121,7 +3213,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "An hour along the road west he sleeps beside a stream, one of the Santa María's headwaters, and in the morning “the girl” rides past on his mother's old horse. The estimate is centred 4 km west of Santa Ana. The real Namiquipa lies north-north-east, not west (see docs/open-questions.md)."
+    "reasoning": "An hour along the road west he sleeps beside a stream, one of the Santa María's headwaters, and in the morning “the girl” rides past on his mother's old horse. The estimate is centred 4 km west of Santa Ana. The real Namiquipa lies north-north-east, not west (see docs/open-questions.md).",
+    "synopsis": null
    }
   },
   {
@@ -3154,7 +3247,8 @@
     "source_id": "3984699",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They ride back through Santa Ana near noon and eat in a grove north of the town, passing three girls on their way to Soto Máynez."
+    "reasoning": "They ride back through Santa Ana near noon and eat in a grove north of the town, passing three girls on their way to Soto Máynez.",
+    "synopsis": null
    }
   },
   {
@@ -3187,7 +3281,8 @@
     "source_id": "8749710",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They reach La Boquilla after dark and pass the place where the manco fell."
+    "reasoning": "They reach La Boquilla after dark and pass the place where the manco fell.",
+    "synopsis": null
    }
   },
   {
@@ -3220,7 +3315,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They ride on west into the dark and camp at the edge of the lake. The point is on the north-west shore of the Babícora lake (GeoNames 4017246), on INEGI's outline of it, on the way to Las Varas."
+    "reasoning": "They ride on west into the dark and camp at the edge of the lake. The point is on the north-west shore of the Babícora lake (GeoNames 4017246), on INEGI's outline of it, on the way to Las Varas.",
+    "synopsis": null
    }
   },
   {
@@ -3253,7 +3349,8 @@
     "source_id": "4006519",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "At noon they cross the wooden river bridge into Las Varas and meet the opera company's arriero, who tells what became of the troupe."
+    "reasoning": "At noon they cross the wooden river bridge into Las Varas and meet the opera company's arriero, who tells what became of the troupe.",
+    "synopsis": null
    }
   },
   {
@@ -3286,7 +3383,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They take the road north by the railway; the ride to San Diego takes three days, and the last night they stop for the night on a gravel bar by the river, several miles below Mata Ortiz, as cranes pass over heading south. The area is about 9 km south of Mata Ortiz on the river."
+    "reasoning": "They take the road north by the railway; the ride to San Diego takes three days, and the last night they stop for the night on a gravel bar by the river, several miles below Mata Ortiz, as cranes pass over heading south. The area is about 9 km south of Mata Ortiz on the river.",
+    "synopsis": null
    }
   },
   {
@@ -3319,7 +3417,8 @@
     "source_id": "3987333",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They cross the plank bridge to the hacienda at noon on a feast day."
+    "reasoning": "They cross the plank bridge to the hacienda at noon on a feast day.",
+    "synopsis": null
    }
   },
   {
@@ -3352,7 +3451,8 @@
     "source_id": "4012406",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Boyd and “the girl” are gone. Billy looks for them for weeks, riding as far south as Cuauhtémoc. The book gives the turning points of the search, not its roads."
+    "reasoning": "Boyd and “the girl” are gone. Billy looks for them for weeks, riding as far south as Cuauhtémoc. The book gives the turning points of the search, not its roads.",
+    "synopsis": null
    }
   },
   {
@@ -3385,7 +3485,8 @@
     "source_id": "3995134",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides north again to Namiquipa, where no one owns to knowing “the girl”."
+    "reasoning": "He rides north again to Namiquipa, where no one owns to knowing “the girl”.",
+    "synopsis": null
    }
   },
   {
@@ -3418,7 +3519,8 @@
     "source_id": "3975183",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "His westernmost point is La Norteña and the watershed."
+    "reasoning": "His westernmost point is La Norteña and the watershed.",
+    "synopsis": null
    }
   },
   {
@@ -3451,7 +3553,8 @@
     "source_id": "4016722",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "At dawn he sits his horse at the crossroads in Buenaventura, watching waterfowl over the river and the lagunas."
+    "reasoning": "At dawn he sits his horse at the crossroads in Buenaventura, watching waterfowl over the river and the lagunas.",
+    "synopsis": null
    }
   },
   {
@@ -3484,7 +3587,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He passes back north through the mesa hamlets of Álamo and Galeana, places he had come through before. Which Álamo is unresolved (docs/open-questions.md): the estimate is GeoNames 4018952, 15 km south-west of San Buenaventura, and the area covers El Álamo north-east of the town too."
+    "reasoning": "He passes back north through the mesa hamlets of Álamo and Galeana, places he had come through before. Which Álamo is unresolved (docs/open-questions.md): the estimate is GeoNames 4018952, 15 km south-west of San Buenaventura, and the area covers El Álamo north-east of the town too.",
+    "synopsis": null
    }
   },
   {
@@ -3517,7 +3621,8 @@
     "source_id": "3975370",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He passes back north through Galeana."
+    "reasoning": "He passes back north through Galeana.",
+    "synopsis": null
    }
   },
   {
@@ -3550,7 +3655,8 @@
     "source_id": "4015076",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "In the early days of December, two days without food, he reaches Casas Grandes past midnight in a cold rain and learns that the doctor is dead. Part III ends here; Part IV opens at the Columbus gate, and the book does not tell the ride north."
+    "reasoning": "In the early days of December, two days without food, he reaches Casas Grandes past midnight in a cold rain and learns that the doctor is dead. Part III ends here; Part IV opens at the Columbus gate, and the book does not tell the ride north.",
+    "synopsis": null
    }
   },
   {
@@ -3584,7 +3690,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Billy sees the farmworkers lift Boyd onto their truck, which goes on north (3-08); from here Boyd's road is known only from what others tell Billy. The area is the same as J4's."
+    "reasoning": "Billy sees the farmworkers lift Boyd onto their truck, which goes on north (3-08); from here Boyd's road is known only from what others tell Billy. The area is the same as J4's.",
+    "synopsis": null
    }
   },
   {
@@ -3618,7 +3725,8 @@
     "source_id": "3975330",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported by the old woman at the blue tienda in Mata Ortiz: Boyd was alive when the truck passed her door, and people followed it to the edge of town."
+    "reasoning": "Reported by the old woman at the blue tienda in Mata Ortiz: Boyd was alive when the truck passed her door, and people followed it to the edge of town.",
+    "synopsis": null
    }
   },
   {
@@ -3652,7 +3760,8 @@
     "source_id": "3987333",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported by the Muñoz woman at the ejido: the truck brought Boyd there, the workers came back with gifts, and a curandera dressed his wound. He and “the girl” leave the ejido together in 3-14; Billy wakes to find them gone, and the book does not say which way."
+    "reasoning": "Reported by the Muñoz woman at the ejido: the truck brought Boyd there, the workers came back with gifts, and a curandera dressed his wound. He and “the girl” leave the ejido together in 3-14; Billy wakes to find them gone, and the book does not say which way.",
+    "synopsis": null
    }
   },
   {
@@ -3686,7 +3795,8 @@
     "source_id": "3995134",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported, and only as a likelihood: Boyd said in 3-03 that “the girl” wanted to go to her mother at Namiquipa. When Billy gets there in 3-14 no one owns to knowing her, and in 4-05 the townspeople say her mother has moved away. The book never shows the pair there."
+    "reasoning": "Reported, and only as a likelihood: Boyd said in 3-03 that “the girl” wanted to go to her mother at Namiquipa. When Billy gets there in 3-14 no one owns to knowing her, and in 4-05 the townspeople say her mother has moved away. The book never shows the pair there.",
+    "synopsis": null
    }
   },
   {
@@ -3720,7 +3830,8 @@
     "source_id": "4017791",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported by the singer, a girl shelling pecans at the Camino Recto hotel in Casas Grandes (4-05): in her corrido six armed riders come to the pueblo of Bachíniva in April, and the güerito and his sweetheart die together there. Quijada's account, the next stops, differs."
+    "reasoning": "Reported by the singer, a girl shelling pecans at the Camino Recto hotel in Casas Grandes (4-05): in her corrido six armed riders come to the pueblo of Bachíniva in April, and the güerito and his sweetheart die together there. Quijada's account, the next stops, differs.",
+    "synopsis": null
    }
   },
   {
@@ -3754,7 +3865,8 @@
     "source_id": "3975370",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported by Quijada (4-05): Boyd killed two men at Galeana, for no reason anyone knows, and they did not work for the Babícora."
+    "reasoning": "Reported by Quijada (4-05): Boyd killed two men at Galeana, for no reason anyone knows, and they did not work for the Babícora.",
+    "synopsis": null
    }
   },
   {
@@ -3788,7 +3900,8 @@
     "source_id": "3985741",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported by Quijada (4-05): Boyd was shot dead at San Lorenzo, not at Ignacio Zaragoza as rumour had it. “The girl” was carried off covered in blood; she may have gone back to her family. Billy repeats San Lorenzo to the American in 4-07."
+    "reasoning": "Reported by Quijada (4-05): Boyd was shot dead at San Lorenzo, not at Ignacio Zaragoza as rumour had it. “The girl” was carried off covered in blood; she may have gone back to her family. Billy repeats San Lorenzo to the American in 4-07.",
+    "synopsis": null
    }
   },
   {
@@ -3822,7 +3935,8 @@
     "source_id": "4016722",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported first by a woman at the wake in Namiquipa and then by Quijada (4-05): Boyd is buried in the cemetery at San Buenaventura, under a board."
+    "reasoning": "Reported first by a woman at the wake in Namiquipa and then by Quijada (4-05): Boyd is buried in the cemetery at San Buenaventura, under a board.",
+    "synopsis": null
    }
   },
   {
@@ -3855,7 +3969,8 @@
     "source_id": "897342",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "Billy crosses back into the United States at the Columbus gate, and the guard tells him the country is at war."
+    "reasoning": "Billy crosses back into the United States at the Columbus gate, and the guard tells him the country is at war.",
+    "synopsis": null
    }
   },
   {
@@ -3888,7 +4003,8 @@
     "source_id": "920584",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He rides north all day on the long straight road to Deming, crosses the low foothills of the Florida Mountains at evening, and reaches Deming at midnight; the sergeant at the armory finds a heart murmur and turns him down."
+    "reasoning": "He rides north all day on the long straight road to Deming, crosses the low foothills of the Florida Mountains at evening, and reaches Deming at midnight; the sergeant at the armory finds a heart murmur and turns him down.",
+    "synopsis": null
    }
   },
   {
@@ -3921,7 +4037,8 @@
     "source_id": "Q16562",
     "source_licence": "CC0",
     "note_safe": "",
-    "reasoning": "He takes the bus east to El Paso, is turned down again before noon, eats at the Splendid Cafe and is back in Deming before dark. The book names no road; the line is a curve."
+    "reasoning": "He takes the bus east to El Paso, is turned down again before noon, eats at the Splendid Cafe and is back in Deming before dark. The book names no road; the line is a curve.",
+    "synopsis": null
    }
   },
   {
@@ -3954,7 +4071,8 @@
     "source_id": "920584",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He is back in Deming by bus before dark and works at a stable on the highway."
+    "reasoning": "He is back in Deming by bus before dark and works at a stable on the highway.",
+    "synopsis": null
    }
   },
   {
@@ -3987,7 +4105,8 @@
     "source_id": "938832",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "On a Sunday he takes the bus north; night falls just north of Socorro, with waterfowl over the river marshes beside the highway."
+    "reasoning": "On a Sunday he takes the bus north; night falls just north of Socorro, with waterfowl over the river marshes beside the highway.",
+    "synopsis": null
    }
   },
   {
@@ -4020,7 +4139,8 @@
     "source_id": "928679",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He sleeps at the YMCA and is turned down a third time next morning."
+    "reasoning": "He sleeps at the YMCA and is turned down a third time next morning.",
+    "synopsis": null
    }
   },
   {
@@ -4053,7 +4173,8 @@
     "source_id": "920584",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He is on the bus south before noon and reaches Deming at three in the morning; the book names no place on the way back, so the line is a curve."
+    "reasoning": "He is on the bus south before noon and reaches Deming at three in the morning; the book names no place on the way back, so the line is a curve.",
+    "synopsis": null
    }
   },
   {
@@ -4086,7 +4207,8 @@
     "source_id": "899669",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He takes his horse from the stable and rides the old road south towards Hermanas and Hachita from sunup into the night, sleeping on the high plain."
+    "reasoning": "He takes his horse from the stable and rides the old road south towards Hermanas and Hachita from sunup into the night, sleeping on the high plain.",
+    "synopsis": null
    }
   },
   {
@@ -4119,7 +4241,8 @@
     "source_id": "920609",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He leaves the road just west of Hachita."
+    "reasoning": "He leaves the road just west of Hachita.",
+    "synopsis": null
    }
   },
   {
@@ -4152,7 +4275,8 @@
     "source_id": "920632",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "His way runs across the lower slopes of the Little Hatchet Mountains and over the railway from the Phelps Dodge smelter."
+    "reasoning": "His way runs across the lower slopes of the Little Hatchet Mountains and over the railway from the Phelps Dodge smelter.",
+    "synopsis": null
    }
   },
   {
@@ -4185,7 +4309,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "At sunset he reaches a shallow salt lake his horse will not cross, rides south along the flats with snow on Gillespie Mountain and the Animas Peaks beyond, and camps by an old fence. The lake is Playas Lake (GNIS 893357, 31.88 N, 108.59 W), the salt flat west of the Little Hatchets; the area is its southern end."
+    "reasoning": "At sunset he reaches a shallow salt lake his horse will not cross, rides south along the flats with snow on Gillespie Mountain and the Animas Peaks beyond, and camps by an old fence. The lake is Playas Lake (GNIS 893357, 31.88 N, 108.59 W), the salt flat west of the Little Hatchets; the area is its southern end.",
+    "synopsis": null
    }
   },
   {
@@ -4218,7 +4343,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "In the morning they cross the lake, strike the old Playas road before noon and follow it west into the mountains, with snow in the pass. The book does not name the pass; the area is in the Animas Mountains west of the lake."
+    "reasoning": "In the morning they cross the lake, strike the old Playas road before noon and follow it west into the mountains, with snow in the pass. The book does not name the pass; the area is in the Animas Mountains west of the lake.",
+    "synopsis": null
    }
   },
   {
@@ -4251,7 +4377,8 @@
     "source_id": "885759",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He rides down into the Animas Valley and takes the road south from Animas."
+    "reasoning": "He rides down into the Animas Valley and takes the road south from Animas.",
+    "synopsis": null
    }
   },
   {
@@ -4284,7 +4411,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He reaches the Sanders ranch two hours after dark, eats supper and will not stay the night. In 4-02 it is called the SK Bar. No source names the ranch (docs/open-questions.md); the estimate is the same as J3's, nine miles north of the Parham house."
+    "reasoning": "He reaches the Sanders ranch two hours after dark, eats supper and will not stay the night. In 4-02 it is called the SK Bar. No source names the ranch (docs/open-questions.md); the estimate is the same as J3's, nine miles north of the Parham house.",
+    "synopsis": null
    }
   },
   {
@@ -4317,7 +4445,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "That night's camp is out on the wide Animas Plain, with lightning showing in the far south past the Hatchet Mountains. The area is on the open plain south-east of the Sanders estimate."
+    "reasoning": "That night's camp is out on the wide Animas Plain, with lightning showing in the far south past the Hatchet Mountains. The area is on the open plain south-east of the Sanders estimate.",
+    "synopsis": null
    }
   },
   {
@@ -4350,7 +4479,8 @@
     "source_id": "13930",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "Told in summary: he works for the Hashknives at a linecamp on the Little Colorado, and when paid in March goes into the town the book calls Window (Winslow) to the post office and the bars on First Street. The book does not tell how he got there; the Hashknife ranch has no point."
+    "reasoning": "Told in summary: he works for the Hashknives at a linecamp on the Little Colorado, and when paid in March goes into the town the book calls Window (Winslow) to the post office and the bars on First Street. The book does not tell how he got there; the Hashknife ranch has no point.",
+    "synopsis": null
    }
   },
   {
@@ -4383,7 +4513,8 @@
     "source_id": "908353",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "Nine months on, he heads south over the high plains on the west side of Socorro and passes through Magdalena."
+    "reasoning": "Nine months on, he heads south over the high plains on the west side of Socorro and passes through Magdalena.",
+    "synopsis": null
    }
   },
   {
@@ -4416,7 +4547,8 @@
     "source_id": "923769",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He crosses the plains the book calls Saint Augustine, riding south."
+    "reasoning": "He crosses the plains the book calls Saint Augustine, riding south.",
+    "synopsis": null
    }
   },
   {
@@ -4449,7 +4581,8 @@
     "source_id": "920706",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He reaches Silver City in snow, takes a room at the Palace Hotel and finds it is Christmas Day."
+    "reasoning": "He reaches Silver City in snow, takes a room at the Palace Hotel and finds it is Christmas Day.",
+    "synopsis": null
    }
   },
   {
@@ -4482,7 +4615,8 @@
     "source_id": "908353",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "Told in summary: he drifts to the Texas panhandle (the Matadors, the T Diamond; outside the map) and back, and in the spring of the war's third year has work on a little ranch near Magdalena until March. The pin is the town."
+    "reasoning": "Told in summary: he drifts to the Texas panhandle (the Matadors, the T Diamond; outside the map) and back, and in the spring of the war's third year has work on a little ranch near Magdalena until March. The pin is the town.",
+    "synopsis": null
    }
   },
   {
@@ -4515,7 +4649,8 @@
     "source_id": "899927",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "Heading south with a packhorse, he crosses the last paved highway he will meet, a short way east of Steins."
+    "reasoning": "Heading south with a packhorse, he crosses the last paved highway he will meet, a short way east of Steins.",
+    "synopsis": null
    }
   },
   {
@@ -4548,7 +4683,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Two days later he reaches the SK Bar gate, learns that Miller died on Kwajalein, and stays the night in the rain. The estimate is J3's (docs/open-questions.md)."
+    "reasoning": "Two days later he reaches the SK Bar gate, learns that Miller died on Kwajalein, and stays the night in the rain. The estimate is J3's (docs/open-questions.md).",
+    "synopsis": null
    }
   },
   {
@@ -4581,7 +4717,8 @@
     "source_id": "4010957",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He signs the horses through Mexican customs at Berendo (El Berrendo, opposite Antelope Wells) and rides south. The book does not tell the ride from the SK Bar to the gate."
+    "reasoning": "He signs the horses through Mexican customs at Berendo (El Berrendo, opposite Antelope Wells) and rides south. The book does not tell the ride from the SK Bar to the gate.",
+    "synopsis": null
    }
   },
   {
@@ -4614,7 +4751,8 @@
     "source_id": "4004116",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After two days' riding on an old rutted wagon road, with the western Sierras and the Pilares in view, he comes down to the lights of Janos, 59 km from El Berrendo (pyproj, WGS 84)."
+    "reasoning": "After two days' riding on an old rutted wagon road, with the western Sierras and the Pilares in view, he comes down to the lights of Janos, 59 km from El Berrendo (pyproj, WGS 84).",
+    "synopsis": null
    }
   },
   {
@@ -4647,7 +4785,8 @@
     "source_id": "4015076",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides south all day and passes through Casas Grandes in the evening."
+    "reasoning": "He rides south all day and passes through Casas Grandes in the evening.",
+    "synopsis": null
    }
   },
   {
@@ -4680,7 +4819,8 @@
     "source_id": "3987333",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He takes the road south he rode with Boyd past the ruins, and at San Diego finds the Muñoz house empty."
+    "reasoning": "He takes the road south he rode with Boyd past the ruins, and at San Diego finds the Muñoz house empty.",
+    "synopsis": null
    }
   },
   {
@@ -4713,7 +4853,8 @@
     "source_id": "4006519",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Two days later he passes Las Varas and turns east towards La Boquilla."
+    "reasoning": "Two days later he passes Las Varas and turns east towards La Boquilla.",
+    "synopsis": null
    }
   },
   {
@@ -4746,7 +4887,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "On the road east towards La Boquilla a north wind blows dust off Babícora beyond the lake, a red plane flies in from the west, and he camps on the plain. The area is north-east of the Babícora lake. The pin is on the flat ground by the road."
+    "reasoning": "On the road east towards La Boquilla a north wind blows dust off Babícora beyond the lake, a red plane flies in from the west, and he camps on the plain. The area is north-east of the Babícora lake. The pin is on the flat ground by the road.",
+    "synopsis": null
    }
   },
   {
@@ -4779,7 +4921,8 @@
     "source_id": "3986261",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Next day he rides through Babícora. The pin is the Hacienda de San José de Babícora, the Hearst ranch headquarters (see the place's reasoning)."
+    "reasoning": "Next day he rides through Babícora. The pin is the Hacienda de San José de Babícora, the Hearst ranch headquarters (see the place's reasoning).",
+    "synopsis": null
    }
   },
   {
@@ -4812,7 +4955,8 @@
     "source_id": "3984699",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides through Santa Ana de Babícora and takes the road north to Namiquipa."
+    "reasoning": "He rides through Santa Ana de Babícora and takes the road north to Namiquipa.",
+    "synopsis": null
    }
   },
   {
@@ -4845,7 +4989,8 @@
     "source_id": "3995134",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He camps below the town in the river willows. At a wake (4-05) a woman tells him “the girl” is hunted and that his brother's bones lie at San Buenaventura."
+    "reasoning": "He camps below the town in the river willows. At a wake (4-05) a woman tells him “the girl” is hunted and that his brother's bones lie at San Buenaventura.",
+    "synopsis": null
    }
   },
   {
@@ -4878,7 +5023,8 @@
     "source_id": "3982082",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides that country for weeks asking after “the girl”; the first time he hears the corrido of the güero is in a bodega in Temósachic, up in the mountains."
+    "reasoning": "He rides that country for weeks asking after “the girl”; the first time he hears the corrido of the güero is in a bodega in Temósachic, up in the mountains.",
+    "synopsis": null
    }
   },
   {
@@ -4911,7 +5057,8 @@
     "source_id": "3996956",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "In late April he walks through a fair beyond the railtracks at Madera and sees the opera company's old caravan, then leaves Madera on the southbound road for Temósachic."
+    "reasoning": "In late April he walks through a fair beyond the railtracks at Madera and sees the opera company's old caravan, then leaves Madera on the southbound road for Temósachic.",
+    "synopsis": null
    }
   },
   {
@@ -4944,7 +5091,8 @@
     "source_id": "3986261",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "A week later he rides through Babícora again in the early-morning dark and follows the freshly graded road north, sleeping at a ciénega."
+    "reasoning": "A week later he rides through Babícora again in the early-morning dark and follows the freshly graded road north, sleeping at a ciénega.",
+    "synopsis": null
    }
   },
   {
@@ -4977,7 +5125,8 @@
     "source_id": "4015076",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "On 15 May he takes a room at the Camino Recto hotel, where a girl shelling pecans sings him the corrido of Bachíniva. The book gives no distance from Babícora."
+    "reasoning": "On 15 May he takes a room at the Camino Recto hotel, where a girl shelling pecans sings him the corrido of Bachíniva. The book gives no distance from Babícora.",
+    "synopsis": null
    }
   },
   {
@@ -5010,7 +5159,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "For days he camps in the swales of the Babícora high country and watches vaqueros working whiteface cattle on mules. The area covers the plains around the lake and the ranch headquarters."
+    "reasoning": "For days he camps in the swales of the Babícora high country and watches vaqueros working whiteface cattle on mules. The area covers the plains around the lake and the ranch headquarters.",
+    "synopsis": null
    }
   },
   {
@@ -5043,7 +5193,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "One evening he follows a road west towards a gap in the mountains and after dark reaches a lone weatherboard cabin on the plain, where Quijada, still manager of the Nahuerichic division, tells him where Boyd fell and lies. Next day he rides north all day to San Buenaventura, so the area is about a day's ride (47 km) south-south-west of it. It is 57 km from Nahuerachi, the open-questions pick for the division's name."
+    "reasoning": "One evening he follows a road west towards a gap in the mountains and after dark reaches a lone weatherboard cabin on the plain, where Quijada, still manager of the Nahuerichic division, tells him where Boyd fell and lies. Next day he rides north all day to San Buenaventura, so the area is about a day's ride (47 km) south-south-west of it. It is 57 km from Nahuerachi, the open-questions pick for the division's name.",
+    "synopsis": null
    }
   },
   {
@@ -5076,7 +5227,8 @@
     "source_id": "4016722",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides north all day in rain and enters San Buenaventura in the evening, past the alameda and the church."
+    "reasoning": "He rides north all day in rain and enters San Buenaventura in the evening, past the alameda and the church.",
+    "synopsis": null
    }
   },
   {
@@ -5109,7 +5261,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The cemetery is on a bench in the low hills east of town, a mile or so up the old road to Gallego, with the Sierra del Nido in sight. He finds the board cross by the south wall and digs all day. The estimate is centred 1.6 km due east of the town point."
+    "reasoning": "The cemetery is on a bench in the low hills east of town, a mile or so up the old road to Gallego, with the Sierra del Nido in sight. He finds the board cross by the south wall and digs all day. The estimate is centred 1.6 km due east of the town point.",
+    "synopsis": null
    }
   },
   {
@@ -5142,7 +5295,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Near midnight he leaves with the bones on the packhorse, crosses the highway and heads across country with the polestar to his right. In two nights' riding he sees the lights of Casas Grandes to the west of him, so he is east of the town; the area is 15 km east of it."
+    "reasoning": "Near midnight he leaves with the bones on the packhorse, crosses the highway and heads across country with the polestar to his right. In two nights' riding he sees the lights of Casas Grandes to the west of him, so he is east of the town; the area is 15 km east of it.",
+    "synopsis": null
    }
   },
   {
@@ -5175,7 +5329,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He crosses the old road that runs down from Guzmán and Sabinal, reaches the Casas Grandes River and follows a trail north beside it. The area is on the river south of Corralitos, and the pin on the river itself (INEGI)."
+    "reasoning": "He crosses the old road that runs down from Guzmán and Sabinal, reaches the Casas Grandes River and follows a trail north beside it. The area is on the river south of Corralitos, and the pin on the river itself (INEGI).",
+    "synopsis": null
    }
   },
   {
@@ -5208,7 +5363,8 @@
     "source_id": "4012754",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He passes through the half-ruined town before full light, past slagheaps, and crosses the railway tracks."
+    "reasoning": "He passes through the half-ruined town before full light, past slagheaps, and crosses the railway tracks.",
+    "synopsis": null
    }
   },
   {
@@ -5241,7 +5397,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "An hour north of the town four riders stop him on the trail, cut open the bones and stab Niño; the next day gypsies hauling an old airplane north camp with him by the river and doctor the horse (4-06, 4-07). An hour's ride is about 6 km; the pin is on the river trail beside the Casas Grandes River (INEGI), 7.3 km north of Corralitos (pyproj, WGS 84)."
+    "reasoning": "An hour north of the town four riders stop him on the trail, cut open the bones and stab Niño; the next day gypsies hauling an old airplane north camp with him by the river and doctor the horse (4-06, 4-07). An hour's ride is about 6 km; the pin is on the river trail beside the Casas Grandes River (INEGI), 7.3 km north of Corralitos (pyproj, WGS 84).",
+    "synopsis": null
    }
   },
   {
@@ -5274,7 +5431,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Four days later he sets out north along the river with the bones on a travois; it takes three days to reach the border, where he passes the first boundary obelisk west of Dog Springs and an old dry reservoir. No Dog Springs is known on the line (docs/open-questions.md); the estimate is the boundary south of Hermanas."
+    "reasoning": "Four days later he sets out north along the river with the bones on a travois; it takes three days to reach the border, where he passes the first boundary obelisk west of Dog Springs and an old dry reservoir. No Dog Springs is known on the line (docs/open-questions.md); the estimate is the boundary south of Hermanas.",
+    "synopsis": null
    }
   },
   {
@@ -5307,7 +5465,8 @@
     "source_id": "899669",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "Next day he rides through Hermanas and along the dusty road west."
+    "reasoning": "Next day he rides through Hermanas and along the dusty road west.",
+    "synopsis": null
    }
   },
   {
@@ -5340,7 +5499,8 @@
     "source_id": "920609",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "That evening he sits his horse at the crossroads by the store in Hachita, the book's Hatchita, and looks south-west to the Animas Peaks."
+    "reasoning": "That evening he sits his horse at the crossroads by the store in Hachita, the book's Hatchita, and looks south-west to the Animas Peaks.",
+    "synopsis": null
    }
   },
   {
@@ -5373,7 +5533,8 @@
     "source_id": "885759",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He crosses the Animas Valley all day with the travois and reaches Animas next morning, which the book calls Ash Wednesday."
+    "reasoning": "He crosses the Animas Valley all day with the travois and reaches Animas next morning, which the book calls Ash Wednesday.",
+    "synopsis": null
    }
   },
   {
@@ -5406,7 +5567,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He buys a spade and goes south from the town to a little cemetery, where he buries Boyd; the sheriff tells him to report at Lordsburg. GNIS lists no cemetery here; the area is just south of the town."
+    "reasoning": "He buys a spade and goes south from the town to a little cemetery, where he buries Boyd; the sheriff tells him to report at Lordsburg. GNIS lists no cemetery here; the area is just south of the town.",
+    "synopsis": null
    }
   },
   {
@@ -5439,7 +5601,8 @@
     "source_id": "920706",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He rides north to Silver City."
+    "reasoning": "He rides north to Silver City.",
+    "synopsis": null
    }
   },
   {
@@ -5472,7 +5635,8 @@
     "source_id": "4189",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He rides west to Duncan."
+    "reasoning": "He rides west to Duncan.",
+    "synopsis": null
    }
   },
   {
@@ -5505,7 +5669,8 @@
     "source_id": "923604",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He rides north through the mountains to Glenwood."
+    "reasoning": "He rides north through the mountains to Glenwood.",
+    "synopsis": null
    }
   },
   {
@@ -5538,7 +5703,8 @@
     "source_id": "923657",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He rides on to Reserve. He works for the Carrizozos and the GS outfits; the book tells this in summary and the ranches have no point."
+    "reasoning": "He rides on to Reserve. He works for the Carrizozos and the GS outfits; the book tells this in summary and the ranches have no point.",
+    "synopsis": null
    }
   },
   {
@@ -5571,7 +5737,8 @@
     "source_id": "920706",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "In July he drifts south to Silver City again. The months between are told in summary."
+    "reasoning": "In July he drifts south to Silver City again. The months between are told in summary.",
+    "synopsis": null
    }
   },
   {
@@ -5604,7 +5771,8 @@
     "source_id": "920698",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "His route east is the old road by the Santa Rita mines."
+    "reasoning": "His route east is the old road by the Santa Rita mines.",
+    "synopsis": null
    }
   },
   {
@@ -5637,7 +5805,8 @@
     "source_id": "920693",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "He rides through San Lorenzo on the old road east."
+    "reasoning": "He rides through San Lorenzo on the old road east.",
+    "synopsis": null
    }
   },
   {
@@ -5670,7 +5839,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He crosses the Black Range on the old road east. The book names no pass; the road from San Lorenzo crosses the range at Emory Pass (GNIS 906157), where the estimate is centred."
+    "reasoning": "He crosses the Black Range on the old road east. The book names no pass; the road from San Lorenzo crosses the range at Emory Pass (GNIS 906157), where the estimate is centred.",
+    "synopsis": null
    }
   },
   {
@@ -5703,7 +5873,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Beyond the range he crosses a plain of catclaw and creosote, strikes the blacktop a few miles on, sees the Organ Mountains about eighty miles off, and turns back along the highway to three ruined adobes with a rusted gas pump, once a waystation. There he drives off the crippled dog, and wakes to the false dawn (4-09). The area is on the plain east of Hillsboro; the pin, by the highway, is 113 km (70 miles) straight-line from the Organ Mountains point (GNIS 920657, pyproj, WGS 84), and Emory Pass is 131 km (81 miles), so the book's eighty miles fits the range's eastern foot."
+    "reasoning": "Beyond the range he crosses a plain of catclaw and creosote, strikes the blacktop a few miles on, sees the Organ Mountains about eighty miles off, and turns back along the highway to three ruined adobes with a rusted gas pump, once a waystation. There he drives off the crippled dog, and wakes to the false dawn (4-09). The area is on the plain east of Hillsboro; the pin, by the highway, is 113 km (70 miles) straight-line from the Organ Mountains point (GNIS 920657, pyproj, WGS 84), and Emory Pass is 131 km (81 miles), so the book's eighty miles fits the range's eastern foot.",
+    "synopsis": null
    }
   }
  ]
