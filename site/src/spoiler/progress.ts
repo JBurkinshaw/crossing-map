@@ -55,13 +55,19 @@ export function spoilersHidden(progress: Progress, episodes: Episode[]): boolean
 
 export const PART_NUMERALS = ['', 'I', 'II', 'III', 'IV']
 
-// The badge and slider label for a setting, such as "Part II, episode 5: He was all day".
+// The badge and picker label for a setting, such as "Part II, episode 5: ‘He was all…’".
 export function progressLabel(progress: Progress, episodes: Episode[]): string {
   if (progress === 'none') return 'Not started'
   if (progress === 'all') return 'Finished: showing everything'
   const e = episodes.find((x) => x.episode === progress)
   if (!e) return `Episode ${progress}`
-  return `Part ${PART_NUMERALS[e.part]}, episode ${Number(e.episode.split('-')[1])}: ${e.opening}`
+  return `Part ${PART_NUMERALS[e.part]}, episode ${Number(e.episode.split('-')[1])}: ${quotedOpening(e)}`
+}
+
+// An episode's opening words as the site shows them, quoted and trailing off into the episode: ‘They crossed…’. The
+// book has no episode titles, so these words stand in for one (decision 0052).
+export function quotedOpening(e: Episode): string {
+  return `‘${e.opening}…’`
 }
 
 // The progress badge: what the map is hiding, in the words of the dialog it opens.

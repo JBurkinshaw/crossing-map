@@ -1,6 +1,6 @@
 import { useId, useState } from 'react'
 import { episodeAtPage, episodeAtPercent, hasPages } from './position'
-import { PART_NUMERALS, progressLabel, reachedEpisode, type Episode, type Progress } from './progress'
+import { PART_NUMERALS, progressLabel, quotedOpening, reachedEpisode, type Episode, type Progress } from './progress'
 
 // "Where are you up to?": the reading-progress dialog's second step (decision 0034). The episodes' opening words,
 // which every edition prints in capitals, are in a native select grouped by Part: one control to tab to, the
@@ -66,7 +66,7 @@ export function ProgressPicker({ titleId, progress, isSet, episodes, episodesFai
               .filter((e) => e.part === part)
               .map((e) => (
                 <option key={e.episode} value={e.episode}>
-                  {Number(e.episode.split('-')[1])}. {e.opening}
+                  {Number(e.episode.split('-')[1])}. {quotedOpening(e)}
                 </option>
               ))}
           </optgroup>

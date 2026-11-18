@@ -23,6 +23,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - The vignettes draw above the inferred areas' tint, in every view.
 - The Home button is now "Zoom to the current journey", and its icon sits centred.
 - A stop's card adds the stop's own synopsis under its episode's summary. While you are reading that episode, the synopsis is folded under "What happens here", because it can tell what happens later in the episode (decision 0051).
+- A stop's card sets its episode and the episode's summary small and faint, then the stop's own synopsis below a thin rule, so the two read apart. Episodes are named by their opening words in quotes, as in "Part I, episode 9: ‘They crossed…’", on the card, the progress badge and the progress list. About now says what an episode is (decision 0052).
 - "Spanish here" on a stop's card is folded, closed at first. It stays as you leave it, on every stop and on later visits. A line picked in search still opens it.
 
 ### 2026-11-16

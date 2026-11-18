@@ -47,6 +47,11 @@ export function About() {
         </li>
         <li>Tap anything on the map, such as a place or a route, to read about it.</li>
       </ol>
+      <p>
+        The book has four Parts and no chapter titles. This site splits each Part into episodes where McCarthy starts a
+        new scene, and names each episode by the words it opens with, which the book sets in capitals: ‘They
+        crossed…’. A stop’s card names its episode and sums it up, then says what happens at the stop itself.
+      </p>
 
       <h2>How sure is each place?</h2>
       <p>Every place, route and area says how sure the map is about it.</p>

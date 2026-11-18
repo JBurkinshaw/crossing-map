@@ -9,7 +9,7 @@ import { TranslationList } from './TranslationList'
 import { distance, type Units } from '../units'
 import type { OpenQuestion } from '../data/openQuestions'
 import { FeatureQuestions } from './OpenQuestions'
-import { PART_NUMERALS, type Episode } from '../spoiler/progress'
+import { progressLabel, type Episode } from '../spoiler/progress'
 import { CERTAINTY_LABEL } from './certainty'
 import { synopsisFolded } from './folds'
 
@@ -133,16 +133,16 @@ export function Panel(props: Props) {
   const stopSection = stop && (
     <section className="stop" data-first-seen={stop.properties.first_seen}>
       <h2>{stop.properties.name}</h2>
-      {/* What happens here: the stop's episode and its summary, written to give nothing away past its opening. Then
-          the stop's own synopsis, which can tell the rest of the episode. While that episode is being read the
-          synopsis is folded, and the fold starts closed on every stop (keyed by stop), so each one is the reader's
-          choice (decision 0051). */}
+      {/* What happens here: the stop's episode and its summary in the faint meta style, written to give nothing away
+          past its opening. Then, below a rule, the stop's own synopsis at full ink (decision 0052), which can tell the
+          rest of the episode. While that episode is being read the synopsis is folded, and the fold starts closed on
+          every stop (keyed by stop), so each one is the reader's choice (decision 0051). */}
       {episode && (
         <div className="stop-episode" data-first-seen={episode.episode}>
-          <p className="meta">
-            Part {PART_NUMERALS[episode.part]} · <em>{episode.opening}</em>
+          <p className="meta" title="The book has no chapter titles. Each episode is named by the words it opens with, which the book sets in capitals.">
+            {progressLabel(episode.episode, episodes)}
           </p>
-          <p>{episode.summary}</p>
+          <p className="meta">{episode.summary}</p>
         </div>
       )}
       {synopsis &&

@@ -549,9 +549,22 @@ button.link:focus-visible,
   font-size: 0.95rem;
 }
 
-/* The stop's episode, under its name: which Part and episode, then what happens. */
+/* The stop's episode, under its name: which Part and episode, then the episode's summary. Both are in the faint
+   meta style, as context for the stop's own synopsis below them (decision 0052). */
 .stop-episode p {
   margin: 2px 0 6px;
+}
+
+.stop .stop-episode p.meta {
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+/* A thin rule between the episode's text and the stop's own, so they read as two things. */
+.stop-episode + .synopsis {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--ink-faint);
 }
 
 /* The stop's synopsis, under the episode's summary: in full, or folded while its episode is being read. The fold's
