@@ -16,7 +16,7 @@ import type { Basemap, CompareWith, Ground, View } from './mode'
 import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
 import { WaterMarks } from './WaterMarks'
-import { contourText, glyphText, LANDCOVER_ARCHIVE, landcoverLayers, OBLIQUE_BOUNDS, OBLIQUE_MIN_ZOOM, obliqueLayers, setVignetteOpacity } from './relief'
+import { contourText, glyphText, LANDCOVER_ARCHIVE, landcoverLayers, OBLIQUE_BOUNDS, OBLIQUE_MIN_ZOOM, obliqueLayers } from './relief'
 import { closeAttribution, dataBase, exposeForScripts, fontsBase, motion, TERRAIN_EXAGGERATION, tilesBase } from './setup'
 import { baseLayerIds, literaryStyle, notObliqueIds } from './style'
 import { inkPatterns, RATIO as INK_RATIO } from './landcoverInk'
@@ -156,14 +156,6 @@ export function MapView(props: Props) {
     map.setLayoutProperty('contour-label', 'text-field', contourText(units))
   }, [units, loaded, mapRef])
 
-  // The drawings of the journey in focus at full strength, the others lighter.
-  const journey = stops[0]?.properties.journey ?? ''
-  useEffect(() => {
-    const map = mapRef.current?.getMap()
-    if (!map || !loaded) return
-    setVignetteOpacity(map, journey)
-  }, [journey, loaded, mapRef])
-
   const onUnavailable = useCallback(() => {
     setUnavailable(true)
     onBasemap('literary')
@@ -268,7 +260,6 @@ export function MapView(props: Props) {
         <VintageUnderlay
           main={mapRef}
           style={underlayStyle}
-          journey={journey}
           units={units}
           terrain={view === 'tilted' ? { url: `pmtiles://${tilesBase}terrain.pmtiles`, exaggeration: TERRAIN_EXAGGERATION } : null}
         />

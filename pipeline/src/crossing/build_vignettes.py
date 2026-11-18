@@ -13,6 +13,9 @@ the side nearest the seed's `side`. If even the best side covers a stop, another
 line at the seed's `min_zoom`, the drawing waits for a closer zoom where the country has spread out, but at most
 MAX_RISE zoom steps: the owner wants the drawings in view as context, so past that it takes its clearest side there.
 
+A drawing shows from the later of its seed's `first_seen` and its pin's (shown_from): a drawing beside a pin the reader
+has not reached would say where the story goes. Its `episode` stays the seed's, the episode of the scene it shows.
+
 Screen footprints are measured in Web Mercator (EPSG:3857) pixels, as MapLibre draws them: 512 px tiles, so a zoom z
 world is 512 * 2^z px across. The coordinates are the published layers' (WGS 84) and the sizes are relief.ts's.
 """
@@ -228,6 +231,11 @@ def journey_of(ref: str, first_seen: str, stops: list[dict], places: dict[str, d
     return nearest["properties"]["journey"]
 
 
+def shown_from(scene: str, pin: dict) -> str:
+    """The episode a drawing shows from: its scene's, or its pin's if the pin shows later."""
+    return max(scene, pin["properties"]["first_seen"])
+
+
 def load() -> tuple[list[dict], list[dict], list[dict]]:
     return tuple(json.loads((DATA / f"{name}.geojson").read_text(encoding="utf-8"))["features"]
                  for name in ("stops", "places", "journeys"))
@@ -261,6 +269,11 @@ def main() -> None:
         placed_note = (f"The drawing is set on the {SIDES[side]} side of {where} (where it covers the fewest stops, "
                        "route lines and other drawings), beside the pin rather than on it; it is not to scale, and it "
                        "shows roughly where the scene happens, not exactly.")
+        first_seen = shown_from(s["first_seen"], points[s["ref"]])
+        waits = None
+        if first_seen != s["first_seen"]:
+            waits = (f"The scene is in {s['first_seen']}, but the drawing shows from {first_seen}, with the pin it "
+                     "stands beside, so it does not show where the story goes before the reader gets there.")
         held = None
         if zoom > float(s["min_zoom"]) and clash.clear:
             held = (f"Shown from zoom {zoom:g}, not {float(s['min_zoom']):g}: further out, on every side, it would "
@@ -275,10 +288,10 @@ def main() -> None:
         props = dict(
             id=f"vignette-{s['id']}", name=s["name"], kind="vignette", stands_for=s["stands_for"], place_ref=s["ref"],
             journey=journey_of(s["ref"], s["first_seen"], stops, place_by_id),
-            part=int(s["first_seen"][0]), episode=s["first_seen"], first_seen=s["first_seen"],
+            part=int(first_seen[0]), episode=s["first_seen"], first_seen=first_seen,
             certainty="approximate", method="hand-drawn", source="this-site", source_id=None,
             source_licence="CC BY 4.0",
-            note_safe=s["note"], reasoning=" ".join(x for x in (s["reasoning"], placed_note, held) if x),
+            note_safe=s["note"], reasoning=" ".join(x for x in (s["reasoning"], waits, placed_note, held) if x),
             vignette=f"vignette-{s['id']}", side=side, min_zoom=zoom,
             priority=int(s["priority"]), label=s["label"], credit=s["credit"],
         )

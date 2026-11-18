@@ -3,7 +3,7 @@ import math
 from shapely.geometry import Point
 
 from crossing import build_vignettes
-from crossing.build_vignettes import MERC, Story, footprint, journey_of, place, px_per_m
+from crossing.build_vignettes import MERC, Story, footprint, journey_of, place, px_per_m, shown_from
 
 
 def feature(lon: float, lat: float, **props) -> dict:
@@ -75,3 +75,9 @@ def test_journey_of_a_place_is_its_first_stop_in_reading_order():
     assert journey_of("place-a", "1-01", stops, places) == "J2"
     # No stop at the place: the nearest stop of the drawing's own episode.
     assert journey_of("place-c", "2-08", stops, places) == "J4"
+
+
+def test_a_drawing_waits_for_its_pin():
+    pin = feature(0, 0, first_seen="2-05")
+    assert shown_from("1-02", pin) == "2-05"
+    assert shown_from("3-01", pin) == "3-01"

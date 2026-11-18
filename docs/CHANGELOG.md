@@ -17,6 +17,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - `stops.geojson` has a new field, `synopsis`: one to three sentences on what happens at the stop, up to the end of its episode (decision 0051). Part I's 26 stops have one, and the rest are `null` for now.
 - The stop `j2-cajon-bonito` is now "Up the Cajón Bonito", because Billy rides south up the trail into the mountains. Its two legs' names follow.
 - The ranch on the volcanic plain (`j2-volcanic-plain-ranch`), its area, and the leg to it now show from 1-08, the episode in which Billy reaches it, not 1-09. The eight Spanish lines spoken there (`tr-1-08-007` to `-014`) now point at the ranch, not at the Guadalupe pass.
+- Four drawings in `vignettes.geojson` now show from their pin's episode, not their scene's: Echols' cabin from 2-05, the wolves running antelope and the steel trap from 1-04, and Billy and the dog from 1-05. Their `episode` is still the scene's (decision 0026).
 
 #### Site
 
@@ -25,6 +26,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - Search finds a Spanish line from any of its words, not only its opening words.
 - The introduction and the About page say that every Spanish line has the site's English, and how to find it.
 - The vignettes draw above the inferred areas' tint, in every view.
+- Every drawing is at full strength, not only those of the journey in focus.
 - The Home button is now "Zoom to the current journey", and its icon sits centred.
 - A stop's card adds the stop's own synopsis under its episode's summary. While you are reading that episode, the synopsis is folded under "What happens here", because it can tell what happens later in the episode (decision 0051).
 - A stop's card sets its episode and the episode's summary small and faint, then the stop's own synopsis below a thin rule, so the two read apart. Episodes are named by their opening words in quotes, as in "Part I, episode 9: ‘They crossed…’", on the card, the progress badge and the progress list. About now says what an episode is (decision 0052).

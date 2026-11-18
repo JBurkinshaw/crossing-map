@@ -1,6 +1,6 @@
 # 0026. Vignettes beside their pins
 
-Status: accepted (2026-11-14); the upper zoom bound (`max_zoom`) dropped on 2026-11-16, since a drawing beside its pin needs none; amended 2026-11-16: each side and first zoom chosen by script, clear of the stops and route lines, and the drawings of other journeys lighter (below); the wait for a closer zoom capped at one step the same day (below). Amends design section 10's placement rules. Drawn in the Raised view too, from raised copies, by 0039.
+Status: accepted (2026-11-14); the upper zoom bound (`max_zoom`) dropped on 2026-11-16, since a drawing beside its pin needs none; amended 2026-11-16: each side and first zoom chosen by script, clear of the stops and route lines, and the drawings of other journeys lighter (below); the wait for a closer zoom capped at one step the same day (below), and on 2026-11-17 every drawing at full strength and none before its pin (below). Amends design section 10's placement rules. Drawn in the Raised view too, from raised copies, by 0039.
 Phase: P1
 
 ## Context
@@ -54,6 +54,13 @@ The same measure at each drawing's own first zoom, for the seed's sides, the unc
 | Pairs of drawings on each other | 7 | 0 | 0 |
 
 At zoom 10, 53 drawings show with the cap (42 uncapped): they cover 10 stop markers and 3,441 px of route line, and 20 clash. Against the seed, 34 drawings change side and 27 wait one zoom step; none waits longer. The she-wolf still shows from 7, and Boyd riding in for the girl (seeded at 10) from 11. Most of the twelve extra clashes are one route line run along the drawing's edge (the steel trap, Boyd's grave, the cottonwood camp, the rider in the rain); the drawings that now touch a stop marker are the red plane, the wolves running antelope, Billy and the dog, Quijada and the wolf's cart.
+
+## Amendment, 2026-11-17: full strength, and never before the pin
+
+The owner found the drawings of other journeys, at 60%, read as greyed out, and asked for every drawing at full strength, shown only once the reader has come far enough that it gives nothing away.
+
+- **Every drawing is at full strength**, drawing and caption, whichever journey is in focus. The route lines of other journeys stay lighter.
+- **A drawing shows from the later of its scene's episode and its pin's** (`shown_from` in `crossing.build_vignettes`). Its `first_seen` is that episode, and its `episode` stays the scene's. A drawing beside a pin the reader has not reached would say where the story goes: Echols' cabin, from 1-02, stood beside the SK Bar pin, which the reader meets in 2-05. Four drawings wait: Echols' cabin to 2-05, the wolves running antelope (1-01) and the steel trap (1-03) to 1-04, and Billy and the dog to 1-05. Each one's `reasoning` says so. `crossing.validate` fails if a drawing shows before its pin.
 
 ## Alternatives
 

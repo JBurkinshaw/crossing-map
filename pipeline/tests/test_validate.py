@@ -159,6 +159,13 @@ def test_landform_may_not_show_before_its_place(layers):
     assert any("before its place" in e for e in validate.check_references(layers))
 
 
+def test_vignette_may_not_show_before_its_pin(layers):
+    layers["vignettes"]["features"].append(feature("vignette-a", kind="vignette", first_seen="1-01", place_ref="s2"))
+    assert any("vignettes.geojson vignette-a" in e for e in validate.check_references(layers))
+    layers["vignettes"]["features"][0]["properties"]["first_seen"] = "1-02"
+    assert not any("vignette-a" in e for e in validate.check_references(layers))
+
+
 def test_water_place_may_not_show_before_its_place(layers):
     layers["landforms"]["features"].clear()
     layers["places"]["features"][0]["properties"]["first_seen"] = "1-02"

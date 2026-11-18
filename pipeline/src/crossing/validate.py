@@ -123,6 +123,12 @@ def check_references(layers: dict[str, dict]) -> list[str]:
             seen = place_seen.get(p.get("place_ref"))
             if seen and isinstance(p.get("first_seen"), str) and p["first_seen"] < seen:
                 errors.append(f"{layer}.geojson {p['id']}: first_seen {p['first_seen']} is before its place's {seen}")
+    # A drawing beside a pin the reader has not reached would say where the story goes (crossing.build_vignettes).
+    pin_seen = {p["id"]: p.get("first_seen") for name in ("places", "stops") for p in properties(layers[name])}
+    for p in properties(layers["vignettes"]):
+        seen = pin_seen.get(p.get("place_ref"))
+        if seen and isinstance(p.get("first_seen"), str) and p["first_seen"] < seen:
+            errors.append(f"vignettes.geojson {p['id']}: first_seen {p['first_seen']} is before its pin's {seen}")
     for layer, kind, offset in (("stops", "stop", 0), ("journeys", "route-segment", 1)):
         by_journey: dict[str, list[int]] = defaultdict(list)
         stops = Counter(p.get("journey") for p in properties(layers["stops"]))
