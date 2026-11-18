@@ -210,6 +210,9 @@ export default function App() {
         reached={reached}
         stops={stops}
         stopIndex={stopIndex}
+        previousJourney={nav.previousJourney}
+        nextJourney={nav.nextJourney}
+        crossedFrom={nav.crossedFrom}
         spokenAtStop={listed(stop?.properties.id)}
         spokenOnRoad={listed(roadAhead?.properties.id).length}
         onShowRoad={() => {

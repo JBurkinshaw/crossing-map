@@ -9,17 +9,19 @@ import { hashParam } from './route'
 import { savedPlaces, savePlace } from './spoiler/place'
 import type { Progress } from './spoiler/progress'
 import { resumeStop } from './spoiler/resume'
-import { bounds, byId, clickResult, corridorBounds, journeyStops, journeysOf, type MapPick } from './story/select'
+import { bounds, byId, clickResult, corridorBounds, journeyStops, journeysOf, neighbourJourneys, type MapPick } from './story/select'
 
 // How the reader moves through the story: the journey in focus and its current stop, the place, area or road
 // picked, and the translation picked. Every way in (the stepper, a click on the map, search, a translation)
 // ends here, and each moves the map to what it opens.
 
 // `stepping` is true once the reader steps from stop to stop; the road ahead then fades (design 9, data dimming).
-type State = { journey: string; stopIndex: number; stepping: boolean }
+// `crossedFrom` is the journey Back or Next just left, until the reader moves again: the stop says so.
+type State = { journey: string; stopIndex: number; stepping: boolean; crossedFrom?: string }
 type Action =
   | { type: 'journey'; journey: string }
   | { type: 'stop'; index: number }
+  | { type: 'cross'; journey: string; index: number }
   | { type: 'goto'; journey: string; index: number; stepping: boolean }
   | { type: 'home' }
 
@@ -28,7 +30,9 @@ export function reducer(state: State, action: Action): State {
     case 'journey':
       return { journey: action.journey, stopIndex: 0, stepping: false }
     case 'stop':
-      return { ...state, stopIndex: action.index, stepping: true }
+      return { journey: state.journey, stopIndex: action.index, stepping: true }
+    case 'cross':
+      return { journey: action.journey, stopIndex: action.index, stepping: true, crossedFrom: state.journey }
     case 'goto':
       return { journey: action.journey, stopIndex: action.index, stepping: action.stepping }
     case 'home':
@@ -83,6 +87,11 @@ export function useNavigation({ mapRef, story, flat, translations, progress, sho
   const stopsOf = (j: string) => journeyStops(story, j)
   const stops = useMemo(() => journeyStops(story, journey), [story, journey])
   const stopIndex = Math.min(state.stopIndex, Math.max(0, stops.length - 1))
+  // The journeys reached before and after this one, which Back and Next go on to from its ends (decision 0058).
+  const { previous: previousJourney, next: nextJourney } = useMemo(
+    () => neighbourJourneys(journeys.map((j) => j.id).filter((j) => journeyStops(story, j).length > 0), journey),
+    [journeys, story, journey],
+  )
 
   // Frame the whole journey when the data arrives and whenever the reader switches journey.
   // A shared link with a #map= view keeps its view on first load.
@@ -131,8 +140,17 @@ export function useNavigation({ mapRef, story, flat, translations, progress, sho
 
   const flyTo = (f: StoryFeature) => flyToFeature(mapRef.current, f)
 
-  // Stepping through the stops of the journey in focus.
+  // Stepping through the stops of the journey in focus. Past its last stop, Next goes on to the first stop of the
+  // next journey, and before its first stop, Back goes to the last stop of the journey before. The map then frames
+  // the whole of the new journey (the framing effect above), so the change of journey shows (decision 0058).
   const goToStop = (index: number) => {
+    const to = index >= stops.length ? nextJourney : index < 0 ? previousJourney : null
+    if (to) {
+      dispatch({ type: 'cross', journey: to, index: index < 0 ? stopsOf(to).length - 1 : 0 })
+      setSelection(null)
+      setTranslationId(null)
+      return
+    }
     const stop = stops[index]
     if (!stop) return
     dispatch({ type: 'stop', index })
@@ -232,6 +250,9 @@ export function useNavigation({ mapRef, story, flat, translations, progress, sho
     stops,
     stopIndex,
     stepping: state.stepping,
+    crossedFrom: state.journey === journey ? state.crossedFrom : undefined,
+    previousJourney,
+    nextJourney,
     selection,
     translationId,
     setSelection,

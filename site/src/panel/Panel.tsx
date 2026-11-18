@@ -35,6 +35,10 @@ type Props = {
   reached: string
   stops: Feature<Point, StoryProps>[]
   stopIndex: number
+  // The journeys Back and Next go on to from this journey's first and last stops, and the journey they just left.
+  previousJourney: string | null
+  nextJourney: string | null
+  crossedFrom?: string
   // What was said in Spanish at the current stop (less the common lines), and the line picked in search, if any.
   spokenAtStop: Translation[]
   // Lines spoken on the road from the current stop to the next (talk on the road), and how to show that road.
@@ -65,8 +69,11 @@ export function Panel(props: Props) {
   const { header, search, card, failed, failures, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
   const { spokenOnRoad, onShowRoad, stopHasArea, onShowArea, readOn, onReadOn } = props
   const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement, episodes, reached } = props
-  const { spanishOpen, onSpanish } = props
+  const { spanishOpen, onSpanish, previousJourney, nextJourney, crossedFrom } = props
   const stop = stops[stopIndex]
+  // At a journey's ends, Back and Next go on to the journey before or after (decision 0058).
+  const backTo = stopIndex === 0 ? previousJourney : null
+  const nextTo = stopIndex >= stops.length - 1 ? nextJourney : null
   // The stop's episode: reached, as the stop is, so its summary is safe to show.
   const episode = stop && episodes.find((e) => e.episode === stop.properties.episode)
   // The stop the road from this one leads to.
@@ -149,6 +156,14 @@ export function Panel(props: Props) {
       <h2 ref={heading} tabIndex={-1}>
         {stop.properties.name}
       </h2>
+      {/* Back or Next just changed journey: say so, as the map's change of ink and framing may go unseen. */}
+      {crossedFrom && (
+        <p className="journey-change" role="status">
+          {crossedFrom.localeCompare(journey) < 0
+            ? `Finished ${crossedFrom}. This is the first stop of ${journey}: ${JOURNEYS[journey] ?? journey}.`
+            : `Back from ${crossedFrom} to the last stop of ${journey}: ${JOURNEYS[journey] ?? journey}.`}
+        </p>
+      )}
       {/* What happens here: the stop's episode and its summary in the faint meta style, written to give nothing away
           past its opening. Then, below a rule, the stop's own synopsis at full ink (decision 0052), which can tell the
           rest of the episode. While that episode is being read the synopsis is folded, and the fold starts closed on
@@ -215,6 +230,12 @@ export function Panel(props: Props) {
           </button>
         </div>
       )}
+      {/* The end of a journey, when another follows: Next goes on to it. */}
+      {nextTo && (
+        <p className="journey-end meta">
+          The last stop of {journey}. “On to {nextTo}” goes on to the next journey: {JOURNEYS[nextTo] ?? nextTo}.
+        </p>
+      )}
       {/* The end of what the reader has reached: reading on shows one more episode (decision 0053). */}
       {readOn && (
         <div className="read-on">
@@ -237,8 +258,13 @@ export function Panel(props: Props) {
   // height says where you are.
   const stepper = (
     <div className="stepper">
-      <button type="button" onClick={() => onStop(stopIndex - 1)} disabled={stopIndex === 0}>
-        Back
+      <button
+        type="button"
+        onClick={() => onStop(stopIndex - 1)}
+        disabled={stopIndex === 0 && !backTo}
+        aria-label={backTo ? `Back to journey ${backTo}: ${JOURNEYS[backTo] ?? ''}` : undefined}
+      >
+        {backTo ? `Back to ${backTo}` : 'Back'}
       </button>
       {stop && (
         <div className="stepper-stop">
@@ -252,8 +278,13 @@ export function Panel(props: Props) {
           )}
         </div>
       )}
-      <button type="button" onClick={() => onStop(stopIndex + 1)} disabled={stopIndex >= stops.length - 1}>
-        Next
+      <button
+        type="button"
+        onClick={() => onStop(stopIndex + 1)}
+        disabled={stopIndex >= stops.length - 1 && !nextTo}
+        aria-label={nextTo ? `On to journey ${nextTo}: ${JOURNEYS[nextTo] ?? ''}` : undefined}
+      >
+        {nextTo ? `On to ${nextTo}` : 'Next'}
       </button>
     </div>
   )

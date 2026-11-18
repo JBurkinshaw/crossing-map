@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { Feature, Geometry, Point } from 'geojson'
 import type { StoryProps } from '../data/story'
 import { story } from '../test/fixtures'
-import { areaOfStop, areaPick, bounds, clickResult, journeysOf, journeyStops, pinsApart, roadLabel, stopOfArea, type MapPick } from './select'
+import { areaOfStop, areaPick, bounds, clickResult, journeysOf, journeyStops, neighbourJourneys, pinsApart, roadLabel, stopOfArea, type MapPick } from './select'
 
 const pick = (layer: MapPick['layer'], id: string, journey: string | null = null, sequence: number | null = null): MapPick => ({
   layer,
@@ -22,6 +22,18 @@ describe('journeys', () => {
     const s = story()
     s.stops.features.reverse()
     expect(journeyStops(s, 'J1').map((f) => f.properties.id)).toEqual(['j1-1', 'j1-2', 'j1-3'])
+  })
+})
+
+describe('neighbourJourneys', () => {
+  it('names the journeys either side, and null past either end', () => {
+    expect(neighbourJourneys(['J1', 'J2', 'J3'], 'J2')).toEqual({ previous: 'J1', next: 'J3' })
+    expect(neighbourJourneys(['J1', 'J2'], 'J1')).toEqual({ previous: null, next: 'J2' })
+    expect(neighbourJourneys(['J1', 'J2'], 'J2')).toEqual({ previous: 'J1', next: null })
+  })
+
+  it('offers nothing for a journey not in the list', () => {
+    expect(neighbourJourneys(['J1'], 'J2')).toEqual({ previous: null, next: null })
   })
 })
 

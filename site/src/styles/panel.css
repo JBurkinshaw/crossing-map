@@ -648,6 +648,20 @@ button.link:focus-visible,
   background: color-mix(in srgb, var(--ink) 8%, transparent);
 }
 
+/* Back or Next has just changed journey (decision 0058), and the note at a journey's last stop. */
+.journey-change {
+  margin: 4px 0 10px;
+  padding-left: 8px;
+  border-left: 3px solid var(--ink-faint);
+  font-style: italic;
+}
+
+.journey-end {
+  margin-top: 14px;
+  padding-top: 6px;
+  border-top: 1px solid var(--ink-faint);
+}
+
 /* Lines grouped by episode, when a long list spans more than one. */
 .translation-group summary {
   min-height: 32px;

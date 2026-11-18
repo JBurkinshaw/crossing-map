@@ -70,6 +70,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0053 The reader's place in the address and on the device, and "Read on" | accepted |
 | 0054 The spoiler-leak test in two halves: the data at every position, the site in one walk through the book | accepted |
 | 0057 Stop rows checked against the book while writing the synopses | accepted |
+| 0058 Back and Next go on across journeys | accepted |
 
 ## Template
 

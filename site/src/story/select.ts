@@ -51,6 +51,14 @@ export function journeysOf(story: Story | null): { id: string; first_seen: strin
   return [...first].map(([id, first_seen]) => ({ id, first_seen })).sort((a, b) => a.id.localeCompare(b.id))
 }
 
+// The journeys either side of `journey` in `ids` (journey number order, as the journey picker lists them), or null
+// at either end. Back and Next go on to them from a journey's first and last stops (decision 0058).
+export function neighbourJourneys(ids: string[], journey: string): { previous: string | null; next: string | null } {
+  const i = ids.indexOf(journey)
+  if (i < 0) return { previous: null, next: null }
+  return { previous: ids[i - 1] ?? null, next: ids[i + 1] ?? null }
+}
+
 // Talk on the road (design section 8): a route segment is named by the places at its two ends, or by its stops
 // where a stop is not at a named place. Both ends are reached once the segment is (spoiler/filter.ts).
 export function roadLabel(story: Story | null, segment: StoryFeature): string {
