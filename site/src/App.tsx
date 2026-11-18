@@ -22,7 +22,7 @@ import { nextEpisode, progressLabel, reachedEpisode, spoilersHidden, useEpisodes
 import { useReadingProgress } from './spoiler/progressDialog'
 import { ProgressBadge, ReadingProgressDialog } from './spoiler/ReadingProgress'
 import { resumeStop } from './spoiler/resume'
-import { byId, roadLabel } from './story/select'
+import { areaOfStop, byId, roadLabel, stopOfArea } from './story/select'
 import { distance, useUnits } from './units'
 import { useRememberedFold } from './panel/folds'
 
@@ -108,6 +108,7 @@ export default function App() {
   const stop = stops[stopIndex]
   // At the stop the reader reached most recently, "Read on" sets progress to the next episode (decision 0053).
   const next = stop && resumeStop(flat?.stops.features ?? [], progress)?.id === stop.properties.id ? nextEpisode(progress, episodes) : null
+  const stopArea = stop ? areaOfStop(flat, stop.properties.id) : undefined
   // The road from the current stop to the next, and the lines spoken on it.
   const roadAhead = stop
     ? (flat?.journeys.features as Feature<Geometry, StoryProps>[] | undefined)?.find(
@@ -148,6 +149,8 @@ export default function App() {
       feature={selected}
       units={units}
       questions={questions}
+      stop={selected.properties.kind === 'inferred-area' ? stopOfArea(flat, selected.properties.id) : undefined}
+      onStop={nav.showStop}
       spoken={listed(selected.properties.id)}
       currentTranslation={translationId}
       placementOpen={placementOpen}
@@ -214,6 +217,8 @@ export default function App() {
           setTranslationId(null)
           nav.showRoad(roadAhead.properties.id)
         }}
+        stopHasArea={!!stopArea}
+        onShowArea={() => stopArea && nav.showArea(stopArea.properties.id)}
         readOn={next && progressLabel(next, episodes)}
         onReadOn={() => next && setProgress(next)}
         currentTranslation={translationId}

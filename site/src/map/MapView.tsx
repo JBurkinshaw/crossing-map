@@ -44,7 +44,16 @@ const BASE_FILTERS = Object.fromEntries(LITERARY.layers
   .filter((l) => l.id in PROGRESS_LAYERS).map((l) => [l.id, 'filter' in l ? l.filter : undefined]))
 
 // The layers a click can pick, and which story layer each draws.
-const CLICKABLE: Record<string, MapPick['layer']> = { 'places-point': 'places', 'zone-places-point': 'places', 'areas-fill': 'areas', 'journeys-hit': 'journeys' }
+const CLICKABLE: Record<string, MapPick['layer']> = {
+  'places-point': 'places',
+  'zone-places-point': 'places',
+  'areas-fill': 'areas',
+  'areas-edge-hit': 'areas',
+  'regions-hit': 'areas',
+  'journeys-hit': 'journeys',
+}
+// The unseen strips along the areas' edges: a click there picks that area before any area it falls inside.
+const EDGES = new Set(['areas-edge-hit', 'regions-hit'])
 
 type Props = {
   mapRef: RefObject<MapRef | null>
@@ -281,7 +290,7 @@ export function MapView(props: Props) {
           onClick={(e) => {
             const picks = (e.features ?? []).map((f) => {
               const p = f.properties as StoryProps
-              return { layer: CLICKABLE[f.layer.id], id: p.id, journey: p.journey ?? null, sequence: p.sequence ?? null }
+              return { layer: CLICKABLE[f.layer.id], id: p.id, journey: p.journey ?? null, sequence: p.sequence ?? null, edge: EDGES.has(f.layer.id) }
             })
             onMapClick(picks, [e.lngLat.lng, e.lngLat.lat])
           }}

@@ -27,6 +27,8 @@ A change is **released** when it is merged to `main`, which the public site serv
 - The introduction and the About page say that every Spanish line has the site's English, and how to find it.
 - The vignettes draw above the inferred areas' tint, in every view.
 - Every drawing is at full strength, not only those of the journey in focus.
+- Where areas overlap, a click opens the area whose edge it falls on, else an area of the journey in focus, else the smallest. The inferred areas inside the Animas Valley and La Babícora, and those under larger areas round the Babícora, can be clicked again (decision 0049).
+- A stop worked out to an area says on its card that the point is a best guess, outlines the area on the map while it is the current stop, and has a button that frames the whole area. An area's card links back to its stop (decision 0050).
 - The Home button is now "Zoom to the current journey", and its icon sits centred.
 - A stop's card adds the stop's own synopsis under its episode's summary. While you are reading that episode, the synopsis is folded under "What happens here", because it can tell what happens later in the episode (decision 0051).
 - A stop's card sets its episode and the episode's summary small and faint, then the stop's own synopsis below a thin rule, so the two read apart. Episodes are named by their opening words in quotes, as in "Part I, episode 9: ‘They crossed…’", on the card, the progress badge and the progress list. About now says what an episode is (decision 0052).

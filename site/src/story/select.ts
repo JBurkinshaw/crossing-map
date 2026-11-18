@@ -5,8 +5,9 @@ import { corridor as corridorOf } from '../map/corridor'
 // Pure lookups over the story data, shared by App's navigation (navigation.ts) and its tests.
 
 export type StoryLayer = 'places' | 'stops' | 'areas' | 'journeys'
-// A story feature under a click: a place, an area, or a route segment (with its journey and sequence).
-export type MapPick = { layer: 'places' | 'areas' | 'journeys'; id: string; journey: string | null; sequence: number | null }
+// A story feature under a click: a place, an area, or a route segment (with its journey and sequence). `edge` is
+// set when the click fell on an area's edge strip rather than inside it.
+export type MapPick = { layer: 'places' | 'areas' | 'journeys'; id: string; journey: string | null; sequence: number | null; edge?: boolean }
 type StoryFeature = Feature<Geometry, StoryProps>
 
 export function positions(g: Geometry): Position[] {
@@ -32,6 +33,13 @@ export const journeyStops = (story: Story | null, journey: string) =>
 
 export const byId = (story: Story | null, layer: StoryLayer, id: string) =>
   (story?.[layer].features as StoryFeature[] | undefined)?.find((f) => f.properties.id === id)
+
+// A stop worked out from clues has an area it could be anywhere in, built from the stop and named after it
+// (crossing.build_story): stop j2-hacienda, area area-j2-hacienda.
+const AREA_PREFIX = 'area-'
+export const areaOfStop = (story: Story | null, stopId: string) => byId(story, 'areas', `${AREA_PREFIX}${stopId}`)
+export const stopOfArea = (story: Story | null, areaId: string) =>
+  areaId.startsWith(AREA_PREFIX) ? byId(story, 'stops', areaId.slice(AREA_PREFIX.length)) : undefined
 
 // The journeys with a stop in the story, each with the episode of its first stop, in id order.
 export function journeysOf(story: Story | null): { id: string; first_seen: string }[] {
@@ -87,6 +95,38 @@ export function pinsApart(story: Story): Set<string> {
 // focus if it is one of the journeys there (several can share a road or a town), else in the journey of the
 // topmost route clicked, else the first journey that stops there. On a route, the stop is the end of the clicked
 // segment nearer the click. Any other place or area opens its card; a click on empty map clears the pick.
+// An area's size, for ranking only: square degrees of longitude shrunk by the cosine of the latitude, so roughly
+// proportional to its true area at this map's latitudes.
+function size(g: Geometry): number {
+  const ring = (r: Position[]) => {
+    const k = Math.cos(((r[0]?.[1] ?? 0) * Math.PI) / 180)
+    let sum = 0
+    for (let i = 1; i < r.length; i++) sum += (r[i - 1][0] - r[i][0]) * k * (r[i - 1][1] + r[i][1])
+    return Math.abs(sum) / 2
+  }
+  const polygon = (p: Position[][]) => ring(p[0] ?? []) - p.slice(1).reduce((t, h) => t + ring(h), 0)
+  if (g.type === 'Polygon') return polygon(g.coordinates)
+  if (g.type === 'MultiPolygon') return g.coordinates.reduce((t, p) => t + polygon(p), 0)
+  return Infinity
+}
+
+// Which of the areas under a click opens (decision 0049): an edge before an inside, so any outline can be
+// picked; then an area of the journey in focus, the ones drawn strongly; then the smallest, the most specific.
+// Regions have no journey and are the largest, so an inferred area inside one always wins over it.
+export function areaPick(picks: MapPick[], story: Story | null, journey: string): MapPick | undefined {
+  const sizeOf = (id: string) => {
+    const f = byId(story, 'areas', id)
+    return f ? size(f.geometry) : Infinity
+  }
+  const rank = (p: MapPick): [number, number, number] => [p.edge ? 0 : 1, p.journey === journey ? 0 : 1, sizeOf(p.id)]
+  return picks
+    .filter((p) => p.layer === 'areas')
+    .sort((a, b) => {
+      const [x, y] = [rank(a), rank(b)]
+      return x[0] - y[0] || x[1] - y[1] || x[2] - y[2]
+    })[0]
+}
+
 export type ClickResult =
   | { kind: 'step'; index: number }
   | { kind: 'stop'; id: string }
@@ -134,5 +174,6 @@ export function clickResult(
     return { kind: 'step', index: here.map(index).sort((a, b) => Math.abs(a - stopIndex) - Math.abs(b - stopIndex))[0] }
   }
   if (candidates.length > 0) return { kind: 'stop', id: candidates[0].properties.id }
+  if (top?.layer === 'areas') return { kind: 'select', layer: 'areas', id: areaPick(picks, story, journey)!.id }
   return top && top.layer !== 'journeys' ? { kind: 'select', layer: top.layer, id: top.id } : { kind: 'clear' }
 }

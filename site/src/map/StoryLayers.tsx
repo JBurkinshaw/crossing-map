@@ -6,7 +6,7 @@ import { useJson } from '../data/json'
 import type { Story, StoryProps } from '../data/story'
 import { CLUSTER_MAX_ZOOM, CLUSTER_PROPERTIES, CLUSTER_RADIUS, clusterDetail, clusterWord, expandCluster, inZone, useZoneClusters, ZONE_CLUSTERS, ZONE_SOURCE, ZONE_STOPS } from './cluster'
 import { corridor, midpoint } from './corridor'
-import { pinsApart } from '../story/select'
+import { areaOfStop, pinsApart } from '../story/select'
 import { prefersReducedMotion } from './setup'
 import { dashInWidths, fonts, journeyInks, OUT_OF_FOCUS_WIDTH, palette as tokens, QUIET_OPACITY, routeLines, typeScale } from './tokens'
 
@@ -150,6 +150,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
   const journey = stops[0]?.properties.journey ?? ''
   const inFocus: ExpressionSpecification = ['==', ['get', 'journey'], journey]
   const selected: ExpressionSpecification = ['==', ['get', 'id'], selectedId ?? '']
+  const currentArea = (current && areaOfStop(story, current)?.properties.id) ?? ''
   // A segment joins stop `sequence` to the next, so the road ahead starts at the current stop's sequence.
   const ahead: ExpressionSpecification =
     aheadFrom === null ? ['boolean', false] : ['all', inFocus, ['>=', ['coalesce', ['get', 'sequence'], 9999], aheadFrom]]
@@ -229,7 +230,8 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
       <Source id="areas" type="geojson" data={story.areas}>
         {/* Inferred areas: a flat tint in the journey's ink with a dotted edge, after the land-class tints of
             Wheeler sheet 84 (decision 0033). */}
-        {/* Regions are in this layer too, unfilled, because it is the layer a click on an area hits (MapView). */}
+        {/* Regions are in this layer too, unfilled, so a click inside one can open it. An inferred area inside a
+            region still wins that click (areaPick in story/select.ts, decision 0049). */}
         <Layer
           id="areas-fill"
           type="fill"
@@ -259,7 +261,24 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           layout={{ 'line-join': 'round' }}
           paint={{ 'line-color': tokens.ink, 'line-width': 0.8, 'line-opacity': 0.8 }}
         />
-        <Layer id="areas-selected" type="line" filter={selected} paint={{ 'line-color': tokens.ink, 'line-width': 2.5 }} />
+        {/* Unseen strips along each edge, wider than the lines so they are easy to hit: a click on an edge picks
+            that area before any area it falls inside (decision 0049). A region's strip covers its line and band. */}
+        <Layer
+          id="areas-edge-hit"
+          type="line"
+          filter={['!=', ['get', 'kind'], 'region']}
+          layout={{ 'line-join': 'round' }}
+          paint={{ 'line-color': tokens.ink, 'line-width': 12, 'line-opacity': 0 }}
+        />
+        <Layer
+          id="regions-hit"
+          type="line"
+          filter={['==', ['get', 'kind'], 'region']}
+          layout={{ 'line-join': 'round' }}
+          paint={{ 'line-color': tokens.ink, 'line-width': 14, 'line-offset': 5, 'line-opacity': 0 }}
+        />
+        {/* The area picked, and the area of the current stop, so its pin reads as one guess within it. */}
+        <Layer id="areas-selected" type="line" filter={['in', ['get', 'id'], ['literal', [selectedId ?? '', currentArea]]]} paint={{ 'line-color': tokens.ink, 'line-width': 2.5 }} />
       </Source>
       <Source id="journeys" type="geojson" data={story.journeys}>
         {/* Above the relief, below the boundaries and water; the colour of the paper on screen at each zoom. */}

@@ -172,6 +172,12 @@ export function useNavigation({ mapRef, story, flat, translations, progress, sho
     flyTo(f)
   }
 
+  // A stop's area, framed on the map, while the stop stays current and its section stays open.
+  const showArea = (id: string) => {
+    const f = byId(story, 'areas', id) ?? byId(flat, 'areas', id)
+    if (f) flyTo(f)
+  }
+
   // Talk on the road: the segment's journey comes into focus at the stop the segment leaves from, its card
   // opens, and the map frames the corridor.
   const showRoad = (id: string) => {
@@ -232,6 +238,7 @@ export function useNavigation({ mapRef, story, flat, translations, progress, sho
     setTranslationId,
     goToStop,
     showStop,
+    showArea,
     showRoad,
     onMapClick,
     onPick,

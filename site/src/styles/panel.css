@@ -615,6 +615,11 @@ button.link:focus-visible,
   font-size: inherit;
 }
 
+/* The line under a stop worked out to an area, and the button that frames the area. */
+.stop-area p {
+  margin-bottom: 6px;
+}
+
 /* Talk on the road from the current stop, and reading on from the last stop reached: each ruled off from the
    stop's own text, with a full-width button. */
 .road-ahead,
@@ -625,6 +630,7 @@ button.link:focus-visible,
 }
 
 .road-lines,
+.show-area,
 .read-on button {
   width: 100%;
   min-height: 44px;
@@ -637,6 +643,7 @@ button.link:focus-visible,
 }
 
 .road-lines:hover,
+.show-area:hover,
 .read-on button:hover {
   background: color-mix(in srgb, var(--ink) 8%, transparent);
 }

@@ -27,6 +27,9 @@ type Props = {
   // Whether "How this was placed" is open: shared with the stop section, so it stays as the reader left it.
   placementOpen: boolean
   onPlacement: (open: boolean) => void
+  // For an inferred area: the stop it was worked out for, and how to go to it.
+  stop?: Feature<Geometry, StoryProps>
+  onStop?: (id: string) => void
 }
 
 // What kind of place it is, before how sure the map is of it: "Inferred area · Worked out from clues". The data's
@@ -39,7 +42,7 @@ const kindWord = (kind: string | undefined) => (kind ? `${KIND[kind] ?? kind[0].
 // section 8).
 export function PlaceCard(props: Props) {
   const { feature, units, questions, spoken, currentTranslation, onClose, title, spokenTitle = 'Spanish here', spokenNote } = props
-  const { placementOpen, onPlacement } = props
+  const { placementOpen, onPlacement, stop, onStop } = props
   const p = feature.properties
   const card = useRef<HTMLElement>(null)
   // The card's top, with its title: a card taller than the panel would otherwise show its foot. When the card
@@ -60,6 +63,14 @@ export function PlaceCard(props: Props) {
         {p.uncertainty_m ? ` · within about ${distance(p.uncertainty_m, units)}` : ''}
       </div>
       {(p.note_full || p.note_safe) && <p>{p.note_full || p.note_safe}</p>}
+      {stop && onStop && (
+        <p className="area-stop">
+          The area for {stop.properties.journey}, stop {stop.properties.sequence}:{' '}
+          <button type="button" className="link" onClick={() => onStop(stop.properties.id)}>
+            {stop.properties.name}
+          </button>
+        </p>
+      )}
       <details className="placement" open={placementOpen} onToggle={(e) => onPlacement(e.currentTarget.open)}>
         <summary>How this was placed</summary>
         {p.reasoning && <p>{p.reasoning}</p>}

@@ -40,6 +40,9 @@ type Props = {
   // Lines spoken on the road from the current stop to the next (talk on the road), and how to show that road.
   spokenOnRoad: number
   onShowRoad: () => void
+  // Whether the current stop was worked out to an area rather than found (the map outlines it), and how to frame it.
+  stopHasArea: boolean
+  onShowArea: () => void
   // At the stop the reader reached most recently, the next episode's label, and how to set progress to it.
   readOn: string | null
   onReadOn: () => void
@@ -60,7 +63,7 @@ type Props = {
 
 export function Panel(props: Props) {
   const { header, search, card, failed, failures, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
-  const { spokenOnRoad, onShowRoad, readOn, onReadOn } = props
+  const { spokenOnRoad, onShowRoad, stopHasArea, onShowArea, readOn, onReadOn } = props
   const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement, episodes, reached } = props
   const { spanishOpen, onSpanish } = props
   const stop = stops[stopIndex]
@@ -168,6 +171,18 @@ export function Panel(props: Props) {
           <p className="synopsis">{synopsis}</p>
         ))}
       {(stop.properties.note_full || stop.properties.note_safe) && <p>{stop.properties.note_full || stop.properties.note_safe}</p>}
+      {/* Said outside "How this was placed", which may be shut: the pin alone would read as more certain than it is. */}
+      {stopHasArea && (
+        <div className="stop-area">
+          <p>
+            <em>{CERTAINTY_LABEL[stop.properties.certainty]}.</em> The point is a best guess: the book puts this stop
+            somewhere in the area outlined on the map.
+          </p>
+          <button type="button" className="show-area" onClick={onShowArea}>
+            Show the whole area
+          </button>
+        </div>
+      )}
       {/* Open or closed as the reader last left it, from stop to stop and journey to journey. */}
       <details className="placement" open={placementOpen} onToggle={(e) => onPlacement(e.currentTarget.open)}>
         <summary>How this was placed</summary>

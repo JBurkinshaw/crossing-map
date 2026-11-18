@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { Feature, Geometry, Point } from 'geojson'
 import type { StoryProps } from '../data/story'
 import { story } from '../test/fixtures'
-import { bounds, clickResult, journeysOf, journeyStops, pinsApart, roadLabel, type MapPick } from './select'
+import { areaOfStop, areaPick, bounds, clickResult, journeysOf, journeyStops, pinsApart, roadLabel, stopOfArea, type MapPick } from './select'
 
 const pick = (layer: MapPick['layer'], id: string, journey: string | null = null, sequence: number | null = null): MapPick => ({
   layer,
@@ -59,6 +59,23 @@ describe('bounds', () => {
   })
 })
 
+describe('a stop and its area', () => {
+  const withArea = () => {
+    const s = story()
+    const square: Geometry = { type: 'Polygon', coordinates: [[[2, 0], [2, 1], [3, 1], [3, 0], [2, 0]]] }
+    const area = { ...s.stops.features[2], geometry: square, properties: { ...s.stops.features[2].properties, id: 'area-j1-3' } }
+    return { ...s, areas: { type: 'FeatureCollection' as const, features: [area] } }
+  }
+  it('finds each from the other by id', () => {
+    expect(areaOfStop(withArea(), 'j1-3')?.properties.id).toBe('area-j1-3')
+    expect(stopOfArea(withArea(), 'area-j1-3')?.properties.id).toBe('j1-3')
+  })
+  it('finds nothing for a stop without an area, or a region', () => {
+    expect(areaOfStop(withArea(), 'j1-1')).toBeUndefined()
+    expect(stopOfArea(withArea(), 'region-animas-valley')).toBeUndefined()
+  })
+})
+
 describe('clickResult', () => {
   const s = story()
   const j1 = journeyStops(s, 'J1') as Feature<Point, StoryProps>[]
@@ -78,5 +95,37 @@ describe('clickResult', () => {
   it('opens the card of a place no journey stops at, and clears on empty map', () => {
     expect(clickResult([pick('places', 'village')], [5, 5], s, 'J1', j1, 0)).toEqual({ kind: 'select', layer: 'places', id: 'village' })
     expect(clickResult([], [9, 9], s, 'J1', j1, 0)).toEqual({ kind: 'clear' })
+  })
+})
+
+describe('areaPick', () => {
+  // A region over everything, a large J1 area, and a small J2 area inside the J1 one.
+  const square = (x: number, y: number, d: number): Geometry => ({
+    type: 'Polygon',
+    coordinates: [[[x, y], [x, y + d], [x + d, y + d], [x + d, y], [x, y]]],
+  })
+  const s = story()
+  const area = (id: string, journey: string | null, g: Geometry) => ({ ...s.stops.features[0], geometry: g, properties: { ...s.stops.features[0].properties, id, journey } })
+  const withAreas = { ...s, areas: { type: 'FeatureCollection' as const, features: [
+    area('region-r', null, square(0, 0, 10)), area('area-big', 'J1', square(1, 1, 4)), area('area-small', 'J2', square(2, 2, 1)),
+  ] } }
+  const r = pick('areas', 'region-r')
+  const big = pick('areas', 'area-big', 'J1')
+  const small = pick('areas', 'area-small', 'J2')
+
+  it('prefers an inferred area to the region it lies in', () => {
+    expect(areaPick([r, big], withAreas, 'J3')?.id).toBe('area-big')
+  })
+  it('prefers the journey in focus, then the smallest', () => {
+    expect(areaPick([r, big, small], withAreas, 'J1')?.id).toBe('area-big')
+    expect(areaPick([r, big, small], withAreas, 'J3')?.id).toBe('area-small')
+  })
+  it('prefers any edge to any inside, the region\'s too', () => {
+    expect(areaPick([small, big, { ...r, edge: true }], withAreas, 'J2')?.id).toBe('region-r')
+    expect(areaPick([{ ...big, edge: true }, small], withAreas, 'J2')?.id).toBe('area-big')
+  })
+  it('opens the ranked area from a click', () => {
+    const j1 = journeyStops(withAreas, 'J1') as Feature<Point, StoryProps>[]
+    expect(clickResult([r, big, small], [2.5, 2.5], withAreas, 'J3', j1, 0)).toEqual({ kind: 'select', layer: 'areas', id: 'area-small' })
   })
 })
