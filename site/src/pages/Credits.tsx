@@ -140,7 +140,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         link: 'https://www.inegi.org.mx/temas/hidrografia/',
         use: 'The named rivers, the smaller streams and the lakes on the Mexico side of the vintage map, and streams on the Mexico side in the Oblique view.',
         licence: 'INEGI free-use terms, attribution required, transformed by this site',
-        credit: 'Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0',
+        credit: 'Fuente: INEGI, Red Hidrográfica escala 1:50 000 edición 2.0, agosto de 2010',
       },
       {
         name: 'INEGI, Red Nacional de Caminos (RNC) 2024',
@@ -154,7 +154,7 @@ const SECTIONS: { title: string; credits: Credit[] }[] = [
         link: 'https://doi.org/10.6084/m9.figshare.25988293',
         use: 'The year each dam was finished, which decides the reservoirs the vintage map leaves out as built after the book (decision 0031). The map draws none of its shapes.',
         licence: 'CC BY 4.0, transformed by this site',
-        credit: 'Global Dam Watch database v1.0 (Lehner et al. 2024), CC BY 4.0',
+        credit: 'Lehner, B. et al. (2024), The Global Dam Watch database of river barrier and reservoir information for large-scale applications, Scientific Data; Global Dam Watch database v1.0, https://www.globaldamwatch.org',
       },
       {
         name: 'USGS National Hydrography Dataset (NHD)',

@@ -10,10 +10,10 @@ One row per source: what its terms ask, where the site and the data meet them, a
 | --- | --- | --- | --- | --- | --- |
 | [ ] | Copernicus DEM GLO-30 | Copernicus DEM licence | The "produced using…" notice, the disclaimer, and the same terms downstream | Credits (full notice and disclaimer), Data (notice), each archive's credit on the map (short form) | None (`data/LICENSE` names it) |
 | [ ] | GeoNames | CC BY 4.0 | Credit, licence link, changes noted | Credits, Data, `water_places` credit on the map | None found |
-| [ ] | GMBA Mountain Inventory v2 | CC BY 4.0 | The same | Credits, Data | Re-read GMBA's own licence page |
-| [ ] | CEC Land Cover 2020 | CC BY 4.0 | The same | Credits (now says "transformed"), Data, `landcover.pmtiles` credit | Re-read the CEC's licence page |
-| [ ] | Global Dam Watch and GRanD | CC BY 4.0 | The same | Credits ("transformed") | Only its dates are used, nothing is drawn. Re-read its page |
-| [ ] | INEGI Red Hidrográfica 1:50k | INEGI free-use terms | "Fuente: INEGI", product name and date, changes noted, no implied endorsement | Credits (now says "transformed"), Data, `base.pmtiles` credit | Add the edition date to the "Fuente" line if INEGI gives one |
+| [ ] | GMBA Mountain Inventory v2 | CC BY 4.0 | The same | Credits, Data | None. Re-read 2026-11-18: CC BY 4.0, holder GMBA, in GMBA's `LICENSE` on GitHub (earthenv.org refuses automated reads) |
+| [ ] | CEC Land Cover 2020 | CC BY 4.0 | The same | Credits (now says "transformed"), Data, `landcover.pmtiles` credit | None. Re-read 2026-11-18: CC BY 4.0 for data the CEC authored, in the terms of use shipped with the download. The credit is the CEC's own citation |
+| [ ] | Global Dam Watch and GRanD | CC BY 4.0 | The same | Credits ("transformed") | None. Re-read 2026-11-18: CC BY 4.0 (technical documentation, section 4.1, and the figshare record). It asks for a citation of Lehner et al. (2024) and a link to globaldamwatch.org, both now in the credit, and asks users not to republish the whole database in its original format, which the site doesn't do |
+| [ ] | INEGI Red Hidrográfica 1:50k | INEGI free-use terms | "Fuente: INEGI", product name and date, changes noted, no implied endorsement | Credits (now says "transformed"), Data, `base.pmtiles` credit | Credits and Data now give the date, "agosto de 2010", from INEGI's technical document in the download. The credit inside `base.pmtiles` and the Oblique archives (`tiles/build_base.py`, `crossing.plan_oblique`) picks it up at their next build |
 | [ ] | INEGI Red Nacional de Caminos 2024 | INEGI free-use terms | The same | Credits ("transformed"), 13 features' `source_licence` | None found |
 | [ ] | USGS GNIS and NHD, Census TIGER | Public domain | Nothing, credit is a courtesy | Credits, Data | None |
 | [ ] | Natural Earth | Public domain | Nothing | Credits | None |
@@ -43,6 +43,6 @@ One row per source: what its terms ask, where the site and the data meet them, a
 
 | ✓ | Item | Now | Left to do |
 | --- | --- | --- | --- |
-| [ ] | Code | MIT (`LICENSE`) | Confirm |
+| [ ] | Code | MIT (`LICENSE`) | None. Confirmed by the owner on 2026-11-18 |
 | [ ] | Hachure generator | GPL-3.0, with Huffman's credit and the change list (`pipeline/relief/hachures/`) | None |
 | [ ] | Data and notes | CC BY 4.0 (`data/LICENSE`, decision 0045) | None |

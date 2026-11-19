@@ -66,7 +66,7 @@ CC BY 4.0 was confirmed on 2026-11-16 (decision 0045). `data/LICENSE` grants it 
 ## Not verified
 
 - The GPL-3.0 wording on marking changes was taken from memory, not re-read. The hachure README's change list meets it either way.
-- The licence pages of GMBA, the CEC land cover, and GRanD were not re-read for this page.
+- GMBA, the CEC land cover, and Global Dam Watch were re-read on 2026-11-18, from GMBA's `LICENSE` file, the CEC's terms of use, and the Global Dam Watch technical documentation. All three are CC BY 4.0.
 - INEGI makes no statement on CC BY compatibility.
 
 ## Sources
