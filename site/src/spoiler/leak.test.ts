@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { featureFilter } from '@maplibre/maplibre-gl-style-spec'
 import type { Feature, FeatureCollection, GeoJsonProperties } from 'geojson'
 import type { Story } from '../data/story'
+import { story } from '../test/fixtures'
 import type { PlacePhotos } from '../data/photos'
 import type { Translation } from '../data/translations'
 import { layerFilterUpTo, photosUpTo, PROGRESS_LAYERS, shownAt, storyUpTo, translationsUpTo } from './filter'
@@ -60,6 +61,7 @@ function later(story: Story, reached: string): string[] {
     for (const { properties: p } of fc.features) {
       if (p?.role !== 'context' && !(p?.first_seen <= reached)) found.push(`${layer} ${p?.id} first seen ${p?.first_seen}`)
       for (const lead of p?.leads ?? []) if (lead.first_seen > reached) found.push(`${layer} ${p?.id} lead ${lead.source} first seen ${lead.first_seen}`)
+      for (const h of p?.history ?? []) if (h.first_seen > reached) found.push(`${layer} ${p?.id} history p. ${h.page} first seen ${h.first_seen}`)
       for (const [key, value] of Object.entries(p ?? {})) {
         if (key === 'first_seen' || key === 'episode' || typeof value !== 'string') continue
         for (const id of value.match(EPISODE_ID) ?? []) if (id > reached) found.push(`${layer} ${p?.id} ${key} cites ${id}`)
@@ -78,11 +80,11 @@ describe.each(positions)('at %s', (progress) => {
     expect(later(storyUpTo(oblique, reached, spoilers), reached)).toEqual([])
   })
 
-  it('names no place the reader has not met in the leads it shows', () => {
+  it('names no place the reader has not met in the leads and local history it shows', () => {
     const unmet = unmetNames(reached)
     const found = Object.values(storyUpTo(flat, reached, spoilers))
       .flatMap((fc: FeatureCollection) => fc.features.map((f) => f.properties))
-      .flatMap((p) => (p?.leads ?? []).flatMap((l: { note?: string }) => unmet.filter((n) => l.note?.includes(n)).map((n) => `${p?.id} names ${n}`)))
+      .flatMap((p) => [...(p?.leads ?? []), ...(p?.history ?? [])].flatMap((l: { note?: string }) => unmet.filter((n) => l.note?.includes(n)).map((n) => `${p?.id} names ${n}`)))
     expect(found).toEqual([])
   })
 
@@ -130,4 +132,12 @@ it('lets features the reader has reached through the filters', () => {
   expect(vignettes.some((f) => f.properties?.first_seen <= '2-01' && pass({ zoom: 10 }, { type: 1, properties: f.properties ?? {} }))).toBe(true)
   expect(storyUpTo(flat, '2-01', true).stops.features.length).toBeGreaterThan(0)
   expect(photosUpTo(photos, storyUpTo(flat, '2-01', true), '2-01').length).toBeGreaterThan(0)
+})
+
+// The published data has no local history notes yet (decision 0071), so a fixture note shows the check would catch one.
+it('catches a local history note dated after the reader’s progress', () => {
+  const s = story()
+  s.stops.features[0].properties.history = [{ note: 'The school closed in 1950.', source: 'bell-2000', page: '61', first_seen: '3-04' }]
+  expect(later(s, '1-02')).toContain('stops j1-1 history p. 61 first seen 3-04')
+  expect(later(storyUpTo(s, '1-02', true), '1-02')).toEqual([])
 })

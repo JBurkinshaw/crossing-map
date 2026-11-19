@@ -67,7 +67,7 @@ Seven more were settled as built on 2026-11-16, and the packet lists them under 
 - **[decide]** Items 2 to 7: Casas Grandes old town or new for the five town-scene stops; the Parham house 3–6 km north of Cloverdale (moving the SK Bar estimate with it); both Cloverdale Creek stops 7 km up the creek; Cajón Bonito on the upper canyon; the Clanton–Foster draws area and the Foster Draw stop onto the draws' middle reaches and head; Starvation Canyon at its head.
 - **[decide]** Items 9 to 13: add the old Nations road, Fitzpatrick Wells, and Pendleton's ranch; leave Ciénega Springs, Government Draw, and Don Arnulfo's house unmapped.
 - **[decide]** Item 14: street-level places in Deming, Silver City, El Paso, Casas Grandes, and Caborca, with `maxZoom` raised from 13 to 15 (about ten network lookups).
-- **[decide]** Item 16: about 20 notes paraphrased from Bell, cited by page, reviewed together for spoilers.
+- **[decide]** Item 16: the "Local history" line on the cards is built (decision 0071). The 24 notes drafted from Bell, cited by page, wait for the owner's review together for spoilers.
 - **[decide]** Item 17: raise five overrides from medium to high confidence where Hazelton's pins or Bell's distances agree.
 
 ### Stage 8 packets (2026-11-14)

@@ -65,6 +65,16 @@ describe('storyUpTo', () => {
     expect(sources('1-02')).toEqual(['bell-2000'])
     expect(sources('3-04')).toEqual(['bell-2000', 'reddit-gaia'])
   })
+  it('drops a local history note dated after the reader’s progress', () => {
+    const s = story()
+    s.stops.features[0].properties.history = [
+      { note: 'A store opened about 1895.', source: 'bell-2000', page: '61', first_seen: '1-01' },
+      { note: 'The school closed in 1950.', source: 'bell-2000', page: '61', first_seen: '3-04' },
+    ]
+    const notes = (reached: string) => storyUpTo(s, reached, false).stops.features[0].properties.history?.map((h) => h.first_seen)
+    expect(notes('1-02')).toEqual(['1-01'])
+    expect(notes('3-04')).toEqual(['1-01', '3-04'])
+  })
   it('keeps reasoning that cites only episodes reached', () => {
     const s = story()
     s.stops.features[0].properties.reasoning = 'Named in 1-01.'

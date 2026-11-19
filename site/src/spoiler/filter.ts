@@ -28,11 +28,15 @@ function safeProps(props: GeoJsonProperties, reached: string, spoilers: boolean)
   return rest
 }
 
-// A lead shows with its feature, unless it carries its own, later first_seen (decision 0065).
-function leadsUpTo(props: GeoJsonProperties, reached: string): GeoJsonProperties {
-  if (!Array.isArray(props?.leads)) return props
-  const leads = props.leads.filter((l: { first_seen?: string }) => !l.first_seen || l.first_seen <= reached)
-  return { ...props, leads }
+// A lead shows with its feature, unless it carries its own, later first_seen (decision 0065). A local history note
+// shows from its own first_seen (decision 0071).
+function datedUpTo(props: GeoJsonProperties, reached: string): GeoJsonProperties {
+  if (!props) return props
+  const out = { ...props }
+  for (const key of ['leads', 'history']) {
+    if (Array.isArray(props[key])) out[key] = props[key].filter((e: { first_seen?: string }) => !e.first_seen || e.first_seen <= reached)
+  }
+  return out
 }
 
 function upTo<G extends Geometry, P extends GeoJsonProperties>(
@@ -43,7 +47,7 @@ function upTo<G extends Geometry, P extends GeoJsonProperties>(
 ): FeatureCollection<G, P> {
   return {
     ...fc,
-    features: fc.features.filter(keep).map((f) => ({ ...f, properties: safeProps(leadsUpTo(f.properties, reached), reached, spoilers) as P })),
+    features: fc.features.filter(keep).map((f) => ({ ...f, properties: safeProps(datedUpTo(f.properties, reached), reached, spoilers) as P })),
   }
 }
 

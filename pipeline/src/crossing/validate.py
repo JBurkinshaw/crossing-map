@@ -8,9 +8,9 @@ reference points at a feature that exists and is reached no later than the thing
 each journey's stops and segments are numbered without gaps, and the Oblique view's copies hold the
 same features, first seen at the same episodes, as the flat layers, and every stop's point lies inside
 its own area. A feature's leads (the second sources that place it too) must name each source once, give no
-coordinate and show no earlier than their feature. Each photo must be on a place or stop that exists, with its
-file in site/public/ at its stated size. It also checks that every glyph and vignette the data names
-has an icon in the committed sprite, which CI cannot rebuild.
+coordinate and show no earlier than their feature, and its local history notes must not show before it either.
+Each photo must be on a place or stop that exists, with its file in site/public/ at its stated size. It also
+checks that every glyph and vignette the data names has an icon in the committed sprite, which CI cannot rebuild.
 
 It also reports, without failing, the landform positions still to review: stops the terrain check flags
 (review/positions/results.csv, from crossing.positions) that have no verdict for their current point in
@@ -39,7 +39,7 @@ OBLIQUE_LAYERS = ["places", "stops", "areas", "journeys", "vignettes"]
 MAX_DECIMALS = 5  # about 1 m; docs/design.md, section 6, rounds all coordinates to this
 INCIPIT_WORDS = 5  # the most Spanish words of a line the site may publish (docs/design.md, section 3)
 SYNOPSIS_SENTENCES, SYNOPSIS_WORDS = 3, 70  # a stop's synopsis is a short card text (decision 0051)
-LEAD_LAYERS = {"places", "stops", "areas"}  # the layers whose features may carry leads (decision 0065)
+LEAD_LAYERS = {"places", "stops", "areas"}  # the layers whose features may carry leads (0065) and history (0071)
 # A coordinate written into a lead's note: a decimal degree (31.4526) or degrees with a sign (108°). Leads state
 # facts in words, and a second source's pin must not be republished through one.
 COORDINATE = re.compile(r"\d+\.\d{3,}|\d+\s*°")
@@ -91,6 +91,28 @@ def check_layer(doc, layer: str, episodes: set[str]) -> list[str]:
             errors += [f"features/{i} ({fid}): synopsis {e}" for e in synopsis_errors(p["synopsis"])]
         if "leads" in p:
             errors += [f"features/{i} ({fid}): {e}" for e in lead_errors(p, layer, episodes)]
+        if "history" in p:
+            errors += [f"features/{i} ({fid}): {e}" for e in history_errors(p, layer, episodes)]
+    return errors
+
+
+def history_errors(p: dict, layer: str, episodes: set[str]) -> list[str]:
+    """What the schema cannot check in a feature's local history notes (decision 0071): where they may be, the
+    punctuation the site never uses, and no note dated before its feature."""
+    if layer not in LEAD_LAYERS:
+        return [f"history is only for {', '.join(sorted(LEAD_LAYERS))}"]
+    notes = [n for n in p["history"] if isinstance(n, dict)] if isinstance(p["history"], list) else []
+    errors = []
+    for n in notes:
+        note, seen = n.get("note"), n.get("first_seen")
+        if isinstance(note, str):
+            errors += [f"history note: contains {name}"
+                       for char, name in (("\u2014", "an em dash"), (";", "a semicolon")) if char in note]
+        if isinstance(seen, str):
+            if seen not in episodes:
+                errors.append(f"history note: first_seen {seen} is not an episode in episodes.json")
+            elif isinstance(p.get("first_seen"), str) and seen < p["first_seen"]:
+                errors.append(f"history note: first_seen {seen} is before its feature's {p['first_seen']}")
     return errors
 
 

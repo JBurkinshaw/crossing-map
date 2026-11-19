@@ -237,7 +237,29 @@
             }
           }
         },
-        "photo_ids": {"type": "array", "items": {"type": "string"}},
+        "history": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Places, stops and areas: short notes of local history, in this site's own words and cited by page (decision 0071). The card shows each as a \"Local history\" line from its first_seen on.",
+          "items": {
+            "type": "object",
+            "required": ["note", "source", "page", "first_seen"],
+            "additionalProperties": false,
+            "properties": {
+              "note": {"type": "string", "minLength": 1, "description": "One or two sentences in this site's own words."},
+              "source": {
+                "enum": ["bell-2000"],
+                "description": "bell-2000: James Luther Bell's dissertation (2000), as in leads. Credit \"Bell 2000\"."
+              },
+              "page": {"type": "string", "pattern": "^[0-9]+(–[0-9]+)?$", "description": "The page or pages of the source the note cites."},
+              "first_seen": {
+                "$ref": "#/$defs/episode",
+                "description": "The episode the note shows from: never before its feature's, and later where the note would tell of a later episode."
+              }
+            }
+          }
+        },
+        "photo_ids":{"type": "array", "items": {"type": "string"}},
         "vignette": {"type": ["string", "null"], "description": "Vignettes: the drawing's name in the map sprite."},
         "stands_for": {"type": "string", "description": "Vignettes: what the drawing stands for in the book."},
         "label": {"type": "string", "description": "Vignettes: the short caption drawn under the drawing."},

@@ -12,6 +12,7 @@ import { FeatureQuestions } from './OpenQuestions'
 import { episodeLabel, progressLabel, type Episode } from '../spoiler/progress'
 import { CERTAINTY_LABEL } from './certainty'
 import { Leads } from './Leads'
+import { History } from './History'
 import { synopsisFolded } from './folds'
 import type { Photo } from '../data/photos'
 import { Photos } from './Photos'
@@ -194,6 +195,7 @@ export function Panel(props: Props) {
           <p className="synopsis">{synopsis}</p>
         ))}
       {(stop.properties.note_full || stop.properties.note_safe) && <p>{stop.properties.note_full || stop.properties.note_safe}</p>}
+      <History history={stop.properties.history} />
       {/* The place's photos come after the stop's own text, so on a phone the story still opens the drawer. */}
       <Photos key={stop.properties.id} photos={stopPhotos} firstSeen={stop.properties.first_seen} />
       {/* Said outside "How this was placed", which may be shut: the pin alone would read as more certain than it is. */}

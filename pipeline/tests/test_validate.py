@@ -291,3 +291,31 @@ def test_same_point_ignores_trailing_zeros():
     assert validate.same_point("-109.05,30.55", "-109.05000,30.55000")
     assert not validate.same_point("-109.05,30.55", "-109.05001,30.55000")
     assert not validate.same_point("", "-109.05000,30.55000")
+
+
+def test_history_passes():
+    history = [{"note": "A store opened about 1895.", "source": "bell-2000", "page": "61", "first_seen": "1-02"}]
+    doc = collection(feature("place-a", kind="town", role="stop", first_seen="1-02", history=history))
+    assert validate.check_layer(doc, "places", EPISODES) == []
+
+
+@pytest.mark.parametrize("change, error", [
+    ({"source": "reddit-gaia"}, "is not one of"),
+    ({"page": "p. 61"}, "does not match"),
+    ({"note": "A store \u2014 and a post office."}, "contains an em dash"),
+    ({"note": "A store; a post office."}, "contains a semicolon"),
+    ({"first_seen": "1-01"}, "before its feature's 1-02"),
+    ({"first_seen": "2-12"}, "not an episode"),
+])
+def test_bad_history_is_reported(change, error):
+    note = {"note": "A store opened about 1895.", "source": "bell-2000", "page": "61", "first_seen": "1-02"} | change
+    doc = collection(feature("place-a", kind="town", role="stop", first_seen="1-02", history=[note]))
+    errors = validate.check_layer(doc, "places", EPISODES)
+    assert any(error in e for e in errors), errors
+
+
+def test_history_only_on_places_stops_and_areas():
+    line = {"type": "LineString", "coordinates": [[-108.5, 31.5], [-108.4, 31.6]]}
+    note = {"note": "A store.", "source": "bell-2000", "page": "61", "first_seen": "1-01"}
+    doc = collection(feature("j1-seg-01", kind="route-segment", sequence=1, geometry=line, history=[note]))
+    assert any("history is only for" in e for e in validate.check_layer(doc, "journeys", EPISODES))

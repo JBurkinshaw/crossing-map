@@ -17,6 +17,7 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | `place-overrides.csv` | Hand decisions, which win over a pick, each with its reasoning | Hand |
 | `stops.csv` | Every journey's stops, in order, with reasoning and `travel` | Hand |
 | `snaps.csv` | The road, river, or flowline each narrated segment follows: source, file, names, and for INEGI rivers the lowest Strahler order (decision 0032) | Hand |
+| `history.csv` | Local history notes on places, stops and areas: the note, its source and page, and the episode it shows from (decision 0071) | Hand |
 | `modeled-legs.csv` | The legs drawn as least-cost paths (decision 0021), with mode, corridor and a note | Hand |
 | `regions.geojson` | The Animas Valley and La Babícora outlines | `crossing.regions`, then hand edits in QGIS |
 | `areas.geojson` | Each inferred area's outline: the stop's circle cut by a rule (decision 0020) | `crossing.area_drafts`, then hand edits in `pipeline/qgis/areas.qgs` |

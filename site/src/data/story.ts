@@ -14,6 +14,14 @@ export type Lead = {
   first_seen?: string
 }
 
+// A short note of local history on a feature, cited by page (decision 0071). It shows from its own first_seen.
+export type HistoryNote = {
+  note: string
+  source: string
+  page: string
+  first_seen: string
+}
+
 // Properties shared by every story feature; data/schema/story-layer.schema.json is the full contract.
 export type StoryProps = {
   id: string
@@ -48,6 +56,8 @@ export type StoryProps = {
   straight_road?: boolean
   // Places, stops and areas: second sources that place the feature too. spoiler/filter.ts drops those dated later.
   leads?: Lead[]
+  // Places, stops and areas: local history notes. spoiler/filter.ts drops those dated later.
+  history?: HistoryNote[]
 }
 
 export type Story = {

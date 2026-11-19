@@ -9,6 +9,7 @@ import type { OpenQuestion } from '../data/openQuestions'
 import { distance, type Units } from '../units'
 import { CERTAINTY_LABEL } from './certainty'
 import { Leads } from './Leads'
+import { History } from './History'
 import { FEEDBACK_FORM } from '../pages/format'
 import type { Photo } from '../data/photos'
 import { Photos } from './Photos'
@@ -68,6 +69,7 @@ export function PlaceCard(props: Props) {
         {p.uncertainty_m ? ` · within about ${distance(p.uncertainty_m, units)}` : ''}
       </div>
       {(p.note_full || p.note_safe) && <p>{p.note_full || p.note_safe}</p>}
+      <History history={p.history} />
       <Photos key={p.id} photos={photos} firstSeen={p.role === 'context' ? undefined : p.first_seen} />
       {stop && onStop && (
         <p className="area-stop">

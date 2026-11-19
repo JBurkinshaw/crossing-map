@@ -2,8 +2,8 @@
 
 Run from the repo root: uv run --project pipeline python -m crossing.build_story
 Reads places.csv (every place the book names, plus context towns), place-picks.csv (crossing.gazetteer's picks),
-place-overrides.csv (hand decisions, which win over a pick), stops.csv, snaps.csv, regions.geojson and leads.csv
-(the second sources that place a place or stop too).
+place-overrides.csv (hand decisions, which win over a pick), stops.csv, snaps.csv, regions.geojson, leads.csv
+(the second sources that place a place or stop too) and history.csv (local history notes on a place, stop or area).
 Writes data/places.geojson, data/stops.geojson, data/areas.geojson, data/journeys.geojson, data/elsewhere.json
 (places outside the story box, listed in the panel rather than mapped) and the stage 4 sign-off checklists,
 keeping any row already ticked.
@@ -410,6 +410,32 @@ def with_leads(features: list[dict], found: dict[str, list[dict]]) -> list[dict]
     return features
 
 
+def history(features: list[dict], path: Path = SEEDS / "history.csv") -> dict[str, list[dict]]:
+    """Each feature's local history notes from history.csv (decision 0071), each shown from its show_from episode.
+    Stops on a feature or source it does not know, or a note shown before its feature."""
+    first_seen = {f["properties"]["id"]: f["properties"].get("first_seen") for f in features}
+    out: dict[str, list[dict]] = {}
+    for r in rows(path):
+        fid, show_from = r["feature"], r["show_from"]
+        if fid not in first_seen:
+            sys.exit(f"history.csv names no place, stop or area: {fid}")
+        if r["source"] not in LICENCE:
+            sys.exit(f"history.csv {fid}: no source {r['source']!r}")
+        if not show_from or (first_seen[fid] and show_from < first_seen[fid]):
+            sys.exit(f"history.csv {fid}: show_from {show_from!r} is before the feature's {first_seen[fid]}")
+        out.setdefault(fid, []).append({"note": r["note"], "source": r["source"], "page": r["page"],
+                                        "first_seen": show_from})
+    return out
+
+
+def with_history(features: list[dict], found: dict[str, list[dict]]) -> list[dict]:
+    """The features, each with its local history notes, if it has any."""
+    for f in features:
+        if notes := found.get(f["properties"]["id"]):
+            f["properties"]["history"] = notes
+    return features
+
+
 def build_places(picks: dict[str, dict]) -> tuple[list[dict], dict[str, tuple], list[dict]]:
     """Each place's pin: its override when there is one ("use", "exclude" or "unresolved"), else its gazetteer pick.
 
@@ -598,13 +624,15 @@ def main() -> None:
     picks = {p["id"]: p for p in rows(SEEDS / "place-picks.csv")}
     places, pins, elsewhere = build_places(picks)
     stops, areas, by_journey = build_stops(pins)
+    areas += regions()
     found = leads()
     if unknown := sorted(found.keys() - {f["properties"]["id"] for f in places + stops}):
         sys.exit(f"leads.csv names no place or stop: {', '.join(unknown)}")
-    write("places.geojson", with_leads(places, found))
+    notes = history(places + stops + areas)
+    write("places.geojson", with_history(with_leads(places, found), notes))
     write_json(DATA / "elsewhere.json", elsewhere)
-    write("stops.geojson", with_leads(stops, found))
-    write("areas.geojson", with_leads(areas + regions(), found))
+    write("stops.geojson", with_history(with_leads(stops, found), notes))
+    write("areas.geojson", with_history(with_leads(areas, found), notes))
     write("journeys.geojson", build_routes(by_journey))
     for checklist in CHECKLISTS:
         listed = [f for f in places if f["properties"]["id"].removeprefix("place-") not in picks
