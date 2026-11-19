@@ -16494,52 +16494,28 @@
       32.3608
      ],
      [
-      -109.45911,
-      32.3539
+      -109.47254,
+      32.35465
      ],
      [
-      -109.45871,
-      32.34705
+      -109.4808,
+      32.35099
      ],
      [
-      -109.45807,
-      32.33969
+      -109.47339,
+      32.33291
      ],
      [
-      -109.45732,
-      32.33343
+      -109.45609,
+      32.29168
      ],
      [
-      -109.45623,
-      32.32618
+      -109.45156,
+      32.28589
      ],
      [
-      -109.45502,
-      32.31947
-     ],
-     [
-      -109.45197,
-      32.3061
-     ],
-     [
-      -109.44811,
-      32.29279
-     ],
-     [
-      -109.44588,
-      32.28625
-     ],
-     [
-      -109.44326,
-      32.27938
-     ],
-     [
-      -109.44062,
-      32.27305
-     ],
-     [
-      -109.4378,
-      32.26683
+      -109.43162,
+      32.26215
      ],
      [
       -109.43149,
@@ -16562,12 +16538,13 @@
     "first_seen": "2-07",
     "travel": null,
     "note_safe": "",
-    "certainty": "inferred",
-    "method": "schematic",
-    "source": "this-site",
-    "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
-    "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "census-tiger",
+    "source_licence": "Public domain",
+    "reasoning": "At evening they cross the highway east of Bowie and take an old road south into the Dos Cabezas (2-07). That road is today's Apache Pass Road, in Census TIGER 2023 (Cochise County). The route follows it from Bowie to the camp.",
+    "drawn": "Traced along Apache Pass Rd, S Apache Pass Rd and Apache Pass in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): Apache Pass Rd, S Apache Pass Rd, Apache Pass. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -16580,120 +16557,180 @@
       32.25462
      ],
      [
-      -109.43626,
-      32.24715
+      -109.43149,
+      32.23893
      ],
      [
-      -109.44086,
-      32.24077
+      -109.43224,
+      32.23441
      ],
      [
-      -109.44583,
-      32.23462
+      -109.43422,
+      32.22771
      ],
      [
-      -109.45117,
-      32.22864
+      -109.43552,
+      32.22503
      ],
      [
-      -109.4519,
-      32.22801
+      -109.4378,
+      32.2212
      ],
      [
-      -109.453,
-      32.22766
+      -109.43868,
+      32.21896
      ],
      [
-      -109.45414,
-      32.22685
+      -109.4407,
+      32.21725
      ],
      [
-      -109.45526,
-      32.22693
+      -109.44172,
+      32.21609
      ],
      [
-      -109.4568,
-      32.22628
+      -109.44376,
+      32.21274
      ],
      [
-      -109.45795,
-      32.22687
+      -109.4439,
+      32.21237
      ],
      [
-      -109.45915,
-      32.22432
+      -109.44334,
+      32.2116
      ],
      [
-      -109.45995,
-      32.22432
+      -109.44327,
+      32.21117
      ],
      [
-      -109.4612,
-      32.22133
+      -109.44343,
+      32.20966
      ],
      [
-      -109.46161,
-      32.22092
+      -109.44591,
+      32.21
      ],
      [
-      -109.46241,
-      32.22086
+      -109.44695,
+      32.20972
      ],
      [
-      -109.46283,
-      32.22052
+      -109.44775,
+      32.20901
      ],
      [
-      -109.46367,
-      32.21906
+      -109.44955,
+      32.20901
      ],
      [
-      -109.46492,
-      32.21836
+      -109.45133,
+      32.20844
      ],
      [
-      -109.46574,
-      32.21873
+      -109.45368,
+      32.20955
      ],
      [
-      -109.46616,
-      32.21875
+      -109.45512,
+      32.21087
      ],
      [
-      -109.46744,
-      32.21784
+      -109.4563,
+      32.21142
      ],
      [
-      -109.46829,
-      32.21775
+      -109.4575,
+      32.21157
      ],
      [
-      -109.46958,
-      32.2171
+      -109.45803,
+      32.21135
      ],
      [
-      -109.47137,
-      32.21413
+      -109.45864,
+      32.21142
      ],
      [
-      -109.4727,
-      32.21273
+      -109.45896,
+      32.211
      ],
      [
-      -109.47449,
-      32.2117
+      -109.45959,
+      32.21123
      ],
      [
-      -109.47583,
-      32.21145
+      -109.46008,
+      32.21108
      ],
      [
-      -109.47674,
-      32.21044
+      -109.46024,
+      32.21028
      ],
      [
-      -109.47997,
-      32.20869
+      -109.46138,
+      32.21037
+     ],
+     [
+      -109.46197,
+      32.21015
+     ],
+     [
+      -109.46347,
+      32.20806
+     ],
+     [
+      -109.46406,
+      32.20789
+     ],
+     [
+      -109.46594,
+      32.20816
+     ],
+     [
+      -109.46717,
+      32.20865
+     ],
+     [
+      -109.4695,
+      32.20839
+     ],
+     [
+      -109.47118,
+      32.20779
+     ],
+     [
+      -109.47181,
+      32.20772
+     ],
+     [
+      -109.47368,
+      32.20798
+     ],
+     [
+      -109.47488,
+      32.20754
+     ],
+     [
+      -109.47548,
+      32.20758
+     ],
+     [
+      -109.4783,
+      32.20937
+     ],
+     [
+      -109.47884,
+      32.20943
+     ],
+     [
+      -109.47942,
+      32.20863
+     ],
+     [
+      -109.47999,
+      32.20856
      ],
      [
       -109.4808,
@@ -16716,12 +16753,13 @@
     "first_seen": "2-07",
     "travel": null,
     "note_safe": "",
-    "certainty": "inferred",
-    "method": "schematic",
-    "source": "this-site",
-    "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
-    "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
+    "certainty": "approximate",
+    "method": "narrated-path",
+    "source": "census-tiger",
+    "source_licence": "Public domain",
+    "reasoning": "The next day they ride on over Apache Pass (2-07). The book does not name the road for this stretch, but the old road they camped on, today's Apache Pass Road in Census TIGER 2023 (Cochise County), runs on over the pass, and the route follows it.",
+    "drawn": "Traced along Apache Pass Rd in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): Apache Pass Rd. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {

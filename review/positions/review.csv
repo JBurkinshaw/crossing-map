@@ -12,10 +12,10 @@ j2-pilares-de-teras,accept,,,"-109.20033,30.65895",2026-11-19T16:42:12.931Z
 j2-sierra-de-la-cabellera,accept,,,"-109.03806,30.92361",2026-11-19T16:41:40.712Z
 j3-bavispe-promontory,accept,,,"-109.05000,30.55000",2026-11-19T16:43:03.841Z
 j3-eastern-escarpment,accept,,,"-108.93283,29.98524",2026-11-19T16:43:18.488Z
-j3-guadalupe-pass,needs-work,,"For the route around here, on Google maps I see a road ""Co Rd C001"" which is likely the same road. Can we plot the route based on that being ""the old Cloverdale road""?","-109.03761,31.51026",2026-11-19T16:48:36.456Z
+j3-guadalupe-pass,needs-work,,"For the route around here, on Google maps I see a road ""Co Rd C001"" which is likely the same road. Can we plot the route based on that being ""the old Cloverdale road""? Answer: legs 13 and 14 already follow Geronimo Trail, Cloverdale Rd C001 and Co Rd C001 in TIGER. Co Rd C001 does not cross the range to Douglas.","-109.03761,31.51026",2026-11-19T16:48:36.456Z
 j3-wolfs-grave,accept,,,"-109.20033,30.65895",2026-11-19T16:42:53.679Z
 j4-apache-pass,accept,,,"-109.48173,32.15175",2026-11-19T16:49:20.155Z
-j4-dos-cabezas,needs-work,,Is there a county road around here too?,"-109.43227,32.20942",2026-11-19T16:49:06.708Z
+j4-dos-cabezas,accept,,"Owner: is there a county road around here too? The camp is on Apache Pass Road (TIGER, Cochise County), and the legs either side now follow it.","-109.43227,32.20942",2026-11-19T17:55:00.000Z
 j4-escarpment-rim,accept,,,"-108.41545,30.38566",2026-11-19T16:49:36.470Z
 j4-plains-camp,accept,,"Moved to the DEM candidate on the valley floor, 10 m off, on review (decision 0068).","-108.25010,30.32009",2026-11-19T17:30:00.000Z
 j7-animas-plain,accept,,,"-108.82000,31.45000",2026-11-19T16:50:59.303Z
