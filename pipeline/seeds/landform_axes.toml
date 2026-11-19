@@ -18,21 +18,21 @@ id = "landform-peloncillo-mountains"
 centre = [-109.0, 31.85]
 length = 50
 rotate = -28
-reason = "GMBA's outline runs 190 km north to the Gila; the book's Peloncillos are the southern ridge above the bootheel, which runs a little east of north."
+reason = "GMBA's outline runs 190 km north to the Gila. The book's Peloncillos are the southern ridge above the bootheel, which runs a little east of north."
 
 [[edit]]
 id = "landform-animas-mountains"
 centre = [-108.75, 31.59]
 length = 42
 rotate = 80
-reason = "The GNIS point is on Animas Peak and the DEM finds only the round high core; the range runs about 42 km north from San Luis Pass."
+reason = "The GNIS point is on Animas Peak and the DEM finds only the round high core. The range runs about 42 km north from San Luis Pass."
 
 [[edit]]
 id = "landform-sierra-el-tigre-3981619"
 keep = true
-reason = "The range over the El Tigre mine, a stop of the book; the spacing rule gave its ground to the Pilares de Teras."
+reason = "The range over the El Tigre mine, a stop of the book. The spacing rule gave its ground to the Pilares de Teras."
 
 [[edit]]
 id = "landform-sierra-san-luis-13604842"
 keep = true
-reason = "The Mexican body of the San Luis massif; without it only the small US end carries a name."
+reason = "The Mexican body of the San Luis massif. Without it only the small US end carries a name."

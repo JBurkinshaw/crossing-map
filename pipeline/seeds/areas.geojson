@@ -513,7 +513,7 @@
    "properties": {
     "id": "area-j1-bavispe-crossing",
     "stop": "j1-bavispe-crossing",
-    "draft_rule": "On the river: the Bavispe's channel (the highest-order INEGI stream in the area, its main stem) and 1.5 km either side. She crosses the river, so the crossing is on it; where along this reach is still open, so the whole reach in the area stays.",
+    "draft_rule": "On the river: the Bavispe's channel (the highest-order INEGI stream in the area, its main stem) and 1.5 km either side. She crosses the river, so the crossing is on it. Where along this reach is still open, so the whole reach in the area stays.",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -1655,7 +1655,7 @@
    "properties": {
     "id": "area-j1-cloverdale-creek",
     "stop": "j1-cloverdale-creek",
-    "draft_rule": "Kept the whole area. The trap was off the creek road, across a pasture, about two hours' ride from Cloverdale; the area already covers the road's upper reach and the pastures either side.",
+    "draft_rule": "Kept the whole area. The trap was off the creek road, across a pasture, about two hours' ride from Cloverdale. The area already covers the road's upper reach and the pastures either side.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -16849,7 +16849,7 @@
    "properties": {
     "id": "area-j3-huisiachepic",
     "stop": "j3-huisiachepic",
-    "draft_rule": "The river town: ground within 1.5 km of the upper Bavispe (the area's main stem in INEGI) and no more than 150 m above it, so benches above the canyon floor stay. The town is across a ford on the river; which bank is not known.",
+    "draft_rule": "The river town: ground within 1.5 km of the upper Bavispe (the area's main stem in INEGI) and no more than 150 m above it, so benches above the canyon floor stay. The town is across a ford on the river, but which bank is not known.",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -22341,7 +22341,7 @@
    "properties": {
     "id": "area-j4-plains-camp",
     "stop": "j4-plains-camp",
-    "draft_rule": "Kept the whole area. The book has prairie below the rim; the DEM finds no plain in the area, only small flats along the streams, so the area may sit too far west of the open ground towards Colonia Juárez.",
+    "draft_rule": "Kept the whole area. The book has prairie below the rim. The DEM finds no plain in the area, only small flats along the streams, so the area may sit too far west of the open ground towards Colonia Juárez.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -25035,7 +25035,7 @@
    "properties": {
     "id": "area-j4-tracking-north",
     "stop": "j4-tracking-north",
-    "draft_rule": "Kept the whole area. They follow the tracks north from the road all afternoon and camp in a swale; the area already lies north of the road and the lake, and a swale cannot be told from the DEM.",
+    "draft_rule": "Kept the whole area. They follow the tracks north from the road all afternoon and camp in a swale. The area already lies north of the road and the lake, and a swale cannot be told from the DEM.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -28900,7 +28900,7 @@
    "properties": {
     "id": "area-j4-truck",
     "stop": "j4-truck",
-    "draft_rule": "Kept the whole area. The truck meets them on a dirt road in open country; no road of the period is mapped here and most of the area is open country, so nothing narrows it.",
+    "draft_rule": "Kept the whole area. The truck meets them on a dirt road in open country. No road of the period is mapped here and most of the area is open country, so nothing narrows it.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -31858,7 +31858,7 @@
    "properties": {
     "id": "area-j5-river-camp",
     "stop": "j5-river-camp",
-    "draft_rule": "On the river: within 600 m of the main river by Mata Ortiz (the INEGI stream nearest the stop, order 5 and up). A gravel bar by the river; 'below Mata Ortiz' could also mean downstream (north).",
+    "draft_rule": "On the river: within 600 m of the main river by Mata Ortiz (the INEGI stream nearest the stop, order 5 and up). A gravel bar by the river, but 'below Mata Ortiz' could also mean downstream (north).",
     "draft_confidence": "medium",
     "straight_road": false
    }
@@ -32903,7 +32903,7 @@
    "properties": {
     "id": "area-j5-alamo",
     "stop": "j5-alamo",
-    "draft_rule": "Kept the whole area. Which Álamo is meant is unresolved; the area covers both candidates.",
+    "draft_rule": "Kept the whole area. Which Álamo is meant is unresolved. The area covers both candidates.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -33948,7 +33948,7 @@
    "properties": {
     "id": "area-j6-truck",
     "stop": "j6-truck",
-    "draft_rule": "Kept the whole area. The truck meets them on a dirt road in open country; no road of the period is mapped here and most of the area is open country, so nothing narrows it.",
+    "draft_rule": "Kept the whole area. The truck meets them on a dirt road in open country. No road of the period is mapped here and most of the area is open country, so nothing narrows it.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -35338,7 +35338,7 @@
    "properties": {
     "id": "area-j7-playas-road",
     "stop": "j7-playas-road",
-    "draft_rule": "In the mountains on a road: ground above 1,450 m within 2 km of Census TIGER roads. The old Playas road crosses the range with snow in the pass; which road is not known.",
+    "draft_rule": "In the mountains on a road: ground above 1,450 m within 2 km of Census TIGER roads. The old Playas road crosses the range with snow in the pass, but which road is not known.",
     "draft_confidence": "low",
     "straight_road": false
    }
@@ -42725,7 +42725,7 @@
    "properties": {
     "id": "area-j7-boyds-grave",
     "stop": "j7-boyds-grave",
-    "draft_rule": "Kept the whole area. It is already small (3 km²); a bench in low hills is below what the 30 m DEM can find reliably.",
+    "draft_rule": "Kept the whole area. It is already small (3 km²). A bench in low hills is below what the 30 m DEM can find reliably.",
     "draft_confidence": "kept",
     "straight_road": false
    }
@@ -45205,7 +45205,7 @@
    "properties": {
     "id": "area-j7-dog-springs",
     "stop": "j7-dog-springs",
-    "draft_rule": "At the boundary: within 1.5 km of the line along 31°47′ N. He passes an obelisk on the line; where along it is the area's estimate.",
+    "draft_rule": "At the boundary: within 1.5 km of the line along 31°47′ N. He passes an obelisk on the line. Where along it is the area's estimate.",
     "draft_confidence": "high",
     "straight_road": false
    }

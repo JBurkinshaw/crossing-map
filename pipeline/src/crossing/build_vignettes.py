@@ -267,7 +267,7 @@ def main() -> None:
         lon, lat, side, zoom, clash = chosen[i]
         where = "its own place" if s["lon"] else points[s["ref"]]["properties"]["name"]
         placed_note = (f"The drawing is set on the {SIDES[side]} side of {where} (where it covers the fewest stops, "
-                       "route lines and other drawings), beside the pin rather than on it; it is not to scale, and it "
+                       "route lines and other drawings), beside the pin rather than on it. It is not to scale, and it "
                        "shows roughly where the scene happens, not exactly.")
         first_seen = shown_from(s["first_seen"], points[s["ref"]])
         waits = None

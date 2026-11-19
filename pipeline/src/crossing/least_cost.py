@@ -373,13 +373,13 @@ def drawn_detail(leg: dict, res_m: float) -> str:
     """The technical side of drawn(), for data users: grid, speed rule, corridor, smoothing and model version."""
     speed = ("Tobler's hiking function" if leg["mode"] == "wolf"
              else "Tobler's hiking function scaled to 6 km/h on the flat")
-    corridor = ("; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times"
+    corridor = (" (cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times)"
                 if leg.get("road") else
-                f"; cells within 300 m of INEGI streams of Strahler order {leg['river']} and up cost 0.8 times"
+                f" (cells within 300 m of INEGI streams of Strahler order {leg['river']} and up cost 0.8 times)"
                 if leg.get("river") else "")
-    return (f"Least-cost path over a {res_m:.0f} m grid of the Copernicus GLO-30 elevation model, {speed}{corridor}; "
-            f"simplified by Douglas-Peucker at {SIMPLIFY_M:.0f} m and one round of Chaikin corner cutting. Cost model "
-            f"{MODEL} (crossing.least_cost, decision 0021).")
+    return (f"Least-cost path over a {res_m:.0f} m grid of the Copernicus GLO-30 elevation model, timed by "
+            f"{speed}{corridor}, simplified by Douglas-Peucker at {SIMPLIFY_M:.0f} m and one round of Chaikin corner "
+            f"cutting. Cost model {MODEL} (crossing.least_cost, decision 0021).")
 
 
 def main() -> None:

@@ -68,7 +68,7 @@
   "first_seen": "1-04",
   "features": [],
   "shown": "Not on the map.",
-  "other": "About five miles north-west of Cloverdale, from Bell's local informant; Joe Hazelton's map agrees.",
+  "other": "About five miles north-west of Cloverdale, from Bell's local informant. Joe Hazelton's map agrees.",
   "why": "No gazetteer names the ranch."
  },
  {
@@ -77,7 +77,7 @@
   "first_seen": "1-04",
   "features": [],
   "shown": "Not on the map.",
-  "other": "The end of Fitzpatrick Camp Road, about four miles east-south-east of Cloverdale (Bell; Joe Hazelton's map).",
+  "other": "The end of Fitzpatrick Camp Road, about four miles east-south-east of Cloverdale (Bell, Joe Hazelton's map).",
   "why": "The book names only the old road to the wells, and no gazetteer has them."
  },
  {
@@ -139,7 +139,7 @@
   ],
   "shown": "At Cloverdale, with the SK Bar nine miles north by the valley road.",
   "other": "A few kilometres north of Cloverdale on the Cloverdale road, which would move the SK Bar north too.",
-  "why": "Billy rides south from home and reaches Cloverdale at first light; Bell reads it the same way."
+  "why": "Billy rides south from home and reaches Cloverdale at first light. Bell reads it the same way."
  },
  {
   "id": "q-casas-grandes",
@@ -168,7 +168,7 @@
    "j5-boquilla-return"
   ],
   "shown": "La Boquilla by the lake in Gómez Farías municipio.",
-  "other": "The text also calls it Boquilla y Anexas, which INEGI places 135 km away; Joe Hazelton pins one near Mata Ortiz.",
+  "other": "The text also calls it Boquilla y Anexas, which INEGI places 135 km away. Joe Hazelton pins one near Mata Ortiz.",
   "why": "The name is common, and the lake town fits the ride."
  },
  {
@@ -192,7 +192,7 @@
   ],
   "shown": "San José de Ermita, 48 km north-north-west of La Boquilla.",
   "other": "Any of several San Josés in the region.",
-  "why": "The name is common; this one fits the brothers' ride north up a river."
+  "why": "The name is common. This one fits the brothers' ride north up a river."
  },
  {
   "id": "q-soto-maynez",
@@ -229,7 +229,7 @@
   ],
   "shown": "The town of Namiquipa.",
   "other": "The text sends Billy west from Santa Ana to reach it.",
-  "why": "The real town lies 25 km north-north-east of Santa Ana; the text's direction may be loose."
+  "why": "The real town lies 25 km north-north-east of Santa Ana. The text's direction may be loose."
  },
  {
   "id": "q-town-scenes",
@@ -284,6 +284,6 @@
   ],
   "shown": "The ride as the book tells it: south from San Diego all day, to the stranded troupe a few miles below Las Varas by evening.",
   "other": "About 100 km in one day, some 16 hours for a horse at a walk by the route model, so either the book compresses the ride or the camp lies nearer San Diego.",
-  "why": "The map follows the story; the stops on either side are placed by other clues."
+  "why": "The map follows the story. The stops on either side are placed by other clues."
  }
 ]

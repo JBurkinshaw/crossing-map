@@ -165,7 +165,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a wolf on foot between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a wolf on foot, about 5 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time, and the wolf keeps clear of towns. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -996,7 +996,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a wolf on foot between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a wolf on foot, about 5 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time, and the wolf keeps clear of towns. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 180 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 180 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -1092,7 +1092,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -1731,7 +1731,7 @@
     "source_licence": "Public domain",
     "reasoning": "The book says she followed Whitewater Creek west from the border towards the San Luis Mountains. The path follows the USGS NHD course of the creek between the two stops.",
     "drawn": "Traced along Whitewater Creek in the USGS National Hydrography Dataset (high resolution). The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
-    "drawn_detail": "The USGS National Hydrography Dataset (high resolution): Whitewater Creek; NHD flowlines of watershed HU8 13030201. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
+    "drawn_detail": "The USGS National Hydrography Dataset (high resolution): Whitewater Creek (NHD flowlines of watershed HU8 13030201). Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -1827,7 +1827,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -1924,7 +1924,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -2021,7 +2021,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -2118,7 +2118,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -2215,7 +2215,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -2312,7 +2312,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -2409,7 +2409,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -2506,7 +2506,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -3006,7 +3006,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -3104,7 +3104,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -3202,7 +3202,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -3347,7 +3347,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near the river costs a little less, for the river trail. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 300 m of INEGI streams of Strahler order 4 and up cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat (cells within 300 m of INEGI streams of Strahler order 4 and up cost 0.8 times), simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -3563,7 +3563,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near the river costs a little less, for the river trail. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 300 m of INEGI streams of Strahler order 4 and up cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat (cells within 300 m of INEGI streams of Strahler order 4 and up cost 0.8 times), simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -3787,7 +3787,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -3884,7 +3884,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -3982,7 +3982,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -4080,7 +4080,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -4249,7 +4249,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -4345,7 +4345,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -4442,7 +4442,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -4539,7 +4539,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -4636,7 +4636,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -4681,7 +4681,7 @@
     "method": "narrated-path",
     "source": "natural-earth",
     "source_licence": "Public domain",
-    "reasoning": "He goes down from the escarpment to the river and rides north along the river track to the ford at Huisiachepic; the route follows the Bavispe's main stem as Natural Earth draws it (the river line on the map).",
+    "reasoning": "He goes down from the escarpment to the river and rides north along the river track to the ford at Huisiachepic. The route follows the Bavispe's main stem as Natural Earth draws it (the river line on the map).",
     "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -4779,7 +4779,7 @@
     "method": "narrated-path",
     "source": "natural-earth",
     "source_licence": "Public domain",
-    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map).",
+    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them. The route follows the river's main stem as Natural Earth draws it (the river line on the map).",
     "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -4865,7 +4865,7 @@
     "method": "narrated-path",
     "source": "natural-earth",
     "source_licence": "Public domain",
-    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map).",
+    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them. The route follows the river's main stem as Natural Earth draws it (the river line on the map).",
     "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -4927,7 +4927,7 @@
     "method": "narrated-path",
     "source": "natural-earth",
     "source_licence": "Public domain",
-    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map).",
+    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them. The route follows the river's main stem as Natural Earth draws it (the river line on the map).",
     "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -5025,7 +5025,7 @@
     "method": "narrated-path",
     "source": "natural-earth",
     "source_licence": "Public domain",
-    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them; the route follows the river's main stem as Natural Earth draws it (the river line on the map).",
+    "reasoning": "The towns sit on the upper Bavispe and the text has him riding north along the river track through them. The route follows the river's main stem as Natural Earth draws it (the river line on the map).",
     "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -5546,7 +5546,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of the time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat (cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times), simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -7692,7 +7692,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -7789,7 +7789,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -7886,7 +7886,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -7984,7 +7984,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -8082,7 +8082,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -8180,7 +8180,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -8278,7 +8278,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -8376,7 +8376,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -8474,7 +8474,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -8552,7 +8552,7 @@
     "method": "narrated-path",
     "source": "census-tiger",
     "source_licence": "Public domain",
-    "reasoning": "The text has them on route 666 down the Sulphur Springs Valley through Elfrida and McNeal; US 666 there is today's US 191 (renumbered in 1992). The route follows US 191 in Census TIGER.",
+    "reasoning": "The text has them on route 666 down the Sulphur Springs Valley through Elfrida and McNeal. US 666 there is today's US 191 (renumbered in 1992). The route follows US 191 in Census TIGER.",
     "drawn": "Traced along US Hwy 191 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): US Hwy 191. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -8822,7 +8822,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -13401,8 +13401,8 @@
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "They leave the road at the south edge of Agua Prieta and follow the stony river bed south all the next day to Ojito (2-07). INEGI names the river the Arroyo Agua Prieta.",
-    "drawn": "Traced along Arroyo Agua Prieta in INEGI's 1:50,000 hydrography: the river's main channel, as INEGI's place names label it, without its small side streams. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The source breaks the river in one place; each gap, under about a kilometre, is closed with a straight line. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
-    "drawn_detail": "INEGI's 1:50,000 hydrography: Arroyo Agua Prieta; streams of Strahler order 4 and up, with an INEGI toponym for the river within 300 m of the line. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
+    "drawn": "Traced along Arroyo Agua Prieta in INEGI's 1:50,000 hydrography: the river's main channel, as INEGI's place names label it, without its small side streams. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The source breaks the river in one place. Each gap, under about a kilometre, is closed with a straight line. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "drawn_detail": "INEGI's 1:50,000 hydrography: Arroyo Agua Prieta (streams of Strahler order 4 and up, with an INEGI toponym for the river within 300 m of the line). Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -14080,7 +14080,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -14240,7 +14240,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -14416,7 +14416,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -14513,7 +14513,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -14611,7 +14611,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -14709,7 +14709,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -15363,9 +15363,9 @@
     "source": "this-site",
     "source_licence": "CC BY 4.0",
     "cost_model": "lc-0.4",
-    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken. With the leg before it, the book has this ride done in a single day from San Diego: about 100 km, some 16 hours for a horse at a walk by the model. The line follows the story; the ride as told may not be realistic (see the open question).",
+    "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken. With the leg before it, the book has this ride done in a single day from San Diego: about 100 km, some 16 hours for a horse at a walk by the model. The line follows the story. The ride as told may not be realistic (see the open question).",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of the time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat (cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times), simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -15462,7 +15462,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -15560,7 +15560,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -15658,7 +15658,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -15756,7 +15756,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -15854,7 +15854,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -15952,7 +15952,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -16050,7 +16050,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -16148,7 +16148,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -16246,7 +16246,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -16344,7 +16344,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -16442,7 +16442,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -16540,7 +16540,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -16638,7 +16638,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -16736,7 +16736,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -16834,7 +16834,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -16932,7 +16932,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -17030,7 +17030,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -18113,7 +18113,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of the time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat (cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times), simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -18209,7 +18209,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -18794,7 +18794,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -18891,7 +18891,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -19442,7 +19442,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -19539,7 +19539,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -20027,7 +20027,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of the time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat (cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times), simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -20123,7 +20123,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -20220,7 +20220,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -20317,7 +20317,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -20414,7 +20414,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -20511,7 +20511,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -20608,7 +20608,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -20705,7 +20705,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -20802,7 +20802,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -20900,7 +20900,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -20998,7 +20998,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -21096,7 +21096,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -21194,7 +21194,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -21292,7 +21292,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -21390,7 +21390,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -21488,7 +21488,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -21621,7 +21621,7 @@
     "method": "narrated-path",
     "source": "census-tiger",
     "source_licence": "Public domain",
-    "reasoning": "From the Columbus gate he rides the long straight road north to Deming all day; that road is today's NM 11, in Census TIGER. It passes west of the Florida Mountains, whose low foothills he crosses at evening.",
+    "reasoning": "From the Columbus gate he rides the long straight road north to Deming all day. That road is today's NM 11, in Census TIGER. It passes west of the Florida Mountains, whose low foothills he crosses at evening.",
     "drawn": "Traced along State Hwy 11 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): State Hwy 11. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -21719,7 +21719,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -21816,7 +21816,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -21913,7 +21913,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -22010,7 +22010,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -22107,7 +22107,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -22236,8 +22236,8 @@
     "method": "narrated-path",
     "source": "census-tiger",
     "source_licence": "Public domain",
-    "reasoning": "He takes the old road south from Deming to Hermanas; the road that runs from Deming to Hermanas today is the Hermanas Grade, in Census TIGER (Luna County).",
-    "drawn": "Traced along Hermanas Grade SW in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The source breaks the road in 2 places; each gap, under about a kilometre, is closed with a straight line. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
+    "reasoning": "He takes the old road south from Deming to Hermanas. The road that runs from Deming to Hermanas today is the Hermanas Grade, in Census TIGER (Luna County).",
+    "drawn": "Traced along Hermanas Grade SW in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The source breaks the road in 2 places. Each gap, under about a kilometre, is closed with a straight line. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): Hermanas Grade SW. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
@@ -22532,7 +22532,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -22629,7 +22629,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -22726,7 +22726,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -22823,7 +22823,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -23546,7 +23546,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -23643,7 +23643,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -23740,7 +23740,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -23837,7 +23837,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -23934,7 +23934,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -24031,7 +24031,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -24128,7 +24128,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -24225,7 +24225,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -24322,7 +24322,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -24498,7 +24498,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -24697,7 +24697,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -25498,7 +25498,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping near the roads and tracks. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near today's dirt tracks and the railways costs a little less, standing in for the roads of the time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat (cells within 1 km of INEGI's unpaved tracks and Natural Earth's railways cost 0.8 times), simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -25594,7 +25594,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -25691,7 +25691,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -25788,7 +25788,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -25885,7 +25885,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -25982,7 +25982,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -26079,7 +26079,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -26176,7 +26176,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -26273,7 +26273,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -26370,7 +26370,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -26554,7 +26554,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -26873,7 +26873,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat, simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -26969,7 +26969,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -27066,7 +27066,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -27163,7 +27163,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -27758,7 +27758,7 @@
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
     "reasoning": "He takes the trail north along the Casas Grandes River towards Corralitos (4-06). INEGI names the river the Río Casas Grandes.",
     "drawn": "Traced along Río Casas Grandes in INEGI's 1:50,000 hydrography: the river's main channel, as INEGI's place names label it, without its small side streams. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
-    "drawn_detail": "INEGI's 1:50,000 hydrography: Río Casas Grandes; streams of Strahler order 6 and up, with an INEGI toponym for the river within 300 m of the line. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
+    "drawn_detail": "INEGI's 1:50,000 hydrography: Río Casas Grandes (streams of Strahler order 6 and up, with an INEGI toponym for the river within 300 m of the line). Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
   },
   {
@@ -27829,7 +27829,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near the river costs a little less, for the river trail. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 300 m of INEGI streams of Strahler order 5 and up cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 90 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat (cells within 300 m of INEGI streams of Strahler order 5 and up cost 0.8 times), simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -28276,7 +28276,7 @@
     "cost_model": "lc-0.4",
     "reasoning": "A modelled path, not the book's: the book does not trace this stretch, so the line is the way of least effort for a rider at a walk between the two stops over the ground, keeping to the river trail. It shows a plausible way, not the one taken.",
     "drawn": "Worked out, not traced: the quickest way between the two stops for a horse at a walk, about 6 km/h on the flat, over the ground as the elevation data gives it. Steep slopes, canyon walls, river fords and lakes cost more time. Ground near the river costs a little less, for the river trail. The line is then smoothed.",
-    "drawn_detail": "Least-cost path over a 120 m grid of the Copernicus GLO-30 elevation model, Tobler's hiking function scaled to 6 km/h on the flat; cells within 300 m of INEGI streams of Strahler order 5 and up cost 0.8 times; simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
+    "drawn_detail": "Least-cost path over a 120 m grid of the Copernicus GLO-30 elevation model, timed by Tobler's hiking function scaled to 6 km/h on the flat (cells within 300 m of INEGI streams of Strahler order 5 and up cost 0.8 times), simplified by Douglas-Peucker at 150 m and one round of Chaikin corner cutting. Cost model lc-0.4 (crossing.least_cost, decision 0021)."
    }
   },
   {
@@ -28372,7 +28372,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -28667,7 +28667,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -28764,7 +28764,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -28861,7 +28861,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -28958,7 +28958,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -29055,7 +29055,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -29152,7 +29152,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -29249,7 +29249,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops; the book names no road or river for this stretch.",
+    "reasoning": "A gentle curve between consecutive stops. The book names no road or river for this stretch.",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -31194,7 +31194,7 @@
     "method": "narrated-path",
     "source": "census-tiger",
     "source_licence": "Public domain",
-    "reasoning": "From San Lorenzo the old road east climbs over the Black Range at Emory Pass; today's NM 152, in Census TIGER (Grant and Sierra counties).",
+    "reasoning": "From San Lorenzo the old road east climbs over the Black Range at Emory Pass. The road is today's NM 152, in Census TIGER (Grant and Sierra counties).",
     "drawn": "Traced along State Hwy 152 in the US Census Bureau's TIGER/Line roads (2023). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "The US Census Bureau's TIGER/Line roads (2023): State Hwy 152. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -32722,7 +32722,7 @@
     "method": "computed",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "In the last episode Billy wakes in the night to a light like desert noon, which fades; the true dawn comes later. The book names no place, event or direction for that light; it is widely read as the Trinity test of 16 July 1945. The line points from his last stop towards the Trinity Site (Wikidata Q19842077), bearing 50 degrees (pyproj, WGS 84), and is 30 km long only to show the direction."
+    "reasoning": "In the last episode Billy wakes in the night to a light like desert noon, which fades, and the true dawn comes later. The book names no place, event or direction for that light. It is widely read as the Trinity test of 16 July 1945. The line points from his last stop towards the Trinity Site (Wikidata Q19842077), bearing 50 degrees (pyproj, WGS 84), and is 30 km long only to show the direction."
    }
   }
  ]

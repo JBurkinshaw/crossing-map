@@ -340,7 +340,7 @@ def drawn_traced(snap: dict, gaps: int) -> str:
     text += (f" The line follows {what} the shortest way from the point on it nearest one stop to the point nearest "
              f"the next, and runs straight from each stop to {what}.")
     if gaps:
-        text += (f" The source breaks {what} in {'one place' if gaps == 1 else f'{gaps} places'}; each gap, under "
+        text += (f" The source breaks {what} in {'one place' if gaps == 1 else f'{gaps} places'}. Each gap, under "
                  "about a kilometre, is closed with a straight line.")
     return text + (" The book names the way, but not every bend: today's line may differ from the 1940s one "
                    "(decision 0032).")
@@ -351,10 +351,10 @@ def drawn_traced_detail(snap: dict) -> str:
     how = SNAPS[snap["source"]]
     extra = ""
     if snap["source"] == "inegi-river":
-        extra = (f"; streams of Strahler order {snap['min_order']} and up, with an INEGI toponym for the river "
-                 f"within {RIVER_NAME_M} m of the line")
+        extra = (f" (streams of Strahler order {snap['min_order']} and up, with an INEGI toponym for the river "
+                 f"within {RIVER_NAME_M} m of the line)")
     elif hu8 := re.search(r"NHD_H_(\d{8})_HU8", snap["shapefile"]):
-        extra = f"; NHD flowlines of watershed HU8 {hu8.group(1)}"
+        extra = f" (NHD flowlines of watershed HU8 {hu8.group(1)})"
     return (f"{how['dataset'][0].upper()}{how['dataset'][1:]}: {snap['feature'].replace(';', ', ')}{extra}. Shortest "
             f"path along the lines between the points nearest each stop, simplified to {SIMPLIFY_M} m "
             f"(crossing.build_story, decision 0032).")
@@ -536,7 +536,7 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
                 reported = b["certainty"] == "reported"
                 how = dict(certainty="reported" if reported else "inferred", method="schematic", source="this-site",
                            source_licence=LICENCE["this-site"],
-                           reasoning="A gentle curve between consecutive stops; the book " +
+                           reasoning="A gentle curve between consecutive stops. The book " +
                            ("only reports this leg, through someone's account (see the stop)." if reported
                             else "names no road or river for this stretch."),
                            drawn="A curve drawn between the two stops, bowed to one side by a tenth of its length "
@@ -557,9 +557,9 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
         id="j7-false-dawn", name="The false dawn", kind="sightline", characters=["billy"], journey="J7", sequence=None,
         part=4, episode=FALSE_DAWN, first_seen=FALSE_DAWN, travel=None, note_safe="",
         certainty="reported", method="computed", source="this-site", source_licence=LICENCE["this-site"],
-        reasoning=f"In the last episode Billy wakes in the night to a light like desert noon, which fades; the true "
-                  f"dawn comes later. The book names no place, event or direction for that light; it is widely read as "
-                  f"the Trinity test of 16 July 1945. The line points from his last stop towards the "
+        reasoning=f"In the last episode Billy wakes in the night to a light like desert noon, which fades, and the "
+                  f"true dawn comes later. The book names no place, event or direction for that light. It is widely "
+                  f"read as the Trinity test of 16 July 1945. The line points from his last stop towards the "
                   f"Trinity Site (Wikidata Q19842077), bearing {azimuth % 360:.0f} degrees (pyproj, WGS 84), and is "
                   f"{SIGHTLINE_KM} km long only to show the direction."))
     return journeys

@@ -6,6 +6,12 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ## Unreleased
 
+### 2026-11-18
+
+#### Data
+
+- The placement reasoning, outline rules, notes and open questions in `stops`, `places`, `areas`, `journeys`, `landforms`, `vignettes` and `open-questions.json` no longer use semicolons, except between list items that contain commas. The drawings' credits keep theirs. The wording is otherwise unchanged.
+
 ### 2026-11-17
 
 #### Data
