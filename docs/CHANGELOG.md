@@ -14,6 +14,10 @@ A change is **released** when it is merged to `main`, which the public site serv
 - The she-wolf's Animas Valley stop (`j1-animas-valley`) moves 12 km south, to the valley floor on her way from the Animas Mountains to Foster Draw (decision 0069). The leg into it is redrawn, and the drawing of the wolves running the antelope moves with it.
 - J4's legs from Bowie to the camp in the Dos Cabezas and on over Apache Pass follow Apache Pass Road in Census TIGER 2023, the old road south the book has them take, instead of curves (decision 0032).
 
+#### Site
+
+- A place's photos step with round arrows on the photo's edges and a count in its corner, not a second row of Back and Next under it, so they no longer look like the stop's own Back and Next (decision 0070).
+
 ### 2026-11-18
 
 #### Data

@@ -369,7 +369,7 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 
 **Where drawings come from**, in order: traced public-domain sources (Boundary Commission monument photos, Biodiversity Heritage Library plates, period engravings, pre-1929 photographs), vectorised with `vtracer` or `potrace` and redrawn to one line weight; fresh drawings in the same style; image generation only as a sketch to trace over, never shipped as it is.
 
-**Photos.** Commons files found through Wikidata (P18), then the item's Commons category (P373), then a geosearch within 5 km (`crossing.photos`). Only PD, CC0, CC BY, and CC BY-SA. The owner approves each in `review/stage-6/photos.csv`. Picked photos are 640 px WebP (decision 0067), with a stepper where a place has more than one, and a TASL credit under each and on the Credits page, and captions say "today".
+**Photos.** Commons files found through Wikidata (P18), then the item's Commons category (P373), then a geosearch within 5 km (`crossing.photos`). Only PD, CC0, CC BY, and CC BY-SA. The owner approves each in `review/stage-6/photos.csv`. Picked photos are 640 px WebP (decision 0067), with arrows on the photo where a place has more than one (decision 0070), and a TASL credit under each and on the Credits page, and captions say "today".
 
 ## 11. Acceptance criteria
 

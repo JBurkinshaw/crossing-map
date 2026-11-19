@@ -526,14 +526,16 @@ button.link:focus-visible,
 }
 
 /* A place's photos (decision 0067): a frame of fixed height, so stepping between photos of other shapes moves
-   nothing below it, with the photo whole inside it on the paper. Back and Next are the stop stepper's buttons in
-   faint ink, so they read as the photo's and not the journey's, and the credit is the faint meta line of the
-   card's source. Lower on phones, where the drawer is short. */
+   nothing below it, with the photo whole inside it on the paper. The arrows are round and sit on the frame's edges,
+   with the count in its corner, as image galleries put them: nothing like the stop stepper's full-width row of word
+   buttons, so they read as the photo's and not the journey's. The credit is the faint meta line of the card's
+   source. Lower on phones, where the drawer is short. */
 .photo {
   margin: 10px 0;
 }
 
 .photo-frame {
+  position: relative;
   height: 200px;
 }
 
@@ -544,20 +546,42 @@ button.link:focus-visible,
   object-fit: contain;
 }
 
-.photo-stepper {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 6px;
+.photo-arrow {
+  position: absolute;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  margin-top: -18px;
+  padding: 0;
+  border: 1px solid var(--ink-faint);
+  border-radius: 50%;
+  background: rgba(247, 245, 230, 0.85);
+  color: var(--ink);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
-.photo-stepper button {
-  flex: 1;
-  min-height: 36px;
+.photo-arrow.previous {
+  left: 6px;
+}
+
+.photo-arrow.next {
+  right: 6px;
+}
+
+.photo-arrow:hover {
   background: var(--paper);
-  border: 1px solid var(--ink-faint);
-  font-size: 0.85rem;
-  cursor: pointer;
+}
+
+.photo-count {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  padding: 1px 6px;
+  background: rgba(247, 245, 230, 0.85);
+  color: var(--ink);
+  font-size: 0.75rem;
 }
 
 .photo-credit {
@@ -916,7 +940,9 @@ button.link:focus-visible,
     width: 44px;
     height: 44px;
   }
-  .photo-stepper button {
-    min-height: 44px;
+  .photo-arrow {
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
   }
 }

@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, type KeyboardEvent } from 'react'
 import type { Photo } from '../data/photos'
 
 // A place's photos on its card or its stop (decision 0067): one at a time in a frame of fixed height, so the text
-// below never moves, with Back and Next when there is more than one, and the TASL credit under it. The photos have
+// below never moves, and the TASL credit under it. With more than one, arrows on the frame's edges and a count in its
+// corner step through them, shaped unlike the stop stepper's Back and Next so the two never read as one. The photos have
 // already passed the spoiler filter. `firstSeen` is the place's, or undefined for a context place, which always shows.
 // A photo whose words name a later place carries its own. The parent keys this by place, so each starts at the first.
 export function Photos({ photos, firstSeen }: { photos: Photo[]; firstSeen?: string }) {
@@ -10,8 +11,14 @@ export function Photos({ photos, firstSeen }: { photos: Photo[]; firstSeen?: str
   if (photos.length === 0) return null
   const at = Math.min(index, photos.length - 1)
   const photo = photos[at]
-  // Back and Next go round, so the button pressed keeps the focus at either end.
+  // The arrows go round, so the button pressed keeps the focus at either end.
   const step = (by: number) => setIndex((at + by + photos.length) % photos.length)
+  // With either arrow focused, the left and right arrow keys step too.
+  const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return
+    e.preventDefault()
+    step(e.key === 'ArrowLeft' ? -1 : 1)
+  }
   return (
     <figure className="photo" data-first-seen={photo.first_seen ?? firstSeen}>
       <div className="photo-frame">
@@ -24,20 +31,21 @@ export function Photos({ photos, firstSeen }: { photos: Photo[]; firstSeen?: str
           loading="lazy"
           decoding="async"
         />
+        {photos.length > 1 && (
+          <>
+            <button type="button" className="photo-arrow previous" aria-label="Previous photo" onClick={() => step(-1)} onKeyDown={onKeyDown}>
+              <span aria-hidden="true">‹</span>
+            </button>
+            <button type="button" className="photo-arrow next" aria-label="Next photo" onClick={() => step(1)} onKeyDown={onKeyDown}>
+              <span aria-hidden="true">›</span>
+            </button>
+            <span className="photo-count" aria-live="polite">
+              <span className="visually-hidden">Photo </span>
+              {at + 1} / {photos.length}
+            </span>
+          </>
+        )}
       </div>
-      {photos.length > 1 && (
-        <div className="photo-stepper">
-          <button type="button" onClick={() => step(-1)}>
-            Back<span className="visually-hidden"> to the previous photo</span>
-          </button>
-          <span className="meta" aria-live="polite">
-            {at + 1} of {photos.length}
-          </span>
-          <button type="button" onClick={() => step(1)}>
-            Next<span className="visually-hidden"> photo</span>
-          </button>
-        </div>
-      )}
       <figcaption className="meta photo-credit">
         <PhotoCredit photo={photo} />
       </figcaption>

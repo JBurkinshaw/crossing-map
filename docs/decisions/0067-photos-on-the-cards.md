@@ -1,6 +1,6 @@
 # 0067. Photos on the cards
 
-Status: accepted (2026-11-18)
+Status: accepted (2026-11-18). The photo stepper is superseded by 0070.
 Phase: P1
 
 ## Context
