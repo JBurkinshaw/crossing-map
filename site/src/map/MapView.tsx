@@ -108,10 +108,11 @@ export function MapView(props: Props) {
   const [mapTilerCredits, setMapTilerCredits] = useState<string[]>([])
   // Once created, the satellite map stays (hidden on the literary basemap): MapTiler counts each new map as a session.
   const [satelliteStarted, setSatelliteStarted] = useState(false)
-  // The ground of the vintage map: plain paper, land cover (decision 0040) in every view, or the satellite tint,
+  // The ground of the vintage map: land cover (decision 0040) in every view, the default (decision 0072), plain paper,
+  // or the satellite tint,
   // the satellite map faded under the literary map in the Flat and Tilted views. The Oblique view's line work is
   // shifted north, so imagery would not line up under it; its land cover is shifted with it.
-  const [ground, setGround] = useState<Ground>('paper')
+  const [ground, setGround] = useState<Ground>('landcover')
   // The Map menu and the open layer key share the map's right-hand side, and on desktop the menu would cover the
   // top of the key: opening one closes the other.
   const [opened, setOpened] = useState<'menu' | 'key' | null>(null)

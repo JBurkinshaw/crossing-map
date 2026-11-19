@@ -128,13 +128,13 @@ export function MapControls(props: Props) {
             <Switch
               label="Ground of the vintage map"
               options={[
-                { id: 'paper', label: 'Paper', description: 'The paper colour of the map', disabled: !landcoverAvailable },
                 {
                   id: 'landcover',
                   label: 'Land cover',
                   description: 'Forest, woodland, grass, scrub, fields and towns along the journeys',
                   disabled: !landcoverAvailable,
                 },
+                { id: 'paper', label: 'Paper', description: 'The paper colour of the map', disabled: !landcoverAvailable },
                 { id: 'tint', label: 'Satellite tint', description: 'Faint colour from satellite imagery under the map', disabled: !tintAvailable },
               ]}
               value={shown}

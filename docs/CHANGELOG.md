@@ -16,6 +16,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- The vintage map opens on Land cover, which now comes first in the Ground switch, ahead of Paper and Satellite tint. The Tilted view's terrain is exaggerated 3.125 times (was 2.5), a quarter higher (decision 0072).
 - A place's photos step with round arrows on the photo's edges and a count in its corner, not a second row of Back and Next under it, so they no longer look like the stop's own Back and Next (decision 0070).
 
 ### 2026-11-18

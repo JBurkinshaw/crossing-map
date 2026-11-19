@@ -1,6 +1,6 @@
 # 0017. Views of the literary map: Flat, Tilted and Raised
 
-Status: accepted (2026-11-12); the Raised area and archive are superseded by 0018, then 0019; the Raised lean, strokes, form lines and ridgelines by 0040; the view is renamed Oblique by 0040
+Status: accepted (2026-11-12); the Tilted view's exaggeration is 3.125 by 0072; the Raised area and archive are superseded by 0018, then 0019; the Raised lean, strokes, form lines and ridgelines by 0040; the view is renamed Oblique by 0040
 Phase: P1 (Flat and Tilted); Raised is a preview around the Pilares
 
 ## Context
