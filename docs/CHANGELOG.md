@@ -23,6 +23,8 @@ A change is **released** when it is merged to `main`, which the public site serv
 - All the map's text is a fifth larger (decision 0055).
 - The map credits, when open, stop short of the title cartouche and the key instead of running under them, at every width.
 - The key's row for stops grouped together shows the marker as the map draws it, in the same sans-serif and saying "places" as nearly every marker does, beside its label instead of over it.
+- An open question can now show its other reading on the map: a button on the card draws a dashed ring where that reading would put the place, and frames it with the stop. A folded "More about this" gives the numbers behind the call. The question on the eastern escarpment (Part II) is the first to use both. On the Open questions page, the fold also links to how the call was tested.
+- How it's built has a new section, "How places are worked out", on the steps every stop goes through, and the Open questions page points to it.
 
 ### 2026-11-17
 

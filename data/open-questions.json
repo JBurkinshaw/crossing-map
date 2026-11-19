@@ -150,7 +150,12 @@
   ],
   "shown": "The escarpment west of the upper Bavispe, south-west of Huisiachepic, because he goes down to the river and rides north along it to the ford.",
   "other": "The high ground west of Bavispe town, about 75 km north. It is the only stretch of the escarpment from which the Carretas Plain can be seen, its nearest edge some 56 km away.",
-  "why": "The book has him look east over the barranca to the Carretas Plain. From the stretch shown, the ranges east of the river hide the plain, so the view and the order of events point to different places. The map follows the order of events, the stronger clue for a route."
+  "why": "The book has him look east over the barranca to the Carretas Plain. From the stretch shown, the ranges east of the river hide the plain, so the view and the order of events point to different places. The map follows the order of events, the stronger clue for a route.",
+  "detail": "The view was tested from 617 points along the escarpment, one every 1.5 km, on the shape of the ground. From the stretch the map shows, the ranges east of the river stand higher than the escarpment and hide the plain entirely. Only two points west of Bavispe town see it well, its nearest edge 56 km away, close to the book's forty miles to a locomotive's smoke on the plain. The book's Carretas Plain may name the country beyond the ranges, not ground in sight.",
+  "other_at": {"coordinates": [-109.1531, 30.6668], "radius_km": 6, "label": "Where the plain can be seen"},
+  "evidence": [
+   {"label": "How the view was tested", "path": "review/experiments/escarpment-view/README.md"}
+  ]
  },
  {
   "id": "q-huisiachepic",

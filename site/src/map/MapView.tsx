@@ -25,6 +25,7 @@ import { layerFilterUpTo, PROGRESS_LAYERS, styleUpTo } from '../spoiler/filter'
 import type { MapPick } from '../story/select'
 import type { Units } from '../units'
 import { usePhone } from '../panel/usePhone'
+import { useOtherReading } from './otherReading'
 
 // Loaded only when the reader first leaves the literary basemap.
 const SatelliteMap = lazy(() => import('./SatelliteMap'))
@@ -126,6 +127,7 @@ export function MapView(props: Props) {
   // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
   // tiles are loading, and 'load' fires only once.
   const [loaded, setLoaded] = useState(false)
+  useOtherReading(mapRef, loaded, story)
   // A new attribution control (new credits) opens itself, as the first one does on load.
   const creditKey = credits.join('|')
   useEffect(() => {

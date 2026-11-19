@@ -8,6 +8,7 @@ import { inZone } from './cluster'
 import { contextImageId, drawContextMark } from './contextPlaces'
 import { dataUrl, inkPatterns, TILE as INK_TILE } from './landcoverInk'
 import { journeyInks, LAND_COVERS, palette as tokens, routeLines, SPRITE } from './tokens'
+import { useOtherReadingShown } from './otherReading'
 import { drawWaterMark, type WaterMark } from './waterPlaces'
 
 // The layer key (legend, design section 9) for the vintage map: one row per kind of mark the map draws, from
@@ -234,6 +235,7 @@ export function LayerKey({ story, journey, reached, units, phone, open, onOpen, 
   }, [vignettes, reached])
   const marks = useMemo(() => (open ? SMALL_MARKS.map((m) => ({ ...m, url: markUrl(m) })) : []), [open])
 
+  const otherReading = useOtherReadingShown()
   const shown = useMemo(() => {
     const journeys = new Map<string, string>()
     for (const f of [...(story?.stops.features ?? []), ...(story?.journeys.features ?? [])]) {
@@ -381,6 +383,15 @@ export function LayerKey({ story, journey, reached, units, phone, open, onOpen, 
           <li>
             <Region />
             Region
+          </li>
+        )}
+        {otherReading && (
+          <li>
+            {/* As otherReading.ts draws it: a dashed ink ring on a faint ink wash. */}
+            <svg className="key-mark" width="34" height="18" viewBox="0 0 34 18" aria-hidden="true">
+              <circle cx="17" cy="9" r="7.5" fill={tokens.ink} fillOpacity={0.06} stroke={tokens.ink} strokeWidth={1.5} strokeDasharray="3 2" />
+            </svg>
+            An open question’s other reading: {otherReading.charAt(0).toLowerCase() + otherReading.slice(1)}
           </li>
         )}
       </ul>

@@ -22,7 +22,29 @@
       },
       "shown": {"type": "string", "minLength": 1, "description": "What the map shows."},
       "other": {"type": "string", "minLength": 1, "description": "The other reading."},
-      "why": {"type": "string", "minLength": 1, "description": "Why the map shows what it does."}
+      "why": {"type": "string", "minLength": 1, "description": "Why the map shows what it does."},
+      "detail": {"type": "string", "minLength": 1, "description": "Optional. A few sentences more, with the numbers behind the call, folded on the card."},
+      "other_at": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["coordinates", "radius_km", "label"],
+        "description": "Optional. Where the other reading would put the feature: a ring the reader can show on the map.",
+        "properties": {
+          "coordinates": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2, "description": "Longitude and latitude, WGS 84."},
+          "radius_km": {"type": "number", "exclusiveMinimum": 0, "maximum": 50},
+          "label": {"type": "string", "minLength": 1}
+        }
+      },
+      "evidence": {
+        "type": "array",
+        "description": "Optional. Links to how the call was made: repository paths, opened on GitHub.",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["label", "path"],
+          "properties": {"label": {"type": "string", "minLength": 1}, "path": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_./-]*$"}}
+        }
+      }
     }
   }
 }

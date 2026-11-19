@@ -22,13 +22,19 @@ export function OpenQuestions({ questions }: { questions: OpenQuestion[] }) {
       ) : (
         questions.map((q) => <OpenQuestionNote key={q.id} q={q} />)
       )}
-      {general && (
-        <p>
-          <a href={general} target="_blank" rel="noreferrer">
-            Suggest a correction or a new reading
-          </a>
-        </p>
-      )}
+      <p>
+        Think a place is wrong? <a href="#/about/how-its-built">How it’s built</a> says how places are worked out
+        and how a clue is tested, so a new reading can be checked the same way.
+        {general && (
+          <>
+            {' '}
+            <a href={general} target="_blank" rel="noreferrer">
+              Suggest a correction or a new reading
+            </a>
+            .
+          </>
+        )}
+      </p>
     </>
   )
 }

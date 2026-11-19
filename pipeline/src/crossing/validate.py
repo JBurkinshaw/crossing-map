@@ -262,6 +262,9 @@ def check_questions(doc, layers: dict[str, dict], episodes: set[str]) -> list[st
         if reached and min(reached) > q["first_seen"]:
             errors.append(f"{q['id']}: shown at {q['first_seen']}, before any of its features "
                           f"(first at {min(reached)})")
+        # Evidence links open the repository on GitHub at the build's commit, so each must name a file in it.
+        errors += [f"{q['id']}: evidence {e['path']} is not in the repository"
+                   for e in q.get("evidence", []) if not (REPO / e["path"]).exists()]
     return errors
 
 

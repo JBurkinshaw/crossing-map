@@ -1,9 +1,28 @@
-import type { OpenQuestion } from '../data/openQuestions'
-import { feedbackUrl } from '../pages/format'
+import { useEffect, useRef, useState } from 'react'
+import { requestOtherReading, type OpenQuestion } from '../data/openQuestions'
+import { feedbackUrl, repoUrl } from '../pages/format'
 
 // One judgement call: what the map shows, the other reading, and why.
-// `label` goes before the title on cards; the Open questions page leaves it out.
-export function OpenQuestionNote({ q, label }: { q: OpenQuestion; label?: string }) {
+// `label` goes before the title on cards; the Open questions page leaves it out. `feature` is set on cards, where
+// the map sits beside the panel, so a question with `other_at` can show the other reading there, framed with that
+// feature.
+export function OpenQuestionNote({ q, label, feature }: { q: OpenQuestion; label?: string; feature?: string }) {
+  const onMap = feature !== undefined
+  const [shown, setShown] = useState(false)
+  const shownRef = useRef(false)
+  // The ring belongs to this card: leaving the stop clears it, and the move to the next stop sets the camera.
+  useEffect(() => {
+    if (!feature) return
+    return () => {
+      if (shownRef.current) requestOtherReading({ ring: null, feature })
+    }
+  }, [feature])
+  const toggle = () => {
+    if (!feature || !q.other_at) return
+    requestOtherReading(shown ? { ring: null, feature, back: true } : { ring: q.other_at, feature })
+    shownRef.current = !shown
+    setShown(!shown)
+  }
   return (
     <aside className="open-question" data-first-seen={q.first_seen}>
       <h3>{label ? `${label}: ${q.title}` : q.title}</h3>
@@ -15,6 +34,30 @@ export function OpenQuestionNote({ q, label }: { q: OpenQuestion; label?: string
         <dt>Why</dt>
         <dd>{q.why}</dd>
       </dl>
+      {onMap && q.other_at && (
+        <button type="button" className="show-other" aria-pressed={shown} onClick={toggle}>
+          {shown ? 'Hide the other reading' : 'Show the other reading on the map'}
+        </button>
+      )}
+      {(q.detail || (!onMap && q.evidence?.length)) && (
+        <details className="question-detail">
+          <summary>More about this</summary>
+          {q.detail && <p>{q.detail}</p>}
+          {/* How the call was made: on the Open questions page only, not on the map's cards. */}
+          {!onMap && q.evidence && q.evidence.length > 0 && (
+            <p className="evidence">
+              {q.evidence.map((e, i) => (
+                <span key={e.path}>
+                  {i > 0 && ' · '}
+                  <a href={repoUrl(e.path)} target="_blank" rel="noreferrer">
+                    {e.label}
+                  </a>
+                </span>
+              ))}
+            </p>
+          )}
+        </details>
+      )}
     </aside>
   )
 }
@@ -27,7 +70,7 @@ export function FeatureQuestions({ id, name, questions }: { id: string; name: st
   return (
     <>
       {mine.map((q) => (
-        <OpenQuestionNote key={q.id} q={q} label="Open question" />
+        <OpenQuestionNote key={q.id} q={q} label="Open question" feature={id} />
       ))}
       {(mine.length > 0 || form) && (
         <p className="correction">

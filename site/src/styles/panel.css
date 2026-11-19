@@ -737,3 +737,38 @@ button.link:focus-visible,
   font-size: 0.8rem;
   font-style: italic;
 }
+
+/* An open question's extras (decision 0063): the other reading on the map, and more about the call. */
+.show-other {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border: 1px dashed var(--ink);
+  background: var(--paper);
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.show-other:hover,
+.show-other[aria-pressed='true'] {
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.question-detail {
+  margin-top: 6px;
+}
+
+.question-detail summary {
+  font-style: italic;
+  cursor: pointer;
+}
+
+.question-detail p {
+  margin: 4px 0;
+}
+
+.question-detail .evidence {
+  font-size: 0.8rem;
+}

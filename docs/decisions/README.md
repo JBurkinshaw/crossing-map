@@ -74,6 +74,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0057 Stop rows checked against the book while writing the synopses | accepted |
 | 0058 Back and Next go on across journeys | accepted |
 | 0059 Where a stop sits on its landform: named points first, a terrain check, and the owner's review | accepted |
+| 0063 An open question can show its other reading on the map, and say more on request | accepted |
 
 ## Template
 

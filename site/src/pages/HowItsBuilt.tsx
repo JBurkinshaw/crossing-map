@@ -157,6 +157,27 @@ export function HowItsBuilt({ spoilers }: { spoilers: boolean }) {
         Copernicus elevation model for summits, and this site’s own reading, marked <code>this-site</code>.
       </p>
 
+      <h2 id="placement">How places are worked out</h2>
+      <p>
+        Every stop goes through the same steps, and its card says how it was placed. A named place is looked up
+        in the gazetteers (GNIS in the US, GeoNames in Mexico, Wikidata), and where a name fits several features,
+        the story’s own geography picks one: the distances, directions and order of the stops around it. Where the
+        book puts a stop at one part of a landform, such as the head of a draw, a pass through a range or a valley
+        floor, the map looks first for a named point: GNIS records where each draw heads as well as where it ends,
+        and records passes as places of their own. Only where no named point exists does the elevation model
+        propose one, and then a person decides.
+      </p>
+      <p>
+        An unnamed stop is worked out from its clues: the stops before and after, the direction and time of travel,
+        the roads and rivers the book names, and what a character can see. Each measurement is a short script on
+        open data. The stop becomes an area as wide as the clues allow, with its best guess inside it. The ground
+        under each landform stop is then checked against what the book says it should be (a saddle for a pass, low
+        ground for a valley floor), and a view can be tested by working out what is in sight from where the map
+        puts it. Where two clues still point to different places, the card says so in an open question, and the map
+        follows the stronger clue. The whole method, with a decision tree, is in{' '}
+        <a href={repoUrl('docs/placement-method.md')}>docs/placement-method.md</a>.
+      </p>
+
       <h2>Inferred areas</h2>
       <p>
         Where the book gives no name, a stop gets an area as wide as the clues allow. Most areas are then cut to
