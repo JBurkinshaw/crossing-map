@@ -365,6 +365,29 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           layout={{ 'line-cap': 'round' }}
           paint={{ 'line-color': inkByJourney, 'line-width': 2, 'line-opacity': ['case', inFocus, 0.9, 0.6], 'line-dasharray': [0.1, 2.5] }}
         />
+        {/* Each route lettered with its journey's number, as the key names it, so ink is not the only thing that
+            tells the journeys apart (decision 0061). Set along the line, as the base map sets a river's name, and
+            in roman: the italic's swash J is hard to read at this size on a slant. */}
+        <Layer
+          id="journeys-name"
+          type="symbol"
+          filter={drawn(notSightline)}
+          layout={{
+            'symbol-placement': 'line',
+            'symbol-spacing': 300,
+            'text-field': ['get', 'journey'],
+            'text-font': ['literal', [fonts.roman]],
+            'text-size': textPx(13),
+            'text-offset': [0, -0.9],
+            'text-padding': 12,
+          }}
+          paint={{
+            'text-color': inkByJourney,
+            'text-halo-color': tokens.paperShown,
+            'text-halo-width': 1.6,
+            'text-opacity': ['case', inFocus, 1, 0.8],
+          }}
+        />
       </Source>
       <Source id="places" type="geojson" data={places.outside}>
         {placeLayers('places')}
