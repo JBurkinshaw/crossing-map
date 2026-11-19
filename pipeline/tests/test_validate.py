@@ -285,3 +285,9 @@ def test_photos_pass(layers, public):
 def test_bad_photo_is_reported(layers, public, entry, error):
     errors = validate.check_photos([entry], layers, EPISODES, public)
     assert any(error in e for e in errors), errors
+
+
+def test_same_point_ignores_trailing_zeros():
+    assert validate.same_point("-109.05,30.55", "-109.05000,30.55000")
+    assert not validate.same_point("-109.05,30.55", "-109.05001,30.55000")
+    assert not validate.same_point("", "-109.05000,30.55000")

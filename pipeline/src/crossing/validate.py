@@ -378,6 +378,15 @@ def check_sprites(layers: dict[str, dict], sprite: dict) -> list[str]:
     return [f"no sprite icon {name!r} in {SPRITE_INDEX.name}" for name in sorted(icon_names(layers) - set(sprite))]
 
 
+def same_point(a: str, b: str) -> bool:
+    """Whether two "lon,lat" texts name the same point to 5 decimals. The review page writes "-109.05,30.55"
+    where results.csv has "-109.05000,30.55000"."""
+    try:
+        return all(round(float(x), 5) == round(float(y), 5) for x, y in zip(a.split(","), b.split(","), strict=True))
+    except ValueError:
+        return False
+
+
 def position_notes(stops: dict) -> list[str]:
     """Stops whose landform position needs the owner's review. Notes only: a flagged stop never fails the build."""
     results = POSITIONS / "results.csv"
@@ -397,7 +406,7 @@ def position_notes(stops: dict) -> list[str]:
                 notes.append(f"{r['stop']}: the stop has moved since crossing.positions ran; rerun it")
                 continue
             v = verdicts.get(r["stop"])
-            if r["flagged"] == "true" and not (v and v["verdict"] and v["point"] == point):
+            if r["flagged"] == "true" and not (v and v["verdict"] and same_point(v["point"], point)):
                 unreviewed.append(r["stop"])
     if unreviewed:
         notes.append(f"{len(unreviewed)} flagged stops without a verdict (?review=positions): {', '.join(unreviewed)}")
