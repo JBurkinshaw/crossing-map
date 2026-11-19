@@ -277,8 +277,8 @@ def surfaces(g: dict, leg: dict) -> dict:
 OFFSETS = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
 
 
-def least_cost(g: dict, s: dict, leg: dict) -> tuple[list[tuple[int, int]], float]:
-    """The cheapest cell path from stop a to stop b, and its cost in hours."""
+def cost_graph(g: dict, s: dict, leg: dict) -> tuple[csr_matrix, np.ndarray]:
+    """The grid as a directed graph weighted in hours, and the node id of each cell."""
     h, w, res = g["h"], g["w"], g["res"]
     z, blocked, factor, delay, river = s["z"], s["blocked"], s["factor"], s["delay"], s["river"]
     flat = None if leg.get("mode") == "wolf" else 6.0
@@ -301,7 +301,13 @@ def least_cost(g: dict, s: dict, leg: dict) -> tuple[list[tuple[int, int]], floa
         dst_all.append(ids[rt, ct][ok])
         wt_all.append(hours[ok].astype("float64"))
     edges = (np.concatenate(src_all), np.concatenate(dst_all))
-    graph = csr_matrix((np.concatenate(wt_all), edges), shape=(h * w, h * w))
+    return csr_matrix((np.concatenate(wt_all), edges), shape=(h * w, h * w)), ids
+
+
+def least_cost(g: dict, s: dict, leg: dict) -> tuple[list[tuple[int, int]], float]:
+    """The cheapest cell path from stop a to stop b, and its cost in hours."""
+    w = g["w"]
+    graph, ids = cost_graph(g, s, leg)
     ra, ca = cell_of(g, *g["a"])
     rb, cb = cell_of(g, *g["b"])
     a, b = ids[ra, ca], ids[rb, cb]

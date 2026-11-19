@@ -142,13 +142,13 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.75543,
-     31.41662
+     -108.7436,
+     31.45528
     ]
    },
    "properties": {
     "id": "j1-san-luis-mountains",
-    "name": "San Luis Mountains",
+    "name": "San Luis Mountains, by San Luis Pass",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -160,14 +160,14 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
-    "certainty": "approximate",
+    "certainty": "inferred",
     "uncertainty_m": null,
-    "method": "gazetteer",
-    "source": "gnis",
-    "source_id": "920694",
-    "source_licence": "Public domain",
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": null,
+    "reasoning": "The book has her cross the range and go north through its gap, and names no gap. San Luis Pass (GNIS 894461) is the gap through the San Luis Mountains on her way north to the Animas Mountains, so the stop is on the pass, 5.9 km north of the range's GNIS point, 920694 (pipeline/measure/draw_heads.py). Reading \"its gap\" as the pass is this site's inference.",
     "synopsis": "She crosses the range and goes north through its gap towards the Animas Mountains. The book names the range only in passing."
    }
   },
@@ -176,8 +176,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.78671,
-     31.66307
+     -108.77136,
+     31.56891
     ]
    },
    "properties": {
@@ -194,14 +194,14 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
-    "certainty": "approximate",
+    "certainty": "inferred",
     "uncertainty_m": null,
-    "method": "gazetteer",
-    "source": "gnis",
-    "source_id": "885762",
-    "source_licence": "Public domain",
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": null,
+    "reasoning": "The book has her pass through the Animas range on her way north and names no pass, and GNIS has no gap on the range north of San Luis Pass. The stop is a saddle on the range's western ridge, at 2,020 m, halfway between San Luis Pass and the Animas Valley stop. From the valley east of the ridge at that latitude, the wolf's least-cost path through to the Animas Valley crosses the ridge here (pipeline/measure/animas_crossing.py). The range's own point is 8.3 km north.",
     "synopsis": "She passes through the Animas range on her way north. The book names it only in passing."
    }
   },
@@ -236,7 +236,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "The GNIS pin for the valley is 108 km north, at 32.57 N. The stop is where her route from the Animas Mountains to the Peloncillos crosses the valley floor.",
-    "synopsis": "She crosses the valley floor towards the Peloncillos. Later, at night, she comes down onto these plains to run the antelope, watching the herd for a weak one."
+    "synopsis": "She crosses the valley floor towards the Peloncillos."
    }
   },
   {
@@ -244,8 +244,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.86766,
-     31.56457
+     -108.99502,
+     31.54684
     ]
    },
    "properties": {
@@ -262,14 +262,14 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
-    "certainty": "approximate",
+    "certainty": "inferred",
     "uncertainty_m": null,
-    "method": "gazetteer",
-    "source": "gnis",
-    "source_id": "889164",
-    "source_licence": "Public domain",
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GNIS 889164 in Hidalgo County. The other two Foster Draws are 158 km and 284 km away.",
+    "reasoning": "GNIS 889164 in Hidalgo County. The other two Foster Draws are 158 km and 284 km away. The book puts the kill at the head of the draw, in the Peloncillos. GNIS gives a draw two points: its primary point at the mouth, on the Animas Valley floor, and a source point at the head. The stop is on the source point, 12.4 km west of the mouth and 216 m higher (pipeline/measure/draw_heads.py).",
     "synopsis": "After two weeks of living on carrion she pulls down a calf in deep snow where the draw begins, and eats until she can hardly move. She never goes back to a kill, and she now keeps strict rules about roads, rail lines and fences."
    }
   },
@@ -312,8 +312,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.12217,
-     31.62792
+     -109.09445,
+     31.58563
     ]
    },
    "properties": {
@@ -330,14 +330,14 @@
     "part": 1,
     "episode": "1-04",
     "first_seen": "1-04",
-    "certainty": "approximate",
+    "certainty": "inferred",
     "uncertainty_m": null,
-    "method": "gazetteer",
-    "source": "gnis",
-    "source_id": "11797",
-    "source_licence": "Public domain",
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GNIS 11797, Cochise County, 6 km from Skeleton Canyon.",
+    "reasoning": "GNIS 11797, Cochise County. The book has her work west to the head of the canyon. GNIS gives the canyon two points: its primary point at the mouth and a source point at the head. The stop is on the source point, 6.4 km south-east of the mouth (pipeline/measure/draw_heads.py), 2.4 km from Hog Canyon Spring, where she turns next.",
     "synopsis": "She works west to the head of the canyon, still finding no sign of other wolves."
    }
   },
@@ -380,8 +380,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.86872,
-     31.57614
+     -108.99831,
+     31.55723
     ]
    },
    "properties": {
@@ -405,8 +405,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The high country between Clanton Draw (GNIS 887634) and Foster Draw (GNIS 889164), which lie 3 km apart.",
-    "synopsis": "Back in the high country she smells another wolf at one of the Parhams' trap sets and spends an hour reading the ground. Over the next day she digs out all eight sets and leaves the traps bare for Billy and his father to find."
+    "reasoning": "The high country between Clanton Draw (GNIS 887634) and Foster Draw (GNIS 889164). The draws' mouths lie 3 km apart on the Animas Valley floor, and their heads (the GNIS source points) lie 4.9 km apart in the Peloncillos. Midway between the heads the ground is a valley, so the stop is on the drainage divide between the two draws' catchments, at its point nearest the two heads: a ridge in the 87th height percentile of the ground within 3 km, 1.6 km from the midpoint (pipeline/measure/draw_heads.py, crossing.landform_points).",
+    "synopsis": "Back in the high country, she comes down at night onto the Animas Plains to run the antelope, watching the herd for a weak one. At one of the Parhams' trap sets she smells another wolf and spends an hour reading the ground. Over the next day she digs out all eight sets and leaves the traps bare for Billy and his father to find."
    }
   },
   {

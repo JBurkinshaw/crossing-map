@@ -543,84 +543,200 @@
     "coordinates": [
      [
       [
-       -108.90155,
-       31.51867
+       -109.00382,
+       31.51908
       ],
       [
-       -108.90099,
-       31.51534
+       -109.00787,
+       31.51838
       ],
       [
-       -108.85132,
-       31.49821
+       -109.01179,
+       31.51725
       ],
       [
-       -108.84822,
-       31.5004
+       -109.01549,
+       31.51568
       ],
       [
-       -108.84511,
-       31.50335
+       -109.01893,
+       31.51371
       ],
       [
-       -108.84291,
-       31.50609
+       -109.02203,
+       31.51138
       ],
       [
-       -108.84082,
-       31.50965
+       -109.02475,
+       31.50872
       ],
       [
-       -108.83936,
-       31.51343
+       -109.02705,
+       31.50578
       ],
       [
-       -108.83857,
-       31.51734
+       -109.02888,
+       31.5026
       ],
       [
-       -108.83842,
-       31.52066
+       -109.0302,
+       31.49925
       ],
       [
-       -108.83888,
-       31.52463
+       -109.03101,
+       31.49578
       ],
       [
-       -108.83953,
-       31.5267
+       -109.03128,
+       31.49225
       ],
       [
-       -108.88667,
-       31.54296
+       -109.031,
+       31.48871
       ],
       [
-       -108.89063,
-       31.54049
+       -109.0302,
+       31.48524
       ],
       [
-       -108.89392,
-       31.53767
+       -109.02887,
+       31.48189
       ],
       [
-       -108.89669,
-       31.53448
+       -109.02704,
+       31.47872
       ],
       [
-       -108.89888,
-       31.53096
+       -109.02475,
+       31.47578
       ],
       [
-       -108.90044,
-       31.52721
+       -109.02202,
+       31.47312
       ],
       [
-       -108.90135,
-       31.5233
+       -109.01892,
+       31.47078
       ],
       [
-       -108.90155,
-       31.51867
+       -109.01548,
+       31.46882
+      ],
+      [
+       -109.01178,
+       31.46725
+      ],
+      [
+       -109.00787,
+       31.46611
+      ],
+      [
+       -109.00382,
+       31.46542
+      ],
+      [
+       -108.9997,
+       31.46519
+      ],
+      [
+       -108.99558,
+       31.46542
+      ],
+      [
+       -108.99153,
+       31.46611
+      ],
+      [
+       -108.98762,
+       31.46725
+      ],
+      [
+       -108.98392,
+       31.46882
+      ],
+      [
+       -108.98048,
+       31.47078
+      ],
+      [
+       -108.97738,
+       31.47312
+      ],
+      [
+       -108.97465,
+       31.47578
+      ],
+      [
+       -108.97236,
+       31.47872
+      ],
+      [
+       -108.97053,
+       31.48189
+      ],
+      [
+       -108.9692,
+       31.48524
+      ],
+      [
+       -108.9684,
+       31.48871
+      ],
+      [
+       -108.96812,
+       31.49225
+      ],
+      [
+       -108.96839,
+       31.49578
+      ],
+      [
+       -108.9692,
+       31.49925
+      ],
+      [
+       -108.97052,
+       31.5026
+      ],
+      [
+       -108.97235,
+       31.50578
+      ],
+      [
+       -108.97465,
+       31.50872
+      ],
+      [
+       -108.97737,
+       31.51138
+      ],
+      [
+       -108.98047,
+       31.51371
+      ],
+      [
+       -108.98391,
+       31.51568
+      ],
+      [
+       -108.98761,
+       31.51725
+      ],
+      [
+       -108.99153,
+       31.51838
+      ],
+      [
+       -108.99558,
+       31.51908
+      ],
+      [
+       -108.9997,
+       31.51931
+      ],
+      [
+       -109.00382,
+       31.51908
       ]
      ]
     ]
@@ -641,13 +757,13 @@
     "first_seen": "1-04",
     "certainty": "inferred",
     "uncertainty_m": 3000.0,
-    "method": "computed",
+    "method": "schematic",
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The high country between Clanton Draw (GNIS 887634) and Foster Draw (GNIS 889164), which lie 3 km apart.",
-    "outline_rule": "The ground between the two draws: the strip between lines through the GNIS points of Clanton Draw and Foster Draw that run down the general slope of the area (the way the draws run), with 400 m beyond each. NHD does not name the draws' channels here.",
+    "reasoning": "The high country between Clanton Draw (GNIS 887634) and Foster Draw (GNIS 889164). The draws' mouths lie 3 km apart on the Animas Valley floor, and their heads (the GNIS source points) lie 4.9 km apart in the Peloncillos. Midway between the heads the ground is a valley, so the stop is on the drainage divide between the two draws' catchments, at its point nearest the two heads: a ridge in the 87th height percentile of the ground within 3 km, 1.6 km from the midpoint (pipeline/measure/draw_heads.py, crossing.landform_points).",
+    "outline_rule": null,
     "straight_road": false
    }
   },

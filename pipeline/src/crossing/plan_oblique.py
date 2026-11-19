@@ -4,6 +4,7 @@ Run from the repo root, after crossing.hachures (whose fine tile grid sets the a
     uv run --project pipeline python -m crossing.plan_oblique
     uv run --project pipeline python -m crossing.plan_oblique --properties  # after a text-only story change
     uv run --project pipeline python -m crossing.plan_oblique --vignettes   # the drawings only (under a minute)
+    uv run --project pipeline python -m crossing.plan_oblique --story       # all of data/oblique/ (under a minute)
 
 Plan oblique relief (Jenny and Patterson, "Introducing plan oblique relief", Cartographic Perspectives 57, 2007)
 keeps a flat, north-up map but moves every point north in proportion to its height, so high ground stands up and
@@ -598,6 +599,22 @@ def raise_vignettes() -> None:
           flush=True)
 
 
+def raise_story_only() -> None:
+    """--story: every layer in data/oblique/, without the line work or the archives, after the story moved a stop,
+    a line or an area. The line work does not depend on the story, and the strips' DEMs and lowest height are prepared
+    as in a full run, so the layers come out as a full run would write them."""
+    started = time.monotonic()
+    area = strips()
+    with tempfile.TemporaryDirectory() as folder:
+        tmp = Path(folder)
+        dems = [tmp / f"{s['name']}.tif" for s in area]
+        with ProcessPoolExecutor(min(len(area), os.cpu_count() or 1)) as pool:
+            base = prepare_heights(area, dems, pool)
+        counts = raise_story(Heights(list(zip(area, dems, strict=True)), base, tmp))
+    print("data/oblique/: " + ", ".join(f"{k} {n}" for k, n in counts.items())
+          + f"; {time.monotonic() - started:.0f} s", flush=True)
+
+
 def max_move(a: Path, b: Path) -> float:
     """The largest Hausdorff distance, in degrees, between the features of two copies of a layer, matched by id.
     Hausdorff, not vertex by vertex, because simplifying a line can keep a different number of vertices."""
@@ -618,6 +635,8 @@ def main() -> None:
     only.add_argument("--properties", action="store_true",
                       help="copy the flat layers' properties into data/oblique/ only, after a text-only story change")
     only.add_argument("--vignettes", action="store_true", help="write data/oblique/vignettes.geojson only")
+    only.add_argument("--story", action="store_true",
+                      help="write every layer in data/oblique/ only, after a stop, line or area moved")
     args = parser.parse_args()
     if args.properties:
         changed = copy_story_properties()
@@ -625,6 +644,9 @@ def main() -> None:
         return
     if args.vignettes:
         raise_vignettes()
+        return
+    if args.story:
+        raise_story_only()
         return
     started = time.monotonic()
     area = strips()

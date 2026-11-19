@@ -11,6 +11,10 @@ A change is **released** when it is merged to `main`, which the public site serv
 #### Data
 
 - The placement reasoning, outline rules, notes and open questions in `stops`, `places`, `areas`, `journeys`, `landforms`, `vignettes` and `open-questions.json` no longer use semicolons, except between list items that contain commas. The drawings' credits keep theirs. The wording is otherwise unchanged.
+- Five of the she-wolf's stops move to the part of the landform the book names (decision 0056). Foster Draw (`j1-foster-draw`) and Starvation Canyon (`j1-starvation-canyon`) move to the heads of the draw and canyon, the GNIS source points, 12.4 km and 6.4 km from their mouths. The calf's drawing moves with Foster Draw. The high country between Clanton and Foster draws (`j1-clanton-foster`) moves to the ridge on the divide between them, near their heads, and its area loses the outline cut between their mouths. The San Luis Mountains stop moves to San Luis Pass. The Animas Mountains stop (`j1-animas-mountains`) moves from Animas Peak to a saddle on the range's western ridge, halfway to the Animas Valley. All five are `inferred`.
+- The legs from San Luis Pass to the Animas Mountains and on to the Animas Valley are modelled least-cost paths, not curves. The legs into and out of the other moved stops are redrawn.
+- The antelope run moves from the Animas Valley stop's synopsis to the stop between Clanton and Foster draws, where the book has it.
+- New open questions `q-san-luis-gap` and `q-animas-crossing`. `q-starvation-canyon` and `q-clanton-foster` now show the heads.
 - The drawings' caption sides and zooms in `vignettes.geojson` are worked out for captions a fifth larger, as the map now sets them (decision 0055).
 
 #### Site

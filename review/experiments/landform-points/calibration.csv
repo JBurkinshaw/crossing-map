@@ -1,0 +1,160 @@
+gnis,name,class,mouth_to_head_km,err_km_0.1,err_km_0.02,err_km_0.5,err_km_2.0,gnis_head_off_stem_km
+960,Baker Canyon,Valley,8.88,5.2,5.38,4.73,3.27,2.11
+961,Baker Canyon,Valley,2.86,0.09,0.34,0.66,2.29,0.04
+1105,Bear Canyon,Valley,2.86,4.03,4.26,3.63,2.57,0.81
+1509,Black Draw,Valley,26.32,11.47,11.19,11.8,10.63,9.94
+1679,Blevins Draw,Valley,1.8,8.86,8.87,8.79,7.94,1.81
+2030,Brushy Canyon,Valley,8.11,2.23,2.34,2.21,2.73,2.16
+2034,Brushy Canyon,Valley,5.49,5.6,5.79,4.97,3.23,1.03
+2039,Brushy Creek,Stream,8.45,2.54,2.64,2.51,3.12,2.5
+2064,Buck Creek,Stream,14.08,2.46,2.42,2.44,2.7,2.37
+2588,Cave Creek Canyon,Valley,1.97,11.15,11.32,10.69,9.89,0.1
+3334,Cottonwood Creek,Stream,26.2,4.75,4.81,5.4,7.29,4.73
+3335,Cottonwood Creek,Stream,5.75,10.33,10.45,9.86,9.09,2.76
+3345,Cottonwood Draw,Valley,15.14,6.46,6.6,6.2,5.58,5.44
+3691,Danger Wash,Stream,10.2,6.74,7.07,6.54,5.58,4.86
+3776,Deadmans Wash,Stream,2.24,2.27,2.41,1.94,1.26,1.21
+3789,Deep Well Canyon,Valley,4.5,0.1,0.46,0.97,2.75,0.03
+3798,Deer Creek,Stream,9.96,9.71,9.41,10.28,10.28,9.28
+3896,Devils Canyon,Valley,2.17,13.42,13.58,13.15,12.84,2.24
+4499,Estes Canyon,Valley,4.5,5.33,5.36,4.84,3.63,3.29
+4988,Georges Canyon,Valley,3.32,2.17,2.17,2.22,1.87,1.64
+5416,Guadalupe Canyon,Valley,15.74,0.21,0.14,0.63,2.3,0.08
+5494,Hackberry Wash,Stream,8.07,9.76,9.65,9.32,8.81,5.16
+5517,Halfmoon Valley,Valley,3.79,0.09,0.09,0.35,1.2,0.09
+5642,Hay Hollow Wash,Stream,15.15,6.9,7.24,6.53,6.17,4.41
+5853,Hog Canyon,Valley,7.8,0.13,0.28,0.61,1.83,0.13
+5855,Hog Canyon,Valley,3.91,3.88,3.64,4.71,4.57,3.39
+6012,Horseshoe Canyon,Valley,9.9,1.11,1.3,0.68,1.2,0.59
+6204,Indian Creek,Stream,21.85,6.58,6.46,7.01,8.0,6.34
+6304,Jack Wood Canyon,Valley,9.02,0.76,0.76,0.76,1.91,0.66
+8293,Mormon Canyon,Valley,7.22,2.41,2.49,2.33,1.72,1.67
+8313,Morse Canyon,Valley,3.51,2.18,2.45,1.92,1.55,1.42
+8409,Mulberry Canyon,Valley,3.37,0.19,0.32,0.45,1.47,0.11
+8719,Pothole Canyon,Valley,2.86,4.33,4.59,4.13,3.23,2.84
+8732,North Fork Rucker Canyon,Valley,5.11,2.99,3.12,2.87,3.22,2.87
+8794,North Ward Canyon,Valley,2.69,1.0,0.93,1.38,2.2,0.86
+9045,Owl Creek,Stream,6.12,5.47,5.55,5.41,6.04,4.57
+9461,Pine Gulch,Valley,3.67,2.21,1.9,2.62,3.77,1.78
+9620,Pole Bridge Canyon,Valley,2.42,3.48,3.75,3.21,2.57,1.72
+9692,North Fork Canyon,Valley,4.09,6.18,6.48,5.76,5.19,4.2
+9768,Price Canyon,Valley,11.12,1.22,1.38,0.86,1.24,0.52
+10121,Red Rock Canyon,Valley,6.14,7.79,7.96,7.34,6.22,1.87
+10602,Rustler Canyon,Valley,4.0,0.46,0.81,0.07,1.18,0.01
+10810,San Bernardino Valley,Valley,30.82,21.35,21.14,21.82,21.51,19.31
+10968,Saulsbury Canyon,Valley,2.94,6.17,6.32,6.02,4.98,3.15
+11143,Shake Gulch,Valley,8.51,6.0,5.73,6.34,7.6,5.62
+11397,Skeleton Canyon,Valley,8.33,6.69,6.83,6.1,4.57,0.37
+11593,South Fork Cave Creek,Stream,10.92,2.18,2.29,1.92,1.78,1.78
+11603,South Fork Skeleton Canyon,Valley,9.79,6.13,5.91,6.65,7.35,5.81
+11797,Starvation Canyon,Valley,6.4,0.35,0.56,0.19,1.91,0.19
+11937,Sulphur Draw,Valley,8.53,0.05,0.28,0.6,2.07,0.03
+12070,Sycamore Canyon,Valley,2.04,5.12,5.07,4.74,3.26,1.35
+12079,Sycamore Creek,Stream,8.79,7.45,7.54,6.98,5.75,5.27
+12270,Tex Canyon,Valley,10.09,1.85,2.11,1.24,1.18,0.87
+12873,Turkey Pen Canyon,Valley,4.03,7.36,7.62,7.09,5.99,2.42
+13017,Twoweeks Spring Canyon,Valley,2.86,1.09,1.06,1.54,2.23,1.01
+13309,Walnut Canyon,Valley,5.91,7.82,7.41,8.04,7.67,3.28
+13338,Ward Canyon,Valley,4.82,4.07,4.09,4.07,3.48,3.39
+13790,Wildcat Wash,Stream,9.07,14.63,14.93,14.8,14.31,6.42
+45608,Silver Creek,Stream,26.73,25.38,25.29,25.7,26.85,25.23
+885760,Animas Creek,Stream,30.67,22.1,22.12,21.4,20.27,14.28
+885919,Ash Creek,Stream,11.01,0.72,1.02,0.2,0.96,0.15
+886126,Bear Canyon,Valley,3.03,7.82,7.88,7.62,6.11,2.63
+886134,Bear Creek,Stream,9.2,8.07,7.64,9.4,9.4,7.51
+886215,Bennett Creek,Stream,7.74,1.54,1.42,1.64,1.41,1.3
+886233,Bercham Draw,Valley,6.48,16.56,16.67,16.33,15.33,6.32
+886294,Big Creek,Stream,18.19,17.41,17.04,18.22,18.3,16.88
+886402,Black Canyon,Valley,6.72,6.18,6.01,7.03,7.03,5.99
+886541,Bluff Creek,Stream,5.22,4.88,4.27,5.41,5.41,4.11
+886803,Brushy Creek,Stream,9.33,4.83,5.02,4.58,5.31,4.5
+886878,Bull Creek,Stream,6.06,0.12,0.33,0.45,2.01,0.04
+886879,Bull Creek,Stream,9.27,4.52,4.28,5.22,5.91,4.22
+887634,Clanton Draw,Valley,15.38,10.95,11.22,10.47,9.06,8.37
+887693,Cloverdale Creek,Stream,13.92,13.4,13.44,14.2,14.2,13.4
+887908,Cottonwood Creek,Stream,6.04,0.13,0.14,0.78,1.05,0.08
+887910,Cottonwood Creek,Stream,7.23,0.52,0.78,0.1,1.55,0.1
+887984,Cowboy Creek,Stream,7.23,7.18,6.47,7.41,7.41,6.32
+888202,Darling Creek,Stream,6.84,0.4,0.69,0.16,1.01,0.16
+888293,Deer Creek,Stream,15.09,4.38,4.42,4.39,4.16,3.47
+888294,Deer Creek,Stream,9.64,5.68,5.84,5.46,5.06,5.05
+888295,Middle Deer Creek,Stream,4.14,2.33,2.32,2.35,3.34,2.29
+888471,Double Adobe Creek,Stream,21.46,28.11,28.11,27.41,26.06,16.53
+888654,East Fork Brushy Creek,Stream,4.01,0.47,0.54,0.8,1.2,0.44
+888838,Elephant Butte Canyon,Valley,4.66,0.48,0.67,0.06,1.4,0.06
+889164,Foster Draw,Valley,12.41,6.17,6.44,5.67,4.25,3.81
+889411,Gillespie Creek,Stream,15.65,0.41,0.63,0.22,1.08,0.14
+890137,Horse Camp Draw,Valley,12.21,1.92,1.76,2.48,3.21,1.71
+890990,Lawhorn Canyon,Valley,2.96,2.63,2.8,2.26,1.1,0.97
+891100,Lion Creek,Stream,1.72,2.69,2.78,1.92,1.57,1.49
+891115,Little Brushy Creek,Stream,3.38,0.5,0.73,0.18,2.09,0.18
+891182,Little Skull Canyon,Valley,2.62,0.86,0.97,0.75,1.26,0.71
+891425,Lower Deer Creek,Stream,16.18,5.51,5.33,6.05,6.49,5.19
+891946,Middle Fork Brushy Creek,Stream,7.72,0.39,0.55,0.12,1.35,0.03
+892054,Miller Creek,Stream,1.82,1.58,1.63,0.85,0.85,0.65
+892076,Millsite Creek,Stream,13.43,0.49,0.95,0.66,1.65,0.31
+892791,Oak Creek,Stream,1.87,4.18,4.45,3.43,2.57,1.91
+892979,Owl Canyon,Valley,5.5,0.38,0.54,0.1,1.52,0.02
+893078,Park Canyon,Valley,5.98,11.59,11.76,11.09,10.68,5.88
+893265,Pigpen Creek,Stream,1.47,4.85,4.8,4.63,3.71,0.02
+893429,Post Office Canyon,Valley,4.75,0.84,0.99,0.47,1.0,0.05
+894175,Rough Creek,Stream,11.56,6.79,6.69,6.16,4.68,1.16
+894176,Rough Creek,Stream,7.21,1.54,1.68,1.49,2.56,1.4
+894335,Salt Canyon,Valley,4.63,3.5,3.62,3.56,3.1,2.83
+894900,Skull Canyon,Valley,5.94,1.9,1.73,1.77,1.04,1.04
+895103,South Pigpen Creek,Stream,5.15,0.31,0.41,0.54,1.64,0.28
+895365,Stone Cabin Gulch,Valley,3.41,0.32,0.14,0.87,2.63,0.02
+895530,Last Chance Draw,Valley,5.78,16.27,16.18,16.41,16.5,5.5
+895792,Trail Creek,Stream,7.84,13.88,14.0,13.8,12.31,7.24
+895891,Tullous Creek,Stream,4.03,1.66,1.81,1.07,1.29,0.99
+896223,Walnut Creek,Stream,13.31,13.73,13.96,13.39,11.97,10.23
+896226,Walnut Creek,Stream,14.05,13.4,13.23,13.65,14.24,13.09
+896401,West Pigpen Creek,Stream,2.77,2.9,3.01,2.6,1.5,0.73
+896564,Whitewater Creek,Stream,8.8,7.1,6.44,9.02,9.02,6.2
+896567,Whitmire Canyon,Valley,7.38,1.6,1.63,1.63,1.36,1.36
+896733,Box Canyon,Valley,2.23,8.74,8.97,8.55,8.45,2.12
+896738,Wood Canyon,Valley,7.09,4.27,4.39,4.16,5.29,4.11
+896882,Taylor Draw,Valley,5.66,14.47,14.09,14.72,15.09,5.6
+897447,Playas Valley,Valley,83.9,83.19,82.69,83.59,84.13,82.5
+898303,Dutchman Canyon,Valley,5.85,0.74,0.98,0.1,1.48,0.04
+898498,South Deer Creek,Stream,3.39,0.06,0.13,0.54,1.43,0.02
+898500,North Deer Creek,Stream,5.19,6.12,6.14,6.0,6.68,5.03
+900831,Brown Canyon,Valley,3.47,4.36,4.43,4.37,4.13,3.43
+900839,Birch Creek,Stream,9.27,0.52,0.55,0.92,1.79,0.5
+900840,Been Draw,Arroyo,6.27,3.12,3.3,2.88,2.7,2.26
+900848,Black Bill Canyon,Valley,8.01,19.89,19.76,20.25,20.29,7.88
+900855,South 7K Canyon,Valley,2.85,7.05,7.12,7.23,6.31,2.83
+900856,North 7K Canyon,Valley,3.06,2.35,2.39,2.12,3.19,2.12
+900858,Post Canyon,Valley,2.98,8.3,8.39,7.89,7.56,2.43
+900881,Dupree Canyon,Valley,2.44,1.5,1.7,0.84,0.94,0.11
+900882,McClean Creek,Stream,7.61,1.57,1.31,2.4,2.87,1.29
+900883,Whitmire Creek,Stream,6.04,0.11,0.15,0.74,3.71,0.02
+900884,Willow Creek,Stream,6.87,24.12,23.91,24.62,24.58,6.97
+900885,Cabin Canyon,Valley,7.84,3.47,3.6,3.38,2.44,0.04
+900889,Chaney Canyon,Valley,3.02,0.38,0.45,0.72,1.23,0.29
+900890,North Pigpen Creek,Stream,2.23,1.01,1.24,0.86,1.12,0.6
+900891,Lang Canyon,Valley,4.1,0.08,0.25,0.72,1.93,0.06
+900898,Willow Creek,Stream,10.86,10.53,10.29,11.15,11.15,10.1
+900903,Smuggler Creek,Stream,8.76,13.76,13.9,12.99,11.81,4.23
+901061,South Fork Big Creek,Stream,9.81,2.55,2.79,2.19,2.73,2.14
+901064,Bull canyon,Valley,1.24,1.82,2.01,1.29,1.01,1.01
+901072,Basin Tank,Stream,3.05,1.5,1.4,1.63,2.35,1.19
+901107,Aiken Draw,Arroyo,2.65,2.55,2.82,1.58,0.93,0.81
+901206,Lynch Draw,Arroyo,9.07,11.25,11.26,11.43,10.85,5.01
+901207,Eicks Draw,Arroyo,4.73,5.4,5.49,4.84,4.34,2.29
+901225,Little Lynch Draw,Arroyo,5.12,1.96,2.09,1.27,0.86,0.33
+915937,Indian Creek,Stream,4.64,0.1,0.29,0.17,1.06,0.06
+915938,Wolf Canyon,Valley,2.39,9.95,10.0,9.74,9.68,2.37
+1958098,Blind Canyon,Valley,6.13,4.32,4.35,4.22,5.0,4.13
+2568048,Whitmire Creek,Stream,16.77,13.9,14.29,13.64,12.2,11.27
+2568060,Herridge Draw,Arroyo,4.91,5.85,6.22,5.11,4.16,1.5
+2568170,Pine Canyon,Valley,2.71,1.43,1.69,0.8,1.49,0.74
+2568171,Pony Canyon,Valley,2.4,1.51,1.77,1.09,2.21,1.09
+2568201,Rough Creek,Stream,9.47,1.12,1.14,1.05,2.49,1.05
+2568202,XT Canyon,Valley,3.59,0.16,0.08,0.67,1.64,0.08
+2568222,Wolf Canyon,Valley,2.04,2.28,2.44,1.96,1.26,1.1
+2568223,Miner Canyon,Valley,10.37,2.47,2.3,2.43,0.65,0.03
+2568242,Baldy Mountain Canyon,Valley,10.66,1.68,1.98,0.96,1.3,0.75
+2568244,The Seep,Stream,10.91,25.56,25.37,25.89,26.01,10.89
+2568246,Ray Canyon,Valley,8.74,2.01,2.09,2.57,4.04,2.01
+2568248,Cox Canyon,Valley,4.65,2.8,2.93,2.05,1.16,1.13

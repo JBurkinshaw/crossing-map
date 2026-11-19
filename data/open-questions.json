@@ -31,13 +31,13 @@
    "place-starvation-canyon",
    "j1-starvation-canyon"
   ],
-  "shown": "The canyon's mouth.",
-  "other": "Its head, 6.4 km south-east.",
-  "why": "The wolf goes to where the canyon heads and then south to Hog Canyon Spring, which is 2.4 km from the head."
+  "shown": "The canyon's head, the GNIS source point.",
+  "other": "Its mouth, 6.4 km north-west, the GNIS primary point.",
+  "why": "The book has the wolf work west to the head of the canyon, then south to Hog Canyon Spring, 2.4 km from the head."
  },
  {
   "id": "q-clanton-foster",
-  "title": "How high between Clanton and Foster draws?",
+  "title": "Where between Clanton and Foster draws?",
   "first_seen": "1-04",
   "features": [
    "place-clanton-draw",
@@ -46,9 +46,9 @@
    "j1-foster-draw",
    "area-j1-clanton-foster"
   ],
-  "shown": "The draws' mouths on the valley floor.",
-  "other": "Their middle and upper reaches, about 7 km west.",
-  "why": "The wolf keeps to the high ground between the draws, and the calf is killed at the head of Foster Draw."
+  "shown": "The kill at the head of Foster Draw, and the high country on the divide between the two draws, near their heads, in the Peloncillos.",
+  "other": "Their mouths on the Animas Valley floor, about 12 km east, or their middle reaches.",
+  "why": "The book puts the calf at the head of Foster Draw and the wolf in the high country between the draws. GNIS gives each draw a head point as well as its mouth."
  },
  {
   "id": "q-nations-road",
@@ -61,6 +61,31 @@
   "shown": "Not on the map.",
   "other": "A crossing about a mile north of the line, near the Nations Tank on Whitewater Creek, from Bell's local informant.",
   "why": "The book names the road and nothing else about it."
+ },
+ {
+  "id": "q-san-luis-gap",
+  "title": "Which gap through the San Luis Mountains?",
+  "first_seen": "1-04",
+  "features": [
+   "place-san-luis-mountains",
+   "place-san-luis-pass",
+   "j1-san-luis-mountains"
+  ],
+  "shown": "San Luis Pass, the range's named gap on her way north.",
+  "other": "Any other low ground through the range, or the range's GNIS point, 5.9 km south.",
+  "why": "The book has her go north through the range's gap and names no gap."
+ },
+ {
+  "id": "q-animas-crossing",
+  "title": "Where does she cross the Animas Mountains?",
+  "first_seen": "1-04",
+  "features": [
+   "place-animas-mountains",
+   "j1-animas-mountains"
+  ],
+  "shown": "North from San Luis Pass along the east side of the range, then west over a saddle on its western ridge, about halfway to the Animas Valley.",
+  "other": "The low ridge just north of San Luis Pass, which is quicker, or the range's own point by Animas Peak, 8 km farther north.",
+  "why": "The book has her pass through the range on her way north and names no pass."
  },
  {
   "id": "q-pendletons",

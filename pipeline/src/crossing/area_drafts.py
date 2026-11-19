@@ -669,11 +669,9 @@ RULES.update(
             lambda F: F.main_stream().buffer(1500),
         ),
         "j1-clanton-foster": Rule(
-            "medium",
-            "The ground between the two draws: the strip between lines through the GNIS points of Clanton "
-            "Draw and Foster Draw that run down the general slope of the area (the way the draws run), with 400 m "
-            "beyond each. NHD does not name the draws' channels here.",
-            lambda F: F.between(F.place("clanton-draw"), F.place("foster-draw"), 400),
+            "kept",
+            "Kept the whole area: the high country on the divide between the two draws, near their heads. "
+            "NHD does not name the draws' channels here, so nothing in the data marks the ground between them.",
         ),
         "j2-robertson-crossfence": Rule(
             "medium",

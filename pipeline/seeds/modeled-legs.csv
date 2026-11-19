@@ -1,6 +1,8 @@
 journey,from_seq,mode,corridor,river_order,note
 J1,1,wolf,,,
 J1,2,wolf,,,
+J1,5,wolf,,,
+J1,6,wolf,,,
 J2,6,horse,river,4,
 J2,7,horse,river,4,
 J2,8,horse,,,
