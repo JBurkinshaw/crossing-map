@@ -140,6 +140,19 @@
   "why": "Billy reaches the canyon a few hours after crossing the line."
  },
  {
+  "id": "q-eastern-escarpment",
+  "title": "Where on the eastern escarpment?",
+  "first_seen": "2-01",
+  "features": [
+   "j3-eastern-escarpment",
+   "area-j3-eastern-escarpment",
+   "place-llanos-de-carretas"
+  ],
+  "shown": "The escarpment west of the upper Bavispe, south-west of Huisiachepic, because he goes down to the river and rides north along it to the ford.",
+  "other": "The high ground west of Bavispe town, about 75 km north. It is the only stretch of the escarpment from which the Carretas Plain can be seen, its nearest edge some 56 km away.",
+  "why": "The book has him look east over the barranca to the Carretas Plain. From the stretch shown, the ranges east of the river hide the plain, so the view and the order of events point to different places. The map follows the order of events, the stronger clue for a route."
+ },
+ {
   "id": "q-huisiachepic",
   "title": "Huisiachepic",
   "first_seen": "2-01",
