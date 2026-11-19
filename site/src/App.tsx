@@ -264,7 +264,7 @@ export default function App() {
           }
         >
           <Suspense fallback={null}>
-            <Pages route={route} questions={questions} reached={reached} spoilers={spoilers} />
+            <Pages route={route} questions={questions} reached={reached} spoilers={spoilers} stops={flat?.stops.features ?? NO_LIST} spoken={listed} />
           </Suspense>
         </ChunkBoundary>
       )}

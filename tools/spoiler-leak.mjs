@@ -184,7 +184,7 @@ async function showAllLines(page, scope) {
 
 // The site's pages. A later name that is part of a reached one ("Madera" in "Sierra de la Madera", "Bavispe" in
 // "Crossing of the Bavispe") is already known to the reader, so it is not a leak.
-const PAGES = ['/about', '/about/how-its-built', '/open-questions', '/data', '/credits']
+const PAGES = ['/about', '/about/how-its-built', '/itinerary', '/open-questions', '/data', '/credits']
 
 async function checkPage(page, route, reached, where, later) {
   await page.evaluate((r) => (window.location.hash = `#${r}`), route)

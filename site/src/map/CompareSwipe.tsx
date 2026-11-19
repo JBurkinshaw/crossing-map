@@ -14,12 +14,16 @@ let lastSplit = 50
 export function CompareSwipe({ compareWith }: { compareWith: CompareWith }) {
   const handle = useRef<HTMLDivElement>(null)
   const split = useRef(lastSplit)
+  const other = compareWith === 'topo' ? 'Topo' : 'satellite'
   const set = (value: number) => {
     split.current = Math.min(MAX, Math.max(MIN, value))
     lastSplit = split.current
     const el = handle.current
     el?.parentElement?.style.setProperty('--split', `${split.current}%`)
-    el?.setAttribute('aria-valuenow', String(Math.round(split.current)))
+    const share = Math.round(split.current)
+    el?.setAttribute('aria-valuenow', String(share))
+    // The other map's name is read from the handle, so this function depends on nothing that changes.
+    el?.setAttribute('aria-valuetext', `Vintage map ${share}%, ${el.dataset.other} ${100 - share}%`)
   }
   useEffect(() => {
     set(split.current)
@@ -44,17 +48,29 @@ export function CompareSwipe({ compareWith }: { compareWith: CompareWith }) {
     <div
       ref={handle}
       className="swipe"
+      data-other={other}
       onPointerDown={drag}
       role="slider"
-      aria-label={`Compare the vintage map and ${compareWith === 'topo' ? 'Topo' : 'satellite'}`}
+      aria-label={`Compare the vintage map and ${other}`}
       aria-valuemin={MIN}
       aria-valuemax={MAX}
       aria-valuenow={50}
       tabIndex={0}
       onKeyDown={(e) => {
-        if (e.key === 'ArrowLeft') set(split.current - STEP)
-        if (e.key === 'ArrowRight') set(split.current + STEP)
+        const to = { ArrowLeft: split.current - STEP, ArrowRight: split.current + STEP, Home: MIN, End: MAX }[e.key]
+        if (to === undefined) return
+        e.preventDefault()
+        set(to)
       }}
-    />
+    >
+      {/* The line also moves without a drag (WCAG 2.5.7): a tap on the map already picks a place, so the handle
+          carries two buttons. They are outside the tab order, as the slider itself takes the arrow keys. */}
+      <button type="button" className="swipe-step swipe-left" tabIndex={-1} aria-label={`More ${other}`} onPointerDown={(e) => e.stopPropagation()} onClick={() => set(split.current - STEP)}>
+        ‹
+      </button>
+      <button type="button" className="swipe-step swipe-right" tabIndex={-1} aria-label="More of the vintage map" onPointerDown={(e) => e.stopPropagation()} onClick={() => set(split.current + STEP)}>
+        ›
+      </button>
+    </div>
   )
 }

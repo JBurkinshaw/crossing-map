@@ -4,12 +4,17 @@ import { About } from './About'
 import { Credits } from './Credits'
 import { Data } from './Data'
 import { HowItsBuilt } from './HowItsBuilt'
+import { Itinerary } from './Itinerary'
+import type { Feature, Point } from 'geojson'
+import type { StoryProps } from '../data/story'
+import type { Translation } from '../data/translations'
 import type { OpenQuestion } from '../data/openQuestions'
 import { OpenQuestions } from './OpenQuestions'
 
 const PAGES: { route: Exclude<Route, '/'>; label: string; title: string }[] = [
   { route: '/about', label: 'About', title: 'About this map' },
   { route: '/about/how-its-built', label: "How it's built", title: "How it's built" },
+  { route: '/itinerary', label: 'Itinerary', title: 'Itinerary' },
   { route: '/open-questions', label: 'Open questions', title: 'Open questions' },
   { route: '/data', label: 'Data', title: 'The data' },
   { route: '/credits', label: 'Credits', title: 'Credits' },
@@ -18,10 +23,17 @@ const PAGES: { route: Exclude<Route, '/'>; label: string; title: string }[] = [
 // The site's pages, over the map (which stays loaded underneath, so returning to it is instant).
 // Loaded as their own chunk the first time a page opens.
 // `questions` are the open questions the reader has reached; `reached` is the latest episode that may show, and
-// `spoilers` whether anything is hidden.
-type Props = { route: Exclude<Route, '/'>; questions: OpenQuestion[]; reached: string; spoilers: boolean }
+// `spoilers` whether anything is hidden. `stops` are the stops reached, and `spoken` the Spanish listed at one.
+type Props = {
+  route: Exclude<Route, '/'>
+  questions: OpenQuestion[]
+  reached: string
+  spoilers: boolean
+  stops: Feature<Point, StoryProps>[]
+  spoken: (stop: string) => Translation[]
+}
 
-export default function Pages({ route, questions, reached, spoilers }: Props) {
+export default function Pages({ route, questions, reached, spoilers, stops, spoken }: Props) {
   const page = PAGES.find((p) => p.route === route)!
   const scroller = useRef<HTMLDivElement>(null)
   const heading = useRef<HTMLHeadingElement>(null)
@@ -69,6 +81,7 @@ export default function Pages({ route, questions, reached, spoilers }: Props) {
         </h1>
         {route === '/about' && <About />}
         {route === '/about/how-its-built' && <HowItsBuilt spoilers={spoilers} />}
+        {route === '/itinerary' && <Itinerary stops={stops} spoken={spoken} reached={reached} spoilers={spoilers} />}
         {route === '/open-questions' && <OpenQuestions questions={questions} />}
         {route === '/data' && <Data />}
         {route === '/credits' && <Credits reached={reached} />}

@@ -125,6 +125,7 @@ export function Panel(props: Props) {
 
   const links = (
     <nav className="site-links" aria-label="Pages">
+      <a href="#/itinerary">Itinerary</a>
       <a href="#/open-questions">Open questions</a>
       <a href="#/data">Data</a>
       <a href="#/credits">Credits</a>

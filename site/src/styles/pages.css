@@ -216,3 +216,26 @@
 .ink-text.italic {
   font-style: italic;
 }
+
+/* The Itinerary page: each journey's stops, numbered, with a stop's name as a small heading. */
+.itinerary ol {
+  padding-left: 1.6em;
+}
+
+.itinerary li {
+  margin-bottom: 1rem;
+}
+
+.itinerary h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+}
+
+.itinerary li p {
+  margin: 0.2rem 0;
+}
+
+.itinerary li details,
+.itinerary li details:last-of-type {
+  border: 0;
+}
