@@ -3,6 +3,7 @@
 import copy
 
 import pytest
+from PIL import Image
 
 from crossing import validate
 
@@ -250,3 +251,37 @@ def test_leads_only_on_places_stops_and_areas():
     doc = collection(feature("j1-seg-01", kind="route-segment", sequence=1, geometry=line,
                              leads=[{"source": "bell-2000", "relation": "agrees"}]))
     assert any("leads are only for" in e for e in validate.check_layer(doc, "journeys", EPISODES))
+
+
+def photo_entry(place_id="place-a", stop_ids=("s1",), **photo):
+    p = {"file": "photos/a-123456.webp", "width": 64, "height": 48, "title": "A view", "author": "Someone",
+         "licence": "CC BY-SA 3.0", "licence_url": "https://creativecommons.org/licenses/by-sa/3.0", "date": None,
+         "commons_url": "https://commons.wikimedia.org/wiki/File:A_view.jpg", "via": "geosearch",
+         "alt": "Photograph of a view"} | photo
+    return {"place_id": place_id, "stop_ids": list(stop_ids), "photos": [p]}
+
+
+@pytest.fixture
+def public(tmp_path):
+    (tmp_path / "photos").mkdir()
+    Image.new("RGB", (64, 48)).save(tmp_path / "photos" / "a-123456.webp", "WEBP")
+    return tmp_path
+
+
+def test_photos_pass(layers, public):
+    assert validate.check_photos([photo_entry()], layers, EPISODES, public) == []
+
+
+@pytest.mark.parametrize("entry, error", [
+    (photo_entry(place_id="place-z"), "no such place or stop"),
+    (photo_entry(stop_ids=["s2"]), "does not stand at it"),
+    (photo_entry(place_id="s1", stop_ids=["s1"]), "list its photos under that place"),
+    (photo_entry(file="photos/b-000000.webp"), "no file"),
+    (photo_entry(width=640), "is 64x48, not 640x48"),
+    (photo_entry(first_seen="1-01"), "not later than its place's"),
+    (photo_entry(first_seen="2-12"), "not an episode"),
+    (photo_entry(licence="CC BY-NC 4.0"), "does not match"),
+])
+def test_bad_photo_is_reported(layers, public, entry, error):
+    errors = validate.check_photos([entry], layers, EPISODES, public)
+    assert any(error in e for e in errors), errors

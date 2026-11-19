@@ -8,7 +8,8 @@ reference points at a feature that exists and is reached no later than the thing
 each journey's stops and segments are numbered without gaps, and the Oblique view's copies hold the
 same features, first seen at the same episodes, as the flat layers, and every stop's point lies inside
 its own area. A feature's leads (the second sources that place it too) must name each source once, give no
-coordinate and show no earlier than their feature. It also checks that every glyph and vignette the data names
+coordinate and show no earlier than their feature. Each photo must be on a place or stop that exists, with its
+file in site/public/ at its stated size. It also checks that every glyph and vignette the data names
 has an icon in the committed sprite, which CI cannot rebuild.
 
 It also reports, without failing, the landform positions still to review: stops the terrain check flags
@@ -24,6 +25,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from jsonschema import Draft202012Validator
+from PIL import Image
 from shapely.geometry import Point, shape
 
 from crossing.paths import DATA, REPO, SITE_PUBLIC
@@ -317,6 +319,47 @@ def check_elsewhere(doc, places: dict, episodes: set[str]) -> list[str]:
     return errors
 
 
+def check_photos(doc, layers: dict[str, dict], episodes: set[str], public: Path = SITE_PUBLIC) -> list[str]:
+    """Schema, plus: each place and stop exists and each stop stands at the place, each photo's file is in
+    site/public/ at the size given, and a photo's own first_seen is a real episode later than its place's."""
+    errors = schema_errors(doc, load(SCHEMAS / "photos.schema.json"))
+    if errors:
+        return errors
+    places = {p["id"]: p for p in properties(layers["places"])}
+    stops = {p["id"]: p for p in properties(layers["stops"])}
+    errors += [f"{i}: listed twice" for i, n in Counter(e["place_id"] for e in doc).items() if n > 1]
+    for e in doc:
+        pid = e["place_id"]
+        owner = places.get(pid) or stops.get(pid)
+        if owner is None:
+            errors.append(f"{pid}: no such place or stop")
+            continue
+        if pid in stops and stops[pid].get("place_ref"):
+            errors.append(f"{pid}: a stop at {stops[pid]['place_ref']}, so list its photos under that place")
+        for sid in e["stop_ids"]:
+            if sid not in stops:
+                errors.append(f"{pid}: no stop {sid}")
+            elif sid != pid and stops[sid].get("place_ref") != pid:
+                errors.append(f"{pid}: stop {sid} does not stand at it (place_ref {stops[sid].get('place_ref')})")
+        own = "" if owner.get("role") == "context" else owner["first_seen"]
+        errors += [f"{pid}: {f} listed twice" for f, n in Counter(p["file"] for p in e["photos"]).items() if n > 1]
+        for photo in e["photos"]:
+            path = public / photo["file"]
+            if not path.exists():
+                errors.append(f"{pid}: no file {photo['file']}")
+            else:
+                with Image.open(path) as im:
+                    if im.size != (photo["width"], photo["height"]):
+                        errors.append(f"{pid}: {photo['file']} is {im.size[0]}x{im.size[1]}, "
+                                      f"not {photo['width']}x{photo['height']}")
+            fs = photo.get("first_seen")
+            if fs is not None and fs not in episodes:
+                errors.append(f"{pid}: {photo['file']} first_seen {fs} is not an episode in episodes.json")
+            elif fs is not None and fs <= own:
+                errors.append(f"{pid}: {photo['file']} first_seen {fs} is not later than its place's {own}, so drop it")
+    return errors
+
+
 def icon_names(layers: dict[str, dict]) -> set[str]:
     """The sprite icons the style asks for: site/src/map/relief.ts builds glyph names as
     <landform>-<NN>[-flip] and uses a vignette's `vignette` property as is."""
@@ -371,7 +414,7 @@ def report(name: str, errors: list[str]) -> bool:
 def main() -> int:
     expected = ([f"{name}.geojson" for name in LAYERS] + [f"oblique/{name}.geojson" for name in OBLIQUE_LAYERS]
                 + ["oblique/archives.json", "episodes.json", "translations.json", "open-questions.json",
-                   "elsewhere.json"])
+                   "elsewhere.json", "photos.json"])
     missing = [name for name in expected if not (DATA / name).exists()]
     if missing:
         report("data/", [f"{name} is missing" for name in missing])
@@ -397,6 +440,7 @@ def main() -> int:
     failed |= report("translations.json", check_translations(load(DATA / "translations.json"), layers, episodes))
     failed |= report("open-questions.json", check_questions(load(DATA / "open-questions.json"), layers, episodes))
     failed |= report("elsewhere.json", check_elsewhere(load(DATA / "elsewhere.json"), layers["places"], episodes))
+    failed |= report("photos.json", check_photos(load(DATA / "photos.json"), layers, episodes))
     for note in position_notes(layers["stops"]):
         print(f"positions (note, not an error): {note}")
     print(f"Checked {len(expected)} files.")

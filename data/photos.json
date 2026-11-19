@@ -1,0 +1,1303 @@
+[
+ {
+  "place_id": "place-san-luis-mountains",
+  "stop_ids": [
+   "j1-san-luis-mountains"
+  ],
+  "photos": [
+   {
+    "file": "photos/frontera-desde-el-puerto-san-luis-panoramio-614702.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Frontera desde el Puerto San Luis - panoramio",
+    "author": "panza-rayada",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "1 June 2010",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Frontera_desde_el_Puerto_San_Luis_-_panoramio.jpg",
+    "via": "geosearch",
+    "alt": "Photograph of the San Luis Mountains from the Puerto San Luis"
+   }
+  ]
+ },
+ {
+  "place_id": "place-animas-valley",
+  "stop_ids": [
+   "j1-animas-valley"
+  ],
+  "photos": [
+   {
+    "file": "photos/northern-lordsburg-mesa-flickr-aspidoscelis-6-2c1104.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Northern Lordsburg Mesa - Flickr - aspidoscelis (6)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2015-04-01",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Northern_Lordsburg_Mesa_-_Flickr_-_aspidoscelis_(6).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of the northern Lordsburg Mesa",
+    "first_seen": "2-05"
+   },
+   {
+    "file": "photos/lordsburg-mesa-flickr-aspidoscelis-37-ae39cd.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Lordsburg Mesa - Flickr - aspidoscelis (37)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2015-03-27",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Lordsburg_Mesa_-_Flickr_-_aspidoscelis_(37).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of the Lordsburg Mesa",
+    "first_seen": "2-05"
+   },
+   {
+    "file": "photos/near-the-black-hills-flickr-aspidoscelis-e08608.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near the Black Hills - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2014-12-29",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_the_Black_Hills_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph near the Black Hills"
+   }
+  ]
+ },
+ {
+  "place_id": "place-guadalupe-mountains",
+  "stop_ids": [
+   "j2-guadalupe-pass",
+   "j3-guadalupe-pass"
+  ],
+  "photos": [
+   {
+    "file": "photos/near-guadalupe-canyon-flickr-aspidoscelis-a4909c.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Guadalupe Canyon - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2018-03-21",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Guadalupe_Canyon_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph near Guadalupe Canyon"
+   },
+   {
+    "file": "photos/near-guadalupe-canyon-flickr-aspidoscelis-5-f97ecd.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Guadalupe Canyon - Flickr - aspidoscelis (5)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2018-03-22",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Guadalupe_Canyon_-_Flickr_-_aspidoscelis_(5).jpg",
+    "via": "geosearch",
+    "alt": "Another landscape photograph near Guadalupe Canyon"
+   },
+   {
+    "file": "photos/guadalupe-canyon-flickr-aspidoscelis-fd60a6.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Guadalupe Canyon - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2018-03-22",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Guadalupe_Canyon_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of Guadalupe Canyon"
+   }
+  ]
+ },
+ {
+  "place_id": "place-albuquerque",
+  "stop_ids": [
+   "j7-albuquerque"
+  ],
+  "photos": [
+   {
+    "file": "photos/albuquerque-sandia-mountains-49879402773-575750.webp",
+    "width": 640,
+    "height": 360,
+    "title": "Albuquerque Sandia Mountains (49879402773)",
+    "author": "BrandonStephenson",
+    "licence": "Public domain",
+    "licence_url": null,
+    "date": "2020-05-09",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Albuquerque_Sandia_Mountains_(49879402773).jpg",
+    "via": "commons-category",
+    "alt": "Photograph of the Sandia Mountains at Albuquerque"
+   }
+  ]
+ },
+ {
+  "place_id": "place-grant-county",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/east-of-blue-creek-flickr-aspidoscelis-2-43002a.webp",
+    "width": 640,
+    "height": 427,
+    "title": "East of Blue Creek - Flickr - aspidoscelis (2)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2018-01-05",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:East_of_Blue_Creek_-_Flickr_-_aspidoscelis_(2).jpg",
+    "via": "commons-category",
+    "alt": "Landscape photograph east of Blue Creek"
+   }
+  ]
+ },
+ {
+  "place_id": "place-de-baca-county",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/near-yeso-creek-flickr-aspidoscelis-47df89.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Yeso Creek - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2015-04-18",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Yeso_Creek_-_Flickr_-_aspidoscelis.jpg",
+    "via": "commons-category",
+    "alt": "Landscape photograph near Yeso Creek"
+   }
+  ]
+ },
+ {
+  "place_id": "place-casas-grandes",
+  "stop_ids": [
+   "j4-casas-grandes",
+   "j4-casas-grandes-doctor",
+   "j5-casas-grandes",
+   "j7-casas-grandes",
+   "j7-casas-grandes-2"
+  ],
+  "photos": [
+   {
+    "file": "photos/paquime-ruinas-3451489543-9601d0.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Paquimé (ruinas) (3451489543)",
+    "author": "Iker Merodio from Bilbao, Basque Country",
+    "licence": "CC BY 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by/2.0",
+    "date": "2008-10-18",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Paquim%C3%A9_(ruinas)_(3451489543).jpg",
+    "via": "geosearch",
+    "alt": "Photograph of the ruins of Paquimé",
+    "first_seen": "2-08"
+   }
+  ]
+ },
+ {
+  "place_id": "place-animas",
+  "stop_ids": [
+   "j3-animas",
+   "j7-animas",
+   "j7-animas-2"
+  ],
+  "photos": [
+   {
+    "file": "photos/animas-new-mexico-6da7a8.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Animas New Mexico",
+    "author": "BAlvarius",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": null,
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Animas_New_Mexico.jpg",
+    "via": "wikidata-p18",
+    "alt": "Photograph of Animas, New Mexico"
+   },
+   {
+    "file": "photos/volcanic-vent-at-head-of-lava-flow-animas-new-me-5125b4.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Volcanic vent at head of lava flow Animas New Mexico",
+    "author": "BAlvarius",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "2009-04-09",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Volcanic_vent_at_head_of_lava_flow_Animas_New_Mexico.JPG",
+    "via": "commons-category",
+    "alt": "Photograph of a volcanic vent at the head of a lava flow, Animas, New Mexico"
+   }
+  ]
+ },
+ {
+  "place_id": "place-hidalgo-county",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/basin-between-u-bar-ridge-and-the-alamo-hueco-mo-4d46f1.webp",
+    "width": 640,
+    "height": 288,
+    "title": "Basin between U Bar Ridge and the Alamo Hueco Mountains - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2012-11-29",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Basin_between_U_Bar_Ridge_and_the_Alamo_Hueco_Mountains_-_Flickr_-_aspidoscelis.jpg",
+    "via": "commons-category",
+    "alt": "Landscape photograph of the basin between U Bar Ridge and the Alamo Hueco Mountains"
+   },
+   {
+    "file": "photos/skeleton-canyon-eacb99.webp",
+    "width": 640,
+    "height": 476,
+    "title": "Skeleton Canyon",
+    "author": "BAlvarius",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "2009-08-16",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Skeleton_Canyon.JPG",
+    "via": "commons-category",
+    "alt": "Landscape photograph of Skeleton Canyon"
+   }
+  ]
+ },
+ {
+  "place_id": "place-cochise-county",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/public-lands-near-sulphur-springs-valley-5512620-aefeb5.webp",
+    "width": 640,
+    "height": 155,
+    "title": "Public lands near Sulphur Springs Valley (55126205745)",
+    "author": "BLMArizona",
+    "licence": "Public domain",
+    "licence_url": null,
+    "date": "6 February 2006",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Public_lands_near_Sulphur_Springs_Valley_(55126205745).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of public lands near the Sulphur Springs Valley"
+   },
+   {
+    "file": "photos/granite-boulder-piles-and-mountains-texas-canyon-2c2e11.webp",
+    "width": 640,
+    "height": 325,
+    "title": "Granite boulder piles and mountains, Texas Canyon, Arizona",
+    "author": "Z3lvs",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2023-03-21",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Granite_boulder_piles_and_mountains,_Texas_Canyon,_Arizona.jpg",
+    "via": "commons-category",
+    "alt": "Photograph of granite boulder piles and mountains in Texas Canyon, Arizona"
+   }
+  ]
+ },
+ {
+  "place_id": "place-bisbee",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/bisbee-arizona-0b53d4.webp",
+    "width": 616,
+    "height": 640,
+    "title": "Bisbee Arizona",
+    "author": "Willjay at English Wikipedia",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "date": "2006",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Bisbee_Arizona.jpg",
+    "via": "wikidata-p18",
+    "alt": "Photograph of Bisbee, Arizona"
+   }
+  ]
+ },
+ {
+  "place_id": "place-tombstone",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/mall-panoramio-9d0a75.webp",
+    "width": 640,
+    "height": 360,
+    "title": "Mall ,) - panoramio",
+    "author": "maarit u",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "date": "10 November 2011",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Mall_,)_-_panoramio.jpg",
+    "via": "geosearch",
+    "alt": "Photograph titled “Mall”, taken near Tombstone"
+   },
+   {
+    "file": "photos/mall-panoramio-1-3c5bef.webp",
+    "width": 640,
+    "height": 360,
+    "title": "Mall ,) - panoramio (1)",
+    "author": "maarit u",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "date": "10 November 2011",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Mall_,)_-_panoramio_(1).jpg",
+    "via": "geosearch",
+    "alt": "Another photograph titled “Mall”, taken near Tombstone"
+   }
+  ]
+ },
+ {
+  "place_id": "place-road-forks",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/edge-of-lordsburg-playa-flickr-aspidoscelis-1-3d2a99.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Edge of Lordsburg Playa - Flickr - aspidoscelis (1)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2016-12-06",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Edge_of_Lordsburg_Playa_-_Flickr_-_aspidoscelis_(1).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of the edge of the Lordsburg Playa",
+    "first_seen": "2-05"
+   }
+  ]
+ },
+ {
+  "place_id": "place-cananea",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/mina-de-cananea-panoramio-741891.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Mina de Cananea - panoramio",
+    "author": "Gildardo Quijada flo…",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "20 August 2013",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Mina_de_Cananea_-_panoramio.jpg",
+    "via": "geosearch",
+    "alt": "Photograph of the Cananea mine"
+   }
+  ]
+ },
+ {
+  "place_id": "place-fronteras",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/atardecer-en-el-municipio-de-fronteras-0fc7df.webp",
+    "width": 480,
+    "height": 640,
+    "title": "Atardecer en el municipio de Fronteras",
+    "author": "Abdiel D",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "2013-08-23",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Atardecer_en_el_municipio_de_Fronteras.jpg",
+    "via": "commons-category",
+    "alt": "Photograph of a sunset in the municipality of Fronteras"
+   }
+  ]
+ },
+ {
+  "place_id": "place-nacozari",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/presa-el-huacal-panoramio-454cee.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Presa El Huacal - panoramio",
+    "author": "MMI Nacozari",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "28 December 2007",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Presa_El_Huacal_-_panoramio.jpg",
+    "via": "geosearch",
+    "alt": "Photograph of the El Huacal dam"
+   }
+  ]
+ },
+ {
+  "place_id": "place-bavispe",
+  "stop_ids": [
+   "j3-bavispe"
+  ],
+  "photos": [
+   {
+    "file": "photos/pueblo-de-bavispe-26112145057-fd4724.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Pueblo de bavispe (26112145057)",
+    "author": "isabel garcia",
+    "licence": "CC BY-SA 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "date": "2018-03-18",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Pueblo_de_bavispe_(26112145057).jpg",
+    "via": "wikidata-p18",
+    "alt": "Photograph of the town of Bavispe"
+   }
+  ]
+ },
+ {
+  "place_id": "place-lordsburg",
+  "stop_ids": [
+   "j3-lordsburg"
+  ],
+  "photos": [
+   {
+    "file": "photos/south-of-lordsburg-flickr-aspidoscelis-b8e6bd.webp",
+    "width": 640,
+    "height": 427,
+    "title": "South of Lordsburg - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2015-03-27",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:South_of_Lordsburg_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph south of Lordsburg"
+   }
+  ]
+ },
+ {
+  "place_id": "place-bowie",
+  "stop_ids": [
+   "j4-bowie"
+  ],
+  "photos": [
+   {
+    "file": "photos/san-simon-river-and-gold-gulch-8bc806.webp",
+    "width": 430,
+    "height": 640,
+    "title": "San Simon River and Gold Gulch",
+    "author": "Eric Polk",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "date": "2024-05-16",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:San_Simon_River_and_Gold_Gulch.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of the San Simon River and Gold Gulch"
+   },
+   {
+    "file": "photos/historic-american-buildings-survey-frederick-d-n-e0e055.webp",
+    "width": 640,
+    "height": 408,
+    "title": "Historic American Buildings Survey Frederick D. Nichols, Photographer September 1937 VIEW LOOKING WEST - Fort Bowie (Ruins), Bowie, Cochise County, AZ",
+    "author": "Frederick D. Nichols, Historic American Buildings Survey",
+    "licence": "Public domain",
+    "licence_url": null,
+    "date": null,
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Frederick_D._Nichols,_Photographer_September_1937_VIEW_LOOKING_WEST_-_Fort_Bowie_(Ruins),_Bowie,_Cochise_County,_AZ_HABS_ARIZ,2-BOWI.V,1-3.tif",
+    "via": "geosearch",
+    "alt": "Photograph from 1937 of the ruins of Fort Bowie, looking west"
+   },
+   {
+    "file": "photos/historic-american-buildings-survey-frederick-d-n-d52cdd.webp",
+    "width": 640,
+    "height": 510,
+    "title": "Historic American Buildings Survey Frederick D. Nichols, Photographer September 1937 RUINS OF - Fort Bowie, Stage Station (Ruins), Bowie, Cochise County, AZ",
+    "author": "Frederick D. Nichols, Historic American Buildings Survey",
+    "licence": "Public domain",
+    "licence_url": null,
+    "date": null,
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Historic_American_Buildings_Survey_Frederick_D._Nichols,_Photographer_September_1937_RUINS_OF_-_Fort_Bowie,_Stage_Station_(Ruins),_Bowie,_Cochise_County,_AZ_HABS_ARIZ,2-BOWI.V,1B-1.tif",
+    "via": "geosearch",
+    "alt": "Photograph from 1937 of the ruins of the stage station at Fort Bowie"
+   }
+  ]
+ },
+ {
+  "place_id": "place-apache-pass",
+  "stop_ids": [
+   "j4-apache-pass"
+  ],
+  "photos": [
+   {
+    "file": "photos/apachepassaz-c32b23.webp",
+    "width": 640,
+    "height": 480,
+    "title": "ApachePassAZ",
+    "author": "Wilson44691",
+    "licence": "Public domain",
+    "licence_url": null,
+    "date": "2009-03-11",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:ApachePassAZ.JPG",
+    "via": "wikidata-p18",
+    "alt": "Landscape photograph of Apache Pass, Arizona"
+   },
+   {
+    "file": "photos/apache-pass-51309213277-61f993.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Apache Pass (51309213277)",
+    "author": "Box is typing...",
+    "licence": "CC BY-SA 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "date": "2021-07-12",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Apache_Pass_(51309213277).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of Apache Pass"
+   }
+  ]
+ },
+ {
+  "place_id": "place-paquime",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/zona-arqueologica-de-paquime-2020-06f84e.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Zona arqueológica de Paquimé 2020",
+    "author": "Levi bernardo",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "2020-03-15",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Zona_arqueol%C3%B3gica_de_Paquim%C3%A9_2020.jpg",
+    "via": "wikidata-p18",
+    "alt": "Photograph of the archaeological zone of Paquimé in 2020"
+   },
+   {
+    "file": "photos/paquime-ruinas-3451489543-9601d0.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Paquimé (ruinas) (3451489543)",
+    "author": "Iker Merodio from Bilbao, Basque Country",
+    "licence": "CC BY 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by/2.0",
+    "date": "2008-10-18",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Paquim%C3%A9_(ruinas)_(3451489543).jpg",
+    "via": "geosearch",
+    "alt": "Photograph of the ruins of Paquimé"
+   }
+  ]
+ },
+ {
+  "place_id": "place-cuauhtemoc",
+  "stop_ids": [
+   "j5-cuauhtemoc"
+  ],
+  "photos": [
+   {
+    "file": "photos/cuauhtemoc-landscape-3-24544e.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Cuauhtémoc landscape 3",
+    "author": "HAP99",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "date": "2017-06-19",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Cuauht%C3%A9moc_landscape_3.jpg",
+    "via": "commons-category",
+    "alt": "Landscape photograph at Cuauhtémoc"
+   }
+  ]
+ },
+ {
+  "place_id": "place-columbus",
+  "stop_ids": [
+   "j7-columbus"
+  ],
+  "photos": [
+   {
+    "file": "photos/columbus-new-mexico-6dbab3.webp",
+    "width": 640,
+    "height": 246,
+    "title": "Columbus New Mexico",
+    "author": "Rodan44",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "2007-12-28",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Columbus_New_Mexico.jpg",
+    "via": "geosearch",
+    "alt": "Photograph of Columbus, New Mexico"
+   }
+  ]
+ },
+ {
+  "place_id": "place-florida-mountains",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/rockhound-sp-from-spring-canyon-5557037632-4dcfe1.webp",
+    "width": 640,
+    "height": 424,
+    "title": "Rockhound SP from Spring Canyon (5557037632)",
+    "author": "John Fowler from Placitas, NM, USA",
+    "licence": "CC BY 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by/2.0",
+    "date": "2011-03-21",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Rockhound_SP_from_Spring_Canyon_(5557037632).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of Rockhound State Park from Spring Canyon"
+   },
+   {
+    "file": "photos/florida-mountains-flickr-aspidoscelis-38ac61.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Florida Mountains - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2020-01-23",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Florida_Mountains_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of the Florida Mountains"
+   }
+  ]
+ },
+ {
+  "place_id": "place-socorro",
+  "stop_ids": [
+   "j7-socorro"
+  ],
+  "photos": [
+   {
+    "file": "photos/socorro-aerial-40a3fd.webp",
+    "width": 386,
+    "height": 640,
+    "title": "Socorro aerial",
+    "author": "Jimwmurphy",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "date": "2007-10-19",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Socorro_aerial.jpg",
+    "via": "wikidata-p18",
+    "alt": "Aerial photograph of Socorro"
+   }
+  ]
+ },
+ {
+  "place_id": "place-hermanas",
+  "stop_ids": [
+   "j7-hermanas",
+   "j7-hermanas-2"
+  ],
+  "photos": [
+   {
+    "file": "photos/near-hermanas-grade-flickr-aspidoscelis-1-7e36d2.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Hermanas Grade - Flickr - aspidoscelis (1)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2015-09-03",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Hermanas_Grade_-_Flickr_-_aspidoscelis_(1).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph near the Hermanas Grade"
+   },
+   {
+    "file": "photos/southeastern-cedar-mountains-flickr-aspidoscelis-8fd1c3.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Southeastern Cedar Mountains - Flickr - aspidoscelis (4)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2017-03-12",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Southeastern_Cedar_Mountains_-_Flickr_-_aspidoscelis_(4).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of the south-eastern Cedar Mountains"
+   }
+  ]
+ },
+ {
+  "place_id": "place-hachita",
+  "stop_ids": [
+   "j7-hachita",
+   "j7-hachita-2"
+  ],
+  "photos": [
+   {
+    "file": "photos/hachita-new-mexico-31adaf.webp",
+    "width": 640,
+    "height": 468,
+    "title": "Hachita New Mexico",
+    "author": "BAlvarius",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "2009-08-15",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Hachita_New_Mexico.jpg",
+    "via": "wikidata-p18",
+    "alt": "Photograph of Hachita, New Mexico"
+   },
+   {
+    "file": "photos/willow-draw-flickr-aspidoscelis-6-8befcb.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Willow Draw - Flickr - aspidoscelis (6)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2015-03-22",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Willow_Draw_-_Flickr_-_aspidoscelis_(6).jpg",
+    "via": "geosearch",
+    "alt": "Photograph of Willow Draw"
+   }
+  ]
+ },
+ {
+  "place_id": "place-little-hatchet-mountains",
+  "stop_ids": [
+   "j7-little-hatchets"
+  ],
+  "photos": [
+   {
+    "file": "photos/near-howells-ridge-flickr-aspidoscelis-7-4adca9.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Howells Ridge - Flickr - aspidoscelis (7)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2017-03-25",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Howells_Ridge_-_Flickr_-_aspidoscelis_(7).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph near Howells Ridge"
+   },
+   {
+    "file": "photos/near-howells-ridge-flickr-aspidoscelis-6e603c.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Howells Ridge - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2017-03-25",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Howells_Ridge_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Another landscape photograph near Howells Ridge"
+   },
+   {
+    "file": "photos/near-howells-ridge-flickr-aspidoscelis-6-02f146.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Howells Ridge - Flickr - aspidoscelis (6)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2017-03-25",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Howells_Ridge_-_Flickr_-_aspidoscelis_(6).jpg",
+    "via": "geosearch",
+    "alt": "A third landscape photograph near Howells Ridge"
+   }
+  ]
+ },
+ {
+  "place_id": "place-gillespie-mountain",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/animas-mountains-flickr-aspidoscelis-1-6a6340.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Animas Mountains - Flickr - aspidoscelis (1)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2020-02-12",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Animas_Mountains_-_Flickr_-_aspidoscelis_(1).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of the Animas Mountains"
+   },
+   {
+    "file": "photos/animas-mountains-flickr-aspidoscelis-44dfb7.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Animas Mountains - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2020-02-12",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Animas_Mountains_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Another landscape photograph of the Animas Mountains"
+   }
+  ]
+ },
+ {
+  "place_id": "place-magdalena",
+  "stop_ids": [
+   "j7-magdalena",
+   "j7-magdalena-ranch"
+  ],
+  "photos": [
+   {
+    "file": "photos/magdalena-nm-landscape-2-1a76b6.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Magdalena NM - Landscape - 2",
+    "author": "© Peter Potrowl",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "2013-02-18",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Magdalena_NM_-_Landscape_-_2.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph at Magdalena, New Mexico"
+   },
+   {
+    "file": "photos/magdalena-nm-landscape-1-f51203.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Magdalena NM - Landscape - 1",
+    "author": "© Peter Potrowl",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "2013-02-18",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Magdalena_NM_-_Landscape_-_1.jpg",
+    "via": "geosearch",
+    "alt": "Another landscape photograph at Magdalena, New Mexico"
+   }
+  ]
+ },
+ {
+  "place_id": "place-steins",
+  "stop_ids": [
+   "j7-steins"
+  ],
+  "photos": [
+   {
+    "file": "photos/near-steins-mountain-flickr-aspidoscelis-6dbfbc.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Steins Mountain - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2017-08-11",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Steins_Mountain_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph near Steins Mountain"
+   },
+   {
+    "file": "photos/east-of-steins-mountain-flickr-aspidoscelis-a3386a.webp",
+    "width": 640,
+    "height": 427,
+    "title": "East of Steins Mountain - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2018-06-17",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:East_of_Steins_Mountain_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph east of Steins Mountain"
+   },
+   {
+    "file": "photos/edge-of-lordsburg-playa-flickr-aspidoscelis-1-3d2a99.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Edge of Lordsburg Playa - Flickr - aspidoscelis (1)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2016-12-06",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Edge_of_Lordsburg_Playa_-_Flickr_-_aspidoscelis_(1).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of the edge of the Lordsburg Playa"
+   },
+   {
+    "file": "photos/east-of-attorney-mountain-flickr-aspidoscelis-28a109.webp",
+    "width": 640,
+    "height": 427,
+    "title": "East of Attorney Mountain - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2017-01-05",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:East_of_Attorney_Mountain_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph east of Attorney Mountain"
+   }
+  ]
+ },
+ {
+  "place_id": "place-temosachic",
+  "stop_ids": [
+   "j7-temosachic"
+  ],
+  "photos": [
+   {
+    "file": "photos/vista-de-temosachic-chihuahua-fd1f52.webp",
+    "width": 640,
+    "height": 512,
+    "title": "Vista de Temósachic, Chihuahua",
+    "author": "MikSed",
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0",
+    "date": "2018-08-24",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Vista_de_Tem%C3%B3sachic,_Chihuahua.jpg",
+    "via": "wikidata-p18",
+    "alt": "Photograph of a view of Temósachic, Chihuahua"
+   }
+  ]
+ },
+ {
+  "place_id": "place-glenwood",
+  "stop_ids": [
+   "j7-glenwood"
+  ],
+  "photos": [
+   {
+    "file": "photos/glenwood-mountains-2-0d6740.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Glenwood - Mountains - 2",
+    "author": "© Peter Potrowl",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "2013-02-18",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Glenwood_-_Mountains_-_2.jpg",
+    "via": "geosearch",
+    "alt": "Photograph of mountains at Glenwood"
+   },
+   {
+    "file": "photos/glenwood-mountains-1-f0a592.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Glenwood - Mountains - 1",
+    "author": "© Peter Potrowl",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "2013-02-18",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Glenwood_-_Mountains_-_1.jpg",
+    "via": "geosearch",
+    "alt": "Another photograph of mountains at Glenwood"
+   }
+  ]
+ },
+ {
+  "place_id": "place-reserve",
+  "stop_ids": [
+   "j7-reserve"
+  ],
+  "photos": [
+   {
+    "file": "photos/near-reserve-nm-san-francisco-watershed-of-the-g-295806.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Near Reserve, NM, San Francisco Watershed of the Gila River, View NW, 2012 - panoramio",
+    "author": "Chris English",
+    "licence": "CC BY-SA 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "date": "10 June 2012",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Reserve,_NM,_San_Francisco_Watershed_of_the_Gila_River,_View_NW,_2012_-_panoramio.jpg",
+    "via": "commons-category",
+    "alt": "Landscape photograph of the San Francisco watershed of the Gila River near Reserve, New Mexico, looking north-west, in 2012"
+   },
+   {
+    "file": "photos/negrito-creek-flickr-aspidoscelis-ffbadc.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Negrito Creek - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2017-09-01",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Negrito_Creek_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of Negrito Creek"
+   }
+  ]
+ },
+ {
+  "place_id": "place-black-range",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/gila-national-forest-7933d4.webp",
+    "width": 640,
+    "height": 395,
+    "title": "Gila National Forest",
+    "author": "Samat Jain from New York City, USA",
+    "licence": "CC BY-SA 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "date": "2011-04-02",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Gila_National_Forest.jpg",
+    "via": "wikidata-p18",
+    "alt": "Landscape photograph in the Gila National Forest"
+   },
+   {
+    "file": "photos/geronimo-trail-scenic-byway-looking-across-the-b-d7fea5.webp",
+    "width": 640,
+    "height": 429,
+    "title": "Geronimo Trail Scenic Byway - Looking Across the Beaverhead Valley",
+    "author": "Unknown author or not provided",
+    "licence": "Public domain",
+    "licence_url": null,
+    "date": "1995 – 2013",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Geronimo_Trail_Scenic_Byway_-_Looking_Across_the_Beaverhead_Valley_-_NARA_-_7718609.jpg",
+    "via": "commons-category",
+    "alt": "Photograph from the Geronimo Trail Scenic Byway, looking across the Beaverhead Valley"
+   },
+   {
+    "file": "photos/geronimo-trail-scenic-byway-scenic-black-range-d-dc551a.webp",
+    "width": 640,
+    "height": 424,
+    "title": "Geronimo Trail Scenic Byway - Scenic Black Range Drive",
+    "author": "Unknown author or not provided",
+    "licence": "Public domain",
+    "licence_url": null,
+    "date": "1995 – 2013",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Geronimo_Trail_Scenic_Byway_-_Scenic_Black_Range_Drive_-_NARA_-_7718603.jpg",
+    "via": "commons-category",
+    "alt": "Photograph of the drive through the Black Range on the Geronimo Trail Scenic Byway"
+   },
+   {
+    "file": "photos/new-mexico-black-mountains-1f34ae.webp",
+    "width": 499,
+    "height": 640,
+    "title": "New Mexico - Black Mountains",
+    "author": "Unknown author or not provided",
+    "licence": "Public domain",
+    "licence_url": null,
+    "date": "1917 – 1964",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:New_Mexico_-_Black_Mountains_-_NARA_-_68144781.jpg",
+    "via": "commons-category",
+    "alt": "Photograph of the Black Mountains, New Mexico"
+   }
+  ]
+ },
+ {
+  "place_id": "place-organ-mountains",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/near-baldy-peak-flickr-aspidoscelis-1-e7bbf0.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Baldy Peak - Flickr - aspidoscelis (1)",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2019-04-14",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Baldy_Peak_-_Flickr_-_aspidoscelis_(1).jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph near Baldy Peak"
+   },
+   {
+    "file": "photos/near-baldy-peak-flickr-aspidoscelis-aff89b.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Baldy Peak - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2019-04-14",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Baldy_Peak_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Another landscape photograph near Baldy Peak"
+   },
+   {
+    "file": "photos/south-of-ice-canyon-flickr-aspidoscelis-28d5a7.webp",
+    "width": 640,
+    "height": 427,
+    "title": "South of Ice Canyon - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2019-04-14",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:South_of_Ice_Canyon_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph south of Ice Canyon"
+   }
+  ]
+ },
+ {
+  "place_id": "place-bachiniva",
+  "stop_ids": [
+   "j6-bachiniva"
+  ],
+  "photos": [
+   {
+    "file": "photos/santa-maria-de-nativitas-bachiniva-70bf6d.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Santa Maria de Nativitas Bachiniva",
+    "author": "Alex Orozco",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "date": "2022-11-23",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Santa_Maria_de_Nativitas_Bachiniva.jpg",
+    "via": "commons-category",
+    "alt": "Photograph of Santa María de Nativitas, Bachíniva"
+   }
+  ]
+ },
+ {
+  "place_id": "place-palomas",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/south-southeast-of-columbus-flickr-aspidoscelis-5da334.webp",
+    "width": 640,
+    "height": 427,
+    "title": "South-southeast of Columbus - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2016-08-04",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:South-southeast_of_Columbus_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph south-south-east of Columbus"
+   }
+  ]
+ },
+ {
+  "place_id": "place-bacanora",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/bacanoracerros-13223e.webp",
+    "width": 640,
+    "height": 479,
+    "title": "BacanoraCerros",
+    "author": "KousakaED",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "date": "2020-12-29",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:BacanoraCerros.jpg",
+    "via": "commons-category",
+    "alt": "Photograph of the hills at Bacanora"
+   }
+  ]
+ },
+ {
+  "place_id": "place-tonichi",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/cuesta-del-rio-0f7060.webp",
+    "width": 360,
+    "height": 640,
+    "title": "Cuesta del rio",
+    "author": "Pueblosdesonora",
+    "licence": "CC BY-SA 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "date": "2017-07-17",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Cuesta_del_rio_.jpg",
+    "via": "wikidata-p18",
+    "alt": "Photograph titled “Cuesta del río” (“slope of the river”)"
+   }
+  ]
+ },
+ {
+  "place_id": "place-yecora",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/yecora-sonora1-0885dd.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Yecora, Sonora1",
+    "author": "oswaldo",
+    "licence": "CC BY 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by/2.0",
+    "date": "2007-07-28",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Yecora,_Sonora1.jpg",
+    "via": "wikidata-p18",
+    "alt": "Photograph of Yécora, Sonora"
+   }
+  ]
+ },
+ {
+  "place_id": "place-fort-sumner",
+  "stop_ids": [],
+  "photos": [
+   {
+    "file": "photos/south-of-fort-sumner-flickr-aspidoscelis-e76a36.webp",
+    "width": 640,
+    "height": 427,
+    "title": "South of Fort Sumner - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2015-04-18",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:South_of_Fort_Sumner_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Photograph of the country south of Fort Sumner"
+   }
+  ]
+ },
+ {
+  "place_id": "j4-lordsburg",
+  "stop_ids": [
+   "j4-lordsburg"
+  ],
+  "photos": [
+   {
+    "file": "photos/near-mudhole-draw-flickr-aspidoscelis-422974.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Near Mudhole Draw - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2015-03-25",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Near_Mudhole_Draw_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph near Mudhole Draw"
+   }
+  ]
+ },
+ {
+  "place_id": "j7-black-range",
+  "stop_ids": [
+   "j7-black-range"
+  ],
+  "photos": [
+   {
+    "file": "photos/silver-fire-june-21-2013-9109722107-c5d107.webp",
+    "width": 640,
+    "height": 480,
+    "title": "Silver Fire June 21, 2013 (9109722107)",
+    "author": "Gila National Forest",
+    "licence": "CC BY-SA 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "date": "2013-06-12",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Silver_Fire_June_21,_2013_(9109722107).jpg",
+    "via": "geosearch",
+    "alt": "Photograph of the Silver Fire, June 2013"
+   },
+   {
+    "file": "photos/emory-pass-helipad-5587934616-15ebfc.webp",
+    "width": 640,
+    "height": 395,
+    "title": "Emory Pass Helipad (5587934616)",
+    "author": "Samat Jain",
+    "licence": "CC BY-SA 2.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "date": "2011-04-02",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Emory_Pass_Helipad_(5587934616).jpg",
+    "via": "geosearch",
+    "alt": "Photograph of the helipad at Emory Pass"
+   },
+   {
+    "file": "photos/crest-of-the-black-range-flickr-aspidoscelis-fcbc86.webp",
+    "width": 640,
+    "height": 427,
+    "title": "Crest of the Black Range - Flickr - aspidoscelis",
+    "author": "Patrick Alexander from Las Cruces, NM",
+    "licence": "CC0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "date": "2016-09-28",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Crest_of_the_Black_Range_-_Flickr_-_aspidoscelis.jpg",
+    "via": "geosearch",
+    "alt": "Landscape photograph of the crest of the Black Range"
+   }
+  ]
+ }
+]
