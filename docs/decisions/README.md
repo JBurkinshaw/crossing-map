@@ -81,6 +81,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0064 A size budget for the Pages site, checked in CI | accepted |
 | 0065 Second sources as leads on a feature | accepted |
 | 0066 Vignettes along a leg | accepted |
+| 0067 Photos on the cards | accepted |
 
 ## Template
 

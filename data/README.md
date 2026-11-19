@@ -23,6 +23,7 @@ Every file is validated against its schema in `schema/` by `crossing.validate`, 
 | `translations.json` | 916 Spanish lines: an incipit of at most five words, this site's English, and where each was spoken. `es_words` lists a long line's other words in alphabetical order, for search only (decision 0047). `common` marks 76 short replies and greetings ("Sí", "Gracias", "Buenas noches") that the panel leaves out of a place's lines; search still finds them | `translations` |
 | `open-questions.json` | 22 judgement calls about where something is, each shown from its own episode | `open-questions` |
 | `elsewhere.json` | 16 places the book names outside the story box, listed in the panel | `elsewhere` |
+| `photos.json` | 75 Wikimedia Commons photos for 44 places (two of them stops with no place of their own) and their stops, the owner's picks, each with its file in `site/public/photos/`, its credit (title, author, source, licence), the date taken and alt text. A photo whose words name a place met later carries that `first_seen` (decision 0067) | `photos` |
 | `oblique/*.geojson` | The four story layers and the drawings' anchors as drawn in the Oblique view, each point moved north by its height (decisions 0018, 0019 and 0039). Use the flat files for analysis | `story-layer` |
 | `oblique/archives.json` | The Oblique view's tile archives, in drawing order | `archives` |
 | `parquet/*.parquet` | A GeoParquet 1.1 copy of each story layer, typed from the schema (decision 0009). CI checks they match the GeoJSON | |
@@ -31,7 +32,7 @@ Every feature carries `certainty`, `source`, `source_licence`, and `first_seen`.
 
 ## Licences and attribution
 
-This site's own data and notes are CC BY 4.0 (`LICENSE`). The English translations, the Spanish incipits and the word lists are not licensed, because the novel's words and the right to translate them are McCarthy's (decision 0047). Each feature's `source_licence` gives the terms of the dataset that fixed its coordinates. The same credits appear on the site's Credits page and, for tiles, in each archive's attribution.
+This site's own data and notes are CC BY 4.0 (`LICENSE`). The English translations, the Spanish incipits and the word lists are not licensed, because the novel's words and the right to translate them are McCarthy's (decision 0047). The photos in `photos.json` are not part of the CC BY grant: each keeps its own licence (public domain, CC0, CC BY or CC BY-SA), given with its credit, and a CC BY-SA photo stays under CC BY-SA. Each feature's `source_licence` gives the terms of the dataset that fixed its coordinates. The same credits appear on the site's Credits page and, for tiles, in each archive's attribution.
 
 | Source | Used for | Licence | Credit |
 | --- | --- | --- | --- |
@@ -39,6 +40,7 @@ This site's own data and notes are CC BY 4.0 (`LICENSE`). The English translatio
 | GeoNames | Places, summits, passes, springs, ranches, and stations in Mexico | CC BY 4.0 | "GeoNames" |
 | USGS GNIS | Places, summits, passes, and springs in the US | Public domain | Courtesy of the U.S. Geological Survey (GNIS) |
 | Wikidata | A few place locations | CC0 | Courtesy link |
+| Wikimedia Commons | The photos in `photos.json`, shown on the cards (decision 0067) | Each photo's own: public domain, CC0, CC BY or CC BY-SA | Title, author, "Wikimedia Commons" linked to the file's page, and the licence, under each photo and on the Credits page |
 | Bell (2000), *Contextualizing Cormac McCarthy's Border Trilogy* | The `leads` of places and stops (`bell-2000`): whether his reading agrees with the map's point. No coordinate or text of his is copied (decision 0065) | In copyright: facts cited, by page where given | "Bell 2000" |
 | Joe Hazelton's Gaia GPS map of *The Crossing*, found on Reddit | The `leads` of places and stops (`reddit-gaia`): whether his pin agrees with the map's point, and how far away it is. No pin is copied (decision 0065) | Used with the author's permission, not a licence | "Joe Hazelton's map" |
 | GMBA Mountain Inventory v2 | The axes of US ranges in `landforms.geojson` | CC BY 4.0 | "GMBA Mountain Inventory v2 (Snethlage et al. 2022), GMBA and EarthEnv" |

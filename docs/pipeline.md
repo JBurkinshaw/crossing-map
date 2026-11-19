@@ -20,6 +20,7 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | `modeled-legs.csv` | The legs drawn as least-cost paths (decision 0021), with mode, corridor and a note | Hand |
 | `regions.geojson` | The Animas Valley and La Babícora outlines | `crossing.regions`, then hand edits in QGIS |
 | `areas.geojson` | Each inferred area's outline: the stop's circle cut by a rule (decision 0020) | `crossing.area_drafts`, then hand edits in `pipeline/qgis/areas.qgs` |
+| `photo-text.csv` | Alt text for each picked photo, and the author where Commons gives none or a sentence, with the reason (decision 0067) | Hand |
 | `vignettes.csv` | The vignette anchors: a stop or place (`ref`), or a journey leg and a fraction along it (`leg`, `along`, decision 0066). `side` is the preferred side, kept on a tie. `min_zoom` is the earliest zoom; the build may raise it by one step | Hand |
 | `landforms.toml` | Every weight and threshold of the landform rules, with comments | Hand |
 | `landform_axes.toml` | Hand edits to the landform label lines, each with a reason | Hand |
@@ -80,8 +81,10 @@ Span ids (`tr-<episode>-<nnn>`) number the lines in reading order. Do not rerun 
 | Step | Command | Reads | Writes | Private |
 | --- | --- | --- | --- | --- |
 | Candidates | `uv run --project pipeline python -m crossing.photos [--dry-run \| --offline]` | Places and stops, cached Wikidata entities, Commons (cached) | `review/stage-6/photos.csv`, keeping every pick | Yes (network) |
+| Download | `uv run --project pipeline python -m crossing.photo_assets download [--dry-run]` | The picks in `photos.csv` | Each picked file's 960 px thumbnail in `private/cache/photos/files/`, with `requests.log` | Yes (network) |
+| Build | `uv run --project pipeline python -m crossing.photo_assets build` | The picks, the cached files and Commons answers, `pipeline/seeds/photo-text.csv`, the story layers | `site/public/photos/*.webp`, `data/photos.json` | Yes |
 
-`--dry-run` counts the requests still needed. `--offline` writes the CSV from the cache only.
+`--dry-run` counts the requests still needed. `--offline` writes the CSV from the cache only. `download` asks only for files not yet cached, one request every 2 seconds. `build` makes no request: it fails if a picked file is not downloaded, if a pick has no alt text in `photo-text.csv`, or if the WebP files pass 6 MB (decision 0067). Run `crossing.validate` after it.
 
 ## 5. Relief and the Oblique view
 

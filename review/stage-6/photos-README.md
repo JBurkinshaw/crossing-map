@@ -1,6 +1,6 @@
 # Stage 6 review: photo candidates from Wikimedia Commons
 
-`photos.csv` lists candidate photos for the places and stops, up to five a place, ranked. Nothing is in the app or the data layers yet: you pick first (`docs/roadmap.md`, stage 6).
+`photos.csv` lists candidate photos for the places and stops, up to five a place, ranked. You picked 75 photos for 44 places (rows with `y` in `pick`), and they are now on the cards: see "What was built" below and decision 0067.
 
 **The search is finished** (13 November 2026, evening): every one of the 139 places and stops in the story box is searched. Commons rate-limited the first runs (see "Requests" below); the last run asked once every 15 seconds and waited out each refusal, starting at a minute and doubling.
 
@@ -60,30 +60,23 @@ The project asks before any network batch (`CLAUDE.md`). This run was in the ove
 
 A rerun on another day needs about 219 requests (`--dry-run` gives the current count), about 11 minutes at the 3-second interval. If Commons refuses again, the script stops asking on the first refusal and writes what it has.
 
-## How a pick becomes data (proposed, not built)
+## What was built (18 November 2026)
 
-1. Each picked row becomes a record in a new `data/photos.json`, an array of objects:
+`pipeline/src/crossing/photo_assets.py` turns the picks into the site's photos (decision 0067), run from the repo root:
 
-```json
-{
-  "id": "photo-casas-grandes-1",
-  "place_ids": ["place-casas-grandes"],
-  "title": "Stella nombre Casas Grandes, Chihuahua",
-  "author": "MikSed",
-  "source": "https://commons.wikimedia.org/wiki/File:Stella_nombre_Casas_Grandes,_Chihuahua.jpg",
-  "licence": "CC BY 4.0",
-  "licence_url": "https://creativecommons.org/licenses/by/4.0",
-  "date": "2018-08-27",
-  "file": "photos/photo-casas-grandes-1.webp",
-  "alt": "",
-  "caption": "",
-  "modified": false
-}
+```
+uv run --project pipeline python -m crossing.photo_assets download            # fetch each picked file once
+uv run --project pipeline python -m crossing.photo_assets download --dry-run  # count the files not cached yet
+uv run --project pipeline python -m crossing.photo_assets build               # from the cache only
 ```
 
-   `title`, `author`, `source` and `licence` (with `licence_url`) are the four TASL fields, shown under the photo and on the Credits page. `modified` becomes `true` if the photo is cropped, and the credit then says "cropped from the original". `alt` and the "today" caption (design section 10) are written by hand.
-2. A script reads the picks, writes `data/photos.json`, fetches each picked file once at 800 px, converts it to WebP in `site/public/photos/`, and fills each feature's existing `photo_ids` list (already in `data/schema/story-layer.schema.json`).
-3. A JSON Schema for `photos.json` makes the four TASL fields required, and `crossing.validate` checks the licence against the allowed list and that every `photo_ids` entry exists.
+1. **Download.** Each picked file's 960 px thumbnail (`thumbnail_url`), once, one request every 2 seconds, cached in `private/cache/photos/files/` with a log of every request. The run on 18 November made 73 requests for the 75 picks (two files are picked for two places each), and every answer was a 200. A rerun makes none.
+2. **Build.** Each file at 640 px on its long side, sRGB WebP at quality 80 with no metadata, in `site/public/photos/`: 73 files, 5.6 MB. Then `data/photos.json`: each place's picks in your rank order, with the file, its size, the Commons title, the author as plain text, the licence and its URL, the date taken, the Commons page, `via` and alt text. Its schema is `data/schema/photos.schema.json`, and `crossing.validate` checks it.
+3. **Hand-written text** is in `pipeline/seeds/photo-text.csv`: the alt text for every pick, written from the title and the kind only, and the author for the seven files where Commons gives none or a sentence (Peter Potrowl's four, the two Fort Bowie photos of 1937, Bisbee), plus Emory Pass, whose Flickr name is printed upside down. Each has its reason.
+4. **On the site.** The photo follows the opening text of a place card, and of a stop whose place has photos, in a frame 200 px tall (160 px on phones). Back and Next with "1 of 3" step through a place's picks. A TASL line sits under each photo, and the Credits page lists every photo the reader has reached, by place.
+5. **Spoilers.** A photo shows with its place. Four photos name a place met later, so they wait for it: the Lordsburg Mesa twice on the Animas Valley and the Lordsburg Playa on Road Forks (2-05), and the ruins of Paquimé on Casas Grandes (2-08).
+
+The "today" captions of design section 10 are not written.
 
 ## Decisions made alone
 
@@ -94,5 +87,5 @@ A rerun on another day needs about 219 requests (`--dry-run` gives the current c
 ## Questions for you
 
 1. (Done: the search finished on 13 November.)
-2. Drop aerial views (as now), or keep the USDA orthophotos and ISS photos as a last resort for the back-country places?
-3. Should places with no Wikidata link (55 of 135) get one by a Wikidata search later, to reach their P18 and category files?
+2. (Settled 18 November: aerial views stay dropped.)
+3. (Settled 18 November: places with no Wikidata link get no Wikidata search.)

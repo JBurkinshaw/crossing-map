@@ -18,6 +18,7 @@ One row per source: what its terms ask, where the site and the data meet them, a
 | [ ] | USGS GNIS and NHD, Census TIGER | Public domain | Nothing, credit is a courtesy | Credits, Data | None |
 | [ ] | Natural Earth | Public domain | Nothing | Credits | None |
 | [ ] | Wikidata | CC0 | Nothing | Credits, 5 features | None |
+| [ ] | Wikimedia Commons photos (75 picks, decision 0067) | Each photo's own: public domain, CC0, CC BY 2.0 to 4.0, CC BY-SA 2.0 to 4.0 | Title, author, source and licence (TASL) with links, near the photo. BY-SA photos stay BY-SA. Peter Potrowl asks for "© Peter Potrowl" | The TASL line under each photo, Credits (by place, with the date taken), `data/photos.json`, `data/LICENSE` and Data (not part of the CC BY grant) | Check the hand-set authors in `pipeline/seeds/photo-text.csv` against each file page. Public domain files show no licence link, since Commons gives none |
 | [ ] | AWS Terrain Tiles (USGS, INEGI in this region) | Public domain, and INEGI's terms | INEGI credit | Credits, `terrain.pmtiles` credit | None found |
 
 ## Sources used, not republished

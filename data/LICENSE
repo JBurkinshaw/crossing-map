@@ -14,6 +14,13 @@ hachures, contours and Oblique archives among the tiles) are also subject to
 the Copernicus DEM licence, and anyone who reuses them is bound by it too.
 The notice and disclaimer it requires are in data/README.md.
 
+The photos listed in photos.json (served from site/public/photos/) are from
+Wikimedia Commons and are not part of this CC BY grant. Each keeps its own
+licence, given with its credit in photos.json: public domain, CC0, CC BY or
+CC BY-SA. A photo under CC BY-SA stays under CC BY-SA. The records in
+photos.json (alt text, places, order) are CC BY 4.0 like the other data, and
+the titles, authors and licences in them are the photos' credits.
+
 Quotations from The Crossing (the Spanish incipits of a few words each) are
 © Cormac McCarthy, used for commentary, and are not licensed here.
 

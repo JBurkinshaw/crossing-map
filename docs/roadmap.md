@@ -34,7 +34,7 @@ These were "open questions" in the build plan; they are project decisions, not q
   - 21 reasoning texts cite later episodes. Rewrite them, or keep the notice?
   - Rename the ids that name an event (`j4-shooting`, `j7-boyds-grave`, `vignette-taking-the-girl` and others, decision 0036)? They show in the published data and the sprite index.
 - **[decide] The drawer.** It opens at half height on first load, on the stop's text (decision 0060). Open at peek instead? Which places count as "far" for off-map arrows: the next stop when off screen, or every place named in the current episode? Should the terrain tile size (WebP or 512 px) be taken on with the relief work?
-- **[decide] Photos** (`review/stage-6/photos-README.md`). Settled 2026-11-18: aerial views stay dropped, and the places with no Wikidata link get none. The owner picked 75 photos for 44 places in `review/stage-6/photos.csv`.
+- **Photos** (`review/stage-6/photos-README.md`). Settled 2026-11-18: aerial views stay dropped, and the places with no Wikidata link get none. The owner's 75 picks for 44 places are on the cards (decision 0067). Left: the "today" captions of design section 10, and a check of the hand-set authors in `pipeline/seeds/photo-text.csv`.
 - **[decide] Vignettes** (`review/stage-6/vignettes/README.md`). 71 are drawn, and placement is decided (decisions 0026 and 0066). Of the candidates in design section 10, the Mormon store at Colonia Morelos, the oxen (the book's ox scene has no cart) and a Babícora Hereford are drawn. Four are left out as an existing drawing covers them or the book does not have them: Bird (Billy and the dog at Cloverdale), the one-eyed horse at Bacerac (the book has none, and Keno there is drawn), the Noroeste locomotive (the night train at Las Varas) and the guitar and the corrido (the corridero at Temósachic, as the book has no Bachíniva). The 14 journey vignettes the owner adopted on 2026-11-18 are drawn, each at a point along its leg (decision 0066).
 - **[decide] Relief.**
   - Full-region relief and Oblique, about 710 MB: Cloudflare R2, the preview only, or a thinner treatment?
@@ -117,7 +117,7 @@ Decisions 0060 to 0062 record what was built. Still open:
   - `episodes.json` has no page ranges.
   - The guide links have no deep page link: a lookup from Vintage page to PDF page is not built.
 - **Stage 6.**
-  - No photos are picked, and the photo pipeline after the picks is not built (the proposal is in `review/stage-6/photos-README.md`).
+  - The 75 picked photos are on the place and stop cards and the Credits page (decision 0067). Their "today" captions are not written.
   - The 71 vignettes are research-based drawings in the glyphs' pen (section 2, Vignettes).
   - Accessibility leftovers: the drawer handle at full height is out of thumb reach, and there is no keyboard equivalent for hover names. The screen-reader test is in section 2.
 - **Stage 7.** The open items in section 2, then `maxZoom` 15 for street-level places.
@@ -136,7 +136,6 @@ Decisions 0060 to 0062 record what was built. Still open:
 - **Medium:**
   - the stage 7 data model and card lines
   - the stage 7 moves, once decided
-  - the photo pipeline
   - the speaker-name pass
   - guide page links
   - episode page ranges
