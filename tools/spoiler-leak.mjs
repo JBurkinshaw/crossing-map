@@ -189,6 +189,21 @@ async function idle(page) {
   )
 }
 
+// Until the map's filters and story data match `reached` (at most 10 s). The map can report itself loaded before
+// React has handed it the filtered data, so idle() alone can return on the frame drawn before. A leak that is still
+// there after 10 s is real, and the checks that follow report it.
+async function settle(page, reached) {
+  await idle(page)
+  for (let i = 0; i < 20; i++) {
+    const n = leaks.length
+    await checkFilters(page, reached, 'settling')
+    await checkMap(page, reached, 'settling')
+    if (leaks.splice(n).length === 0) return
+    await page.waitForTimeout(500)
+    await idle(page)
+  }
+}
+
 // Every line a list holds: open its episode groups (TranslationList), then click each "Show all".
 async function showAllLines(page, scope) {
   await page.evaluate((s) => document.querySelectorAll(`${s} details.translation-group`).forEach((d) => (d.open = true)), scope)
@@ -438,7 +453,7 @@ async function checkMovedBack(browser, walked) {
   await waitForProgress(walked, reached)
   // Moving back, unlike reading on, leaves later features in the frame drawn before. They go once the map has
   // redrawn its story layers. The reader has seen them, so only the settled map counts.
-  await idle(walked)
+  await settle(walked, reached)
   await checkFilters(walked, reached, where)
   await checkMap(walked, reached, where)
   await checkPanel(walked, reached, where, later, lines)
