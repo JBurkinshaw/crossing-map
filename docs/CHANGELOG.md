@@ -28,6 +28,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - On phones the drawer opens on the stop's text, with reading progress, the journey picker and search under it (decision 0060). The stepper shows a stop's whole name.
 - On phones the map draws only the journey being read, until "Show all journeys" is ticked in the key. It has a Key button in place of the title box, and no zoom buttons or scale. Background names come in later as the map zooms.
 - Each stop ends with a button to the next one. An open question on a stop or a card is folded to its title.
+- Under "How this was placed", a card or stop now names the second sources that place it too: "Also placed by" where Bell's dissertation (2000) or Joe Hazelton's map agrees, and "Readers disagree" with the distance where one puts it more than 10 km away. The data carries them as `leads` on 17 places, 10 stops and one area (decision 0065).
 - The first-visit dialog is shorter and opens at its top.
 - Every route is lettered with its journey's number, so its ink is not the only way to tell it (decision 0061).
 - A new page, Itinerary, gives every journey as text: its stops, what happens at each, and the Spanish spoken there (decision 0062).

@@ -8,6 +8,7 @@ import { FeatureQuestions } from './OpenQuestions'
 import type { OpenQuestion } from '../data/openQuestions'
 import { distance, type Units } from '../units'
 import { CERTAINTY_LABEL } from './certainty'
+import { Leads } from './Leads'
 import { FEEDBACK_FORM } from '../pages/format'
 
 type Props = {
@@ -74,6 +75,7 @@ export function PlaceCard(props: Props) {
       <details className="placement" open={placementOpen} onToggle={(e) => onPlacement(e.currentTarget.open)}>
         <summary>How this was placed</summary>
         {p.reasoning && <p>{p.reasoning}</p>}
+        <Leads leads={p.leads} units={units} />
         <p className="meta">
           Source: {p.source}
           {p.source_id ? ` ${p.source_id}` : ''}

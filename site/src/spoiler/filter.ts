@@ -27,6 +27,13 @@ function safeProps(props: GeoJsonProperties, reached: string, spoilers: boolean)
   return rest
 }
 
+// A lead shows with its feature, unless it carries its own, later first_seen (decision 0065).
+function leadsUpTo(props: GeoJsonProperties, reached: string): GeoJsonProperties {
+  if (!Array.isArray(props?.leads)) return props
+  const leads = props.leads.filter((l: { first_seen?: string }) => !l.first_seen || l.first_seen <= reached)
+  return { ...props, leads }
+}
+
 function upTo<G extends Geometry, P extends GeoJsonProperties>(
   fc: FeatureCollection<G, P>,
   keep: (f: Feature<G, P>) => boolean,
@@ -35,7 +42,7 @@ function upTo<G extends Geometry, P extends GeoJsonProperties>(
 ): FeatureCollection<G, P> {
   return {
     ...fc,
-    features: fc.features.filter(keep).map((f) => ({ ...f, properties: safeProps(f.properties, reached, spoilers) as P })),
+    features: fc.features.filter(keep).map((f) => ({ ...f, properties: safeProps(leadsUpTo(f.properties, reached), reached, spoilers) as P })),
   }
 }
 

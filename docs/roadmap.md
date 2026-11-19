@@ -69,7 +69,6 @@ Seven more were settled as built on 2026-11-16, and the packet lists them under 
 - **[decide]** Item 14: street-level places in Deming, Silver City, El Paso, Casas Grandes, and Caborca, with `maxZoom` raised from 13 to 15 (about ten network lookups).
 - **[decide]** Item 16: about 20 notes paraphrased from Bell, cited by page, reviewed together for spoilers.
 - **[decide]** Item 17: raise five overrides from medium to high confidence where Hazelton's pins or Bell's distances agree.
-- **[build]** The data model for second sources: `bell-2000` and `reddit-gaia` source ids with licence and credit lines; a `leads` array naming any second source that points to or agrees with a feature; "Also placed by" lines on cards; "Readers disagree" where readings conflict.
 
 ### Stage 8 packets (2026-11-14)
 

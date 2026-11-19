@@ -2,6 +2,18 @@ import { useEffect, useState } from 'react'
 import type { FeatureCollection, Point } from 'geojson'
 import { useJson, type Loaded } from './json'
 
+// A second source that places a feature too, and whether it agrees with the map's point (decision 0065). It states
+// facts in words: never the source's own coordinates.
+export type Lead = {
+  source: string
+  relation: 'agrees' | 'differs'
+  page?: string
+  distance_km?: number
+  note?: string
+  // Only where the lead itself would reveal a later episode; otherwise it shows with its feature.
+  first_seen?: string
+}
+
 // Properties shared by every story feature; data/schema/story-layer.schema.json is the full contract.
 export type StoryProps = {
   id: string
@@ -34,6 +46,8 @@ export type StoryProps = {
   // circle), and whether a straight line between towns stands in for an unmapped old road.
   outline_rule?: string | null
   straight_road?: boolean
+  // Places, stops and areas: second sources that place the feature too. spoiler/filter.ts drops those dated later.
+  leads?: Lead[]
 }
 
 export type Story = {

@@ -57,6 +57,7 @@ function later(story: Story, reached: string): string[] {
   for (const [layer, fc] of Object.entries(story) as [string, FeatureCollection][]) {
     for (const { properties: p } of fc.features) {
       if (p?.role !== 'context' && !(p?.first_seen <= reached)) found.push(`${layer} ${p?.id} first seen ${p?.first_seen}`)
+      for (const lead of p?.leads ?? []) if (lead.first_seen > reached) found.push(`${layer} ${p?.id} lead ${lead.source} first seen ${lead.first_seen}`)
       for (const [key, value] of Object.entries(p ?? {})) {
         if (key === 'first_seen' || key === 'episode' || typeof value !== 'string') continue
         for (const id of value.match(EPISODE_ID) ?? []) if (id > reached) found.push(`${layer} ${p?.id} ${key} cites ${id}`)
@@ -73,6 +74,14 @@ describe.each(positions)('at %s', (progress) => {
   it('keeps no later feature or text in the story layers, flat and oblique', () => {
     expect(later(storyUpTo(flat, reached, spoilers), reached)).toEqual([])
     expect(later(storyUpTo(oblique, reached, spoilers), reached)).toEqual([])
+  })
+
+  it('names no place the reader has not met in the leads it shows', () => {
+    const unmet = unmetNames(reached)
+    const found = Object.values(storyUpTo(flat, reached, spoilers))
+      .flatMap((fc: FeatureCollection) => fc.features.map((f) => f.properties))
+      .flatMap((p) => (p?.leads ?? []).flatMap((l: { note?: string }) => unmet.filter((n) => l.note?.includes(n)).map((n) => `${p?.id} names ${n}`)))
+    expect(found).toEqual([])
   })
 
   it('keeps no later translation', () => {

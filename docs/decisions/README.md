@@ -79,6 +79,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0062 An Itinerary page is the map's text alternative, and Compare moves without a drag | accepted |
 | 0063 An open question can show its other reading on the map, and say more on request | accepted |
 | 0064 A size budget for the Pages site, checked in CI | accepted |
+| 0065 Second sources as leads on a feature | accepted |
 
 ## Template
 

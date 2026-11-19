@@ -11,6 +11,7 @@ import type { OpenQuestion } from '../data/openQuestions'
 import { FeatureQuestions } from './OpenQuestions'
 import { episodeLabel, progressLabel, type Episode } from '../spoiler/progress'
 import { CERTAINTY_LABEL } from './certainty'
+import { Leads } from './Leads'
 import { synopsisFolded } from './folds'
 
 type Props = {
@@ -209,6 +210,7 @@ export function Panel(props: Props) {
           {stop.properties.uncertainty_m ? ` · within about ${distance(stop.properties.uncertainty_m, units)}` : ''}
         </p>
         {stop.properties.reasoning && <p>{stop.properties.reasoning}</p>}
+        <Leads leads={stop.properties.leads} units={units} />
         <p className="meta">
           Source: {stop.properties.source}
           {stop.properties.source_id ? ` ${stop.properties.source_id}` : ''}

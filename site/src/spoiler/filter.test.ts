@@ -55,6 +55,16 @@ describe('storyUpTo', () => {
     expect(storyUpTo(s, '1-02', true).journeys.features[0].properties?.drawn_detail).toMatch(/later episodes/)
     expect(storyUpTo(s, '3-04', true).journeys.features[0].properties?.drawn_detail).toBe('Grid as in 3-04.')
   })
+  it('drops a lead dated after the reader’s progress, and keeps those that show with their feature', () => {
+    const s = story()
+    s.stops.features[0].properties.leads = [
+      { source: 'bell-2000', relation: 'agrees' },
+      { source: 'reddit-gaia', relation: 'differs', distance_km: 81, first_seen: '3-04' },
+    ]
+    const sources = (reached: string) => storyUpTo(s, reached, true).stops.features[0].properties.leads?.map((l) => l.source)
+    expect(sources('1-02')).toEqual(['bell-2000'])
+    expect(sources('3-04')).toEqual(['bell-2000', 'reddit-gaia'])
+  })
   it('keeps reasoning that cites only episodes reached', () => {
     const s = story()
     s.stops.features[0].properties.reasoning = 'Named in 1-01.'
