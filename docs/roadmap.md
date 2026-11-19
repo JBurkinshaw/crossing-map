@@ -35,7 +35,7 @@ These were "open questions" in the build plan; they are project decisions, not q
   - Rename the ids that name an event (`j4-shooting`, `j7-boyds-grave`, `vignette-taking-the-girl` and others, decision 0036)? They show in the published data and the sprite index.
 - **[decide] The drawer.** It opens at half height on first load, on the stop's text (decision 0060). Open at peek instead? Which places count as "far" for off-map arrows: the next stop when off screen, or every place named in the current episode? Should the terrain tile size (WebP or 512 px) be taken on with the relief work?
 - **[decide] Photos** (`review/stage-6/photos-README.md`). Settled 2026-11-18: aerial views stay dropped, and the places with no Wikidata link get none. The owner picked 75 photos for 44 places in `review/stage-6/photos.csv`.
-- **[decide] Vignettes** (`review/stage-6/vignettes/README.md`). 54 are drawn, and placement is decided (decision 0026). Next in line are the candidates from design section 10 not yet drawn: Bird (Billy's horse), the Mormon storehouse at Colonia Morelos, an ox cart, the one-eyed horse at Bacerac, the Noroeste locomotive at Las Varas, a Babícora Hereford, and the guitar and the corrido. After those come **journey vignettes**, scenes along a leg with no stop of their own. Each needs an anchor at a point along its leg, which decision 0026 doesn't allow yet (it anchors every drawing to a stop or place), so they need an amendment to 0026 and a change to `crossing.build_vignettes`. The owner adopted 14 on 2026-11-18, each on the leg named: the she-wolf's mate, held by one forefoot in a trap and snapping at her to drive her off (`j1-seg-01`, 1-04, its place in Sonora unknown), the old rancher's Model A (`j2-seg-02`), the miners carrying their dead (`j2-seg-08`), sheltering from the hail (`j3-seg-12`), names cut in the rock (`j3-seg-13`), the rider across the flooded playa (`j4-seg-02`), the family at the old silver mine (`j4-seg-13`), the night ride under the horned moon (`j4-seg-31`), boys riding to the dance (`j5-seg-04`), "the girl" in her blue dress (`j5-seg-07`), the bus north past Socorro (`j7-seg-04`), a gold star in a window (`j7-seg-20`), three children on Niño (`j7-seg-24`), and the bride's cart (`j7-seg-30`).
+- **[decide] Vignettes** (`review/stage-6/vignettes/README.md`). 71 are drawn, and placement is decided (decisions 0026 and 0066). Of the candidates in design section 10, the Mormon store at Colonia Morelos, the oxen (the book's ox scene has no cart) and a Babícora Hereford are drawn. Four are left out as an existing drawing covers them or the book does not have them: Bird (Billy and the dog at Cloverdale), the one-eyed horse at Bacerac (the book has none, and Keno there is drawn), the Noroeste locomotive (the night train at Las Varas) and the guitar and the corrido (the corridero at Temósachic, as the book has no Bachíniva). The 14 journey vignettes the owner adopted on 2026-11-18 are drawn, each at a point along its leg (decision 0066).
 - **[decide] Relief.**
   - Full-region relief and Oblique, about 710 MB: Cloudflare R2, the preview only, or a thinner treatment?
   - Coarse relief and contours over the whole story box?
@@ -118,7 +118,7 @@ Decisions 0060 to 0062 record what was built. Still open:
   - The guide links have no deep page link: a lookup from Vintage page to PDF page is not built.
 - **Stage 6.**
   - No photos are picked, and the photo pipeline after the picks is not built (the proposal is in `review/stage-6/photos-README.md`).
-  - The 54 vignettes are research-based drawings in the glyphs' pen. Seven candidates in design section 10 are not drawn yet (section 2, Vignettes).
+  - The 71 vignettes are research-based drawings in the glyphs' pen (section 2, Vignettes).
   - Accessibility leftovers: the drawer handle at full height is out of thumb reach, and there is no keyboard equivalent for hover names. The screen-reader test is in section 2.
 - **Stage 7.** The open items in section 2, then `maxZoom` 15 for street-level places.
 - **Stage 8.** Section 1, the stage 7 calls, street-level places, the declutter, and analytics, each as demand shows.
@@ -149,7 +149,6 @@ Decisions 0060 to 0062 record what was built. Still open:
 - **Large:**
   - street-level places (lookups, `maxZoom` 15)
   - shipping full-region relief and Oblique (hosting)
-  - the remaining vignettes: the seven from design section 10, then journey vignettes along legs with no stop (section 2)
   - translation review by a speaker
   - more traced legs (decision 0032): roads in US counties with no cached TIGER file, roads INEGI does not name, J7 leg 42 (its stop sits on a side channel), and the rest of `private/review/snap-candidates.md`
 - **Small:**

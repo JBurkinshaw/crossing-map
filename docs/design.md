@@ -336,12 +336,12 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 
 - Each vignette stands on the stop or place it is for, with a `side`, a `min_zoom` from which it shows at every closer zoom, and a `priority` (decision 0026). A scene between stops stands instead at a point along its journey leg: the seed names the leg and a fraction of its length, measured along the line on the WGS 84 ellipsoid (decision 0066).
 - The drawing is set beside its pin or point on that side, a fixed gap away on screen, so it never covers the marker; no leader lines. Place labels draw over it; its caption is placed before every other label. The key says its position is approximate.
-- The side is the one where the drawing and its caption cover the fewest stops, route lines and other drawings at its first zoom; the seed's side breaks a tie. A drawing that would cover another drawing, a stop or more than its own width of route line on every side waits one zoom step, no more, so the drawings stay in view for context; there it takes its clearest side. A drawing as crowded one step closer keeps its zoom. Its `reasoning` says which. With the cap, 25 of the 54 drawings still touch the story at their first zoom, 11 of them a stop marker (decision 0026).
+- The side is the one where the drawing and its caption cover the fewest stops, route lines and other drawings at its first zoom; the seed's side breaks a tie. A drawing that would cover another drawing, a stop or more than its own width of route line on every side waits one zoom step, no more, so the drawings stay in view for context; there it takes its clearest side. A drawing as crowded one step closer keeps its zoom. Its `reasoning` says which. With the cap, 32 of the 71 drawings still touch the story at their first zoom, 12 of them a stop marker (decisions 0026 and 0066).
 - Each drawing belongs to a journey (`journey`). Every drawing is at full strength, whichever journey is in focus (decision 0026, amended 2026-11-17).
 - Vignettes belong to the vintage map only. In the Oblique view they stand at their shifted copies (`data/oblique/vignettes.geojson`), beside their shifted pins (decision 0039).
 - Spoiler mode hides those first seen after the reader's progress. A drawing is first seen with its pin or leg, if that comes later than its scene, so it never stands beside a pin or on a leg the reader has not reached.
 
-**First candidates** (the site now has 54 drawings; the anchors in `pipeline/seeds/vignettes.csv` are the current picks):
+**First candidates** (the site now has 71 drawings; the anchors in `pipeline/seeds/vignettes.csv` are the current picks):
 
 | Vignette | Anchor | Part |
 | --- | --- | --- |

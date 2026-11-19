@@ -332,9 +332,9 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "On the road towards La Boquilla Billy watches a big red Waco plane come in from the west, circle and come down beyond the lake.",
-    "reasoning": "The drawing is set on the south-west side of Camp on the plain by the lake, the red plane (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would cover more. At zoom 9 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
+    "reasoning": "The drawing is set on the east side of Camp on the plain by the lake, the red plane (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would cover more. At zoom 9 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
     "vignette": "vignette-red-plane",
-    "side": "sw",
+    "side": "e",
     "min_zoom": 9.0,
     "priority": 3,
     "label": "Red Waco cabin biplane, 1930s",
@@ -1835,6 +1835,584 @@
     "priority": 3,
     "label": "",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), and the same horse with the rider cut away and a pack drawn on; the pines as in the Madera fair drawing"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.22383,
+     30.82701
+    ]
+   },
+   "properties": {
+    "id": "vignette-mormon-store",
+    "name": "The brick store at Colonia Morelos",
+    "kind": "vignette",
+    "stands_for": "Colonia Morelos, the old Mormon settlement where the wolf is shown at the fair (J2)",
+    "place_ref": "j2-colonia-morelos",
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Riding into Colonia Morelos in search of the wolf, Billy passes the brick houses and tin roofs of a Mormon settlement of the last century, and a store of brick behind a wooden false front, with bunting hung in the trees across from it.",
+    "reasoning": "Design section 10's brick Mormon storehouse. The book's building at Colonia Morelos is a brick store behind a board false front, so that is what is drawn. It stands at the fair's stop, which also carries the wolf's cart, with the cockpit drawing at the hacienda close by. It has no caption: on every side a caption would run into one of those two drawings. The drawing at Colonia Juárez shows that colony's houses and orchards, not a store. The drawing is set on the north-west side of Colonia Morelos (the fair) (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out it would cover more. At zoom 11 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
+    "vignette": "vignette-mormon-store",
+    "side": "nw",
+    "min_zoom": 11.0,
+    "priority": 3,
+    "label": "",
+    "credit": "Drawn from the book's description; the false front and brick courses after 1930s Historic American Buildings Survey photographs of false-front stores (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.98181,
+     29.2987
+    ]
+   },
+   "properties": {
+    "id": "vignette-oxen-at-the-river",
+    "name": "The old man's oxen at the river",
+    "kind": "vignette",
+    "stands_for": "The crossing of the old wagon road to Namiquipa (J4)",
+    "place_ref": "j4-wagon-road-crossing",
+    "journey": "J4",
+    "part": 3,
+    "episode": "3-03",
+    "first_seen": "3-03",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "While the horses drink at the old wagon road's river crossing, Billy watches an old farmer dressed in white field clothes drive a yoked pair of oxen down from the far bank to drink. The two talk of crops and weather.",
+    "reasoning": "Design section 10 lists an ox cart in the Bavispe valley. The book has no ox cart there: its oxen are this yoked pair, with no cart, at the crossing of the old wagon road to Namiquipa, so the drawing shows them wading in to drink. The drawing is set on the east side of Crossing of the old wagon road to Namiquipa (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out, on every side, it would cover a stop, a route line or another drawing.",
+    "vignette": "vignette-oxen-at-the-river",
+    "side": "e",
+    "min_zoom": 10.0,
+    "priority": 2,
+    "label": "Oxen at the river",
+    "credit": "Drawn; the oxen are the corriente steers of this set made heavier (after photographs by Carol M. Highsmith, public domain, and Clinton and Charles Robertson, CC BY 2.0), the yoke and the farmer after C. B. Waite's photographs of ox teams in Mexico, 1900s (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.85,
+     29.3
+    ]
+   },
+   "properties": {
+    "id": "vignette-babicora-hereford",
+    "name": "Herefords of the Babícora",
+    "kind": "vignette",
+    "stands_for": "The Babícora ranch's whitefaced cattle on the high grassland (J7)",
+    "place_ref": "j7-babicora-high-country",
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Riding the high grassland of the Babícora for days, Billy sometimes sees parties of the ranch's vaqueros crossing it on mules or driving cattle. They take a nickname from the whitefaced Hereford cattle the ranch breeds.",
+    "reasoning": "Design section 10's Babícora Hereford. The book names no breed, but the white-faced cattle the Babícora raised were Herefords. The book names them where Billy spends days riding the Babícora uplands, so the drawing stands at that stop. The drawing is set on the east side of The high country of the Babícora (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would cover more. At zoom 10 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
+    "vignette": "vignette-babicora-hereford",
+    "side": "e",
+    "min_zoom": 10.0,
+    "priority": 2,
+    "label": "Hereford whitefaces, Babícora",
+    "credit": "Drawn after 1930s US Department of Agriculture photographs of Hereford cattle (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.49251,
+     29.93425
+    ]
+   },
+   "properties": {
+    "id": "vignette-wolf-mate",
+    "name": "The she-wolf's mate in the trap",
+    "kind": "vignette",
+    "stands_for": "Where the she-wolf left her mate, in the Sonoran mountains (J1)",
+    "place_ref": "j1-seg-01",
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-04",
+    "first_seen": "1-04",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Two weeks before she crosses into New Mexico, the she-wolf's mate is caught by a forefoot in a steel trap somewhere in the Sonoran mountains. He bares his teeth to send her away, but she lies flat just out of the chain's reach and stays.",
+    "reasoning": "The book places the trap only somewhere in the Sonoran mountains, two weeks before her journey north, so the drawing stands near the start of her first leg, the way she would have come. The wolves fill the drawing and the trap is small, so it does not repeat the steel trap drawn for Billy's trapline. Its point is on the route line, 10% of the way along the J1 leg “Sierra de la Madera (eastern slopes) to Crossing of the Bavispe” (j1-seg-01) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-wolf-mate",
+    "side": "s",
+    "min_zoom": 9.0,
+    "priority": 3,
+    "label": "Her mate in the trap",
+    "credit": "Drawn after the wolf and trap photographs in Vernon Bailey's US Department of Agriculture bulletins on wolves, 1907 to the 1910s (public domain); the wolves are the traced she-wolf (US Fish and Wildlife Service photograph, public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.98369,
+     31.44337
+    ]
+   },
+   "properties": {
+    "id": "vignette-model-a-wolf",
+    "name": "The Model A and the trapped wolf",
+    "kind": "vignette",
+    "stands_for": "Billy bringing the trapped she-wolf to the road (J2)",
+    "place_ref": "j2-seg-02",
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-08",
+    "first_seen": "1-08",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Billy has hauled the gagged wolf up onto the road when an old rancher drives up over the rise in his Model A pickup. Billy pulls her into the ditch beside the fence and lies holding her, his arms round her neck, as the truck stops alongside.",
+    "reasoning": "Billy meets the rancher on the road just past the trap site on Cloverdale Creek, so the drawing stands on the leg from Cloverdale Creek road towards Robertson's crossfence. From zoom 10, as the drawings of the she-wolf and the cholla and of Billy and the dog are close by. Its point is on the route line, 40% of the way along the J2 leg “Cloverdale Creek road to Robertson's crossfence” (j2-seg-02) by length, measured on the WGS 84 ellipsoid. The drawing is set on the east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out it would cover more. At zoom 11 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
+    "vignette": "vignette-model-a-wolf",
+    "side": "e",
+    "min_zoom": 11.0,
+    "priority": 3,
+    "label": "The rancher's Model A",
+    "credit": "Drawn after photographs of the Ford Model A pickup, 1928 to 1931; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.00786,
+     30.90479
+    ]
+   },
+   "properties": {
+    "id": "vignette-tumpline-bearers",
+    "name": "The bearers and their dead companion",
+    "kind": "vignette",
+    "stands_for": "The mine labourers Billy eats with on the trail down to the Bavispe (J2)",
+    "place_ref": "j2-seg-08",
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Below the trail Billy comes on six mine labourers taking the body of a companion, killed at his work, home across the mountains to their village. It lies apart on a litter of poles and hide, wrapped in tied canvas under green branches, and the men share their meal with him.",
+    "reasoning": "They have stopped for their noon meal just after Billy comes through a gap and first sees the Bavispe valley, so the drawing stands near the start of the leg from the passes of the Sierra de la Cabellera towards the river. The note does not name the men's people, and the drawing shows only what the book gives: the litter, the canvas and the tumpline. Its point is on the route line, 15% of the way along the J2 leg “Passes of the Sierra de la Cabellera to The river crossing (the deputies)” (j2-seg-08) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-tumpline-bearers",
+    "side": "ne",
+    "min_zoom": 9.0,
+    "priority": 3,
+    "label": "The bearers' noon halt",
+    "credit": "Drawn after Carl Lumholtz's photographs in Unknown Mexico, 1902 (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.30755,
+     31.04009
+    ]
+   },
+   "properties": {
+    "id": "vignette-hail-shelter",
+    "name": "Billy's horse in the storm",
+    "kind": "vignette",
+    "stands_for": "The hailstorm on the road north towards Ojito (J3)",
+    "place_ref": "j3-seg-12",
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-03",
+    "first_seen": "2-03",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Riding north from Morelos into low broken hills, Billy is caught by hail and shelters in a ruined group of buildings beside the road. That night, through gaps in the walls, he can see his horse out by the road, lit by flashes of lightning.",
+    "reasoning": "The storm overtakes him after his last crossing of the river, early on the road from Morelos north towards Ojito, so the drawing stands about a third along that leg. The book gives no place for the ruins. Its point is on the route line, 30% of the way along the J3 leg “The road north towards Ojito to The border at Douglas” (j3-seg-12) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-hail-shelter",
+    "side": "sw",
+    "min_zoom": 9.0,
+    "priority": 2,
+    "label": "Sheltering from the hail",
+    "credit": "Drawn after Farm Security Administration and Historic American Buildings Survey photographs of ruined adobes, 1930s (public domain); the horse is the traced Muybridge horse with the rider cut away, Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.04761,
+     31.50398
+    ]
+   },
+   "properties": {
+    "id": "vignette-names-in-rock",
+    "name": "Names cut in the rock of the pass",
+    "kind": "vignette",
+    "stands_for": "The Guadalupe pass on Billy's ride home from Douglas (J3)",
+    "place_ref": "j3-seg-13",
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-04",
+    "first_seen": "2-04",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Riding home over the Guadalupes on a cold evening, Billy reads old names and dates cut in the rock of the pass by travellers long dead.",
+    "reasoning": "The names are in the pass itself, where the leg from the border at Douglas ends, so the drawing stands just short of the pass. The book gives none of the names: the date in the drawing is invented. From zoom 10, as the bootheel is crowded further out. Its point is on the route line, 97% of the way along the J3 leg “The border at Douglas to A pass in the Guadalupes on the old Cloverdale road” (j3-seg-13) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out it would cover more. At zoom 11 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
+    "vignette": "vignette-names-in-rock",
+    "side": "se",
+    "min_zoom": 11.0,
+    "priority": 2,
+    "label": "Old names in the rock",
+    "credit": "Drawn after 1930s National Park Service and Historic American Buildings Survey photographs of Inscription Rock, El Morro, New Mexico (public domain); the rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.97238,
+     32.34786
+    ]
+   },
+   "properties": {
+    "id": "vignette-playa-rider",
+    "name": "A rider across the playa",
+    "kind": "vignette",
+    "stands_for": "The brothers' camp on the flats west of Lordsburg (J4)",
+    "place_ref": "j4-seg-02",
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "At sunrise the brothers watch a lone rider come towards them across the playa's grey clay, seen first as a wavering reflection on the shallow water.",
+    "reasoning": "The rider comes across the flats at sunrise to the brothers' camp, so the drawing stands at the very start of the leg from the camp towards the San Simon, out on the playa. Its point is on the route line, 3% of the way along the J4 leg “Camp on the alkali flats to Noon at the San Simon River” (j4-seg-02) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out, on every side, it would cover a stop, a route line or another drawing.",
+    "vignette": "vignette-playa-rider",
+    "side": "s",
+    "min_zoom": 10.0,
+    "priority": 2,
+    "label": "Rider on the playa",
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), with his reflection; the playa after Erwin E. Smith's photographs of cowboys, 1905 to 1915, and Russell Lee's Farm Security Administration photographs, 1939 to 1940 (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.66397,
+     30.28334
+    ]
+   },
+   "properties": {
+    "id": "vignette-silver-mine-family",
+    "name": "The miners' family at the old silver mine",
+    "kind": "vignette",
+    "stands_for": "The brothers' ride across the sierra east of Bacerac (J4)",
+    "place_ref": "j4-seg-13",
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-08",
+    "first_seen": "2-08",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "One evening, across a valley, the brothers see the spoil heaps of a worked-out silver mine. A family of wandering miners camped there in huts of woven sticks, among the rusted machinery, stand in a line by their fire, tallest to smallest, hands raised against the sun to watch them go by.",
+    "reasoning": "The mine comes after two days' riding in the sierra beyond Bacerac, on the way to the eastern rim, so the drawing stands halfway along that leg. The book gives no name or place for it. Its point is on the route line, 50% of the way along the J4 leg “Bacerac to The eastern rim of the escarpment at sunrise” (j4-seg-13) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-silver-mine-family",
+    "side": "se",
+    "min_zoom": 9.0,
+    "priority": 2,
+    "label": "The old silver mine",
+    "credit": "Drawn after photographs of mines and mining camps in the Sierra Madre of Sonora and Chihuahua, 1900s to 1930s (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.83032,
+     29.48648
+    ]
+   },
+   "properties": {
+    "id": "vignette-horned-moon",
+    "name": "The horned moon over the night ride",
+    "kind": "vignette",
+    "stands_for": "The brothers' night ride west from the Boquilla road to a dry camp (J4)",
+    "place_ref": "j4-seg-31",
+    "journey": "J4",
+    "part": 3,
+    "episode": "3-08",
+    "first_seen": "3-08",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Driving their horses upcountry all night, keeping off the river, the brothers ride under a thin crescent moon low in the western sky, horns upward, with Venus shining just above it.",
+    "reasoning": "The moon is seen as the night ride sets out, and the ride follows the leg from the Boquilla road west to the dry camp, so the drawing stands halfway along it. The moon is drawn as the book gives it: a thin crescent, horns up, and Venus straight above. Its point is on the route line, 50% of the way along the J4 leg “Off the road north of La Boquilla, west to a river to The dry camp after the night ride” (j4-seg-31) by length, measured on the WGS 84 ellipsoid. The drawing is set on the west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would cover more. At zoom 10 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
+    "vignette": "vignette-horned-moon",
+    "side": "w",
+    "min_zoom": 10.0,
+    "priority": 2,
+    "label": "The horned moon, Venus above",
+    "credit": "Drawn after Frederic Remington's night pieces and almanac woodcuts of the moon (public domain); the horses traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.71282,
+     29.29228
+    ]
+   },
+   "properties": {
+    "id": "vignette-dance-riders",
+    "name": "Riders going to the Saturday dance",
+    "kind": "vignette",
+    "stands_for": "Billy's ride from La Boquilla to La Pinta (J5)",
+    "place_ref": "j5-seg-04",
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Riding south towards dark, Billy meets boys and young men riding north to a Saturday dance on burros and small mine mules, in polished boots and pressed cotton shirts, their hair combed flat.",
+    "reasoning": "He meets the riders between La Boquilla and La Pinta towards dark, so the drawing stands halfway along that leg. Its point is on the route line, 50% of the way along the J5 leg “La Boquilla at noon to La Pinta by moonlight” (j5-seg-04) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would cover more. At zoom 10 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
+    "vignette": "vignette-dance-riders",
+    "side": "ne",
+    "min_zoom": 10.0,
+    "priority": 2,
+    "label": "Off to the Saturday dance",
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), with a mule's ears and no hat; the dress after Hugo Brehme's photographs of rural Mexico, 1910s to 1930s"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.50408,
+     29.03947
+    ]
+   },
+   "properties": {
+    "id": "vignette-girl-in-blue",
+    "name": "“The girl” in a blue dress",
+    "kind": "vignette",
+    "stands_for": "“The girl” riding past the stream of the Santa María headwaters (J5)",
+    "place_ref": "j5-seg-07",
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Waking late beside a stream below the road, Billy sees “the girl” ride by in a new blue cotton dress and a little straw hat trailing a green ribbon, and saddles his horse to follow her.",
+    "reasoning": "Billy wakes by a stream an hour west of Santa Ana de Babícora and she passes on the road soon after, so the drawing stands near the start of the leg from that stream to Santa Ana. Two inks cannot show her blue, so the label gives it. From zoom 10, as the Babícora roads are crowded further out. Its point is on the route line, 15% of the way along the J5 leg “A stream of the Santa María headwaters to Back through Santa Ana” (j5-seg-07) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out, on every side, it would cover a stop, a route line or another drawing.",
+    "vignette": "vignette-girl-in-blue",
+    "side": "sw",
+    "min_zoom": 11.0,
+    "priority": 2,
+    "label": "“The girl” in her blue dress",
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the dress, hat and ribbon after the Casasola archive's and Hugo Brehme's photographs of rancheras, 1910s to 1930s"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -106.89605,
+     34.03932
+    ]
+   },
+   "properties": {
+    "id": "vignette-night-bus",
+    "name": "The night bus north past Socorro",
+    "kind": "vignette",
+    "stands_for": "Billy's bus ride to try the recruiting office at Albuquerque (J7)",
+    "place_ref": "j7-seg-04",
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Riding the bus north to try the army once more, Billy watches at nightfall beyond Socorro as flights of waterfowl circle down to the marshes along the river, though he cannot hear them over the bus.",
+    "reasoning": "Night falls a little past Socorro, where the leg from Deming ends, so the drawing stands there. The book names no bus company: the coach is drawn as the Silversides that Greyhound bought in numbers from 1940. Its point is on the route line, 99% of the way along the J7 leg “Back to Deming to Past Socorro at nightfall” (j7-seg-04) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-night-bus",
+    "side": "se",
+    "min_zoom": 8.0,
+    "priority": 2,
+    "label": "Night bus past Socorro",
+    "credit": "Drawn after photographs of the Yellow Coach model 743 Silversides coach, 1940"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.23085,
+     33.2445
+    ]
+   },
+   "properties": {
+    "id": "vignette-gold-star",
+    "name": "The gold star in a ranch house window",
+    "kind": "vignette",
+    "stands_for": "Billy's war years on the ranches, and his ride south from Magdalena (J7)",
+    "place_ref": "j7-seg-20",
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-02",
+    "first_seen": "4-02",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Billy drifts from ranch to ranch through the war years. By the third spring of it, nearly every ranch house in that country has a service flag with a gold star hung in a window, for a son the war has killed.",
+    "reasoning": "The book gives the gold stars to the whole country Billy works in, not to one house, and then has him ride south from a small ranch near Magdalena to cross the last highway east of Steins, so the drawing stands halfway along that leg. Its point is on the route line, 50% of the way along the J7 leg “A small ranch out of Magdalena to East of Steins, the last blacktop” (j7-seg-20) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would cover a stop, a route line or another drawing.",
+    "vignette": "vignette-gold-star",
+    "side": "se",
+    "min_zoom": 9.0,
+    "priority": 2,
+    "label": "Gold star, ranch house window",
+    "credit": "Drawn after the service flag as specified in 1942 and Office of War Information photographs of service flags in windows (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.18698,
+     30.87258
+    ]
+   },
+   "properties": {
+    "id": "vignette-children-on-nino",
+    "name": "Children on Niño at the stream",
+    "kind": "vignette",
+    "stands_for": "The morning Billy leaves Janos for Casas Grandes (J7)",
+    "place_ref": "j7-seg-24",
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-04",
+    "first_seen": "4-04",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Waking sick in an empty house after a night of drinking, Billy walks his horses down to a stream below the town and sets three children up on Niño, one behind another, the eldest holding the two little ones.",
+    "reasoning": "The stream crosses the road just south of town, the day Billy leaves for Casas Grandes, so the drawing stands at the start of the leg from Janos. Its point is on the route line, 3% of the way along the J7 leg “Janos to Casas Grandes” (j7-seg-24) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-children-on-nino",
+    "side": "sw",
+    "min_zoom": 9.0,
+    "priority": 2,
+    "label": "Children up on Niño",
+    "credit": "Horse traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), with the rider cut away; the children after Russell Lee's Farm Security Administration photographs, 1939 to 1940 (public domain)"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.41318,
+     29.24383
+    ]
+   },
+   "properties": {
+    "id": "vignette-wedding-carreta",
+    "name": "The wedding carreta at Namiquipa",
+    "kind": "vignette",
+    "stands_for": "The wedding party on the road into Namiquipa (J7)",
+    "place_ref": "j7-seg-30",
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-04",
+    "first_seen": "4-04",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Riding into Namiquipa at first light, Billy meets a wedding party on the road: a plain wooden cart decked with bunting, a cotton sheet on a frame of willow hoops to keep off the sun, one small grey mule, and the bride alone under her parasol.",
+    "reasoning": "He meets the party as he comes into Namiquipa, where the leg from Santa Ana de Babícora ends, so the drawing stands just short of Namiquipa. The cart is drawn with the book's canopy, bunting and one mule, unlike the oxen at the river or the gypsies' float. Its point is on the route line, 97% of the way along the J7 leg “Santa Ana de Babícora to Namiquipa, now a mining camp” (j7-seg-30) by length, measured on the WGS 84 ellipsoid. The drawing is set on the east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. On every side it covers a stop, a route line or another drawing from its first zoom, and no closer zoom would clear it, so it shows from that zoom on the side where it covers least.",
+    "vignette": "vignette-wedding-carreta",
+    "side": "e",
+    "min_zoom": 9.0,
+    "priority": 2,
+    "label": "Wedding carreta, Namiquipa",
+    "credit": "Drawn after C. B. Waite's photographs of carretas in Mexico, 1900s (public domain); the mule is the traced Muybridge horse with the rider cut away and a mule's ears, Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain)"
    }
   }
  ]

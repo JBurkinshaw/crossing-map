@@ -17,6 +17,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - New open questions `q-san-luis-gap`, `q-animas-crossing` and `q-eastern-escarpment`. The last says why the eastern escarpment stays south of Huisiachepic, though the Carretas Plain can be seen only from the sierra about 75 km further north. `q-starvation-canyon` and `q-clanton-foster` now show the heads.
 - Four stops whose point lay outside their own area now sit inside it, and their areas are redrawn around them: the eastern escarpment (`j3-eastern-escarpment`) and the escarpment rim (`j4-escarpment-rim`), each on ground that reads as a rim, the river camps (`j4-river-camps`) and the wagon-road crossing (`j4-wagon-road-crossing`). They moved 1.0 to 5.2 km (decision 0059).
 - The drawings' caption sides and zooms in `vignettes.geojson` are worked out for captions a fifth larger, as the map now sets them (decision 0055).
+- 17 new drawings in `vignettes.geojson`: the Mormon store at Colonia Morelos, the old man's oxen and the Babícora Herefords, and 14 scenes between stops, each at a point along its leg, whose `place_ref` is the leg's id (decision 0066). The red plane's drawing moves to the east side of its pin.
 
 #### Site
 

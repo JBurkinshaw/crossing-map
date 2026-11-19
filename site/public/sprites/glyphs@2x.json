@@ -3,1009 +3,1009 @@
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1200,
-    "y": 1520
+    "x": 1908,
+    "y": 968
   },
   "butte-01-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1072,
-    "y": 1592
+    "x": 1908,
+    "y": 1056
   },
   "butte-02": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 944,
-    "y": 1600
+    "x": 1908,
+    "y": 1144
   },
   "butte-02-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 816,
-    "y": 1640
+    "x": 1920,
+    "y": 1232
   },
   "butte-03": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 696,
-    "y": 1648
+    "x": 1920,
+    "y": 1320
   },
   "butte-03-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 576,
-    "y": 1704
+    "x": 1920,
+    "y": 1408
   },
   "butte-04": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1304,
-    "y": 1520
+    "x": 2012,
+    "y": 968
   },
   "butte-04-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 576,
-    "y": 1792
+    "x": 2012,
+    "y": 1056
   },
   "butte-05": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1696,
-    "y": 1456
+    "x": 2012,
+    "y": 1144
   },
   "butte-05-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1568,
-    "y": 1536
+    "x": 2024,
+    "y": 1232
   },
   "butte-06": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1408,
-    "y": 1544
+    "x": 2024,
+    "y": 1320
   },
   "butte-06-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1176,
-    "y": 1608
+    "x": 2024,
+    "y": 1408
   },
   "butte-07": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1048,
-    "y": 1680
+    "x": 2032,
+    "y": 1496
   },
   "butte-07-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 920,
-    "y": 1688
+    "x": 2032,
+    "y": 1584
   },
   "butte-08": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 800,
-    "y": 1728
+    "x": 2032,
+    "y": 1672
   },
   "butte-08-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 680,
-    "y": 1736
+    "x": 2032,
+    "y": 1760
   },
   "butte-09": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1280,
-    "y": 1608
+    "x": 2128,
+    "y": 1848
   },
   "butte-09-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 680,
-    "y": 1824
+    "x": 2128,
+    "y": 1936
   },
   "butte-10": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1800,
-    "y": 1456
+    "x": 2028,
+    "y": 560
   },
   "butte-10-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1904,
-    "y": 1456
+    "x": 2028,
+    "y": 648
   },
   "butte-11": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 720,
-    "y": 1912
+    "x": 2028,
+    "y": 736
   },
   "butte-11-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 784,
-    "y": 1816
+    "x": 2028,
+    "y": 824
   },
   "butte-12": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 824,
-    "y": 1904
+    "x": 2116,
+    "y": 912
   },
   "butte-12-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 104,
-    "x": 888,
-    "y": 1816
+    "x": 2116,
+    "y": 1000
   },
   "cone-01": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1600,
-    "y": 1296
+    "x": 1792,
+    "y": 1560
   },
   "cone-01-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1472,
-    "y": 1304
+    "x": 1792,
+    "y": 1640
   },
   "cone-02": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1216,
-    "y": 1360
+    "x": 1792,
+    "y": 1720
   },
   "cone-02-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1088,
-    "y": 1432
+    "x": 1792,
+    "y": 1800
   },
   "cone-03": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 960,
-    "y": 1440
+    "x": 1888,
+    "y": 1880
   },
   "cone-03-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 832,
-    "y": 1480
+    "x": 1888,
+    "y": 1960
   },
   "cone-04": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 704,
-    "y": 1488
+    "x": 1912,
+    "y": 1560
   },
   "cone-04-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 576,
-    "y": 1544
+    "x": 1912,
+    "y": 1640
   },
   "cone-05": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1336,
-    "y": 1360
+    "x": 1912,
+    "y": 1720
   },
   "cone-05-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1720,
-    "y": 1296
+    "x": 1912,
+    "y": 1800
   },
   "cone-06": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1840,
-    "y": 1296
+    "x": 2008,
+    "y": 1880
   },
   "cone-06-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1592,
-    "y": 1376
+    "x": 2008,
+    "y": 1960
   },
   "cone-07": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1456,
-    "y": 1384
+    "x": 1908,
+    "y": 568
   },
   "cone-07-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1208,
-    "y": 1440
+    "x": 1940,
+    "y": 80
   },
   "cone-08": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1080,
-    "y": 1512
+    "x": 1952,
+    "y": 0
   },
   "cone-08-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 952,
-    "y": 1520
+    "x": 1940,
+    "y": 160
   },
   "cone-09": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 824,
-    "y": 1560
+    "x": 1940,
+    "y": 240
   },
   "cone-09-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 696,
-    "y": 1568
+    "x": 1940,
+    "y": 320
   },
   "cone-10": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 576,
-    "y": 1624
+    "x": 1940,
+    "y": 400
   },
   "cone-10-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1328,
-    "y": 1440
+    "x": 1940,
+    "y": 480
   },
   "cone-11": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1712,
-    "y": 1376
+    "x": 1908,
+    "y": 648
   },
   "cone-11-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1832,
-    "y": 1376
+    "x": 1908,
+    "y": 728
   },
   "cone-12": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1576,
-    "y": 1456
+    "x": 1908,
+    "y": 808
   },
   "cone-12-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 120,
-    "x": 1448,
-    "y": 1464
+    "x": 1908,
+    "y": 888
   },
   "dome-01": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 832,
-    "y": 1240
+    "x": 1664,
+    "y": 1640
   },
   "dome-01-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1088,
-    "y": 1192
+    "x": 1664,
+    "y": 1720
   },
   "dome-02": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1744,
-    "y": 1056
+    "x": 1664,
+    "y": 1800
   },
   "dome-02-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1872,
-    "y": 1056
+    "x": 1760,
+    "y": 1880
   },
   "dome-03": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1744,
-    "y": 1136
+    "x": 1760,
+    "y": 1960
   },
   "dome-03-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1872,
-    "y": 1136
+    "x": 1780,
+    "y": 600
   },
   "dome-04": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1552,
-    "y": 1144
+    "x": 1812,
+    "y": 88
   },
   "dome-04-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1216,
-    "y": 1200
+    "x": 1824,
+    "y": 0
   },
   "dome-05": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1088,
-    "y": 1272
+    "x": 1812,
+    "y": 168
   },
   "dome-05-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 960,
-    "y": 1280
+    "x": 1812,
+    "y": 248
   },
   "dome-06": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 832,
-    "y": 1320
+    "x": 1812,
+    "y": 328
   },
   "dome-06-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 704,
-    "y": 1328
+    "x": 1812,
+    "y": 408
   },
   "dome-07": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 576,
-    "y": 1384
+    "x": 1812,
+    "y": 488
   },
   "dome-07-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1344,
-    "y": 1200
+    "x": 1780,
+    "y": 680
   },
   "dome-08": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1680,
-    "y": 1216
+    "x": 1780,
+    "y": 760
   },
   "dome-08-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1472,
-    "y": 1224
+    "x": 1780,
+    "y": 840
   },
   "dome-09": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1216,
-    "y": 1280
+    "x": 1780,
+    "y": 920
   },
   "dome-09-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1088,
-    "y": 1352
+    "x": 1780,
+    "y": 1000
   },
   "dome-10": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 960,
-    "y": 1360
+    "x": 1780,
+    "y": 1080
   },
   "dome-10-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 832,
-    "y": 1400
+    "x": 1780,
+    "y": 1160
   },
   "dome-11": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 704,
-    "y": 1408
+    "x": 1792,
+    "y": 1240
   },
   "dome-11-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 576,
-    "y": 1464
+    "x": 1792,
+    "y": 1320
   },
   "dome-12": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1344,
-    "y": 1280
+    "x": 1792,
+    "y": 1400
   },
   "dome-12-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1808,
-    "y": 1216
+    "x": 1792,
+    "y": 1480
   },
   "mesa-01": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1872,
-    "y": 576
+    "x": 1344,
+    "y": 1344
   },
   "mesa-01-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1872,
-    "y": 656
+    "x": 1344,
+    "y": 1424
   },
   "mesa-02": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1872,
-    "y": 736
+    "x": 1344,
+    "y": 1504
   },
   "mesa-02-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1800,
-    "y": 816
+    "x": 1344,
+    "y": 1584
   },
   "mesa-03": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1080,
-    "y": 864
+    "x": 1344,
+    "y": 1664
   },
   "mesa-03-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 720,
-    "y": 912
+    "x": 1344,
+    "y": 1744
   },
   "mesa-04": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 880,
-    "y": 912
+    "x": 1344,
+    "y": 1824
   },
   "mesa-04-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1240,
-    "y": 864
+    "x": 1440,
+    "y": 1904
   },
   "mesa-05": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1400,
-    "y": 864
+    "x": 1504,
+    "y": 1344
   },
   "mesa-05-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1560,
-    "y": 864
+    "x": 1504,
+    "y": 1424
   },
   "mesa-06": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1720,
-    "y": 896
+    "x": 1504,
+    "y": 1504
   },
   "mesa-06-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1880,
-    "y": 896
+    "x": 1504,
+    "y": 1584
   },
   "mesa-07": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1040,
-    "y": 944
+    "x": 1504,
+    "y": 1664
   },
   "mesa-07-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 720,
-    "y": 992
+    "x": 1504,
+    "y": 1744
   },
   "mesa-08": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 880,
-    "y": 992
+    "x": 1504,
+    "y": 1824
   },
   "mesa-08-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1200,
-    "y": 944
+    "x": 1600,
+    "y": 1904
   },
   "mesa-09": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1360,
-    "y": 944
+    "x": 1524,
+    "y": 192
   },
   "mesa-09-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1520,
-    "y": 944
+    "x": 1536,
+    "y": 0
   },
   "mesa-10": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1680,
-    "y": 976
+    "x": 1536,
+    "y": 80
   },
   "mesa-10-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1840,
-    "y": 976
+    "x": 1524,
+    "y": 272
   },
   "mesa-11": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1040,
-    "y": 1024
+    "x": 1524,
+    "y": 352
   },
   "mesa-11-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 720,
-    "y": 1072
+    "x": 1524,
+    "y": 432
   },
   "mesa-12": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 880,
-    "y": 1072
+    "x": 1524,
+    "y": 512
   },
   "mesa-12-flip": {
     "height": 80,
     "pixelRatio": 2,
     "width": 160,
-    "x": 1200,
-    "y": 1024
+    "x": 1524,
+    "y": 592
   },
   "pass-01": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1936,
-    "y": 1216
+    "x": 1920,
+    "y": 1496
   },
   "pass-01-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1524,
+    "y": 1288
+  },
+  "pass-02": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1696,
+    "y": 88
+  },
+  "pass-02-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1440,
+    "y": 1984
+  },
+  "pass-03": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1544,
+    "y": 1984
+  },
+  "pass-03-flip": {
+    "height": 52,
+    "pixelRatio": 2,
+    "width": 104,
+    "x": 1648,
+    "y": 1984
+  },
+  "pass-04": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
     "x": 0,
     "y": 1992
   },
-  "pass-02": {
+  "pass-04-flip": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
     "x": 104,
     "y": 1992
   },
-  "pass-02-flip": {
+  "pass-05": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
     "x": 208,
     "y": 1992
   },
-  "pass-03": {
+  "pass-05-flip": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
     "x": 312,
     "y": 1992
   },
-  "pass-03-flip": {
+  "pass-06": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
     "x": 416,
     "y": 1992
   },
-  "pass-04": {
+  "pass-06-flip": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
     "x": 520,
     "y": 1992
   },
-  "pass-04-flip": {
-    "height": 52,
-    "pixelRatio": 2,
-    "width": 104,
-    "x": 824,
-    "y": 1992
-  },
-  "pass-05": {
-    "height": 52,
-    "pixelRatio": 2,
-    "width": 104,
-    "x": 928,
-    "y": 1904
-  },
-  "pass-05-flip": {
-    "height": 52,
-    "pixelRatio": 2,
-    "width": 104,
-    "x": 928,
-    "y": 1956
-  },
-  "pass-06": {
-    "height": 52,
-    "pixelRatio": 2,
-    "width": 104,
-    "x": 992,
-    "y": 1776
-  },
-  "pass-06-flip": {
-    "height": 52,
-    "pixelRatio": 2,
-    "width": 104,
-    "x": 992,
-    "y": 1828
-  },
   "pass-07": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1032,
-    "y": 1880
+    "x": 624,
+    "y": 1992
   },
   "pass-07-flip": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1096,
-    "y": 1768
+    "x": 728,
+    "y": 1992
   },
   "pass-08": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1096,
-    "y": 1820
+    "x": 832,
+    "y": 1992
   },
   "pass-08-flip": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1152,
-    "y": 1696
+    "x": 936,
+    "y": 1992
   },
   "pass-09": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1032,
-    "y": 1932
+    "x": 1040,
+    "y": 1992
   },
   "pass-09-flip": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1032,
-    "y": 1984
+    "x": 1144,
+    "y": 1992
   },
   "pass-10": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1136,
-    "y": 1872
+    "x": 1248,
+    "y": 1992
   },
   "pass-10-flip": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1200,
-    "y": 1748
+    "x": 2116,
+    "y": 1088
   },
   "pass-11": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1256,
-    "y": 1696
+    "x": 2116,
+    "y": 1140
   },
   "pass-11-flip": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1200,
-    "y": 1800
+    "x": 2128,
+    "y": 1192
   },
   "pass-12": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1136,
-    "y": 1924
+    "x": 2128,
+    "y": 1244
   },
   "pass-12-flip": {
     "height": 52,
     "pixelRatio": 2,
     "width": 104,
-    "x": 1136,
-    "y": 1976
+    "x": 2128,
+    "y": 1296
   },
   "peak-01": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1920,
-    "y": 0
+    "x": 1524,
+    "y": 672
   },
   "peak-01-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1920,
-    "y": 88
+    "x": 1524,
+    "y": 760
   },
   "peak-02": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1920,
-    "y": 176
+    "x": 1524,
+    "y": 848
   },
   "peak-02-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1920,
-    "y": 264
+    "x": 1524,
+    "y": 936
   },
   "peak-03": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1920,
-    "y": 352
+    "x": 1524,
+    "y": 1024
   },
   "peak-03-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1920,
-    "y": 440
+    "x": 1524,
+    "y": 1112
   },
   "peak-04": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 576,
-    "y": 768
+    "x": 1524,
+    "y": 1200
   },
   "peak-04-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 576,
-    "y": 856
+    "x": 1652,
+    "y": 672
   },
   "peak-05": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 576,
-    "y": 944
+    "x": 1684,
+    "y": 160
   },
   "peak-05-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 576,
-    "y": 1032
+    "x": 1696,
+    "y": 0
   },
   "peak-06": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 576,
-    "y": 1120
+    "x": 1684,
+    "y": 248
   },
   "peak-06-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1360,
-    "y": 1024
+    "x": 1684,
+    "y": 336
   },
   "peak-07": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1488,
-    "y": 1024
+    "x": 1684,
+    "y": 424
   },
   "peak-07-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1040,
-    "y": 1104
+    "x": 1684,
+    "y": 512
   },
   "peak-08": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1168,
-    "y": 1104
+    "x": 1652,
+    "y": 760
   },
   "peak-08-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 704,
-    "y": 1152
+    "x": 1652,
+    "y": 848
   },
   "peak-09": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 576,
-    "y": 1208
+    "x": 1652,
+    "y": 936
   },
   "peak-09-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 832,
-    "y": 1152
+    "x": 1652,
+    "y": 1024
   },
   "peak-10": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1616,
-    "y": 1056
+    "x": 1652,
+    "y": 1112
   },
   "peak-10-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1296,
-    "y": 1112
+    "x": 1652,
+    "y": 1200
   },
   "peak-11": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 1424,
-    "y": 1112
+    "x": 1664,
+    "y": 1288
   },
   "peak-11-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 960,
-    "y": 1192
+    "x": 1664,
+    "y": 1376
   },
   "peak-12": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 704,
-    "y": 1240
+    "x": 1664,
+    "y": 1464
   },
   "peak-12-flip": {
     "height": 88,
     "pixelRatio": 2,
     "width": 128,
-    "x": 576,
-    "y": 1296
+    "x": 1664,
+    "y": 1552
   },
   "ridge-01": {
     "height": 72,
@@ -1039,141 +1039,141 @@
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1152,
-    "y": 576
+    "x": 720,
+    "y": 1920
   },
   "ridge-03-flip": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1332,
-    "y": 576
+    "x": 900,
+    "y": 1920
   },
   "ridge-04": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1512,
-    "y": 576
+    "x": 1080,
+    "y": 1920
   },
   "ridge-04-flip": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1692,
-    "y": 576
+    "x": 1260,
+    "y": 1920
   },
   "ridge-05": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1152,
-    "y": 648
+    "x": 1344,
+    "y": 192
   },
   "ridge-05-flip": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1332,
-    "y": 648
+    "x": 1344,
+    "y": 264
   },
   "ridge-06": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1512,
-    "y": 648
+    "x": 1344,
+    "y": 336
   },
   "ridge-06-flip": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1692,
-    "y": 648
+    "x": 1344,
+    "y": 408
   },
   "ridge-07": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1152,
-    "y": 720
+    "x": 1344,
+    "y": 480
   },
   "ridge-07-flip": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 720,
-    "y": 768
+    "x": 1344,
+    "y": 552
   },
   "ridge-08": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 900,
-    "y": 768
+    "x": 1344,
+    "y": 624
   },
   "ridge-08-flip": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1332,
-    "y": 720
+    "x": 1344,
+    "y": 696
   },
   "ridge-09": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1512,
-    "y": 720
+    "x": 1344,
+    "y": 768
   },
   "ridge-09-flip": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1692,
-    "y": 720
+    "x": 1344,
+    "y": 840
   },
   "ridge-10": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1080,
-    "y": 792
+    "x": 1344,
+    "y": 912
   },
   "ridge-10-flip": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 720,
-    "y": 840
+    "x": 1344,
+    "y": 984
   },
   "ridge-11": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 900,
-    "y": 840
+    "x": 1344,
+    "y": 1056
   },
   "ridge-11-flip": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1260,
-    "y": 792
+    "x": 1344,
+    "y": 1128
   },
   "ridge-12": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1440,
-    "y": 792
+    "x": 1344,
+    "y": 1200
   },
   "ridge-12-flip": {
     "height": 72,
     "pixelRatio": 2,
     "width": 180,
-    "x": 1620,
-    "y": 792
+    "x": 1344,
+    "y": 1272
   },
   "vignette-arnulfo-house": {
     "height": 192,
@@ -1182,271 +1182,362 @@
     "x": 0,
     "y": 0
   },
+  "vignette-babicora-hereford": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 0,
+    "y": 192
+  },
   "vignette-bavispe-church": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 192,
-    "y": 0
+    "x": 0,
+    "y": 384
   },
   "vignette-billy-and-packhorse": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 384,
-    "y": 0
+    "x": 0,
+    "y": 576
   },
   "vignette-billy-and-the-dog": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 576,
-    "y": 0
+    "x": 0,
+    "y": 768
   },
   "vignette-billy-bow-hawk": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 768,
-    "y": 0
+    "x": 0,
+    "y": 960
   },
   "vignette-billy-in-rags": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 960,
-    "y": 0
+    "x": 0,
+    "y": 1152
   },
   "vignette-billy-in-the-rain": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 1152,
-    "y": 0
+    "x": 0,
+    "y": 1344
   },
   "vignette-billy-searching": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 1344,
-    "y": 0
+    "x": 0,
+    "y": 1536
   },
   "vignette-billy-to-the-watershed": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 1536,
-    "y": 0
+    "x": 0,
+    "y": 1728
   },
   "vignette-blind-man": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 1728,
+    "x": 192,
     "y": 0
   },
   "vignette-bones-travois": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 0,
+    "x": 192,
     "y": 192
   },
   "vignette-boyd-and-the-girl": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 0,
+    "x": 192,
     "y": 384
   },
   "vignette-boyds-grave": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 0,
+    "x": 192,
     "y": 576
   },
   "vignette-brothers-and-the-girl": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 0,
+    "x": 192,
     "y": 768
   },
   "vignette-carrying-the-wolf": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 0,
+    "x": 192,
     "y": 960
+  },
+  "vignette-children-on-nino": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 192,
+    "y": 1152
   },
   "vignette-colonia-juarez": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 0,
-    "y": 1152
+    "x": 192,
+    "y": 1344
   },
   "vignette-corridero": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 0,
-    "y": 1344
+    "x": 192,
+    "y": 1536
   },
   "vignette-corriente-steers": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 0,
-    "y": 1536
+    "x": 192,
+    "y": 1728
   },
   "vignette-cottonwood-camp": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 0,
-    "y": 1728
+    "x": 384,
+    "y": 0
   },
   "vignette-crippled-dog": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 192,
+    "x": 384,
     "y": 192
+  },
+  "vignette-dance-riders": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 384,
+    "y": 384
   },
   "vignette-dead-calf": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
     "x": 384,
-    "y": 192
+    "y": 576
   },
   "vignette-echols-cabin": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 576,
-    "y": 192
+    "x": 384,
+    "y": 768
   },
   "vignette-el-tigre": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 768,
-    "y": 192
+    "x": 384,
+    "y": 960
   },
   "vignette-escarpment-road": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 960,
-    "y": 192
+    "x": 384,
+    "y": 1152
+  },
+  "vignette-girl-in-blue": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 384,
+    "y": 1344
+  },
+  "vignette-gold-star": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 384,
+    "y": 1536
   },
   "vignette-gypsy-plane": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 1152,
-    "y": 192
+    "x": 384,
+    "y": 1728
   },
   "vignette-hacienda-pit": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 1344,
+    "x": 576,
+    "y": 0
+  },
+  "vignette-hail-shelter": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 576,
     "y": 192
   },
-  "vignette-keno-bacerac": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 1536,
-    "y": 192
-  },
-  "vignette-madera-fair": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 1728,
-    "y": 192
-  },
-  "vignette-night-train": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 192,
-    "y": 384
-  },
-  "vignette-obelisk": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 192,
-    "y": 576
-  },
-  "vignette-opera-caravan": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 192,
-    "y": 768
-  },
-  "vignette-paquime": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 192,
-    "y": 960
-  },
-  "vignette-parham-house": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 192,
-    "y": 1152
-  },
-  "vignette-quijada": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 192,
-    "y": 1344
-  },
-  "vignette-recruiting-office": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 192,
-    "y": 1536
-  },
-  "vignette-red-plane": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 192,
-    "y": 1728
-  },
-  "vignette-remuda": {
-    "height": 192,
-    "pixelRatio": 2,
-    "width": 192,
-    "x": 384,
-    "y": 384
-  },
-  "vignette-ruined-church": {
+  "vignette-horned-moon": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
     "x": 576,
     "y": 384
   },
-  "vignette-san-diego-gate": {
+  "vignette-keno-bacerac": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 576,
+    "y": 576
+  },
+  "vignette-madera-fair": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 576,
+    "y": 768
+  },
+  "vignette-model-a-wolf": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 576,
+    "y": 960
+  },
+  "vignette-mormon-store": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 576,
+    "y": 1152
+  },
+  "vignette-names-in-rock": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 576,
+    "y": 1344
+  },
+  "vignette-night-bus": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 576,
+    "y": 1536
+  },
+  "vignette-night-train": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 576,
+    "y": 1728
+  },
+  "vignette-obelisk": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 768,
+    "y": 0
+  },
+  "vignette-opera-caravan": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 768,
+    "y": 192
+  },
+  "vignette-oxen-at-the-river": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
     "x": 768,
     "y": 384
+  },
+  "vignette-paquime": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 768,
+    "y": 576
+  },
+  "vignette-parham-house": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 768,
+    "y": 768
+  },
+  "vignette-playa-rider": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 768,
+    "y": 960
+  },
+  "vignette-quijada": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 768,
+    "y": 1152
+  },
+  "vignette-recruiting-office": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 768,
+    "y": 1344
+  },
+  "vignette-red-plane": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 768,
+    "y": 1536
+  },
+  "vignette-remuda": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 768,
+    "y": 1728
+  },
+  "vignette-ruined-church": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 960,
+    "y": 0
+  },
+  "vignette-san-diego-gate": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 960,
+    "y": 192
   },
   "vignette-sandhill-cranes": {
     "height": 192,
@@ -1459,98 +1550,126 @@
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 1152,
-    "y": 384
+    "x": 960,
+    "y": 576
+  },
+  "vignette-silver-mine-family": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 960,
+    "y": 768
   },
   "vignette-steel-trap": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 1344,
-    "y": 384
+    "x": 960,
+    "y": 960
   },
   "vignette-taking-the-girl": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 1536,
-    "y": 384
+    "x": 960,
+    "y": 1152
   },
   "vignette-trinity-cloud": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 1728,
-    "y": 384
+    "x": 960,
+    "y": 1344
+  },
+  "vignette-tumpline-bearers": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 960,
+    "y": 1536
   },
   "vignette-waterfowl": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 384,
-    "y": 576
+    "x": 960,
+    "y": 1728
+  },
+  "vignette-wedding-carreta": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 1152,
+    "y": 0
   },
   "vignette-windmill-tank": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 384,
-    "y": 768
+    "x": 1152,
+    "y": 192
   },
   "vignette-wolf-by-the-fire": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 384,
-    "y": 960
+    "x": 1152,
+    "y": 384
   },
   "vignette-wolf-cairn": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 384,
-    "y": 1152
+    "x": 1152,
+    "y": 576
   },
   "vignette-wolf-cart": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 384,
-    "y": 1344
+    "x": 1152,
+    "y": 768
   },
   "vignette-wolf-ford": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 384,
-    "y": 1536
+    "x": 1152,
+    "y": 960
   },
   "vignette-wolf-in-the-cholla": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 384,
-    "y": 1728
+    "x": 1152,
+    "y": 1152
+  },
+  "vignette-wolf-mate": {
+    "height": 192,
+    "pixelRatio": 2,
+    "width": 192,
+    "x": 1152,
+    "y": 1344
   },
   "vignette-wolf-on-the-rope": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 576,
-    "y": 576
+    "x": 1152,
+    "y": 1536
   },
   "vignette-wolves-antelope": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 768,
-    "y": 576
+    "x": 1152,
+    "y": 1728
   },
   "vignette-workers-truck": {
     "height": 192,
     "pixelRatio": 2,
     "width": 192,
-    "x": 960,
-    "y": 576
+    "x": 1344,
+    "y": 0
   }
 }
