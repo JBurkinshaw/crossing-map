@@ -149,8 +149,11 @@ export function MapView(props: Props) {
     const area = areaRef.current
     if (!area) return
     const measure = () => {
+      // A box hidden by CSS (the inset on screens under 500 px tall) measures zero wide at x = 0: skip it.
       const boxes = [...area.querySelectorAll<HTMLElement>(':scope > .cartouche, :scope > .overview')]
-      const left = Math.min(...boxes.map((b) => b.getBoundingClientRect().left), area.getBoundingClientRect().right)
+        .map((b) => b.getBoundingClientRect())
+        .filter((r) => r.width > 0)
+      const left = Math.min(...boxes.map((r) => r.left), area.getBoundingClientRect().right)
       area.style.setProperty('--credits-room', `${left - area.getBoundingClientRect().left}px`)
     }
     const observer = new ResizeObserver(measure)
