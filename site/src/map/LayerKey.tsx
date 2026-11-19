@@ -196,9 +196,12 @@ type Props = {
   onOpen: (open: boolean) => void
   // The reader has picked Land cover as the ground (decision 0040).
   landcover: boolean
+  // Whether the map draws every journey or only the one in focus, and the switch between them.
+  allJourneys: boolean
+  onAllJourneys: (all: boolean) => void
 }
 
-export function LayerKey({ story, journey, reached, units, phone, open, onOpen, landcover }: Props) {
+export function LayerKey({ story, journey, reached, units, phone, open, onOpen, landcover, allJourneys, onAllJourneys }: Props) {
   const journeyInk = journeyInks(tokens)
   const [tab, setTab] = useState<Tab>('story')
   const [sprite, setSprite] = useState<Sprite | null>(null)
@@ -304,6 +307,12 @@ export function LayerKey({ story, journey, reached, units, phone, open, onOpen, 
               </li>
             ))}
           </ul>
+          {shown.journeys.length > 1 && (
+            <label className="key-all-journeys">
+              <input type="checkbox" checked={allJourneys} onChange={(e) => onAllJourneys(e.target.checked)} />
+              Show all journeys
+            </label>
+          )}
           <ul>
             <li>
               <Line colour={ink} opacity={0.4} />

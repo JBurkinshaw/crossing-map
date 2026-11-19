@@ -168,24 +168,33 @@
   font-family: inherit;
 }
 
-/* Phones: the title alone, smaller, so the cartouche stays a small corner holding the key. */
-@media (max-width: 720px) {
+/* Small maps (a phone's, and a phone on its side): the cartouche is the Key button alone, in a single rule, and
+   the zoom buttons and the scale go, as a pinch zooms and the Home button brings back the whole journey
+   (decision 0060). Without a key to hold (Satellite, Topo) the cartouche goes too. */
+@media (max-width: 720px), (max-height: 500px) {
   .cartouche {
-    right: calc(var(--frame) + 13px);
-    bottom: calc(var(--frame) + 13px);
-    padding: 4px 10px 2px;
+    right: calc(var(--frame) + 10px);
+    bottom: calc(var(--frame) + 10px);
+    padding: 0 10px;
     box-shadow:
       0 0 0 2px var(--paper),
-      0 0 0 4px var(--ink),
-      0 0 0 5px var(--paper),
-      0 0 0 6px var(--ink);
+      0 0 0 3px var(--ink);
   }
-  .cartouche .north,
-  .cartouche-sub {
+  .cartouche-head,
+  .cartouche:not(:has(.layer-key)) {
     display: none;
   }
-  .cartouche-title {
-    font-size: 0.85rem;
+  .cartouche .layer-key {
+    margin-top: 0;
+    border-top: 0;
+  }
+  .cartouche .layer-key-toggle {
+    min-height: 44px;
+  }
+  .maplibregl-ctrl-zoom-in,
+  .maplibregl-ctrl-zoom-out,
+  .maplibregl-ctrl-scale {
+    display: none !important;
   }
 }
 
@@ -233,6 +242,25 @@
   touch-action: none;
 }
 
+.swipe-step {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 44px;
+  margin-top: -22px;
+  padding: 0;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.swipe-left {
+  right: 16px;
+}
+.swipe-right {
+  left: 16px;
+}
 .swipe::after {
   content: '';
   position: absolute;
@@ -679,6 +707,14 @@
   line-height: 1.15;
 }
 
+/* "Show all journeys", under the journeys it switches. */
+.key-all-journeys {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  cursor: pointer;
+}
 .key-wide {
   grid-column: 1 / -1;
 }
@@ -792,4 +828,58 @@
 .map-area .maplibregl-ctrl-attrib.maplibregl-compact-show {
   max-width: calc(var(--credits-room, 100%) - var(--frame) - 26px);
   box-sizing: border-box;
+}
+
+/* A short screen (a phone on its side) and an upright tablet take the side panel, but leave the map little room
+   beside it (decision 0060), so the panel is narrower there (--panel-width, base.css). Short: no frame and no inset.
+   Upright tablet: the frame's rule without its band of graticule labels, as on phones. */
+@media (min-width: 721px) and (max-height: 500px) {
+  .map-area.framed {
+    --frame: 0px;
+  }
+  .map-frame,
+  .overview {
+    display: none;
+  }
+}
+@media (min-width: 721px) and (max-width: 1024px) and (orientation: portrait) {
+  .map-area.framed {
+    --frame-gap: 1px;
+    --frame-heavy: 2px;
+    --frame-band: 0px;
+    --frame-neat: 0px;
+  }
+  .frame-edge {
+    display: none;
+  }
+}
+
+/* Touch screens: the map's own buttons at 44 px, and round each stop pin an unseen area that takes the tap, so a
+   22 px pin is as easy to hit as a 40 px one (decision 0060). Grouped stops keep their badge. */
+@media (pointer: coarse) {
+  .maplibregl-ctrl-group button {
+    width: 44px;
+    height: 44px;
+  }
+  .map-menu-button {
+    min-height: 44px;
+  }
+  /* The credits button keeps its drawn size, inside a larger area that takes the tap. */
+  .maplibregl-ctrl-attrib-button::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+  }
+  .maplibregl-marker > .stop-marker {
+    position: relative;
+  }
+  .maplibregl-marker > .stop-marker::after {
+    content: '';
+    position: absolute;
+    inset: -9px;
+    border-radius: 50%;
+  }
+  .maplibregl-marker > .stop-marker.is-current::after {
+    inset: -6px;
+  }
 }

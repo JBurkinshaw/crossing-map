@@ -2,11 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { requestOtherReading, type OpenQuestion } from '../data/openQuestions'
 import { feedbackUrl, repoUrl } from '../pages/format'
 
-// One judgement call: what the map shows, the other reading, and why.
-// `label` goes before the title on cards; the Open questions page leaves it out. `feature` is set on cards, where
-// the map sits beside the panel, so a question with `other_at` can show the other reading there, framed with that
-// feature.
-export function OpenQuestionNote({ q, label, feature }: { q: OpenQuestion; label?: string; feature?: string }) {
+// One judgement call: what the map shows, the other reading, and why. `feature` is set on cards, where the map
+// sits beside the panel, so a question with `other_at` can show the other reading there, framed with that feature.
+function Readings({ q, feature }: { q: OpenQuestion; feature?: string }) {
   const onMap = feature !== undefined
   const [shown, setShown] = useState(false)
   const shownRef = useRef(false)
@@ -24,8 +22,7 @@ export function OpenQuestionNote({ q, label, feature }: { q: OpenQuestion; label
     setShown(!shown)
   }
   return (
-    <aside className="open-question" data-first-seen={q.first_seen}>
-      <h3>{label ? `${label}: ${q.title}` : q.title}</h3>
+    <>
       <dl>
         <dt>Shown</dt>
         <dd>{q.shown}</dd>
@@ -58,7 +55,28 @@ export function OpenQuestionNote({ q, label, feature }: { q: OpenQuestion; label
           )}
         </details>
       )}
+    </>
+  )
+}
+
+// A question set out in full, as the Open questions page has it.
+export function OpenQuestionNote({ q }: { q: OpenQuestion }) {
+  return (
+    <aside className="open-question" data-first-seen={q.first_seen}>
+      <h3>{q.title}</h3>
+      <Readings q={q} />
     </aside>
+  )
+}
+
+// The same on a card or a stop, folded to its title: how a place was settled is the map's craft, one step behind
+// the story the reader came for (decision 0060).
+function FoldedQuestion({ q, feature }: { q: OpenQuestion; feature: string }) {
+  return (
+    <details className="open-question" data-first-seen={q.first_seen}>
+      <summary>Open question: {q.title}</summary>
+      <Readings q={q} feature={feature} />
+    </details>
   )
 }
 
@@ -70,7 +88,7 @@ export function FeatureQuestions({ id, name, questions }: { id: string; name: st
   return (
     <>
       {mine.map((q) => (
-        <OpenQuestionNote key={q.id} q={q} label="Open question" feature={id} />
+        <FoldedQuestion key={q.id} q={q} feature={id} />
       ))}
       {(mine.length > 0 || form) && (
         <p className="correction">

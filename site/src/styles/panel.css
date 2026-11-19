@@ -1,12 +1,16 @@
-/* Phones (Drawer.tsx, which uses the same width): the panel is a bottom drawer, peek (96 px, the stepper),
-   half or full height, over the foot of the map. The map stops at the drawer's top at peek and half height,
-   so its own controls and attribution stay clear of it; at full height it keeps its half-height size. */
+/* Phones (Drawer.tsx, which uses the same width): the panel is a bottom drawer, peek (the stepper, with room for
+   a stop name of two lines, PEEK_PX in Drawer.tsx), half or full height, over the foot of the map. The map stops at
+   the drawer's top at peek and half height, so its own controls and attribution stay clear of it; at full height
+   it keeps its half-height size. */
+:root {
+  --peek: 112px;
+}
 @media (max-width: 720px) {
   .map-area {
     inset: 0 0 50% 0;
   }
   .app[data-drawer='peek'] .map-area {
-    bottom: calc(96px + env(safe-area-inset-bottom));
+    bottom: calc(var(--peek) + env(safe-area-inset-bottom));
   }
 }
 
@@ -27,7 +31,7 @@
 }
 
 .drawer[data-height='peek'] {
-  height: calc(96px + env(safe-area-inset-bottom));
+  height: calc(var(--peek) + env(safe-area-inset-bottom));
 }
 
 .drawer[data-height='full'] {
@@ -88,10 +92,12 @@
   line-height: 1.25;
 }
 
+/* The stop's name, whole on two lines where it can be. */
 .stepper-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .drawer-body {
@@ -243,6 +249,13 @@ details.more summary:focus-visible,
   display: flex;
   gap: 12px;
   font-style: italic;
+}
+
+/* In the phone drawer the header comes last but for the page links, whose rule closes it. */
+.drawer .panel-header {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 /* Links to the site's other pages, at the foot of the panel. */
@@ -629,8 +642,13 @@ button.link:focus-visible,
   border-top: 1px solid var(--ink-faint);
 }
 
+.next-stop {
+  margin-top: 14px;
+}
+
 .road-lines,
 .show-area,
+.next-stop,
 .read-on button {
   width: 100%;
   min-height: 44px;
@@ -644,6 +662,7 @@ button.link:focus-visible,
 
 .road-lines:hover,
 .show-area:hover,
+.next-stop:hover,
 .read-on button:hover {
   background: color-mix(in srgb, var(--ink) 8%, transparent);
 }
@@ -690,11 +709,20 @@ button.link:focus-visible,
   font-size: 0.85rem;
 }
 
-.open-question h3 {
+.open-question h3,
+.open-question summary {
   margin: 0 0 4px;
   font-size: 0.9rem;
   font-style: italic;
   font-weight: normal;
+}
+
+/* Folded on a card or a stop (OpenQuestions.tsx). */
+.open-question summary {
+  min-height: 32px;
+  box-sizing: border-box;
+  padding: 6px 0;
+  cursor: pointer;
 }
 
 .open-question dl {
@@ -771,4 +799,78 @@ button.link:focus-visible,
 
 .question-detail .evidence {
   font-size: 0.8rem;
+}
+
+/* Phones and touch screens (decision 0060). Type: nothing under about 14.5 px, the stop's own text at 16 px, and
+   the episode's summary upright, as small, italic and faint together are hard to read on a phone. Targets: every
+   control in the panel at least 44 px tall. */
+@media (max-width: 720px) {
+  .meta,
+  .stop-count,
+  .stop .stop-episode p.meta,
+  .panel-header,
+  .site-links,
+  .search-part,
+  .journey-pick,
+  .elsewhere,
+  .correction,
+  .control-note,
+  .control-label {
+    font-size: 0.9rem;
+  }
+  .stop .stop-episode p.meta + p.meta {
+    font-style: normal;
+  }
+  .stop p,
+  .place-card p {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+  .open-question,
+  .open-question summary,
+  .area-outline,
+  .translations,
+  details.more summary,
+  .placement summary,
+  .synopsis summary {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 720px), (pointer: coarse) {
+  .progress-badge,
+  .journey-pick select,
+  .search-row input,
+  .search-part select,
+  .search-results button {
+    min-height: 44px;
+  }
+  details.more summary,
+  .placement summary,
+  .synopsis summary,
+  .open-question summary,
+  .translation-group summary,
+  .translation-about summary,
+  .spanish-here > summary {
+    min-height: 44px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    box-sizing: border-box;
+  }
+  .panel-header a,
+  .panel-header button.link,
+  .site-links a,
+  .correction a,
+  .text-button {
+    display: inline-block;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .stop-list button {
+    padding: 10px 0;
+  }
+  .place-card .close {
+    width: 44px;
+    height: 44px;
+  }
 }

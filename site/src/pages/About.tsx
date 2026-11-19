@@ -40,7 +40,7 @@ export function About() {
       <ol>
         <li>
           Tell the map how far you’ve read. It hides everything after that point, and you can change it any time from
-          the button at the top of the panel.
+          the reading-progress button in the panel.
         </li>
         <li>
           Pick a journey and press <strong>Next</strong> to follow it stop by stop.

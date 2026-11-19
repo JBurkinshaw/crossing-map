@@ -79,9 +79,11 @@ function ProgressDialog({ start, progress, isSet, episodes, episodesFailed, onSe
     if (dialog && !dialog.open) dialog.showModal()
   }, [])
   // Each step marks where focus starts with data-autofocus. React's autoFocus cannot: it focuses on mount, while
-  // the dialog is still closed, and showModal then moves focus to the first button.
+  // the dialog is still closed, and showModal then moves focus to the first button. On a short phone the focused
+  // control can sit below the fold: the dialog stays at its top, so it opens on its title, not part way down.
   useEffect(() => {
-    ref.current?.querySelector<HTMLElement>('[data-autofocus]')?.focus()
+    ref.current?.querySelector<HTMLElement>('[data-autofocus]')?.focus({ preventScroll: true })
+    ref.current?.scrollTo(0, 0)
   }, [step])
   return (
     <dialog ref={ref} className={`progress-dialog${step === 'ask' ? ' introduction' : ''}`} aria-labelledby={titleId} onCancel={onClose}>

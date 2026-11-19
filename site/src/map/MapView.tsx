@@ -17,8 +17,8 @@ import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
 import { WaterMarks } from './WaterMarks'
 import { contourText, glyphText, LANDCOVER_ARCHIVE, landcoverLayers, OBLIQUE_BOUNDS, OBLIQUE_MIN_ZOOM, obliqueLayers } from './relief'
-import { closeAttribution, dataBase, exposeForScripts, fontsBase, motion, TERRAIN_EXAGGERATION, tilesBase } from './setup'
-import { baseLayerIds, literaryStyle, notObliqueIds } from './style'
+import { closeAttribution, dataBase, exposeForScripts, fontsBase, isPhone, motion, TERRAIN_EXAGGERATION, tilesBase } from './setup'
+import { baseLayerIds, fewerLabels, literaryStyle, notObliqueIds } from './style'
 import { inkPatterns, RATIO as INK_RATIO } from './landcoverInk'
 import { palette, storyBounds } from './tokens'
 import { layerFilterUpTo, PROGRESS_LAYERS, styleUpTo } from '../spoiler/filter'
@@ -94,7 +94,10 @@ export function MapView(props: Props) {
   const { basemap, onBasemap, view, onView, compareWith, obliqueFailed, corridor, units, onUnits } = props
   // Built once with the progress and units at first render; later changes go through setFilter and
   // setLayoutProperty below.
-  const [style] = useState(() => styleUpTo(literary(units), reached))
+  const [style] = useState(() => {
+    const built = styleUpTo(literary(units), reached)
+    return isPhone() ? fewerLabels(built) : built
+  })
   // Compare mode's vintage underlay gets its own copy: a map may change the style object it is given.
   const underlayStyle = useMemo<StyleSpecification | null>(
     () => (basemap === 'compare' ? styleUpTo(literary('metric'), reached) : null),
@@ -119,6 +122,9 @@ export function MapView(props: Props) {
   const wash = ground === 'tint' && tintAvailable
   const landcover = ground === 'landcover' && landcoverAvailable
   const phone = usePhone()
+  // A phone's map opens on the journey in focus alone, and "Show all journeys" in the key brings the rest. The
+  // choice then stays as the reader left it (decision 0060).
+  const [allJourneys, setAllJourneys] = useState(!phone)
   // The Wheeler frame and its graticule labels, on the vintage map in the Flat and Tilted views (MapFrame).
   const framed = basemap === 'literary' && view !== 'oblique'
   if ((basemap !== 'literary' || wash) && !satelliteStarted) setSatelliteStarted(true)
@@ -327,8 +333,8 @@ export function MapView(props: Props) {
         >
           <NavigationControl position="top-left" showCompass={false} />
           <HomeControl onHome={onHome} />
-          {/* Narrower on phones, where a 140 px bar covered the stops framed near the map's bottom edge. */}
-          <ScaleControl position="bottom-left" unit={units} maxWidth={phone ? 72 : 140} />
+          {/* Hidden on phones and short screens (styles/map.css). */}
+          <ScaleControl position="bottom-left" unit={units} maxWidth={140} />
           {/* Added after the scale, so MapLibre stacks it above. Each archive brings its own credit (the terrain
               lines wherever the hillshade shows), and MapTiler's join them while its map shows. The Credits page
               has the rest. The control takes its custom credits only when made, so new credits make a new one. */}
@@ -345,11 +351,13 @@ export function MapView(props: Props) {
               aheadFrom={aheadFrom}
               corridor={corridor}
               lineLabels={basemap === 'literary' && view !== 'oblique'}
+              allJourneys={allJourneys}
             />
           )}
         </Map>
       </div>
-      {basemap === 'compare' && <CompareSwipe compareWith={compareWith} />}
+      {/* Keyed, so a change of the map compared makes the handle afresh with that map's name in its value. */}
+      {basemap === 'compare' && <CompareSwipe key={compareWith} compareWith={compareWith} />}
       {loaded && <MapFrame mapRef={mapRef} shown={framed} />}
       <MapControls
         basemap={basemap}
@@ -391,7 +399,7 @@ export function MapView(props: Props) {
           </div>
         </div>
         {(basemap === 'literary' || basemap === 'compare') && (
-          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} units={units} phone={phone} open={opened === 'key'} onOpen={onKeyOpen} landcover={landcover} />
+          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} units={units} phone={phone} open={opened === 'key'} onOpen={onKeyOpen} landcover={landcover} allJourneys={allJourneys} onAllJourneys={setAllJourneys} />
         )}
       </div>
     </div>

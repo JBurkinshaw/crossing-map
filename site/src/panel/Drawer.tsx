@@ -1,7 +1,7 @@
-import { useRef, useState, type FocusEvent, type KeyboardEvent, type PointerEvent, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type FocusEvent, type KeyboardEvent, type PointerEvent, type ReactNode } from 'react'
 
-// The phone shell of the panel (docs/design.md, section 9): a bottom sheet with three heights, peek (96 px, the
-// stepper only), half and full. The handle drags, taps (each tap raises it a step, from full back to peek) and
+// The phone shell of the panel (docs/design.md, section 9): a bottom sheet with three heights, peek (the stepper
+// only), half and full. The handle drags, taps (each tap raises it a step, from full back to peek) and
 // takes the arrow keys. The panel's own children go inside; Panel puts the stepper first so it shows at peek.
 
 export type DrawerHeight = 'peek' | 'half' | 'full'
@@ -10,7 +10,8 @@ const NAMES: Record<DrawerHeight, string> = { peek: 'lowered', half: 'half open'
 
 // A drag shorter than this is a tap; a release faster than this (px per ms) carries on to the next height.
 const TAP_PX = 6
-const PEEK_PX = 96
+// The peek height: --peek in styles/panel.css.
+const PEEK_PX = 112
 const FLICK = 0.5
 
 type Props = {
@@ -19,11 +20,18 @@ type Props = {
   onHeight: (height: DrawerHeight) => void
   // The part that shows at peek height; focus anywhere below it raises the drawer.
   peek: ReactNode
+  // What the drawer is about (the stop in focus): when it changes, the body scrolls back to its top, where the
+  // new stop's text starts.
+  subject?: string
   children: ReactNode
 }
 
-export function Drawer({ label, height, onHeight, peek, children }: Props) {
+export function Drawer({ label, height, onHeight, peek, subject, children }: Props) {
   const sheet = useRef<HTMLElement>(null)
+  const body = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    body.current?.scrollTo(0, 0)
+  }, [subject])
   const peekRow = useRef<HTMLDivElement>(null)
   // The height in px while the handle is dragged; null otherwise.
   const [dragged, setDragged] = useState<number | null>(null)
@@ -33,7 +41,7 @@ export function Drawer({ label, height, onHeight, peek, children }: Props) {
   const at = HEIGHTS.indexOf(height)
   const step = (by: number) => onHeight(HEIGHTS[Math.max(0, Math.min(HEIGHTS.length - 1, at + by))])
 
-  // Each height in px, as index.css sets them: peek is 96 px over the safe-area inset (the bottom padding).
+  // Each height in px, as styles/panel.css sets them: peek is PEEK_PX over the safe-area inset (the bottom padding).
   const heightsPx = () => {
     const el = sheet.current!
     const box = el.parentElement!.getBoundingClientRect().height
@@ -130,7 +138,9 @@ export function Drawer({ label, height, onHeight, peek, children }: Props) {
       <div className="drawer-peek" ref={peekRow}>
         {peek}
       </div>
-      <div className="drawer-body">{children}</div>
+      <div className="drawer-body" ref={body}>
+        {children}
+      </div>
     </aside>
   )
 }

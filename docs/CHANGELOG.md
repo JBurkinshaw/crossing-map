@@ -25,6 +25,16 @@ A change is **released** when it is merged to `main`, which the public site serv
 - The key's row for stops grouped together shows the marker as the map draws it, in the same sans-serif and saying "places" as nearly every marker does, beside its label instead of over it.
 - An open question can now show its other reading on the map: a button on the card draws a dashed ring where that reading would put the place, and frames it with the stop. A folded "More about this" gives the numbers behind the call. The question on the eastern escarpment (Part II) is the first to use both. On the Open questions page, the fold also links to how the call was tested.
 - How it's built has a new section, "How places are worked out", on the steps every stop goes through, and the Open questions page points to it.
+- On phones the drawer opens on the stop's text, with reading progress, the journey picker and search under it (decision 0060). The stepper shows a stop's whole name.
+- On phones the map draws only the journey being read, until "Show all journeys" is ticked in the key. It has a Key button in place of the title box, and no zoom buttons or scale. Background names come in later as the map zooms.
+- Each stop ends with a button to the next one. An open question on a stop or a card is folded to its title.
+- The first-visit dialog is shorter and opens at its top.
+- Every route is lettered with its journey's number, so its ink is not the only way to tell it (decision 0061).
+- A new page, Itinerary, gives every journey as text: its stops, what happens at each, and the Spanish spoken there (decision 0062).
+- Buttons, links and stop pins are easier to hit on touch screens, and small type on phones is larger.
+- A phone on its side and an upright tablet give the map more room.
+- Compare's dividing line has two buttons that move it without a drag.
+- How it's built is linked from the panel's header.
 
 ### 2026-11-17
 

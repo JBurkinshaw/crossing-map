@@ -33,7 +33,7 @@ These were "open questions" in the build plan; they are project decisions, not q
   - Almost every mountain glyph is dated 1-01. Is that fine?
   - 21 reasoning texts cite later episodes. Rewrite them, or keep the notice?
   - Rename the ids that name an event (`j4-shooting`, `j7-boyds-grave`, `vignette-taking-the-girl` and others, decision 0036)? They show in the published data and the sprite index.
-- **[decide] The drawer.** It opens at half height on first load so the progress badge and search show. Open at peek instead? Which places count as "far" for off-map arrows: the next stop when off screen, or every place named in the current episode? Should the terrain tile size (WebP or 512 px) be taken on with the relief work?
+- **[decide] The drawer.** It opens at half height on first load, on the stop's text (decision 0060). Open at peek instead? Which places count as "far" for off-map arrows: the next stop when off screen, or every place named in the current episode? Should the terrain tile size (WebP or 512 px) be taken on with the relief work?
 - **[decide] Photos** (`review/stage-6/photos-README.md`). Drop aerial views (as now), or keep USDA orthophotos and ISS photos as a last resort for back-country places? Should the 55 places with no Wikidata link get one by search, to reach their images? And the picks themselves, in `review/stage-6/photos.csv`.
 - **[decide] Vignettes** (`review/stage-6/vignettes/README.md`): the next picks (the locomotive at Las Varas and the cranes are next in line). Placement is decided (decision 0026).
 - **[decide] Relief.**
@@ -80,6 +80,21 @@ Seven more were settled as built on 2026-11-16, and the packet lists them under 
 - **[decide] Tiles v8** (`review/stage-8/tiles-v8/README.md`). Clip creeks by the lakes where they cross the Babícora lake? Capitalised, letter-spaced names for the major rivers, as on the Wheeler sheets?
 - **[research]** A hachure seam near 109.3° W, 32.0° N at zoom 10, west of the Peloncillos.
 
+### The UX review of 17 November 2026
+
+Decisions 0060 to 0062 record what was built. Still open:
+
+- **[decide] A preview image for shared links.** The page has `og:title` and `og:description` and no `og:image`, so a link on Reddit or in a chat shows as text. Wanted: 1200 by 630 px from the vintage map. Which view should it show?
+- **[decide] Zoom buttons on phones.** They were dropped with the scale (decision 0060). A pinch zooms, a double tap zooms in and Home zooms out to the journey, but nothing zooms out one step with a single tap, which WCAG 2.5.1 asks for. Bring back zoom out alone, both, or neither?
+- **[decide] The base map's roads read as routes.** They are thin dashed lines, and with the other journeys hidden on a phone they look like faint journeys. Redraw them (dotted, or in the hachures' brown), or leave them?
+- **[decide] Units.** They are in the Map menu with the views. They belong with the reader's tools, but the drawer has no spare place for them.
+- **[build] How it's built: the content,** then links from each method to the map in the state that shows it (the Oblique view, the hachures at zoom 12, an inferred area with its reasoning). The page is now linked from the panel's header. The owner wants to work on what it says first.
+- **[build] The first load on a phone.** `tools/first-load.mjs` on 18 November 2026, three runs with Lighthouse's mobile throttling: map ready in 14.7 s, drawn in 16.5 s, 2,135 kB in 35 requests. By size: the 2x sprite 740 kB, terrain tiles 578 kB, script 421 kB, story data 249 kB. Desktop, unthrottled: 1.6 s. The sprite is the first thing to cut: split the drawings from the summit glyphs so they load after the map, or quantise the PNG (needs `pngquant` or `oxipng`, and `spreet` to rebuild). The terrain tile size is the second (see "The drawer" above). The story data is already at five decimal places, and the translations are 30 kB gzipped, so neither is worth deferring.
+- **[owner] In-app browsers.** Open the preview from a Reddit post and a Messenger chat on iOS and Android. Check the drawer's heights, that reading progress survives a second visit, and whether two fingers can turn the map (there is no control to turn it north again).
+- **[owner] Usability tests before the Reddit post.** Three rounds, three readers from each audience (a first-time reader, a McCarthy reader, a map person), on their own phones, thinking aloud, with fixes between rounds. Tasks: say what the site is after five seconds, set the map for page 60 so it spoils nothing, find where the wolf crosses the border, say what a dashed line means, see a place on satellite, find out how sure the map is about a stop. Note whether each finds the key and the Map button unprompted.
+- **[owner] A screen-reader test** with VoiceOver and NVDA, starting from the Itinerary page (decision 0062).
+- **[owner] Check on the preview:** Compare's two step buttons and its spoken value, which localhost cannot show.
+
 ## 3. Unfinished stages
 
 - **Stage 1.**
@@ -105,7 +120,7 @@ Seven more were settled as built on 2026-11-16, and the packet lists them under 
 - **Stage 6.**
   - No photos are picked, and the photo pipeline after the picks is not built (the proposal is in `review/stage-6/photos-README.md`).
   - The thirteen vignettes are research-based drawings in the glyphs' pen; the other candidates in design section 10 are not drawn.
-  - Accessibility leftovers: the drawer handle at full height is out of thumb reach; no keyboard equivalent for hover names; no real screen-reader test.
+  - Accessibility leftovers: the drawer handle at full height is out of thumb reach, and there is no keyboard equivalent for hover names. The screen-reader test is in section 2.
 - **Stage 7.** The open items in section 2, then `maxZoom` 15 for street-level places.
 - **Stage 8.** Section 1, the stage 7 calls, street-level places, the declutter, and analytics, each as demand shows.
 
@@ -129,7 +144,6 @@ Seven more were settled as built on 2026-11-16, and the packet lists them under 
   - off-map arrows
   - drawer thumb reach and swipe-down
   - a keyboard equivalent for hover names
-  - a screen-reader test
   - the combined Soto Máynez label
   - the corridor-edge fade
   - the hand finish of the regions and the drafted areas in QGIS

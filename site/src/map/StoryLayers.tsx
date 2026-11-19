@@ -29,6 +29,8 @@ type Props = {
   // The vintage map letters ranges and valleys along their axis (relief.ts, landform-label); their point labels
   // then step aside. Off where the base map is hidden or replaced (satellite, the Oblique view).
   lineLabels: boolean
+  // Every journey reached, or only the one in focus: a phone's map is too small for seven at once (decision 0060).
+  allJourneys: boolean
 }
 
 // The type scale (tokens.ts; decision 0027): towns in roman at about 1.4 times the spot height, the cities in
@@ -59,7 +61,7 @@ function taleDiamond(): ImageData {
   return ctx.getImageData(0, 0, size, size)
 }
 
-export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, corridor: road, lineLabels }: Props) {
+export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selectedId, aheadFrom, corridor: road, lineLabels, allJourneys }: Props) {
   const { current: mapRef } = useMap()
   const landforms = useJson<FeatureCollection>('map/landforms.geojson', lineLabels)
   const lined = useMemo(
@@ -149,6 +151,11 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
   const inkByJourney = ['match', ['get', 'journey'], ...Object.entries(journeyInk).flat(), tokens.ink] as unknown as ExpressionSpecification
   const journey = stops[0]?.properties.journey ?? ''
   const inFocus: ExpressionSpecification = ['==', ['get', 'journey'], journey]
+  // A journey layer's filter, narrowed to the journey in focus when the others are not drawn.
+  const drawn = (f: ExpressionSpecification): ExpressionSpecification => (allJourneys ? f : ['all', f, inFocus])
+  const isRegion: ExpressionSpecification = ['==', ['get', 'kind'], 'region']
+  const notRegion: ExpressionSpecification = ['!=', ['get', 'kind'], 'region']
+  const notSightline: ExpressionSpecification = ['!=', ['get', 'kind'], 'sightline']
   const selected: ExpressionSpecification = ['==', ['get', 'id'], selectedId ?? '']
   const currentArea = (current && areaOfStop(story, current)?.properties.id) ?? ''
   // A segment joins stop `sequence` to the next, so the road ahead starts at the current stop's sequence.
@@ -235,12 +242,13 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         <Layer
           id="areas-fill"
           type="fill"
+          filter={['any', isRegion, drawn(notRegion)]}
           paint={{ 'fill-color': inkByJourney, 'fill-opacity': ['case', ['==', ['get', 'kind'], 'region'], 0, inFocus, 0.18, 0.05] }}
         />
         <Layer
           id="areas-edge"
           type="line"
-          filter={['!=', ['get', 'kind'], 'region']}
+          filter={drawn(notRegion)}
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{ 'line-color': inkByJourney, 'line-width': 1.5, 'line-dasharray': [0.1, 2.5], 'line-opacity': ['case', inFocus, 0.9, 0.3] }}
         />
@@ -266,7 +274,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         <Layer
           id="areas-edge-hit"
           type="line"
-          filter={['!=', ['get', 'kind'], 'region']}
+          filter={drawn(notRegion)}
           layout={{ 'line-join': 'round' }}
           paint={{ 'line-color': tokens.ink, 'line-width': 12, 'line-opacity': 0 }}
         />
@@ -299,6 +307,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         <Layer
           id="journeys-casing"
           type="line"
+          filter={drawn(['boolean', true])}
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{ 'line-color': tokens.paper, 'line-width': ['case', inFocus, 6.5, 3.5], 'line-opacity': ['case', inFocus, 0.8, 0.5] }}
         />
@@ -308,7 +317,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         <Layer
           id="journeys-line"
           type="line"
-          filter={['==', ['get', 'method'], 'narrated-path']}
+          filter={drawn(['==', ['get', 'method'], 'narrated-path'])}
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
@@ -319,7 +328,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         <Layer
           id="journeys-line-schematic"
           type="line"
-          filter={['all', ['!', ['in', ['get', 'method'], ['literal', ['narrated-path', 'modeled']]]], ['!=', ['get', 'kind'], 'sightline']]}
+          filter={drawn(['all', ['!', ['in', ['get', 'method'], ['literal', ['narrated-path', 'modeled']]]], notSightline])}
           layout={{ 'line-cap': 'butt', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
@@ -331,7 +340,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         <Layer
           id="journeys-line-modeled"
           type="line"
-          filter={['==', ['get', 'method'], 'modeled']}
+          filter={drawn(['==', ['get', 'method'], 'modeled'])}
           layout={{ 'line-cap': 'butt', 'line-join': 'round' }}
           paint={{
             'line-color': inkByJourney,
@@ -344,7 +353,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         <Layer
           id="journeys-hit"
           type="line"
-          filter={['!=', ['get', 'kind'], 'sightline']}
+          filter={drawn(notSightline)}
           layout={{ 'line-cap': 'round', 'line-join': 'round' }}
           paint={{ 'line-color': tokens.ink, 'line-width': 14, 'line-opacity': 0 }}
         />
@@ -352,7 +361,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         <Layer
           id="journeys-sightline"
           type="line"
-          filter={['==', ['get', 'kind'], 'sightline']}
+          filter={drawn(['==', ['get', 'kind'], 'sightline'])}
           layout={{ 'line-cap': 'round' }}
           paint={{ 'line-color': inkByJourney, 'line-width': 2, 'line-opacity': ['case', inFocus, 0.9, 0.6], 'line-dasharray': [0.1, 2.5] }}
         />

@@ -266,3 +266,15 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
     layers,
   }
 }
+
+// On a phone the background names come in later (decision 0060): a 390 px map has a quarter of a desktop map's
+// room at the same zoom, and these names crowd the story's pins there. The story's own labels and the summits keep
+// their zooms.
+const PHONE_LATER = ['context-place', 'water-place', 'pass-label', 'creek-label', 'contour-label']
+const PHONE_DELAY = 1.5
+export function fewerLabels(style: StyleSpecification): StyleSpecification {
+  return {
+    ...style,
+    layers: style.layers.map((l) => (PHONE_LATER.includes(l.id) ? { ...l, minzoom: (l.minzoom ?? 0) + PHONE_DELAY } : l)),
+  }
+}

@@ -96,16 +96,18 @@ export function Panel(props: Props) {
     if (!open && picked) setShutOnPick(currentTranslation)
     onSpanish(open)
   }
-  // "Read on" can vanish with the stop it was on, so focus moves to the stop's name once the new episode shows.
+  // "Read on" can vanish with the stop it was on, and the Next button at the foot of a stop leaves the reader at
+  // the foot of the one after. Both move focus to the stop's name once it shows, which also scrolls it into view.
   const heading = useRef<HTMLHeadingElement>(null)
-  const readingOn = useRef(false)
+  const toHeading = useRef(false)
   useEffect(() => {
-    if (!readingOn.current) return
-    readingOn.current = false
+    if (!toHeading.current) return
+    toHeading.current = false
     heading.current?.focus()
-  }, [reached])
+  }, [reached, stopIndex])
 
-  // What the site is, and the two pages a new reader wants first; the footer links hold the rest.
+  // What the site is, the page a new reader wants first, and the page that shows the craft. The footer links hold
+  // the rest.
   const siteHeader = (
     <header className="panel-header">
       <p className="panel-title">
@@ -113,6 +115,7 @@ export function Panel(props: Props) {
       </p>
       <nav aria-label="About this site">
         <a href="#/about">About</a>
+        <a href="#/about/how-its-built">How it’s built</a>
         <button type="button" className="link" onClick={showIntroduction}>
           Introduction
         </button>
@@ -122,7 +125,6 @@ export function Panel(props: Props) {
 
   const links = (
     <nav className="site-links" aria-label="Pages">
-      <a href="#/about/how-its-built">How it’s built</a>
       <a href="#/open-questions">Open questions</a>
       <a href="#/data">Data</a>
       <a href="#/credits">Credits</a>
@@ -236,6 +238,20 @@ export function Panel(props: Props) {
           The last stop of {journey}. “On to {nextTo}” goes on to the next journey: {JOURNEYS[nextTo] ?? nextTo}.
         </p>
       )}
+      {/* Where the reading of a stop ends, the way on to the next one, so the reader need not scroll back up to
+          the stepper (decision 0060). */}
+      {next && (
+        <button
+          type="button"
+          className="next-stop"
+          onClick={() => {
+            toHeading.current = true
+            onStop(stopIndex + 1)
+          }}
+        >
+          Next: {next.properties.name}
+        </button>
+      )}
       {/* The end of what the reader has reached: reading on shows one more episode (decision 0053). */}
       {readOn && (
         <div className="read-on">
@@ -243,7 +259,7 @@ export function Panel(props: Props) {
           <button
             type="button"
             onClick={() => {
-              readingOn.current = true
+              toHeading.current = true
               onReadOn()
             }}
           >
@@ -318,23 +334,24 @@ export function Panel(props: Props) {
     </details>
   )
 
-  // The panel reads from the general to the particular: reading progress and search, which govern the whole
-  // map; then the way through a journey (which journey, Back and Next, all its stops); then what is in focus
+  // The desktop panel reads from the general to the particular: reading progress and search, which govern the
+  // whole map; then the way through a journey (which journey, Back and Next, all its stops); then what is in focus
   // (the card for a pick on the map or in search, and the current stop); then places beyond the map and the
-  // page links. Phones put the stepper in the drawer's peek row, nearest the thumb; then reading progress, so the
-  // drawer opened half way says how much the map hides; then the journey and its stops, then search.
+  // page links. A phone shows a few lines of the drawer at a time, so there the story comes first (decision 0060):
+  // the stepper in the peek row, nearest the thumb, then the card and the stop, then the reader's tools (progress,
+  // journey, stops, search), then what the site is and its pages.
   if (phone) {
     return (
-      <Drawer label="Journey" height={drawer} onHeight={onDrawer} peek={stepper}>
-        {siteHeader}
+      <Drawer label="Journey" height={drawer} onHeight={onDrawer} peek={stepper} subject={stop?.properties.id}>
+        {failure}
+        {card}
+        {stopSection}
         {header}
         {journeyPick}
         {stopList}
         {search}
-        {failure}
-        {card}
-        {stopSection}
         {elsewhereList}
+        {siteHeader}
         {links}
       </Drawer>
     )
