@@ -25827,7 +25827,15 @@
     "note_safe": "",
     "reasoning": "He passes back north through the mesa hamlets of Álamo and Galeana, places he had come through before. Which Álamo is unresolved (docs/open-questions.md): the estimate is GeoNames 4018952, 15 km south-west of San Buenaventura, and the area covers El Álamo north-east of the town too.",
     "outline_rule": null,
-    "straight_road": false
+    "straight_road": false,
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "differs",
+      "note": "pins an Álamo in Sonora",
+      "distance_km": 211
+     }
+    ]
    }
   },
   {

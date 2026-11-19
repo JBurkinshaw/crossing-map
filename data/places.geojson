@@ -28,7 +28,21 @@
     "source_id": "9028461",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "This Sierra de la Madera is the Sky Island range in the municipios of Cumpas, Granados, Huásabas, Moctezuma and Villa Hidalgo (Bermudez-Enriquez et al. 2013, USDA RMRS-P-67, who call it Sierra La Madera). GeoNames 9028461 lies between those towns: 27 km east of Cumpas and 21 km west of Huásabas on the Bavispe (pipeline/measure/distances.py). The book puts the wolf on its eastern slopes, then across the Bavispe and north, which fits a range bounded on the east by the river. Readers disagree: Bell (2000) and Joe Hazelton's map take the other Sierra de la Madera, on the upper Bavispe (GeoNames 3996948), 81 km north-east. That range lies east of the river, so from it the wolf would reach the border without crossing the Bavispe, which the text has her do."
+    "reasoning": "This Sierra de la Madera is the Sky Island range in the municipios of Cumpas, Granados, Huásabas, Moctezuma and Villa Hidalgo (Bermudez-Enriquez et al. 2013, USDA RMRS-P-67, who call it Sierra La Madera). GeoNames 9028461 lies between those towns: 27 km east of Cumpas and 21 km west of Huásabas on the Bavispe (pipeline/measure/distances.py). The book puts the wolf on its eastern slopes, then across the Bavispe and north, which fits a range bounded on the east by the river. Readers disagree: Bell (2000) and Joe Hazelton's map take the other Sierra de la Madera, on the upper Bavispe (GeoNames 3996948), 81 km north-east. That range lies east of the river, so from it the wolf would reach the border without crossing the Bavispe, which the text has her do.",
+    "leads": [
+     {
+      "source": "bell-2000",
+      "relation": "differs",
+      "note": "reads it as the other range of the name, east of the upper Bavispe",
+      "distance_km": 81
+     },
+     {
+      "source": "reddit-gaia",
+      "relation": "differs",
+      "note": "pins the same range as Bell",
+      "distance_km": 81
+     }
+    ]
    }
   },
   {
@@ -178,7 +192,15 @@
     "source_id": "43100",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": null,
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "differs",
+      "note": "pins the range farther north",
+      "distance_km": 79
+     }
+    ]
    }
   },
   {
@@ -390,7 +412,14 @@
     "source_id": "920578",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": null,
+    "leads": [
+     {
+      "source": "bell-2000",
+      "relation": "agrees",
+      "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
+     }
+    ]
    }
   },
   {
@@ -422,7 +451,14 @@
     "source_id": "920606",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": null,
+    "leads": [
+     {
+      "source": "bell-2000",
+      "relation": "agrees",
+      "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
+     }
+    ]
    }
   },
   {
@@ -775,7 +811,14 @@
     "source_id": "894461",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": null
+    "reasoning": null,
+    "leads": [
+     {
+      "source": "bell-2000",
+      "relation": "agrees",
+      "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
+     }
+    ]
    }
   },
   {
@@ -803,7 +846,14 @@
     "source_id": "886444",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 886444, the small Black Point in Hidalgo County about 4 km north of Cloverdale, not the larger Black Point in Grant County. Bell 2000 marks the same summit on his map of Hidalgo County (Figure 3.2, read to about 2 km), and Joe Hazelton's map agrees to within 30 m."
+    "reasoning": "GNIS 886444, the small Black Point in Hidalgo County about 4 km north of Cloverdale, not the larger Black Point in Grant County. Bell 2000 marks the same summit on his map of Hidalgo County (Figure 3.2, read to about 2 km), and Joe Hazelton's map agrees to within 30 m.",
+    "leads": [
+     {
+      "source": "bell-2000",
+      "relation": "agrees",
+      "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
+     }
+    ]
    }
   },
   {
@@ -2087,7 +2137,15 @@
     "source_id": "8749710",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The gazetteer's pick, Boquilla y Anexas in Guerrero municipio (GeoNames 3976048, the INEGI locality the plan names), is 135 km straight-line south-east of Las Varas and nowhere near the lake, so it does not fit. GeoNames 8749710, La Boquilla in Gómez Farías municipio, is 32 km east-south-east of Las Varas and 10 km east of Laguna de Babícora, on the route La Boquilla to La Pinta (15 km) to Santa Ana (44 km), matching the road east from Las Varas by the lake and the road south to Santa Ana. It sits 2 km east of the town of Valentín Gómez Farías. No source was found that gives the name Boquilla y Anexas there."
+    "reasoning": "The gazetteer's pick, Boquilla y Anexas in Guerrero municipio (GeoNames 3976048, the INEGI locality the plan names), is 135 km straight-line south-east of Las Varas and nowhere near the lake, so it does not fit. GeoNames 8749710, La Boquilla in Gómez Farías municipio, is 32 km east-south-east of Las Varas and 10 km east of Laguna de Babícora, on the route La Boquilla to La Pinta (15 km) to Santa Ana (44 km), matching the road east from Las Varas by the lake and the road south to Santa Ana. It sits 2 km east of the town of Valentín Gómez Farías. No source was found that gives the name Boquilla y Anexas there.",
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "differs",
+      "note": "pins the La Boquilla near Mata Ortiz",
+      "distance_km": 102
+     }
+    ]
    }
   },
   {
@@ -2179,7 +2237,13 @@
     "source_id": "3975183",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 3975183 (Madera municipio, matching Wikidata Q49979501, and Ejido La Norteña 4011547 is a near duplicate) lies in the sierras 45 km straight-line west-north-west of Las Varas and 110 km west of Namiquipa. That fits a wagon road from La Norteña in the western sierras across the Babícora plains to Namiquipa, and Billy's ride west as far as the watershed."
+    "reasoning": "GeoNames 3975183 (Madera municipio, matching Wikidata Q49979501, and Ejido La Norteña 4011547 is a near duplicate) lies in the sierras 45 km straight-line west-north-west of Las Varas and 110 km west of Namiquipa. That fits a wagon road from La Norteña in the western sierras across the Babícora plains to Namiquipa, and Billy's ride west as far as the watershed.",
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "agrees"
+     }
+    ]
    }
   },
   {
@@ -2511,7 +2575,14 @@
     "source_id": "899669",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 899669, Hermanas in Luna County, on the old road from Deming to Hachita. Hachita is 36 km straight-line west, matching the order in 4-01 and 4-08."
+    "reasoning": "GNIS 899669, Hermanas in Luna County, on the old road from Deming to Hachita. Hachita is 36 km straight-line west, matching the order in 4-01 and 4-08.",
+    "leads": [
+     {
+      "source": "bell-2000",
+      "relation": "agrees",
+      "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
+     }
+    ]
    }
   },
   {
@@ -2938,7 +3009,14 @@
     "source_id": "3994946",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 3994946 Sierra el Nido (alt Sierra del Nido), the only range of that name in Chihuahua. Its centre point is 73 km from San Buenaventura at a bearing of 116 degrees (straight-line), so ESE rather than due south as the text has it. The range is long and its high peaks may read as south from the cemetery road. A point is acceptable, but the range could be drawn as an area."
+    "reasoning": "GeoNames 3994946 Sierra el Nido (alt Sierra del Nido), the only range of that name in Chihuahua. Its centre point is 73 km from San Buenaventura at a bearing of 116 degrees (straight-line), so ESE rather than due south as the text has it. The range is long and its high peaks may read as south from the cemetery road. A point is acceptable, but the range could be drawn as an area.",
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "differs",
+      "note": "pins a village of that name"
+     }
+    ]
    }
   },
   {
@@ -3089,7 +3167,15 @@
     "source_id": "920698",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "GNIS 920698, Santa Rita (historical), the company town swallowed by the Chino open pit, on the old road east from Silver City: 21 km straight-line east of Silver City and 13 km west of San Lorenzo, matching the order in 4-08. The gazetteer pick (Q116713231) is a mine power station, and the Mexican Santa Ritas are irrelevant."
+    "reasoning": "GNIS 920698, Santa Rita (historical), the company town swallowed by the Chino open pit, on the old road east from Silver City: 21 km straight-line east of Silver City and 13 km west of San Lorenzo, matching the order in 4-08. The gazetteer pick (Q116713231) is a mine power station, and the Mexican Santa Ritas are irrelevant.",
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "differs",
+      "note": "pins the Tyrone mine",
+      "distance_km": 33
+     }
+    ]
    }
   },
   {
@@ -3264,7 +3350,15 @@
     "source_id": "3971312",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 3971312 La Ramada lies 28 km straight-line east-south-east of Bacerac in the mountains towards Chihuahua, and Ciénega de Horcones (GeoNames 8881777) lies 7 km beyond it to the east, which matches the text's track east from Bacerac ending at Las Ramadas before the divide to Los Horcones (2-08). The spelling differs (singular), and the gazetteer's pick, a picnic ground near Phoenix, is wrong."
+    "reasoning": "GeoNames 3971312 La Ramada lies 28 km straight-line east-south-east of Bacerac in the mountains towards Chihuahua, and Ciénega de Horcones (GeoNames 8881777) lies 7 km beyond it to the east, which matches the text's track east from Bacerac ending at Las Ramadas before the divide to Los Horcones (2-08). The spelling differs (singular), and the gazetteer's pick, a picnic ground near Phoenix, is wrong.",
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "differs",
+      "note": "pins a hill named Cerro las Ramadas",
+      "distance_km": 121
+     }
+    ]
    }
   },
   {
@@ -3405,7 +3499,15 @@
     "source_id": "Q65121339",
     "source_licence": "CC0",
     "note_safe": "",
-    "reasoning": "Wikidata Q65121339, Fort Bliss Main Post Historic District in El Paso, the 1940s post the sergeant names (4-01), 8 km from central El Paso. The GNIS Fort Bliss point in Otero County (GNIS 2512186) is the training range, 64 km away, inside the story box near its east edge."
+    "reasoning": "Wikidata Q65121339, Fort Bliss Main Post Historic District in El Paso, the 1940s post the sergeant names (4-01), 8 km from central El Paso. The GNIS Fort Bliss point in Otero County (GNIS 2512186) is the training range, 64 km away, inside the story box near its east edge.",
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "differs",
+      "note": "pins the training range, not the post",
+      "distance_km": 107
+     }
+    ]
    }
   },
   {
@@ -3490,7 +3592,13 @@
     "source_id": "3975344",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 3975344, the municipal seat Ignacio Zaragoza (PPLA2), 37 km SW of San Buenaventura (straight-line), where Boyd is buried, so a natural place for the rumour of his death. The other Chihuahua namesakes (3975343 near Janos, 141 km NW; El Willy 3975345; 4004419 near Cuauhtémoc) are smaller and farther from the story's events."
+    "reasoning": "GeoNames 3975344, the municipal seat Ignacio Zaragoza (PPLA2), 37 km SW of San Buenaventura (straight-line), where Boyd is buried, so a natural place for the rumour of his death. The other Chihuahua namesakes (3975343 near Janos, 141 km NW; El Willy 3975345; 4004419 near Cuauhtémoc) are smaller and farther from the story's events.",
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "agrees"
+     }
+    ]
    }
   },
   {
@@ -3576,7 +3684,13 @@
     "source_id": "4005067",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 4005067 Sección Estación Guzmán, the railway settlement on the Juárez to Casas Grandes line, 75 km NE of Corralitos (straight-line), so a road coming down from Guzmán and Sabinal would cross Billy's route SE of Casas Grandes. The only other Guzmán is in Sonora. The text may mean the older Guzmán settlement or the Laguna de Guzmán area, which lie nearby."
+    "reasoning": "GeoNames 4005067 Sección Estación Guzmán, the railway settlement on the Juárez to Casas Grandes line, 75 km NE of Corralitos (straight-line), so a road coming down from Guzmán and Sabinal would cross Billy's route SE of Casas Grandes. The only other Guzmán is in Sonora. The text may mean the older Guzmán settlement or the Laguna de Guzmán area, which lie nearby.",
+    "leads": [
+     {
+      "source": "bell-2000",
+      "relation": "agrees"
+     }
+    ]
    }
   },
   {
@@ -3718,7 +3832,13 @@
     "source_id": "4011908",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 4011908 is the municipal seat (Wikidata Q3844435), 66 km straight-line north-north-west of Sahuaripa, so a truck coming down from it reaches Sahuaripa and goes on south-west to Bacanora. Divisadero near Cananea (270 km) and an unnamed Divisaderos south-west of Tónichi (108 km, the wrong side of the route) fit less well. The text only says the truck came from there, not that the gypsies went there."
+    "reasoning": "GeoNames 4011908 is the municipal seat (Wikidata Q3844435), 66 km straight-line north-north-west of Sahuaripa, so a truck coming down from it reaches Sahuaripa and goes on south-west to Bacanora. Divisadero near Cananea (270 km) and an unnamed Divisaderos south-west of Tónichi (108 km, the wrong side of the route) fit less well. The text only says the truck came from there, not that the gypsies went there.",
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "agrees"
+     }
+    ]
    }
   },
   {
@@ -3890,7 +4010,13 @@
     "source_id": "3988731",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 3988731 Flores Magón (Wikidata Q49984203, Buenaventura municipality), the farming town 49 km ENE of San Buenaventura (straight-line), near the region of Billy's search. A second Flores Magón 8744544 is a small place 14 km west. The Ricardo Flores Magón entries are urban colonias in Chihuahua city, Delicias and Juárez."
+    "reasoning": "GeoNames 3988731 Flores Magón (Wikidata Q49984203, Buenaventura municipality), the farming town 49 km ENE of San Buenaventura (straight-line), near the region of Billy's search. A second Flores Magón 8744544 is a small place 14 km west. The Ricardo Flores Magón entries are urban colonias in Chihuahua city, Delicias and Juárez.",
+    "leads": [
+     {
+      "source": "reddit-gaia",
+      "relation": "agrees"
+     }
+    ]
    }
   },
   {

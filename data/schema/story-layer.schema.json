@@ -206,6 +206,37 @@
           "type": "boolean",
           "description": "Context places: the gazetteer names the feature \"(historical)\", that is gone or no longer in use; the name is given without it."
         },
+        "leads": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Places, stops and areas: second sources that place the feature too, and whether they agree with this map's point (decision 0065). A lead states a fact in words, never a coordinate: the second sources' own points are not republished.",
+          "items": {
+            "type": "object",
+            "required": ["source", "relation"],
+            "additionalProperties": false,
+            "properties": {
+              "source": {
+                "enum": ["bell-2000", "reddit-gaia"],
+                "description": "bell-2000: James Luther Bell, Contextualizing Cormac McCarthy's Border Trilogy: An Annotative Approach, PhD dissertation, Texas Tech University, 2000. In copyright: facts used and cited by page, text not copied. Credit \"Bell 2000\". reddit-gaia: Joe Hazelton's Gaia GPS map of The Crossing, shared on r/cormacmccarthy. Credited with the author's permission, which is not a licence: his pins are not copied into this data. Credit \"Joe Hazelton's map\"."
+              },
+              "relation": {
+                "enum": ["agrees", "differs"],
+                "description": "agrees: the source puts the feature where this map does. differs: it puts it more than 10 km away, and this map keeps its own point."
+              },
+              "page": {"type": "string", "pattern": "^[0-9]+(–[0-9]+)?$", "description": "bell-2000: the page of the dissertation."},
+              "distance_km": {
+                "type": "number",
+                "minimum": 0,
+                "description": "How far the source's point is from this map's, in whole kilometres."
+              },
+              "note": {"type": "string", "minLength": 1, "description": "A short note in this site's own words."},
+              "first_seen": {
+                "$ref": "#/$defs/episode",
+                "description": "Only where the lead itself would reveal a later episode than its feature's; otherwise it shows with the feature."
+              }
+            }
+          }
+        },
         "photo_ids": {"type": "array", "items": {"type": "string"}},
         "vignette": {"type": ["string", "null"], "description": "Vignettes: the drawing's name in the map sprite."},
         "stands_for": {"type": "string", "description": "Vignettes: what the drawing stands for in the book."},

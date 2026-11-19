@@ -35,6 +35,9 @@ def arrow_type(spec: dict) -> pa.DataType:
     kinds = spec["type"] if isinstance(spec["type"], list) else [spec["type"]]
     kind = next(k for k in kinds if k != "null")
     if kind == "array":
+        items = spec.get("items", {})
+        if items.get("type") == "object":  # a list of records, such as leads: a field for each of their properties
+            return pa.list_(pa.struct([pa.field(k, arrow_type(v)) for k, v in items["properties"].items()]))
         return pa.list_(pa.string())
     return {"string": pa.string(), "integer": pa.int64(), "number": pa.float64(), "boolean": pa.bool_()}[kind]
 

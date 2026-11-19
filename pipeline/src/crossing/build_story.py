@@ -2,7 +2,8 @@
 
 Run from the repo root: uv run --project pipeline python -m crossing.build_story
 Reads places.csv (every place the book names, plus context towns), place-picks.csv (crossing.gazetteer's picks),
-place-overrides.csv (hand decisions, which win over a pick), stops.csv, snaps.csv and regions.geojson.
+place-overrides.csv (hand decisions, which win over a pick), stops.csv, snaps.csv, regions.geojson and leads.csv
+(the second sources that place a place or stop too).
 Writes data/places.geojson, data/stops.geojson, data/areas.geojson, data/journeys.geojson, data/elsewhere.json
 (places outside the story box, listed in the panel rather than mapped) and the stage 4 sign-off checklists,
 keeping any row already ticked.
@@ -43,7 +44,11 @@ from crossing.paths import DATA, REPO, SEEDS, STORY_BOX
 GEOD = Geod(ellps="WGS84")
 LICENCE = {"wikidata": "CC0", "gnis": "Public domain", "geonames": "CC BY 4.0", "this-site": "CC BY 4.0",
            "usgs-nhd": "Public domain", "census-tiger": "Public domain", "natural-earth": "Public domain",
-           "inegi": "INEGI free-use terms (Fuente: INEGI)"}
+           "inegi": "INEGI free-use terms (Fuente: INEGI)",
+           # Second sources, named only in a feature's leads: neither fixes a coordinate (decision 0065).
+           "bell-2000": "In copyright: facts cited by page, text not copied (credit: Bell 2000)",
+           "reddit-gaia": "Credited with the author's permission, not a licence: no pin copied "
+                          "(credit: Joe Hazelton's map)"}
 # Each snap source: the feature's source id, the name field and layer it is read by, whether it is a road or a
 # river, and the dataset as the "How this line was drawn" text names it.
 SNAPS = {
@@ -381,6 +386,30 @@ def in_box(lat: float, lon: float) -> bool:
     return STORY_BOX[0] <= lon <= STORY_BOX[2] and STORY_BOX[1] <= lat <= STORY_BOX[3]
 
 
+def leads() -> dict[str, list[dict]]:
+    """Each feature's leads from leads.csv: the second sources that place it too, and whether they agree (decision
+    0065). Empty cells are left out, so a lead without its own first_seen shows with its feature."""
+    out: dict[str, list[dict]] = {}
+    for r in rows(SEEDS / "leads.csv"):
+        if r["source"] not in LICENCE:
+            sys.exit(f"leads.csv {r['feature']}: no source {r['source']!r}")
+        lead = {k: r[k] for k in ("source", "relation", "page", "note", "first_seen") if r[k]}
+        if r["distance_km"]:
+            lead["distance_km"] = round(float(r["distance_km"]))
+        out.setdefault(r["feature"], []).append(lead)
+    return out
+
+
+def with_leads(features: list[dict], found: dict[str, list[dict]]) -> list[dict]:
+    """The features, each with its leads, if it has any. An area carries its stop's, as it carries its reasoning."""
+    for f in features:
+        fid = f["properties"]["id"]
+        lead = found.get(fid) or found.get(fid.removeprefix("area-"))
+        if lead:
+            f["properties"]["leads"] = lead
+    return features
+
+
 def build_places(picks: dict[str, dict]) -> tuple[list[dict], dict[str, tuple], list[dict]]:
     """Each place's pin: its override when there is one ("use", "exclude" or "unresolved"), else its gazetteer pick.
 
@@ -568,11 +597,14 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
 def main() -> None:
     picks = {p["id"]: p for p in rows(SEEDS / "place-picks.csv")}
     places, pins, elsewhere = build_places(picks)
-    write("places.geojson", places)
-    write_json(DATA / "elsewhere.json", elsewhere)
     stops, areas, by_journey = build_stops(pins)
-    write("stops.geojson", stops)
-    write("areas.geojson", areas + regions())
+    found = leads()
+    if unknown := sorted(found.keys() - {f["properties"]["id"] for f in places + stops}):
+        sys.exit(f"leads.csv names no place or stop: {', '.join(unknown)}")
+    write("places.geojson", with_leads(places, found))
+    write_json(DATA / "elsewhere.json", elsewhere)
+    write("stops.geojson", with_leads(stops, found))
+    write("areas.geojson", with_leads(areas + regions(), found))
     write("journeys.geojson", build_routes(by_journey))
     for checklist in CHECKLISTS:
         listed = [f for f in places if f["properties"]["id"].removeprefix("place-") not in picks

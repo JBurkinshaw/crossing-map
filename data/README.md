@@ -39,6 +39,8 @@ This site's own data and notes are CC BY 4.0 (`LICENSE`). The English translatio
 | GeoNames | Places, summits, passes, springs, ranches, and stations in Mexico | CC BY 4.0 | "GeoNames" |
 | USGS GNIS | Places, summits, passes, and springs in the US | Public domain | Courtesy of the U.S. Geological Survey (GNIS) |
 | Wikidata | A few place locations | CC0 | Courtesy link |
+| Bell (2000), *Contextualizing Cormac McCarthy's Border Trilogy* | The `leads` of places and stops (`bell-2000`): whether his reading agrees with the map's point. No coordinate or text of his is copied (decision 0065) | In copyright: facts cited, by page where given | "Bell 2000" |
+| Joe Hazelton's Gaia GPS map of *The Crossing*, found on Reddit | The `leads` of places and stops (`reddit-gaia`): whether his pin agrees with the map's point, and how far away it is. No pin is copied (decision 0065) | Used with the author's permission, not a licence | "Joe Hazelton's map" |
 | GMBA Mountain Inventory v2 | The axes of US ranges in `landforms.geojson` | CC BY 4.0 | "GMBA Mountain Inventory v2 (Snethlage et al. 2022), GMBA and EarthEnv" |
 | Copernicus DEM GLO-30 | Summits, passes, hachures, contours, and the Oblique view | Copernicus DEM licence | The notice below |
 | CEC North American Land Cover 2020 (30 m) | The land cover in `landcover.pmtiles` and the Oblique view, its classes re-read with height (decision 0040) | CC BY 4.0 | The CEC citation below |

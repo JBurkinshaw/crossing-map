@@ -202,3 +202,40 @@ def test_a_stop_point_must_lie_inside_its_area():
     stops = {"features": [{"properties": {"id": "a"}, "geometry": {"coordinates": [-108.5, 31.5]}},
                           {"properties": {"id": "b"}, "geometry": {"coordinates": [-108.7, 31.5]}}]}
     assert validate.check_points_in_areas(stops, areas) == ["b: its point lies outside area-b"]
+
+
+def test_leads_pass():
+    leads = [{"source": "bell-2000", "relation": "agrees", "page": "394"},
+             {"source": "reddit-gaia", "relation": "differs", "distance_km": 81, "note": "Pins the other range.",
+              "first_seen": "2-01"}]
+    doc = collection(feature("place-a", kind="town", role="stop", leads=leads))
+    assert validate.check_layer(doc, "places", EPISODES) == []
+
+
+@pytest.mark.parametrize("lead, error", [
+    ({"source": "wikipedia", "relation": "agrees"}, "is not one of"),
+    ({"source": "bell-2000", "relation": "maybe"}, "is not one of"),
+    ({"source": "reddit-gaia", "relation": "differs", "lat": 31.5, "lon": -108.9}, "Additional properties"),
+    ({"source": "reddit-gaia", "relation": "differs", "note": "Pinned at 31.4526, -108.9012."}, "gives a coordinate"),
+    ({"source": "reddit-gaia", "relation": "differs", "note": "Pinned near 108° W."}, "gives a coordinate"),
+    ({"source": "reddit-gaia", "relation": "agrees", "page": "12"}, "only Bell's leads have a page"),
+    ({"source": "bell-2000", "relation": "agrees", "first_seen": "1-01"}, "before its feature's 1-02"),
+    ({"source": "bell-2000", "relation": "agrees", "first_seen": "2-12"}, "not an episode"),
+])
+def test_bad_lead_is_reported(lead, error):
+    doc = collection(feature("place-a", kind="town", role="stop", first_seen="1-02", leads=[lead]))
+    errors = validate.check_layer(doc, "places", EPISODES)
+    assert any(error in e for e in errors), errors
+
+
+def test_a_source_leads_once_per_feature():
+    lead = {"source": "bell-2000", "relation": "agrees"}
+    doc = collection(feature("place-a", kind="town", role="stop", leads=[lead, lead]))
+    assert any("name bell-2000 twice" in e for e in validate.check_layer(doc, "places", EPISODES))
+
+
+def test_leads_only_on_places_stops_and_areas():
+    line = {"type": "LineString", "coordinates": [[-108.5, 31.5], [-108.4, 31.6]]}
+    doc = collection(feature("j1-seg-01", kind="route-segment", sequence=1, geometry=line,
+                             leads=[{"source": "bell-2000", "relation": "agrees"}]))
+    assert any("leads are only for" in e for e in validate.check_layer(doc, "journeys", EPISODES))

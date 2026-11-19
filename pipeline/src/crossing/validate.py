@@ -7,8 +7,9 @@ Besides each schema, it checks what a schema cannot: every episode id names a re
 reference points at a feature that exists and is reached no later than the thing pointing at it,
 each journey's stops and segments are numbered without gaps, and the Oblique view's copies hold the
 same features, first seen at the same episodes, as the flat layers, and every stop's point lies inside
-its own area. It also checks that every glyph and vignette the data names has an icon in the committed
-sprite, which CI cannot rebuild.
+its own area. A feature's leads (the second sources that place it too) must name each source once, give no
+coordinate and show no earlier than their feature. It also checks that every glyph and vignette the data names
+has an icon in the committed sprite, which CI cannot rebuild.
 
 It also reports, without failing, the landform positions still to review: stops the terrain check flags
 (review/positions/results.csv, from crossing.positions) that have no verdict for their current point in
@@ -36,6 +37,10 @@ OBLIQUE_LAYERS = ["places", "stops", "areas", "journeys", "vignettes"]
 MAX_DECIMALS = 5  # about 1 m; docs/design.md, section 6, rounds all coordinates to this
 INCIPIT_WORDS = 5  # the most Spanish words of a line the site may publish (docs/design.md, section 3)
 SYNOPSIS_SENTENCES, SYNOPSIS_WORDS = 3, 70  # a stop's synopsis is a short card text (decision 0051)
+LEAD_LAYERS = {"places", "stops", "areas"}  # the layers whose features may carry leads (decision 0065)
+# A coordinate written into a lead's note: a decimal degree (31.4526) or degrees with a sign (108°). Leads state
+# facts in words, and a second source's pin must not be republished through one.
+COORDINATE = re.compile(r"\d+\.\d{3,}|\d+\s*°")
 
 
 def load(path: Path):
@@ -82,6 +87,35 @@ def check_layer(doc, layer: str, episodes: set[str]) -> list[str]:
             errors.append(f"features/{i} ({fid}): part {p['part']} does not match first_seen {p['first_seen']}")
         if isinstance(p.get("synopsis"), str):
             errors += [f"features/{i} ({fid}): synopsis {e}" for e in synopsis_errors(p["synopsis"])]
+        if "leads" in p:
+            errors += [f"features/{i} ({fid}): {e}" for e in lead_errors(p, layer, episodes)]
+    return errors
+
+
+def lead_errors(p: dict, layer: str, episodes: set[str]) -> list[str]:
+    """What the schema cannot check in a feature's leads: where they may be, one per source, a page only for Bell,
+    no coordinates, and no lead dated before its feature."""
+    if layer not in LEAD_LAYERS:
+        return [f"leads are only for {', '.join(sorted(LEAD_LAYERS))}"]
+    leads = [lead for lead in p["leads"] if isinstance(lead, dict)] if isinstance(p["leads"], list) else []
+    errors = [f"leads name {source} twice" for source, n in Counter(lead.get("source") for lead in leads).items()
+              if n > 1]
+    for lead in leads:
+        source = lead.get("source")
+        if "page" in lead and source != "bell-2000":
+            errors.append(f"lead {source}: only Bell's leads have a page")
+        note = lead.get("note")
+        if isinstance(note, str):
+            if COORDINATE.search(note):
+                errors.append(f"lead {source}: the note gives a coordinate")
+            errors += [f"lead {source}: the note contains {name}"
+                       for char, name in (("\u2014", "an em dash"), (";", "a semicolon")) if char in note]
+        seen = lead.get("first_seen")
+        if isinstance(seen, str):
+            if seen not in episodes:
+                errors.append(f"lead {source}: first_seen {seen} is not an episode in episodes.json")
+            elif isinstance(p.get("first_seen"), str) and seen < p["first_seen"]:
+                errors.append(f"lead {source}: first_seen {seen} is before its feature's {p['first_seen']}")
     return errors
 
 
