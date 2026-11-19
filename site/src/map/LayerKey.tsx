@@ -345,9 +345,9 @@ export function LayerKey({ story, journey, reached, units, phone, open, onOpen, 
         </li>
         {shown.grouped && (
           <li>
-            <span className="key-mark key-mark-wide">
+            <span className="key-mark">
               <span className="cluster-marker">
-                3<span className="cluster-word">stops</span>
+                3<span className="cluster-word">places</span>
               </span>
             </span>
             Stops or places close together: click or tap to spread them

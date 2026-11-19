@@ -11,6 +11,13 @@ A change is **released** when it is merged to `main`, which the public site serv
 #### Data
 
 - The placement reasoning, outline rules, notes and open questions in `stops`, `places`, `areas`, `journeys`, `landforms`, `vignettes` and `open-questions.json` no longer use semicolons, except between list items that contain commas. The drawings' credits keep theirs. The wording is otherwise unchanged.
+- The drawings' caption sides and zooms in `vignettes.geojson` are worked out for captions a fifth larger, as the map now sets them (decision 0055).
+
+#### Site
+
+- All the map's text is a fifth larger (decision 0055).
+- The map credits, when open, stop short of the title cartouche and the key instead of running under them, at every width.
+- The key's row for stops grouped together shows the marker as the map draws it, in the same sans-serif and saying "places" as nearly every marker does, beside its label instead of over it.
 
 ### 2026-11-17
 

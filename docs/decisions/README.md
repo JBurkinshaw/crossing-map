@@ -69,6 +69,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0052 Episodes named by their quoted opening words, and the stop card's two blocks | accepted |
 | 0053 The reader's place in the address and on the device, and "Read on" | accepted |
 | 0054 The spoiler-leak test in two halves: the data at every position, the site in one walk through the book | accepted |
+| 0055 The vintage map's text a fifth larger, and the credits kept clear of the cartouche | accepted |
 | 0057 Stop rows checked against the book while writing the synopses | accepted |
 | 0058 Back and Next go on across journeys | accepted |
 

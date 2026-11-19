@@ -8,7 +8,7 @@ import { CLUSTER_MAX_ZOOM, CLUSTER_PROPERTIES, CLUSTER_RADIUS, clusterDetail, cl
 import { corridor, midpoint } from './corridor'
 import { areaOfStop, pinsApart } from '../story/select'
 import { prefersReducedMotion } from './setup'
-import { dashInWidths, fonts, journeyInks, OUT_OF_FOCUS_WIDTH, palette as tokens, QUIET_OPACITY, routeLines, typeScale } from './tokens'
+import { dashInWidths, fonts, journeyInks, OUT_OF_FOCUS_WIDTH, palette as tokens, QUIET_OPACITY, routeLines, textPx, typeScale } from './tokens'
 
 // Talk on the road: the route segment a picked line was spoken on, and its label ("on the road between X and Y").
 export type Corridor = { segment: Feature<Geometry, StoryProps>; label: string }
@@ -36,8 +36,8 @@ type Props = {
 const TOWNS = ['town', 'city', 'locale']
 const QUIET = ['ranch', 'spring']
 const placeSize = (k: number): ExpressionSpecification =>
-  ['match', ['get', 'kind'], ['range', 'valley'], 14, TOWNS, typeScale.town * k, QUIET, typeScale.quiet * k,
-    ['match', ['get', 'role'], 'stop', 13.5, 12.5]] as unknown as ExpressionSpecification
+  ['match', ['get', 'kind'], ['range', 'valley'], textPx(14), TOWNS, typeScale.town * k, QUIET, typeScale.quiet * k,
+    ['match', ['get', 'role'], 'stop', textPx(13.5), textPx(12.5)]] as unknown as ExpressionSpecification
 
 // The tale places' diamond, drawn once into the map's images: paper inside an ink edge, 11 px across.
 const TALE_ICON = 'tale-diamond'
@@ -384,7 +384,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
             id="corridor-label"
             type="symbol"
             filter={['==', ['get', 'part'], 'label']}
-            layout={{ 'text-field': ['get', 'label'], 'text-font': ['literal', [fonts.italic]], 'text-size': 13, 'text-max-width': 12 }}
+            layout={{ 'text-field': ['get', 'label'], 'text-font': ['literal', [fonts.italic]], 'text-size': textPx(13), 'text-max-width': 12 }}
             paint={{ 'text-color': tokens.ink, 'text-halo-color': tokens.paper, 'text-halo-width': 2 }}
           />
         </Source>

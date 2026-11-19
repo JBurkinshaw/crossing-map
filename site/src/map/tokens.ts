@@ -102,7 +102,11 @@ export const fonts = {
 // zoom 11, all in the one ink. The spot height is the unit; towns are about 1.4 times it, in roman (the larger,
 // places.geojson's cities, in capitals); ranches, stations and springs about the unit, in quiet italic; passes
 // about the unit, in small capitals. Landform names along their axes (relief.ts) are about twice it.
-export const typeScale = { spot: 10.5, town: 14.5, quiet: 10.5, pass: 10.5 } as const
+// Every size the vintage map sets text at is multiplied by TEXT_SCALE (decision 0055): the Wheeler sizes read small
+// on screen. Sizes below are written at the Wheeler scale and passed through textPx.
+export const TEXT_SCALE = 1.2
+export const textPx = (px: number) => px * TEXT_SCALE
+export const typeScale = { spot: textPx(10.5), town: textPx(14.5), quiet: textPx(10.5), pass: textPx(10.5) } as const
 // Quiet names (ranches, stations, springs) are in the same ink at this opacity.
 export const QUIET_OPACITY = 0.72
 // A size at zoom 11 grown with the zoom, less than the ground grows: 0.85 of it at zoom 9 and below, 1.15 at 13.

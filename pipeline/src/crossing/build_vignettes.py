@@ -42,7 +42,9 @@ MAX_RISE = 1
 # relief.ts: the drawing grid's half width, the gap to the pin, and icon and caption sizes by zoom.
 HALF, GAP = 48, 16
 ICON_SIZE = [(6, 0.52), (9, 0.72), (12, 0.91)]
-TEXT_SIZE = [(6, 12.5), (9, 13.3), (12, 14.5)]
+# Captions are at the Wheeler size times tokens.ts's TEXT_SCALE.
+TEXT_SCALE = 1.2
+TEXT_SIZE = [(z, size * TEXT_SCALE) for z, size in [(6, 12.5), (9, 13.3), (12, 14.5)]]
 TEXT_MAX_WIDTH = 9  # ems
 # Estimates for the IM Fell English italic caption: the mean width of a character and the line height, in ems.
 CHAR_EM, LINE_EM = 0.47, 1.2

@@ -1,6 +1,6 @@
 import type { ExpressionSpecification, LayerSpecification, StyleSpecification } from 'maplibre-gl'
 import { reliefLayers, reliefSources, VIGNETTE_LAYERS } from './relief'
-import { fonts, palette as tokens, SPRITE } from './tokens'
+import { fonts, palette as tokens, SPRITE, textPx } from './tokens'
 import { contextPlaceLayer } from './contextPlaces'
 import { waterPlaceLayer } from './waterPlaces'
 import type { Units } from '../units'
@@ -38,7 +38,7 @@ const stateLabel = (source: string): LayerSpecification => ({
   layout: {
     'text-field': ['step', ['zoom'], stateName(5), ...STATE_ZOOMS.slice(1).flatMap((z) => [z, stateName(z)])] as ExpressionSpecification,
     'text-font': [fonts.smallCaps],
-    'text-size': ['interpolate', ['linear'], ['zoom'], 5, 12, 8, 16],
+    'text-size': ['interpolate', ['linear'], ['zoom'], 5, textPx(12), 8, textPx(16)],
     'text-letter-spacing': 0.6,
     'text-max-width': 40,
     'text-padding': 4,
@@ -191,7 +191,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
           'symbol-placement': 'line',
           'text-field': ['get', 'name'],
           'text-font': [fonts.italic],
-          'text-size': ['interpolate', ['linear'], ['zoom'], 11, 10.5, 12, 11.5],
+          'text-size': ['interpolate', ['linear'], ['zoom'], 11, textPx(10.5), 12, textPx(11.5)],
           'text-letter-spacing': 0.04,
         },
         paint: { 'text-color': tokens.waterLabel, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
@@ -209,7 +209,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
           'symbol-placement': 'line',
           'text-field': ['get', 'name'],
           'text-font': [fonts.italic],
-          'text-size': 11.5,
+          'text-size': textPx(11.5),
         },
         paint: { 'text-color': tokens.waterLabel, 'text-halo-color': tokens.paper, 'text-halo-width': 1.5 },
       },
@@ -226,7 +226,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
           'symbol-placement': 'line',
           'text-field': ['upcase', ['get', 'name']],
           'text-font': [fonts.roman],
-          'text-size': ['interpolate', ['linear'], ['zoom'], 7, 11, 10, 14, 12, 16],
+          'text-size': ['interpolate', ['linear'], ['zoom'], 7, textPx(11), 10, textPx(14), 12, textPx(16)],
           'text-letter-spacing': ['interpolate', ['linear'], ['zoom'], 7, 0.45, 11, 0.9],
           'text-max-angle': 30,
           'symbol-spacing': 500,

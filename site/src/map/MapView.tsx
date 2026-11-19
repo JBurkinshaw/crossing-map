@@ -133,6 +133,24 @@ export function MapView(props: Props) {
     if (map && loaded) closeAttribution(map)
   }, [creditKey, loaded, mapRef])
   const [hovering, setHovering] = useState(false)
+  // The opened credits run from the bottom left towards the cartouche and the overview inset on the right. Their
+  // width is capped at the room left of whichever reaches further left, measured again whenever either box, or the
+  // map, changes size (the key opening, a phone turning), so the credits wrap upwards instead of running under.
+  const areaRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const area = areaRef.current
+    if (!area) return
+    const measure = () => {
+      const boxes = [...area.querySelectorAll<HTMLElement>(':scope > .cartouche, :scope > .overview')]
+      const left = Math.min(...boxes.map((b) => b.getBoundingClientRect().left), area.getBoundingClientRect().right)
+      area.style.setProperty('--credits-room', `${left - area.getBoundingClientRect().left}px`)
+    }
+    const observer = new ResizeObserver(measure)
+    observer.observe(area)
+    area.querySelectorAll(':scope > .cartouche, :scope > .overview').forEach((b) => observer.observe(b))
+    return () => observer.disconnect()
+    // The inset mounts once the map has loaded, and only off phones and the Oblique view.
+  }, [loaded, view, phone])
   // The Oblique view's archives, fetched the first time the reader turns it on; 'failed' if the list is missing.
   const [obliqueArchives, setObliqueArchives] = useState<string[] | 'failed' | null>(null)
   // Which copy of the drawings the vignettes source holds: the style loads the flat one.
@@ -250,7 +268,7 @@ export function MapView(props: Props) {
   }, [view, loaded, mapRef])
 
   return (
-    <div className={`map-area${basemap === 'literary' ? '' : ' has-satellite'}${wash ? ' satellite-tint' : ''}${framed ? ' framed' : ''}`}>
+    <div ref={areaRef} className={`map-area${basemap === 'literary' ? '' : ' has-satellite'}${wash ? ' satellite-tint' : ''}${framed ? ' framed' : ''}`}>
       {satelliteStarted && !unavailable && (
         <ChunkBoundary onError={onUnavailable}>
           <Suspense fallback={null}>

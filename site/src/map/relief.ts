@@ -1,5 +1,5 @@
 import type { ExpressionSpecification, LayerSpecification, SourceSpecification } from 'maplibre-gl'
-import { fonts, LAND_COVERS, typeScale, zoomedSize, type Palette } from './tokens'
+import { fonts, LAND_COVERS, textPx, typeScale, zoomedSize, type Palette } from './tokens'
 import { heightLabel, type Units } from '../units'
 
 // Relief (docs/design.md, section 5.2; decision 0016, "S5"): an Imhof desert tint below zoom 10, then
@@ -96,7 +96,7 @@ function glyphs(p: Palette, units: Units): LayerSpecification[] {
         'symbol-spacing': 350,
         'text-field': contourText(units),
         'text-font': [fonts.italic],
-        'text-size': 10,
+        'text-size': textPx(10),
         // Contours traced from a 30 m model wiggle; a strict angle limit leaves almost nowhere to put a label.
         'text-max-angle': 80,
         'text-padding': 4,
@@ -134,7 +134,7 @@ function glyphs(p: Palette, units: Units): LayerSpecification[] {
           ['-', 0, ['coalesce', ['get', 'prominence_m'], 99999]]],
         'text-field': glyphText(units),
         'text-font': [fonts.italic],
-        'text-size': ['case', namedGlyph, 12, typeScale.spot],
+        'text-size': ['case', namedGlyph, textPx(12), typeScale.spot],
         'text-anchor': 'top',
         'text-optional': true,
       },
@@ -156,13 +156,13 @@ function landformLabel(p: Palette): LayerSpecification {
   const zooms = [6, 7, 8, 9, 10, 11, 12, 13]
   const size = (kind: string, z: number) => {
     const [a, b] = LANDFORM_SIZE[kind]
-    return a + ((b - a) * Math.min(Math.max(z - 7, 0), 5)) / 5
+    return textPx(a + ((b - a) * Math.min(Math.max(z - 7, 0), 5)) / 5)
   }
   const chars: ExpressionSpecification = ['length', ['get', 'name']]
   // MapLibre's zoom 0 is one 512 px tile, so metres per pixel at zoom z = mpp0 / 2 / 2^z (mpp0 is for 256 px tiles).
   const room = (z: number): ExpressionSpecification => ['*', fill, ['/', ['get', 'len_m'], ['/', ['get', 'mpp0'], 2 * 2 ** z]]]
-  const sizeAt = (z: number): ExpressionSpecification => ['max', 9, ['min',
-    ['match', ['get', 'kind'], ...Object.keys(LANDFORM_SIZE).flatMap((k) => [k, size(k, z)]), 12],
+  const sizeAt = (z: number): ExpressionSpecification => ['max', textPx(9), ['min',
+    ['match', ['get', 'kind'], ...Object.keys(LANDFORM_SIZE).flatMap((k) => [k, size(k, z)]), textPx(12)],
     ['/', room(z), ['*', chars, capEm + 0.15]]]] as unknown as ExpressionSpecification
   const spacingAt = (z: number): ExpressionSpecification => ['max', 0.15, ['min', 4,
     ['/', ['-', ['/', room(z), sizeAt(z)], ['*', capEm, chars]], ['max', 1, ['-', chars, 1]]]]]
@@ -198,7 +198,7 @@ function landformLabel(p: Palette): LayerSpecification {
 const VIGNETTE_HALF = 48 // half the 96 px drawing grid
 const VIGNETTE_GAP = 16 // between the pin and the drawing's nearest edge, in drawing pixels
 const VIGNETTE_SIZE: [number, number][] = [[6, 0.52], [9, 0.72], [12, 0.91]] // zoom, icon-size
-const VIGNETTE_TEXT: [number, number][] = [[6, 12.5], [9, 13.3], [12, 14.5]] // zoom, text-size
+const VIGNETTE_TEXT: [number, number][] = [[6, textPx(12.5)], [9, textPx(13.3)], [12, textPx(14.5)]] // zoom, text-size
 // Each side: the icon anchor that puts the drawing on that side of the point, and the unit step towards it.
 const SIDES: Record<string, { anchor: string; dx: number; dy: number }> = {
   n: { anchor: 'bottom', dx: 0, dy: -1 },
