@@ -35,7 +35,7 @@ The site's hachures are all in `relief-wheeler*.pmtiles`: the Wheeler strokes in
 
    `tiles.build_relief` and `crossing.plan_oblique` split their output to stay under it. If an archive still passes it, split it before releasing.
 
-3. Check the total. GitHub Pages publishes at most 1 GB, and the root and the preview each carry their tiles unless they share a release (section 4).
+3. Check the total. GitHub Pages publishes at most 1 GB, and the root and the preview each carry their tiles unless they share a release (section 4). The deploy fails if the built site passes 900 MB (decision 0064), so check before you publish rather than after.
 
 ## 3. Publish
 

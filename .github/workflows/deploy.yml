@@ -163,6 +163,19 @@ jobs:
           # With the same release as main, the preview reads the root's tiles instead of shipping a second copy.
           if [ "$SAME_TILES" = true ] && [ -f ../main/site/package.json ]; then export VITE_TILES_BASE=/crossing-map/tiles/; fi
           tools/build-site.sh ../preview /crossing-map/preview/ _site/preview "$RUNNER_TEMP/tiles/$TAG"
+      - name: Keep the site under the Pages size budget
+        # Pages publishes at most 1 GB. The budget leaves 10% of that free (decision 0064).
+        env:
+          MAIN_TAG: ${{ steps.tiles.outputs.main }}
+          PREVIEW_TAG: ${{ steps.tiles.outputs.preview }}
+        run: |
+          budget=900000000
+          size=$(du -sb _site | cut -f1)
+          echo "Site size: $((size / 1000000)) MB of a $((budget / 1000000)) MB budget (main: ${MAIN_TAG:-none}, preview: ${PREVIEW_TAG:-none})"
+          if [ "$size" -gt "$budget" ]; then
+            echo "::error::The site is $((size / 1000000)) MB, over the $((budget / 1000000)) MB budget. Main pins ${MAIN_TAG:-no tiles} and the preview pins ${PREVIEW_TAG:-no tiles}; pinning one tag on both halves the tiles (docs/releasing-tiles.md, section 4)."
+            exit 1
+          fi
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: _site
