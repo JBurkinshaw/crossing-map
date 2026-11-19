@@ -37,7 +37,7 @@ POINTS = {
     "oaxaca_chh": (30.92590, -108.15891, "GeoNames 3996846, Colonia Oaxaca, Chihuahua", ""),
     "morelos": (30.82701, -109.22383, "GeoNames 4013350, Colonia Morelos", ""),
     "animas_valley_gnis": (32.57228, -108.83603, "GNIS 900285, Animas Valley", ""),
-    "animas_valley_stop": (31.6, -108.88, "Stop j1-animas-valley, our inference", ""),
+    "animas_valley_stop": (31.49074, -108.86368, "Stop j1-animas-valley, our inference", ""),
     "madera_pick": (29.93737, -109.51313, "GeoNames 9028461, Sierra La Madera", ""),
     "cumpas": (29.9948, -109.7804, "GeoNames 4012143, Cumpas", ""),
     "huasabas": (29.9083, -109.3010, "GeoNames 4004662, Huásabas", ""),

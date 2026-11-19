@@ -26,7 +26,9 @@ from crossing import landform_points as lf
 from crossing import least_cost as lc
 
 STOP_5 = (-108.74505, 31.39455)   # San Luis Pass (lon, lat)
-STOP_7 = (-108.88, 31.6)          # Animas Valley
+# The valley point the crossing was measured towards, kept so this script gives the published crossing. The
+# published valley stop is the floor between the crossing and Foster Draw (animas_valley_floor.py, decision 0069).
+STOP_7 = (-108.88, 31.6)
 VALLEY = (-108.765, -108.69)      # the longitudes of the valley east of the western ridge
 WOLF = {"mode": "wolf"}
 

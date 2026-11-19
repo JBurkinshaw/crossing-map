@@ -225,8 +225,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.88,
-     31.6
+     -108.86368,
+     31.49074
     ]
    },
    "properties": {
@@ -250,7 +250,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The GNIS pin for the valley is 108 km north, at 32.57 N. The stop is where her route from the Animas Mountains to the Peloncillos crosses the valley floor.",
+    "reasoning": "The GNIS pin for the valley is 108 km north, at 32.57 N. The stop is where her way from the Animas Mountains to Foster Draw in the Peloncillos crosses the valley floor: the lowest ground on the line between those two stops (pipeline/measure/animas_valley_floor.py).",
     "synopsis": "She crosses the valley floor towards the Peloncillos."
    }
   },

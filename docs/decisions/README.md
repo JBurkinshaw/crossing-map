@@ -83,6 +83,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0066 Vignettes along a leg | accepted |
 | 0067 Photos on the cards | accepted |
 | 0068 The owner's review of the landform positions | accepted |
+| 0069 J1's Animas Valley stop on her way across the valley | accepted |
 
 ## Template
 
