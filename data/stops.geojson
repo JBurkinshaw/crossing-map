@@ -37,6 +37,7 @@
      {
       "source": "bell-2000",
       "relation": "differs",
+      "page": "82",
       "note": "reads it as the other range of the name, east of the upper Bavispe",
       "distance_km": 81
      },
@@ -494,6 +495,7 @@
      {
       "source": "bell-2000",
       "relation": "agrees",
+      "page": "61",
       "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
      }
     ]
@@ -4272,6 +4274,7 @@
      {
       "source": "bell-2000",
       "relation": "agrees",
+      "page": "68",
       "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
      }
     ]
@@ -5537,6 +5540,7 @@
      {
       "source": "bell-2000",
       "relation": "agrees",
+      "page": "68",
       "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
      }
     ]

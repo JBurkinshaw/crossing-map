@@ -1,6 +1,6 @@
 # 0065. Second sources as leads on a feature
 
-Status: accepted (2026-11-18)
+Status: accepted (2026-11-18); on 2026-11-19 Bell's page numbers were added from the owner's copy of the dissertation (the page of each index entry), and Guzmán was raised to high confidence on Bell's agreement (stage 7 item 17; the four places Hazelton's pins agree with stay medium, as his pins may come from the same gazetteers)
 Phase: P1
 
 ## Context

@@ -33,6 +33,7 @@
      {
       "source": "bell-2000",
       "relation": "differs",
+      "page": "82",
       "note": "reads it as the other range of the name, east of the upper Bavispe",
       "distance_km": 81
      },
@@ -417,6 +418,7 @@
      {
       "source": "bell-2000",
       "relation": "agrees",
+      "page": "61",
       "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
      }
     ]
@@ -456,6 +458,7 @@
      {
       "source": "bell-2000",
       "relation": "agrees",
+      "page": "67",
       "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
      }
     ]
@@ -816,6 +819,7 @@
      {
       "source": "bell-2000",
       "relation": "agrees",
+      "page": "81",
       "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
      }
     ]
@@ -851,6 +855,7 @@
      {
       "source": "bell-2000",
       "relation": "agrees",
+      "page": "58",
       "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
      }
     ]
@@ -2580,6 +2585,7 @@
      {
       "source": "bell-2000",
       "relation": "agrees",
+      "page": "68",
       "note": "on his map of Hidalgo County, Figure 3.2, to about 2 km"
      }
     ]
@@ -3014,7 +3020,8 @@
      {
       "source": "reddit-gaia",
       "relation": "differs",
-      "note": "pins a village of that name"
+      "note": "pins a village of that name",
+      "distance_km": 14
      }
     ]
    }
@@ -3684,11 +3691,12 @@
     "source_id": "4005067",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "GeoNames 4005067 Sección Estación Guzmán, the railway settlement on the Juárez to Casas Grandes line, 75 km NE of Corralitos (straight-line), so a road coming down from Guzmán and Sabinal would cross Billy's route SE of Casas Grandes. The only other Guzmán is in Sonora. The text may mean the older Guzmán settlement or the Laguna de Guzmán area, which lie nearby.",
+    "reasoning": "GeoNames 4005067 Sección Estación Guzmán, the railway settlement on the Juárez to Casas Grandes line, 75 km NE of Corralitos (straight-line), so a road coming down from Guzmán and Sabinal would cross Billy's route SE of Casas Grandes. The only other Guzmán is in Sonora. The text may mean the older Guzmán settlement or the Laguna de Guzmán area, which lie nearby. Bell (2000, p. 67) puts Guzmán about 90 miles north of San Buenaventura, and this point is 153 km (95 miles) north of it, so a second source agrees (high confidence, owner's decision of 2026-11-19, stage 7 item 17).",
     "leads": [
      {
       "source": "bell-2000",
-      "relation": "agrees"
+      "relation": "agrees",
+      "page": "67"
      }
     ]
    }
