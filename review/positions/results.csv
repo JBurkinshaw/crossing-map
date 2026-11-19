@@ -6,7 +6,7 @@ j1-animas-valley,J1,7,Animas Valley,floor,-108.88,31.6,ok,false,1,She crosses th
 j1-foster-draw,J1,8,Foster Draw (the calf),head,-108.99639,31.4825,ok,false,2,The calf is killed at the head of the draw.
 j1-starvation-canyon,J1,10,Starvation Canyon,head,-109.09573,31.52244,ok,false,2,She works west to the head of the canyon.
 j1-clanton-foster,J1,12,Between Clanton and Foster draws,between,-108.9997,31.49225,ok,false,3,The high country between the two draws.
-j2-guadalupe-pass,J2,4,Low pass in the easternmost Guadalupes,pass,-108.96,31.37,"flag: footslope/valley, not saddle",true,2,A low pass at the eastern end of the Guadalupes.
+j2-guadalupe-pass,J2,4,Low pass in the easternmost Guadalupes,pass,-108.98589,31.34955,"flag: slope, not saddle",true,2,A low pass at the eastern end of the Guadalupes.
 j2-cajon-bonito,J2,7,Up the Cajón Bonito,floor,-109.29153,31.12684,ok,false,1,Up the Cajón Bonito on the trail south.
 j2-sierra-de-la-cabellera,J2,8,Passes of the Sierra de la Cabellera,pass,-109.03806,30.92361,"ok, saddle 30 m away",false,2,The range's high passes.
 j2-pilares-de-teras,J2,13,Into the Pilares Teras,foot,-109.20033,30.65895,"flag: height percentile 83, not 0-50",true,1,At the foot of the Pilares.
@@ -17,8 +17,8 @@ j3-guadalupe-pass,J3,14,A pass in the Guadalupes on the old Cloverdale road,pass
 j4-dos-cabezas,J4,5,The old road through the Dos Cabezas,slopes,-109.43227,32.20942,ok,false,1,A camp where the old road climbs into the range.
 j4-apache-pass,J4,6,Apache Pass,pass,-109.48173,32.15175,"ok, saddle 42 m away",false,2,The high gap at Apache Pass.
 j4-escarpment-rim,J4,14,The eastern rim of the escarpment at sunrise,rim,-108.41545,30.38566,ok,false,1,The escarpment's eastern rim at sunrise.
-j4-plains-camp,J4,15,"The plains, with the Tarahumaras",floor,-108.25,30.32,ok,false,1,A ciénega on the prairie below the rim.
-j7-little-hatchets,J7,10,The Little Hatchet foothills,slopes,-108.45362,31.84157,"flag: peak, not footslope/hollow/shoulder/slope/spur; height percentile 100, not 10-70",true,1,The lower slopes of the Little Hatchets.
-j7-playas-road,J7,12,The old Playas road over the mountains,pass,-108.7,31.86,"ok, saddle 150 m away",false,2,The old Playas road over the mountains west of the lake.
+j4-plains-camp,J4,15,"The plains, with the Tarahumaras",floor,-108.2501,30.32009,ok,false,1,A ciénega on the prairie below the rim.
+j7-little-hatchets,J7,10,The Little Hatchet foothills,slopes,-108.43957,31.8339,"flag: height percentile 71, not 10-70",true,1,The lower slopes of the Little Hatchets.
+j7-playas-road,J7,12,The old Playas road over the mountains,pass,-108.70144,31.79982,"flag: ridge/spur, not saddle",true,2,The old Playas road over the mountains west of the lake.
 j7-animas-plain,J7,15,Camp on the Animas Plain,floor,-108.82,31.45,"flag: height percentile 52, not 0-40",true,1,A camp out on the Animas Plain.
 j7-black-range,J7,56,Over the Black Range,pass,-107.7667,32.91007,ok,false,2,Over the Black Range on the old road east.

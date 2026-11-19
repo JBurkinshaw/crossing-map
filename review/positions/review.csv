@@ -1,0 +1,24 @@
+id,verdict,choice,note,point,updated
+j1-animas-mountains,accept,,,"-108.77309,31.49629",2026-11-19T16:35:28.370Z
+j1-animas-valley,needs-work,,Not clear why this is so far north. Seems like the wolf is going out of her way,"-108.88,31.6",2026-11-19T16:37:08.674Z
+j1-bavispe-crossing,accept,,,"-109.28798,29.99924",2026-11-19T16:34:58.341Z
+j1-clanton-foster,accept,,,"-108.9997,31.49225",2026-11-19T16:40:13.993Z
+j1-foster-draw,accept,,,"-108.99639,31.4825",2026-11-19T16:37:33.063Z
+j1-san-luis-mountains,accept,,,"-108.74505,31.39455",2026-11-19T16:35:04.573Z
+j1-starvation-canyon,accept,,,"-109.09573,31.52244",2026-11-19T16:37:58.938Z
+j2-cajon-bonito,accept,,,"-109.29153,31.12684",2026-11-19T16:41:13.878Z
+j2-guadalupe-pass,accept,,"Moved to the gazetteer candidate, Guadalupe Pass (GNIS 889650), on review (decision 0068).","-108.98589,31.34955",2026-11-19T17:30:00.000Z
+j2-pilares-de-teras,accept,,,"-109.20033,30.65895",2026-11-19T16:42:12.931Z
+j2-sierra-de-la-cabellera,accept,,,"-109.03806,30.92361",2026-11-19T16:41:40.712Z
+j3-bavispe-promontory,accept,,,"-109.05000,30.55000",2026-11-19T16:43:03.841Z
+j3-eastern-escarpment,accept,,,"-108.93283,29.98524",2026-11-19T16:43:18.488Z
+j3-guadalupe-pass,needs-work,,"For the route around here, on Google maps I see a road ""Co Rd C001"" which is likely the same road. Can we plot the route based on that being ""the old Cloverdale road""?","-109.03761,31.51026",2026-11-19T16:48:36.456Z
+j3-wolfs-grave,accept,,,"-109.20033,30.65895",2026-11-19T16:42:53.679Z
+j4-apache-pass,accept,,,"-109.48173,32.15175",2026-11-19T16:49:20.155Z
+j4-dos-cabezas,needs-work,,Is there a county road around here too?,"-109.43227,32.20942",2026-11-19T16:49:06.708Z
+j4-escarpment-rim,accept,,,"-108.41545,30.38566",2026-11-19T16:49:36.470Z
+j4-plains-camp,accept,,"Moved to the DEM candidate on the valley floor, 10 m off, on review (decision 0068).","-108.25010,30.32009",2026-11-19T17:30:00.000Z
+j7-animas-plain,accept,,,"-108.82000,31.45000",2026-11-19T16:50:59.303Z
+j7-black-range,accept,,,"-107.7667,32.91007",2026-11-19T16:51:29.832Z
+j7-little-hatchets,accept,,Moved to the DEM candidate on the lower slopes on review (decision 0068).,"-108.43957,31.83390",2026-11-19T17:30:00.000Z
+j7-playas-road,accept,,"Moved to the gazetteer candidate, Whitmire Pass (GNIS 896568), on review (decision 0068). Owner asked to check the county roads here too.","-108.70144,31.79982",2026-11-19T17:30:00.000Z

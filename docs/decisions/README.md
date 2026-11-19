@@ -82,6 +82,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0065 Second sources as leads on a feature | accepted |
 | 0066 Vignettes along a leg | accepted |
 | 0067 Photos on the cards | accepted |
+| 0068 The owner's review of the landform positions | accepted |
 
 ## Template
 

@@ -6,6 +6,12 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ## Unreleased
 
+### 2026-11-19
+
+#### Data
+
+- Four stops move after the owner's review of where each sits on its landform (decision 0068). J2's low pass in the Guadalupes (`j2-guadalupe-pass`) moves 3.3 km to Guadalupe Pass (GNIS 889650). The old Playas road's pass (`j7-playas-road`) moves 6.7 km south to Whitmire Pass (GNIS 896568), and its area is redrawn around it. The Little Hatchets stop (`j7-little-hatchets`) moves off the range's summit to its lower slopes, 1.6 km south-east. The plains camp (`j4-plains-camp`) moves 10 m. The legs into and out of them are redrawn, and four drawings near Cloverdale, the SK Bar and Animas set their captions on other sides.
+
 ### 2026-11-18
 
 #### Data

@@ -1,6 +1,6 @@
 # 0059. Where a stop sits on its landform: named points first, a terrain check, and the owner's review
 
-Status: accepted (2026-11-18)
+Status: accepted (2026-11-18). The owner's review of the flagged stops is applied in 0068.
 Phase: P1
 
 ## Context

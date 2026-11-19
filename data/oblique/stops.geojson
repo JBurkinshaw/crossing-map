@@ -576,8 +576,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.95873,
-     31.42883
+     -108.9847,
+     31.40534
     ]
    },
    "properties": {
@@ -602,7 +602,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The east flank of the Guadalupe Mountains (GNIS 920606), where a pass would lead south-west towards the boundary.",
+    "reasoning": "The book does not name the pass. The stop is Guadalupe Pass (GNIS 889650), the named pass at the south-eastern end of the Guadalupe Mountains (GNIS 920606), which leads south-west towards the boundary. The book puts its pass at the range's eastern end, so this is the nearest named pass rather than a certain one.",
     "synopsis": "At midday Billy and the wolf cross a low pass at the eastern end of the Guadalupes and ride down the open valley. Riders far off on the plain pass them by."
    }
   },
@@ -2062,8 +2062,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.24815,
-     30.3859
+     -108.24825,
+     30.386
     ]
    },
    "properties": {
@@ -4319,8 +4319,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.45163,
-     31.91371
+     -108.43799,
+     31.89085
     ]
    },
    "properties": {
@@ -4339,12 +4339,12 @@
     "first_seen": "4-01",
     "certainty": "approximate",
     "uncertainty_m": null,
-    "method": "gazetteer",
-    "source": "gnis",
-    "source_id": "920632",
-    "source_licence": "Public domain",
+    "method": "schematic",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "His way runs across the lower slopes of the Little Hatchet Mountains and over the railway from the Phelps Dodge smelter.",
+    "reasoning": "His way runs across the lower slopes of the Little Hatchet Mountains and over the railway from the Phelps Dodge smelter. The range's gazetteer point is its summit, so the stop is on the nearest lower ground, 1.6 km south-east of it.",
     "synopsis": "Billy crosses the lower slopes of the Little Hatchets and the railway coming up from the Phelps Dodge smelter further south."
    }
   },
@@ -4387,8 +4387,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.6986,
-     31.91628
+     -108.70008,
+     31.85461
     ]
    },
    "properties": {
@@ -4412,7 +4412,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "In the morning they cross the lake, strike the old Playas road before noon and follow it west into the mountains, with snow in the pass. The book does not name the pass. The area is in the Animas Mountains west of the lake.",
+    "reasoning": "In the morning they cross the lake, strike the old Playas road before noon and follow it west into the mountains, with snow in the pass. The book does not name the pass. The stop is Whitmire Pass (GNIS 896568), the named pass in the mountains west of the lake, which a ranch road still crosses (Census TIGER 2023). The area is in the Animas Mountains west of the lake.",
     "synopsis": "In the morning horse and rider cross the lake after all. Before noon they pick up the old Playas road and follow it west into the mountains, where the snow in the pass is unmarked by any track."
    }
   },
