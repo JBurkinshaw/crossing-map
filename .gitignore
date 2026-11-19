@@ -25,3 +25,6 @@ test-results/
 review/**/*.png
 review/**/*.jpg
 pipeline/qgis/*_attachments.zip
+# Talk images stay out of git (talks/README.md)
+talks/**/figures/
+talks/**/shots/
