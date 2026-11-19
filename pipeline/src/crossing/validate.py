@@ -144,7 +144,9 @@ def check_references(layers: dict[str, dict]) -> list[str]:
     targets = {
         "stops": {p["id"] for p in properties(layers["places"])},
         "areas": {p["id"] for p in properties(layers["places"])},
-        "vignettes": {p["id"] for name in ("places", "stops") for p in properties(layers[name])},
+        # A drawing stands beside a stop or place, or at a point along a journey leg (decision 0066).
+        "vignettes": {p["id"] for name in ("places", "stops") for p in properties(layers[name])}
+        | {p["id"] for p in properties(layers["journeys"]) if p.get("kind") == "route-segment"},
         "landforms": {p["id"] for p in properties(layers["places"])},
         "water_places": {p["id"] for p in properties(layers["places"])},
     }
@@ -166,7 +168,8 @@ def check_references(layers: dict[str, dict]) -> list[str]:
             if seen and isinstance(p.get("first_seen"), str) and p["first_seen"] < seen:
                 errors.append(f"{layer}.geojson {p['id']}: first_seen {p['first_seen']} is before its place's {seen}")
     # A drawing beside a pin the reader has not reached would say where the story goes (crossing.build_vignettes).
-    pin_seen = {p["id"]: p.get("first_seen") for name in ("places", "stops") for p in properties(layers[name])}
+    pin_seen = {p["id"]: p.get("first_seen") for name in ("places", "stops", "journeys")
+                for p in properties(layers[name])}
     for p in properties(layers["vignettes"]):
         seen = pin_seen.get(p.get("place_ref"))
         if seen and isinstance(p.get("first_seen"), str) and p["first_seen"] < seen:

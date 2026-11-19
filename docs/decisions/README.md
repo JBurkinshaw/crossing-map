@@ -40,7 +40,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0023 Landform names along computed axes | proposed |
 | 0024 Wheeler hachures in the journeys corridor | accepted |
 | 0025 A MapTiler-like hillshade | accepted |
-| 0026 Vignettes beside their pins | accepted; extended by 0039 |
+| 0026 Vignettes beside their pins | accepted; extended by 0039; amended by 0066 |
 | 0027 Wheeler frame, water places and type scale on the map | accepted |
 | 0028 Context places of the period on the map | proposed |
 | 0029 Place pins apart from their stops | proposed |
@@ -80,6 +80,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0063 An open question can show its other reading on the map, and say more on request | accepted |
 | 0064 A size budget for the Pages site, checked in CI | accepted |
 | 0065 Second sources as leads on a feature | accepted |
+| 0066 Vignettes along a leg | accepted |
 
 ## Template
 

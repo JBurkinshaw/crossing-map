@@ -5,6 +5,8 @@ Reads the seed and data/stops.geojson, data/places.geojson and data/journeys.geo
 or place id). Writes data/vignettes.geojson: one Point per vignette, on the thing it stands for, with the `side` the
 map draws the drawing on (site/src/map/relief.ts), so it sits beside its pin at every zoom and never covers it. A seed
 row with its own lon and lat stands for a place that is not one of the book's stops or places (the Trinity Site).
+A seed row may instead name a journey leg (`leg`, a route-segment id) and a fraction along it (`along`, 0 to 1): its
+point is that share of the leg's length along the line, by geodesic length on WGS 84 (decision 0066).
 
 The side and the first zoom are chosen here (decision 0026, amended 2026-11-16). For each drawing, in priority order,
 every side is scored by what the drawing and its caption would cover on screen: the stop markers and route lines of
@@ -25,7 +27,7 @@ import json
 import math
 from dataclasses import dataclass
 
-from pyproj import Transformer
+from pyproj import Geod, Transformer
 from shapely import STRtree
 from shapely.geometry import LineString, Point, Polygon, box
 
@@ -65,6 +67,37 @@ LINE_OK = 1.0
 
 MERC = Transformer.from_crs("EPSG:4326", "EPSG:3857", always_xy=True)
 WORLD_M = 2 * math.pi * 6378137
+WGS84 = Geod(ellps="WGS84")
+
+
+def along_leg(coords: list[list[float]], share: float) -> tuple[float, float]:
+    """The point `share` (0 to 1) of the way along a line of lon, lat pairs, by geodesic length on WGS 84: the
+    target length is found among the parts' lengths, then the point is that far along its part's geodesic."""
+    if not 0 <= share <= 1:
+        raise ValueError(f"along must be from 0 to 1, not {share}")
+    parts = [WGS84.inv(*a, *b) for a, b in zip(coords, coords[1:], strict=False)]
+    left = share * sum(dist for _, _, dist in parts)
+    for (lon, lat), (az, _, dist) in zip(coords, parts, strict=False):
+        if left <= dist:
+            lon, lat, _ = WGS84.fwd(lon, lat, az, left)
+            return lon, lat
+        left -= dist
+    return tuple(coords[-1])
+
+
+def anchor(seed: dict, points: dict[str, dict], legs: dict[str, dict]) -> tuple[float, float, dict]:
+    """A seed row's point (lon, lat) and the feature it stands beside, which dates it: its stop or place (`ref`),
+    with the row's own lon and lat if it has them, or its journey leg (`leg` and `along`)."""
+    if bool(seed.get("leg")) == bool(seed["ref"]):
+        raise SystemExit(f"vignettes.csv {seed['id']}: give either a ref or a leg, not both or neither")
+    if seed.get("leg"):
+        if seed["leg"] not in legs:
+            raise SystemExit(f"vignettes.csv {seed['id']}: {seed['leg']} is not a route segment")
+        leg = legs[seed["leg"]]
+        return *along_leg(leg["geometry"]["coordinates"], float(seed["along"])), leg
+    pin = points[seed["ref"]]
+    lon, lat = (float(seed["lon"]), float(seed["lat"])) if seed["lon"] else pin["geometry"]["coordinates"]
+    return lon, lat, pin
 
 
 def px_per_m(z: float) -> float:
@@ -218,9 +251,12 @@ def place(story: Story, at: Point, seed_side: str, min_zoom: float, label: str,
     return d, clash
 
 
-def journey_of(ref: str, first_seen: str, stops: list[dict], places: dict[str, dict]) -> str:
-    """A stop's journey; for a place, the journey of its first stop in reading order, or, for a place no journey
-    stops at, of the nearest stop first seen in the drawing's own episode."""
+def journey_of(ref: str, first_seen: str, stops: list[dict], places: dict[str, dict],
+               legs: dict[str, dict] | None = None) -> str:
+    """A stop's or a leg's journey; for a place, the journey of its first stop in reading order, or, for a place no
+    journey stops at, of the nearest stop first seen in the drawing's own episode."""
+    if legs and ref in legs:
+        return legs[ref]["properties"]["journey"]
     by_id = {f["properties"]["id"]: f["properties"] for f in stops}
     if ref in by_id:
         return by_id[ref]["journey"]
@@ -248,6 +284,7 @@ def main() -> None:
     story = Story(stops, places, journeys)
     points = {f["properties"]["id"]: f for f in stops + places}
     place_by_id = {f["properties"]["id"]: f for f in places}
+    legs = {f["properties"]["id"]: f for f in journeys if f["properties"]["kind"] == "route-segment"}
 
     with SEED.open(encoding="utf-8", newline="") as f:
         seeds = list(csv.DictReader(f))
@@ -257,25 +294,32 @@ def main() -> None:
     chosen = {}
     for i in order:
         s = seeds[i]
-        ref = points[s["ref"]]
-        lon, lat = (float(s["lon"]), float(s["lat"])) if s["lon"] else ref["geometry"]["coordinates"]
+        lon, lat, pin = anchor(s, points, legs)
         at = Point(MERC.transform(lon, lat))
         d, clash = place(story, at, s["side"], float(s["min_zoom"]), s["label"], placed)
         placed.append(d)
-        chosen[i] = (lon, lat, d.side, d.zoom, clash)
+        chosen[i] = (lon, lat, pin, d.side, d.zoom, clash)
 
     features = []
     for i, s in enumerate(seeds):
-        lon, lat, side, zoom, clash = chosen[i]
-        where = "its own place" if s["lon"] else points[s["ref"]]["properties"]["name"]
+        lon, lat, pin, side, zoom, clash = chosen[i]
+        on_leg = None
+        if s.get("leg"):
+            where = "its point on the route"
+            leg = pin["properties"]
+            on_leg = (f"Its point is on the route line, {float(s['along']):.0%} of the way along the {leg['journey']} "
+                      f"leg “{leg['name']}” ({s['leg']}) by length, measured on the WGS 84 ellipsoid.")
+        else:
+            where = "its own place" if s["lon"] else pin["properties"]["name"]
         placed_note = (f"The drawing is set on the {SIDES[side]} side of {where} (where it covers the fewest stops, "
-                       "route lines and other drawings), beside the pin rather than on it. It is not to scale, and it "
-                       "shows roughly where the scene happens, not exactly.")
-        first_seen = shown_from(s["first_seen"], points[s["ref"]])
+                       f"route lines and other drawings), beside the {'point' if on_leg else 'pin'} rather than on "
+                       "it. It is not to scale, and it shows roughly where the scene happens, not exactly.")
+        first_seen = shown_from(s["first_seen"], pin)
         waits = None
         if first_seen != s["first_seen"]:
-            waits = (f"The scene is in {s['first_seen']}, but the drawing shows from {first_seen}, with the pin it "
-                     "stands beside, so it does not show where the story goes before the reader gets there.")
+            waits = (f"The scene is in {s['first_seen']}, but the drawing shows from {first_seen}, with the "
+                     f"{'leg' if on_leg else 'pin'} it stands beside, so it does not show where the story goes before "
+                     "the reader gets there.")
         held = None
         if zoom > float(s["min_zoom"]) and clash.clear:
             held = (f"Shown from zoom {zoom:g}, not {float(s['min_zoom']):g}: further out, on every side, it would "
@@ -287,13 +331,14 @@ def main() -> None:
         elif not clash.clear:
             held = ("On every side it covers a stop, a route line or another drawing from its first zoom, and no "
                     "closer zoom would clear it, so it shows from that zoom on the side where it covers least.")
+        ref = s.get("leg") or s["ref"]
         props = dict(
-            id=f"vignette-{s['id']}", name=s["name"], kind="vignette", stands_for=s["stands_for"], place_ref=s["ref"],
-            journey=journey_of(s["ref"], s["first_seen"], stops, place_by_id),
+            id=f"vignette-{s['id']}", name=s["name"], kind="vignette", stands_for=s["stands_for"], place_ref=ref,
+            journey=journey_of(ref, s["first_seen"], stops, place_by_id, legs),
             part=int(first_seen[0]), episode=s["first_seen"], first_seen=first_seen,
             certainty="approximate", method="hand-drawn", source="this-site", source_id=None,
             source_licence="CC BY 4.0",
-            note_safe=s["note"], reasoning=" ".join(x for x in (s["reasoning"], waits, placed_note, held) if x),
+            note_safe=s["note"], reasoning=" ".join(x for x in (s["reasoning"], on_leg, waits, placed_note, held) if x),
             vignette=f"vignette-{s['id']}", side=side, min_zoom=zoom,
             priority=int(s["priority"]), label=s["label"], credit=s["credit"],
         )

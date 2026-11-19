@@ -166,6 +166,17 @@ def test_vignette_may_not_show_before_its_pin(layers):
     assert not any("vignette-a" in e for e in validate.check_references(layers))
 
 
+def test_vignette_on_a_leg_may_not_show_before_the_leg(layers):
+    layers["vignettes"]["features"].append(feature("vignette-a", kind="vignette", first_seen="1-01",
+                                                   place_ref="j1-seg-01"))
+    assert any("before its pin's 1-02" in e for e in validate.check_references(layers))
+    layers["vignettes"]["features"][0]["properties"]["first_seen"] = "1-02"
+    assert validate.check_references(layers) == []
+    # Only a route segment is a leg.
+    layers["vignettes"]["features"][0]["properties"]["place_ref"] = "j1-seg-99"
+    assert any("place_ref j1-seg-99" in e for e in validate.check_references(layers))
+
+
 def test_water_place_may_not_show_before_its_place(layers):
     layers["landforms"]["features"].clear()
     layers["places"]["features"][0]["properties"]["first_seen"] = "1-02"

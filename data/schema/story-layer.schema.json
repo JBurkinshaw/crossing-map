@@ -157,7 +157,7 @@
         "sequence": {"type": ["integer", "null"], "minimum": 1},
         "place_ref": {
           "type": ["string", "null"],
-          "description": "For a stop: the id of the place it stands for. For a vignette: the id of the stop or place it stands for."
+          "description": "For a stop: the id of the place it stands for. For a vignette: the id of the stop or place it stands for, or of the journey leg (route segment) its point lies along (decision 0066)."
         },
         "part": {"type": "integer", "minimum": 1, "maximum": 4},
         "episode": {"oneOf": [{"$ref": "#/$defs/episode"}, {"type": "null"}]},

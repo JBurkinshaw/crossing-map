@@ -1,9 +1,10 @@
 import math
 
+import pytest
 from shapely.geometry import Point
 
 from crossing import build_vignettes
-from crossing.build_vignettes import MERC, Story, footprint, journey_of, place, px_per_m, shown_from
+from crossing.build_vignettes import MERC, Story, along_leg, anchor, footprint, journey_of, place, px_per_m, shown_from
 
 
 def feature(lon: float, lat: float, **props) -> dict:
@@ -81,3 +82,32 @@ def test_a_drawing_waits_for_its_pin():
     pin = feature(0, 0, first_seen="2-05")
     assert shown_from("1-02", pin) == "2-05"
     assert shown_from("3-01", pin) == "3-01"
+
+
+def test_a_point_along_a_leg_is_measured_by_geodesic_length():
+    # Two parts, the second three times the first: a quarter of the way is the bend, and the ends are the ends.
+    coords = [[-108.0, 30.0], [-108.0, 30.1], [-108.0, 30.4]]
+    assert along_leg(coords, 0) == pytest.approx((-108.0, 30.0))
+    assert along_leg(coords, 1) == pytest.approx((-108.0, 30.4))
+    total = build_vignettes.WGS84.line_length([c[0] for c in coords], [c[1] for c in coords])
+    lon, lat = along_leg(coords, 0.5)
+    assert lon == pytest.approx(-108.0)
+    assert build_vignettes.WGS84.line_length([-108.0, lon], [30.0, lat]) == pytest.approx(total / 2, abs=0.01)
+    with pytest.raises(ValueError):
+        along_leg(coords, 1.2)
+
+
+def test_a_seed_row_names_a_stop_or_a_leg():
+    stop = feature(-108.0, 30.0, id="s1", first_seen="1-01")
+    leg = {"type": "Feature", "geometry": {"type": "LineString", "coordinates": [[-108.0, 30.0], [-107.0, 30.0]]},
+           "properties": {"id": "j1-seg-01", "kind": "route-segment", "journey": "J1", "first_seen": "1-04"}}
+    row = {"id": "a", "ref": "", "lon": "", "lat": "", "leg": "j1-seg-01", "along": "0"}
+    lon, lat, pin = anchor(row, {"s1": stop}, {"j1-seg-01": leg})
+    assert (lon, lat) == pytest.approx((-108.0, 30.0)) and pin is leg
+    assert journey_of("j1-seg-01", "1-04", [], {}, {"j1-seg-01": leg}) == "J1"
+    # The drawing waits for its leg, as for a pin.
+    assert shown_from("1-02", leg) == "1-04"
+    assert anchor(row | {"leg": "", "ref": "s1"}, {"s1": stop}, {})[2] is stop
+    for bad in (row | {"ref": "s1"}, row | {"leg": ""}, row | {"leg": "j1-seg-09"}):
+        with pytest.raises(SystemExit):
+            anchor(bad, {"s1": stop}, {"j1-seg-01": leg})

@@ -20,7 +20,7 @@ The hand-kept inputs are in `pipeline/seeds/`. The build scripts read them; only
 | `modeled-legs.csv` | The legs drawn as least-cost paths (decision 0021), with mode, corridor and a note | Hand |
 | `regions.geojson` | The Animas Valley and La Babícora outlines | `crossing.regions`, then hand edits in QGIS |
 | `areas.geojson` | Each inferred area's outline: the stop's circle cut by a rule (decision 0020) | `crossing.area_drafts`, then hand edits in `pipeline/qgis/areas.qgs` |
-| `vignettes.csv` | The vignette anchors. `side` is the preferred side, kept on a tie. `min_zoom` is the earliest zoom; the build may raise it by one step | Hand |
+| `vignettes.csv` | The vignette anchors: a stop or place (`ref`), or a journey leg and a fraction along it (`leg`, `along`, decision 0066). `side` is the preferred side, kept on a tie. `min_zoom` is the earliest zoom; the build may raise it by one step | Hand |
 | `landforms.toml` | Every weight and threshold of the landform rules, with comments | Hand |
 | `landform_axes.toml` | Hand edits to the landform label lines, each with a reason | Hand |
 | `translations.csv` | Our English for each Spanish line; a non-empty cell wins over the draft | `crossing.translations build`, then hand edits |
