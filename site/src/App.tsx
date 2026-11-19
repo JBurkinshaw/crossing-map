@@ -28,6 +28,10 @@ import { useRememberedFold } from './panel/folds'
 
 // The About, How it's built, Data and Credits pages, loaded the first time one opens.
 const Pages = lazy(() => import('./pages/Pages'))
+// The owner's review of where each stop sits on its landform (?review=positions). Dev server only: a production
+// build drops it.
+const PositionReview = import.meta.env.DEV ? lazy(() => import('./review/PositionReview')) : null
+const reviewing = import.meta.env.DEV && new URLSearchParams(window.location.search).get('review') === 'positions'
 
 const NO_LIST: never[] = []
 
@@ -195,54 +199,62 @@ export default function App() {
         units={units}
         onUnits={setUnits}
       />
-      <Panel
-        units={units}
-        questions={questions}
-        header={<ProgressBadge progress={progress} isSet={isSet} episodes={episodes} onOpen={() => progressDialog.open('where')} />}
-        search={<SearchBox places={flat?.places.features ?? []} stops={flat?.stops.features ?? []} translations={translations} onPick={nav.onPick} />}
-        card={card}
-        failed={loaded === 'failed'}
-        failures={failures}
-        journey={nav.journey}
-        journeys={nav.journeys}
-        elsewhere={elsewhere}
-        episodes={episodesReached}
-        reached={reached}
-        stops={stops}
-        stopIndex={stopIndex}
-        previousJourney={nav.previousJourney}
-        nextJourney={nav.nextJourney}
-        crossedFrom={nav.crossedFrom}
-        spokenAtStop={listed(stop?.properties.id)}
-        spokenOnRoad={listed(roadAhead?.properties.id).length}
-        onShowRoad={() => {
-          if (!roadAhead) return
-          setTranslationId(null)
-          nav.showRoad(roadAhead.properties.id)
-        }}
-        stopHasArea={!!stopArea}
-        onShowArea={() => stopArea && nav.showArea(stopArea.properties.id)}
-        readOn={next && progressLabel(next, episodes)}
-        onReadOn={() => next && setProgress(next)}
-        currentTranslation={translationId}
-        onJourney={nav.onJourney}
-        onStop={nav.goToStop}
-        placementOpen={placementOpen}
-        onPlacement={setPlacementOpen}
-        spanishOpen={spanishOpen}
-        onSpanish={setSpanishOpen}
-        phone={phone}
-        drawer={drawer}
-        onDrawer={setDrawer}
-      />
-      <ReadingProgressDialog
-        dialog={progressDialog}
-        progress={progress}
-        isSet={isSet}
-        episodes={episodes}
-        episodesFailed={episodesLoaded.failed}
-        onSet={setProgress}
-      />
+      {reviewing && PositionReview ? (
+        <Suspense fallback={null}>
+          <PositionReview mapRef={mapRef} />
+        </Suspense>
+      ) : (
+        <Panel
+          units={units}
+          questions={questions}
+          header={<ProgressBadge progress={progress} isSet={isSet} episodes={episodes} onOpen={() => progressDialog.open('where')} />}
+          search={<SearchBox places={flat?.places.features ?? []} stops={flat?.stops.features ?? []} translations={translations} onPick={nav.onPick} />}
+          card={card}
+          failed={loaded === 'failed'}
+          failures={failures}
+          journey={nav.journey}
+          journeys={nav.journeys}
+          elsewhere={elsewhere}
+          episodes={episodesReached}
+          reached={reached}
+          stops={stops}
+          stopIndex={stopIndex}
+          previousJourney={nav.previousJourney}
+          nextJourney={nav.nextJourney}
+          crossedFrom={nav.crossedFrom}
+          spokenAtStop={listed(stop?.properties.id)}
+          spokenOnRoad={listed(roadAhead?.properties.id).length}
+          onShowRoad={() => {
+            if (!roadAhead) return
+            setTranslationId(null)
+            nav.showRoad(roadAhead.properties.id)
+          }}
+          stopHasArea={!!stopArea}
+          onShowArea={() => stopArea && nav.showArea(stopArea.properties.id)}
+          readOn={next && progressLabel(next, episodes)}
+          onReadOn={() => next && setProgress(next)}
+          currentTranslation={translationId}
+          onJourney={nav.onJourney}
+          onStop={nav.goToStop}
+          placementOpen={placementOpen}
+          onPlacement={setPlacementOpen}
+          spanishOpen={spanishOpen}
+          onSpanish={setSpanishOpen}
+          phone={phone}
+          drawer={drawer}
+          onDrawer={setDrawer}
+        />
+      )}
+      {!reviewing && (
+        <ReadingProgressDialog
+          dialog={progressDialog}
+          progress={progress}
+          isSet={isSet}
+          episodes={episodes}
+          episodesFailed={episodesLoaded.failed}
+          onSet={setProgress}
+        />
+      )}
       {route !== '/' && (
         <ChunkBoundary
           fallback={

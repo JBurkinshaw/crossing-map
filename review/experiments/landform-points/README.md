@@ -1,6 +1,6 @@
 # Experiment: placing a stop at the right part of a landform
 
-Status: **tried 18 November 2026** on J1's stops (decision 0056). The owner chose the gazetteer tier, the hybrid divide and the check, with the DEM-only tiers kept as review aids. This folder keeps the J1 trial and the calibration.
+Status: **adopted on 18 November 2026** (decision 0059): the gazetteer tier, the hybrid divide and the check, with the check's window scaled to the landform. They now run for every stop with a position as `crossing.positions`, and the DEM-only tiers are review aids. This folder keeps the J1 trial and the calibration.
 
 The book often puts a stop at one part of a landform: the head of a draw, the gap through a range, the high country between two draws, a valley floor. A gazetteer's point for that landform is somewhere else, usually a stream's mouth or a range's middle. The owner found four J1 stops placed on the gazetteer point instead (decision 0056). This experiment asks whether a fixed, reproducible process could have found the right points, and whether a terrain check could have caught the wrong ones.
 

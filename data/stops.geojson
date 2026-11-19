@@ -1039,8 +1039,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.95,
-     30.0
+     -108.93283,
+     29.98524
     ]
    },
    "properties": {
@@ -1064,7 +1064,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "From the eastern escarpment he looks east over the Bavispe's barranca to the Carretas Plain beyond, then goes down, sleeps by the river and rides north along the river track to a ford. So the escarpment is on the sierra's eastern edge upriver (south) of Huisiachepic, and the area is set south-west of the Huisiachepic estimate.",
+    "reasoning": "From the eastern escarpment he looks east over the Bavispe's barranca to the Carretas Plain beyond, then goes down, sleeps by the river and rides north along the river track to a ford. So the escarpment is on the sierra's eastern edge upriver (south) of Huisiachepic, and the area is set south-west of the Huisiachepic estimate. The point is the ground nearest the first estimate that lies inside the area and passes the terrain check for a rim (pipeline/measure/points_in_areas.py).",
     "synopsis": "Following a little-used wagon road east across the Sierras, Billy passes cairns for travellers killed long ago and reaches a rim of grey rock painted with old pictographs. He looks out over the Bavispe's barranca to the Carretas Plain, trims his horse's overgrown hooves, then spends some seven hours on the switchbacks down to the river."
    }
   },
@@ -2004,8 +2004,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.45,
-     30.35
+     -108.41545,
+     30.38566
     ]
    },
    "properties": {
@@ -2030,7 +2030,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "From Bacerac a rough trail climbs east through pine and scrub oak. After a camp above a hillside farm, a night in an old burn and two days of riding in the high country, they set out one grey morning and within the hour reach the escarpment's eastern rim, where they watch the sun come up over the plains of Chihuahua. The book names no pass. The area is on the eastern edge of the sierra on the line from Bacerac to Colonia Juárez (82.4 km apart).",
+    "reasoning": "From Bacerac a rough trail climbs east through pine and scrub oak. After a camp above a hillside farm, a night in an old burn and two days of riding in the high country, they set out one grey morning and within the hour reach the escarpment's eastern rim, where they watch the sun come up over the plains of Chihuahua. The book names no pass. The area is on the eastern edge of the sierra on the line from Bacerac to Colonia Juárez (82.4 km apart). The point is the ground nearest the first estimate that lies inside the area and passes the terrain check for a rim (pipeline/measure/points_in_areas.py).",
     "synopsis": "Billy tells Boyd the stranger is a German doctor with papers from a Casas Grandes broker. An old man in Bacerac draws the way ahead in the dust while men on a bench argue over it, and the brothers ford the river and climb east. After camps above a hill farm and in an old burn, then two cold, wet days, they reach the eastern rim at sunrise."
    }
   },
@@ -2284,8 +2284,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.09,
-     29.33
+     -108.07966,
+     29.33256
     ]
    },
    "properties": {
@@ -2310,7 +2310,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "They camp in an oak grove by a river, then leave the dirt road for a path past a pepper field and an irrigation ditch to a ford where boys are swimming. The book names neither the river nor a town. The area covers the country along the road between the opera camp and Madera.",
+    "reasoning": "They camp in an oak grove by a river, then leave the dirt road for a path past a pepper field and an irrigation ditch to a ford where boys are swimming. The book names neither the river nor a town. The area covers the country along the road between the opera camp and Madera. The point is the ground inside the area nearest the first estimate (pipeline/measure/points_in_areas.py).",
     "synopsis": "“The girl” cooks for them in an oak grove by the river. Next day, at a ford where naked boys swim below a culvert, Billy drives a nail down inside Boyd's boot with the shotgun barrel and admits he saw the primadonna bathing."
    }
   },
@@ -2319,8 +2319,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.0,
-     29.27
+     -107.98181,
+     29.2987
     ]
    },
    "properties": {
@@ -2345,7 +2345,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east towards Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason.",
+    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east towards Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason. The point is the ground inside the area nearest the first estimate (pipeline/measure/points_in_areas.py).",
     "synopsis": "Watering the horses in the river, Billy talks crops, oxen and home with an old man who promises to pray for him. That night Boyd says “the girl” wants to go to her mother in Namiquipa. In the morning they give her a horse and half their money, and she rides off east alone."
    }
   },

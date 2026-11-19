@@ -332,9 +332,9 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "On the road towards La Boquilla Billy watches a big red Waco plane come in from the west, circle and come down beyond the lake.",
-    "reasoning": "The drawing is set on the south side of Camp on the plain by the lake, the red plane (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would cover more. At zoom 9 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
+    "reasoning": "The drawing is set on the south-west side of Camp on the plain by the lake, the red plane (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would cover more. At zoom 9 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
     "vignette": "vignette-red-plane",
-    "side": "s",
+    "side": "sw",
     "min_zoom": 9.0,
     "priority": 3,
     "label": "Red Waco cabin biplane, 1930s",
@@ -672,10 +672,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "On the road to La Boquilla the brothers meet vaqueros trailing a thousand wild corriente steers from the south of the Babícora up towards the pens at Naco.",
-    "reasoning": "The drawing is set on the south-west side of The steer herd on the road to La Boquilla (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. On every side it covers a stop, a route line or another drawing from its first zoom, and no closer zoom would clear it, so it shows from that zoom on the side where it covers least.",
+    "reasoning": "The drawing is set on the south-west side of The steer herd on the road to La Boquilla (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would cover more. At zoom 10 it still covers a stop, a route line or another drawing on every side, but a drawing waits one zoom step at most, so it sits on the side where it covers least.",
     "vignette": "vignette-corriente-steers",
     "side": "sw",
-    "min_zoom": 9.0,
+    "min_zoom": 10.0,
     "priority": 2,
     "label": "Corriente steers, bound for Naco",
     "credit": "Drawn after photographs of longhorn steers by Carol M. Highsmith (public domain) and Clinton and Charles Robertson (CC BY 2.0)"
@@ -1196,8 +1196,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.95,
-     30.0
+     -108.93283,
+     29.98524
     ]
    },
    "properties": {

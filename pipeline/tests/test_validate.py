@@ -173,3 +173,32 @@ def test_water_place_may_not_show_before_its_place(layers):
     layers["water_places"]["features"].append(feature("water-place-a", kind="spring", place_ref="place-a",
                                                       source_id=None))
     assert any("water_places.geojson water-place-a" in e for e in validate.check_references(layers))
+
+
+def test_position_notes_list_flagged_stops_without_a_current_verdict(tmp_path, monkeypatch):
+    monkeypatch.setattr(validate, "POSITIONS", tmp_path)
+    (tmp_path / "results.csv").write_text(
+        "stop,journey,seq,name,position,lon,lat,check,flagged,candidates,note\n"
+        "a,J1,1,A,pass,-108.1,31.1,ok,false,1,\n"
+        "b,J1,2,B,pass,-108.2,31.2,flag: slope,true,1,\n"
+        "c,J1,3,C,floor,-108.3,31.3,flag: spur,true,1,\n"
+        "d,J1,4,D,head,-108.4,31.4,ok,false,1,\n", encoding="utf-8")
+    (tmp_path / "review.csv").write_text(
+        "id,verdict,choice,note,point,updated\n"
+        "b,accept,,,\"-108.20000,31.20000\",2026-11-18T00:00:00Z\n"
+        "c,accept,,,\"-108.00000,31.00000\",2026-11-18T00:00:00Z\n", encoding="utf-8")
+    stops = {"features": [{"properties": {"id": i}, "geometry": {"coordinates": xy}} for i, xy in
+                          [("a", [-108.1, 31.1]), ("b", [-108.2, 31.2]), ("c", [-108.3, 31.3]), ("d", [-108.5, 31.4])]]}
+    notes = validate.position_notes(stops)
+    # c's verdict was for an older point, and d has moved since the results were computed.
+    assert notes == ["d: the stop has moved since crossing.positions ran; rerun it",
+                     "1 flagged stops without a verdict (?review=positions): c"]
+
+
+def test_a_stop_point_must_lie_inside_its_area():
+    ring = [[-108.6, 31.4], [-108.4, 31.4], [-108.4, 31.6], [-108.6, 31.6], [-108.6, 31.4]]
+    areas = {"features": [{"properties": {"id": "area-a"}, "geometry": {"type": "Polygon", "coordinates": [ring]}},
+                          {"properties": {"id": "area-b"}, "geometry": {"type": "Polygon", "coordinates": [ring]}}]}
+    stops = {"features": [{"properties": {"id": "a"}, "geometry": {"coordinates": [-108.5, 31.5]}},
+                          {"properties": {"id": "b"}, "geometry": {"coordinates": [-108.7, 31.5]}}]}
+    assert validate.check_points_in_areas(stops, areas) == ["b: its point lies outside area-b"]

@@ -15,6 +15,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 - The legs from San Luis Pass to the Animas Mountains and on to the Animas Valley are modelled least-cost paths, not curves. The legs into and out of the other moved stops are redrawn.
 - The antelope run moves from the Animas Valley stop's synopsis to the stop between Clanton and Foster draws, where the book has it.
 - New open questions `q-san-luis-gap` and `q-animas-crossing`. `q-starvation-canyon` and `q-clanton-foster` now show the heads.
+- Four stops whose point lay outside their own area now sit inside it, and their areas are redrawn around them: the eastern escarpment (`j3-eastern-escarpment`) and the escarpment rim (`j4-escarpment-rim`), each on ground that reads as a rim, the river camps (`j4-river-camps`) and the wagon-road crossing (`j4-wagon-road-crossing`). They moved 1.0 to 5.2 km (decision 0059).
 - The drawings' caption sides and zooms in `vignettes.geojson` are worked out for captions a fifth larger, as the map now sets them (decision 0055).
 
 #### Site

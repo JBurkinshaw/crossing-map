@@ -1,0 +1,333 @@
+/* The local review mode (src/review/), dev server only. */
+
+.review h2 {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+}
+
+.review h3 {
+  margin: 12px 0 4px;
+  font-size: 1.05rem;
+}
+
+.review-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.review-nav button,
+.verdicts button {
+  padding: 6px 10px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.review-nav button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.review-filter select {
+  font: inherit;
+}
+
+.review .status {
+  padding: 0 6px;
+  border: 1px solid var(--ink-faint);
+  border-radius: 3px;
+}
+
+
+.review .flags {
+  margin: 6px 0;
+  padding-left: 18px;
+  color: var(--alert);
+}
+
+.verdicts {
+  display: flex;
+  gap: 6px;
+  margin: 12px 0 8px;
+}
+
+.verdicts button[aria-pressed='true'].verdict-accept {
+  background: #3d6b3a;
+  border-color: #3d6b3a;
+  color: #fff;
+}
+
+.verdicts button[aria-pressed='true'].verdict-needs-work {
+  background: #a87b1e;
+  border-color: #a87b1e;
+  color: #fff;
+}
+
+
+.review kbd {
+  margin-left: 4px;
+  padding: 0 3px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-size: 0.75em;
+  opacity: 0.7;
+}
+
+.review .note {
+  display: block;
+}
+
+.review .note textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+  font: inherit;
+}
+
+
+
+.review .swatch {
+  display: inline-block;
+  width: 22px;
+  height: 0;
+  margin: 0 4px 3px 0;
+  vertical-align: middle;
+  border-top: 3px solid;
+}
+
+
+
+
+
+
+
+
+.review-list ol {
+  margin: 6px 0;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+}
+
+.review-list button {
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.review-list button[aria-current='true'] {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.review .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-faint);
+}
+
+.dot-accept {
+  background: #3d6b3a;
+}
+
+.dot-needs-work {
+  background: #a87b1e;
+}
+
+
+.save-failed {
+  color: var(--alert);
+}
+
+/* The stop-position review (PositionReview.tsx). */
+
+.verdicts button[aria-pressed='true'].verdict-move {
+  background: #0b5fd0;
+  border-color: #0b5fd0;
+  color: #fff;
+}
+
+.verdicts button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.dot-move {
+  background: #0b5fd0;
+}
+
+.review .check-ok {
+  margin: 6px 0;
+  color: var(--ink-faint);
+}
+
+.review p.flags {
+  padding-left: 0;
+}
+
+.review .stale,
+.review .moving {
+  padding: 4px 6px;
+  border-left: 3px solid #a87b1e;
+}
+
+.review .candidates {
+  width: 100%;
+  margin: 12px 0;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.review .candidates th,
+.review .candidates td {
+  padding: 3px 6px 3px 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.review .candidates thead th {
+  font-weight: normal;
+  font-style: italic;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.review .candidates .group th {
+  padding-top: 8px;
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+.review .candidates .aids {
+  border-top: 1px dashed var(--ink-faint);
+}
+
+.review .candidates .aids .group th {
+  color: #a87b1e;
+}
+
+.review .candidates tr.aid td {
+  opacity: 0.85;
+}
+
+.review .candidates tr.chosen td {
+  background: rgba(11, 95, 208, 0.12);
+}
+
+.review .candidates .km {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.review .candidates .flagged {
+  color: var(--alert);
+}
+
+.review .candidates tr.first td {
+  padding-top: 6px;
+}
+
+.review .candidates tr.about td {
+  padding-left: 1.4em;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(43, 33, 24, 0.12);
+}
+
+.review .candidates .check {
+  display: block;
+  font-size: 0.9em;
+}
+
+.review .candidates .action {
+  text-align: right;
+}
+
+/* The story's stop markers, dimmed so the review points under them show. */
+.reviewing-positions .maplibregl-marker {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.review .candidates .detail {
+  display: block;
+  font-size: 0.85em;
+}
+
+.review .aid-tag {
+  display: block;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #a87b1e;
+}
+
+.review .move-here {
+  padding: 2px 6px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.85em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.review .move-here[aria-pressed='true'] {
+  background: #0b5fd0;
+  border-color: #0b5fd0;
+  color: #fff;
+}
+
+.review .swatch-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 2px;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  background: currentColor;
+  box-sizing: border-box;
+}
+
+.review .swatch-dot.hollow {
+  background: transparent;
+}
+
+.review .swatch-dot.published {
+  width: 14px;
+  height: 14px;
+  border-width: 3px;
+  background: rgba(43, 33, 24, 0.12);
+}
+
+.review .swatch-dashed {
+  border-top-style: dashed;
+}
+
+.review-legend {
+  margin: 10px 0;
+  padding: 4px 8px;
+  border: 1px solid var(--ink-faint);
+  font-size: 0.85rem;
+}
+
+.review-legend h4 {
+  margin: 2px 0 4px;
+  font-size: 0.9rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.review-legend p {
+  margin: 2px 0;
+}

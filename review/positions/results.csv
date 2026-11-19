@@ -1,0 +1,24 @@
+stop,journey,seq,name,position,lon,lat,check,flagged,candidates,note
+j1-bavispe-crossing,J1,2,Crossing of the Bavispe,floor,-109.28798,29.99924,ok,false,1,She crosses the Bavispe.
+j1-san-luis-mountains,J1,5,"San Luis Mountains, by San Luis Pass",pass,-108.74505,31.39455,ok,false,2,She crosses the range north through its gap.
+j1-animas-mountains,J1,6,Animas Mountains,pass,-108.77309,31.49629,ok,false,2,"She passes through the range on her way north. The owner reads the crossing as halfway to the Animas Valley (decision 0056), so the gazetteer tier has no gap to offer."
+j1-animas-valley,J1,7,Animas Valley,floor,-108.88,31.6,ok,false,1,She crosses the valley floor.
+j1-foster-draw,J1,8,Foster Draw (the calf),head,-108.99639,31.4825,ok,false,2,The calf is killed at the head of the draw.
+j1-starvation-canyon,J1,10,Starvation Canyon,head,-109.09573,31.52244,ok,false,2,She works west to the head of the canyon.
+j1-clanton-foster,J1,12,Between Clanton and Foster draws,between,-108.9997,31.49225,ok,false,3,The high country between the two draws.
+j2-guadalupe-pass,J2,4,Low pass in the easternmost Guadalupes,pass,-108.96,31.37,"flag: footslope/valley, not saddle",true,2,A low pass at the eastern end of the Guadalupes.
+j2-cajon-bonito,J2,7,Up the Cajón Bonito,floor,-109.29153,31.12684,ok,false,1,Up the Cajón Bonito on the trail south.
+j2-sierra-de-la-cabellera,J2,8,Passes of the Sierra de la Cabellera,pass,-109.03806,30.92361,"ok, saddle 30 m away",false,2,The range's high passes.
+j2-pilares-de-teras,J2,13,Into the Pilares Teras,foot,-109.20033,30.65895,"flag: height percentile 83, not 0-50",true,1,At the foot of the Pilares.
+j3-wolfs-grave,J3,1,"The wolf's grave, a high pass in the Pilares",pass,-109.20033,30.65895,"ok, saddle 0 m away",false,1,A high pass in the Pilares.
+j3-bavispe-promontory,J3,2,A promontory above the Bavispe,high,-109.05,30.55,"flag: hollow, not peak/ridge/shoulder/spur",true,1,A promontory above the Bavispe.
+j3-eastern-escarpment,J3,5,The eastern escarpment above the Bavispe barranca,rim,-108.93283,29.98524,ok,false,1,The rim of the eastern escarpment above the Bavispe barranca.
+j3-guadalupe-pass,J3,14,A pass in the Guadalupes on the old Cloverdale road,pass,-109.03761,31.51026,ok,false,2,The pass on the old Douglas to Cloverdale road.
+j4-dos-cabezas,J4,5,The old road through the Dos Cabezas,slopes,-109.43227,32.20942,ok,false,1,A camp where the old road climbs into the range.
+j4-apache-pass,J4,6,Apache Pass,pass,-109.48173,32.15175,"ok, saddle 42 m away",false,2,The high gap at Apache Pass.
+j4-escarpment-rim,J4,14,The eastern rim of the escarpment at sunrise,rim,-108.41545,30.38566,ok,false,1,The escarpment's eastern rim at sunrise.
+j4-plains-camp,J4,15,"The plains, with the Tarahumaras",floor,-108.25,30.32,ok,false,1,A ciénega on the prairie below the rim.
+j7-little-hatchets,J7,10,The Little Hatchet foothills,slopes,-108.45362,31.84157,"flag: peak, not footslope/hollow/shoulder/slope/spur; height percentile 100, not 10-70",true,1,The lower slopes of the Little Hatchets.
+j7-playas-road,J7,12,The old Playas road over the mountains,pass,-108.7,31.86,"ok, saddle 150 m away",false,2,The old Playas road over the mountains west of the lake.
+j7-animas-plain,J7,15,Camp on the Animas Plain,floor,-108.82,31.45,"flag: height percentile 52, not 0-40",true,1,A camp out on the Animas Plain.
+j7-black-range,J7,56,Over the Black Range,pass,-107.7667,32.91007,ok,false,2,Over the Black Range on the old road east.

@@ -6,10 +6,16 @@ Checks every file, lists every error, and exits 1 if any file has errors or is m
 Besides each schema, it checks what a schema cannot: every episode id names a real episode, every
 reference points at a feature that exists and is reached no later than the thing pointing at it,
 each journey's stops and segments are numbered without gaps, and the Oblique view's copies hold the
-same features, first seen at the same episodes, as the flat layers. It also checks that every glyph and
-vignette the data names has an icon in the committed sprite, which CI cannot rebuild.
+same features, first seen at the same episodes, as the flat layers, and every stop's point lies inside
+its own area. It also checks that every glyph and vignette the data names has an icon in the committed
+sprite, which CI cannot rebuild.
+
+It also reports, without failing, the landform positions still to review: stops the terrain check flags
+(review/positions/results.csv, from crossing.positions) that have no verdict for their current point in
+review/positions/review.csv, and results computed for a point the stop no longer has.
 """
 
+import csv
 import json
 import re
 import sys
@@ -17,10 +23,12 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from jsonschema import Draft202012Validator
+from shapely.geometry import Point, shape
 
-from crossing.paths import DATA, SITE_PUBLIC
+from crossing.paths import DATA, REPO, SITE_PUBLIC
 
 SCHEMAS = DATA / "schema"
+POSITIONS = REPO / "review" / "positions"
 SPRITE_INDEX = SITE_PUBLIC / "sprites" / "glyphs.json"
 LAYERS = ["places", "stops", "areas", "journeys", "mountain_glyphs", "vignettes", "landforms", "water_places",
           "context_places"]
@@ -141,6 +149,17 @@ def check_references(layers: dict[str, dict]) -> list[str]:
             if sorted(seqs) != expected:
                 errors.append(f"{layer}.geojson {journey}: {kind} sequences are {sorted(seqs)}, "
                               f"not 1 to {len(expected)}")
+    return errors
+
+
+def check_points_in_areas(stops: dict, areas: dict) -> list[str]:
+    """A stop with an area is drawn as its area, and its point is the best guess inside it."""
+    points = {f["properties"]["id"]: f["geometry"]["coordinates"] for f in stops["features"]}
+    errors = []
+    for area in areas["features"]:
+        stop = area["properties"]["id"].removeprefix("area-")
+        if stop in points and not shape(area["geometry"]).contains(Point(points[stop])):
+            errors.append(f"{stop}: its point lies outside {area['properties']['id']}")
     return errors
 
 
@@ -276,6 +295,32 @@ def check_sprites(layers: dict[str, dict], sprite: dict) -> list[str]:
     return [f"no sprite icon {name!r} in {SPRITE_INDEX.name}" for name in sorted(icon_names(layers) - set(sprite))]
 
 
+def position_notes(stops: dict) -> list[str]:
+    """Stops whose landform position needs the owner's review. Notes only: a flagged stop never fails the build."""
+    results = POSITIONS / "results.csv"
+    if not results.exists():
+        return []
+    verdicts = {}
+    if (POSITIONS / "review.csv").exists():
+        with (POSITIONS / "review.csv").open(encoding="utf-8") as f:
+            verdicts = {r["id"]: r for r in csv.DictReader(f)}
+    points = {f["properties"]["id"]: f["geometry"]["coordinates"] for f in stops["features"]}
+    notes, unreviewed = [], []
+    with results.open(encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            here = points.get(r["stop"])
+            point = f"{float(r['lon']):.5f},{float(r['lat']):.5f}"
+            if here is None or f"{here[0]:.5f},{here[1]:.5f}" != point:
+                notes.append(f"{r['stop']}: the stop has moved since crossing.positions ran; rerun it")
+                continue
+            v = verdicts.get(r["stop"])
+            if r["flagged"] == "true" and not (v and v["verdict"] and v["point"] == point):
+                unreviewed.append(r["stop"])
+    if unreviewed:
+        notes.append(f"{len(unreviewed)} flagged stops without a verdict (?review=positions): {', '.join(unreviewed)}")
+    return notes
+
+
 def report(name: str, errors: list[str]) -> bool:
     print(f"{name}: {'ok' if not errors else f'{len(errors)} errors'}")
     for e in errors:
@@ -298,7 +343,8 @@ def main() -> int:
     layers = {name: load(DATA / f"{name}.geojson") for name in LAYERS}
     for name, doc in layers.items():
         failed |= report(f"{name}.geojson", check_layer(doc, name, episodes)
-                         + (check_region_rings(doc) if name == "areas" else []))
+                         + (check_region_rings(doc) + check_points_in_areas(layers["stops"], doc)
+                            if name == "areas" else []))
     for name in OBLIQUE_LAYERS:
         doc = load(DATA / "oblique" / f"{name}.geojson")
         errors = (check_layer(doc, name, episodes) + check_oblique(layers[name], doc, name)
@@ -311,6 +357,8 @@ def main() -> int:
     failed |= report("translations.json", check_translations(load(DATA / "translations.json"), layers, episodes))
     failed |= report("open-questions.json", check_questions(load(DATA / "open-questions.json"), layers, episodes))
     failed |= report("elsewhere.json", check_elsewhere(load(DATA / "elsewhere.json"), layers["places"], episodes))
+    for note in position_notes(layers["stops"]):
+        print(f"positions (note, not an error): {note}")
     print(f"Checked {len(expected)} files.")
     return 1 if failed else 0
 
