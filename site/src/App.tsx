@@ -3,6 +3,7 @@ import { ChunkBoundary } from './ChunkBoundary'
 import type { MapRef } from '@vis.gl/react-maplibre'
 import type { Feature, Geometry } from 'geojson'
 import { useOpenQuestions } from './data/openQuestions'
+import { usePhotos, type Photo } from './data/photos'
 import { useElsewhere, useStory, type StoryProps } from './data/story'
 import { useTranslations, type Translation } from './data/translations'
 import { CORRIDOR_M } from './map/corridor'
@@ -17,7 +18,7 @@ import { SearchBox } from './panel/SearchBox'
 import { TranslationList } from './panel/TranslationList'
 import { usePhone } from './panel/usePhone'
 import { useRoute } from './route'
-import { shownAt, storyUpTo, translationsUpTo } from './spoiler/filter'
+import { photosUpTo, shownAt, storyUpTo, translationsUpTo } from './spoiler/filter'
 import { nextEpisode, progressLabel, reachedEpisode, spoilersHidden, useEpisodes, useProgress } from './spoiler/progress'
 import { useReadingProgress } from './spoiler/progressDialog'
 import { ProgressBadge, ReadingProgressDialog } from './spoiler/ReadingProgress'
@@ -41,6 +42,7 @@ export default function App() {
   const elsewhereAll = useElsewhere()
   const translationsAll = useTranslations(loadedAll !== null)
   const questionsAll = useOpenQuestions()
+  const photosAll = usePhotos(loadedAll !== null)
   // Spoiler mode: everything below sees only what the reader has reached (spoiler/filter.ts).
   const { progress, isSet, setProgress } = useProgress()
   // The reading-progress dialog's state lives here, above the panel, so it survives the panel's change of layout.
@@ -56,6 +58,16 @@ export default function App() {
   const elsewhere = useMemo(() => (elsewhereAll.data ?? NO_LIST).filter((e) => shownAt(e, reached)), [elsewhereAll, reached])
   const questions = useMemo(() => (questionsAll.data ?? NO_LIST).filter((q) => shownAt(q, reached)), [questionsAll, reached])
   const translations = useMemo(() => translationsUpTo(translationsAll.data ?? NO_LIST, reached), [translationsAll, reached])
+  // The photos reached, by the place or stop whose card shows them (decision 0067).
+  const photos = useMemo(
+    () => (loaded && loaded !== 'failed' ? photosUpTo(photosAll.data ?? NO_LIST, loaded, reached) : NO_LIST),
+    [photosAll, loaded, reached],
+  )
+  const photosOf = useMemo(() => {
+    const of = new Map<string, Photo[]>()
+    for (const e of photos) for (const id of [e.place_id, ...e.stop_ids]) of.set(id, e.photos)
+    return of
+  }, [photos])
   // The episodes reached: the stop section shows its episode's summary, written to be safe once it is reached.
   const episodesReached = useMemo(() => episodes.filter((e) => e.episode <= reached), [episodes, reached])
   const spokenAt = useMemo(() => {
@@ -101,6 +113,7 @@ export default function App() {
     translationsAll.failed && 'the translations',
     questionsAll.failed && 'the open questions',
     elsewhereAll.failed && 'the places named elsewhere',
+    photosAll.failed && 'the photos',
   ].filter((f): f is string => !!f)
 
   // What the card shows: only what the reader has reached (a change of progress can hide it).
@@ -155,6 +168,7 @@ export default function App() {
       questions={questions}
       stop={selected.properties.kind === 'inferred-area' ? stopOfArea(flat, selected.properties.id) : undefined}
       onStop={nav.showStop}
+      photos={photosOf.get(selected.properties.id)}
       spoken={listed(selected.properties.id)}
       currentTranslation={translationId}
       placementOpen={placementOpen}
@@ -222,6 +236,7 @@ export default function App() {
           previousJourney={nav.previousJourney}
           nextJourney={nav.nextJourney}
           crossedFrom={nav.crossedFrom}
+          stopPhotos={(stop && photosOf.get(stop.properties.id)) ?? NO_LIST}
           spokenAtStop={listed(stop?.properties.id)}
           spokenOnRoad={listed(roadAhead?.properties.id).length}
           onShowRoad={() => {
@@ -264,7 +279,7 @@ export default function App() {
           }
         >
           <Suspense fallback={null}>
-            <Pages route={route} questions={questions} reached={reached} spoilers={spoilers} stops={flat?.stops.features ?? NO_LIST} spoken={listed} />
+            <Pages route={route} questions={questions} reached={reached} spoilers={spoilers} stops={flat?.stops.features ?? NO_LIST} spoken={listed} story={flat} photos={photos} />
           </Suspense>
         </ChunkBoundary>
       )}

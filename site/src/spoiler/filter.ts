@@ -1,5 +1,6 @@
 import type { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson'
 import type { ExpressionSpecification, FilterSpecification, StyleSpecification } from 'maplibre-gl'
+import type { PlacePhotos } from '../data/photos'
 import type { Story } from '../data/story'
 
 // The spoiler filter (docs/design.md, section 6): hides features first seen after the reader's progress, cuts
@@ -69,6 +70,16 @@ export function storyUpTo(story: Story, reached: string, spoilers: boolean): Sto
 // ("Se murió" is itself a spoiler). Their location_ref never points at a feature first seen later (validate).
 export function translationsUpTo<T extends { first_seen: string }>(list: T[], reached: string): T[] {
   return list.filter((t) => t.first_seen <= reached)
+}
+
+// Photos show with their place, or their stop for a stop with no place of its own (decision 0067): only those of a
+// place or stop in the filtered story, and none before its own first_seen, where its words name a place met later.
+export function photosUpTo(list: PlacePhotos[], story: Story, reached: string): PlacePhotos[] {
+  const shown = new Set([...story.places.features, ...story.stops.features].map((f) => f.properties.id))
+  return list
+    .filter((e) => shown.has(e.place_id))
+    .map((e) => ({ ...e, stop_ids: e.stop_ids.filter((id) => shown.has(id)), photos: e.photos.filter((p) => !p.first_seen || p.first_seen <= reached) }))
+    .filter((e) => e.photos.length > 0)
 }
 
 // Mountain glyphs come from the base style, not the story sources; a few are named only later in the book.

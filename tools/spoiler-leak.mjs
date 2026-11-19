@@ -35,6 +35,17 @@ const contextPlaces = (await read('context_places.geojson')).features
 // The pass names the map sets across each saddle (crossing.pass_lines), beside the site's other label data.
 const passes = JSON.parse(await readFile(new URL('../site/public/labels/passes.geojson', import.meta.url), 'utf8')).features
 const translations = await read('translations.json')
+// The photos on the cards (decision 0067), by file, with the first episode any card may show it from: its own
+// first_seen, else its place's or stop's. A context place always shows ('' here), and so do its photos.
+const props = new Map([...layers.places, ...layers.stops].map((f) => [f.properties.id, f.properties]))
+const photoFrom = new Map()
+for (const e of await read('photos.json')) {
+  const place = props.get(e.place_id)
+  for (const p of e.photos) {
+    const from = p.first_seen ?? (place.role === 'context' ? '' : place.first_seen)
+    if (!photoFrom.has(p.file) || from < photoFrom.get(p.file)) photoFrom.set(p.file, from)
+  }
+}
 const episodes = await read('episodes.json')
 
 // The walk moves progress back to here at the end, from the last episode.
@@ -74,7 +85,7 @@ const leak = (where, what) => leaks.push(`${where}: ${what}`)
 
 // The panel's visible text, the names it lists, and the episode ids it cites.
 async function checkPanel(page, reached, where, later, lines = new Set()) {
-  const { text, names, firstSeen, shownLines } = await page.evaluate(() => {
+  const { text, names, firstSeen, shownLines, photos } = await page.evaluate(() => {
     const panel = document.querySelector('.panel')
     // Folded sections count too: open them, so innerText includes them.
     for (const d of panel.querySelectorAll('details')) d.open = true
@@ -85,8 +96,13 @@ async function checkPanel(page, reached, where, later, lines = new Set()) {
     const popups = [...document.querySelectorAll('.maplibregl-popup')].map((e) => e.innerText).join('\n')
     // Each line's Spanish opening and English, in cards and search results.
     const shownLines = [...document.querySelectorAll('.panel .es, .panel .en')].map((e) => e.textContent.trim())
-    return { text: `${panel.innerText}\n${popups}\n${key}`, names, firstSeen, shownLines }
+    const photos = [...document.querySelectorAll('.photo img')].map((e) => e.getAttribute('src'))
+    return { text: `${panel.innerText}\n${popups}\n${key}`, names, firstSeen, shownLines, photos }
   })
+  for (const src of photos) {
+    const file = src.slice(src.indexOf('photos/'))
+    if (!photoFrom.has(file) || photoFrom.get(file) > reached) leak(where, `photo shown: ${file}`)
+  }
   for (const [label, first_seen, role] of firstSeen) if (!allowed({ first_seen, role }, reached)) leak(where, `element first seen ${first_seen}: ${label}`)
   for (const name of names) if (later.has(name)) leak(where, `later name shown: ${name}`)
   for (const id of text.match(EPISODE_ID) ?? []) if (id > reached) leak(where, `text cites episode ${id}`)

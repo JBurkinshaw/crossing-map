@@ -2,8 +2,9 @@ import { describe, expect, it } from 'vitest'
 import { featureFilter } from '@maplibre/maplibre-gl-style-spec'
 import type { Feature, FeatureCollection, GeoJsonProperties } from 'geojson'
 import type { Story } from '../data/story'
+import type { PlacePhotos } from '../data/photos'
 import type { Translation } from '../data/translations'
-import { layerFilterUpTo, PROGRESS_LAYERS, shownAt, storyUpTo, translationsUpTo } from './filter'
+import { layerFilterUpTo, photosUpTo, PROGRESS_LAYERS, shownAt, storyUpTo, translationsUpTo } from './filter'
 import { reachedEpisode, spoilersHidden, type Episode } from './progress'
 
 // The spoiler filters run on the published data at every reading position: nothing first seen after the reader's
@@ -19,6 +20,7 @@ const episodes = data<Episode[]>('episodes.json')
 const flat = layers()
 const oblique = layers('oblique/')
 const translations = data<Translation[]>('translations.json')
+const photos = data<PlacePhotos[]>('photos.json')
 const positions = ['none', ...episodes.map((e) => e.episode), 'all']
 
 // The features behind each base-map layer the progress filters (graticule lines carry no story dates).
@@ -84,6 +86,21 @@ describe.each(positions)('at %s', (progress) => {
     expect(found).toEqual([])
   })
 
+  it('keeps no later photo, and names no place the reader has not met in a photo’s title, alt text or credit', () => {
+    const story = storyUpTo(flat, reached, spoilers)
+    const props = new Map([...story.places.features, ...story.stops.features].map((f) => [f.properties.id, f.properties]))
+    const unmet = unmetNames(reached)
+    const found: string[] = []
+    for (const e of photosUpTo(photos, story, reached)) {
+      for (const id of [e.place_id, ...e.stop_ids]) if (!shownAt(props.get(id) ?? null, reached)) found.push(`${e.place_id}: shown with ${id}, not reached`)
+      for (const p of e.photos) {
+        if (p.first_seen && p.first_seen > reached) found.push(`${p.file} first seen ${p.first_seen}`)
+        for (const n of unmet) if ([p.title, p.alt, p.author].some((t) => t.includes(n))) found.push(`${p.file} names ${n}`)
+      }
+    }
+    expect(found).toEqual([])
+  })
+
   it('keeps no later translation', () => {
     expect(translationsUpTo(translations, reached).filter((t) => t.first_seen > reached).map((t) => t.id)).toEqual([])
   })
@@ -112,4 +129,5 @@ it('lets features the reader has reached through the filters', () => {
   const pass = featureFilter(layerFilterUpTo('vignette', undefined, '2-01')).filter
   expect(vignettes.some((f) => f.properties?.first_seen <= '2-01' && pass({ zoom: 10 }, { type: 1, properties: f.properties ?? {} }))).toBe(true)
   expect(storyUpTo(flat, '2-01', true).stops.features.length).toBeGreaterThan(0)
+  expect(photosUpTo(photos, storyUpTo(flat, '2-01', true), '2-01').length).toBeGreaterThan(0)
 })

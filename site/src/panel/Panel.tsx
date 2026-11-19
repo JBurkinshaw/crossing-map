@@ -13,6 +13,8 @@ import { episodeLabel, progressLabel, type Episode } from '../spoiler/progress'
 import { CERTAINTY_LABEL } from './certainty'
 import { Leads } from './Leads'
 import { synopsisFolded } from './folds'
+import type { Photo } from '../data/photos'
+import { Photos } from './Photos'
 
 type Props = {
   units: Units
@@ -40,6 +42,8 @@ type Props = {
   previousJourney: string | null
   nextJourney: string | null
   crossedFrom?: string
+  // The photos of the current stop's place, or of the stop itself, that the reader has reached (decision 0067).
+  stopPhotos: Photo[]
   // What was said in Spanish at the current stop (less the common lines), and the line picked in search, if any.
   spokenAtStop: Translation[]
   // Lines spoken on the road from the current stop to the next (talk on the road), and how to show that road.
@@ -70,7 +74,7 @@ export function Panel(props: Props) {
   const { header, search, card, failed, failures, journey, journeys, elsewhere, stops, stopIndex, spokenAtStop, currentTranslation, onJourney, onStop } = props
   const { spokenOnRoad, onShowRoad, stopHasArea, onShowArea, readOn, onReadOn } = props
   const { phone, drawer, onDrawer, units, questions, placementOpen, onPlacement, episodes, reached } = props
-  const { spanishOpen, onSpanish, previousJourney, nextJourney, crossedFrom } = props
+  const { spanishOpen, onSpanish, previousJourney, nextJourney, crossedFrom, stopPhotos } = props
   const stop = stops[stopIndex]
   // At a journey's ends, Back and Next go on to the journey before or after (decision 0058).
   const backTo = stopIndex === 0 ? previousJourney : null
@@ -190,6 +194,8 @@ export function Panel(props: Props) {
           <p className="synopsis">{synopsis}</p>
         ))}
       {(stop.properties.note_full || stop.properties.note_safe) && <p>{stop.properties.note_full || stop.properties.note_safe}</p>}
+      {/* The place's photos come after the stop's own text, so on a phone the story still opens the drawer. */}
+      <Photos key={stop.properties.id} photos={stopPhotos} firstSeen={stop.properties.first_seen} />
       {/* Said outside "How this was placed", which may be shut: the pin alone would read as more certain than it is. */}
       {stopHasArea && (
         <div className="stop-area">

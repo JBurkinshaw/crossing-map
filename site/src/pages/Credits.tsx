@@ -1,6 +1,10 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { CAMPBELL_CREDIT, CAMPBELL_GUIDE } from '../data/translations'
+import type { PlacePhotos } from '../data/photos'
+import type { Story } from '../data/story'
+import { PhotoCredit } from '../panel/Photos'
 import { shownAt } from '../spoiler/filter'
+import { byId } from '../story/select'
 import { REPO_URL, repoUrl } from './format'
 
 // Every source the site uses, with the credit its terms ask for (design section 3). `credit` is the wording
@@ -323,7 +327,43 @@ function useDrawings(reached: string): { shown: Drawing[]; hidden: number } {
   return { shown, hidden: all.length - shown.length }
 }
 
-export function Credits({ reached }: { reached: string }) {
+// The photos the reader has reached, by place, with their full credit (decision 0067). `photos` has already passed
+// the spoiler filter. A context place shows from the start, so it carries no first_seen.
+function PhotoCredits({ story, photos, spoilers }: { story: Story | null; photos: PlacePhotos[]; spoilers: boolean }) {
+  return (
+    <>
+      <h2>Photos</h2>
+      <p>
+        The photos on the cards are from <a href="https://commons.wikimedia.org/">Wikimedia Commons</a>. Each keeps its own licence:
+        public domain, CC0, CC BY or CC BY-SA. They are not part of this site’s CC BY licence, and a CC BY-SA photo stays under CC BY-SA.
+      </p>
+      {photos.length > 0 && (
+        <dl className="credits">
+          {photos.map((e) => {
+            const place = (byId(story, 'places', e.place_id) ?? byId(story, 'stops', e.place_id))?.properties
+            const placeSeen = place?.role === 'context' ? undefined : place?.first_seen
+            return (
+              <div key={e.place_id} data-first-seen={placeSeen}>
+                <dt>{place?.name ?? e.place_id}</dt>
+                {e.photos.map((p) => (
+                  <dd key={p.file} data-first-seen={p.first_seen ?? placeSeen}>
+                    <PhotoCredit photo={p} />
+                    {p.date && <span className="meta"> Taken {p.date}.</span>}
+                  </dd>
+                ))}
+              </div>
+            )
+          })}
+        </dl>
+      )}
+      {spoilers && <p className="meta">The credits for photos further on in the book show once you reach them.</p>}
+    </>
+  )
+}
+
+type CreditsProps = { reached: string; spoilers: boolean; story: Story | null; photos: PlacePhotos[] }
+
+export function Credits({ reached, spoilers, story, photos }: CreditsProps) {
   const drawings = useDrawings(reached)
   return (
     <>
@@ -365,6 +405,7 @@ export function Credits({ reached }: { reached: string }) {
       </dl>
       )}
       {drawings.hidden > 0 && <p className="meta">The credits for drawings further on in the book show once you reach them.</p>}
+      <PhotoCredits story={story} photos={photos} spoilers={spoilers} />
       <h2>This site</h2>
       <p>
         The story data, notes and translations written for this site are CC BY 4.0. The code is MIT, except the

@@ -19,6 +19,7 @@ const FILES: Record<string, string> = {
   'translations.json': 'the Spanish lines, by their opening words, with this site’s English and where each was said.',
   'open-questions.json': 'the judgement calls about where something is, each with the other reading.',
   'elsewhere.json': 'places the book names that lie beyond the map.',
+  'photos.json': 'the photos on the cards, by place, each with its credit and licence. The photos keep their own licences.',
 }
 
 // What each shared property means (design section 6); the schema's own descriptions are used where it has them.

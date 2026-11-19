@@ -12,7 +12,7 @@ const data = join(repo, 'data')
 const tiles = join(repo, 'site', 'public', 'tiles')
 const LAYERS = ['places', 'stops', 'areas', 'journeys', 'mountain_glyphs', 'landforms', 'water_places', 'context_places', 'vignettes']
 // Published files beside the layers, in the order the Data page lists them.
-const FILES = ['episodes.json', 'translations.json', 'open-questions.json', 'elsewhere.json']
+const FILES = ['episodes.json', 'translations.json', 'open-questions.json', 'elsewhere.json', 'photos.json']
 const SCHEMAS = ['story-layer.schema.json', 'episodes.schema.json', 'translations.schema.json']
 const ID = 'virtual:site-facts'
 

@@ -6,7 +6,8 @@ import { Data } from './Data'
 import { HowItsBuilt } from './HowItsBuilt'
 import { Itinerary } from './Itinerary'
 import type { Feature, Point } from 'geojson'
-import type { StoryProps } from '../data/story'
+import type { Story, StoryProps } from '../data/story'
+import type { PlacePhotos } from '../data/photos'
 import type { Translation } from '../data/translations'
 import type { OpenQuestion } from '../data/openQuestions'
 import { OpenQuestions } from './OpenQuestions'
@@ -31,9 +32,12 @@ type Props = {
   spoilers: boolean
   stops: Feature<Point, StoryProps>[]
   spoken: (stop: string) => Translation[]
+  // The story and the photos the reader has reached, for the Credits page.
+  story: Story | null
+  photos: PlacePhotos[]
 }
 
-export default function Pages({ route, questions, reached, spoilers, stops, spoken }: Props) {
+export default function Pages({ route, questions, reached, spoilers, stops, spoken, story, photos }: Props) {
   const page = PAGES.find((p) => p.route === route)!
   const scroller = useRef<HTMLDivElement>(null)
   const heading = useRef<HTMLHeadingElement>(null)
@@ -84,7 +88,7 @@ export default function Pages({ route, questions, reached, spoilers, stops, spok
         {route === '/itinerary' && <Itinerary stops={stops} spoken={spoken} reached={reached} spoilers={spoilers} />}
         {route === '/open-questions' && <OpenQuestions questions={questions} />}
         {route === '/data' && <Data />}
-        {route === '/credits' && <Credits reached={reached} />}
+        {route === '/credits' && <Credits reached={reached} spoilers={spoilers} story={story} photos={photos} />}
       </article>
     </div>
   )

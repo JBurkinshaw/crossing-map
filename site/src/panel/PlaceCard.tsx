@@ -10,6 +10,8 @@ import { distance, type Units } from '../units'
 import { CERTAINTY_LABEL } from './certainty'
 import { Leads } from './Leads'
 import { FEEDBACK_FORM } from '../pages/format'
+import type { Photo } from '../data/photos'
+import { Photos } from './Photos'
 
 type Props = {
   feature: Feature<Geometry, StoryProps>
@@ -31,6 +33,8 @@ type Props = {
   // For an inferred area: the stop it was worked out for, and how to go to it.
   stop?: Feature<Geometry, StoryProps>
   onStop?: (id: string) => void
+  // The place's photos the reader has reached (decision 0067). Most places have none.
+  photos?: Photo[]
 }
 
 // What kind of place it is, before how sure the map is of it: "Inferred area · Worked out from clues". The data's
@@ -43,7 +47,7 @@ const kindWord = (kind: string | undefined) => (kind ? `${KIND[kind] ?? kind[0].
 // section 8).
 export function PlaceCard(props: Props) {
   const { feature, units, questions, spoken, currentTranslation, onClose, title, spokenTitle = 'Spanish here', spokenNote } = props
-  const { placementOpen, onPlacement, stop, onStop } = props
+  const { placementOpen, onPlacement, stop, onStop, photos = [] } = props
   const p = feature.properties
   const card = useRef<HTMLElement>(null)
   // The card's top, with its title: a card taller than the panel would otherwise show its foot. When the card
@@ -64,6 +68,7 @@ export function PlaceCard(props: Props) {
         {p.uncertainty_m ? ` · within about ${distance(p.uncertainty_m, units)}` : ''}
       </div>
       {(p.note_full || p.note_safe) && <p>{p.note_full || p.note_safe}</p>}
+      <Photos key={p.id} photos={photos} firstSeen={p.role === 'context' ? undefined : p.first_seen} />
       {stop && onStop && (
         <p className="area-stop">
           The area for {stop.properties.journey}, stop {stop.properties.sequence}:{' '}
