@@ -44,6 +44,10 @@ def warp(d: str, fn) -> str:
             out.append("C{:.1f},{:.1f} {:.1f},{:.1f} {:.1f},{:.1f}".format(*a, *b, *c))
         elif isinstance(seg, se.Line):
             out.append("L{:.1f},{:.1f}".format(*fn(*seg.end)))
+        elif isinstance(seg, se.Arc):  # circle() and ellipse() are arcs: bend them as cubics, or they vanish
+            for c in seg.as_cubic_curves():
+                a, b, e = fn(*c.control1), fn(*c.control2), fn(*c.end)
+                out.append("C{:.1f},{:.1f} {:.1f},{:.1f} {:.1f},{:.1f}".format(*a, *b, *e))
     return " ".join(out)
 
 

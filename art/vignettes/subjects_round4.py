@@ -422,21 +422,15 @@ def gold_star() -> Drawing:
                     for x in range(16, 86, 7)), w=0.5, halo=False)
     d.line("M6,36 L48,10 L90,36", w=1.6)
     d.edge_shade(house, dx=-3, dy=0)
-    # The window, its sash and curtains, and the service flag hung in it: a red border round a white field, and
-    # on it the gold star.
+    # The window, its sash and curtains, and the gold star hung in it on a cord. The book gives the star alone.
     frame = poly((26, 82), (26, 36), (70, 36), (70, 82))
     d.shape(frame, w=1.6)
     d.hatch(frame, angle=45, pitch=2.6)
     d.line("M24,82 L72,82 M24,85 L72,85", w=1.2)
     d.shape("M28,38 C34,46 32,64 28,80 Z", w=0.9)
     d.shape("M68,38 C62,46 64,64 68,80 Z", w=0.9)
-    d.line("M36,40 L60,40 M40,40 L40,44 M56,40 L56,44", w=0.8)
-    flag = poly((35, 44), (61, 44), (61, 76), (35, 76))
-    d.shape(flag, w=1.3)
-    d.hatch("M35,44 L61,44 L61,76 L35,76 Z M39.4,48.4 L56.6,48.4 L56.6,71.6 L39.4,71.6 Z", angle=0, pitch=1.1)
-    d.shape(star(48, 60.4, 8), w=1.1)
-    d.hatch(star(48, 60.4, 8), angle=45, pitch=0.9, cross=True)
-    d.line(" ".join(f"M{x},76 l0,2" for x in range(36, 61, 2)), w=0.5, halo=False)
+    d.line("M36,40 L60,40 M48,40 L48,50", w=0.8)
+    d.shape(star(48, 60.4, 12), w=1.8)
     d.ground(2, 94, 91, ticks=6, seed=418)
     return d
 

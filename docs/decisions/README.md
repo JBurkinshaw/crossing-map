@@ -85,6 +85,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0068 The owner's review of the landform positions | accepted |
 | 0069 J1's Animas Valley stop on her way across the valley | accepted |
 | 0070 Arrows on the photo, not a second stepper | accepted |
+| 0071 Vignettes to 150, by the book's big scenes | accepted |
 | 0071 Local history notes on a card | accepted |
 | 0072 Land cover is the default ground, and Tilted terrain stands a quarter higher | accepted |
 

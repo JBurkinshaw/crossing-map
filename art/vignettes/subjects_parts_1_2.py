@@ -176,13 +176,15 @@ def wolf_ford() -> Drawing:
     # The far bank: cane and willow.
     d.line("M4,40 C20,38 40,39 60,37 C72,36 84,37 92,38", w=0.9)
     d.line(" ".join(f"M{x},{40 - (x % 3)} l{(x % 5) - 2},{-14 - (x * 7) % 9}" for x in range(8, 90, 6)), w=0.8)
-    # Billy chest deep, his arm under the wolf's chest holding her up.
-    body = "M24,66 C24,56 27,50 33,48 C39,48 43,52 43,58 L44,66 Z"
+    # Billy thigh-deep, his hips and belt above the water, his arm under the wolf's chest holding her up.
+    body = "M24,66 L24.6,52 C24,46 27,40 33,38 C39,38 43,42 43,48 L43.4,52 L44,66 Z"
     d.shape(body)
     d.edge_shade(body, dx=-3, dy=-2)
-    d.shape(circle(34, 42, 4.6), w=1.4)
-    d.shape("M25,37.5 C29,35.8 39,35.8 43,37.5 C39,39.2 29,39.2 25,37.5 Z", w=1.4)
-    d.shape("M29.6,37 C29.6,31 38.4,31 38.4,37 Z", w=1.4)
+    d.line("M24.4,54 L43.6,54", w=1.4)
+    d.line("M34,56 L34,66", w=0.9, halo=False)
+    d.shape(circle(34, 32, 4.6), w=1.4)
+    d.shape("M25,27.5 C29,25.8 39,25.8 43,27.5 C39,29.2 29,29.2 25,27.5 Z", w=1.4)
+    d.shape("M29.6,27 C29.6,21 38.4,21 38.4,27 Z", w=1.4)
     # The wolf: head and neck up out of the water, ears pricked, the long muzzle strapped shut.
     head = ("M50,66 C50,60 52,55 56,52 L56.5,45.5 L59.6,50.4 L61,45 L63.2,50.6 C67,51.6 72,53.6 78,55.8 "
             "C79.6,56.4 79.4,58 78,58.4 C73,59 68,59.4 64,60 C61,62 59,64 58,66 Z")
@@ -190,7 +192,7 @@ def wolf_ford() -> Drawing:
     d.hatch("M50,66 C50,60 52,55 56,52 L60,51 C59,56 58,61 57,66 Z", angle=60, pitch=1.5)
     d.line("M70,54 L69.6,59.4 M72.6,54.8 L72.2,59", w=0.8, halo=False)
     d.dots([(64.6, 54.2), (78.4, 56.6)], r=0.7)
-    d.line("M40,54 C46,57 50,60 56,62", w=1.8)
+    d.line("M41,44 C46,50 50,58 56,62", w=1.8)
     # The river running round them.
     d.line("M4,66 C10,64 18,67 24,66 M44,66 C47,65 49,66 50,66 M58,66 C68,64 78,67 92,65", w=1.1)
     d.line("M8,72 l12,0 M28,71 l14,0.4 M52,72 l10,0 M70,71 l16,0 M14,78 l16,0 M40,78 l10,0 M60,79 l18,0 "
