@@ -325,12 +325,13 @@ const stopById = (id) => layers.stops.find((f) => f.properties.id === id)
 const placeInHash = (page) => page.evaluate(() => /(?:^#|&)stop=([^&]*)/.exec(window.location.hash)?.[1] ?? null)
 
 // Opens a stop from its journey's "All stops" list, and waits for the address to name it as the reader's place.
+// A CI runner draws the map in software, and with every vignette on it the page can take over 5 s to answer.
 async function openStop(page, stop, reached) {
   const { id, journey } = stop.properties
   if ((await page.locator('.journey-pick select').inputValue()) !== journey) await page.selectOption('.journey-pick select', journey)
   await page.evaluate(() => (document.querySelector('.all-stops').open = true))
   await page.locator('.all-stops .stop-list button').nth(reachedStops(journey, reached).indexOf(stop)).click()
-  await page.waitForFunction((stopId) => window.location.hash.includes(`stop=${stopId}`), id, { timeout: 5000 })
+  await page.waitForFunction((stopId) => window.location.hash.includes(`stop=${stopId}`), id, { timeout: 15000 })
 }
 
 // The stop in focus, every line it lists, and the card of the road on from it if lines were spoken there.
