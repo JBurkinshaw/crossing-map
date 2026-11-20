@@ -19,6 +19,10 @@ import { readFile } from 'node:fs/promises'
 import { devices } from 'playwright'
 import { launch, newPage, PROGRESS_KEY } from './lib/browser.mjs'
 
+// How long a click, or the page's answer to one, may take. A CI runner draws the map in software, and with every
+// vignette and the large drawings on it the page can take well over 5 s to answer.
+const SLOW = 15000
+
 const baseUrl = process.argv[2] ?? 'http://localhost:5185/'
 const dataDir = new URL('../data/', import.meta.url)
 const read = async (name) => JSON.parse(await readFile(new URL(name, dataDir), 'utf8'))
@@ -272,12 +276,12 @@ async function checkFirstVisitPages(browser, point) {
       await page
         .locator('dialog[open]')
         .getByRole('button', { name: /^Not yet/ })
-        .click({ timeout: 3000 })
-        .then(() => page.locator('dialog[open] button.primary').click({ timeout: 3000 }))
+        .click({ timeout: SLOW })
+        .then(() => page.locator('dialog[open] button.primary').click({ timeout: SLOW }))
         .catch(() => leak(where, 'progress dialog cannot be used'))
     }
     // The page's own links must answer too.
-    await page.locator('.page nav a', { hasText: 'Credits' }).click({ timeout: 3000 }).catch(() => leak(where, 'page links cannot be used'))
+    await page.locator('.page nav a', { hasText: 'Credits' }).click({ timeout: SLOW }).catch(() => leak(where, 'page links cannot be used'))
     await page.context().close()
   }
 }
@@ -325,13 +329,12 @@ const stopById = (id) => layers.stops.find((f) => f.properties.id === id)
 const placeInHash = (page) => page.evaluate(() => /(?:^#|&)stop=([^&]*)/.exec(window.location.hash)?.[1] ?? null)
 
 // Opens a stop from its journey's "All stops" list, and waits for the address to name it as the reader's place.
-// A CI runner draws the map in software, and with every vignette on it the page can take over 5 s to answer.
 async function openStop(page, stop, reached) {
   const { id, journey } = stop.properties
   if ((await page.locator('.journey-pick select').inputValue()) !== journey) await page.selectOption('.journey-pick select', journey)
   await page.evaluate(() => (document.querySelector('.all-stops').open = true))
   await page.locator('.all-stops .stop-list button').nth(reachedStops(journey, reached).indexOf(stop)).click()
-  await page.waitForFunction((stopId) => window.location.hash.includes(`stop=${stopId}`), id, { timeout: 15000 })
+  await page.waitForFunction((stopId) => window.location.hash.includes(`stop=${stopId}`), id, { timeout: SLOW })
 }
 
 // The stop in focus, every line it lists, and the card of the road on from it if lines were spoken there.
@@ -358,7 +361,7 @@ async function setProgressInDialog(page, progress) {
 // only adds features, so a frame drawn before the change holds nothing past the new progress, and the checks that
 // follow need no wait for tiles.
 async function waitForProgress(page, progress) {
-  await page.waitForFunction(([k, v]) => localStorage.getItem(k) === v, [PROGRESS_KEY, progress], { timeout: 5000 })
+  await page.waitForFunction(([k, v]) => localStorage.getItem(k) === v, [PROGRESS_KEY, progress], { timeout: SLOW })
   await page.evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))))
 }
 
@@ -405,7 +408,7 @@ async function walk(browser) {
     const next = episodes[i + 1]?.episode
     let latest = null
     if (next && layers.stops.some((f) => f.properties.first_seen <= reached)) {
-      const offered = await page.waitForSelector('.read-on button', { timeout: 5000 }).then(() => true, () => false)
+      const offered = await page.waitForSelector('.read-on button', { timeout: SLOW }).then(() => true, () => false)
       if (offered) {
         await page.evaluate(() => new Promise((done) => requestAnimationFrame(done)))
         latest = await placeInHash(page)
