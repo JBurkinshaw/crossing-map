@@ -43,8 +43,7 @@ def test_picks_the_clear_side_and_keeps_the_seed_side_on_a_tie():
     assert d.side in {"n", "s"}
 
 
-def test_a_hub_crowded_at_every_zoom_keeps_its_first_zoom(monkeypatch):
-    monkeypatch.setattr(build_vignettes, "MOVES_PX", ())
+def test_a_hub_crowded_at_every_zoom_keeps_its_first_zoom():
     lon, lat = -108.0, 30.0
     spokes = [line((lon, lat), offset(lon, lat, dx * 3000, dy * 3000, 9))
               for dx in (-1, 0, 1) for dy in (-1, 0, 1) if dx or dy]
@@ -53,13 +52,23 @@ def test_a_hub_crowded_at_every_zoom_keeps_its_first_zoom(monkeypatch):
     assert d.zoom == 8 and not clash.clear
 
 
-def test_a_crowded_drawing_moves_clear_at_its_own_zoom():
-    lon, lat = -108.0, 30.0
-    spokes = [line((lon, lat), offset(lon, lat, dx * 3000, dy * 3000, 9))
-              for dx in (-1, 0, 1) for dy in (-1, 0, 1) if dx or dy]
-    at = Point(MERC.transform(lon, lat))
-    d, clash = place(Story([], [], spokes), at, "w", 8, "")
-    assert d.zoom == 8 and clash.clear and d.at.distance(at) > 0
+def test_a_drawing_waits_rather_than_touch_another():
+    at = Point(MERC.transform(-108.0, 30.0))
+    first, _ = place(Story([], [], []), at, "e", 8, "")
+    # A second drawing 8 km east: beside the first at zoom 8, clear of it once the points spread out.
+    other = Point(at.x + 8000, at.y)
+    d, clash = place(Story([], [], []), other, "w", 8, "", [first])
+    assert d.zoom > 8 and clash.drawings == 0 and not d.overlaps(first) and d.at == other
+
+
+def test_two_drawings_on_one_pin_move_apart_at_the_closest_zoom():
+    at = Point(MERC.transform(-108.0, 30.0))
+    placed = []
+    for _ in range(9):
+        d, clash = place(Story([], [], []), at, "e", 8, "", placed)
+        assert clash.drawings == 0
+        placed.append(d)
+    assert any(d.at != at for d in placed) and all(not a.overlaps(b) for a in placed for b in placed if a is not b)
 
 
 def test_a_clear_drawing_stays_on_its_point():
@@ -69,7 +78,6 @@ def test_a_clear_drawing_stays_on_its_point():
 
 
 def test_waits_at_most_one_zoom_step(monkeypatch):
-    monkeypatch.setattr(build_vignettes, "MOVES_PX", ())
     lon, lat = -108.0, 30.0
     # A ring of stops 80 px out at zoom 9: every side covers one at zooms 8 and 9, none at 10.
     ring = [feature(*offset(lon, lat, 80 * math.cos(a), 80 * math.sin(a), 9), id=f"s{k}", journey="J1", place_ref=None)
@@ -137,9 +145,10 @@ def test_the_border_splits_the_twin_towns():
 
 
 def test_a_moved_drawing_stays_on_its_side_of_the_border():
-    # Just north of the line at Douglas, hemmed in by route lines on every side but south.
-    lon, lat = -109.55, 31.345
-    spokes = [line((lon, lat), offset(lon, lat, dx * 3000, dy * 3000, 9)) for dx, dy in ((-1, 0), (1, 0), (0, -1))]
-    at = Point(MERC.transform(lon, lat))
-    d, _ = place(Story([], [], spokes), at, "s", 8, "")
-    assert build_vignettes.in_us(*build_vignettes.UNMERC.transform(d.at.x, d.at.y))
+    # Nine drawings on one point just north of the line at Douglas: those that must move stay in the United States.
+    at = Point(MERC.transform(-109.55, 31.345))
+    placed = []
+    for _ in range(9):
+        d, _ = place(Story([], [], []), at, "s", 8, "", placed)
+        placed.append(d)
+    assert all(build_vignettes.in_us(*build_vignettes.UNMERC.transform(d.at.x, d.at.y)) for d in placed)

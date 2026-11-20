@@ -8,14 +8,15 @@ row with its own lon and lat stands for a place that is not one of the book's st
 A seed row may instead name a journey leg (`leg`, a route-segment id) and a fraction along it (`along`, 0 to 1): its
 point is that share of the leg's length along the line, by geodesic length on WGS 84 (decision 0066).
 
-The side, the first zoom and the drawing's point are chosen here (decision 0026, amended 2026-11-16, and decision
-0075). For each drawing, in priority order, every side is scored by what the drawing and its caption would cover on
-screen: the stop markers and route lines of every journey, the pins of other places, and the drawings already placed
-(place). Where its own point is crowded, the drawing may move its point out to MOVES_PX screen pixels away at its
-first zoom, in any of eight directions, so drawings in a busy place spread apart; each pixel moved costs MOVE_W. The
-best side and move win; a tie keeps the side nearest the seed's `side`. If even the best covers a stop, another
-drawing or more than LINE_OK of route line at the seed's `min_zoom`, the drawing waits for a closer zoom where the
-country has spread out, but at most MAX_RISE zoom steps: the owner wants the drawings in view as context.
+The side and the first zoom are chosen here (decision 0026, amended 2026-11-16, and decision 0077). For each
+drawing, in priority order, every side is scored by what the drawing and its caption would cover on screen: the stop
+markers and route lines of every journey and the pins of other places (place). No side may touch a drawing already
+placed, GAP_PX apart, at the zoom where both show: a drawing with no such side waits for a closer zoom, as far as
+MAX_ZOOM, where the points have spread out. Among the sides that keep clear, the best wins; a tie keeps the side
+nearest the seed's `side`. If even the best covers a stop or more than LINE_OK of route line, the drawing waits for a
+closer zoom where the country has spread out, but at most MAX_RISE zoom steps past the first zoom where it keeps clear
+of the other drawings. A drawing that touches another on every side even at MAX_ZOOM moves its point a little
+(NEAR_PX), never across the international boundary.
 
 A drawing shows from the later of its seed's `first_seen` and its pin's (shown_from): a drawing beside a pin the reader
 has not reached would say where the story goes. Its `episode` stays the seed's, the episode of the scene it shows.
@@ -42,15 +43,17 @@ SIDES = {"n": "north", "ne": "north-east", "e": "east", "se": "south-east", "s":
 MAX_ZOOM = 12
 # How many zoom steps a drawing may wait past its seed `min_zoom` for a clear side (decision 0026, amended).
 MAX_RISE = 1
-# How far a drawing may move its point, in screen px at its first zoom, and what each pixel moved costs in the score
-# (decision 0075): a clear spot always beats a crowded one, and among spots as clear the nearest wins.
-MOVES_PX = (40, 80, 130, 190)
+# The least gap between two drawings (with their captions) on screen, so that none touch (decision 0077).
+GAP_PX = 4
+# How far a drawing with no side clear of the others may move its point, in screen px at MAX_ZOOM (about 0.4 to 4 km
+# on the ground at any zoom), and what each such pixel moved costs in the score: the nearest clear spot wins.
+NEAR_PX = (12, 24, 48, 80, 120)
 MOVE_W = 0.5
 DIRECTIONS = [(math.cos(math.radians(a)), math.sin(math.radians(a))) for a in range(0, 360, 45)]
-# The international boundary across the story's country, lon and lat, west to east (decision 0075): a moved drawing
-# stays on its scene's side of it. From the Colorado River the line runs to Nogales, along 31°20′ N to the meridian
-# of 108°12.5′ W, north on it to 31°47′ N, east along that to the Rio Grande (the Gadsden Purchase lines, as
-# area_drafts.py has them), then down the Rio Grande, which these points follow only roughly.
+# The international boundary across the story's country, lon and lat, west to east: a drawing that moves stays on
+# its scene's side of it (decisions 0075 and 0077). From the Colorado River the line runs to Nogales, along 31°20′ N
+# to the meridian of 108°12.5′ W, north on it to 31°47′ N, east along that to the Rio Grande (the Gadsden Purchase
+# lines, as area_drafts.py has them), then down the Rio Grande, which these points follow only roughly.
 BORDER = [(-114.81, 32.49), (-111.07, 31 + 20 / 60), (-108.2083, 31 + 20 / 60), (-108.2083, 31 + 47 / 60),
           (-106.53, 31 + 47 / 60), (-106.2, 31.47), (-105.0, 30.68), (-104.45, 29.6), (-103.0, 29.0)]
 
@@ -174,12 +177,17 @@ class Drawing:
     label: str
 
     def overlaps(self, other: "Drawing") -> bool:
-        """Whether the two cover each other once both show. Points spread apart faster than drawings grow, so the
-        zoom where the later one first shows is the worst."""
-        z = max(self.zoom, other.zoom)
-        theirs = rects(other.at, other.side, z, other.label)
-        return any(a[0] <= b[2] and b[0] <= a[2] and a[1] <= b[3] and b[1] <= a[3]
-                   for a in rects(self.at, self.side, z, self.label) for b in theirs)
+        """Whether the two come within GAP_PX of each other at any zoom where both show, up to MAX_ZOOM, past which
+        nothing grows. Two points apart spread faster than their drawings grow, but two drawings on one point do not
+        spread, and their captions grow at another rate than the drawings, so every whole zoom is checked."""
+        first = max(self.zoom, other.zoom)
+        for z in [first] + [float(z) for z in range(math.floor(first) + 1, MAX_ZOOM + 1)]:
+            gap = GAP_PX / px_per_m(z)
+            theirs = rects(other.at, other.side, z, other.label)
+            if any(a[0] - gap < b[2] and b[0] - gap < a[2] and a[1] - gap < b[3] and b[1] - gap < a[3]
+                   for a in rects(self.at, self.side, z, self.label) for b in theirs):
+                return True
+        return False
 
 
 @dataclass
@@ -264,37 +272,43 @@ def in_us(lon: float, lat: float) -> bool:
 
 def place(story: Story, at: Point, seed_side: str, min_zoom: float, label: str,
           placed: list[Drawing] = ()) -> tuple[Drawing, Clash]:
-    """The side, point and first zoom for one drawing, and what it covers there, keeping clear of the drawings placed.
+    """The side, first zoom and point for one drawing, and what it covers there, never touching the drawings placed.
 
-    The candidates are the drawing's own point and points moved MOVES_PX screen pixels (at min_zoom) in each of eight
-    directions, each with every side. At each zoom the best candidate is the one with the lowest clash level, then
-    score plus MOVE_W for each pixel moved, then the side nearest the seed's. The drawing first shows at the first
-    zoom whose best reaches the lowest level any zoom reaches: clear if it can be, else off every stop marker, and so
-    on; a drawing as crowded at every zoom keeps its own min_zoom. That first zoom is at most MAX_RISE steps past
-    min_zoom. Zooms past that are tried at the drawing's own point only, to learn whether waiting would help.
+    At each zoom from min_zoom to MAX_ZOOM the best side is, of those that touch no drawing placed, the one with the
+    lowest clash level, then score, then nearest the seed's side. Where no side of the drawing's own point is free at
+    that zoom, points a little way off (NEAR_PX at MAX_ZOOM, the same distance on the ground at every zoom, on the
+    scene's side of the boundary) are tried too. The first zoom with a free spot is the earliest the drawing can
+    show. From there it shows at the first zoom whose best reaches the lowest level any zoom reaches (clear if it can
+    be, else off every stop marker), but at most MAX_RISE steps later.
     """
     zooms = [min_zoom] + [float(z) for z in range(math.floor(min_zoom) + 1, MAX_ZOOM + 1)]
-    scale = px_per_m(min_zoom)
-    side_us = in_us(*UNMERC.transform(at.x, at.y))
-    points = [(at, 0.0)] + [(Point(at.x + dx * px / scale, at.y - dy * px / scale), px)
-                            for px in MOVES_PX for dx, dy in DIRECTIONS]
+    us = in_us(*UNMERC.transform(at.x, at.y))
 
     def same_side(d: Drawing) -> bool:
         """Whether the drawing itself, not only its point, is on its scene's side of the border."""
         x0, y0, x1, y1 = rects(d.at, d.side, d.zoom, "")[0]
-        return in_us(*UNMERC.transform((x0 + x1) / 2, (y0 + y1) / 2)) == side_us
+        return in_us(*UNMERC.transform((x0 + x1) / 2, (y0 + y1) / 2)) == us
 
-    best = []
-    for k, z in enumerate(zooms):
-        tried = points if k <= MAX_RISE else points[:1]
-        drawings = [(Drawing(p, s, z, label), px) for p, px in tried for s in SIDES]
-        drawings = [(d, px) for d, px in drawings if same_side(d)] or drawings
-        scored = [(story.clash(d, placed), d, px) for d, px in drawings]
-        best.append(min(scored, key=lambda c: (c[0].level, c[0].score + MOVE_W * c[2], angle(c[1].side, seed_side))))
-    lowest = min(c.level for c, _, _ in best)
-    first = next(k for k, (c, _, _) in enumerate(best) if c.level == lowest)
-    clash, d, _ = best[min(first, MAX_RISE)]
-    return d, clash
+    def best(z: float, points: list[tuple[Point, float]]) -> tuple[Clash, Drawing, float] | None:
+        """The best candidate at zoom z that touches no drawing placed, or None."""
+        free = [(c, d, px) for p, px in points for d in (Drawing(p, s, z, label) for s in SIDES)
+                if (c := story.clash(d, placed)).drawings == 0 and (px == 0 or same_side(d))]
+        return min(free, key=lambda c: (c[0].level, c[0].score + MOVE_W * c[2], angle(c[1].side, seed_side)),
+                   default=None)
+
+    scale = px_per_m(MAX_ZOOM)
+    near = [(Point(at.x + dx * px / scale, at.y - dy * px / scale), px) for px in NEAR_PX for dx, dy in DIRECTIONS]
+    found = [best(z, [(at, 0.0)]) or best(z, near) for z in zooms]
+    free = [k for k, b in enumerate(found) if b]
+    if free:
+        window = [k for k in free if k <= free[0] + MAX_RISE]
+        lowest = min(found[k][0].level for k in free)
+        first = next(k for k in free if found[k][0].level == lowest)
+        clash, d, _ = found[first if first in window else window[-1]]
+        return d, clash
+    # Nowhere free: the side at MAX_ZOOM that touches fewest drawings.
+    d = min((Drawing(at, s, float(MAX_ZOOM), label) for s in SIDES), key=lambda d: story.clash(d, placed).drawings)
+    return d, story.clash(d, placed)
 
 
 def journey_of(ref: str, first_seen: str, stops: list[dict], places: dict[str, dict],
@@ -364,9 +378,9 @@ def main() -> None:
         if moved_m >= 100:
             compass = list(SIDES.values())[round((az % 360) / 45) % 8]
             placed_note = (f"The drawing is set on the {SIDES[side]} side of a point {moved_m / 1000:.1f} km "
-                           f"{compass} of {where}, moved off it so that it clears the stops, route lines and other "
-                           "drawings crowded there (geodesic distance on WGS 84). It is not to scale, and it shows "
-                           "roughly where the scene happens, not exactly.")
+                           f"{compass} of {where} (geodesic distance on WGS 84), moved off it because on every side "
+                           "it would touch another drawing there. It is not to scale, and it shows roughly where the "
+                           "scene happens, not exactly.")
         first_seen = shown_from(s["first_seen"], pin)
         waits = None
         if first_seen != s["first_seen"]:
@@ -376,14 +390,15 @@ def main() -> None:
         held = None
         if zoom > float(s["min_zoom"]) and clash.clear:
             held = (f"Shown from zoom {zoom:g}, not {float(s['min_zoom']):g}: further out, on every side, it would "
-                    "cover a stop, a route line or another drawing.")
+                    "touch another drawing, or cover a stop or a route line.")
         elif zoom > float(s["min_zoom"]):
-            held = (f"Shown from zoom {zoom:g}, not {float(s['min_zoom']):g}: further out it would cover more. At "
-                    f"zoom {zoom:g} it still covers a stop, a route line or another drawing on every side, but a "
-                    "drawing waits one zoom step at most, so it sits on the side where it covers least.")
+            held = (f"Shown from zoom {zoom:g}, not {float(s['min_zoom']):g}: further out it would touch another "
+                    f"drawing or cover more. At zoom {zoom:g} it still covers a stop or a route line on every side, "
+                    "but a drawing waits no longer than it must to keep clear of the others, so it sits on the side "
+                    "where it covers least.")
         elif not clash.clear:
-            held = ("On every side it covers a stop, a route line or another drawing from its first zoom, and no "
-                    "closer zoom would clear it, so it shows from that zoom on the side where it covers least.")
+            held = ("On every side it covers a stop or a route line from its first zoom, and no closer zoom would "
+                    "clear it, so it shows from that zoom on the side where it covers least.")
         ref = s.get("leg") or s["ref"]
         props = dict(
             id=f"vignette-{s['id']}", name=s["name"], kind="vignette", stands_for=s["stands_for"], place_ref=ref,

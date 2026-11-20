@@ -6,6 +6,12 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ## Unreleased
 
+### 2026-11-20
+
+#### Data
+
+- The drawings in `vignettes.geojson` go back to their own points, undoing the long moves of 2026-11-19. None touches another at any zoom where both show: a drawing that would waits for a closer zoom, all show by zoom 12, and 32 that share a point with another move 0.2 to 2 km (decision 0077).
+
 ### 2026-11-19
 
 #### Data

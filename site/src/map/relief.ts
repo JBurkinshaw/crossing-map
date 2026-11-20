@@ -190,10 +190,11 @@ function landformLabel(p: Palette): LayerSpecification {
 
 // Vignettes (design section 10): drawings of the book's creatures, buildings and objects, from data/vignettes.geojson
 // and the vignette-<id> drawings in the sprite, each with its short italic label under it. Each point is on or near
-// the thing the drawing stands for (crossing.build_vignettes moves it off a crowded place, decision 0075), and the
-// drawing is set beside it on its `side`, a fixed gap away in screen space, so it never covers the point. Each shows
-// only in its own zoom range; its caption gives way to other labels, the lowest `priority` placed first. The layer
-// is in PROGRESS_LAYERS (spoiler/filter.ts), so each vignette shows from its own first_seen.
+// the thing the drawing stands for (crossing.build_vignettes moves it a little where drawings share a point,
+// decision 0077), and the drawing is set beside it on its `side`, a fixed gap away in screen space, so it never
+// covers the point. Each shows only in its own zoom range; its caption gives way to other labels, the lowest
+// `priority` placed first. The layer is in PROGRESS_LAYERS (spoiler/filter.ts), so each vignette shows from its own
+// first_seen.
 // crossing.build_vignettes picks each side and min_zoom from these sizes: change them there too.
 const VIGNETTE_HALF = 48 // half the 96 px drawing grid
 const VIGNETTE_GAP = 16 // between the pin and the drawing's nearest edge, in drawing pixels

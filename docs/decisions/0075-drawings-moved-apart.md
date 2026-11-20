@@ -1,6 +1,6 @@
 # 0075. Drawings moved apart, and a caption on each
 
-Status: accepted (2026-11-19). Amends 0026 and 0066.
+Status: accepted (2026-11-19). Amends 0026 and 0066. The moves superseded by 0077; the captions and the boundary rule stand.
 Phase: P1
 
 ## Context
