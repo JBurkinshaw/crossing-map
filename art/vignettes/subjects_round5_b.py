@@ -55,7 +55,7 @@ def sleet(d: Drawing, x0: float, x1: float, y0: float, y1: float, n: int, seed: 
 
 
 def blanketed(d: Drawing, x: float, y: float, k: float = 1.0):
-    """Billy sitting with the blanket over his shoulders and his hat on, his foot at (x, y) (from wolf-by-the-fire)."""
+    """Billy seated, wrapped in a blanket, hat on, his foot at (x, y) (as in wolf-by-the-fire)."""
     body = place("M-10,0 C-12,-10 -10,-24 -4,-30 C0,-34 6,-34 9,-29 C13,-22 14,-10 13,0 Z", x, y, k)
     d.shape(body)
     d.edge_shade(body, dx=-3 * k, dy=-2 * k)

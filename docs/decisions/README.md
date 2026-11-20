@@ -72,7 +72,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0055 The vintage map's text a fifth larger, and the credits kept clear of the cartouche | accepted |
 | 0056 The head of a draw, and the gap through a range, for the she-wolf's journey | accepted |
 | 0057 Stop rows checked against the book while writing the synopses | accepted |
-| 0058 Back and Next go on across journeys | accepted |
+| 0058 Back and Next go on across journeys | accepted; the framing of the new journey superseded by 0074 |
 | 0059 Where a stop sits on its landform: named points first, a terrain check, and the owner's review | accepted |
 | 0060 On phones the story comes first, and the map carries less | accepted |
 | 0061 Each route is lettered with its journey's number | accepted |
@@ -85,9 +85,12 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0068 The owner's review of the landform positions | accepted |
 | 0069 J1's Animas Valley stop on her way across the valley | accepted |
 | 0070 Arrows on the photo, not a second stepper | accepted |
-| 0071 Vignettes to 150, by the book's big scenes | accepted |
 | 0071 Local history notes on a card | accepted |
 | 0072 Land cover is the default ground, and Tilted terrain stands a quarter higher | accepted |
+| 0073 Vignettes to 150, by the book's big scenes | accepted; placement superseded by 0075 |
+| 0074 On to and Back to fly to the stop | accepted |
+| 0075 Drawings moved apart, and a caption on each | accepted |
+| 0076 Large drawings in the empty quarters at low zoom | accepted |
 
 ## Template
 

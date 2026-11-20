@@ -141,14 +141,18 @@ export function useNavigation({ mapRef, story, flat, translations, progress, sho
   const flyTo = (f: StoryFeature) => flyToFeature(mapRef.current, f)
 
   // Stepping through the stops of the journey in focus. Past its last stop, Next goes on to the first stop of the
-  // next journey, and before its first stop, Back goes to the last stop of the journey before. The map then frames
-  // the whole of the new journey (the framing effect above), so the change of journey shows (decision 0058).
+  // next journey, and before its first stop, Back goes to the last stop of the journey before. The map flies to that
+  // stop, as for any step, rather than framing the whole new journey (decision 0074).
   const goToStop = (index: number) => {
     const to = index >= stops.length ? nextJourney : index < 0 ? previousJourney : null
     if (to) {
-      dispatch({ type: 'cross', journey: to, index: index < 0 ? stopsOf(to).length - 1 : 0 })
+      const list = stopsOf(to)
+      const at = index < 0 ? list.length - 1 : 0
+      framed.current = to
+      dispatch({ type: 'cross', journey: to, index: at })
       setSelection(null)
       setTranslationId(null)
+      if (list[at]) flyTo(list[at])
       return
     }
     const stop = stops[index]

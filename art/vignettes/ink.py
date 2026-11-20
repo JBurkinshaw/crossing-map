@@ -58,8 +58,11 @@ def region(d: str):
 
 
 class Drawing:
-    def __init__(self, name: str):
+    def __init__(self, name: str, width: int = 96, height: int = 96):
+        """A drawing on a width x height grid in the 96 grid's units: the sprite's vignettes use 96 x 96, and a
+        larger grid draws a larger picture with the same pen, so its lines are finer relative to its size."""
         self.name = name
+        self.width, self.height = width, height
         self.items: list[tuple] = []  # (kind, d, opts)
 
     # Shapes ------------------------------------------------------------------------------------------
@@ -107,7 +110,7 @@ class Drawing:
         return self
 
     # Output ------------------------------------------------------------------------------------------
-    def svg(self, size: int = 96) -> str:
+    def svg(self, size: int | None = None) -> str:
         """The paper halo under everything first (the knock-out), then each item in order, so a later shape's
         paper fill hides what lies behind it. Seeded by the drawing's name, so a rebuild draws the same strokes."""
         rng = random.Random(f"vignette-{self.name}")
@@ -130,7 +133,10 @@ class Drawing:
                 body.append(_ink(_hatches(band, o["angle"], o["pitch"], HATCH, rng)))
             elif kind == "dots":
                 body.append("".join(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{o["r"]}" fill="{INK}"/>' for x, y in d))
-        return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{size}" height="{size}" viewBox="0 0 96 96">'
+        w = size or self.width
+        h = round(w * self.height / self.width)
+        box = f"0 0 {self.width} {self.height}"
+        return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="{box}">'
                 f'<g stroke-linecap="round" stroke-linejoin="round">{"".join(under)}</g>'
                 f'{"".join(body)}</svg>')
 

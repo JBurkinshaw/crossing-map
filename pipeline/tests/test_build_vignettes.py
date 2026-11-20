@@ -43,7 +43,8 @@ def test_picks_the_clear_side_and_keeps_the_seed_side_on_a_tie():
     assert d.side in {"n", "s"}
 
 
-def test_a_hub_crowded_at_every_zoom_keeps_its_first_zoom():
+def test_a_hub_crowded_at_every_zoom_keeps_its_first_zoom(monkeypatch):
+    monkeypatch.setattr(build_vignettes, "MOVES_PX", ())
     lon, lat = -108.0, 30.0
     spokes = [line((lon, lat), offset(lon, lat, dx * 3000, dy * 3000, 9))
               for dx in (-1, 0, 1) for dy in (-1, 0, 1) if dx or dy]
@@ -52,7 +53,23 @@ def test_a_hub_crowded_at_every_zoom_keeps_its_first_zoom():
     assert d.zoom == 8 and not clash.clear
 
 
+def test_a_crowded_drawing_moves_clear_at_its_own_zoom():
+    lon, lat = -108.0, 30.0
+    spokes = [line((lon, lat), offset(lon, lat, dx * 3000, dy * 3000, 9))
+              for dx in (-1, 0, 1) for dy in (-1, 0, 1) if dx or dy]
+    at = Point(MERC.transform(lon, lat))
+    d, clash = place(Story([], [], spokes), at, "w", 8, "")
+    assert d.zoom == 8 and clash.clear and d.at.distance(at) > 0
+
+
+def test_a_clear_drawing_stays_on_its_point():
+    at = Point(MERC.transform(-108.0, 30.0))
+    d, clash = place(Story([], [], []), at, "w", 8, "")
+    assert clash.clear and d.at == at and d.side == "w"
+
+
 def test_waits_at_most_one_zoom_step(monkeypatch):
+    monkeypatch.setattr(build_vignettes, "MOVES_PX", ())
     lon, lat = -108.0, 30.0
     # A ring of stops 80 px out at zoom 9: every side covers one at zooms 8 and 9, none at 10.
     ring = [feature(*offset(lon, lat, 80 * math.cos(a), 80 * math.sin(a), 9), id=f"s{k}", journey="J1", place_ref=None)
@@ -111,3 +128,18 @@ def test_a_seed_row_names_a_stop_or_a_leg():
     for bad in (row | {"ref": "s1"}, row | {"leg": ""}, row | {"leg": "j1-seg-09"}):
         with pytest.raises(SystemExit):
             anchor(bad, {"s1": stop}, {"j1-seg-01": leg})
+
+
+def test_the_border_splits_the_twin_towns():
+    assert build_vignettes.in_us(-109.55, 31.36) and not build_vignettes.in_us(-109.55, 31.30)  # Douglas, Agua Prieta
+    assert build_vignettes.in_us(-107.64, 31.83) and not build_vignettes.in_us(-107.62, 31.77)  # Columbus, Palomas
+    assert build_vignettes.in_us(-106.45, 31.80) and not build_vignettes.in_us(-106.45, 31.70)  # El Paso, Juárez
+
+
+def test_a_moved_drawing_stays_on_its_side_of_the_border():
+    # Just north of the line at Douglas, hemmed in by route lines on every side but south.
+    lon, lat = -109.55, 31.345
+    spokes = [line((lon, lat), offset(lon, lat, dx * 3000, dy * 3000, 9)) for dx, dy in ((-1, 0), (1, 0), (0, -1))]
+    at = Point(MERC.transform(lon, lat))
+    d, _ = place(Story([], [], spokes), at, "s", 8, "")
+    assert build_vignettes.in_us(*build_vignettes.UNMERC.transform(d.at.x, d.at.y))

@@ -3,6 +3,7 @@ import { reliefLayers, reliefSources, VIGNETTE_LAYERS } from './relief'
 import { fonts, palette as tokens, SPRITE, textPx } from './tokens'
 import { contextPlaceLayer } from './contextPlaces'
 import { waterPlaceLayer } from './waterPlaces'
+import { largeArtLayers, largeArtSources } from './largeArt'
 import type { Units } from '../units'
 
 // Every layer literaryStyle draws is part of the literary base, which satellite, topo and compare modes hide,
@@ -241,16 +242,20 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
   layers.splice(at('creek-label'), 0, graticule, contextPlaceLayer(tokens), waterPlaceLayer(tokens), ...r.glyphs, ...r.vignettes)
   layers.splice(at('county-line'), 0, ...r.hillshade)
   layers.splice(at('county-line'), 0, ...r.hachures)
+  // The large drawings of the opening view lie on the relief, under every line and name (largeArt.ts).
+  layers.splice(at('county-line'), 0, ...largeArtLayers())
   // Last of the base, so the story's labels (added above it) win any collision.
   layers.push(stateLabel('state-labels'))
+  // The sprite and the large drawings sit beside the fonts in this build; the tiles may come from another (setup.ts).
+  const siteBase = fontsBase.replace(/fonts\/$/, '')
   return {
     version: 8,
     glyphs: `${fontsBase}{fontstack}/{range}.pbf`,
-    // The sprite sits beside the fonts in this build; the tiles may come from another build (setup.ts).
-    sprite: `${fontsBase.replace(/fonts\/$/, '')}sprites/${SPRITE}`,
+    sprite: `${siteBase}sprites/${SPRITE}`,
     sources: {
       [base]: { type: 'vector', url: `pmtiles://${tilesBase}base.pmtiles` },
       ...reliefSources(tilesBase, dataBase),
+      ...largeArtSources(siteBase),
       'state-labels': { type: 'geojson', data: `${labels}states.geojson` },
       graticule: { type: 'geojson', data: `${labels}graticule.geojson` },
       passes: { type: 'geojson', data: `${labels}passes.geojson` },

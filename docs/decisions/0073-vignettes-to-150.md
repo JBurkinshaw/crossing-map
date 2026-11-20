@@ -1,6 +1,6 @@
-# 0071. Vignettes to 150, by the book's big scenes
+# 0073. Vignettes to 150, by the book's big scenes
 
-Status: accepted (2026-11-19)
+Status: accepted (2026-11-19); placement superseded by 0075, which also corrects its note on overlapping drawings
 Phase: P1
 
 ## Context

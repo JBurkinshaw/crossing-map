@@ -1,6 +1,6 @@
 # 0058. Back and Next go on across journeys
 
-Status: accepted (2026-11-17)
+Status: accepted (2026-11-17); the map's framing of the new journey superseded by 0074
 Phase: P1
 
 ## Context

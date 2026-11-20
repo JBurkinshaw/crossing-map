@@ -6,6 +6,7 @@ import { PhotoCredit } from '../panel/Photos'
 import { shownAt } from '../spoiler/filter'
 import { byId } from '../story/select'
 import { REPO_URL, repoUrl } from './format'
+import { LARGE_ART } from '../map/largeArt'
 
 // Every source the site uses, with the credit its terms ask for (design section 3). `credit` is the wording
 // shown wherever the source appears.
@@ -394,6 +395,14 @@ export function Credits({ reached, spoilers, story, photos }: CreditsProps) {
         The vignettes are drawn for this site in one pen with the mountain glyphs. Some are traced from public-domain
         photographs; the rest are drawn by hand after references, whose licences allow it.
       </p>
+      <dl className="credits">
+        {LARGE_ART.map((d) => (
+          <div key={d.id}>
+            <dt>{d.name} (the opening view)</dt>
+            <dd>{d.credit}</dd>
+          </div>
+        ))}
+      </dl>
       {drawings.shown.length > 0 && (
       <dl className="credits">
         {drawings.shown.map((d) => (
