@@ -95,6 +95,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0078 The head of Taylor Draw, and the end of the Cloverdale Creek road | accepted |
 | 0079 The large drawings closer in | accepted |
 | 0080 Drawings for the book's themes | accepted |
+| 0081 A large title at the scale of the drawings | accepted |
 
 ## Template
 

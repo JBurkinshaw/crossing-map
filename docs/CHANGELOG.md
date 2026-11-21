@@ -18,6 +18,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Site
 
+- A large title, "The Crossing", runs across the top of the story at the scale of the large drawings and fades with them (decision 0081).
 - The six large drawings of the opening view stand closer around the story, each 2.2 degrees wide, and fade out between zoom 7 and 8, so they show in the whole-story view and in most journeys' opening views (decision 0079).
 
 ### 2026-11-19

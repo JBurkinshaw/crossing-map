@@ -1,4 +1,5 @@
 import type { ExpressionSpecification, LayerSpecification, SourceSpecification } from 'maplibre-gl'
+import { fonts } from './tokens'
 
 // Large drawings for the opening view (decisions 0076 and 0079): six pen drawings of the book's broad themes, no
 // captions, set close around the story where no stop or route line lies under them. Each is a georeferenced image
@@ -58,4 +59,39 @@ export function largeArtLayers(): LayerSpecification[] {
       'raster-opacity': ['interpolate', ['linear'], ['zoom'], FADE[0], OPACITY, FADE[1], 0] as ExpressionSpecification,
     },
   }))
+}
+
+// The map's title at the same scale as the drawings (decision 0081): "The Crossing" across the top of the story, above
+// Winslow and Albuquerque, in small capitals and J3's oxblood with an ink edge, after the red title of the Trail of
+// Blood Meridian map. Its size doubles with each zoom step, as the land under it does, so it is about 470 px across
+// at the whole-story view (zoom 5.6), and it fades with the drawings.
+const TITLE_AT: [number, number] = [-108.6, 35.75]
+const TITLE_SIZE: [number, number] = [5, 42] // zoom, text-size in px
+
+export const largeTitleSource = (): SourceSpecification => ({
+  type: 'geojson', data: { type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: TITLE_AT } },
+})
+
+export function largeTitleLayer(ink: string, edge: string): LayerSpecification {
+  const [z, size] = TITLE_SIZE
+  return {
+    id: 'large-title',
+    type: 'symbol',
+    source: 'large-title',
+    maxzoom: FADE[1],
+    layout: {
+      'text-field': 'The Crossing',
+      'text-font': [fonts.smallCaps],
+      'text-size': ['interpolate', ['exponential', 2], ['zoom'], z, size, FADE[1], size * 2 ** (FADE[1] - z)] as ExpressionSpecification,
+      'text-letter-spacing': 0.04,
+      'text-allow-overlap': true,
+      'text-ignore-placement': true,
+    },
+    paint: {
+      'text-color': ink,
+      'text-halo-color': edge,
+      'text-halo-width': 1.2,
+      'text-opacity': ['interpolate', ['linear'], ['zoom'], FADE[0], OPACITY, FADE[1], 0] as ExpressionSpecification,
+    },
+  }
 }
