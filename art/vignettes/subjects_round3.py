@@ -12,6 +12,7 @@ from functools import cache
 
 from shapely.geometry import box
 
+from art import PAPER
 from art.vignettes.ink import Drawing, region
 from art.vignettes.shapes import circle, ellipse, grass, poly, traced, warp
 from art.vignettes.subjects_parts_1_2 import juniper, wolf
@@ -115,39 +116,67 @@ def chevrons(d: Drawing, birds: list[tuple[float, float, float]]):
                     f"Q{x + 1.4 * s:.1f},{y - 2 * s:.1f} {x + 3 * s:.1f},{y - 1 * s:.1f}" for x, y, s in birds), w=0.8)
 
 
-# 1. Echols' cabin, and the old traps on the smokehouse wall (1-02) -------------------------------------
+# 1. Echols' mudroom: shelves of labelled jars of baits and scents, a dusty light from the one window (1-02)
 def echols_cabin() -> Drawing:
     d = Drawing("echols-cabin")
-    # The cabin: a low gabled house with a porch, its door padlocked, one small window at the back.
-    house = poly((6, 80), (6, 52), (44, 52), (44, 80))
-    roof = poly((2, 53), (14, 36), (48, 36), (48, 53))
-    d.shape(house)
-    d.shape(roof, w=1.4)
-    d.hatch(roof, angle=0, pitch=1.9)
-    d.line("M2,53 L14,36 L26,53", w=1.2)
-    door = poly((30, 80), (30, 62), (38, 62), (38, 80))
-    d.shape(door, w=1.1)
-    d.hatch(door, angle=80, pitch=1.4)
-    d.shape(circle(36.4, 70, 1.0), w=0.7)
-    win = poly((12, 60), (20, 60), (20, 68), (12, 68))
-    d.shape(win, w=1.0)
-    d.hatch(win, angle=45, pitch=1.3)
-    d.line("M27,56 L46,56 M28,56 L28,80 M45,56 L45,80", w=1.0)
-    d.edge_shade(house, dx=-3, dy=0)
-    # The smokehouse beside it, and on its wall the old longspring coyote traps hung by their chains.
-    shed = poly((56, 82), (56, 46), (90, 46), (90, 82))
-    d.shape(shed)
-    d.shape(poly((53, 47), (60, 38), (86, 38), (93, 47)), w=1.3)
-    d.hatch(poly((53, 47), (60, 38), (86, 38), (93, 47)), angle=0, pitch=1.8)
-    d.line(" ".join(f"M{x},46 L{x},82" for x in (62, 68, 74, 80, 86)), w=0.5, halo=False)
-    for x in (62, 73, 84):
-        d.line(f"M{x},50 L{x},55", w=0.8)
-        d.dots([(x, 50)], r=0.8)
-        d.shape(ellipse(x, 59, 3.6, 2.6), w=1.1, fill=False)
-        d.line(f"M{x - 3},61 C{x - 4},65 {x - 3},68 {x - 1},70 M{x + 3},61 C{x + 4},65 {x + 3},68 {x + 1},70", w=1.0)
-    d.edge_shade(shed, dx=-3, dy=0)
-    d.ground(2, 94, 86, ticks=7, seed=301)
+    # The one small window, high in the wall, and the dusty light coming in from it.
+    win = poly((6, 10), (22, 10), (22, 26), (6, 26))
+    d.shape(win, w=1.6)
+    d.line("M14,10 L14,26 M6,18 L22,18", w=0.9)
+    d.line("M22,24 L40,44 M18,26 L32,48 M22,14 L46,36", w=0.5, halo=False)
+    # Three shelves of rough pine, and on them the jars: fruit jars, stoppered bottles, wide apothecary jars,
+    # each with a small octagon label and dark stuff inside.
+    shelves = (36, 60, 84)
+    for y in shelves:
+        board = poly((26, y), (94, y), (94, y + 3), (26, y + 3))
+        d.shape(board, w=1.3)
+        d.hatch(board, angle=0, pitch=1.4)
+    d.line("M28,30 L28,90 M92,30 L92,90", w=1.4)
+    rows = {
+        36: [("fruit", 33, 14), ("stopper", 43, 15), ("apoth", 55, 12), ("fruit", 67, 12), ("stopper", 77, 16),
+             ("fruit", 87, 11)],
+        60: [("apoth", 35, 13), ("stopper", 46, 14), ("fruit", 56, 13), ("apoth", 68, 12), ("stopper", 81, 15)],
+    }
+    for y, jars in rows.items():
+        for kind, x, h in jars:
+            _jar(d, kind, x, y, h)
+    # The ammunition box on the lowest shelf, dovetailed at its corners, small vials standing in it.
+    box_ = poly((44, 84), (44, 74), (72, 74), (72, 84))
+    for x in (48, 53, 58, 63, 68):
+        d.shape(poly((x - 1.4, 75), (x - 1.4, 69), (x - 0.6, 68), (x - 0.6, 66.6), (x + 0.6, 66.6), (x + 0.6, 68),
+                     (x + 1.4, 69), (x + 1.4, 75)), w=0.8)
+    d.shape(box_, w=1.3)
+    d.line("M44,76 l2,0 l0,2 l-2,0 M44,80 l2,0 l0,2 l-2,0 M72,76 l-2,0 l0,2 l2,0 M72,80 l-2,0 l0,2 l2,0", w=0.6,
+           halo=False)
+    d.edge_shade(box_, dx=-2, dy=-1.6)
+    _jar(d, "fruit", 82, 84, 12)
+    # Cobwebs in the corners.
+    d.line("M28,40 C32,42 34,46 34,50 M28,44 C30,44 32,46 32,48 M92,64 C88,66 86,70 86,74", w=0.4, halo=False)
     return d
+
+
+def _jar(d: Drawing, kind: str, x: float, base: float, h: float):
+    """One of Echols' jars standing on a shelf at (x, base), h tall: a fruit jar with a screw lid, a bottle with a
+    ground-glass stopper, or a wide apothecary jar with a knobbed lid; an octagon label and a dark fill."""
+    if kind == "fruit":
+        body = f"M{x - 4},{base} L{x - 4},{base - h + 4} C{x - 4},{base - h + 2} {x - 3},{base - h + 2} {x - 3},{base - h + 1.4} L{x + 3},{base - h + 1.4} C{x + 3},{base - h + 2} {x + 4},{base - h + 2} {x + 4},{base - h + 4} L{x + 4},{base} Z"
+        lid = poly((x - 3.4, base - h + 1.6), (x - 3.4, base - h), (x + 3.4, base - h), (x + 3.4, base - h + 1.6))
+        fill = h * 0.55
+    elif kind == "stopper":
+        body = f"M{x - 3.6},{base} C{x - 4.4},{base - h * 0.4} {x - 3},{base - h * 0.6} {x - 1.2},{base - h * 0.72} L{x - 1.2},{base - h + 3} L{x + 1.2},{base - h + 3} L{x + 1.2},{base - h * 0.72} C{x + 3},{base - h * 0.6} {x + 4.4},{base - h * 0.4} {x + 3.6},{base} Z"
+        lid = ellipse(x, base - h + 1.6, 1.8, 1.6)
+        fill = h * 0.4
+    else:
+        body = f"M{x - 4.6},{base} L{x - 4.6},{base - h + 3} L{x + 4.6},{base - h + 3} L{x + 4.6},{base} Z"
+        lid = f"M{x - 5},{base - h + 3} C{x - 4},{base - h} {x + 4},{base - h} {x + 5},{base - h + 3} Z"
+        fill = h * 0.5
+    d.shape(body, w=1.1)
+    d.hatch(f"M{x - 4},{base} L{x - 4},{base - fill} L{x + 4},{base - fill} L{x + 4},{base} Z", angle=45, pitch=1.1)
+    d.shape(lid, w=0.9)
+    r, cy = 1.7, base - fill - 2.6
+    label = poly(*[(x + r * c, cy + r * s) for c, s in ((-1, -0.42), (-0.42, -1), (0.42, -1), (1, -0.42), (1, 0.42),
+                                                     (0.42, 1), (-0.42, 1), (-1, 0.42))])
+    d.shape(label, w=0.7)
 
 
 # 2. The calf killed at the head of Foster Draw (1-03) --------------------------------------------------
@@ -215,36 +244,53 @@ def wolf_in_the_cholla() -> Drawing:
     return d
 
 
-# 5. The Parham house found empty at night (2-04) -------------------------------------------------------
+# 5. The Parham house: his parents' bed stripped, the stain under the mattress, the peaks through the window (2-05)
 def parham_house() -> Drawing:
     d = Drawing("parham-house")
-    d.shape(circle(84, 12, 5.5), w=1.2)
-    d.dots([(10, 10), (28, 6), (50, 12), (66, 6), (40, 22)], r=0.6)
-    # The barn behind, its bay open and dark.
-    barn = poly((54, 76), (54, 42), (70, 30), (86, 42), (86, 76))
-    d.shape(barn)
-    bay = poly((63, 76), (63, 56), (77, 56), (77, 76))
-    d.shape(bay, w=1.1)
-    d.hatch(bay, angle=45, pitch=1.4, cross=True)
-    d.edge_shade(barn, dx=-3, dy=0)
-    # The house: a porch along the front and every window dark.
-    house = poly((8, 82), (8, 54), (50, 54), (50, 82))
-    roof = poly((4, 55), (16, 42), (42, 42), (54, 55))
-    d.shape(house)
-    d.shape(roof, w=1.4)
-    d.hatch(roof, angle=0, pitch=1.8)
-    d.line("M6,62 L52,62 M8,62 L8,82 M29,62 L29,82 M50,62 L50,82", w=1.0)
-    for x in (13, 37):
-        win = poly((x, 66), (x + 8, 66), (x + 8, 76), (x, 76))
-        d.shape(win, w=1.0)
-        d.hatch(win, angle=45, pitch=1.2, cross=True)
-    door = poly((24, 82), (24, 68), (30, 68), (30, 82))
-    d.shape(door, w=1.0)
-    d.hatch(door, angle=45, pitch=1.2, cross=True)
-    d.edge_shade(house, dx=-3, dy=0)
-    # The stockgate left standing open.
-    d.line("M88,86 L88,66 M88,70 L94,62 M88,78 L94,72", w=1.0)
-    d.ground(2, 94, 88, ticks=7, seed=306)
+    # The window at noon: the fields, the cottonwoods along the creek and the Animas Peaks beyond.
+    frame = poly((50, 8), (88, 8), (88, 44), (50, 44))
+    d.shape(frame, w=1.8)
+    d.line("M52,24 L58,18 L62,21 L68,12 L74,19 L78,16 L86,24", w=1.0, halo=False)
+    d.hatch("M52,24 L58,18 L62,21 L68,12 L74,19 L78,16 L86,24 L86,26 L52,26 Z", angle=70, pitch=1.8, w=0.6)
+    d.line("M52,37 L86,37", w=0.6, halo=False)
+    for x in (55, 61, 74, 81):
+        d.line(f"M{x},37 L{x},33", w=0.7, halo=False)
+        d.hatch(blob(x, 31, 3.0, 2.4, 7, seed=306 + x, depth=0.35), angle=45, pitch=1.0)
+    d.line("M52,41 l8,0 M66,41 l12,0", w=0.5, halo=False)
+    d.line("M69,8 L69,44 M50,26 L88,26", w=1.2)
+    d.line("M47,46 L91,46", w=1.6)
+    # The door, his hat hung on the knob.
+    door = poly((4, 84), (4, 26), (20, 26), (20, 84))
+    d.shape(door, w=1.4)
+    d.line("M7,30 L17,30 L17,52 L7,52 Z M7,58 L17,58 L17,80 L7,80 Z", w=0.6, halo=False)
+    d.dots([(17.6, 56)], r=0.9)
+    hat = "M13,62 L22,62 L20,60.6 C20,56.4 15,56.4 15,60.6 Z"
+    d.shape(hat, w=1.0)
+    d.hatch(hat, angle=0, pitch=0.9)
+    # The iron bedstead stripped bare, the springs, and on them the stain dried near black.
+    d.line("M26,84 L26,46 M34,84 L34,46 M26,50 L34,50 M26,60 L34,60", w=1.8)
+    d.line("M28,50 L28,60 M30,50 L30,60 M32,50 L32,60", w=0.8, halo=False)
+    d.line("M80,84 L80,58 M88,84 L88,58 M80,62 L88,62", w=1.8)
+    d.dots([(26, 45), (34, 45), (80, 57), (88, 57)], r=1.3)
+    rail = poly((34, 70), (80, 70), (80, 74), (34, 74))
+    d.shape(rail, w=1.4)
+    d.line(" ".join(f"M{x},70 c1,-2 2,-2 3,0" for x in range(35, 78, 3)), w=0.7, halo=False)
+    stain = blob(56, 70, 17, 2.6, 13, seed=312, depth=0.35)
+    d.shape(stain, w=1.0)
+    d.hatch(stain, angle=45, pitch=0.8, cross=True)
+    d.hatch(stain, angle=0, pitch=1.1)
+    d.line("M46,68.6 l2,1.4 l2,-1.2 M58,68 l1.6,2 l3,-0.8 M66,70.6 l2,-1.6", w=0.5, halo=False, color=PAPER)
+    # The mattress dragged off and fallen over backwards on the floor, the springs printed on its ticking.
+    edge = poly((22, 92), (68, 92), (68, 95), (22, 95))
+    d.shape(edge, w=1.2)
+    d.hatch(edge, angle=90, pitch=1.6)
+    mat = poly((22, 92), (30, 84), (74, 84), (68, 92))
+    d.shape(mat, w=1.5)
+    d.line(" ".join(f"M{30 - (y - 84):.1f},{y} L{74 - (y - 84):.1f},{y}" for y in (86, 88.4, 90.4)), w=0.4, halo=False)
+    d.line(" ".join(f"M{x},87.6 a1.4,0.9 0 1,0 0.1,0" for x in range(33, 70, 6)), w=0.7, halo=False)
+    d.line("M22,92 L68,92", w=1.0)
+    d.edge_shade(mat, dx=-2, dy=-1.4)
+    d.line("M2,84 L94,84", w=1.0)
     return d
 
 
@@ -271,22 +317,40 @@ def keno_bacerac() -> Drawing:
     return d
 
 
-# 7. Boyd rides through the fire for "the girl" (2-08) ------------------------------------------------
+# 7. The two men at the fire in the oak grove, the mescal bottle, and "the girl" staring into the flames (2-08)
 def taking_the_girl() -> Drawing:
+    from art.vignettes.subjects_round5_d import sitter
+
     d = Drawing("taking-the-girl")
-    # The oaks over the camp at night, and the fire.
-    for x, base, h, w, seed in ((12, 50, 36, 22, 309), (82, 46, 34, 22, 310)):
+    # The oaks over the camp at night, a few stars between them.
+    for x, base, h, w, seed in ((8, 36, 30, 18, 309), (88, 42, 32, 18, 310)):
         cottonwood(d, x, base, h, w, seed=seed)
-    fire(d, 74, 86, 0.8)
-    # Boyd bent low on Keno at a gallop, the shotgun held up, Billy's horse on the reins behind him.
-    def gun(t):
-        d.line(t("M58,32 L80,12"), w=1.5)
-    rider(d, 48, 86, 0.5, hat="cowboy", extra=gun)
-    horse(d, 16, 84, 0.36)
-    d.line("M25,64 C30,62 34,60 40,60", w=0.8, halo=False)
-    # "The girl" on her feet by the fire, her bundle in her arms.
-    figure(d, 90, 88, 18, hat=False)
-    d.shape("M85,76 C85,73 88,72 90,73 C92,74 92,76 91,77 C89,78 86,78 85,76 Z", w=1.0)
+    d.dots([(30, 8), (44, 16), (58, 6), (38, 28), (66, 18)], r=0.6)
+    fire(d, 55, 87, 1.0)
+    # The second man standing behind, and the first squatting on his heels by the fire, smoking, the bottle
+    # stoppered with a corncob on the ground at his side.
+    figure(d, 12, 87, 42)
+    sitter(d, 26, 88, 1.45, squat=True, arm="M2,-15 L5,-19 L6,-24")
+    bottle = "M38,88 L38,80 C38,78 39,77.4 39.6,76.6 L39.6,74 L42,74 L42,76.6 C42.6,77.4 43.6,78 43.6,80 L43.6,88 Z"
+    d.shape(bottle, w=1.1)
+    d.hatch("M38.4,87.6 L38.4,82 L43.2,82 L43.2,87.6 Z", angle=45, pitch=1.0)
+    d.shape(poly((39.4, 74.4), (39.4, 71), (42.2, 71), (42.2, 74.4)), w=0.9)
+    # "The girl" sitting with her legs tucked under her and the bundle in her lap, looking into the fire.
+
+    def g(path: str) -> str:
+        return place(path, -0.7, 88, 1.15)
+    skirt = g("M58,0 C58,-6 62,-9 66,-9 L74,-9 C78,-8 80,-4 80,0 Z")
+    d.shape(skirt, w=1.2)
+    d.edge_shade(skirt, dx=-1.6, dy=-1.6)
+    body = g("M65,-8 L66,-18 C67,-20 71,-20 72,-18 L73,-8 Z")
+    d.shape(body, w=1.1)
+    d.shape(g(circle(68.4, -22.6, 2.6)), w=1.0)
+    hair = g("M65.8,-23 C65.6,-26.4 71.2,-26.4 71,-23.4 L72.4,-15 L70,-16 L70,-20.6 L67,-21.4 Z")
+    d.shape(hair, w=0.8)
+    d.hatch(hair, angle=80, pitch=0.8)
+    bundle = g("M59,-8 C59,-11 62,-12 65,-11 C67,-10 67,-8 66,-7 C64,-6 60,-6 59,-8 Z")
+    d.shape(bundle, w=1.0)
+    d.line(g("M66,-16 L62,-10"), w=1.0)
     d.ground(2, 94, 89, ticks=6, seed=311)
     return d
 
@@ -479,34 +543,6 @@ def waterfowl() -> Drawing:
     return d
 
 
-# 15. Billy in his rags with the bow, riding the high woods (J3, 2-01) ----------------------------------
-def billy_in_rags() -> Drawing:
-    d = Drawing("billy-in-rags")
-    # Madroño and oak of the high country: twisted trunks, low lumpy crowns.
-    for x, base, h, w, seed in ((12, 62, 44, 22, 370), (84, 60, 40, 22, 371)):
-        cottonwood(d, x, base, h, w, seed=seed)
-
-    def bow(t):
-        d.line(t("M38,16 C30,24 30,40 40,48"), w=1.3)
-        d.line(t("M38,16 L40,48"), w=0.5, halo=False)
-        d.line(t("M45,30 l-2,4 M50,32 l1,4 M47,40 l-3,3"), w=0.7, halo=False)
-    rider(d, 50, 86, 0.66, hat="straw", extra=bow)
-    d.ground(2, 94, 87, ticks=6, seed=372)
-    return d
-
-
-# 16. Billy riding west towards La Norteña and the watershed (J5, 3-14) --------------------------------
-def billy_to_the_watershed() -> Drawing:
-    d = Drawing("billy-to-the-watershed")
-    ridge = "M2,46 L12,34 L20,40 L30,26 L40,36 L52,28 L62,38 L70,32 L80,40 L94,36"
-    d.line(ridge, w=1.1)
-    d.hatch(ridge + " L94,50 L2,50 Z", angle=70, pitch=2.6, w=0.6)
-    d.line("M4,58 C30,57 60,57 94,56", w=0.8)
-    rider(d, 52, 86, 0.64, flip=True, hat="low")
-    d.ground(2, 94, 87, ticks=6, seed=380)
-    return d
-
-
 # 17. Billy with his packhorse in the pine country to Temósachic (J7, 4-05) -----------------------------
 def billy_and_packhorse() -> Drawing:
     d = Drawing("billy-and-packhorse")
@@ -534,7 +570,5 @@ SUBJECTS = {
     "recruiting-office": recruiting_office,
     "corridero": corridero,
     "waterfowl": waterfowl,
-    "billy-in-rags": billy_in_rags,
-    "billy-to-the-watershed": billy_to_the_watershed,
     "billy-and-packhorse": billy_and_packhorse,
 }

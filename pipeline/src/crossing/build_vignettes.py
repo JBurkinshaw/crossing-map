@@ -179,9 +179,9 @@ class Drawing:
     def overlaps(self, other: "Drawing") -> bool:
         """Whether the two come within GAP_PX of each other at any zoom where both show, up to MAX_ZOOM, past which
         nothing grows. Two points apart spread faster than their drawings grow, but two drawings on one point do not
-        spread, and their captions grow at another rate than the drawings, so every whole zoom is checked."""
+        spread, and their captions grow at another rate than the drawings, so every half zoom is checked."""
         first = max(self.zoom, other.zoom)
-        for z in [first] + [float(z) for z in range(math.floor(first) + 1, MAX_ZOOM + 1)]:
+        for z in [first] + [k / 2 for k in range(math.floor(first * 2) + 1, MAX_ZOOM * 2 + 1)]:
             gap = GAP_PX / px_per_m(z)
             theirs = rects(other.at, other.side, z, other.label)
             if any(a[0] - gap < b[2] and b[0] - gap < a[2] and a[1] - gap < b[3] and b[1] - gap < a[3]

@@ -341,7 +341,7 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 - Vignettes belong to the vintage map only. In the Oblique view they stand at their shifted copies (`data/oblique/vignettes.geojson`), beside their shifted pins (decision 0039).
 - Spoiler mode hides those first seen after the reader's progress. A drawing is first seen with its pin or leg, if that comes later than its scene, so it never stands beside a pin or on a leg the reader has not reached.
 
-**First candidates** (the site now has 150 drawings; the anchors in `pipeline/seeds/vignettes.csv` are the current picks):
+**First candidates** (the site now has 155 drawings; the anchors in `pipeline/seeds/vignettes.csv` are the current picks):
 
 | Vignette | Anchor | Part |
 | --- | --- | --- |

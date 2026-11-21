@@ -1,6 +1,6 @@
 # 0076. Large drawings in the empty quarters at low zoom
 
-Status: accepted (2026-11-19)
+Status: accepted (2026-11-19). Amended by 0079 (moved closer in).
 Phase: P1
 
 ## Context

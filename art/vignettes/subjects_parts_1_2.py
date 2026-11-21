@@ -114,33 +114,6 @@ def wolves_antelope() -> Drawing:
     return d
 
 
-# 2. The dog at the gate, watching Billy and Bird ride out (1-04) ---------------------------------------
-def billy_and_the_dog() -> Drawing:
-    d = Drawing("billy-and-the-dog")
-    # The stockgate: two posts and the wire, behind the dog.
-    d.line("M8,56 L8,86 M30,58 L30,86", w=1.6)
-    d.line("M8,62 L30,64 M8,70 L30,71 M8,78 L30,78", w=0.7, halo=False)
-    rider(d, k=0.74, ox=26, oy=18)
-    # The dog standing at the gate looking after him.
-    wolf(d, 0.26, 4, 64, w=1.1)
-    d.ground(4, 94, 88, ticks=7, seed=14)
-    return d
-
-
-# 3. Billy riding south with the wolf on the rope, through the lechuguilla (1-09) -----------------------
-def wolf_on_the_rope() -> Drawing:
-    d = Drawing("wolf-on-the-rope")
-    for x, y, s, st in ((10, 70, 6, 26), (88, 66, 5, 0), (62, 86, 4, 0)):
-        lechuguilla(d, x, y, s, st)
-    rider(d, k=0.66, ox=34, oy=24)
-    # The rope from the saddlehorn back to her collar; she hobbles behind, head low.
-    wolf(d, 0.36, 4, 62, bend=lambda x, y: (x, y + (0.12 * (x - 70) if x > 70 else 0)), w=1.2)
-    d.line("M64,50 C54,60 46,70 36,74", w=1.0)
-    grass(d, [(24, 88), (46, 89), (80, 88)], h=3.4)
-    d.ground(4, 94, 90, ticks=6, seed=17)
-    return d
-
-
 # 4. Billy and the wolf by the night fire, side by side (1-09) ------------------------------------------
 def wolf_by_the_fire() -> Drawing:
     d = Drawing("wolf-by-the-fire")
@@ -343,48 +316,54 @@ def escarpment_road() -> Drawing:
     return d
 
 
-# 12. The church of San Miguel at Bavispe, on its plaza (2-03) ------------------------------------------
+# 12. Bavispe after the earthquake of 1887: the dead on reed mats in the alameda, old women in black keeping the
+# flies off them with green fronds (the heretic's tale, 2-01) ---------------------------------------------------
 def bavispe_church() -> Drawing:
+    from art.vignettes.subjects_parts_3_4 import blob
+    from art.vignettes.subjects_round5_c import woman
+
     d = Drawing("bavispe-church")
-    # The nave running back to the west, its long pitched roof.
-    nave = "M10,84 L10,52 L44,52 L44,84 Z"
-    roof = "M8,52 L16,40 L44,40 L46,52 Z"
-    d.shape(nave)
-    d.shape(roof, w=1.4)
-    d.hatch(roof, angle=0, pitch=1.8)
-    for x in (16, 26, 36):
-        win = f"M{x},70 L{x},62 C{x},58 {x + 4},58 {x + 4},62 L{x + 4},70 Z"
-        d.shape(win, w=0.9)
-        d.hatch(win, angle=45, pitch=1.3)
-    # The tower front: a tall gable, pointed openings and the spire with its cross.
-    tower = "M44,84 L44,44 L50,38 L50,28 L54,24 L58,28 L58,38 L64,44 L64,84 Z"
-    d.shape(tower)
-    d.edge_shade(tower, dx=-3, dy=0)
-    spire = "M50,28 L54,8 L58,28 Z"
-    d.shape(spire, w=1.3)
-    d.hatch("M54,8 L58,28 L54,28 Z", angle=60, pitch=1.4)
-    d.line("M54,8 L54,2 M52,4 L56,4", w=1.0)
-    for x, y in ((49.5, 58), (55.5, 58)):
-        d.shape(f"M{x},{y + 8} L{x},{y + 2} L{x + 1.5},{y - 1} L{x + 3},{y + 2} L{x + 3},{y + 8} Z", w=0.9)
-        d.hatch(f"M{x},{y + 8} L{x},{y + 2} L{x + 1.5},{y - 1} L{x + 3},{y + 2} L{x + 3},{y + 8} Z", angle=45, pitch=1.2)
-    d.shape("M52,36 L52,32 L54,29.5 L56,32 L56,36 Z", w=0.9)
-    door = "M49,84 L49,74 C49,68 59,68 59,74 L59,84 Z"
-    d.shape(door, w=1.3)
-    d.hatch(door, angle=45, pitch=1.6, cross=True)
-    d.line("M44,64 L64,64 M44,44 L64,44", w=0.8, halo=False)
-    # A cypress beside it, and the meat-vendor's cart standing in the plaza.
-    cyp = "M74,84 C70,70 72,52 76,38 C80,52 82,70 78,84 Z"
-    d.shape(cyp, w=1.2)
-    d.hatch(cyp, angle=60, pitch=1.6)
-    d.shape(poly((80, 74), (94, 74), (94, 80), (80, 80)), w=1.1)
-    d.shape(circle(84, 83, 3), w=1.0)
-    d.line("M80,76 L74,80", w=0.9)
-    d.ground(2, 94, 87, ticks=8, seed=37)
+    # The town behind in ruin: broken adobe walls, a fallen roofbeam, rubble.
+    walls = "M2,50 L2,32 L6,32 L7,28 L11,29 L12,36 L16,35 L18,42 L22,44 L22,50 Z"
+    walls += " M30,50 L30,26 L35,26 L36,30 L40,31 L41,24 L46,25 L46,36 L48,38 L48,50 Z"
+    walls += " M60,50 L60,34 L64,33 L66,28 L72,29 L73,35 L78,36 L79,30 L84,31 L86,40 L90,41 L94,46 L94,50 Z"
+    d.shape(walls, w=1.4)
+    d.edge_shade(walls, dx=-2.6, dy=0)
+    holes = poly((8, 50), (8, 40), (13, 40), (13, 50)) + " " + poly((36, 50), (36, 38), (41, 38), (41, 50)) + " " + \
+        poly((70, 50), (70, 40), (75, 40), (75, 50)) + " " + poly((80, 46), (80, 40), (84, 40), (84, 46))
+    d.shape(holes, w=1.0)
+    d.hatch(holes, angle=45, pitch=1.2, cross=True)
+    d.line("M22,40 L32,48 M48,36 L60,46", w=1.6)
+    d.dots([(25, 49), (28, 48), (52, 49), (55, 48), (57, 49.4), (90, 49)], r=0.8)
+    # The alameda's trees.
+    for x, seed in ((24, 41), (56, 42)):
+        d.line(f"M{x},62 C{x - 1},54 {x + 1},48 {x},40", w=1.4)
+        crown = blob(x, 30, 8, 9, 9, seed=seed, depth=0.3)
+        d.shape(crown, w=1.2)
+        d.edge_shade(crown, dx=-2.4, dy=-2.4)
+    # The dead in rows on mats of river reed, each wrapped, the child smallest.
+    for x, y, ln in ((2, 66, 16), (24, 66, 16), (46, 66, 9), (4, 80, 18), (30, 80, 18)):
+        mat = poly((x, y + 3), (x + ln + 4, y + 3), (x + ln + 6, y - 3), (x + 2, y - 3))
+        d.shape(mat, w=1.0)
+        d.line(" ".join(f"M{x + 1 + i * 2:.1f},{y + 2.6} L{x + 2.6 + i * 2:.1f},{y - 2.6}" for i in range(int(ln / 2) + 2)),
+               w=0.4, halo=False)
+        body = f"M{x + 5},{y} C{x + 5},{y - 2.4} {x + 7},{y - 3} {x + 9},{y - 2.6} L{x + ln},{y - 2} C{x + ln + 2},{y - 1.6} {x + ln + 2},{y + 1} {x + ln},{y + 1} L{x + 8},{y + 1.4} C{x + 6},{y + 1.4} {x + 5},{y + 1} {x + 5},{y} Z"
+        d.shape(body, w=1.1)
+        d.edge_shade(body, dx=-1, dy=-1.2)
+        d.shape(circle(x + 4.4, y - 0.8, 2.0), w=1.0)
+    # Two old women in black walking among the rows with green fronds.
+    for x, flip in ((67, True), (89, True)):
+        p = woman(d, x, 90, 28, flip=flip)
+        d.hatch(p("M-2.8,-17.6 C-2,-19 2,-19 2.8,-17.6 L3.4,-11 L5,-0.6 L-5,-0.6 L-3.4,-11 Z"), angle=45, pitch=1.0)
+        d.line(p("M2,-15 L6,-12 L9,-14 L15,-26"), w=1.0)
+        d.line(p(" ".join(f"M{9 + t * 0.57:.1f},{-14 - t:.1f} l-2.6,-1 M{9 + t * 0.57:.1f},{-14 - t:.1f} l1.4,2.4"
+                          for t in (3, 6, 9, 12))), w=0.8, halo=False)
+    d.ground(2, 94, 91, ticks=8, seed=37)
     return d
 
 
 SUBJECTS = {
-    "wolves-antelope": wolves_antelope, "billy-and-the-dog": billy_and_the_dog, "wolf-on-the-rope": wolf_on_the_rope, "wolf-by-the-fire": wolf_by_the_fire, "wolf-ford": wolf_ford,
+    "wolves-antelope": wolves_antelope, "wolf-by-the-fire": wolf_by_the_fire, "wolf-ford": wolf_ford,
     "wolf-cart": wolf_cart, "carrying-the-wolf": carrying_the_wolf, "wolf-cairn": wolf_cairn,
     "billy-bow-hawk": billy_bow_hawk, "el-tigre": el_tigre, "escarpment-road": escarpment_road,
     "bavispe-church": bavispe_church,

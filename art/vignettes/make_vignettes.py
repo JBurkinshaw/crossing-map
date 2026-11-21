@@ -13,57 +13,43 @@ are drawn by hand in SVG, with proportions taken from the references listed in t
 
 import importlib
 import math
+import random
 import sys
 from pathlib import Path
 
+from shapely.ops import unary_union
+
 from art import PAPER
 from art.build_sprite import build_sprite
-from art.vignettes.ink import Drawing
+from art.vignettes.ink import Drawing, region
 from art.vignettes.shapes import circle, ellipse, grass, poly, traced, warp
+from art.vignettes.subjects_parts_3_4 import blob
+from art.vignettes.subjects_round3 import _path
+from art.vignettes.subjects_round4 import shift, water
+from art.vignettes.subjects_round5_a import hound
+from art.vignettes.subjects_round5_e import LIE, hat, person
+from art.vignettes.subjects_round6_a import handler, onlooker, stump
 
 SVG_DIR = Path(__file__).parent / "svg"
 
 
 def she_wolf() -> Drawing:
     d, t = Drawing("she-wolf"), traced("she-wolf")
+    # Behind her the cut-over slope of the sierra: rows of sawn stumps and a felled trunk where the forest stood.
+    d.line("M2,8 C22,9 52,15 94,22", w=1.0)
+    for x, base, w, felled in ((14, 18, 4.2, False), (36, 20, 4, False), (60, 24, 4.4, False), (84, 27, 4, False),
+                               (22, 32, 6, True), (50, 33, 5.6, False), (62, 35, 5.6, False), (9, 46, 7.6, False),
+                               (33, 41, 6, False)):
+        stump(d, x, base, w, w * 0.9, felled)
+    k, ox, oy = 0.86, 6, 18
     for p in t["outline"]:
-        d.shape(p)
-        d.edge_shade(p, dx=-3, dy=-3.5)
+        q = warp(p, lambda x, y: (ox + x * k, oy + y * k))
+        d.shape(q)
+        d.edge_shade(q, dx=-3, dy=-3.5)
     for p in t["tones"]["0.3"]:
-        d.hatch(p, pitch=2.4)
-    d.ground(8, 88, 84, ticks=5, seed=3)
-    grass(d, [(14, 84), (60, 84), (84, 84)])
-    return d
-
-
-# 2. The Newhouse trap, chain and drag ------------------------------------------------------------------
-def steel_trap() -> Drawing:
-    d = Drawing("steel-trap")
-    # Two long springs, each a narrow loop running out from the jaw posts (seen from above, a little oblique).
-    d.shape("M38,36 C30,33 14,33 6,36 C4,37 4,41 6,42 C14,44 30,43 38,40 Z")
-    d.line("M34,37.2 C26,36 15,36.2 9,38 C15,40 26,40 34,39", w=0.9, halo=False)
-    d.shape("M58,36 C66,33 82,33 90,36 C92,37 92,41 90,42 C82,44 66,43 58,40 Z")
-    d.line("M62,37.2 C70,36 81,36.2 87,38 C81,40 70,40 62,39", w=0.9, halo=False)
-    # The base plate (cross) under the jaws.
-    d.shape(poly((43, 26), (53, 26), (53, 33), (60, 33), (60, 45), (53, 45), (53, 52), (43, 52), (43, 45), (36, 45), (36, 33), (43, 33)))
-    # Open jaws: a ring seen at an angle, and the pan with its lettering.
-    d.shape(ellipse(48, 39, 15, 10.5), w=2.2, fill=False)
-    d.shape(ellipse(48, 39, 12, 8), w=1.2, fill=False)
-    d.shape(ellipse(48, 40, 6, 4), w=1.2)
-    d.line("M45,40 l1.2,0 M47.4,40 l1.2,0 M49.8,40 l1.2,0", w=0.7, halo=False)
-    d.hatch(poly((53, 33), (60, 33), (60, 45), (53, 45), (53, 52), (48, 52), (48, 47)), pitch=2.4)
-    # The chain: links alternately seen flat and edge-on, curving down to the drag.
-    pts = [(48, 54), (50, 60), (53, 65.5), (57, 70.5), (61.5, 74.5), (66.5, 78)]
-    for i, (x, y) in enumerate(pts):
-        if i % 2 == 0:
-            d.shape(ellipse(x, y, 2.6, 3.4), w=1.3, fill=False)
-        else:
-            d.line(f"M{x - 1.4:.1f},{y - 2.6:.1f} L{x + 1.4:.1f},{y + 2.6:.1f}", w=1.6)
-    # The two-pronged drag: a shank with two hooked prongs.
-    d.line("M68,80 L80,86", w=2.2)
-    d.line("M80,86 C86,88 88,82 85,78", w=2.0)
-    d.line("M80,86 C83,92 89,92 91,87", w=2.0)
-    d.line("M84.6,77.6 l1.8,-1.2 M91,87 l1.6,-1", w=1.3)
+        d.hatch(warp(p, lambda x, y: (ox + x * k, oy + y * k)), pitch=2.4)
+    d.ground(6, 90, 88, ticks=5, seed=3)
+    grass(d, [(10, 88), (56, 88), (84, 88)])
     return d
 
 
@@ -91,35 +77,50 @@ def obelisk() -> Drawing:
     return d
 
 
-# 4. The cockpit at the hacienda: low palisade, the stake, the wolf on her chain ------------------------
+# 4. The cockpit at the hacienda: the crowd on the bleachers, the blood-black palisade, the wolf at the stake --
 def hacienda_pit() -> Drawing:
     d = Drawing("hacienda-pit")
-    # Bleachers on poles behind, under the bodega's lights.
-    d.line("M8,26 L88,26 M6,34 L90,34 M4,42 L92,42", w=1.3)
-    d.line("M10,26 L10,50 M30,26 L30,46 M48,26 L48,44 M66,26 L66,46 M86,26 L86,50", w=1.0)
-    d.line("M10,34 L30,26 M48,34 L66,26 M30,42 L48,34 M66,42 L86,34", w=0.7, halo=False)
-    d.line("M24,14 L24,20 M72,14 L72,20", w=0.7, halo=False)
-    d.shape(circle(24, 21.5, 1.6), w=0.9)
-    d.shape(circle(72, 21.5, 1.6), w=0.9)
-    # The pit: a low board palisade round a dirt floor, seen from the stands.
-    rim = ellipse(48, 58, 40, 16)
-    d.shape(rim, w=1.6)
-    inner = "M8,58 C8,48 26,42 48,42 C70,42 88,48 88,58 C88,52 70,49 48,49 C26,49 8,52 8,58 Z"
-    d.hatch(inner, angle=80, pitch=1.8)
-    d.line("M8,58 C8,52 26,49 48,49 C70,49 88,52 88,58", w=0.9, halo=False)
-    wall = "M8,58 C8,67 26,74 48,74 C70,74 88,67 88,58 L88,66 C88,75 70,82 48,82 C26,82 8,75 8,66 Z"
-    d.shape(wall, w=1.6)
-    d.hatch(wall, angle=60, pitch=1.9, cross=True)
-    for x in (14, 22, 30, 39, 48, 57, 66, 74, 82):
-        yt = 58 + 16 * math.sqrt(max(0, 1 - ((x - 48) / 40) ** 2))
-        d.line(f"M{x},{yt:.1f} L{x},{yt + 8:.1f}", w=1.0, halo=False)
-    # The iron stake and the wolf crouched by it on her chain.
-    d.line("M56,50 L56,62", w=2.0)
-    t = traced("she-wolf")
-    k, ox, oy = 0.36, 20, 41
-    for p in t["outline"]:
-        d.shape(warp(p, lambda x, y: (ox + x * k, oy + y * k)), w=1.4)
-    d.line("M56,60 C52,63 48,63 46,59", w=0.8, halo=False)
+    # The tin reflectors hung over the pit.
+    for x in (26, 70):
+        d.line(f"M{x},0 L{x},4", w=0.7, halo=False)
+        d.shape(f"M{x - 5},9 L{x - 1.6},4 L{x + 1.6},4 L{x + 5},9 Z", w=1.0)
+    # The bleachers on poles along the far side, packed with men in hats.
+    for y in (19, 27, 35):
+        d.line(f"M4,{y} L92,{y}", w=1.2)
+    d.line("M8,19 L8,44 M30,19 L30,44 M66,19 L66,44 M88,19 L88,44", w=0.9)
+    rows = ((18, 0.78, [8 + 7 * i for i in range(12)]), (26, 0.84, [11 + 7.5 * i for i in range(11)]),
+            (34, 0.9, [6 + 8 * i for i in range(12)]))
+    for row, (y, s, xs) in enumerate(rows):
+        for i, x in enumerate(xs):
+            onlooker(d, x, y, s, dark=(i + row) % 3 == 0)
+    # The estacada: a low palisade of boards black with old blood round a dirt floor, seen across from the crowd.
+    d.shape(ellipse(48, 59, 44, 14), w=1.6)
+    far = "M4,59 C4,50 24,45 48,45 C72,45 92,50 92,59 C92,54 72,50 48,50 C24,50 4,54 4,59 Z"
+    d.hatch(far, angle=80, pitch=1.4, cross=True)
+    d.line("M4,59 C4,54 24,50 48,50 C72,50 92,54 92,59", w=0.9, halo=False)
+    near = "M4,59 C4,67 24,73 48,73 C72,73 92,67 92,59 L92,66 C92,75 72,81 48,81 C24,81 4,75 4,66 Z"
+    d.shape(near, w=1.6)
+    d.hatch(near, angle=60, pitch=1.5, cross=True)
+    for x in (10, 18, 27, 37, 48, 59, 69, 78, 86):
+        yt = 59 + 14 * math.sqrt(max(0, 1 - ((x - 48) / 44) ** 2))
+        d.line(f"M{x},{yt:.1f} L{x},{yt + 7:.1f}", w=1.0, color=PAPER, halo=False)
+    # The iron pipe and the wolf down by it on her chain, her head in the dirt.
+    d.line("M47,50 L47,62", w=2.2)
+    bend = lambda x, y: LIE(x, y + (0.25 * (x - 66) if x > 66 else 0))  # noqa: E731
+    for p in traced("she-wolf")["outline"]:
+        q = warp(p, lambda x, y: (14 + bend(x, y)[0] * 0.37, 41 + bend(x, y)[1] * 0.37))
+        d.shape(q, w=1.6)
+        d.edge_shade(q, dx=-1.4, dy=-1.6)
+    d.line("M47,60.4 C45,62.6 43,63 41,62", w=0.9, halo=False)
+    # Across the pit the two airedales straining at their leashes, the handlers braced back.
+    for ox, hx in ((50, 69), (68, 87)):
+        g = hound(d, 0.16, ox, 49, flip=True, collar=True)
+        hand = handler(d, hx, 63, 16)
+        cx, cy = g(70, 42)
+        d.line(f"M{cx:.1f},{cy:.1f} L{hand[0]:.1f},{hand[1]:.1f}", w=0.8, halo=False)
+    # Those standing nearest, seen from behind at the front of the crowd.
+    for x in (6, 17, 79, 90):
+        onlooker(d, x, 97, 1.5, dark=True, behind=True)
     return d
 
 
@@ -180,14 +181,16 @@ def paquime() -> Drawing:
     return d
 
 
-# 7. The Hacienda de San Diego: the house front with its three arches and the initials ------------------
+# 7. The Hacienda de San Diego going to ruin: the house front, its arches and initials, plaster flaking, shutters
+# broken (3-01, 4-04) -------------------------------------------------------------------------------------
 def san_diego() -> Drawing:
     d = Drawing("san-diego-gate")
     body = poly((6, 84), (6, 44), (90, 44), (90, 84))
     d.shape(body)
-    # Parapet with the pierced terracotta band; a raised centre panel over the arches.
-    d.shape(poly((6, 44), (6, 38), (28, 38), (28, 34), (68, 34), (68, 38), (90, 38), (90, 44)))
-    d.line(" ".join(f"M{x},40.8 l1.6,0" for x in range(9, 88, 3)), w=0.9, halo=False)
+    # Parapet with the pierced terracotta band, broken away at the east corner; a raised panel over the arches.
+    d.shape(poly((6, 44), (6, 38), (28, 38), (28, 34), (68, 34), (68, 38), (80, 38), (82, 41), (86, 39), (90, 42),
+                 (90, 44)))
+    d.line(" ".join(f"M{x},40.8 l1.6,0" for x in range(9, 79, 3) if x not in (18, 21, 54)), w=0.9, halo=False)
     d.shape(poly((30, 34), (34, 24), (62, 24), (66, 34)))
     # The carved name, arched, over the initials: drawn as a curved line of tick marks and a real L T.
     d.line(" ".join(f"M{48 + 13 * math.cos(math.radians(a)):.1f},{35 - 7 * math.sin(math.radians(a)):.1f} l0,1.6"
@@ -199,15 +202,31 @@ def san_diego() -> Drawing:
         d.shape(arch, w=1.4)
         d.hatch(arch, angle=45, pitch=1.8, cross=True)
     d.line("M28,84 L28,48 L70,48 L70,84", w=1.0, halo=False)
-    # Tall shuttered windows in the wings; quoins at the corners.
+    # Plaster flaked away in patches, the adobe courses showing; cracks running down from the parapet.
+    for patch in ("M34,46 C38,44.6 44,45 46,47 C46,50 43,53 39,53 C36,52.6 33,50 34,46 Z",
+                  "M60,47 C63,45.4 68,46 68,49 C67,52 63,53 61,51.6 Z",
+                  "M7,77 C10,75 15,75.4 16,78.6 C16,82 11,83 8,82 Z", "M78,76 C82,74.4 88,75 88,78.6 C87,82 81,82.6 79,81 Z"):
+        d.shape(patch, w=1.0)
+        d.hatch(patch, angle=0, pitch=1.5, w=0.6)
+    d.line("M24,44 l-1.4,3 l1.6,2.4 l-1.2,3.4 M82,44 l1.2,2.6 l-1.6,2 l1,3", w=0.7, halo=False)
+    # The tall windows in the wings, their shutters weathered and broken: one hanging askew off its hinge, one gone
+    # to the dark of the room, two with louvres missing.
     for x in (11, 19, 75, 83):
         w = poly((x - 2.5, 74), (x - 2.5, 52), (x + 2.5, 52), (x + 2.5, 74))
         d.shape(w, w=1.1)
-        d.hatch(w, angle=0, pitch=1.6)
+        if x in (19, 75):
+            d.hatch(w, angle=45, pitch=1.3, cross=True)
+        else:
+            d.line(" ".join(f"M{x - 2.5},{y} l5,0" for y in range(54, 73, 2) if not 58 < y < 66), w=0.7, halo=False)
+    hung = poly((21.4, 52.6), (26.4, 54.6), (22.6, 75.4), (17.8, 73.4))
+    d.shape(hung, w=1.1)
+    d.hatch(hung, angle=-12, pitch=1.6)
     for y in range(46, 84, 6):
         d.line(f"M6,{y} l3,0 l0,3 l-3,0 M90,{y} l-3,0 l0,3 l3,0", w=0.8, halo=False)
     d.edge_shade(body, dx=-3, dy=-2.5)
-    d.ground(2, 94, 86, ticks=8, seed=4)
+    # Fallen plaster and a broken board at the foot of the wall.
+    d.dots([(12, 85.6), (15, 86.4), (78, 85.8), (82, 86.4), (86, 85.4)], r=0.9)
+    d.ground(2, 94, 87, ticks=8, seed=4)
     return d
 
 
@@ -278,11 +297,28 @@ def blind_man() -> Drawing:
     return d
 
 
-# 10. The red Waco ---------------------------------------------------------------------------------------
+# 10. The red Waco circling over the plain, the dust smoking off Babícora beyond the lake (4-04) ----------
 def red_plane() -> Drawing:
     d = Drawing("red-plane")
-    # The circling flight path, dotted.
-    d.line("M84,70 C96,52 80,34 56,32 C40,31 22,36 12,46", w=0.8, halo=False)
+    # The dust blowing out of Babícora on the dry north wind, smoking up off the far plain as if it were afire:
+    # loose plumes of hatched tone, rising from the ground and streaming away downwind.
+    plumes = ((90, 36, 9, 8), (78, 40, 12, 9), (86, 50, 10, 7), (64, 46, 12, 8), (50, 51, 11, 7), (72, 55, 10, 6),
+              (36, 56, 10, 5.4), (56, 58, 9, 4.6), (22, 59, 9, 4), (10, 61, 6, 2.6))
+    puffs = [blob(cx, cy, rx, ry, 9, seed=903 + i, depth=0.26) for i, (cx, cy, rx, ry) in enumerate(plumes)]
+    d.shape(_path(unary_union([region(p) for p in puffs]).simplify(0.2)), w=0.7)
+    for puff in puffs:
+        d.line(puff, w=0.5, halo=False)
+        d.hatch(puff, angle=-25, pitch=2.2, w=0.5)
+    d.line("M4,63 C30,62.4 60,62.4 94,62", w=1.0)
+    d.dots([(30, 50), (52, 42), (70, 34), (88, 28), (40, 47), (62, 38)], r=0.5)
+    # The lake in front of it, and the trees the plane comes down among.
+    water(d, 72, 6, 62, seed=1)
+    for x, h in ((70, 10), (78, 13), (86, 9)):
+        d.shape(f"M{x - 4},{88} C{x - 6},{88 - h} {x - 2},{88 - h - 4} {x},{88 - h - 3} C{x + 3},{88 - h - 4} {x + 6},{88 - h} {x + 4},{88} Z", w=1.2)
+        d.hatch(f"M{x},{88 - h - 3} C{x + 3},{88 - h - 4} {x + 6},{88 - h} {x + 4},{88} L{x},{88} Z", pitch=1.8)
+    d.ground(6, 94, 89, ticks=5, seed=2)
+    # The big cabin biplane overhead, coming round on its circle (drawn full size, then made smaller).
+    since = len(d.items)
     # A cabin biplane in side view, banking a little: lower wing, fuselage, upper wing (staggered forward).
     lower = "M30,54 L64,52 C66,52 67,54 65,55 L31,57 C29,57 28,55 30,54 Z"
     d.shape(lower, w=1.4)
@@ -306,11 +342,7 @@ def red_plane() -> Drawing:
     d.shape(circle(57, 59.5, 3), w=1.4)
     d.hatch(circle(57, 59.5, 3), pitch=1.4)
     d.edge_shade(fus, dx=-2.5, dy=-3)
-    # The trees it drops among.
-    for x, h in ((70, 10), (78, 13), (86, 9)):
-        d.shape(f"M{x - 4},{88} C{x - 6},{88 - h} {x - 2},{88 - h - 4} {x},{88 - h - 3} C{x + 3},{88 - h - 4} {x + 6},{88 - h} {x + 4},{88} Z", w=1.2)
-        d.hatch(f"M{x},{88 - h - 3} C{x + 3},{88 - h - 4} {x + 6},{88 - h} {x + 4},{88} L{x},{88} Z", pitch=1.8)
-    d.ground(6, 94, 89, ticks=5, seed=2)
+    shift(d, since, 2, -12, 0.66)
     return d
 
 
@@ -359,37 +391,48 @@ def gypsy_plane() -> Drawing:
     return d
 
 
-# 12. The crippled dog in the doorway of the ruin -------------------------------------------------------
+# 12. Billy in the rain with the pipe, the crippled dog hobbling off up the wet road (4-08) -------------
 def crippled_dog() -> Drawing:
     d = Drawing("crippled-dog")
-    # The back wall of the ruined adobe, roofless, with its open door onto the rain and the road.
-    wall = "M4,70 L4,26 C10,22 16,28 24,24 C32,20 38,26 46,23 C56,20 62,27 72,24 C80,22 86,27 92,25 L92,70 Z"
-    d.shape(wall)
-    door = poly((52, 70), (52, 36), (68, 36), (68, 70))
-    d.shape(door, w=1.4)
-    d.hatch(door, angle=-70, pitch=2.2, w=0.6)
-    d.line("M50,36 L70,36", w=1.6)
-    d.line("M12,38 l3,0.5 M26,52 l3,0 M80,44 l3,0.4 M36,34 l2.6,0 M84,60 l2.6,0", w=0.7, halo=False)
-    d.edge_shade(wall, dx=-3, dy=-2)
-    # Floor line, and the old dog lying in the corner, its head turned and askew (traced).
-    d.line("M4,70 L92,70", w=1.2)
-    # The old dog: the traced wolf outline, made smaller and bent so that the hindquarters sink and the
-    # head hangs low and askew, as the book describes him (the dog photographs found were all lying down).
-    t = traced("she-wolf")
-    k = 0.62
+    rnd = random.Random(912)
+    d.line(" ".join(f"M{rnd.uniform(2, 98):.1f},{rnd.uniform(2, 70):.1f} l-2.4,{5 + rnd.random() * 4:.1f}"
+                    for _ in range(34)), w=0.5, halo=False)
+    # The corner of the ruined waystation, its doorway dark.
+    wall = "M-2,86 L-2,30 C4,28 8,32 14,29 L18,31 L18,86 Z"
+    d.shape(wall, w=1.6)
+    door = poly((4, 86), (4, 52), (13, 52), (13, 86))
+    d.shape(door, w=1.2)
+    d.hatch(door, angle=45, pitch=1.5, cross=True)
+    d.edge_shade(wall, dx=-2.4, dy=0)
+    # The wet road running off up the country into the dusk: dark with rain, puddles shining on it.
+    d.line("M18,36 C40,35 70,35 96,36", w=0.8)
+    d.line("M22,35.6 C30,31 40,31 48,35 M80,35.4 C86,30.4 92,31 96,32", w=0.8, halo=False)
+    road = "M40,96 C52,72 64,52 72,36 L76,36 C80,52 88,72 98,96 Z"
+    d.line("M40,96 C52,72 64,52 72,36 M76,36 C80,52 88,72 98,96", w=1.1)
+    d.hatch(road, angle=0, pitch=1.6, w=0.7)
+    for x, y, w in ((58, 86, 10), (74, 76, 8), (70, 44, 3), (76, 40, 2)):
+        d.line(f"M{x},{y} l{w},0", w=1.4, color=PAPER, halo=False)
+    # The dog going away up the road on its twisted legs, its head thrown up sideways to howl.
     def bend(x, y):
-        x2, y2 = 12 + x * k, 34 + y * k
-        if x < 40:   # hindquarters: drop and shorten
-            y2 += (40 - x) * 0.20
-        if x > 70:   # head: down and turned
-            y2 += (x - 70) * 0.30
-        return x2, y2
+        if x < 40:
+            y += (40 - x) * 0.22
+        if x > 66:
+            y -= (x - 66) * 0.5
+            x -= (x - 66) * 0.3
+        return x, y
+    t = traced("she-wolf")
     for p in t["outline"]:
-        dog = warp(p, bend)
-        d.shape(dog)
-        d.edge_shade(dog, dx=-2.5, dy=-3)
-    d.line("M44,72 l2,-1 M48,73 l2,-1", w=0.7, halo=False)
-    d.line("M10,86 L30,86 M74,86 L90,86", w=1.0)
+        q = warp(p, lambda x, y: (58 + bend(x, y)[0] * 0.28, 42 + bend(x, y)[1] * 0.28))
+        d.shape(q, w=1.4)
+        d.edge_shade(q, dx=-1.2, dy=-1.4)
+    # Billy on the gravel apron, the length of pipe in his fist.
+    person(d, (33, 44), (32.4, 48), (31, 66), back=[[(31, 66), (28, 77), (25, 88)], [(31.4, 50), (28, 58), (28, 65)]],
+           front=[[(31, 66), (35, 77), (37, 88)], [(33, 50), (38.6, 45), (41, 39.4)]], r=3.2, width=7.6, w=2.2,
+           dark=True)
+    d.line("M38,45 L47.6,30.4", w=2.4)
+    hat(d, 33.4, 41, s=1.05)
+    d.line("M23,88.6 L27,88.6 M36,88.6 L40.6,88.6", w=1.4)
+    d.ground(20, 94, 90, ticks=5, seed=901)
     return d
 
 
@@ -422,7 +465,7 @@ def trinity_cloud() -> Drawing:
 
 
 SUBJECTS = {
-    "she-wolf": she_wolf, "steel-trap": steel_trap, "obelisk": obelisk, "hacienda-pit": hacienda_pit,
+    "she-wolf": she_wolf, "obelisk": obelisk, "hacienda-pit": hacienda_pit,
     "ruined-church": ruined_church, "paquime": paquime, "san-diego-gate": san_diego, "opera-caravan": opera_caravan,
     "blind-man": blind_man, "red-plane": red_plane, "gypsy-plane": gypsy_plane, "crippled-dog": crippled_dog,
     "trinity-cloud": trinity_cloud,

@@ -1,6 +1,6 @@
 # 0077. Drawings wait rather than touch
 
-Status: accepted (2026-11-20). Supersedes the moves in decision 0075. Amends 0026.
+Status: accepted (2026-11-20). Supersedes the moves in decision 0075. Amends 0026. Amended by 0080 (checked every half zoom).
 Phase: P1
 
 ## Context

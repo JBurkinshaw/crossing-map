@@ -103,51 +103,7 @@ def la_pinta_moon() -> Drawing:
     return d
 
 
-# 3. The girl's meal laid on her serape in the acacias (3-12) --------------------------------------------
-def acacia_picnic() -> Drawing:
-    d = Drawing("acacia-picnic")
-    # Acacias over the roadside: thin forked trunks under flat, spreading crowns.
-    d.line("M20,46 C20,38 18,32 14,26 M20,40 C24,34 28,30 32,27", w=1.3)
-    crown = "M2,28 C2,22 12,16 22,18 C30,15 42,17 44,23 C46,27 40,29 34,28 C26,30 12,30 2,28 Z"
-    d.shape(crown, w=1.3)
-    d.edge_shade(crown, dx=-2.5, dy=-2.5)
-    d.line("M74,44 C74,36 76,30 80,24 M74,36 L66,28", w=1.2)
-    crown2 = "M58,26 C58,20 68,15 78,17 C86,15 94,18 94,24 C94,28 88,28 82,27 C74,29 64,29 58,26 Z"
-    d.shape(crown2, w=1.2)
-    d.edge_shade(crown2, dx=-2.5, dy=-2.5)
-    d.line("M2,46 C30,45 60,45 94,44", w=0.8)
-    # The serape spread on the ground, striped across its ends, seen at a slant.
-    serape = poly((2, 92), (16, 52), (94, 52), (88, 92))
-    d.shape(serape, w=1.6)
-    for f in (0.08, 0.14, 0.86, 0.92):
-        y = 52 + 40 * f
-        d.line(f"M{16 - 14 * f:.1f},{y:.1f} L{94 - 6 * f:.1f},{y:.1f}", w=0.9, halo=False)
-    # On it: the jar of beans with its wooden spoon standing up, tamales tied in their husks, the tortillas, and a
-    # wedge of goat cheese.
-    jar = "M38,82 L38,66 C38,62.6 41,61.6 44,61.6 L52,61.6 C55,61.6 58,62.6 58,66 L58,82 Z"
-    d.shape(jar, w=1.6)
-    d.edge_shade(jar, dx=-3, dy=0)
-    d.line("M38,66 L58,66", w=0.8, halo=False)
-    d.line("M51,63 L57,40", w=1.8)
-    d.shape(ellipse(57.6, 37.6, 2.2, 3.6), w=1.2)
-    for x, y in ((20, 78), (24, 70), (16, 86)):
-        tam = (f"M{x - 9},{y} L{x - 6},{y - 1.6} C{x - 3},{y - 4} {x + 3},{y - 4} {x + 6},{y - 1.6} L{x + 9},{y} "
-               f"L{x + 6},{y + 1.6} C{x + 3},{y + 4} {x - 3},{y + 4} {x - 6},{y + 1.6} Z")
-        d.shape(tam, w=1.3)
-        d.line(f"M{x - 5.4},{y - 2} L{x - 5.4},{y + 2} M{x + 5.4},{y - 2} L{x + 5.4},{y + 2}", w=1.0, halo=False)
-        d.line(f"M{x - 3},{y - 1} L{x + 3},{y - 1}", w=0.5, halo=False)
-    # The tortillas in their cloth, a stack of them.
-    for k in range(4):
-        d.shape(ellipse(76, 72 - k * 2.2, 11, 4), w=1.2)
-    d.shape("M65,72 C64,78 70,80 76,80 C82,80 88,78 87,72 C84,75 68,75 65,72 Z", w=1.2)
-    d.hatch("M65,72 C64,78 70,80 76,80 C82,80 88,78 87,72 C84,75 68,75 65,72 Z", angle=45, pitch=1.3)
-    cheese = poly((64, 88), (84, 88), (84, 81))
-    d.shape(cheese, w=1.3)
-    d.edge_shade(cheese, dx=0, dy=-2)
-    return d
-
-
-# 4. Billy crouching at the black lake's edge, stars reflected in the water (3-12) ---------------------
+# 4. Billy crouching at the black lake's edge, the dead she-wolf faint among the drowned stars (3-12) --
 def stars_in_the_lake() -> Drawing:
     d = Drawing("stars-in-the-lake")
     # The night sky with its stars, and the far shore.
@@ -159,8 +115,12 @@ def stars_in_the_lake() -> Drawing:
     lake = "M2,42 C30,41 60,41 94,41 L94,74 C70,75 40,76 2,75 Z"
     d.hatch(lake, angle=0, pitch=1.0, w=0.9)
     d.hatch(lake, angle=90, pitch=1.4, w=0.6)
-    for x, y, r in ((14, 70, 2.4), (40, 74, 1.8), (66, 66, 2.6), (86, 72, 1.8), (28, 56, 1.6), (78, 54, 1.6),
-                    (52, 60, 1.2), (8, 50, 1.2), (92, 62, 1.2), (58, 50, 1.2)):
+    # Among them, faint, the she-wolf dead in the mountains, drawn upside down in pale lines like the stars.
+    k, ox, oy = 0.4, 50, 75
+    for p in traced("she-wolf")["outline"]:
+        d.line(warp(p, lambda x, y: (ox + x * k, oy - y * k)), w=1.0, color=PAPER, halo=False)
+    for x, y, r in ((14, 70, 2.4), (40, 74, 1.8), (28, 56, 1.6), (8, 50, 1.2), (92, 70, 1.2), (60, 46, 1.2),
+                    (84, 46, 1.4)):
         d.line(f"M{x - r - 0.6},{y} L{x + r + 0.6},{y} M{x},{y - r - 0.6} L{x},{y + r + 0.6}", w=1.3, color=PAPER,
                halo=False)
     # Billy crouched at the edge with the serape round his shoulders, hatless.
@@ -359,7 +319,6 @@ def lovers_secret_grave() -> Drawing:
 SUBJECTS = {
     "hay-justicia": hay_justicia,
     "la-pinta-moon": la_pinta_moon,
-    "acacia-picnic": acacia_picnic,
     "stars-in-the-lake": stars_in_the_lake,
     "tamale-cart": tamale_cart,
     "doctors-gate-in-rain": doctors_gate_in_rain,

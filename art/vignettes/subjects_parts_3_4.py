@@ -143,28 +143,6 @@ def billy_searching() -> Drawing:
     return d
 
 
-# 4. Billy riding north through the rain to San Buenaventura (J7, 4-06) --------------------------------
-def billy_in_the_rain() -> Drawing:
-    d = Drawing("billy-in-the-rain")
-    rnd = random.Random(34)
-    rain = []
-    for _ in range(38):
-        x, y = rnd.uniform(2, 98), rnd.uniform(4, 80)
-        rain.append(f"M{x:.1f},{y:.1f} l-3,{6 + rnd.random() * 4:.1f}")
-    d.line(" ".join(rain), w=0.5, halo=False)
-
-    def slicker(t):
-        coat = "M40,26 C43,24 50,24 53,26 L57,38 L63,54 L35,55 L39,38 Z"
-        d.shape(t(coat), w=1.4)
-        d.edge_shade(t(coat), dx=2.5, dy=-2)
-        d.line(t("M46,30 L44,54 M50,32 L52,54 M56,42 L60,54"), w=0.6, halo=False)
-    rider(d, 48, 86, 0.76, flip=True, hat="low", leg=False, extra=slicker)
-    # Puddled road under him.
-    d.line("M6,90 C20,89 30,90 40,89 M58,89 C70,88 80,89 92,88", w=1.0)
-    d.line("M14,92 l8,0 M60,92 l10,0", w=0.7)
-    return d
-
-
 # 5. North with the bones on a travois (J7, 4-08) ------------------------------------------------------
 def bones_travois() -> Drawing:
     d = Drawing("bones-travois")
@@ -371,45 +349,50 @@ def workers_truck() -> Drawing:
     return d
 
 
-# 11. Boyd's grave on the Gallego road (J7, 4-06) ------------------------------------------------------
+# 11. Boyd's grave on the Gallego road: the nameless board cross, the wire wreath, unmarked cairns (4-06)
 def boyds_grave() -> Drawing:
     d = Drawing("boyds-grave")
-    # The Sierra del Nido on the skyline, then the burial ground's low wall of fieldstone.
-    hills = "M4,40 C12,32 20,30 28,36 C36,26 46,24 54,32 C62,28 70,30 76,34 C82,30 88,32 92,36"
+    # The blue mountains on the skyline, and a black smoke going up from the trash burning off to the south.
+    hills = "M4,30 C12,22 20,20 28,26 C36,16 46,14 54,22 C62,18 70,20 76,24 C82,20 88,22 92,26"
     d.line(hills, w=1.0)
-    d.hatch(hills + " L92,44 L4,44 Z", angle=20, pitch=3.0, w=0.6)
-    wall = "M4,58 L4,50 C14,49 24,50 34,49 C46,48.6 58,49.4 70,49 C80,48.6 86,49.4 92,49 L92,58 Z"
-    d.shape(wall, w=1.4)
-    d.line("M10,50 l0,8 M18,53 l0,5 M26,49.6 l0,4 M40,53 l0,5 M52,49.4 l0,4 M66,53 l0,5 M78,49 l0,4 M86,53 l0,5 "
-           "M4,53.6 L92,53.6", w=0.6, halo=False)
-    d.edge_shade(wall, dx=-2, dy=-2)
-    # Another grave's tilted board, far off.
-    d.line("M80,62 L82,48 M78,52 L86,53", w=1.1)
-    # The cairn of loose rocks and the board cross, a little askew.
-    cairn = "M22,84 C24,76 30,70 40,69 C50,68 60,70 66,76 C70,79 72,82 72,84 Z"
+    d.hatch(hills + " L92,34 L4,34 Z", angle=20, pitch=3.0, w=0.6)
+    d.line("M84,36 C80,30 86,26 82,20 C79,15 84,11 80,6", w=1.6)
+    d.line("M86,36 C84,31 89,27 86,21", w=0.8, halo=False)
+    # The low mud wall, in ruins.
+    wall = "M2,44 L2,38 C10,37 18,38 26,37 L30,40 L34,44 Z M44,44 L46,39 C56,38 66,38.6 74,38 L76,44 Z"
+    d.shape(wall, w=1.3)
+    d.edge_shade(wall, dx=-1.6, dy=-1.6)
+    # Unmarked cairns of loose rock over the field, one with two slats wired into a cross, and a raven flying up.
+    for x, y, k in ((10, 60, 0.9), (30, 52, 0.7), (76, 56, 0.8), (60, 48, 0.6), (88, 70, 0.9)):
+        cairn = f"M{x - 8 * k},{y} C{x - 6 * k},{y - 5 * k} {x + 6 * k},{y - 5 * k} {x + 8 * k},{y} Z"
+        d.shape(cairn, w=1.2)
+        d.edge_shade(cairn, dx=-1.4, dy=-1.4)
+    d.line("M76,54 L76,44 M72.6,47 L79.4,47", w=1.2)
+    d.line("M56,8 C58,5 60,5 62,8 C64,5 66,5 68,8", w=1.2)
+    # Boyd's grave against the wall: the board cross with the date and dedication burned into it and no name,
+    # and the ring of rusted wire that was a wreath leaning on it.
+    cairn = "M22,90 C24,82 30,77 40,76 C50,75 60,77 66,82 C70,85 72,88 72,90 Z"
     d.shape(cairn, w=1.6)
     d.edge_shade(cairn, dx=-3, dy=-3)
-    rocks = [(30, 78, 3.4, 2.2), (38, 74, 3.2, 2.0), (48, 73, 3.6, 2.2), (57, 76, 3.2, 2.0), (64, 80, 3.0, 1.8),
-             (44, 80, 3.6, 2.2), (34, 82, 2.8, 1.6), (54, 82, 3.0, 1.8)]
-    for x, y, rx, ry in rocks:
+    for x, y, rx, ry in ((32, 85, 3.2, 2.0), (42, 81, 3.4, 2.0), (54, 82, 3.4, 2.0), (62, 86, 3.0, 1.8),
+                         (46, 87, 3.4, 2.0)):
         d.line(ellipse(x, y, rx, ry), w=0.7, halo=False)
-    cross_v = poly((44, 74), (44.8, 34), (49.4, 34.2), (48.8, 74))
-    cross_h = poly((36.6, 43), (57.4, 42), (57.6, 46.4), (36.8, 47.4))
-    d.shape(cross_v, w=1.6)
-    d.shape(cross_h, w=1.6)
-    d.line("M46.4,36 L46.2,72 M39,45 L55.4,44.2", w=0.5, halo=False)
+    cross_v = poly((42, 82), (42.4, 40), (50, 40.2), (49.6, 82))
+    cross_h = poly((30, 50), (62, 49), (62.2, 57.4), (30.2, 58.4))
+    d.shape(cross_v, w=1.7)
+    d.shape(cross_h, w=1.7)
     d.edge_shade(cross_v, dx=-2, dy=0)
-    # The spade stuck in the dug earth.
-    d.line("M80,46 L76,76", w=1.5)
-    d.line("M77.4,46.6 L82.4,45.4", w=1.3)
-    blade = poly((72.6, 75), (79.6, 76), (78.4, 85), (74, 86), (71.6, 84))
-    d.shape(blade, w=1.3)
-    d.hatch(blade, angle=60, pitch=1.6)
-    d.ground(4, 94, 86, ticks=7, seed=41)
+    d.line("M33,52.6 l4,0 M38.6,52.4 l2,0 M51,52 l5,0 M57.4,51.8 l2.6,0 M33,55.4 l6,-0.2 M51.4,55 l3,0 "
+           "M44,61 l4,0 M44,64.4 l3.4,0 M44,67.8 l4,0", w=0.7, halo=False)
+    d.shape(ellipse(60, 74, 7.4, 8.4), w=1.3, fill=False)
+    d.line(ellipse(60, 74, 5.6, 6.6), w=0.7, halo=False)
+    d.line(" ".join(f"M{60 + 6.5 * math.cos(a):.1f},{74 + 7.5 * math.sin(a):.1f} l1.4,-1.6" for a in
+                    (i * math.pi / 7 for i in range(14))), w=0.6, halo=False)
+    d.ground(4, 94, 92, ticks=7, seed=41)
     return d
 
 
-# 12. The fair at Madera, in the pines (J7, 4-05) ------------------------------------------------------
+# 12. The fair at Madera: the opera caravan repainted as a show, its lotería wheel, sawmill smoke (J7, 4-05)
 def pine(d: Drawing, x: float, base: float, h: float, seed: int):
     """A ponderosa: a straight bole and a crown of loose, flat clumps set off to either side, flat at the top."""
     d.line(f"M{x},{base} L{x},{base - h}", w=1.2)
@@ -426,38 +409,65 @@ def pine(d: Drawing, x: float, base: float, h: float, seed: int):
 
 def madera_fair() -> Drawing:
     d = Drawing("madera-fair")
-    # The pine ridge behind the town, and the sawmill's stack with its smoke drifting.
-    ridge = "M2,46 C14,38 26,36 38,40 C50,34 64,32 76,38 C84,36 90,38 94,40"
+    # The pine ridge behind the town, and the sawmill's stack with its smoke drifting over the fair.
+    ridge = "M2,30 C14,24 26,22 38,26 C50,20 64,18 76,24 C84,22 90,24 94,26"
     d.line(ridge, w=1.0)
-    for x, base, h, seed in ((8, 50, 24, 1), (18, 46, 30, 2), (30, 46, 22, 3), (82, 46, 28, 4), (90, 48, 20, 5)):
+    for x, base, h, seed in ((22, 30, 16, 1), (34, 28, 14, 2), (88, 28, 16, 4)):
         pine(d, x, base, h, seed=420 + seed)
-    d.shape(poly((60, 56), (60, 16), (64, 16), (64, 56)), w=1.2)
-    d.line("M62,14 C58,8 50,10 46,6 C42,3 36,6 32,4", w=0.9, halo=False)
-    d.line("M64,12 C62,6 56,6 54,2", w=0.6, halo=False)
-    d.shape(poly((52, 56), (52, 44), (72, 40), (76, 44), (76, 56)), w=1.3)
-    d.hatch(poly((72, 40), (76, 44), (76, 56), (72, 56)), angle=45, pitch=1.6)
-    # The string of fair lights between two poles, and a pitch tent with its guy ropes.
-    d.line("M10,86 L10,48 M90,86 L90,50", w=1.2)
-    d.line("M10,50 C30,62 70,62 90,52", w=0.7, halo=False)
-    d.dots([(16, 54.6), (24, 58), (32, 60), (40, 61.2), (48, 61.6), (56, 61.2), (64, 60.2), (72, 58.4), (80, 56),
-            (86, 54)], r=1.1)
-    tent = "M24,86 L30,70 L48,62 L66,70 L72,86 Z"
-    d.shape(tent, w=1.6)
-    door = "M42,86 L46,72 L50,72 L54,86 Z"
-    d.shape(door, w=1.1)
-    d.hatch(door, angle=45, pitch=1.4, cross=True)
-    d.line("M48,62 L48,58 M30,70 L18,86 M66,70 L78,86", w=0.8)
-    d.line("M32,76 l5,0 M58,76 l5,0 M33,79 l4,0 M59,79 l4,0", w=0.6, halo=False)
-    d.edge_shade(tent, dx=-3, dy=-2)
-    d.ground(2, 94, 88, ticks=6, seed=42)
+    d.shape(poly((6, 40), (6, 12), (9.4, 12), (9.4, 40)), w=1.2)
+    d.line("M8,10 C14,4 24,8 32,4 C40,1 50,6 60,3 C68,1 76,5 84,3", w=1.0, halo=False)
+    d.line("M9,7 C16,2 22,4 28,1", w=0.6, halo=False)
+    # The old opera caravan, repainted: the curved roof, the gaudy new panels with the old gilt lettering showing
+    # through above them, and the lotería wheel fastened to its side.
+    body = "M40,70 L40,36 C50,29 82,29 94,36 L94,70 Z"
+    d.shape(body)
+    d.edge_shade(body, dx=-3, dy=-3)
+    d.line("M40,38 C50,31.4 82,31.4 94,38", w=1.0, halo=False)
+    d.line(" ".join(f"M{x},40.6 l0.6,2.4 M{x + 1.6},40.6 l1,2.4" for x in range(44, 92, 4)), w=0.5, halo=False)
+    d.line("M42,46 L92,46", w=0.8, halo=False)
+    for cx, cy in ((48, 60), (86, 60)):
+        d.line(f"M{cx - 4},{cy} L{cx},{cy - 6} L{cx + 4},{cy} L{cx},{cy + 6} Z", w=0.9, halo=False)
+    wheel = circle(67, 58, 11)
+    d.shape(wheel, w=1.6)
+    d.shape(circle(67, 58, 7), w=0.8)
+    d.line(" ".join(f"M{67 + 7 * math.cos(a):.1f},{58 + 7 * math.sin(a):.1f} L{67 + 11 * math.cos(a):.1f},"
+                    f"{58 + 11 * math.sin(a):.1f}" for a in (i * math.pi / 5 for i in range(10))), w=0.7, halo=False)
+    d.shape(circle(67, 58, 1.8), w=0.9)
+    # La calavera stopped at the top of the wheel.
+    d.dots([(65.8, 49.6), (68.2, 49.6)], r=0.6)
+    d.line("M66,51.6 L68,51.6", w=0.6, halo=False)
+    for cx in (50, 84):
+        d.shape(circle(cx, 74, 5), w=1.4)
+        d.line(" ".join(f"M{cx},74 L{cx + 5 * math.cos(a):.1f},{74 + 5 * math.sin(a):.1f}"
+                        for a in (i * math.pi / 3 for i in range(6))), w=0.6, halo=False)
+    # The pitchman in his pulpit, holding out his cane over the crowd.
+    pulpit = poly((18, 72), (16, 52), (36, 52), (34, 72))
+    d.shape(pulpit, w=1.5)
+    d.line("M15,52 L37,52 M17.4,57 L34.6,57", w=0.8, halo=False)
+    d.hatch(poly((17.4, 57), (34.6, 57), (34, 72), (18, 72)), angle=45, pitch=1.6)
+    man = "M21.6,52 L22,44 C22.4,42 24,41.4 26,41.4 C28,41.4 29.6,42 30,44 L30.4,52 Z"
+    d.shape(man, w=1.3)
+    d.hatch(man, angle=45, pitch=1.4)
+    d.shape(circle(26, 36.4, 2.8), w=1.1)
+    d.line("M29,44 L35,41", w=1.3)
+    d.line("M35,41 L52,47", w=1.4)
+    d.dots([(52.4, 47.2)], r=1.2)
+    # The crowd of men in hats inside the rope, looking up at the wheel.
+    d.line("M2,78 C30,79 60,79 94,78", w=0.8)
+    for i, x in enumerate(range(6, 94, 10)):
+        y = 90 + (i % 2) * 1.6
+        d.shape(f"M{x - 5},96 C{x - 5},{y - 2} {x - 3},{y - 4} {x},{y - 4} C{x + 3},{y - 4} {x + 5},{y - 2} {x + 5},96 Z",
+                w=1.2)
+        d.shape(circle(x, y - 7, 2.6), w=1.0)
+        d.shape(f"M{x - 5.4},{y - 9} C{x - 2},{y - 10.2} {x + 2},{y - 10.2} {x + 5.4},{y - 9} "
+                f"C{x + 2},{y - 8.2} {x - 2},{y - 8.2} {x - 5.4},{y - 9} Z", w=1.0)
+        d.shape(f"M{x - 2.4},{y - 9.4} C{x - 2.4},{y - 13} {x + 2.4},{y - 13} {x + 2.4},{y - 9.4} Z", w=1.0)
     return d
-
 
 SUBJECTS = {
     "brothers-and-the-girl": brothers_and_the_girl,
     "boyd-and-the-girl": boyd_and_the_girl,
     "billy-searching": billy_searching,
-    "billy-in-the-rain": billy_in_the_rain,
     "bones-travois": bones_travois,
     "windmill-tank": windmill_tank,
     "corriente-steers": corriente_steers,

@@ -89,26 +89,6 @@ def apache_pass_ravens() -> Drawing:
     return d
 
 
-# 2. Riding double down the blacktop of route 666, the dog trotting behind (2-07) ------------------------
-def route_666() -> Drawing:
-    d = Drawing("route-666")
-    # The highway out of the Sulphur Springs Valley: two edges and a broken centre line.
-    d.line("M2,74 C30,72 60,72 94,71", w=1.2)
-    d.line("M2,92 C30,91 60,91 94,90", w=1.2)
-    d.line(" ".join(f"M{x},{82.4 - x * 0.012:.1f} l6,0" for x in range(4, 94, 12)), w=1.0, halo=False)
-    # A route shield on its post at the roadside.
-    d.line("M84,72 L84,50", w=1.4)
-    shield = "M76,32 L92,32 C92,40 90,46 84,50 C78,46 76,40 76,32 Z"
-    d.shape(shield, w=1.3)
-    d.line("M79.6,38 C78,38 78,43 79.6,43 C81,43 81,40 79.6,40 C78.4,40 78.4,38 80.4,37 "
-           "M84,38 C82.4,38 82.4,43 84,43 C85.4,43 85.4,40 84,40 C82.8,40 82.8,38 84.8,37 "
-           "M88.4,38 C86.8,38 86.8,43 88.4,43 C89.8,43 89.8,40 88.4,40 C87.2,40 87.2,38 89.2,37", w=0.7, halo=False)
-    # The brothers doubled on the one horse, heading south, the dog behind.
-    doubled(d, 46, 86, 0.44)
-    dog(d, 0, 66)
-    return d
-
-
 # 3. The storm driving the doves, the brothers sheltering in roadside trees (2-07) -----------------------
 def storm_and_doves() -> Drawing:
     d = Drawing("storm-and-doves")
@@ -300,7 +280,6 @@ def back_west_with_the_dog() -> Drawing:
 
 SUBJECTS = {
     "apache-pass-ravens": apache_pass_ravens,
-    "route-666": route_666,
     "storm-and-doves": storm_and_doves,
     "dust-map": dust_map,
     "sunrise-on-the-rim": sunrise_on_the_rim,

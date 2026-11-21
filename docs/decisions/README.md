@@ -87,12 +87,14 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0070 Arrows on the photo, not a second stepper | accepted |
 | 0071 Local history notes on a card | accepted |
 | 0072 Land cover is the default ground, and Tilted terrain stands a quarter higher | accepted |
-| 0073 Vignettes to 150, by the book's big scenes | accepted; placement superseded by 0075 |
+| 0073 Vignettes to 150, by the book's big scenes | accepted; placement superseded by 0075; amended by 0080 |
 | 0074 On to and Back to fly to the stop | accepted |
 | 0075 Drawings moved apart, and a caption on each | accepted; the moves superseded by 0077 |
-| 0076 Large drawings in the empty quarters at low zoom | accepted |
-| 0077 Drawings wait rather than touch | accepted |
+| 0076 Large drawings in the empty quarters at low zoom | accepted; amended by 0079 |
+| 0077 Drawings wait rather than touch | accepted; amended by 0080 |
 | 0078 The head of Taylor Draw, and the end of the Cloverdale Creek road | accepted |
+| 0079 The large drawings closer in | accepted |
+| 0080 Drawings for the book's themes | accepted |
 
 ## Template
 

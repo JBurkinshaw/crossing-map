@@ -25,48 +25,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "A pregnant wolf comes up out of the Sonoran mountains alone, crosses the Bavispe and walks north towards the line and the Animas country.",
+    "note_safe": "A pregnant wolf comes north alone out of Sonora, where the game is shot out and the forest cut for the mines. She leaves because the other wolves are gone.",
     "reasoning": "She stands for her whole journey north. The drawing sits at her crossing of the Bavispe. The drawing is set on the south side of Crossing of the Bavispe (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 7, not 6: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-she-wolf",
     "side": "s",
     "min_zoom": 7.0,
     "priority": 1,
-    "label": "She-wolf, out of Sonora",
-    "credit": "Traced from a Mexican wolf photograph, US Fish and Wildlife Service (public domain)"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -109.08673,
-     31.50062
-    ]
-   },
-   "properties": {
-    "id": "vignette-steel-trap",
-    "name": "A steel trap with the drag",
-    "kind": "vignette",
-    "stands_for": "Billy's trapline in the Peloncillos (J1 and J2)",
-    "place_ref": "j1-hog-canyon-spring",
-    "journey": "J1",
-    "part": 1,
-    "episode": "1-03",
-    "first_seen": "1-04",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "Billy and his father wax their traps and set them along the trails of the Peloncillos, each on a chain that ends in a two-pronged drag buried with it.",
-    "reasoning": "The scene is in 1-03, but the drawing shows from 1-04, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the west side of Hog Canyon Springs (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
-    "vignette": "vignette-steel-trap",
-    "side": "w",
-    "min_zoom": 11.0,
-    "priority": 2,
-    "label": "Newhouse No. 4½ wolf trap",
-    "credit": "Drawn after Newhouse trap catalogue engravings, 1890s-1919 (public domain)"
+    "label": "She-wolf, out of a cut-over Sonora",
+    "credit": "Traced from a Mexican wolf photograph, US Fish and Wildlife Service (public domain). The slope of stumps drawn from the book"
    }
   },
   {
@@ -93,7 +59,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "From the red hills south of the line Billy sees one of the concrete boundary obelisks standing alone in the desert to the east.",
+    "note_safe": "Just over the line, with red hills before him, Billy sees one of the concrete boundary obelisks standing alone in the desert to the east.",
     "reasoning": "The drawing is set on the east side of a point 1.3 km east of The boundary, a monument in sight (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-obelisk",
     "side": "e",
@@ -127,14 +93,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Seized from Billy as contraband, the wolf is taken to a hacienda near Colonia Morelos and chained in a pit to fight dogs during its feast.",
+    "note_safe": "Seized from Billy as contraband, the wolf is chained in the hacienda's pit and fights the fair's dogs for nearly two hours while a crowd of men looks on.",
     "reasoning": "The drawing is set on the east side of The hacienda (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out it would touch another drawing or cover more. At zoom 11 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-hacienda-pit",
     "side": "e",
     "min_zoom": 11.0,
     "priority": 2,
-    "label": "Cockpit at the hacienda fair",
-    "credit": "Drawn; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain)"
+    "label": "The pit and its witnesses",
+    "credit": "Drawn from the book. The wolf and the two airedales are the traced she-wolf (US Fish and Wildlife Service photograph, public domain)"
    }
   },
   {
@@ -229,7 +195,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "The brothers and “the girl” ride up to the hacienda of San Diego, whose house front carries its name in an arch over the initials of the old owner.",
+    "note_safe": "The brothers and “the girl” ride up to the great house at San Diego, its name carved above the letters L. T., its plaster peeling and its shutters broken.",
     "reasoning": "The drawing is set on the west side of The Hacienda de San Diego (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-san-diego-gate",
     "side": "w",
@@ -297,13 +263,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Billy follows a light at night to a lone house, where a blind man and his wife take him in and the wife tells their story.",
-    "reasoning": "The drawing shows the man as he tells of himself in 1913, walking the roads with his cane after he was blinded. At the house itself the book gives him no cane. The drawing is set on the west side of a point 2.0 km west of The blind man's house (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "note_safe": "Billy follows a light at night to a lone house. The blind man's wife tells how a German captain in the federal army took his eyes at Durango in 1913.",
+    "reasoning": "The drawing shows the man as his wife's story shows him in 1913, walking the roads with his cane after he was blinded. At the house itself the book gives him no cane. The drawing is set on the west side of a point 2.0 km west of The blind man's house (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-blind-man",
     "side": "w",
     "min_zoom": 9.0,
     "priority": 2,
-    "label": "Blind man of the revolution",
+    "label": "Blinded at Durango, 1913",
     "credit": "Drawn; hat and coat after a Fortepan photograph of a peasant with a cane (Fortepan 28839, CC BY-SA 3.0). This drawing is shared under CC BY-SA 3.0"
    }
   },
@@ -331,14 +297,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "On the road towards La Boquilla Billy watches a big red Waco plane come in from the west, circle and come down among the trees.",
+    "note_safe": "Riding towards La Boquilla in a dry wind, Billy sees dust pouring off the Babícora plain like smoke, and a big red Waco circling down among the trees.",
     "reasoning": "The drawing is set on the south-west side of Camp on the plain by the lake, the red plane (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out it would touch another drawing or cover more. At zoom 11 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-red-plane",
     "side": "sw",
     "min_zoom": 11.0,
     "priority": 3,
-    "label": "The red Waco",
-    "credit": "Drawn after photographs of a Waco YKS-6 by RuthAS (CC BY 3.0) and a Waco UEC by Armchair Aviator (CC BY 2.0)"
+    "label": "Dust off Babícora, the red Waco",
+    "credit": "Drawn after photographs of a Waco YKS-6 by RuthAS (CC BY 3.0) and a Waco UEC by Armchair Aviator (CC BY 2.0). The dust, the lake and the trees drawn from the book"
    }
   },
   {
@@ -371,7 +337,7 @@
     "side": "e",
     "min_zoom": 9.0,
     "priority": 1,
-    "label": "Gypsies' airplane, lost in 1915",
+    "label": "Gypsies' airplane, said lost in 1915",
     "credit": "Drawn; fuselage after a Curtiss JN-4B 3-view by Kaboldy (CC BY-SA 3.0), oxen after Giovanni Fattori's etching (CC0). This drawing is shared under CC BY-SA 3.0"
    }
   },
@@ -386,7 +352,7 @@
    },
    "properties": {
     "id": "vignette-crippled-dog",
-    "name": "The crippled dog",
+    "name": "Billy and the crippled dog",
     "kind": "vignette",
     "stands_for": "The ruined waystation by the highway east of the Black Range (J7)",
     "place_ref": "j7-waystation",
@@ -399,14 +365,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Sheltering from the rain in three ruined adobes by the highway, Billy drives off an old crippled dog that comes in at the door.",
-    "reasoning": "The drawing is set on the south side of The ruined waystation by the blacktop (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 8, not 7: further out it would touch another drawing or cover more. At zoom 8 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "note_safe": "Sheltering from the rain in a ruined adobe waystation by the highway, Billy drives off an old crippled dog with rocks and a length of pipe. Next day he calls for it in vain.",
+    "reasoning": "The drawing is set on the south side of The ruined waystation by the blacktop (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 8, not 7: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-crippled-dog",
     "side": "s",
     "min_zoom": 8.0,
     "priority": 1,
-    "label": "Old dog at the roadside ruin",
-    "credit": "The traced she-wolf outline (US Fish and Wildlife Service, public domain), bent; the ruin drawn"
+    "label": "Driven off in the rain",
+    "credit": "The dog is the traced she-wolf outline (US Fish and Wildlife Service, public domain), bent. Billy, the road and the ruin drawn from the book"
    }
   },
   {
@@ -433,13 +399,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Before daybreak Billy is woken by a great white light that floods the country and then dies away, long before the real dawn. Readers take it for the first atomic bomb, tested at the Trinity Site on 16 July 1945.",
+    "note_safe": "Billy wakes in a great white light like noon that floods the country and then dies away, long before the real dawn. Readers take it for the first atomic bomb, tested at the Trinity Site on 16 July 1945.",
     "reasoning": "The book names no place or event for the light. The drawing stands on the Trinity Site itself (Wikidata Q19842077), in the empty Jornada del Muerto, at the far end of the direction the dotted false-dawn line points from the waystation. The drawing is set on the north side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-trinity-cloud",
     "side": "n",
     "min_zoom": 7.0,
     "priority": 1,
-    "label": "Trinity test, 16 July 1945",
+    "label": "Read as the Trinity test, 1945",
     "credit": "Cap traced from the Trinity test photograph, US government, 1945 (public domain)"
    }
   },
@@ -482,8 +448,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -107.83267,
-     30.00249
+     -107.8181,
+     30.0151
     ]
    },
    "properties": {
@@ -502,9 +468,9 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "One morning Billy wakes at San Diego to find Boyd and “the girl” gone together, and he never sees them ride again.",
-    "reasoning": "A character vignette on the reported J6 leg from San Diego towards Namiquipa (3-14), on the route line (j6-seg-03, 25% along). The ref is the leg's first stop. J6 is told, not seen, so the drawing shows the pair as Billy pictures them. The drawing is set on the north-west side of a point 2.0 km south-west of its own place (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. On every side it covers a stop or a route line from its first zoom, and no closer zoom would clear it, so it shows from that zoom on the side where it covers least.",
+    "reasoning": "A character vignette on the reported J6 leg from San Diego towards Namiquipa (3-14), on the route line (j6-seg-03, 25% along). The ref is the leg's first stop. J6 is told, not seen, so the drawing shows the pair as Billy pictures them. The drawing is set on the north-east side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. On every side it covers a stop or a route line from its first zoom, and no closer zoom would clear it, so it shows from that zoom on the side where it covers least.",
     "vignette": "vignette-boyd-and-the-girl",
-    "side": "nw",
+    "side": "ne",
     "min_zoom": 9.0,
     "priority": 3,
     "label": "Boyd and the girl",
@@ -535,7 +501,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Billy rides south alone in grey weather with the shotgun across his saddle, looking for Boyd for weeks and finding only rumour.",
+    "note_safe": "Billy rides south alone in grey weather with the shotgun across his saddle, looking for Boyd for weeks and finding only rumour. The world's hostility is newly plain to him.",
     "reasoning": "A character vignette on the long J5 leg from San Diego to Cuauhtémoc (3-14), on the route line (j5-seg-13, 60% along). The ref is the nearer end of the leg. The drawing is set on the north-east side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-billy-searching",
     "side": "ne",
@@ -543,40 +509,6 @@
     "priority": 3,
     "label": "Searching for Boyd",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the hat and shotgun drawn"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -107.581,
-     29.7005
-    ]
-   },
-   "properties": {
-    "id": "vignette-billy-in-the-rain",
-    "name": "Billy riding north in the rain",
-    "kind": "vignette",
-    "stands_for": "Billy's ride north to San Buenaventura (J7)",
-    "place_ref": "j7-san-buenaventura",
-    "journey": "J7",
-    "part": 4,
-    "episode": "4-06",
-    "first_seen": "4-06",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "Under a grey sky Billy rides north all day on a wet horse through the mud of the upland roads, the rain blowing over his slicker.",
-    "reasoning": "A character vignette on the J7 leg from Quijada's cabin to San Buenaventura (4-06), on the route line (j7-seg-37, 50% along). The ref is the leg's end. The drawing is set on the south-west side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
-    "vignette": "vignette-billy-in-the-rain",
-    "side": "sw",
-    "min_zoom": 10.0,
-    "priority": 3,
-    "label": "North in the rain",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored; the slicker, the hat and the rain drawn"
    }
   },
   {
@@ -706,7 +638,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Camped on a gravel bar in the river with “the girl”, Billy watches the cranes pass south high overhead in the night.",
-    "reasoning": "The cranes come back in 3-13, 4-06 and 4-08. The drawing is set on the south-west side of Camp on the river south of Mata Ortiz (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "reasoning": "The cranes come back in 3-13 and 4-06, and their tracks in 4-08. The drawing is set on the south-west side of Camp on the river south of Mata Ortiz (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-sandhill-cranes",
     "side": "sw",
     "min_zoom": 9.0,
@@ -773,7 +705,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Billy flags down an old flatbed truck full of farmworkers on the dirt road, and they lift the wounded Boyd into its bed and drive him away.",
+    "note_safe": "Billy flags down an old flatbed truck full of farmworkers, and they lift the wounded Boyd into its bed. Blood is part of their lives, and none of them asks what happened.",
     "reasoning": "From zoom 10 only: at lower zooms it would crowd the cottonwood camp and the blind man's house. The drawing is set on the south-west side of The dirt road in open country (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out it would touch another drawing or cover more. At zoom 11 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-workers-truck",
     "side": "sw",
@@ -807,13 +739,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "In the walled burial ground above San Buenaventura Billy lifts the board cross from his brother's cairn and digs all day and into the night.",
-    "reasoning": "The drawing is set on the east side of The cemetery on the Gallego road (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "note_safe": "Boyd lies by the south wall of a ruined graveyard of unmarked cairns, under a board cross his comrades burned a date into, with no name.",
+    "reasoning": "At the cemetery stop on the Gallego road. The raven, the trash smoke to the south and the rusted wire wreath are from the book. The old drawing's spade is left out, because Billy digs only later. The drawing is set on the east side of The cemetery on the Gallego road (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-boyds-grave",
     "side": "e",
     "min_zoom": 10.0,
     "priority": 1,
-    "label": "Cemetery on the Gallego road",
+    "label": "A board cross, no name",
     "credit": "Drawn from the book's description"
    }
   },
@@ -841,14 +773,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "In late April Billy walks through a fair beyond the railway at Madera, under strung lights, in air smelling of pine smoke and the sawmill.",
-    "reasoning": "South-west of the pin, away from the opera camp to the north-east. The drawing is set on the south-west side of Madera, the late April fair (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "note_safe": "At the Madera fair, under sawmill smoke, a pitchman spins a lotería wheel on a repainted wagon. Billy knows it for the stranded opera company's caravan.",
+    "reasoning": "South-west of the pin, away from the opera camp to the north-east. The wheel is drawn stopped at la calavera, the card Billy turns up, and the old gilt lettering shows faintly above the new paint. The drawing is set on the south-west side of Madera, the late April fair (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-madera-fair",
     "side": "sw",
     "min_zoom": 9.0,
     "priority": 3,
-    "label": "Madera fair, late April",
-    "credit": "Drawn"
+    "label": "The lotería wheel at Madera",
+    "credit": "Drawn from the book's description. The caravan follows the opera-caravan drawing, after circus wagon photographs, c. 1900-25 (public domain, CC0)"
    }
   },
   {
@@ -856,8 +788,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.86368,
-     31.49074
+     -108.86798,
+     31.50936
     ]
    },
    "properties": {
@@ -876,81 +808,13 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "On a moonlit winter night Billy creeps out to the edge of the junipers and watches a pack of seven wolves harry the antelope across the new snow.",
-    "reasoning": "The book sets the scene on the plain below the low hills west of the Parham house, in the Animas Valley. The drawing sits at the valley stop of the wolf's own journey, where she runs antelope herself in 1-04. The scene is in 1-01, but the drawing shows from 1-04, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north-east side of Animas Valley (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out it would touch another drawing or cover more. At zoom 11 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "reasoning": "The book sets the scene on the plain below the low hills west of the Parham house, in the Animas Valley. The drawing sits at the valley stop of the wolf's own journey, where she runs antelope herself in 1-04. The scene is in 1-01, but the drawing shows from 1-04, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north side of Animas Valley (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-wolves-antelope",
-    "side": "ne",
-    "min_zoom": 11.0,
+    "side": "n",
+    "min_zoom": 10.0,
     "priority": 2,
     "label": "Wolves running antelope in the snow",
     "credit": "Drawn; the wolves are the traced she-wolf (US Fish and Wildlife Service photograph, public domain), the pronghorn after photographs by the Bureau of Land Management, Utah, and Great Sand Dunes National Park (public domain)"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -108.91604,
-     31.41705
-    ]
-   },
-   "properties": {
-    "id": "vignette-billy-and-the-dog",
-    "name": "Billy on Bird, and the dog at the gate",
-    "kind": "vignette",
-    "stands_for": "Billy riding out from home to trail the she-wolf, and the family dog (1-04)",
-    "place_ref": "place-cloverdale",
-    "journey": "J2",
-    "part": 1,
-    "episode": "1-04",
-    "first_seen": "1-05",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "Sent out alone to check the traps, Billy rides through the stockgate onto the road south while the dog stands at the gate looking after him.",
-    "reasoning": "The Parham house is near Cloverdale (its stop, j3-parham-house, shares Cloverdale's point). The drawing sits on the place pin, which is shown from 1-05. The scene is in 1-04, but the drawing shows from 1-05, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the south-east side of a point 1.3 km east of Cloverdale (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
-    "vignette": "vignette-billy-and-the-dog",
-    "side": "se",
-    "min_zoom": 12.0,
-    "priority": 2,
-    "label": "Riding out, the dog at the gate",
-    "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the dog is the traced she-wolf (US Fish and Wildlife Service photograph, public domain), made smaller"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -109.29258,
-     31.07709
-    ]
-   },
-   "properties": {
-    "id": "vignette-wolf-on-the-rope",
-    "name": "Billy leading the wolf on the rope",
-    "kind": "vignette",
-    "stands_for": "Billy taking the she-wolf south into Sonora on his catch rope (J2)",
-    "place_ref": "j2-seg-07",
-    "journey": "J2",
-    "part": 1,
-    "episode": "1-09",
-    "first_seen": "1-09",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "Billy rides south through the mountains with the muzzled wolf hobbling behind on the rope, across high meadows of yellow grass and lechuguilla.",
-    "reasoning": "Billy leads her south along the Cajón Bonito early on the leg to the passes of the Sierra de la Cabellera, before the turkey camp, so the drawing stands 15% along it. Its point is on the route line, 15% of the way along the J2 leg “Up the Cajón Bonito to Passes of the Sierra de la Cabellera” (j2-seg-07) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
-    "vignette": "vignette-wolf-on-the-rope",
-    "side": "nw",
-    "min_zoom": 10.0,
-    "priority": 3,
-    "label": "The wolf on the rope",
-    "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain); the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain); lechuguilla drawn"
    }
   },
   {
@@ -1026,8 +890,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.22383,
-     30.82701
+     -109.23354,
+     30.81867
     ]
    },
    "properties": {
@@ -1045,13 +909,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "In the old Mormon town Billy finds the wolf chained in the straw of a little cart under a tent of sheeting, shown to the fairgoers for ten centavos.",
-    "reasoning": "The drawing is set on the west side of Colonia Morelos (the fair) (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 9: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "note_safe": "In the old Mormon town the wolf lies chained in a little cart under a sheeting tent, shown for ten centavos, and a boy prods her whenever a paying customer comes in.",
+    "reasoning": "The drawing is set on the north-west side of a point 1.3 km south-west of Colonia Morelos (the fair) (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-wolf-cart",
-    "side": "w",
-    "min_zoom": 11.0,
+    "side": "nw",
+    "min_zoom": 10.0,
     "priority": 2,
-    "label": "The wolf shown at the fair",
+    "label": "Ten centavos to see her",
     "credit": "Drawn from the book's description"
    }
   },
@@ -1113,13 +977,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Billy buries the wolf in a high pass of the mountains under a heap of scree and leads his horse away.",
+    "note_safe": "Billy buries the wolf, with the young she was carrying, in a high pass under a heap of scree and leads his horse away. He hears no wolves.",
     "reasoning": "The drawing is set on the west side of The wolf's grave, a high pass in the Pilares (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-wolf-cairn",
     "side": "w",
     "min_zoom": 10.0,
     "priority": 1,
-    "label": "The wolf's grave, a high pass",
+    "label": "Her grave and her pups', a high pass",
     "credit": "Drawn from the book's description"
    }
   },
@@ -1181,7 +1045,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Ragged and half starved, Billy rides into El Tigre, a few huts of mud and sticks with cowhide doors on a slope, where a woman takes him in and feeds him.",
+    "note_safe": "Ragged and half starved, Billy rides into El Tigre, a dozen huts of mud and sticks with cowhide doors on a slope, where a woman takes him in and feeds him.",
     "reasoning": "El Tigre's big mine had closed in 1938. The drawing keeps to the book's huts, with a small headframe for the mine. The drawing is set on the west side of El Tigre (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-el-tigre",
     "side": "w",
@@ -1236,27 +1100,27 @@
    },
    "properties": {
     "id": "vignette-bavispe-church",
-    "name": "The church at Bavispe",
+    "name": "Bavispe after the earthquake of 1887",
     "kind": "vignette",
     "stands_for": "Bavispe, where Billy rides through the plaza on his way north (J3)",
-    "place_ref": "j3-bavispe",
+    "place_ref": "place-bavispe",
     "journey": "J3",
     "part": 2,
-    "episode": "2-03",
-    "first_seen": "2-03",
+    "episode": "2-01",
+    "first_seen": "2-01",
     "certainty": "approximate",
     "method": "hand-drawn",
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Riding north along the river, Billy passes through Bavispe without stopping, by a meat seller's cart standing in the plaza before the church.",
-    "reasoning": "The hermit's tale in 2-01 also names Bavispe, as the town struck by the 1887 earthquake. The church today is the one rebuilt after it. The drawing is set on the west side of Bavispe (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "note_safe": "In the heretic's tale, the dead of the 1887 earthquake lie on reed mats in the Bavispe alameda while old women in black fan the flies off them.",
+    "reasoning": "The heretic tells this at Huisiachepic in 2-01, so the drawing hangs on the Bavispe place pin, shown from 2-01, not on the stop Billy rides through in 2-03. The book does not say how the church fared, so it shows ruined houses and no church. The drawing is set on the west side of Bavispe (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-bavispe-church",
     "side": "w",
     "min_zoom": 9.0,
     "priority": 2,
-    "label": "San Miguel, Bavispe",
-    "credit": "Drawn after a photograph of San Miguel Arcángel, Bavispe, by LIMO 5 (CC BY-SA 4.0). This drawing is shared under CC BY-SA 4.0"
+    "label": "Bavispe, 1887",
+    "credit": "Drawn from the book's description"
    }
   },
   {
@@ -1270,7 +1134,7 @@
    },
    "properties": {
     "id": "vignette-echols-cabin",
-    "name": "Echols' cabin and the traps on the smokehouse wall",
+    "name": "The jars in Echols' mudroom",
     "kind": "vignette",
     "stands_for": "The old wolfer Echols' cabin at the SK Bar, where the Parhams borrow his traps (1-02)",
     "place_ref": "j3-sk-bar",
@@ -1283,13 +1147,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "The Parhams ride to the SK Bar for the key to the wolfer Echols' cabin, where jars of his baits stand in a back room and a few old coyote traps hang on the smokehouse wall.",
-    "reasoning": "The book puts the cabin at the SK Bar but not where on the ranch, so it stands at the Sanders' pin. The book hangs the old traps on the smokehouse, not the house. From zoom 10: at zoom 9 the bootheel is too crowded for the labels. The scene is in 1-02, but the drawing shows from 2-05, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the south-west side of Sanders' (the SK Bar) (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out it would touch another drawing or cover more. At zoom 11 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "note_safe": "In the wolfer Echols' mudroom the Parhams find shelves of old jars, each labelled and dated, holding the baits of a trade that is dying with the wolves.",
+    "reasoning": "The book puts the cabin at the SK Bar but not where on the ranch, so it stands at the Sanders' pin. From zoom 10: at zoom 9 the bootheel is too crowded for the labels. The scene is in 1-02, but the drawing shows from 2-05, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the south-west side of Sanders' (the SK Bar) (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-echols-cabin",
     "side": "sw",
     "min_zoom": 11.0,
     "priority": 2,
-    "label": "Echols' cabin, SK Bar",
+    "label": "Echols' jars, SK Bar",
     "credit": "Drawn from the book's description"
    }
   },
@@ -1333,7 +1197,7 @@
     "type": "Point",
     "coordinates": [
      -108.795,
-     31.915
+     31.89751
     ]
    },
    "properties": {
@@ -1351,13 +1215,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Billy rides out to a low mud house on the plain south of Animas, ties his horse to the fence's cornerpost and is shown in to old Don Arnulfo, sick in a dark back room, who talks to him about wolves.",
-    "reasoning": "The book puts the house out on the plain south of the town with no road to it, so the drawing has its own point about 4 km south of Animas, clear of the cemetery pin. The drawing is set on the south-east side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 9: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "note_safe": "Billy rides out to a low mud house south of Animas, where old Don Arnulfo, sick in a dark back room, talks of wolves and says none are left. His keeper says no one cares for him now, not even the priest.",
+    "reasoning": "The book puts the house out on the plain south of the town with no road to it, so the drawing has its own point about 4 km south of Animas, clear of the cemetery pin. The drawing is set on the south-east side of a point 1.9 km south of its own place (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-arnulfo-house",
     "side": "se",
-    "min_zoom": 11.0,
+    "min_zoom": 10.0,
     "priority": 2,
-    "label": "Don Arnulfo's house",
+    "label": "No more wolves",
     "credit": "Drawn after Russell Lee's photograph of an adobe house at Peñasco, New Mexico, about 1940 (Library of Congress, FSA/OWI, public domain); the horse is the traced Muybridge horse with the rider cut away, Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain)"
    }
   },
@@ -1366,8 +1230,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.99695,
-     31.45106
+     -109.01217,
+     31.44984
     ]
    },
    "properties": {
@@ -1406,7 +1270,7 @@
    },
    "properties": {
     "id": "vignette-parham-house",
-    "name": "The Parham house",
+    "name": "The Parham house: his parents' room",
     "kind": "vignette",
     "stands_for": "Billy's home at Cloverdale (2-05)",
     "place_ref": "j3-parham-house",
@@ -1419,13 +1283,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Coming home past midnight, Billy finds no light, no horses in the barn and no dog, and the house empty and stripped of its furniture.",
+    "note_safe": "Home at noon, Billy drags the mattress off his parents' bed and finds the stain dried black beneath it, the Animas Peaks bright through the window.",
     "reasoning": "The house stands where the Cloverdale pin is, which also carries the drawing of Billy and the dog. Dated 2-05 with its stop, so the empty house does not show while the reader is still in 2-04, the episode in which Billy comes home. From zoom 10: at zoom 9 the bootheel is too crowded for the labels. The drawing is set on the south side of The Parham house (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-parham-house",
     "side": "s",
     "min_zoom": 10.0,
     "priority": 1,
-    "label": "The Parham house",
+    "label": "His parents' room",
     "credit": "Drawn from the book's description"
    }
   },
@@ -1453,7 +1317,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Riding double down the river towns, the brothers find Boyd's horse Keno standing head down under an elder in front of a whitewashed house at Bacerac, and Billy takes him back.",
+    "note_safe": "Riding double down the river towns, the brothers find their horse Keno standing head down under an elder in front of a whitewashed house at Bacerac, and Billy takes him back.",
     "reasoning": "A fresh subject for the horses, which the riding drawings already show under their riders: here Keno stands alone. The drawing is set on the north-east side of a point 2.0 km east of Bacerac (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-keno-bacerac",
     "side": "ne",
@@ -1474,7 +1338,7 @@
    },
    "properties": {
     "id": "vignette-taking-the-girl",
-    "name": "The fire in the oak grove",
+    "name": "The two men at the fire in the oak grove",
     "kind": "vignette",
     "stands_for": "The fire in the oak grove off the road south of Casas Grandes (2-08)",
     "place_ref": "j4-the-girl",
@@ -1487,14 +1351,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "At a fire in an oak grove south of Casas Grandes, Billy takes “the girl” by the hand as Boyd gallops in on Keno with the shotgun and Billy's horse, and the three ride off south.",
+    "note_safe": "In an oak grove south of Casas Grandes, “the girl” sits staring into two men's fire, one squatting by a mescal bottle, the other standing over them.",
     "reasoning": "From zoom 10 at the earliest: further out it would sit on the Paquimé and San Diego drawings. The drawing is set on the south side of “The girl”, at a fire in an oak grove (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-taking-the-girl",
     "side": "s",
     "min_zoom": 10.0,
     "priority": 1,
     "label": "The fire in the oak grove",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), and the same horse with the rider cut away; the oaks, the fire and “the girl” drawn"
+    "credit": "Drawn from the book's description"
    }
   },
   {
@@ -1691,7 +1555,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "In a Temósachic bodega up in the mountains Billy first hears verses of a corrido about a fair-haired youth from the north. The singer, a hand on his guitar's neck, raises his glass to all just men.",
+    "note_safe": "In a Temósachic bodega up in the mountains Billy first hears verses of a corrido about a fair-haired youth from the north. The singer, a hand on his instrument's neck, raises his glass to all just men.",
     "reasoning": "South of the pin. Madera's fair is to the north-west. The drawing is set on the south side of Temósachic (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-corridero",
     "side": "s",
@@ -1740,74 +1604,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.06,
-     30.181
-    ]
-   },
-   "properties": {
-    "id": "vignette-billy-in-rags",
-    "name": "Billy in his rags, with the bow",
-    "kind": "vignette",
-    "stands_for": "Billy's wandering in the high Sierra (J3)",
-    "place_ref": "j3-indian-rancherias",
-    "journey": "J3",
-    "part": 2,
-    "episode": "2-01",
-    "first_seen": "2-01",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "Gaunt and ragged, his holly bow across his back, Billy rides on through high woods of madroño and oak to an old wagon road over the sierra.",
-    "reasoning": "A character vignette on the empty J3 leg from the Indians' country to the eastern escarpment, on the route line (j3-seg-04, 40% along), between the bow and hawk to the north and the escarpment road to the south. The ref is the leg's first stop. The drawing is set on the west side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
-    "vignette": "vignette-billy-in-rags",
-    "side": "w",
-    "min_zoom": 10.0,
-    "priority": 3,
-    "label": "In rags, with the holly bow",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the bow and the trees drawn"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -108.3,
-     29.585
-    ]
-   },
-   "properties": {
-    "id": "vignette-billy-to-the-watershed",
-    "name": "Billy riding west to La Norteña",
-    "kind": "vignette",
-    "stands_for": "Billy's ride west to La Norteña (J5)",
-    "place_ref": "j5-la-nortena",
-    "journey": "J5",
-    "part": 3,
-    "episode": "3-14",
-    "first_seen": "3-14",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "Looking for Boyd and “the girl”, Billy rides back to Namiquipa and then west to La Norteña and the divide of the waters, getting thinner and paler with the dust.",
-    "reasoning": "A character vignette on the long J5 leg from Namiquipa to La Norteña, on the route line (j5-seg-15, 85% along) in the sierra west of Las Varas, clear of the opera wagons. The ref is the nearer end of the leg. The leg from Cuauhtémoc to Namiquipa is left without one, as billy-searching already shows this search. The drawing is set on the south-west side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
-    "vignette": "vignette-billy-to-the-watershed",
-    "side": "sw",
-    "min_zoom": 9.0,
-    "priority": 3,
-    "label": "West to La Norteña",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored; the hat and the ridges drawn"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -107.605,
      29.084
     ]
@@ -1842,41 +1638,7 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.24443,
-     30.82701
-    ]
-   },
-   "properties": {
-    "id": "vignette-mormon-store",
-    "name": "The brick store at Colonia Morelos",
-    "kind": "vignette",
-    "stands_for": "Colonia Morelos, the old Mormon settlement where the wolf is shown at the fair (J2)",
-    "place_ref": "j2-colonia-morelos",
-    "journey": "J2",
-    "part": 1,
-    "episode": "1-09",
-    "first_seen": "1-09",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "Riding into Colonia Morelos in search of the wolf, Billy passes the brick houses and tin roofs of a Mormon settlement of the last century, and a store of brick behind a wooden false front, with bunting hung in the trees across from it.",
-    "reasoning": "Design section 10's brick Mormon storehouse. The book's building at Colonia Morelos is a brick store behind a board false front, so that is what is drawn. It stands at the fair's stop, which also carries the wolf's cart, with the cockpit drawing at the hacienda close by. It has no caption: on every side a caption would run into one of those two drawings. The drawing at Colonia Juárez shows that colony's houses and orchards, not a store. The drawing is set on the north-west side of a point 2.0 km west of Colonia Morelos (the fair) (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 10: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
-    "vignette": "vignette-mormon-store",
-    "side": "nw",
-    "min_zoom": 12.0,
-    "priority": 3,
-    "label": "The brick store, Colonia Morelos",
-    "credit": "Drawn from the book's description; the false front and brick courses after 1930s Historic American Buildings Survey photographs of false-front stores (public domain)"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -107.99005,
+     -107.98181,
      29.2987
     ]
    },
@@ -1895,13 +1657,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "While the horses drink at the old wagon road's river crossing, Billy watches an old farmer dressed in white field clothes drive a yoked pair of oxen down from the far bank to drink. The two talk of crops and weather.",
-    "reasoning": "Design section 10 lists an ox cart in the Bavispe valley. The book has no ox cart there: its oxen are this yoked pair, with no cart, at the crossing of the old wagon road to Namiquipa, so the drawing shows them wading in to drink. The drawing is set on the west side of a point 0.8 km west of Crossing of the old wagon road to Namiquipa (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "note_safe": "While the horses drink, an old farmer in white field clothes brings his yoked oxen down to the river and talks of crops with Billy. Oxen, he says, work to keep from being killed and eaten.",
+    "reasoning": "Design section 10 lists an ox cart in the Bavispe valley. The book has no ox cart there: its oxen are this yoked pair, with no cart, at the crossing of the old wagon road to Namiquipa, so the drawing shows them wading in to drink. The drawing is set on the west side of Crossing of the old wagon road to Namiquipa (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-oxen-at-the-river",
     "side": "w",
     "min_zoom": 10.0,
     "priority": 2,
-    "label": "Oxen at the river",
+    "label": "The oxen had no choice",
     "credit": "Drawn; the oxen are the corriente steers of this set made heavier (after photographs by Carol M. Highsmith, public domain, and Clinton and Charles Robertson, CC BY 2.0), the yoke and the farmer after C. B. Waite's photographs of ox teams in Mexico, 1900s (public domain)"
    }
   },
@@ -1929,13 +1691,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Riding the high grassland of the Babícora for days, Billy sometimes sees parties of the ranch's vaqueros crossing it on mules or driving cattle. They take a nickname from the whitefaced cattle the ranch breeds.",
+    "note_safe": "Billy rides for days over the high grassland of Hearst's Babícora, where the vaqueros are nicknamed for the whitefaced cattle and called agringados for working for the white man.",
     "reasoning": "Design section 10's Babícora Hereford. The book names no breed, but the white-faced cattle the Babícora raised were Herefords. The book names them where Billy spends days riding the Babícora uplands, so the drawing stands at that stop. The drawing is set on the east side of The high country of the Babícora (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 9: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-babicora-hereford",
     "side": "e",
     "min_zoom": 11.0,
     "priority": 2,
-    "label": "Whitefaces of the Babícora",
+    "label": "Agringados of the Babícora",
     "credit": "Drawn after 1930s US Department of Agriculture photographs of Hereford cattle (public domain)"
    }
   },
@@ -1963,8 +1725,8 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Two weeks before she crosses into New Mexico, the she-wolf's mate is caught by a forefoot in a steel trap somewhere in the Sonoran mountains. He bares his teeth to send her away, but she lies flat just out of the chain's reach and stays.",
-    "reasoning": "The book places the trap only somewhere in the Sonoran mountains, two weeks before her journey north, so the drawing stands near the start of her first leg, the way she would have come. The wolves fill the drawing and the trap is small, so it does not repeat the steel trap drawn for Billy's trapline. Its point is on the route line, 10% of the way along the J1 leg “Sierra de la Madera (eastern slopes) to Crossing of the Bavispe” (j1-seg-01) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "note_safe": "Two weeks before she crosses into New Mexico, the she-wolf's mate is caught by a forefoot in a steel trap somewhere in the Sonoran mountains. He bites and snarls at her to make her go, but she lies flat just out of the chain's reach and stays.",
+    "reasoning": "The book places the trap only somewhere in the Sonoran mountains, about two weeks before she reaches New Mexico, so the drawing stands near the start of her first leg, the way she would have come. The wolves fill the drawing and the trap is small, so it does not repeat the steel trap drawn for Billy's trapline. Its point is on the route line, 10% of the way along the J1 leg “Sierra de la Madera (eastern slopes) to Crossing of the Bavispe” (j1-seg-01) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-wolf-mate",
     "side": "s",
     "min_zoom": 9.0,
@@ -1978,8 +1740,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.97545,
-     31.44337
+     -108.981,
+     31.44116
     ]
    },
    "properties": {
@@ -1997,13 +1759,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Billy has hauled the gagged wolf up onto the road when an old rancher drives up over the rise in his Model A pickup. Billy pulls her into the ditch beside the fence and lies holding her, his arms round her neck, as the truck stops alongside.",
-    "reasoning": "Billy meets the rancher on the road just past the trap site on Cloverdale Creek, so the drawing stands on the leg from Cloverdale Creek road towards Robertson's crossfence. From zoom 10, as the drawings of the she-wolf and the cholla and of Billy and the dog are close by. Its point is on the route line, 40% of the way along the J2 leg “Cloverdale Creek road to Robertson's crossfence” (j2-seg-02) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-east side of a point 0.8 km east of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 10: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "note_safe": "Billy holds the gagged wolf down in the ditch as an old rancher stops his Model A. The rancher remembers wolves calling across the valley on warm nights, and none heard for years.",
+    "reasoning": "Billy meets the rancher on the road just past the trap site on Cloverdale Creek, so the drawing stands on the leg from Cloverdale Creek road towards Robertson's crossfence. From zoom 10, as the drawings of the she-wolf and the cholla and of Billy and the dog are close by. Its point is on the route line, 40% of the way along the J2 leg “Cloverdale Creek road to Robertson's crossfence” (j2-seg-02) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south side of a point 1.3 km south-east of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 10: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-model-a-wolf",
-    "side": "ne",
+    "side": "s",
     "min_zoom": 12.0,
     "priority": 3,
-    "label": "The rancher's Model A",
+    "label": "No wolves heard in years",
     "credit": "Drawn after photographs of the Ford Model A pickup, 1928 to 1931; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain)"
    }
   },
@@ -2031,7 +1793,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Below the trail Billy comes on six mine labourers taking the body of a companion, killed at his work, home across the mountains to their village. It lies apart on a litter of poles and hide, wrapped in tied canvas under green branches, and the men share their meal with him.",
+    "note_safe": "Below the trail Billy comes on six mine labourers taking the body of a companion, killed at his work, home across the mountains to their village. It lies apart on a litter of poles and hide, wrapped in tied canvas under green branches, and the men share their meal with him. They tell him of uncles and fathers who fled to Arizona from the wars.",
     "reasoning": "They have stopped for their noon meal just after Billy comes through a gap and first sees the Bavispe valley, so the drawing stands near the start of the leg from the passes of the Sierra de la Cabellera towards the river. The note does not name the men's people. The litter and the canvas are the book's. The book gives only the mark of the tumpline on the men's brows, so the load on the standing man's tumpline is inferred. Its point is on the route line, 15% of the way along the J2 leg “Passes of the Sierra de la Cabellera to The river crossing (the deputies)” (j2-seg-08) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-tumpline-bearers",
     "side": "ne",
@@ -2066,9 +1828,9 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Riding north from Morelos into low broken hills, Billy is caught by hail and shelters in a ruined group of buildings beside the road. That night, through gaps in the walls, he can see his horse out by the road, lit by flashes of lightning.",
-    "reasoning": "The storm overtakes him after his last crossing of the river, on the road from Morelos north towards Ojito, and the stop at the end of this leg is that night. The drawing stands near the end of the leg. The book gives no place for the ruins. Its point is on the route line, 85% of the way along the J3 leg “Colonia Morelos to The road north towards Ojito” (j3-seg-11) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 9: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "reasoning": "The storm overtakes him after his last crossing of the river, on the road from Morelos north towards Ojito, and the stop at the end of this leg is that night. The drawing stands near the end of the leg. The book gives no place for the ruins. Its point is on the route line, 85% of the way along the J3 leg “Colonia Morelos to The road north towards Ojito” (j3-seg-11) by length, measured on the WGS 84 ellipsoid. The drawing is set on the east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 9: further out it would touch another drawing or cover more. At zoom 11 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-hail-shelter",
-    "side": "ne",
+    "side": "e",
     "min_zoom": 11.0,
     "priority": 2,
     "label": "Sheltering from the hail",
@@ -2081,12 +1843,12 @@
     "type": "Point",
     "coordinates": [
      -109.04761,
-     31.50398
+     31.48642
     ]
    },
    "properties": {
     "id": "vignette-names-in-rock",
-    "name": "Names cut in the rock of the pass",
+    "name": "Names written on the rock of the pass",
     "kind": "vignette",
     "stands_for": "The Guadalupe pass on Billy's ride home from Douglas (J3)",
     "place_ref": "j3-seg-13",
@@ -2099,10 +1861,10 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Riding home over the Guadalupes on a cold evening, Billy reads old names and dates cut in the rock of the pass by travellers long dead.",
-    "reasoning": "The names are in the pass itself, where the leg from the border at Douglas ends, so the drawing stands just short of the pass. The book gives none of the names: the date in the drawing is invented. From zoom 10, as the bootheel is crowded further out. Its point is on the route line, 97% of the way along the J3 leg “The border at Douglas to A pass in the Guadalupes on the old Cloverdale road” (j3-seg-13) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out it would touch another drawing or cover more. At zoom 11 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "note_safe": "Riding home over the Guadalupes on a cold evening, Billy reads old names and dates written on the rock of the pass by travellers long dead.",
+    "reasoning": "The names are in the pass itself, where the leg from the border at Douglas ends, so the drawing stands just short of the pass. The book gives none of the names: the date in the drawing is invented. From zoom 10, as the bootheel is crowded further out. Its point is on the route line, 97% of the way along the J3 leg “The border at Douglas to A pass in the Guadalupes on the old Cloverdale road” (j3-seg-13) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of a point 1.9 km south of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 10: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-names-in-rock",
-    "side": "nw",
+    "side": "sw",
     "min_zoom": 11.0,
     "priority": 2,
     "label": "Old names in the rock",
@@ -2154,7 +1916,7 @@
    },
    "properties": {
     "id": "vignette-silver-mine-family",
-    "name": "The miners' family at the old silver mine",
+    "name": "The stump meadow and the old silver mine",
     "kind": "vignette",
     "stands_for": "The brothers' ride across the sierra east of Bacerac (J4)",
     "place_ref": "j4-seg-13",
@@ -2167,14 +1929,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "One evening, across a valley, the brothers see the spoil heaps of a worked-out silver mine. A family of wandering miners camped there in huts of woven sticks, among the rusted machinery, stand in a line by their fire, tallest to smallest, hands raised against the sun to watch them go by.",
+    "note_safe": "Past old sawmill ruins and a meadow of stumps, the brothers see across a valley a family of wandering miners lined up by their fire to watch them go.",
     "reasoning": "The mine comes after two days' riding in the sierra beyond Bacerac, on the way to the eastern rim, so the drawing stands halfway along that leg. The book gives no name or place for it. Its point is on the route line, 50% of the way along the J4 leg “Bacerac to The eastern rim of the escarpment at sunrise” (j4-seg-13) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-silver-mine-family",
     "side": "se",
     "min_zoom": 9.0,
     "priority": 2,
-    "label": "The old silver mine",
-    "credit": "Drawn after photographs of mines and mining camps in the Sierra Madre of Sonora and Chihuahua, 1900s to 1930s (public domain)"
+    "label": "Stumps, and the old silver mine",
+    "credit": "Drawn after photographs of mines and mining camps in the Sierra Madre of Sonora and Chihuahua, 1900s to 1930s (public domain). The stumps and the fallen sawmill drawn from the book's description"
    }
   },
   {
@@ -2405,7 +2167,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Riding into Namiquipa at first light, Billy meets a wedding party on the road: a plain wooden cart decked with bunting, a cotton sheet on a frame of willow hoops to keep off the sun, one small grey mule, and the bride alone under her parasol.",
+    "note_safe": "Riding up into Namiquipa in the morning, Billy meets a wedding party on the road: a plain wooden cart decked with bunting, a cotton sheet on a frame of willow hoops to keep off the sun, one small grey mule, and the bride alone under her parasol.",
     "reasoning": "He meets the party as he comes into Namiquipa, where the leg from Santa Ana de Babícora ends, so the drawing stands just short of Namiquipa. The cart is drawn with the book's canopy, bunting and one mule, unlike the oxen at the river or the gypsies' float. Its point is on the route line, 97% of the way along the J7 leg “Santa Ana de Babícora to Namiquipa, now a mining camp” (j7-seg-30) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. On every side it covers a stop or a route line from its first zoom, and no closer zoom would clear it, so it shows from that zoom on the side where it covers least.",
     "vignette": "vignette-wedding-carreta",
     "side": "sw",
@@ -2420,15 +2182,15 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.92977,
-     31.43463
+     -108.94434,
+     31.42948
     ]
    },
    "properties": {
     "id": "vignette-indian-at-the-tank",
     "name": "The Indian at the tank",
     "kind": "vignette",
-    "stands_for": "The pothole in the river bed below the Parham house (1-01)",
+    "stands_for": "The pothole in the river bed about two miles upriver of the Parham house (1-01)",
     "place_ref": "place-cloverdale",
     "journey": "J2",
     "part": 1,
@@ -2440,7 +2202,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "At dusk by a pothole in the dry river, Boyd nearly walks into an Indian crouched under the cane, an old rifle on his knees.",
-    "reasoning": "The tank lies in the river bed just below the house, so the drawing stands on the Cloverdale place. The sun going down behind the western mountains is the book's. The cane stand, the rifle and Billy watering the horse are all in the passage. The scene is in 1-01, but the drawing shows from 1-05, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north side of a point 1.9 km north of Cloverdale (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "reasoning": "The tank lies in the river bed about two miles upriver of the house, so the drawing stands on the Cloverdale place. The sun going down behind the western mountains is the book's. The cane stand, the rifle and Billy watering the horse are all in the passage. The scene is in 1-01, but the drawing shows from 1-05, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north side of a point 2.0 km north-west of Cloverdale (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-indian-at-the-tank",
     "side": "n",
     "min_zoom": 9.0,
@@ -2454,8 +2216,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.96971,
-     31.48055
+     -108.96988,
+     31.48436
     ]
    },
    "properties": {
@@ -2474,10 +2236,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "At first light Billy and his father ride south toward the Peloncillos, the traps in a willow basket, Black Point white with new snow.",
-    "reasoning": "They ride from the house up into the Peloncillos to the dead calf, near the end of the wolf's leg to Foster Draw, so the drawing stands late on that leg. The basket's foot resting on the cantle and the lit peak over the shadowed valley are the book's. Its point is on the route line, 80% of the way along the J1 leg “Animas Valley to Foster Draw (the calf)” (j1-seg-07) by length, measured on the WGS 84 ellipsoid. The scene is in 1-03, but the drawing shows from 1-04, with the leg it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the south side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "reasoning": "They ride from the house up into the Peloncillos to the dead calf, near the end of the wolf's leg to Foster Draw, so the drawing stands late on that leg. The basket's foot resting on the cantle and the lit peak over the shadowed valley are the book's. Its point is on the route line, 80% of the way along the J1 leg “Animas Valley to Foster Draw (the calf)” (j1-seg-07) by length, measured on the WGS 84 ellipsoid. The scene is in 1-03, but the drawing shows from 1-04, with the leg it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the south-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-to-the-peloncillos",
-    "side": "s",
-    "min_zoom": 11.0,
+    "side": "se",
+    "min_zoom": 12.0,
     "priority": 2,
     "label": "Riding out at daybreak",
     "credit": "Horses and riders traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the packbasket and Black Point drawn from the book"
@@ -2488,8 +2250,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.00941,
-     31.48397
+     -109.0203,
+     31.49225
     ]
    },
    "properties": {
@@ -2508,7 +2270,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Crouched on a calfhide below the mountain gap, Billy's father holds the opened trap up against the morning sky to true its pan.",
-    "reasoning": "The first set is made below the gap the wolf crossed, between Clanton and Foster draws, so the drawing stands at that stop. The low sun behind him, the hide and the basket are the book's. The boy watching from his horse is left out to keep the drawing clear. The scene is in 1-03, but the drawing shows from 1-04, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north-west side of a point 1.3 km south-west of Between Clanton and Foster draws (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "reasoning": "The first set is made below the gap the wolf crossed, between Clanton and Foster draws, so the drawing stands at that stop. The low sun behind him, the hide and the basket are the book's. The boy watching from his horse is left out to keep the drawing clear. The scene is in 1-03, but the drawing shows from 1-04, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north-west side of a point 2.0 km west of Between Clanton and Foster draws (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-making-the-set",
     "side": "nw",
     "min_zoom": 9.0,
@@ -2522,8 +2284,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.73611,
-     31.42781
+     -108.77132,
+     31.41312
     ]
    },
    "properties": {
@@ -2542,10 +2304,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Coming up out of Mexico, the she-wolf crosses the San Luis Pass with the Animas range ahead of her.",
-    "reasoning": "The book names her route only in passing, by the San Luis Pass and then north along the Animas range, so the drawing stands early on the leg from the San Luis Mountains to the Animas. It fills an empty stretch of her road. The pass's slopes and junipers are not described and are kept plain. Its point is on the route line, 20% of the way along the J1 leg “San Luis Mountains, by San Luis Pass to Animas Mountains” (j1-seg-05) by length, measured on the WGS 84 ellipsoid. The scene is in 1-01, but the drawing shows from 1-04, with the leg it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north-east side of a point 1.3 km north of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "reasoning": "The book names her route only in passing, by the San Luis Pass and then north along the Animas range, so the drawing stands early on the leg from the San Luis Mountains to the Animas. It fills an empty stretch of her road. The pass's slopes and junipers are not described and are kept plain. Its point is on the route line, 20% of the way along the J1 leg “San Luis Mountains, by San Luis Pass to Animas Mountains, where Taylor's Draw heads” (j1-seg-05) by length, measured on the WGS 84 ellipsoid. The scene is in 1-01, but the drawing shows from 1-04, with the leg it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-san-luis-gap",
-    "side": "ne",
-    "min_zoom": 9.0,
+    "side": "sw",
+    "min_zoom": 10.0,
     "priority": 2,
     "label": "She-wolf in the pass",
     "credit": "Drawn; the wolf is the she-wolf traced from a US Fish and Wildlife Service photograph (public domain)"
@@ -2556,8 +2318,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.04855,
-     31.49518
+     -109.05244,
+     31.50843
     ]
    },
    "properties": {
@@ -2576,9 +2338,9 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Off the plain before sunrise, the she-wolf stands on a rock above the snowy valley and howls into the silence.",
-    "reasoning": "She ranges by night over the hills and plains of this leg and howls from some rock above the valley each dawn, so the drawing stands midway along the leg. The book has her standing. She is drawn sitting back to howl, which reads better at map size. Its point is on the route line, 50% of the way along the J1 leg “Hog Canyon Springs to Between Clanton and Foster draws” (j1-seg-11) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of a point 0.8 km south-west of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "reasoning": "She ranges by night over the hills and plains of this leg and howls from some rock above the valley each dawn, so the drawing stands midway along the leg. The book has her standing. She is drawn sitting back to howl, which reads better at map size. Its point is on the route line, 50% of the way along the J1 leg “Hog Canyon Springs to Between Clanton and Foster draws” (j1-seg-11) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-west side of a point 1.3 km north-west of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-howl-at-dawn",
-    "side": "sw",
+    "side": "nw",
     "min_zoom": 11.0,
     "priority": 2,
     "label": "Howl at dawn",
@@ -2590,8 +2352,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.00815,
-     31.51195
+     -108.99359,
+     31.50681
     ]
    },
    "properties": {
@@ -2609,8 +2371,8 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Riding out alone through deep snow in the pass, Billy finds the she-wolf's prints in the trail and crouches over them.",
-    "reasoning": "The tracks join the trail a short way beyond the high pass, near where her leg ends between Clanton and Foster draws, so the drawing stands late on it. The broad forefoot and narrow hind prints, the dropped reins and the dark woods are the book's. Its point is on the route line, 90% of the way along the J1 leg “Hog Canyon Springs to Between Clanton and Foster draws” (j1-seg-11) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-east side of a point 1.9 km north of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "note_safe": "Riding alone over the deep snow of the pass, where there are no tracks, Billy finds the she-wolf's prints in the trail a mile beyond it and crouches over them.",
+    "reasoning": "The tracks join the trail a short way beyond the high pass, near where her leg ends between Clanton and Foster draws, so the drawing stands late on it. The broad forefoot and narrow hind prints, the dropped reins and the dark woods are the book's. Its point is on the route line, 90% of the way along the J1 leg “Hog Canyon Springs to Between Clanton and Foster draws” (j1-seg-11) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-east side of a point 2.0 km north-east of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-tracks-in-the-pass",
     "side": "ne",
     "min_zoom": 10.0,
@@ -2624,8 +2386,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.99695,
-     31.45106
+     -109.01217,
+     31.44984
     ]
    },
    "properties": {
@@ -2644,10 +2406,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Billy buries a trap in the vaqueros' cold fire and scratches a warning to them in Spanish in the smoothed sand before it.",
-    "reasoning": "The set is made in the old fire at the vaqueros' camp on Cloverdale Creek, so the drawing stands at that stop. The letters are suggested, not legible. The bones, charcoal and flung stick are the book's, and Billy rides home in the twilight behind. The drawing is set on the south-east side of Up Cloverdale Creek (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 8: further out it would touch another drawing or cover more. At zoom 12 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "reasoning": "The set is made in the old fire at the vaqueros' camp on Cloverdale Creek, so the drawing stands at that stop. The letters are suggested, not legible. The bones, charcoal and flung stick are the book's, and Billy rides home in the twilight behind. The drawing is set on the south-east side of Up Cloverdale Creek (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-trap-in-the-fire",
     "side": "se",
-    "min_zoom": 12.0,
+    "min_zoom": 11.0,
     "priority": 1,
     "label": "Warning in the sand",
     "credit": "Drawn from the book"
@@ -2658,8 +2420,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.97762,
-     31.4271
+     -108.98243,
+     31.4425
     ]
    },
    "properties": {
@@ -2678,10 +2440,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "By the road in the wind Billy pins the gagged wolf down in the grass and trickles water from his canteen past the stick.",
-    "reasoning": "He waters her after the rancher has driven off and an hour before Robertson's crossfence, so the drawing stands beyond halfway along the road leg. The horse waiting in the road with the reins down is the book's. Its point is on the route line, 60% of the way along the J2 leg “Cloverdale Creek road to Robertson's crossfence” (j2-seg-02) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of a point 1.3 km south of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "reasoning": "He waters her after the rancher has driven off and an hour before Robertson's crossfence, so the drawing stands beyond halfway along the road leg. The horse waiting in the road with the reins down is the book's. Its point is on the route line, 60% of the way along the J2 leg “Cloverdale Creek road to Robertson's crossfence” (j2-seg-02) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-water-from-the-canteen",
-    "side": "sw",
-    "min_zoom": 11.0,
+    "side": "ne",
+    "min_zoom": 12.0,
     "priority": 1,
     "label": "Water for the wolf",
     "credit": "Drawn; the wolf is the she-wolf traced from a US Fish and Wildlife Service photograph (public domain), bent to lie down; the horse traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain)"
@@ -2692,8 +2454,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.96525,
-     31.43001
+     -108.97982,
+     31.41758
     ]
    },
    "properties": {
@@ -2712,10 +2474,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "At Robertson's crossfence Billy halts for long minutes with the wolf limping up behind, then turns south for Mexico instead of home.",
-    "reasoning": "He stops at the crossfence itself, so the drawing stands at that stop. The yellow grass leaning in the wind and the cloud shadows running over the plain are the book's. The corner of the fence is inferred from its name. The drawing is set on the south-east side of Robertson's crossfence (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 8: further out it would touch another drawing or cover more. At zoom 12 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "reasoning": "He stops at the crossfence itself, so the drawing stands at that stop. The yellow grass leaning in the wind and the cloud shadows running over the plain are the book's. The corner of the fence is inferred from its name. The drawing is set on the south-west side of a point 2.0 km south-west of Robertson's crossfence (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-robertsons-crossfence",
-    "side": "se",
-    "min_zoom": 12.0,
+    "side": "sw",
+    "min_zoom": 11.0,
     "priority": 2,
     "label": "Turning south",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the wolf is the she-wolf traced from a US Fish and Wildlife Service photograph (public domain); the fence and clouds drawn"
@@ -2745,7 +2507,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "At the last ranch before the border three hounds rush Billy and the wolf. On foot, he beats them off with the rifle barrel.",
+    "note_safe": "At the last ranch before the border three hounds rush Billy and the wolf. On foot, he holds them off with the rifle barrel until two men from the house drive them away.",
     "reasoning": "The hounds come down the road from the ranch house just after Billy leads the wolf through the gate, so the drawing stands at the ranch. Two trail broken chain from their collars and the third has none, as in the book. Billy's horse has already bolted. The drawing is set on the south-east side of Ranch house on the volcanic plain (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-three-hounds",
     "side": "se",
@@ -2779,14 +2541,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "South of the pass Billy camps under an arroyo bank, the wolf tied to a bared cottonwood root, fine sleet blowing into the fire.",
+    "note_safe": "South of the pass Billy camps under an arroyo bank. Through the sleet the tied wolf sits watching him, her eyes lit red by the fire.",
     "reasoning": "He camps just south of a pass the night before he crosses the boundary near noon, so the drawing stands late on the leg from the ranch on the volcanic plain. Billy is left out so it does not repeat wolf-by-the-fire. The far lightning is the storm he watches over Mexico from the pass. Its point is on the route line, 85% of the way along the J2 leg “Ranch house on the volcanic plain to The boundary, a monument in sight” (j2-seg-05) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-sleet-camp",
     "side": "sw",
     "min_zoom": 9.0,
     "priority": 1,
-    "label": "Sleet on the night camp",
-    "credit": "Drawn from the book's description; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain), bent to lie down"
+    "label": "Her eyes in the firelight",
+    "credit": "Drawn from the book's description. The wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain), bent to sit, hatched dark with her eye left bright"
    }
   },
   {
@@ -2814,47 +2576,13 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Billy scrapes a hollow in the turf, lines it with sandwich paper and fills it from his canteen for the wolf to drink.",
-    "reasoning": "This is the camp where he finds the wolf chewing her rope, the night before the riders on the Cajón Bonito, so it shares that stop with wolf-by-the-fire on the other side. The rope runs over the pine limb he used to hold her, and the canteen stands by the hole as the book has it. The drawing is set on the east side of Up the Cajón Bonito (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "reasoning": "This is the camp where he finds the wolf chewing her rope, two nights before the armed riders, on the Cajón Bonito, so it shares that stop with wolf-by-the-fire on the other side. The rope runs over the pine limb he used to hold her, and the canteen stands by the hole as the book has it. The drawing is set on the east side of Up the Cajón Bonito (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-false-waterhole",
     "side": "e",
     "min_zoom": 9.0,
     "priority": 1,
     "label": "A waterhole of paper",
     "credit": "Drawn from the book's description; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain), bent to drink"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -109.25836,
-     31.03598
-    ]
-   },
-   "properties": {
-    "id": "vignette-burro-stampede",
-    "name": "The pilgrims' burros stampede",
-    "kind": "vignette",
-    "stands_for": "The pilgrims' pack train on the trail south through the mountains (J2)",
-    "place_ref": "j2-seg-07",
-    "journey": "J2",
-    "part": 1,
-    "episode": "1-09",
-    "first_seen": "1-09",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "Smelling the wolf, the pilgrims' burros bolt down the mountainside, smashing pack frames and strewing hides and blankets behind them.",
-    "reasoning": "They meet the first northbound pilgrims early in the day's ride from the Cajón Bonito towards the Cabellera passes, so the drawing stands a third of the way along that leg. The book gives no number of burros, and two stand for the train. Its point is on the route line, 30% of the way along the J2 leg “Up the Cajón Bonito to Passes of the Sierra de la Cabellera” (j2-seg-07) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
-    "vignette": "vignette-burro-stampede",
-    "side": "sw",
-    "min_zoom": 9.0,
-    "priority": 1,
-    "label": "Burros bolting downhill",
-    "credit": "Drawn from the book's description; the burros are the traced Muybridge horse with the rider cut away, a pack and a mule's ears, Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain)"
    }
   },
   {
@@ -2949,14 +2677,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "While the alguacil questions Billy, the muzzled wolf backs under a wagon against a wall, ringed by the town's dogs and children.",
-    "reasoning": "The scene is in the road outside the alguacil's house in the settlement, so the drawing stands at that stop. The book counts about two dozen dogs and nearly as many children, and two dogs and three children stand for them. The drawing is set on the south-west side of The mud-house settlement (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "note_safe": "Deputies haul the muzzled wolf from under a wagon. When a big grey dog darts at her, one kicks it under the jaw and the children laugh.",
+    "reasoning": "The scene is in the road outside the alguacil's house in the settlement, so the drawing stands at that stop. The book counts about two dozen dogs and nearly as many children, and one dog and three children stand for them. The drawing is set on the south-west side of The mud-house settlement (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-wolf-under-the-wagon",
     "side": "sw",
-    "min_zoom": 10.0,
+    "min_zoom": 11.0,
     "priority": 1,
-    "label": "The wolf at bay",
-    "credit": "Drawn from the book's description; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain), bent to crouch, and bent again with ears dropped for the dogs"
+    "label": "A kick, and the children laugh",
+    "credit": "Drawn from the book's description. The wolf and the grey dog are the traced she-wolf (US Fish and Wildlife Service photograph, public domain), the dog bent with its head snapped up"
    }
   },
   {
@@ -2984,10 +2712,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "At dusk the travellers' meadow camp is all fires and grazing burros, their little carts tipped forward on their tongues.",
-    "reasoning": "He camps with the travellers after leaving the mud-house settlement and before he sees Colonia Morelos from the gap, so the drawing stands halfway along that leg. The carts are drawn as the book's carretas: two solid wheels, a slatted box, tipped forward onto the tongue. Its point is on the route line, 50% of the way along the J2 leg “The mud-house settlement to Colonia Morelos (the fair)” (j2-seg-10) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "reasoning": "He camps with the travellers after leaving the mud-house settlement and before he sees Colonia Morelos from the gap, so the drawing stands halfway along that leg. The carts are drawn as the book's carretas: two solid wheels, a slatted box, tipped forward onto the tongue. Its point is on the route line, 50% of the way along the J2 leg “The mud-house settlement to Colonia Morelos (the fair)” (j2-seg-10) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-pilgrims-camp",
     "side": "s",
-    "min_zoom": 11.0,
+    "min_zoom": 10.0,
     "priority": 2,
     "label": "Pilgrims' carts at dusk",
     "credit": "Drawn from the book's description; the burros are the traced Muybridge horse with the rider cut away and a mule's ears, Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain)"
@@ -2999,7 +2727,7 @@
     "type": "Point",
     "coordinates": [
      -109.2233,
-     30.84406
+     30.81458
     ]
    },
    "properties": {
@@ -3018,10 +2746,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "The alguacil's party rides along the alameda in silver-trimmed charro dress and huge sombreros, speckled bluetick hounds trotting beneath.",
-    "reasoning": "They pass Billy at the crossroads as he leaves Colonia Morelos behind the runaway cart, so the drawing stands at the start of the leg to the hacienda. Two riders and three hounds stand for the whole company. Its point is on the route line, 10% of the way along the J2 leg “Colonia Morelos (the fair) to The hacienda” (j2-seg-11) by length, measured on the WGS 84 ellipsoid. The scene is in 1-09, but the drawing shows from 1-10, with the leg it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north-east side of a point 2.0 km north of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "reasoning": "They pass Billy at the crossroads as he leaves Colonia Morelos behind the runaway cart, so the drawing stands at the start of the leg to the hacienda. Two riders and three hounds stand for the whole company. Its point is on the route line, 10% of the way along the J2 leg “Colonia Morelos (the fair) to The hacienda” (j2-seg-11) by length, measured on the WGS 84 ellipsoid. The scene is in 1-09, but the drawing shows from 1-10, with the leg it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the south-west side of a point 1.3 km south of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-hunting-party",
-    "side": "ne",
-    "min_zoom": 11.0,
+    "side": "sw",
+    "min_zoom": 12.0,
     "priority": 2,
     "label": "Charros and blueticks",
     "credit": "Drawn from the book's description; the riders traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain); the hounds are the traced she-wolf (US Fish and Wildlife Service photograph, public domain) with the ears dropped and ticked"
@@ -3066,8 +2794,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.19887,
-     30.6577
+     -109.19062,
+     30.6673
     ]
    },
    "properties": {
@@ -3086,10 +2814,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Under the Pilares cliffs before dawn, Billy washes the wolf's blood from the sheet and hangs it steaming on forked sticks.",
-    "reasoning": "He stops in a grassy swale below the talus of the Pilares escarpments, where this stop stands, before he buries her. Billy and the horse are left out to keep the sheet, the fire and the wolf legible, and carrying-the-wolf already shows him riding there. The drawing is set on the south-east side of a point 0.2 km south-east of Into the Pilares Teras (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "reasoning": "He stops in a grassy swale below the talus of the Pilares escarpments, where this stop stands, before he buries her. Billy and the horse are left out to keep the sheet, the fire and the wolf legible, and carrying-the-wolf already shows him riding there. The drawing is set on the north-east side of a point 1.3 km north-east of Into the Pilares Teras (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-sheet-on-the-trestle",
-    "side": "se",
-    "min_zoom": 10.0,
+    "side": "ne",
+    "min_zoom": 11.0,
     "priority": 1,
     "label": "The sheet steaming",
     "credit": "Drawn from the book's description; the wolf is the traced she-wolf (US Fish and Wildlife Service photograph, public domain), bent to lie down"
@@ -3323,13 +3051,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Leaving the sheriff in Lordsburg, a ragged and hungry Billy unties his horse from a parking meter as passers-by stare.",
+    "note_safe": "Leaving the sheriff in Lordsburg, a ragged, hungry Billy unties his horse from a parking meter. Passers-by stare, and their pity could as easily have turned to violence.",
     "reasoning": "He comes out of the sheriff's office in Lordsburg, so the drawing sits at that stop. The meter is drawn as a generic 1940s parking meter, and the shop front behind it is inferred. The drawing is set on the south side of Lordsburg (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-parking-meter",
     "side": "s",
     "min_zoom": 9.0,
     "priority": 1,
-    "label": "Tied to a parking meter",
+    "label": "Totally unspoken for",
     "credit": "The horse traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), with the rider cut away; the meter, the shop front and the figures drawn from the book"
    }
   },
@@ -3391,7 +3119,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "At their first camp, out on the alkali flats, the brothers burn fenceposts and watch two sandhill cranes standing over their reflections at dusk.",
+    "note_safe": "At their first camp, on the alkali flats, the brothers burn fenceposts and watch two sandhill cranes standing over their reflections at dusk, like statues in a garden laid waste.",
     "reasoning": "The camp is the stop on the flats, and the cranes stand in the water east and south of it. The fire is drawn with the fenceposts the book names, and the cracked mud is the book's. The drawing is set on the west side of Camp on the alkali flats (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-cranes-on-the-flats",
     "side": "w",
@@ -3474,40 +3202,6 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -109.67027,
-     31.7592
-    ]
-   },
-   "properties": {
-    "id": "vignette-route-666",
-    "name": "Riding double on route 666",
-    "kind": "vignette",
-    "stands_for": "The brothers' ride down the Sulphur Springs Valley to Douglas (J4)",
-    "place_ref": "j4-seg-06",
-    "journey": "J4",
-    "part": 2,
-    "episode": "2-07",
-    "first_seen": "2-07",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "From noon the brothers follow the blacktop of route 666 south through Elfrida and McNeal towards Douglas, two on one horse, the dog behind.",
-    "reasoning": "The leg from Apache Pass ends at Elfrida, and they are on route 666 by noon, so the drawing stands near its end to fill the empty Elfrida and McNeal stretch. The roadside route shield is inferred: the book names the road, not its signs. Its point is on the route line, 85% of the way along the J4 leg “Apache Pass to Elfrida” (j4-seg-06) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
-    "vignette": "vignette-route-666",
-    "side": "nw",
-    "min_zoom": 8.0,
-    "priority": 2,
-    "label": "On route 666",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), with Boyd drawn on behind; the dog after the traced US Fish and Wildlife Service wolf outline (public domain)"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
      -109.2413,
      30.87861
     ]
@@ -3528,10 +3222,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "South of Ojito a dusk storm sweeps the desert, driving doves ahead, and the brothers wait it out with the horse under roadside trees.",
-    "reasoning": "The storm catches them just before dark on the empty road south out of Ojito, so the drawing stands early on the leg to Colonia Morelos. The book does not name the trees, so they are drawn as plain broadleaf trees. Its point is on the route line, 20% of the way along the J4 leg “Ojito to Colonia Morelos at midnight” (j4-seg-11) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "reasoning": "The storm catches them just before dark on the empty road south out of Ojito, so the drawing stands early on the leg to Colonia Morelos. The book does not name the trees, so they are drawn as plain broadleaf trees. Its point is on the route line, 20% of the way along the J4 leg “Ojito to Colonia Morelos at midnight” (j4-seg-11) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-storm-and-doves",
-    "side": "sw",
-    "min_zoom": 10.0,
+    "side": "nw",
+    "min_zoom": 9.0,
     "priority": 1,
     "label": "Storm and doves",
     "credit": "The horse traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), with the rider cut away; the rain, lightning and trees drawn from the book"
@@ -3901,14 +3595,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Fleeing the riders who shot Boyd, Billy gallops Niño across the grass plain with his brother slumped in front of him, five horsemen behind.",
+    "note_safe": "Fleeing the riders who shot Boyd, Billy gallops Niño across the plain with his brother slumped before him. Bailey, hit above the hock, stops and is left behind.",
     "reasoning": "The chase runs from the river camp where Boyd is shot to the dirt road where the truck takes him, so the drawing stands halfway along that leg. The gallop is a convention, not the plate's walk. Its point is on the route line, 50% of the way along the J4 leg “The river camp near San José to The dirt road in open country” (j4-seg-34) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-the-chase",
     "side": "sw",
     "min_zoom": 9.0,
     "priority": 1,
     "label": "Niño carrying double",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), the legs flung out in the old flying-gallop convention. Billy, the horsemen and the palmilla drawn from the book"
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), the legs flung out in the old flying-gallop convention. Bailey is the same plate with the rider cut away and the head hung. Billy, the horsemen and the palmilla drawn from the book"
    }
   },
   {
@@ -3936,7 +3630,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "At dusk Billy leads his father's worn-out horse on foot toward a far light, the animal pale with dried salt.",
-    "reasoning": "He sees the light at dusk on the day of the shooting and walks toward it through the night, and the leg ends at the blind man's house, so the drawing stands late on that leg. That the light is the blind man's house is inferred. Its point is on the route line, 75% of the way along the J4 leg “The dirt road in open country to The blind man's house” (j4-seg-35) by length, measured on the WGS 84 ellipsoid. The scene is in 3-08, but the drawing shows from 3-09, with the leg it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "reasoning": "He sees the light at dusk on the day of the shooting and makes for it into the night, first on foot and then riding, and the leg ends at the blind man's house, so the drawing stands late on that leg. That the light is the blind man's house is inferred. Its point is on the route line, 75% of the way along the J4 leg “The dirt road in open country to The blind man's house” (j4-seg-35) by length, measured on the WGS 84 ellipsoid. The scene is in 3-08, but the drawing shows from 3-09, with the leg it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-salt-rimed-horse",
     "side": "ne",
     "min_zoom": 9.0,
@@ -4106,7 +3800,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Billy meets the farmworkers' truck on the road, and as it pulls away one worker stands and raises his fist.",
-    "reasoning": "He meets the truck on the evening of his second day out of Mata Ortiz and wakes that night within earshot of the Las Varas crossing, so the drawing stands late on that leg. The truck is drawn from behind as it leaves, with the one worker standing, so that it does not repeat the side-on workers-truck. Its point is on the route line, 85% of the way along the J5 leg “Mata Ortiz to Within earshot of the Las Varas crossing” (j5-seg-02) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "reasoning": "He meets the truck on the evening of the day after he passes Mata Ortiz and wakes that night within earshot of the Las Varas crossing, so the drawing stands late on that leg. The truck is drawn from behind as it leaves, with the one worker standing, so that it does not repeat the side-on workers-truck. Its point is on the route line, 85% of the way along the J5 leg “Mata Ortiz to Within earshot of the Las Varas crossing” (j5-seg-02) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-hay-justicia",
     "side": "se",
     "min_zoom": 9.0,
@@ -4140,47 +3834,13 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Riding south after dark with the shotgun held upright, Billy crosses La Pinta, up among the junipers of the plain, the moon risen.",
-    "reasoning": "At the stop for La Pinta, where the book has the moon up as he rides through. The book shows the shotgun held upright when he meets the dance riders that evening, so it is drawn so here too, an inference. The drawing is set on the south-east side of La Pinta by moonlight (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "reasoning": "At the stop for La Pinta, where the book has the moon up as he rides through. The book shows the shotgun held upright when he meets the dance riders that evening, so it is drawn so here too, an inference. The drawing is set on the east side of La Pinta by moonlight (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-la-pinta-moon",
-    "side": "se",
-    "min_zoom": 9.0,
+    "side": "e",
+    "min_zoom": 10.0,
     "priority": 2,
     "label": "La Pinta by moonlight",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), the shotgun drawn. The junipers and moon drawn from the book"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -107.47201,
-     29.03081
-    ]
-   },
-   "properties": {
-    "id": "vignette-acacia-picnic",
-    "name": "The meal under the acacias",
-    "kind": "vignette",
-    "stands_for": "Billy and the girl ride back through Santa Ana (J5)",
-    "place_ref": "j5-santa-ana-return",
-    "journey": "J5",
-    "part": 3,
-    "episode": "3-12",
-    "first_seen": "3-12",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "Back past Santa Ana near noon, the girl spreads her serape in an acacia grove by the road and lays out her food.",
-    "reasoning": "They eat in the grove soon after riding back through Santa Ana, so the drawing stands at that stop. The beans with a spoon standing in the jar, the tamales, the tortillas and the goat cheese are from the book's list of her food. The ears of corn and empanadas are left out to keep it legible. The drawing is set on the south side of Back through Santa Ana (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
-    "vignette": "vignette-acacia-picnic",
-    "side": "s",
-    "min_zoom": 8.0,
-    "priority": 2,
-    "label": "A meal under the acacias",
-    "credit": "Drawn from the book. No reference found"
    }
   },
   {
@@ -4207,14 +3867,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Waking at night by the lake, Billy goes down to the still black water and crouches in the sedge among the reflected stars.",
-    "reasoning": "At the lake camp, where he wakes before dawn and kneels by the water until the sky greys. He is drawn bareheaded with the serape round his shoulders, as the book has him leave the fire. The drawing is set on the south-west side of Camp at the edge of the lake (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "note_safe": "Waking before dawn, Billy kneels in the reeds at the still black lake and, among the stars drowned in it, sees again the she-wolf lying dead.",
+    "reasoning": "At the lake camp, where he wakes before dawn and kneels by the water until the sky greys. The dead she-wolf is the first of the things he sees pass there, so she is drawn faint in the water as a vision, not a body. The drawing is set on the south-west side of Camp at the edge of the lake (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-stars-in-the-lake",
     "side": "sw",
     "min_zoom": 10.0,
     "priority": 1,
-    "label": "Stars in the black lake",
-    "credit": "Drawn from the book. No reference found"
+    "label": "She-wolf among drowned stars",
+    "credit": "Drawn from the book. The she-wolf is the traced outline (US Fish and Wildlife Service photograph, public domain), drawn upside down in pale line among the reflected stars"
    }
   },
   {
@@ -4411,7 +4071,7 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Back across the border at Columbus, Billy is so ragged that the guard in the gate hut barely looks before waving him on.",
+    "note_safe": "Back across the border at Columbus, the guard in the gate hut gives the ragged Billy a brief look and waves him on, as if he sees men like him every day.",
     "reasoning": "The book has him cross at the Columbus port of entry, so the drawing stands at that stop. The book gives only a guard in a gateshack: the hut's shape and the border fence behind it are inferred. The blanket he wears like a cape comes from his ride north to Deming the same day. The drawing is set on the east side of The border at Columbus (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
     "vignette": "vignette-ragged-rider-at-gate",
     "side": "e",
@@ -4460,8 +4120,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.82,
-     31.45
+     -108.80543,
+     31.46243
     ]
    },
    "properties": {
@@ -4480,10 +4140,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "Camped on the Animas Plain, Billy wakes by his dead fire to the hobbled horse grazing and lightning flaring far south over Mexico.",
-    "reasoning": "The camp is this stop, and the book puts the lightning beyond the Hatchet Mountains to the south, so they make the skyline. The serape, the blanket, the dead fire, the hobbles and the grazing horse are all the book's. The drawing is set on the south-east side of Camp on the Animas Plain (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "reasoning": "The camp is this stop, and the book puts the lightning beyond the Hatchet Mountains to the south, so they make the skyline. The serape, the blanket, the dead fire, the hobbles and the grazing horse are all the book's. The drawing is set on the north-east side of a point 2.0 km north-east of Camp on the Animas Plain (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-lightning-over-mexico",
-    "side": "se",
-    "min_zoom": 11.0,
+    "side": "ne",
+    "min_zoom": 10.0,
     "priority": 1,
     "label": "Lightning over Mexico",
     "credit": "Drawn from the book's description; the horse traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), with the rider cut away and its head lowered to graze"
@@ -4751,13 +4411,13 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Billy waters his horses at a wet meadow ringed by very old cottonwoods, sleeps there, and wakes to a horseman watching him.",
+    "note_safe": "Billy sleeps at a wet meadow ringed by old cottonwoods and wakes to a horseman watching him, who calls women property and says of a dead one that the world goes on.",
     "reasoning": "The book names no place for the ciénega. It comes in Billy's ride through the Babícora country, so the drawing sits at that stop. The ring of old trees, the bedroll and the mounted watcher are the book's. The open water is inferred from the word ciénega. The drawing is set on the south side of Babícora before dawn (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-cienega-cottonwoods",
     "side": "s",
     "min_zoom": 9.0,
     "priority": 1,
-    "label": "Ciénega in the cottonwoods",
+    "label": "The world rolled on",
     "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored. The cottonwoods as in the cottonwood camp drawing. The rest drawn from the book"
    }
   },
@@ -4834,41 +4494,7 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -107.65413,
-     30.10615
-    ]
-   },
-   "properties": {
-    "id": "vignette-polestar-night-ride",
-    "name": "By the polestar, with Boyd's remains",
-    "kind": "vignette",
-    "stands_for": "Billy taking Boyd's remains from the cemetery on the Gallego road across country (J7)",
-    "place_ref": "j7-seg-39",
-    "journey": "J7",
-    "part": 4,
-    "episode": "4-06",
-    "first_seen": "4-06",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "Billy rides by night leading the packhorse, Boyd's remains in canvas and the wooden cross tied on, the polestar on his right.",
-    "reasoning": "He crosses the highway and strikes out across country with the polestar on his right, so the drawing stands halfway along the leg west from the cemetery past Casas Grandes. How the canvas sat on the packframe is inferred. The cross on the near forks is the book's. Its point is on the route line, 50% of the way along the J7 leg “The cemetery on the Gallego road to Past the lights of Casas Grandes, to the west” (j7-seg-39) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
-    "vignette": "vignette-polestar-night-ride",
-    "side": "sw",
-    "min_zoom": 9.0,
-    "priority": 2,
-    "label": "By the polestar",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored, and the same horse with the rider cut away. The canvas bundle and the cross drawn"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -107.933,
+     -107.92064,
      30.7588
     ]
    },
@@ -4888,10 +4514,10 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "In the river at dawn, Billy packs wet clay from the bank over the knife wound in Niño's chest, and the bleeding stops.",
-    "reasoning": "The wound and the river cure happen at the place of the attack on the river trail, so the drawing shares that stop with the gypsies' airplane. The mountains are put to the west as the book has them. Billy's shirt folded over the clay is left out to keep the drawing simple. The drawing is set on the north-west side of a point 2.0 km west of The river trail north of Corralitos (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "reasoning": "The wound and the river cure happen at the place of the attack on the river trail, so the drawing shares that stop with the gypsies' airplane. The mountains are put to the west as the book has them. Billy's shirt folded over the clay is left out to keep the drawing simple. The drawing is set on the north-west side of a point 0.8 km west of The river trail north of Corralitos (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
     "vignette": "vignette-clay-on-the-wound",
     "side": "nw",
-    "min_zoom": 9.0,
+    "min_zoom": 10.0,
     "priority": 1,
     "label": "Clay on the wound",
     "credit": "Horse traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored, with the rider cut away. Billy, the willows and the river drawn"
@@ -4978,7 +4604,7 @@
     "id": "vignette-waist-deep-caliche",
     "name": "Digging the grave at Animas",
     "kind": "vignette",
-    "stands_for": "The little cemetery south of Animas, where Billy buries Boyd (J7)",
+    "stands_for": "The little cemetery south of Animas, where Billy digs Boyd's grave (J7)",
     "place_ref": "j7-cemetery",
     "journey": "J7",
     "part": 4,
@@ -5004,42 +4630,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.95878,
-     33.00965
-    ]
-   },
-   "properties": {
-    "id": "vignette-mountains-to-glenwood",
-    "name": "Over the mountains to Glenwood",
-    "kind": "vignette",
-    "stands_for": "Billy's drifting years on the ranches of south-western New Mexico (J7)",
-    "place_ref": "j7-seg-50",
-    "journey": "J7",
-    "part": 4,
-    "episode": "4-08",
-    "first_seen": "4-08",
-    "certainty": "approximate",
-    "method": "hand-drawn",
-    "source": "this-site",
-    "source_id": null,
-    "source_licence": "CC BY 4.0",
-    "note_safe": "After the burial Billy drifts from ranch to ranch, north from Duncan over the mountains to Glenwood and Reserve.",
-    "reasoning": "A filler for a thin stretch: the book gives this ride in a single line, so the drawing stands halfway along the leg from Duncan to Glenwood. The pine slopes are inferred from the country on that road. Its point is on the route line, 50% of the way along the J7 leg “Duncan, Arizona to Glenwood” (j7-seg-50) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
-    "vignette": "vignette-mountains-to-glenwood",
-    "side": "se",
-    "min_zoom": 8.0,
-    "priority": 2,
-    "label": "Through the mountains",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain). The pines as in the Madera fair drawing"
-   }
-  },
-  {
-   "type": "Feature",
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     -107.73294,
-     32.89383
+     -107.54895,
+     32.93006
     ]
    },
    "properties": {
@@ -5057,14 +4649,14 @@
     "source": "this-site",
     "source_id": null,
     "source_licence": "CC BY 4.0",
-    "note_safe": "Under darkening cloud the horse plods across a creosote plain, while Billy sits straight with his hat pulled down over his eyes.",
-    "reasoning": "He crosses this plain after the Black Range and before he strikes the blacktop, so the drawing stands early on the leg to the waystation. The pose of horse and rider and the plants are the book's. Its point is on the route line, 20% of the way along the J7 leg “Over the Black Range to The ruined waystation by the blacktop” (j7-seg-56) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "note_safe": "Clouds and rain blow down off the mountains as Billy reaches the blacktop, his horse's head low, his hat pulled down. Cast truck tires lie coiled along the verge.",
+    "reasoning": "He strikes the blacktop a few miles past the creosote plain and turns back along it towards the ruined waystation, so the drawing stands near the end of the leg. The road's centre line is inferred. Its point is on the route line, 90% of the way along the J7 leg “Over the Black Range to The ruined waystation by the blacktop” (j7-seg-56) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
     "vignette": "vignette-head-down-hat-low",
-    "side": "sw",
-    "min_zoom": 9.0,
+    "side": "nw",
+    "min_zoom": 11.0,
     "priority": 2,
     "label": "Head down, hat low",
-    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), the horse's neck lowered. The creosote and the clouds drawn"
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), the horse's neck lowered. The blacktop, the tire casings, the rain and the far ranges drawn from the book"
    }
   },
   {
@@ -5099,6 +4691,584 @@
     "priority": 1,
     "label": "Hat on the road",
     "credit": "Drawn from the book"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.09497,
+     31.50062
+    ]
+   },
+   "properties": {
+    "id": "vignette-coyote-in-the-set",
+    "name": "Billy with the dead coyote",
+    "kind": "vignette",
+    "stands_for": "Billy's trapline in the Peloncillos (J1 and J2)",
+    "place_ref": "j1-hog-canyon-spring",
+    "journey": "J1",
+    "part": 1,
+    "episode": "1-06",
+    "first_seen": "1-06",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "The double set laid for the she-wolf takes a coyote instead. Billy carries it home behind his saddle, and his father cannot say what killed it.",
+    "reasoning": "Takes the steel trap's place at Hog Canyon Spring, on the trapline where the double sets were laid. The snow left only in the north-facing folds of the pass is the book's. The drawing is set on the west side of a point 0.8 km west of Hog Canyon Springs (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "vignette": "vignette-coyote-in-the-set",
+    "side": "w",
+    "min_zoom": 10.0,
+    "priority": 2,
+    "label": "A coyote in the set",
+    "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain). The coyote and the pass drawn from the book"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.22383,
+     30.8388
+    ]
+   },
+   "properties": {
+    "id": "vignette-fair-in-the-alameda",
+    "name": "The fair in the alameda, Colonia Morelos",
+    "kind": "vignette",
+    "stands_for": "Colonia Morelos, the old Mormon settlement where the wolf is shown at the fair (J2)",
+    "place_ref": "j2-colonia-morelos",
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "At the Colonia Morelos fair a brass band waits in the kiosk, and Yaquis with bows walk the crowd beside two Apache boys from the last free camps.",
+    "reasoning": "It takes the brick store's place at the fair's stop, which also carries the wolf's cart. The store stays as the backdrop, since the book sets the alameda opposite it. The drawing is set on the north-east side of a point 1.3 km north of Colonia Morelos (the fair) (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 10: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "vignette": "vignette-fair-in-the-alameda",
+    "side": "ne",
+    "min_zoom": 12.0,
+    "priority": 3,
+    "label": "The fair in the alameda",
+    "credit": "Drawn from the book's description. The store's false front behind follows 1930s Historic American Buildings Survey photographs of false-front stores (public domain), as in the store drawing it replaces"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.06,
+     30.181
+    ]
+   },
+   "properties": {
+    "id": "vignette-mojoneras-de-muerte",
+    "name": "The cairns below the pass",
+    "kind": "vignette",
+    "stands_for": "Billy's wandering in the high Sierra (J3)",
+    "place_ref": "j3-indian-rancherias",
+    "journey": "J3",
+    "part": 2,
+    "episode": "2-01",
+    "first_seen": "2-01",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "On an empty wagon road over the sierra, stone cairns below a narrow pass mark travellers killed by Indians long ago. Billy sees no game and no birds.",
+    "reasoning": "On the point of the drawing it replaces (j3-seg-04, 40% along), on the J3 leg from the Indians' country to the eastern escarpment, where the book puts the wagon road and its pass. The ref is the leg's first stop. The drawing is set on the west side of its own place (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "vignette": "vignette-mojoneras-de-muerte",
+    "side": "w",
+    "min_zoom": 10.0,
+    "priority": 3,
+    "label": "Cairns of the slain",
+    "credit": "Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain). The pass and the cairns drawn from the book's description"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.92977,
+     31.42408
+    ]
+   },
+   "properties": {
+    "id": "vignette-wood-and-the-sawed-stump",
+    "name": "Dragging wood past the sawed stump",
+    "kind": "vignette",
+    "stands_for": "The river bed below the Parham house, the winter Boyd turned fourteen (1-01)",
+    "place_ref": "place-cloverdale",
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-01",
+    "first_seen": "1-05",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Billy drags dead wood home on a travois with Boyd riding the load, past a stump big enough that herders floored a tent on it. Antelope graze among cattle.",
+    "reasoning": "The book sets the stump in the river bed below the house, which stands at Cloverdale. The drawing replaces the dog at the gate on the place pin, which shows from 1-05, so it waits until then although the scene is in 1-01. The scene is in 1-01, but the drawing shows from 1-05, with the pin it stands beside, so it does not show where the story goes before the reader gets there. The drawing is set on the north-east side of a point 0.8 km north of Cloverdale (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "vignette": "vignette-wood-and-the-sawed-stump",
+    "side": "ne",
+    "min_zoom": 12.0,
+    "priority": 2,
+    "label": "The great sawed stump",
+    "credit": "Horse and rider traced from Eadweard Muybridge's plate of the mare Annie G. walking, 1887 (public domain). The travois after a photograph of a mule travois, Little Bighorn, c. 1876 (public domain). The pronghorn after Bureau of Land Management and Great Sand Dunes National Park photographs (public domain). The stump and the bare cottonwoods drawn from the book's description"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.25836,
+     31.03598
+    ]
+   },
+   "properties": {
+    "id": "vignette-old-woman-and-girl",
+    "name": "The old woman and the girl",
+    "kind": "vignette",
+    "stands_for": "The pilgrims' trail south through the mountains (J2)",
+    "place_ref": "j2-seg-07",
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "By the trail an old woman and her son's young wife roll cigarettes. She tells of a priest shot at his church wall and calls the land cursed.",
+    "reasoning": "Takes the place of burro-stampede at the same point: the two women sit by the trail just after the burros bolt. Her memory of the priest at Ascensión is drawn in her smoke, as a telling, not as the scene itself. Its point is on the route line, 30% of the way along the J2 leg “Up the Cajón Bonito to Passes of the Sierra de la Cabellera” (j2-seg-07) by length, measured on the WGS 84 ellipsoid. The drawing is set on the east side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "vignette": "vignette-old-woman-and-girl",
+    "side": "e",
+    "min_zoom": 10.0,
+    "priority": 1,
+    "label": "A curse on the land",
+    "credit": "Drawn from the book. No reference found"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.47201,
+     29.03081
+    ]
+   },
+   "properties": {
+    "id": "vignette-torreon-field",
+    "name": "The field at Torreón",
+    "kind": "vignette",
+    "stands_for": "Billy and the girl ride back through Santa Ana (J5)",
+    "place_ref": "j5-santa-ana-return",
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-12",
+    "first_seen": "3-12",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "At their meal in the acacias the girl tells of her grandmother's last husband shot at Torreón, his horse wandering riderless among the dead as small wolves came.",
+    "reasoning": "Takes the place of acacia-picnic at the same stop, because the girl tells the story at the meal in the acacia grove. Torreón is far off the route, so the drawing stands where it is told. The moon, the palmettos, the birds and the dropped sword are from the passage. The drawing is set on the south side of Back through Santa Ana (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly.",
+    "vignette": "vignette-torreon-field",
+    "side": "s",
+    "min_zoom": 8.0,
+    "priority": 2,
+    "label": "Torreón, as the girl tells it",
+    "credit": "The horse is traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), with the rider cut away. The wolves are the traced she-wolf (US Fish and Wildlife Service photograph, public domain). The rest is drawn from the book"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.46078,
+     29.84348
+    ]
+   },
+   "properties": {
+    "id": "vignette-old-woman-at-prayer",
+    "name": "The old woman at prayer",
+    "kind": "vignette",
+    "stands_for": "The church at San Buenaventura, where Billy asks after the gravedigger (J7)",
+    "place_ref": "j7-san-buenaventura",
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "In the dark church a woman in a rebozo kneels before the altar candles. The gravedigger is dead, the priest gone. She prays for everyone, her sons long dead.",
+    "reasoning": "She kneels in the church of San Buenaventura, the stop that ends the leg, so the drawing takes that stop from billy-in-the-rain, which it replaces. The altar, the candles and the loose floor tiles are the book's. The cross on the wall is inferred. The drawing is set on the south-east side of San Buenaventura (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 9: further out it would touch another drawing or cover more. At zoom 12 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "vignette": "vignette-old-woman-at-prayer",
+    "side": "se",
+    "min_zoom": 12.0,
+    "priority": 3,
+    "label": "The old woman at prayer",
+    "credit": "Drawn from the book's description, no reference used"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.91479,
+     30.73455
+    ]
+   },
+   "properties": {
+    "id": "vignette-the-bandolero",
+    "name": "Robbed at dawn on the river trail",
+    "kind": "vignette",
+    "stands_for": "The horsemen who stop Billy on the river trail north of Corralitos (J7)",
+    "place_ref": "j7-seg-42",
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "At first light four riders stop Billy by the river. One slits open Boyd's shroud, finds only bones, and stabs Niño, while Billy presses his hat to the wound.",
+    "reasoning": "The riders come out of a grove an hour north of Corralitos, so the drawing stands near the end of the leg up the river trail, just short of the attack stop. Three riders sit their horses. The fourth, on foot, is left out to keep it simple. Its point is on the route line, 90% of the way along the J7 leg “Corralitos before dawn to The river trail north of Corralitos” (j7-seg-42) by length, measured on the WGS 84 ellipsoid. The drawing is set on the south-east side of a point 2.0 km south of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 11, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "vignette": "vignette-the-bandolero",
+    "side": "se",
+    "min_zoom": 11.0,
+    "priority": 2,
+    "label": "Hat to the wound",
+    "credit": "Horses and riders traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored, Niño with the rider cut away. Billy, the grove, the dawn and the cut bedroll drawn from the book"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.43227,
+     32.20942
+    ]
+   },
+   "properties": {
+    "id": "vignette-boyd-by-the-fire",
+    "name": "Boyd by the fire",
+    "kind": "vignette",
+    "stands_for": "The brothers' camp on the old road through the Dos Cabezas (J4)",
+    "place_ref": "j4-dos-cabezas",
+    "journey": "J4",
+    "part": 2,
+    "episode": "2-07",
+    "first_seen": "2-07",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Camped in a stony arroyo, Boyd stares into the fire. To Billy he seems to carry news of some vast loss nobody else has heard.",
+    "reasoning": "They camp the evening they strike the old road south into the Dos Cabezas, so the drawing takes that stop and replaces route-666, a repeat of the riding-double drawings. The arroyo stones and Billy watching across the fire are the book's. Boyd is bareheaded for his pale hair, which is inferred. The drawing is set on the north-west side of The old road through the Dos Cabezas (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "vignette": "vignette-boyd-by-the-fire",
+    "side": "nw",
+    "min_zoom": 9.0,
+    "priority": 2,
+    "label": "Boyd by the fire",
+    "credit": "Drawn from the book's description, no reference used. Billy seated as in the round 5 drawings"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -109.29677,
+     31.16044
+    ]
+   },
+   "properties": {
+    "id": "vignette-ruined-rancho",
+    "name": "The ruined rancho on the Cajón Bonito",
+    "kind": "vignette",
+    "stands_for": "The small rancho Billy passes with the she-wolf on the trail south (J2)",
+    "place_ref": "j2-seg-06",
+    "journey": "J2",
+    "part": 1,
+    "episode": "1-09",
+    "first_seen": "1-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Three crumbling adobes beside the trail south, a waystation long fallen in. A man in rags, half clothed in the cold, stands at a door. No smoke rises.",
+    "reasoning": "Billy comes on the rancho an hour after striking the Cajón Bonito trail, so the drawing stands near the end of the leg up from the boundary. Billy and the wolf are left out so the ruin and the man carry it. It replaces wolf-on-the-rope. Its point is on the route line, 90% of the way along the J2 leg “The boundary, a monument in sight to Up the Cajón Bonito” (j2-seg-06) by length, measured on the WGS 84 ellipsoid. The drawing is set on the north-west side of a point 2.0 km north-west of its point on the route (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "vignette": "vignette-ruined-rancho",
+    "side": "nw",
+    "min_zoom": 10.0,
+    "priority": 3,
+    "label": "The ruined rancho",
+    "credit": "The houses drawn after Russell Lee's photograph of an adobe house at Peñasco, New Mexico, about 1940 (Library of Congress, FSA/OWI, public domain), broken down as the book has them. The man in rags and the ocotillo drawn from the book"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.56667,
+     29.75
+    ]
+   },
+   "properties": {
+    "id": "vignette-mesa-hamlets",
+    "name": "Back north through the mesa hamlets",
+    "kind": "vignette",
+    "stands_for": "Billy's ride back north through Álamo and Galeana (J5)",
+    "place_ref": "j5-alamo",
+    "journey": "J5",
+    "part": 3,
+    "episode": "3-14",
+    "first_seen": "3-14",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Back north through the mud villages of the mesa, thin and grey with dust, Billy passes doorways where people watch him go. His search becomes a story people tell.",
+    "reasoning": "Álamo is the first of the mesa hamlets the book names on his way back north, so the drawing takes that stop. It replaces billy-to-the-watershed, which repeated billy-searching. Who watches from which door is inferred. The drawing is set on the south-east side of Álamo (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 9: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "vignette": "vignette-mesa-hamlets",
+    "side": "se",
+    "min_zoom": 10.0,
+    "priority": 3,
+    "label": "The mesa hamlets",
+    "credit": "The mud houses drawn after Russell Lee's photograph of an adobe house at Peñasco, New Mexico, about 1940 (Library of Congress, FSA/OWI, public domain). Horse and rider traced from Eadweard Muybridge, Animal Locomotion plate 580, 1887 (public domain), mirrored. The watchers drawn from the book"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.93627,
+     29.9
+    ]
+   },
+   "properties": {
+    "id": "vignette-rodeo-wall",
+    "name": "The granja wall, as the blind man tells it",
+    "kind": "vignette",
+    "stands_for": "The executions at Rodeo, as the blind man tells them (J4, told, 3-09)",
+    "place_ref": "j4-blind-man",
+    "journey": "J4",
+    "part": 3,
+    "episode": "3-09",
+    "first_seen": "3-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "At Rodeo, years before, a girl leads the blind man to the granja wall where her father and brothers were shot. The town's women have scrubbed it clean.",
+    "reasoning": "The blind man tells Billy this story at his house, so it stands at that stop, and it sits inside the corrido drawings' border to mark a story told. The bucket is inferred: the book says only that the town's women washed the wall. That she still carries her father's straw hat there is inferred too. The drawing is set on the south-east side of a point 1.3 km east of The blind man's house (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "vignette": "vignette-rodeo-wall",
+    "side": "se",
+    "min_zoom": 12.0,
+    "priority": 2,
+    "label": "His telling: the granja wall",
+    "credit": "Drawn from the book, inside a border after the printed broadside corridos of the early twentieth century, as for the corrido drawings"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.0761,
+     29.81424
+    ]
+   },
+   "properties": {
+    "id": "vignette-girl-taken-away",
+    "name": "The girl taken away, as Quijada tells it",
+    "kind": "vignette",
+    "stands_for": "The girl led away at San Lorenzo, as Quijada tells it (J6, reported, 4-05)",
+    "place_ref": "j6-san-lorenzo",
+    "journey": "J6",
+    "part": 4,
+    "episode": "4-05",
+    "first_seen": "4-05",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Quijada tells Billy that Boyd died at San Lorenzo. The girl was led away soaked in blood and stumbling, but not shot, and no one knows where she went.",
+    "reasoning": "At San Lorenzo, where Quijada places Boyd's death. It is his account and not a scene the book shows, so it sits inside the corrido drawings' border (the corrido itself has her die with the güerito). The two men holding her up, their dark coats and the blood on the road are inferred: the book says only that she was taken away. The drawing is set on the south-east side of San Lorenzo, Chihuahua (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out, on every side, it would touch another drawing, or cover a stop or a route line.",
+    "vignette": "vignette-girl-taken-away",
+    "side": "se",
+    "min_zoom": 9.0,
+    "priority": 2,
+    "label": "Quijada's telling: the girl taken",
+    "credit": "Drawn from the book. The adobe is after Russell Lee's photograph of an adobe house at Peñasco, New Mexico, about 1940 (Library of Congress, FSA/OWI, public domain). The scene sits inside a border after the printed broadside corridos of the early twentieth century, as for the corrido drawings"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.00325,
+     29.9897
+    ]
+   },
+   "properties": {
+    "id": "vignette-wolves-dream",
+    "name": "Billy's dream of the wolves",
+    "kind": "vignette",
+    "stands_for": "Billy's dream in the field near the river breaks (J4, 3-09)",
+    "place_ref": "j4-seg-37",
+    "journey": "J4",
+    "part": 3,
+    "episode": "3-09",
+    "first_seen": "3-09",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Sleeping in a field after leaving the blind man, Billy dreams that wolves follow him through blue snow to his parents' gate, touch his face, then lope away.",
+    "reasoning": "The book names no place for the field, only a river's breaks a mile off. The night falls after he strikes the main road at the desert crossroads, so the drawing sits just past it. The house's shape and the fence are inferred. Its point is on the route line, 5% of the way along the J4 leg “The desert crossroads on the main road north to Mata Ortiz, the blue tienda” (j4-seg-37) by length, measured on the WGS 84 ellipsoid. The drawing is set on the west side of its point on the route (where it covers the fewest stops, route lines and other drawings), beside the point rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "vignette": "vignette-wolves-dream",
+    "side": "w",
+    "min_zoom": 10.0,
+    "priority": 2,
+    "label": "The wolves in the dream",
+    "credit": "Drawn from the book. The wolves are the traced she-wolf (US Fish and Wildlife Service photograph, public domain), made smaller"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.02556,
+     29.4629
+    ]
+   },
+   "properties": {
+    "id": "vignette-las-varas-lumber",
+    "name": "Lumber and maize at Las Varas",
+    "kind": "vignette",
+    "stands_for": "The railway side of Las Varas (J4, 3-04)",
+    "place_ref": "j4-las-varas",
+    "journey": "J4",
+    "part": 3,
+    "episode": "3-04",
+    "first_seen": "3-04",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Riding hungry into Las Varas, the brothers pass buttressed maize warehouses, fresh-cut pine stacked along the sidings, and a dog on three legs that bars their way.",
+    "reasoning": "At the Las Varas stop. The buttressed adobe warehouses and their signs, the slab pine along the sidings, the tracks and the dog are the book's. The warehouse's shape, the stacking of the boards and the dog's coat are inferred. The drawing is set on the south-east side of a point 2.0 km south of Las Varas (geodesic distance on WGS 84), moved off it because on every side it would touch another drawing there. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 10, not 8: further out it would touch another drawing or cover more. At zoom 10 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "vignette": "vignette-las-varas-lumber",
+    "side": "se",
+    "min_zoom": 10.0,
+    "priority": 2,
+    "label": "Pine on the sidings, Las Varas",
+    "credit": "Drawn from the book"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -107.94292,
+     30.69886
+    ]
+   },
+   "properties": {
+    "id": "vignette-corralitos-slagheaps",
+    "name": "Slag heaps at Corralitos",
+    "kind": "vignette",
+    "stands_for": "Corralitos before first light (J7, 4-06)",
+    "place_ref": "j7-corralitos",
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-06",
+    "first_seen": "4-06",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Before dawn Billy rides through Corralitos with Boyd's body, past adobes loopholed against Apaches long gone and slag heaps black on the sky.",
+    "reasoning": "At the Corralitos stop, which he passes before full light. The ruins, the loopholes and the slag heaps are the book's, their shapes inferred. Billy and the packhorse are left out so that the town reads at map size. The drawing is set on the west side of Corralitos before dawn (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 9, not 8: further out it would touch another drawing or cover more. At zoom 9 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "vignette": "vignette-corralitos-slagheaps",
+    "side": "w",
+    "min_zoom": 9.0,
+    "priority": 2,
+    "label": "Slag heaps at Corralitos",
+    "credit": "Drawn from the book"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -108.8709,
+     31.49525
+    ]
+   },
+   "properties": {
+    "id": "vignette-die-up-of-86",
+    "name": "The die-up of '86, as Sanders remembers it",
+    "kind": "vignette",
+    "stands_for": "Old Sanders's memory of the 1886 drought (J7, told, 4-01)",
+    "place_ref": "j7-sanders",
+    "journey": "J7",
+    "part": 4,
+    "episode": "4-01",
+    "first_seen": "4-01",
+    "certainty": "approximate",
+    "method": "hand-drawn",
+    "source": "this-site",
+    "source_id": null,
+    "source_licence": "CC BY 4.0",
+    "note_safe": "Old Sanders remembers the die-up after the 1886 drought, and driving north cattle bought for almost nothing, so thin the evening sun nearly showed through them.",
+    "reasoning": "At the Sanders ranch, where the old man tells it, so the caption names it as his memory. The skull on the plain is inferred from the die-up. The cattle are drawn dark on the sun, ribs left pale, for the book's thinness. The drawing is set on the east side of Sanders' (the SK Bar) (where it covers the fewest stops, route lines and other drawings), beside the pin rather than on it. It is not to scale, and it shows roughly where the scene happens, not exactly. Shown from zoom 12, not 8: further out it would touch another drawing or cover more. At zoom 12 it still covers a stop or a route line on every side, but a drawing waits no longer than it must to keep clear of the others, so it sits on the side where it covers least.",
+    "vignette": "vignette-die-up-of-86",
+    "side": "e",
+    "min_zoom": 12.0,
+    "priority": 2,
+    "label": "Sanders remembers: the die-up",
+    "credit": "Drawn from the book. The starved cattle are drawn by hand"
    }
   }
  ]

@@ -282,34 +282,43 @@ def playa_rider() -> Drawing:
     return d
 
 
-# 7. The miners' family by the old silver mine, watching the riders pass (2-08) -------------------------
+# 7. The meadow of stumps and the fallen sawmill, and across the valley the miners' family at the old silver mine
+# watching the riders pass (2-08) ----------------------------------------------------------------------------
 def silver_mine_family() -> Drawing:
     d = Drawing("silver-mine-family")
-    # The hillside and its pale tailings.
-    d.line("M2,58 C18,40 30,30 46,26 C60,24 76,30 94,40", w=1.0)
-    tail = "M30,58 C34,46 40,40 46,38 C52,42 58,50 64,60 Z"
-    d.shape(tail, w=1.1)
-    d.dots([(40, 52), (44, 47), (48, 55), (52, 50), (56, 57), (38, 56), (46, 43)], r=0.6)
-    # The old headframe over the shaft, its sheave wheel, and a rusted flywheel on the ground.
-    d.line("M10,62 L18,24 L26,62 M12,52 L24,52 M14,42 L22,42 M18,24 L32,44", w=1.4)
-    d.shape(circle(18, 24, 3.4), w=1.1, fill=False)
-    d.dots([(18, 24)], r=0.8)
-    d.shape(poly((26, 62), (26, 50), (36, 50), (36, 62)), w=1.2)
-    d.hatch(poly((26, 62), (26, 50), (36, 50), (36, 62)), angle=45, pitch=1.6)
-    d.shape(circle(10, 68, 4.4), w=1.1, fill=False)
-    d.line("M10,68 l3,-3 M10,68 l-3,3 M10,68 l3.6,1 M10,68 l-3.6,-1", w=0.6, halo=False)
-    # Huts woven of withies.
-    for x, y, s in ((42, 72, 1.0), (56, 68, 0.8)):
-        hut = place("M-9,0 C-9,-9 -4,-12 0,-12 C4,-12 9,-9 9,0 Z", x, y, s)
-        d.shape(hut, w=1.2)
-        d.hatch(hut, angle=70, pitch=1.6)
-        d.shape(place("M-2,0 L-2,-5 C-2,-6.4 2,-6.4 2,-5 L2,0 Z", x, y, s), w=0.9)
-    d.line("M46,74 l2,-3 l1.2,2 l1,-3 l1.4,4", w=0.9)
-    # The family drawn up in a row, all sizes, each shading their eyes against the low sun.
-    for x, h in ((60, 26), (68.4, 23), (75.6, 19), (81.6, 15), (86.6, 12), (91.2, 9)):
-        p = figure(d, x, 88, h, hat=h > 24, coat=h > 20)
-        d.line(p("M2.6,-16.6 L5,-19.6 L1.4,-22.6"), w=0.9)
-    d.ground(2, 94, 89, ticks=7, seed=408)
+    # Across the valley: the far slope, the pale tailings, the headframe over the shaft.
+    d.line("M2,40 C18,24 32,16 48,14 C62,13 78,18 94,26", w=1.0)
+    tail = "M28,42 C30,32 34,26 38,24 C42,27 46,34 50,42 Z"
+    d.shape(tail, w=1.0)
+    d.dots([(34, 36), (38, 30), (42, 38), (36, 40), (44, 41)], r=0.5)
+    d.line("M10,42 L15,22 L20,42 M12,34 L18,34 M15,22 L24,32", w=1.1)
+    d.shape(circle(15, 22, 2.2), w=0.9, fill=False)
+    # Their withy huts and the family drawn up in a row, all sizes, shading their eyes.
+    hut = place("M-6,0 C-6,-6 -3,-8 0,-8 C3,-8 6,-6 6,0 Z", 86, 40, 1.0)
+    d.shape(hut, w=1.0)
+    d.hatch(hut, angle=70, pitch=1.4)
+    for x, h in ((56, 15), (60.6, 13.4), (64.8, 11.6), (68.4, 9.6), (71.6, 7.8), (74.4, 6.4)):
+        p = figure(d, x, 46, h, hat=False, coat=h > 12)
+        d.line(p("M2.6,-16.6 L5,-19.6 L1.4,-22.6"), w=0.8)
+    d.line("M2,50 C30,48 60,49 94,47", w=0.7, halo=False)
+    # This side: a meadow scattered with the stumps of cut pines.
+    for x, y, s in ((10, 60, 0.8), (30, 58, 0.7), (64, 60, 0.75), (86, 58, 0.7), (20, 72, 1.0), (78, 74, 1.1),
+                    (50, 66, 0.8), (6, 86, 1.3), (90, 88, 1.2)):
+        stump = f"M{x - 4 * s},{y} L{x - 3.4 * s},{y - 6 * s} L{x + 3.4 * s},{y - 6 * s} L{x + 4 * s},{y} Z"
+        d.shape(stump, w=1.1)
+        d.hatch(stump, angle=60, pitch=0.9, cross=True)
+        d.shape(ellipse(x, y - 6 * s, 3.4 * s, 1.1 * s), w=0.8)
+    # The ruin of an old sawmill: the rusted saw, and the frame of heavy timbers fallen askew across it.
+    blade = ellipse(50, 82, 8, 7)
+    d.shape(blade, w=1.4)
+    teeth = " ".join(f"M{50 + 8 * math.cos(a):.1f},{82 + 7 * math.sin(a):.1f} l{2 * math.cos(a + 1.2):.1f},"
+                     f"{2 * math.sin(a + 1.2):.1f}" for a in [i * math.pi / 9 for i in range(18)])
+    d.line(teeth, w=0.8)
+    d.hatch("M44,86 C46,80 52,78 56,80 C56,84 52,88 46,88 Z", angle=45, pitch=1.0)
+    d.dots([(50, 82)], r=1.2)
+    d.line("M24,92 L30,68 M30,68 L44,62 L62,74 L66,92", w=2.0)
+    d.line("M20,82 L68,78 M36,92 L70,72", w=1.7)
+    d.ground(2, 94, 92, ticks=7, seed=408)
     return d
 
 
@@ -496,48 +505,6 @@ def wedding_carreta() -> Drawing:
     return d
 
 
-# Part A: three of the first candidates, at their stops -------------------------------------------------
-# 15. The brick store with its false wooden front at Colonia Morelos (1-09) -----------------------------
-def mormon_store() -> Drawing:
-    d = Drawing("mormon-store")
-    # The tin roof running back behind the false front.
-    roof = poly((14, 40), (26, 28), (66, 28), (70, 40))
-    d.shape(roof, w=1.3)
-    d.line(" ".join(f"M{x},{28.6} L{x - 4},{39.4}" for x in range(30, 68, 3)), w=0.5, halo=False)
-    # The false front: a square board face above the brick store, a cornice along its top.
-    front = poly((6, 84), (6, 24), (50, 24), (50, 84))
-    d.shape(front)
-    d.shape(poly((4, 24), (4, 19), (52, 19), (52, 24)), w=1.3)
-    d.line(" ".join(f"M6,{y} L50,{y}" for y in range(28, 46, 3)), w=0.4, halo=False)
-    d.line("M14,32 l28,0 M14,36 l28,0", w=0.9, halo=False)
-    d.line(" ".join(f"M6,{y} L50,{y}" for y in range(49, 84, 3)), w=0.4, halo=False)
-    d.line(" ".join(f"M{x + (y // 3 % 2) * 3},{y} l0,3" for y in range(48, 84, 3) for x in range(9, 50, 6)), w=0.4,
-           halo=False)
-    d.line("M6,46 L50,46", w=1.2)
-    door = poly((24, 84), (24, 62), (32, 62), (32, 84))
-    d.shape(door, w=1.2)
-    d.hatch(door, angle=45, pitch=1.4, cross=True)
-    for x in (10, 38):
-        win = poly((x, 52), (x + 8, 52), (x + 8, 74), (x, 74))
-        d.shape(win, w=1.1)
-        d.hatch(win, angle=45, pitch=1.4)
-        d.line(f"M{x + 4},52 L{x + 4},74", w=0.6, halo=False)
-    d.edge_shade(front, dx=-3, dy=0)
-    # The side wall, with brick courses, and the alameda's trees across the road with the fair's bunting.
-    side = poly((50, 84), (50, 40), (68, 40), (68, 84))
-    d.shape(side, w=1.4)
-    d.hatch(side, angle=45, pitch=2.0)
-    d.line("M86,86 C86,74 84,64 86,54", w=1.4)
-    crown = blob(84, 44, 10, 12, 10, seed=411, depth=0.25)
-    d.shape(crown, w=1.3)
-    d.edge_shade(crown, dx=-3, dy=-3)
-    d.line("M52,22 C62,30 74,32 82,30", w=0.7)
-    d.shape(" ".join(f"M{x},{22 + (x - 52) * 0.6 - (x - 52) ** 2 * 0.006:.1f} l3,0 l-1.5,4 Z" for x in range(54, 80, 5)),
-            w=0.7)
-    d.ground(2, 94, 87, ticks=7, seed=412)
-    return d
-
-
 # 16. The old man's oxen wading into the river to drink (3-03) ------------------------------------------
 def oxen_at_the_river() -> Drawing:
     d = Drawing("oxen-at-the-river")
@@ -610,7 +577,6 @@ SUBJECTS = {
     "gold-star": gold_star,
     "children-on-nino": children_on_nino,
     "wedding-carreta": wedding_carreta,
-    "mormon-store": mormon_store,
     "oxen-at-the-river": oxen_at_the_river,
     "babicora-hereford": babicora_hereford,
 }

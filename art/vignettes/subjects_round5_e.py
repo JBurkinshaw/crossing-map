@@ -205,6 +205,11 @@ def the_chase() -> Drawing:
         rider(d, x, 50, 0.15, flip=True, hat="cowboy", reins=False, leg=False)
         d.line(f"M{x - 1},43.4 l-3.6,1", w=0.9, halo=False)
 
+    # Bailey, shot above the hock, stopped dead on the plain behind them, head hanging, the blood running down.
+    bailey = horse(d, 84, 74, 0.25, flip=True, graze=0.8, saddle=False)
+    d.dots([bailey(34, 66), bailey(33.4, 72), bailey(33, 78), bailey(32.6, 84)], r=0.9)
+    d.line(" ".join(f"M{x:.1f},{y:.1f} l2,0" for x, y in (bailey(20, 92), bailey(60, 92))), w=0.8, halo=False)
+
     # Niño at a run, legs flung out, Boyd slumped in the saddle and Billy up behind holding him on.
     k, ox, oy = 0.62, 44, 90
 
@@ -224,7 +229,7 @@ def the_chase() -> Drawing:
            front=[[f(42, 29), f(47, 33), f(52, 34)]], r=3.0 * k, width=8 * k, w=1.4)
     hat(d, *f(40, 19.6), s=1.1)
     # Dust kicked up behind.
-    d.line("M74,86 c3,-3 6,-2 8,-5 M76,90 c4,-2 7,0 10,-3", w=0.8, halo=False)
+    d.line("M60,88 c3,-3 6,-2 8,-5", w=0.8, halo=False)
     d.ground(2, 94, 91, ticks=6, seed=705)
     return d
 

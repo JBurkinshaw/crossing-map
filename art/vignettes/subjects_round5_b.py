@@ -14,16 +14,20 @@ import svgelements as se
 
 from art import PAPER
 from art.vignettes.ink import Drawing
-from art.vignettes.shapes import circle, ellipse, grass, poly, warp
-from art.vignettes.subjects_parts_1_2 import wolf
+from art.vignettes.shapes import circle, ellipse, grass, poly, traced, warp
+from art.vignettes.subjects_parts_1_2 import fit, wolf
 from art.vignettes.subjects_parts_3_4 import cottonwood, pine, place, rider
 from art.vignettes.subjects_round3 import figure, fire, horse
 from art.vignettes.subjects_round4 import MULE_EARS, water
+from art.vignettes.subjects_round5_e import hat, person
 
 # The traced wolf lying down, legs folded under her and her head lowered (as in subjects_round4).
 LIE = lambda x, y: (x, 50 + (y - 50) * 0.35 if y > 50 else y + (6 if x > 70 else 3))  # noqa: E731
 # Sitting on her haunches (as in wolf-by-the-fire).
 SIT = lambda x, y: (x, y + (0.32 * (40 - x) if x < 40 else 0) - (6 if x > 66 else 0))  # noqa: E731
+
+# Her eye on the traced outline's 96 grid.
+EYE = (83.0, 36.0)
 
 
 def hound(x: float, y: float) -> tuple[float, float]:
@@ -78,10 +82,19 @@ def sleet_camp() -> Drawing:
     cottonwood(d, 6, 50, 34, 22, seed=551)
     # The washed-out elbow of root standing out of the bank, the wolf's rope tied to it.
     d.line("M16,58 C22,58 28,60 30,66 C31,70 28,74 22,76", w=2.0)
-    d.line("M30,68 C40,70 50,70 60,71", w=0.9)
-    # She lies on the arroyo floor facing the fire, her tail curled over her nose.
-    wolf(d, 0.44, 30, 50, bend=LIE, w=1.4)
-    d.line("M70.6,74 C74,72 76,74 76,77", w=1.2)
+    d.line("M30,68 C36,72 40,78 42,84", w=0.9)
+    # She sits on her haunches in the dark of the draw, facing the fire, and her eye burns red in its light:
+    # her body hatched dark, the eye left as a glowing point of paper.
+    k, ox, oy = 0.6, 16, 36
+    wolf(d, k, ox, oy, bend=SIT, w=1.4)
+    f = fit(k, ox, oy)
+    for p in traced("she-wolf")["outline"]:
+        d.hatch(warp(p, lambda x, y: f(*SIT(x, y))), angle=45, pitch=1.5, cross=True)
+    ex, ey = f(*SIT(*EYE))
+    d.shape(circle(ex, ey, 2.0), w=0.8)
+    d.line(" ".join(f"M{ex + 3.0 * math.cos(a):.1f},{ey + 3.0 * math.sin(a):.1f} "
+                    f"l{1.3 * math.cos(a):.1f},{1.3 * math.sin(a):.1f}" for a in (i * math.pi / 3 for i in range(6))),
+           w=0.8, color=PAPER, halo=False)
     fire(d, 84, 86, 1.0)
     # The fine sleet slanting out of the dark and hissing in the coals.
     sleet(d, 40, 96, 2, 64, 34, seed=552)
@@ -137,27 +150,6 @@ def burro(d: Drawing, ox: float, oy: float, k: float, flip: bool = False, tilt: 
     f = horse(d, ox, oy, k, flip=flip, saddle=False, pack=True)
     d.line(warp(MULE_EARS, f), w=1.0)
     turn(d, since, ox, oy, tilt)
-
-
-def burro_stampede() -> Drawing:
-    d = Drawing("burro-stampede")
-    # The mountainside falling away to the right, pines on it.
-    d.line("M2,26 C30,36 60,58 94,84", w=1.0)
-    pine(d, 10, 28, 26, seed=556)
-    pine(d, 90, 80, 30, seed=557)
-    # The burros careering down it.
-    burro(d, 34, 52, 0.42, tilt=22)
-    burro(d, 66, 84, 0.5, tilt=26)
-    # Behind them the panniers broken open: baled hides tumbling, a blanket, the frame of a kiack.
-    for x, y, a in ((14, 40, -20), (22, 30, 30), (48, 62, 10)):
-        bale = len(d.items)
-        b = poly((x - 4, y - 2.6), (x + 4, y - 2.6), (x + 4, y + 2.6), (x - 4, y + 2.6))
-        d.shape(b, w=1.1)
-        d.line(f"M{x - 1.4},{y - 2.6} l0,5.2 M{x + 1.6},{y - 2.6} l0,5.2", w=0.6, halo=False)
-        turn(d, bale, x, y, a)
-    d.line("M6,50 L14,54 M8,56 L12,48", w=1.1)
-    d.dots([(18, 22), (30, 44), (54, 70)], r=0.7)
-    return d
 
 
 # 4. Huarache and barefoot prints in the snow of the pass, the wolf's among them (1-09) -----------------
@@ -218,33 +210,44 @@ def meadow_no_fire() -> Drawing:
     return d
 
 
-# 6. The muzzled wolf backed under a wagon, the town's dogs and children in the road (1-09) -------------
+# 6. The muzzled wolf dragged from under the wagon, a deputy kicking the grey dog, the children laughing (1-09)
 def wolf_under_the_wagon() -> Drawing:
     d = Drawing("wolf-under-the-wagon")
-    # The mud wall of the house behind, a dark doorway in it.
-    wall = "M-2,66 L-2,14 C8,12 14,16 22,13 L30,18 C40,16 46,20 56,15 C66,12 72,18 80,14 L88,17 L98,13 L98,66 Z"
+    # The mud wall of the house behind.
+    wall = "M-2,50 L-2,10 C8,8 14,12 22,9 L30,14 C40,12 46,16 56,11 C66,8 72,14 80,10 L88,13 L98,9 L98,50 Z"
     d.shape(wall, w=1.4)
-    d.line("M10,24 l4,0.4 M26,28 l3,0 M70,26 l4,0 M86,22 l3,0.4 M64,30 l3,0", w=0.7, halo=False)
-    # The wagon: a plank bed on two spoked wheels.
-    bed = poly((2, 44), (2, 34), (92, 34), (92, 44))
-    d.shape(bed, w=1.6)
-    d.line("M2,39 L92,39", w=0.6, halo=False)
-    d.edge_shade(bed, dx=0, dy=-2.4)
-    for cx in (14, 80):
-        d.shape(circle(cx, 56, 10), w=1.6)
-        d.line(" ".join(f"M{cx},56 L{cx + 9.4 * math.cos(a):.1f},{56 + 9.4 * math.sin(a):.1f}"
-                        for a in (i * math.pi / 5 for i in range(10))), w=0.6, halo=False)
-        d.shape(circle(cx, 56, 1.8), w=0.9)
-    # The shadow under the wagon, and in it the wolf backed against the wall, facing out, the homemade muzzle over her jaws.
-    d.hatch(poly((24, 44), (70, 44), (70, 66), (24, 66)), angle=45, pitch=1.6, cross=True)
-    wolf(d, 0.46, 26, 30, flip=True, bend=LIE, w=1.5)
-    d.line("M27,50 L34,49.4 M27,52.6 L33.4,52 M29,48.6 L29.4,54 M32,48.4 L32.4,53.6", w=0.7, halo=False)
-    d.line("M2,66 L98,66", w=1.0)
-    # The dogs and children in the road.
-    wolf(d, 0.24, 2, 72, bend=hound, w=1.2)
-    wolf(d, 0.24, 66, 72, flip=True, bend=hound, w=1.2)
-    for x, h in ((38, 22), (48, 18), (58, 20)):
-        figure(d, x, 92, h, hat=False, coat=False)
+    d.line("M10,20 l4,0.4 M26,24 l3,0 M70,22 l4,0 M86,18 l3,0.4 M64,26 l3,0", w=0.7, halo=False)
+    # The wagon against it, and the dark she was dragged out of.
+    d.hatch(poly((6, 36), (46, 36), (46, 50), (6, 50)), angle=45, pitch=1.6, cross=True)
+    bed = poly((2, 36), (2, 28), (50, 28), (50, 36))
+    d.shape(bed, w=1.5)
+    d.edge_shade(bed, dx=0, dy=-2.2)
+    for cx in (10, 42):
+        d.shape(circle(cx, 42, 7.4), w=1.4)
+        d.line(" ".join(f"M{cx},42 L{cx + 7 * math.cos(a):.1f},{42 + 7 * math.sin(a):.1f}"
+                        for a in (i * math.pi / 4 for i in range(8))), w=0.6, halo=False)
+    d.line("M-2,50 L98,50", w=1.0)
+    # The wolf bowed up in the road, the homemade muzzle on her jaws, a deputy hauling her off by the rope.
+    wolf(d, 0.34, 44, 38, flip=True, w=1.4)
+    d.line("M45,52 L50,51.6 M45,54 L49.6,53.6 M46.6,50.6 L47,55", w=0.7, halo=False)
+    d.line("M54,50 C64,48 72,46 80,47", w=0.9)
+    figure(d, 84, 70, 24, flip=True)
+    d.line("M84,56 L80.6,47.4", w=1.1)
+    # The other deputy's boot catching the big grey dog under the jaw and snapping its head up.
+    lift = lambda x, y: (x, y - (x - 62) * 0.55 if x > 62 else y)  # noqa: E731
+    wolf(d, 0.26, 24, 62, flip=True, bend=lift, w=1.2)
+    g = fit(0.26, 24, 62, flip=True)
+    for p in traced("she-wolf")["outline"]:
+        d.hatch(warp(p, lambda x, y: g(*lift(x, y))), angle=45, pitch=2.0)
+    person(d, (14, 55), (14.6, 59.4), (15, 74), back=[[(15, 74), (14, 82), (13, 91)]],
+           front=[[(15, 74), (21, 70.6), (26.6, 72.4)], [(15, 61.6), (9, 66)], [(15, 61.6), (20, 66)]], r=3.0,
+           width=6, w=2.0, dark=True)
+    hat(d, 14, 52.4, s=1.1)
+    d.line("M23,66 l-1,-2.4 M25.6,65 l0,-2.6 M28,65.6 l1.4,-2", w=0.7, halo=False)
+    # The children laughing, heads thrown back, one pointing.
+    for x, h, tip in ((52, 18, -10), (62, 20, 8), (72, 16, -6)):
+        p = figure(d, x, 92, h, hat=False, coat=False)
+        d.line(p(f"M2.6,-16 L{tip},-22"), w=1.0)
     d.ground(2, 94, 92, ticks=6, seed=559)
     return d
 
@@ -368,7 +371,6 @@ def sheet_on_the_trestle() -> Drawing:
 SUBJECTS = {
     "sleet-camp": sleet_camp,
     "false-waterhole": false_waterhole,
-    "burro-stampede": burro_stampede,
     "huarache-prints": huarache_prints,
     "meadow-no-fire": meadow_no_fire,
     "wolf-under-the-wagon": wolf_under_the_wagon,

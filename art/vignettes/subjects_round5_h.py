@@ -12,9 +12,9 @@ import math
 from art import PAPER
 from art.vignettes.ink import Drawing
 from art.vignettes.shapes import circle, ellipse, grass, poly, traced, warp
-from art.vignettes.subjects_parts_3_4 import blob, cottonwood, pine, place, rider
+from art.vignettes.subjects_parts_3_4 import blob, cottonwood, place, rider
 from art.vignettes.subjects_round3 import horse
-from art.vignettes.subjects_round4 import star, water
+from art.vignettes.subjects_round4 import water
 
 
 def rider_head_down(d: Drawing, ox: float, oy: float, k: float, graze: float = 0.8):
@@ -146,28 +146,6 @@ def quijada_cabin_light() -> Drawing:
     # Billy sitting his horse before it, calling out.
     rider(d, 18, 88, 0.34, hat="cowboy")
     d.ground(2, 94, 88, ticks=6, seed=857)
-    return d
-
-
-# 4. West across country by the polestar, leading the packhorse with Boyd's remains and the cross (4-06) ---
-def polestar_night_ride() -> Drawing:
-    d = Drawing("polestar-night-ride")
-    # The polestar and a few others.
-    d.shape(star(48, 12, 5, 0.35), w=1.0)
-    d.line("M48,3 l0,2 M48,19 l0,2 M39,12 l2,0 M55,12 l2,0", w=0.7, halo=False)
-    d.dots([(14, 10), (26, 20), (70, 8), (82, 18), (88, 6), (8, 30), (90, 32)], r=0.6)
-    d.line("M2,52 C30,50 60,51 94,50", w=0.8)
-    # The packhorse behind, Boyd's canvas bundle across the packframe, the cross tied on the near forks.
-    f = horse(d, 70, 86, 0.4, flip=True, saddle=False)
-    bundle = warp("M36,38 C36,31 60,31 60,38 L62,52 C56,55 40,55 34,52 Z", f)
-    d.shape(bundle, w=1.4)
-    d.edge_shade(bundle, dx=1.5, dy=-1.5)
-    d.line(warp("M42,33 L40,53 M54,33 L56,53", f), w=0.8, halo=False)
-    d.line(warp("M50,36 L48,14 M42,21 L56,22", f), w=1.6)
-    # Billy riding ahead, the lead rope back to the packhorse.
-    rider(d, 28, 86, 0.44, flip=True, hat="cowboy")
-    d.line("M42,64 C46,70 50,70 54.8,66", w=0.8)
-    d.ground(2, 94, 89, ticks=6, seed=858)
     return d
 
 
@@ -325,40 +303,43 @@ def waist_deep_caliche() -> Drawing:
 # 9.    return d
 
 
-# 9. North through the mountains to Glenwood (4-08) ---------------------------------------------------------
-def mountains_to_glenwood() -> Drawing:
-    d = Drawing("mountains-to-glenwood")
-    # Ridge behind ridge, and the trail climbing across the slope.
-    far = "M2,30 L14,18 L24,24 L36,12 L50,22 L62,14 L76,24 L86,18 L94,22"
-    d.line(far, w=1.0)
-    d.hatch(far + " L94,30 L2,36 Z", angle=70, pitch=2.6, w=0.6)
-    d.line("M2,52 C20,44 40,40 60,42 C76,44 86,46 94,44", w=1.0)
-    for x, base, h, seed in ((10, 70, 40, 860), (22, 66, 30, 861), (84, 62, 36, 862), (92, 66, 28, 863)):
-        pine(d, x, base, h, seed=seed)
-    d.line("M2,90 C24,86 40,82 60,78 C72,76 84,74 94,74", w=1.0)
-    d.line("M10,94 C30,90 46,86 64,82 C76,80 86,79 94,79", w=0.7, halo=False)
-    # Billy riding alone up the trail.
-    rider(d, 52, 82, 0.4, hat="cowboy")
-    d.dots([(30, 92), (40, 90), (74, 84), (86, 84)], r=0.6)
-    return d
+# 10. Horse head down, rider upright with his hat pulled low, on the blacktop among the cast tire casings (4-08)
+def tire_casing(d: Drawing, cx: float, cy: float, rx: float, ry: float, turn: float = 0.0):
+    """A cast-off truck tire casing lying coiled on the verge: a flattened ring, black, its tread ridged."""
+    outer, inner = ellipse(cx, cy, rx, ry), ellipse(cx + turn, cy - ry * 0.12, rx * 0.56, ry * 0.42)
+    d.shape(outer, w=1.3)
+    d.hatch(outer, angle=45, pitch=1.0, cross=True)
+    d.shape(inner, w=1.0)
+    d.line(" ".join(f"M{cx + rx * 0.62 * math.cos(math.radians(a)):.1f},{cy + ry * 0.62 * math.sin(math.radians(a)):.1f} "
+                    f"L{cx + rx * 0.98 * math.cos(math.radians(a)):.1f},{cy + ry * 0.98 * math.sin(math.radians(a)):.1f}"
+                    for a in range(0, 360, 30)), w=0.9, color=PAPER, halo=False)
 
 
-# 10. Horse head down, rider upright with his hat pulled low, across the creosote plain under cloud (4-08) ---
 def head_down_hat_low() -> Drawing:
     d = Drawing("head-down-hat-low")
-    # The wind-driven clouds darkening the prairie, the far ranges.
-    cloud = "M2,20 C10,10 24,10 30,16 C38,8 54,8 60,14 C68,8 84,8 94,16 L94,24 C70,22 30,22 2,26 Z"
+    # The wind-driven clouds, the rain blowing down in sheets, the far raw ranges under them.
+    cloud = "M2,18 C10,8 24,8 30,14 C38,6 54,6 60,12 C68,6 84,6 94,14 L94,22 C70,20 30,20 2,24 Z"
     d.shape(cloud, w=1.0)
     d.hatch(cloud, angle=0, pitch=1.8)
-    d.line("M2,40 L12,34 L20,36 L30,31 L40,36 L52,33 L64,37 L76,33 L94,36", w=0.9)
-    d.line("M2,42 C30,41 60,41 94,40", w=0.7, halo=False)
-    # Creosote and catclaw on the gravel.
-    creosote(d, 10, 70, 1.0)
-    creosote(d, 86, 66, 0.8)
-    creosote(d, 78, 90, 1.1)
-    rider_head_down(d, 44, 88, 0.5, graze=0.65)
-    d.dots([(14, 92), (22, 90), (60, 92), (70, 91), (30, 94)], r=0.5)
-    d.ground(2, 94, 91, ticks=6, seed=864)
+    d.line(" ".join(f"M{x},{y} l-5,12" for x, y in ((10, 24), (18, 24), (26, 24), (34, 24), (42, 24),
+                                                     (14, 38), (22, 38), (30, 38), (38, 38))),
+           w=0.6, halo=False)
+    d.line("M54,44 L62,38 L68,40 L76,33 L84,39 L90,36 L94,40", w=0.9)
+    d.line("M2,46 C30,45 60,45 94,44", w=0.7, halo=False)
+    # The blacktop crossing the plain, its centre line.
+    road = poly((0, 84), (96, 70), (96, 61), (0, 70))
+    d.shape(road, w=1.3)
+    d.hatch(road, angle=0, pitch=1.6)
+    d.line("M4,76.4 L12,75.1 M22,73.6 L30,72.3 M40,70.8 L48,69.5 M58,68 L66,66.7 M76,65.2 L84,63.9",
+           w=1.4, color=PAPER, halo=False)
+    grass(d, [(6, 85), (40, 80), (70, 75), (90, 72)], h=4)
+    # The castoff casings coiled along the verge, near and far.
+    tire_casing(d, 18, 89, 13, 5.6, turn=1.4)
+    tire_casing(d, 82, 85, 10, 4.2, turn=-1)
+    # Billy on the shoulder, the horse's head down, his hat pulled low.
+    rider_head_down(d, 52, 75, 0.46, graze=0.65)
+    d.dots([(44, 92), (58, 90), (70, 93)], r=0.5)
+    d.ground(36, 94, 95, ticks=4, seed=960)
     return d
 
 
@@ -398,12 +379,10 @@ SUBJECTS = {
     "cienega-cottonwoods": cienega_cottonwoods,
     "girl-cracking-pecans": girl_cracking_pecans,
     "quijada-cabin-light": quijada_cabin_light,
-    "polestar-night-ride": polestar_night_ride,
     "clay-on-the-wound": clay_on_the_wound,
     "reservoir-crane-tracks": reservoir_crane_tracks,
     "ash-wednesday": ash_wednesday,
     "waist-deep-caliche": waist_deep_caliche,
-    "mountains-to-glenwood": mountains_to_glenwood,
     "head-down-hat-low": head_down_hat_low,
     "hat-on-the-tarmac": hat_on_the_tarmac,
 }
