@@ -32,7 +32,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "This Sierra de la Madera is the Sky Island range in the municipios of Cumpas, Granados, Huásabas, Moctezuma and Villa Hidalgo (Bermudez-Enriquez et al. 2013, USDA RMRS-P-67, who call it Sierra La Madera). GeoNames 9028461 lies between those towns: 27 km east of Cumpas and 21 km west of Huásabas on the Bavispe (pipeline/measure/distances.py). The book puts the wolf on its eastern slopes, then across the Bavispe and north, which fits a range bounded on the east by the river. Readers disagree: Bell (2000) and Joe Hazelton's map take the other Sierra de la Madera, on the upper Bavispe (GeoNames 3996948), 81 km north-east. That range lies east of the river, so from it the wolf would reach the border without crossing the Bavispe, which the text has her do.",
-    "synopsis": "Somewhere in Sonora her mate is caught in a trap and killed by men on horseback, after she refuses to leave him. Alone, she roams the eastern slopes of this range for a week and finds almost nothing to eat.",
+    "synopsis": "Somewhere in the mountains of Sonora her mate, caught by one forefoot in a steel trap, bites her to make her go, but she will not leave him. When men come on horseback in the morning, she watches from a nearby slope as he stands to face them. Alone after that, she roams the eastern slopes of this range for a week and finds almost nothing to eat.",
     "leads": [
      {
       "source": "bell-2000",
@@ -114,7 +114,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The book gives this exactly. West of 108°12′ W the boundary follows the parallel 31°20′ N (Gadsden Purchase, 1853), so the point is 31.33333 N, 108.5 W.",
+    "reasoning": "The book gives this point, though only as roughly where she crossed. West of 108°12′ W the boundary follows the parallel 31°20′ N (Gadsden Purchase, 1853), so the point is 31.33333 N, 108.5 W.",
     "synopsis": "She crosses into New Mexico where the boundary meets this meridian, and a mile on she crosses the old Nations road."
    }
   },
@@ -182,7 +182,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The book has her cross the range and go north through its gap, and names no gap. San Luis Pass (GNIS 894461) is the gap through the San Luis Mountains on her way north to the Animas Mountains, so the stop is on the pass, 5.9 km north of the range's GNIS point, 920694 (pipeline/measure/draw_heads.py). Reading \"its gap\" as the pass is this site's inference.",
+    "reasoning": "The book has her cross the range and go north through its gap, and Billy's father names her route as the San Luis Pass (1-01). San Luis Pass (GNIS 894461) is the gap through the San Luis Mountains on her way north to the Animas Mountains, so the stop is on the pass, 5.9 km north of the range's GNIS point, 920694 (pipeline/measure/draw_heads.py).",
     "synopsis": "She crosses the range and goes north through its gap towards the Animas Mountains. The book names the range only in passing."
    }
   },
@@ -191,13 +191,13 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.77136,
-     31.56891
+     -108.81005,
+     31.58161
     ]
    },
    "properties": {
     "id": "j1-animas-mountains",
-    "name": "Animas Mountains",
+    "name": "Animas Mountains, where Taylor's Draw heads",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -216,8 +216,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The book has her pass through the Animas range on her way north and names no pass, and GNIS has no gap on the range north of San Luis Pass. The stop is a saddle on the range's western ridge, at 2,020 m, halfway between San Luis Pass and the Animas Valley stop. From the valley east of the ridge at that latitude, the wolf's least-cost path through to the Animas Valley crosses the ridge here (pipeline/measure/animas_crossing.py). The range's own point is 8.3 km north.",
-    "synopsis": "She passes through the Animas range on her way north. The book names it only in passing."
+    "reasoning": "The book has her come north up the Animas range's western flank to where Taylor's Draw heads, then cross the valley (1-01). Taylor Draw (GNIS 896882, in Hidalgo County; the other in GNIS is in Eddy County, 485 km east) drains the range's western flank to the Animas Valley. GNIS gives the draw two points: its mouth on the valley floor and its head, a source point at 1,677 m. The stop is on the head, 5.7 km above the mouth (pipeline/measure/draw_heads.py).",
+    "synopsis": "She heads north up the western flank of the Animas range, as far as where Taylor's Draw heads. The book names it only in passing."
    }
   },
   {
@@ -225,8 +225,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.86238,
-     31.54764
+     -108.8667,
+     31.56575
     ]
    },
    "properties": {
@@ -250,7 +250,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The GNIS pin for the valley is 108 km north, at 32.57 N. The stop is where her way from the Animas Mountains to Foster Draw in the Peloncillos crosses the valley floor: the lowest ground on the line between those two stops (pipeline/measure/animas_valley_floor.py).",
+    "reasoning": "The GNIS pin for the valley is 108 km north, at 32.57 N. The stop is where her way from the head of Taylor Draw to Foster Draw in the Peloncillos crosses the valley floor: the lowest ground on the line between those two stops, near the mouth of Taylor Draw (pipeline/measure/animas_valley_floor.py).",
     "synopsis": "She crosses the valley floor towards the Peloncillos."
    }
   },
@@ -285,7 +285,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "GNIS 889164 in Hidalgo County. The other two Foster Draws are 158 km and 284 km away. The book puts the kill at the head of the draw, in the Peloncillos. GNIS gives a draw two points: its primary point at the mouth, on the Animas Valley floor, and a source point at the head. The stop is on the source point, 12.4 km west of the mouth and 216 m higher (pipeline/measure/draw_heads.py).",
-    "synopsis": "After two weeks of living on carrion she pulls down a calf in deep snow where the draw begins, and eats until she can hardly move. She never goes back to a kill, and she now keeps strict rules about roads, rail lines and fences."
+    "synopsis": "After two weeks of living on carrion she pulls down a calf in the snow where the draw begins, and eats until she can hardly move. She never goes back to a kill, and she now keeps strict rules about roads, rail lines and fences."
    }
   },
   {
@@ -421,7 +421,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "The high country between Clanton Draw (GNIS 887634) and Foster Draw (GNIS 889164). The draws' mouths lie 3 km apart on the Animas Valley floor, and their heads (the GNIS source points) lie 4.9 km apart in the Peloncillos. Midway between the heads the ground is a valley, so the stop is on the drainage divide between the two draws' catchments, at its point nearest the two heads: a ridge in the 87th height percentile of the ground within 3 km, 1.6 km from the midpoint (pipeline/measure/draw_heads.py, crossing.landform_points).",
-    "synopsis": "Back in the high country, she comes down at night onto the Animas Plains to run the antelope, watching the herd for a weak one. At one of the Parhams' trap sets she smells another wolf and spends an hour reading the ground. Over the next day she digs out all eight sets and leaves the traps bare for Billy and his father to find."
+    "synopsis": "Back in the high country, she comes down at night onto the Animas Plains to run the antelope, watching the herd for a weak one. At one of the Parhams' trap sets she smells another wolf and spends an hour reading the ground. By evening she has found all eight sets, and at the first, by the gap, she digs its trap bare for Billy and his father to find."
    }
   },
   {
@@ -429,8 +429,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.99567,
-     31.51118
+     -109.01087,
+     31.51129
     ]
    },
    "properties": {
@@ -454,8 +454,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Where the trap was set: the vaqueros' noon fire, off the Cloverdale Creek road. In episode 1-08 Billy rides out of Cloverdale at dawn, turns west up the creek road and leaves it about two hours later to cross a pasture to the fire. At a horse's walk that is some 8 to 12 km. In Census TIGER 2023 the road follows the creek for 7 km from Cloverdale, to where Co Rd C106 branches west, and ends 9.6 km out. The point is on the road 8 km from Cloverdale and the area covers its upper reach and the pastures either side. The GNIS point for Cloverdale Creek (887693) lies downstream, east of Cloverdale, which the ride west rules out.",
-    "synopsis": "She keeps coming back to dig in the ashes of the vaqueros' noon fire, where Billy has buried a trap. One morning she is caught in it by her right forefoot."
+    "reasoning": "Where the trap was set: the vaqueros' noon fire, off the Cloverdale Creek road. In episode 1-08 Billy rides out of Cloverdale at dawn, turns west up the creek road and rides past an old dance platform, and two hours after that leaves the road to cross a pasture to the fire. The dance platform is taken as Cloverdale Park, a historic site that GNIS (933623) puts on Cloverdale's own point, so the two hours run from the town: at a horse's walk, about 6 km/h, some 12 km. In Census TIGER 2023 the road follows the creek for 7 km from Cloverdale, then runs on as Co Rd C106 and ends 9.6 km out. The point is at the road's end, the nearest it comes to two hours' ride, and the area covers the creek's upper reach and the pastures either side (pipeline/measure/cloverdale_creek_road.py). The GNIS point for Cloverdale Creek (887693) lies downstream, east of Cloverdale, which the ride west rules out.",
+    "synopsis": "Something digs in the ashes of the vaqueros' noon fire and leaves her print nearby, so Billy buries a trap in the fire. The next morning he finds her caught in it by her right forefoot."
    }
   },
   {
@@ -506,8 +506,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     -108.99567,
-     31.51118
+     -109.01087,
+     31.51129
     ]
    },
    "properties": {
@@ -532,7 +532,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The same trap site as the wolf's last stop (J1, stop 13, which gives the reasoning): about two hours' ride west up the creek road from Cloverdale.",
+    "reasoning": "The same trap site as the wolf's last stop (J1, stop 13, which gives the reasoning): west up the creek road from Cloverdale, two hours' ride past an old dance platform.",
     "synopsis": "Billy finds the wolf in the trap and, instead of fetching his father, ropes her, wedges a stick in her jaws and ties her mouth shut. He frees her ruined foot, loses his horse while she fights the rope, and an old rancher in a Model A catches it for him."
    }
   },
@@ -638,7 +638,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "Past the Guadalupe pass and before the boundary. The book crosses a broad volcanic plain here. The Geronimo–San Bernardino volcanic field covers the northern San Bernardino Valley in basalt, from Cochise County into Hidalgo County and Sonora (New Mexico Geological Society guidebook, Arizona Geological Survey), which is the ground south-west of the pass. The ranch house itself is unnamed.",
-    "synopsis": "At a ranch on the last fence before the line, three hounds rush the wolf and Billy's horse bolts. The rancher shuts her in the smokehouse, feeds Billy supper, and has an old Mexican stitch and dress her leg. Billy leaves at dark with food, a blanket and a collar bearing the rancher's name."
+    "synopsis": "At a ranch on the last fence before the line, three hounds rush the wolf and Billy's horse bolts. The rancher shuts her in the smokehouse, feeds Billy supper, and his wife fetches an old Mexican to stitch and dress her leg. Billy leaves at dark with food, a blanket and a collar bearing the rancher's name."
    }
   },
   {
@@ -743,7 +743,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": null,
-    "synopsis": "Snow lies in the high passes, printed with the tracks of travellers who leave the trail when a rider comes. Billy camps in a stone ravine, and next day from a gap above the Bavispe valley he shares a meal with Indian miners carrying a dead companion home."
+    "synopsis": "Snow lies in the high passes, printed with the tracks of travellers, some barefoot, and Billy wonders whether they hide off the trail when a rider comes. Billy camps in a stone ravine, and next day from a gap above the Bavispe valley he shares a meal with Indian miners carrying a dead companion home."
    }
   },
   {
@@ -778,7 +778,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "GeoNames 4013341 (named Oaxaca), on the Bavispe 19 km from Colonia Morelos. Colonia Oaxaca (El Marquesote) in Chihuahua, 89 km east, is a different place.",
-    "synopsis": "Billy tries to swim the wolf across the Bavispe towards the Pilares Teras, but the current and the muzzle nearly drown her and his horse gets away. Two armed men watch from the gravel bar, ask for his papers, and take him downriver."
+    "synopsis": "Billy tries to swim the wolf across the Bavispe towards the Pilares Teras, but she panics in the current, perhaps because the muzzle hampers her breathing, and his horse gets away. Two armed men watch from the gravel bar, ask for his papers, and take him downriver."
    }
   },
   {
@@ -813,7 +813,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "Unnamed. Between the crossing at Colonia Oaxaca and Colonia Morelos. The pin is on the Bavispe's valley floor, the ground the area is drawn on.",
-    "synopsis": "In a crumbling settlement of mud houses the alguacil seizes the wolf as contraband and lets Billy go because of his age. A deputy hauls her off in a mule cart, and Billy learns from the people following it that she is bound for the fair at Morelos."
+    "synopsis": "In a crumbling settlement of mud houses the alguacil seizes the wolf as contraband and lets Billy go because of his age. A deputy loads her into a mule cart, which bolts off with her and its driver, and Billy learns from the people following it that she is bound for the fair at Morelos."
    }
   },
   {
@@ -1053,7 +1053,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He wanders the high country for weeks and Indians feed him. The book names no range or camp. The area covers the Sierra El Tigre country south of the mining town and west of the upper Bavispe, between his stop at El Tigre and his descent to the river.",
+    "reasoning": "After El Tigre he rides west into the mountains, and Indians there feed him. The book names no range or camp. The area covers the Sierra El Tigre country south of the mining town and west of the upper Bavispe, between his stop at El Tigre and his descent to the river.",
     "synopsis": "For days Billy lives among Indians in their mountain camps and caves. They feed him, wash and mend his clothes, stitch his boots, and warn him away from Yaqui country. As he leaves, an old man calls him an orphan and urges him to stop wandering, and Billy answers that he is not one."
    }
   },
@@ -1393,8 +1393,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names carved in the rock, and looks down on the Animas Plain at dusk. The book does not name the pass. The old Douglas to Cloverdale road is today's Geronimo Trail (Census TIGER 2023), north of the low pass of J2. The pin is the trail's highest point over the range (pipeline/measure/road_points.py), and the area follows the road.",
-    "synopsis": "After riding the old Douglas road all day, Billy reaches the pass at evening in a cold wind, reading names and dates cut into the rock by earlier travellers. Below lies the Animas Plain, and on the way down his horse knows where it is and hurries."
+    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names written on the rock, and looks down on the Animas Plain at dusk. The book does not name the pass. The old Douglas to Cloverdale road is today's Geronimo Trail (Census TIGER 2023), north of the low pass of J2. The pin is the trail's highest point over the range (pipeline/measure/road_points.py), and the area follows the road.",
+    "synopsis": "After riding the old Douglas road all day, Billy reaches the pass at evening in a cold wind, reading names and dates written on the rock by earlier travellers. Below lies the Animas Plain, and on the way down his horse knows where it is and hurries."
    }
   },
   {
@@ -1704,7 +1704,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "That evening they cross the highway just past Bowie, on its east side, and pick up an old southbound road into the Dos Cabezas.",
-    "synopsis": "Through the afternoon Boyd talks of California and Texas, asks why American law cannot follow them into Mexico and wants to know whether number five shot will kill a man. At evening they cross the highway on the east side of Bowie and take an old road south into the Dos Cabezas."
+    "synopsis": "Through the afternoon the brothers talk of California and Texas. Boyd asks why American law cannot follow them into Mexico and wants to know whether number five shot will kill a man. At evening they cross the highway on the east side of Bowie and take an old road south into the Dos Cabezas."
    }
   },
   {
@@ -2018,7 +2018,7 @@
     "source_id": "4017806",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "A week into Mexico, after passing one mud town after another along the river, they reach Bacerac, where they find the one-eyed horse Keno.",
+    "reasoning": "A week into Mexico, after passing one mud town after another along the river, they reach Bacerac, where they find their stolen horse Keno.",
     "synopsis": "A week into Mexico they find Keno tied outside a whitewashed house, wearing a Mexican saddle. Billy unsaddles him and sends Boyd off to hide with the horses, then slips into the house, where women are keeping watch over a dead woman and a tall, fair-haired foreigner comes out to meet him."
    }
   },
@@ -2054,7 +2054,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "From Bacerac a rough trail climbs east through pine and scrub oak. After a camp above a hillside farm, a night in an old burn and two days of riding in the high country, they set out one grey morning and within the hour reach the escarpment's eastern rim, where they watch the sun come up over the plains of Chihuahua. The book names no pass. The area is on the eastern edge of the sierra on the line from Bacerac to Colonia Juárez (82.4 km apart). The point is the ground nearest the first estimate that lies inside the area and passes the terrain check for a rim (pipeline/measure/points_in_areas.py).",
-    "synopsis": "Billy tells Boyd the stranger is a German doctor with papers from a Casas Grandes broker. An old man in Bacerac draws the way ahead in the dust while men on a bench argue over it, and the brothers ford the river and climb east. After camps above a hill farm and in an old burn, then two cold, wet days, they reach the eastern rim at sunrise."
+    "synopsis": "Billy tells Boyd the stranger is a German doctor with papers from a Casas Grandes broker. An old man in Bacerac draws the way ahead in the dust, and after he leaves, men on a bench argue over it. The brothers ford the river and climb east, camp above a hill farm and in an old burn, and after two cold, wet days reach the eastern rim at sunrise."
    }
   },
   {
@@ -2334,7 +2334,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "They camp in an oak grove by a river, then leave the dirt road for a path past a pepper field and an irrigation ditch to a ford where boys are swimming. The book names neither the river nor a town. The area covers the country along the road between the opera camp and Madera. The point is the ground inside the area nearest the first estimate (pipeline/measure/points_in_areas.py).",
-    "synopsis": "“The girl” cooks for them in an oak grove by the river. Next day, at a ford where naked boys swim below a culvert, Billy drives a nail down inside Boyd's boot with the shotgun barrel and admits he saw the primadonna bathing."
+    "synopsis": "“The girl” cooks for them in an oak grove by the river. Next day they pass a ford where naked boys swim below a culvert, and at the river beyond it Billy drives a nail down inside Boyd's boot with the shotgun barrel and admits he saw the primadonna bathing."
    }
   },
   {
@@ -2368,7 +2368,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east towards Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason. The point is the ground inside the area nearest the first estimate (pipeline/measure/points_in_areas.py).",
+    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east towards Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, after some nights camped in the pinewoods. The area is wide for that reason. The point is the ground inside the area nearest the first estimate (pipeline/measure/points_in_areas.py).",
     "synopsis": "Watering the horses in the river, Billy talks crops, oxen and home with an old man who promises to pray for him. That night Boyd says “the girl” wants to go to her mother in Namiquipa. In the morning they give her a horse and half their money, and she rides off east alone."
    }
   },
@@ -2473,8 +2473,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Next morning two young vaqueros drive their own horses up from a high-country laguna south of the road, and the brothers rope Niño and Bailey. The laguna is the Babícora lake (GeoNames 4017246, 29.35 N, 107.83 W). The area is on the road north of it, and the pin is on the line of the road (a straight line from Las Varas to La Boquilla stands in for the old road).",
-    "synopsis": "Next morning Niño, Bailey and Tom come up wet from the lake with other horses, driven by two young vaqueros. With Billy holding the shotgun, Boyd ropes Niño and Bailey and Billy cuts out Tom. One vaquero rides off for help while the other trails them along the road."
+    "reasoning": "Next morning two young vaqueros drive the brothers' three horses and some others up from a high-country laguna south of the road, and the brothers rope Niño and Bailey. The laguna is the Babícora lake (GeoNames 4017246, 29.35 N, 107.83 W). The area is on the road north of it, and the pin is on the line of the road (a straight line from Las Varas to La Boquilla stands in for the old road).",
+    "synopsis": "Next morning Niño, Bailey and Tom come up wet from the lake with other horses, driven by two young vaqueros. With Billy holding the shotgun, Boyd ropes Niño and Bailey and Billy cuts out Tom. One vaquero rides back south, for help as Billy guesses, while the other trails them along the road."
    }
   },
   {
@@ -2509,7 +2509,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "At noon, with the walls of the hacienda in the distance and the lake to the south, riders led by a one-armed man block the road and take the horses. The area is on the road west of La Boquilla, east of the lake.",
-    "synopsis": "Five riders block the road ahead and three close in behind. Their one-armed leader takes Niño's papers, calls them worthless and, because the boys are young, brings no charges but sends them to a señor López at Babícora. At Billy's word the brothers turn Niño and Bailey loose."
+    "synopsis": "Five riders block the road ahead and three close in behind. Their one-armed leader takes Niño's papers, calls them worthless and, because the boys are young, brings no charges, adding that they may take the matter up with a señor López at Babícora. At Billy's word the brothers turn Niño and Bailey loose."
    }
   },
   {
@@ -2579,7 +2579,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "Next day they reach an east-west road, follow it east to a crossroads where a track comes down from the mountains to the north, and Quijada, superintendent of the Nahuerichic division, leads them up the road to the remuda and lets Boyd cut out three horses. The book gives no distances. The area is north-east of the tracking camp.",
-    "synopsis": "The tracks lead to a road and a crossroads where Quijada, Mr Simmons' superintendent of the Nahuerichic, sits waiting. He leads them up the road to the remuda and lets Boyd rope Niño, Bailey and Tom out of the herd, then writes Billy a note for the horses, which Billy tucks in his hatband."
+    "synopsis": "The tracks lead to a road and a crossroads where Quijada, Mr Simmons' superintendent of the Nahuerichic, sits waiting. He leads them up the road to the remuda and lets Boyd cut Niño, Bailey and Tom out of the herd, then writes Billy a note for the horses, which Billy tucks in his hatband."
    }
   },
   {
@@ -2613,7 +2613,7 @@
     "source_id": "8749710",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After a night at a stone tank with a windmill on the high prairie (3-05), they ride into La Boquilla at noon and buy rope. In the alameda the manco's horse falls back on him (3-07).",
+    "reasoning": "After a night at a stone tank with a windmill on the high prairie (3-05), they ride into La Boquilla at noon and buy rope. In the street beside the alameda the manco's horse rears and goes over backwards with him (3-07).",
     "synopsis": "The brothers ride in at noon driving their horses, and Billy buys forty feet of grass rope for hackamores. The woman at the store tells him the cloth a young girl has just bought, with her wedding savings, is to line her father's coffin.",
     "leads": [
      {
@@ -3363,7 +3363,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "They ride on west into the dark and camp at the edge of the lake. The point is on the north-west shore of the Babícora lake (GeoNames 4017246), on INEGI's outline of it, on the way to Las Varas.",
-    "synopsis": "They camp in a hollow by the lake and finish her food, and she tells him God's care reaches everyone. Billy wakes in the night from a dream of holding his dying brother in a dark city, and kneels by the water until dawn as scenes from his travels pass before him."
+    "synopsis": "They camp in a hollow by the lake and finish her food, and she tells him God's care reaches everyone. Billy wakes in the night from a dream of holding his dying brother in a dark city, and kneels by the water until dawn as images pass before him, some of things he has seen and some of things he has not."
    }
   },
   {
@@ -3836,7 +3836,7 @@
    },
    "properties": {
     "id": "j6-namiquipa",
-    "name": "Namiquipa, the mother of “the girl”",
+    "name": "Namiquipa, perhaps, where “the girl”’s mother lives",
     "kind": "stop",
     "role": "stop",
     "characters": [
@@ -3891,8 +3891,8 @@
     "source_id": "4017791",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Reported by the singer, a girl shelling pecans at the Camino Recto hotel in Casas Grandes (4-05): in her corrido six armed riders come to the pueblo of Bachíniva in April, and the güerito and his sweetheart die together there. Quijada's account, the next stops, differs.",
-    "synopsis": "In the song the hotel girl sings at Casas Grandes, six armed riders arrive at Bachíniva in April and the fair-haired youth faces them without fear. As she tells the ending, he and his sweetheart die together when their bullets run out, and the townspeople bury them in a hidden place."
+    "reasoning": "Reported by the singer, a girl shelling pecans at the Camino Recto hotel in Casas Grandes (4-05): in her corrido six armed riders come to the pueblo of Bachíniva in April, and the güerito and his sweetheart, as she tells the ending, die together. Quijada's account, the next stops, differs.",
+    "synopsis": "In the song the hotel girl sings at Casas Grandes, six armed riders arrive at Bachíniva in April and the fair-haired youth waits for them, showing no fear on his face. As she tells the ending, he and his sweetheart die together when their bullets run out, and the townspeople bury them in a hidden place."
    }
   },
   {
@@ -4031,7 +4031,7 @@
     "source_licence": "Public domain",
     "note_safe": "",
     "reasoning": "Billy crosses back into the United States at the Columbus gate, and the guard tells him the country is at war.",
-    "synopsis": "Billy rides through the gate in rags and insists to the guard that he is American. The guard takes him for a returning recruit, and Billy learns only now that the country has gone to war."
+    "synopsis": "Billy rides through the gate in rags and insists to the guard that he is American. The guard assumes he has come home to enlist, and Billy learns only now that the country has gone to war."
    }
   },
   {
@@ -4718,8 +4718,8 @@
     "source_id": "899927",
     "source_licence": "Public domain",
     "note_safe": "",
-    "reasoning": "Heading south with a packhorse, he crosses the last paved highway he will meet, a short way east of Steins.",
-    "synopsis": "Riding south with his packhorse, Billy crosses the last paved road he will meet, a little east of Steins."
+    "reasoning": "Heading south with a packhorse, he crosses the last paved highway on his way to the SK Bar, a short way east of Steins.",
+    "synopsis": "Riding south with his packhorse, Billy crosses the last paved road on his way to the ranch, a little east of Steins."
    }
   },
   {
@@ -4752,8 +4752,8 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Two days later he reaches the SK Bar gate, learns that Miller died on Kwajalein, and stays the night in the rain. The estimate is J3's (docs/open-questions.md).",
-    "synopsis": "Mr Sanders, his eyes poor since a cataract operation, tells Billy from his porch that Miller was killed on Kwajalein and that Leona has married and moved away. Billy admits he has heard nothing of Boyd and is talked into supper as rain threatens. At dawn the Mexican cook serves him breakfast, and when he asks her to pray for him she says she already meant to."
+    "reasoning": "Two days later he reaches the SK Bar gate, learns that Miller died on Kwajalein, and stays the night as rain comes on. The estimate is J3's (docs/open-questions.md).",
+    "synopsis": "Mr Sanders, his eyes poor even after a cataract operation, tells Billy from his porch that Miller was killed on Kwajalein and that Leona has married and moved away. Billy admits he has heard nothing of Boyd and is talked into supper as rain threatens. At dawn the Mexican cook serves him breakfast, and when he asks her to pray for him she says she already meant to."
    }
   },
   {
@@ -4820,8 +4820,8 @@
     "source_id": "4004116",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After two days' riding on an old rutted wagon road, with the western Sierras and the Pilares in view, he comes down to the lights of Janos, 59 km from El Berrendo (pyproj, WGS 84).",
-    "synopsis": "Billy looks west to the Pilares from the old road, then rides into the ruined mud town and follows music to a cantina. He buys whiskey for the men there, flings away the drink of a drunk revolutionary veteran, Alfonso, and says he has come to find his brother. He spits out the mescal Alfonso pours him, turns when called to face his bared bullet scars, and walks out unharmed."
+    "reasoning": "After two days' riding on an old rutted wagon road, with the western Sierras in view and the Pilares beyond them, he comes down to the lights of Janos, 59 km from El Berrendo (pyproj, WGS 84).",
+    "synopsis": "Billy looks west from the old road toward the sierras, then rides into the ruined mud town and follows music to a cantina. He buys whiskey for the men there, flings away the drink of a drunk revolutionary veteran, Alfonso, and says he has come to find his brother. He spits out the mescal he is poured, turns when called to face his bared bullet scars, and walks out unharmed."
    }
   },
   {
@@ -5092,8 +5092,8 @@
     "source_id": "3982082",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides that country for weeks asking after “the girl”. The first time he hears the corrido of the güero is in a bodega in Temósachic, up in the mountains. The book tells this before the Madera fair of late April, so the stop comes before Madera, although he leaves the fair on the road south to Temósachic.",
-    "synopsis": "At the old man's wake in Namiquipa a young woman tells him “the girl” is an outlaw with a rumoured price on her head, and that Boyd's bones lie at San Buenaventura. After weeks of asking after her, he hears verses of a corrido about a fair-haired young man from the north in a bodega here. The singer says only that the youth wanted justice and is long dead."
+    "reasoning": "He rides that country for weeks asking questions of anyone who will answer. The first time he hears the corrido of the güero is in a bodega in Temósachic, up in the mountains. The book tells this before the Madera fair of late April, so the stop comes before Madera, although he leaves the fair on the road south to Temósachic.",
+    "synopsis": "At the old man's wake in Namiquipa a young woman tells him “the girl” is an outlaw with a rumoured price on her head, and that Boyd's bones lie at San Buenaventura. Riding that country for weeks asking questions, he hears in a bodega here a corrido about a fair-haired youth from the north. The singer says only that the youth wanted justice and is long dead."
    }
   },
   {
@@ -5194,7 +5194,7 @@
     "source_id": "4015076",
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "On 15 May he takes a room at the Camino Recto hotel, where a girl shelling pecans sings him the corrido of Bachíniva. The book gives no distance from Babícora.",
+    "reasoning": "On 15 May he takes a room at the Camino Recto hotel, where he overhears a girl shelling pecans sing the corrido of Bachíniva. The book gives no distance from Babícora.",
     "synopsis": "He takes a room at the hotel on 15 May, a date he learns from the first newspaper he has seen in seven weeks. Next morning a girl of about sixteen sits cracking pecans in the courtyard and singing a corrido. She knows only a little of it, and before he goes back upstairs she presses a handful of the nuts into his hand."
    }
   },
@@ -5262,7 +5262,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "One evening he follows a road west towards a gap in the mountains and after dark reaches a lone weatherboard cabin on the plain, where Quijada, still manager of the Nahuerichic division, tells him where Boyd fell and lies. Next day he rides north all day to San Buenaventura, so the area is about a day's ride (47 km) south-south-west of it. It is 57 km from Nahuerachi, the open-questions pick for the division's name.",
+    "reasoning": "One evening he follows a road west towards a gap in the mountains and after dark reaches a lone weatherboard cabin on the plain, where Quijada, still manager of the Nahuerichic division, tells him where Boyd fell and lies. When the book next shows him, he rides north all day to San Buenaventura, so the area is about a day's ride (47 km) south-south-west of it. It is 57 km from Nahuerachi, the open-questions pick for the division's name.",
     "synopsis": "Riding west towards a gap at sunset, he finds a lone lit cabin. It belongs to Quijada, the Yaqui manager who once let him and Boyd take back their horses, and over coffee he confirms that Boyd is dead and buried at San Buenaventura. When Billy says he means to take his brother home, Quijada warns him nobody will allow it."
    }
   },

@@ -27,6 +27,8 @@ FEATURES = {
     "Foster Draw": (889164, (31.5078801, -108.8692174), (31.4825, -108.9963889)),
     "Clanton Draw": (887634, (31.5350167, -108.8748406), (31.5121262, -109.034553)),
     "Starvation Canyon": (11797, (31.5751897, -109.123225), (31.5224431, -109.0957349)),
+    # In Hidalgo County; the other Taylor Draw in GNIS (895531) is in Eddy County, 485 km east.
+    "Taylor Draw": (896882, (31.5079666, -108.8690762), (31.5211429, -108.8114597)),
 }
 # Stops the book places by these features, as the map had them before this measurement.
 OLD_STOP_12 = (31.52, -108.87)

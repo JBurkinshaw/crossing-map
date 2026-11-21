@@ -73,19 +73,19 @@
   ],
   "shown": "San Luis Pass, the range's named gap on her way north.",
   "other": "Any other low ground through the range, or the range's GNIS point, 5.9 km south.",
-  "why": "The book has her go north through the range's gap and names no gap."
+  "why": "The book has her go north through the range's gap, and Billy's father names her route as the San Luis Pass (1-01)."
  },
  {
   "id": "q-animas-crossing",
-  "title": "Where does she cross the Animas Mountains?",
+  "title": "Where does she leave the Animas Mountains?",
   "first_seen": "1-04",
   "features": [
    "place-animas-mountains",
    "j1-animas-mountains"
   ],
-  "shown": "North from San Luis Pass along the east side of the range, then west over a saddle on its western ridge, about halfway to the Animas Valley.",
-  "other": "The low ridge just north of San Luis Pass, which is quicker, or the range's own point by Animas Peak, 8 km farther north.",
-  "why": "The book has her pass through the range on her way north and names no pass."
+  "shown": "North from San Luis Pass up the range's western flank to the head of Taylor Draw, then down to the Animas Valley.",
+  "other": "A saddle on the western ridge, which the map showed before, or the range's own point by Animas Peak, 5.8 km north-east of the draw's head.",
+  "why": "The book names no pass. Billy's father says she came north up the range's western flank to where Taylor's Draw heads, then crossed the valley (1-01), and GNIS gives the draw's head."
  },
  {
   "id": "q-pendletons",
@@ -116,7 +116,7 @@
   ],
   "shown": "Up the creek road, 8 km by road west-north-west of Cloverdale, where the road leaves the creek.",
   "other": "The creek's point in GNIS, near its mouth south-east of Cloverdale.",
-  "why": "Billy turns west up the creek road from Cloverdale and rides about two hours to the trap."
+  "why": "Billy turns west up the creek road from Cloverdale and rides on past an old dance platform, then two hours more to the trap."
  },
  {
   "id": "q-cienega-springs",

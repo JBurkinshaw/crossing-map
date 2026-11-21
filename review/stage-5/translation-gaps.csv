@@ -1,5 +1,5 @@
 id,part,episode,page,kind,es_incipit,words,en,confidence,note
-tr-1-04-005,1,1-04,34,speech,Hasta la vista.,3,See you.,medium,Speaker is not named in the passage.
+tr-1-04-005,1,1-04,34,speech,Hasta la vista.,3,See you.,medium,"Speaker is not named, but the line alternates with the vaqueros' farewell, so it is the boy's reply."
 tr-1-07-002,1,1-07,41,speech,El señor?,2,The master?,high,
 tr-1-07-003,1,1-07,41,speech,Él está?,2,Is he in?,high,
 tr-1-07-004,1,1-07,41,speech,Bueno…,4,All right. Come in.,high,Pásale is a common Mexican form inviting someone in.
@@ -80,8 +80,8 @@ tr-1-10-070,1,1-10,117,speech,Qué pasó?,2,What happened?,high,
 tr-1-10-075,1,1-10,118,word,güero,1,fair-haired one (the Anglo boy),high,Güero = blond or fair-skinned; a common nickname for an Anglo.
 tr-1-10-105,1,1-10,122,word,aguador,1,water carrier,high,
 tr-1-10-109,1,1-10,122,speech,Déme la carabina,3,Give me the rifle.,high,
-tr-1-10-111,1,1-10,122,speech,Bastante,1,Enough.,high,The speaker in the bleachers goes on to say to leave him alone (scan error 'molests' for 'moleste').
-tr-1-10-113,1,1-10,123,word,puros,1,cigars,medium,Exact use not visible in the supplied context; puros normally means cigars.
+tr-1-10-111,1,1-10,122,speech,Bastante,1,Enough.,high,"The alguacil, speaking from the bleachers, goes on to say to leave him alone (scan error 'molests' for 'moleste')."
+tr-1-10-113,1,1-10,123,word,puros,1,cigars,medium,Cigars: the alguacil and the men beside him in the bleachers are smoking puros.
 tr-1-10-118,1,1-10,123,speech,Cuánto quiere por él?,4,How much do you want for it?,high,
 tr-1-10-121,1,1-10,123,speech,En un huinche?,3,A Winchester?,medium,"Huinche is Mexican slang for a Winchester rifle; literally 'in a Winchester?', meaning payment in that form."
 tr-1-10-123,1,1-10,123,speech,Bueno,1,All right.,high,
@@ -142,7 +142,7 @@ tr-2-08-056,2,2-08,200,word,señor,1,Mr.,high,
 tr-2-08-057,2,2-08,200,speech,Quién sabe?,2,Who knows?,high,
 tr-2-08-058,2,2-08,200,word,capón,1,gelding,high,
 tr-2-08-062,2,2-08,201,speech,Ruano. Bayo. Bayo cebruno. Alazán.…,7,Roan. Dun. Zebra dun. Sorrel. Burnt sorrel.,medium,Horse colors read from a list; bayo cebruno is a dun with dark points.
-tr-2-08-069,2,2-08,201,speech,Otto más,2,One more thing.,high,Scan error: read 'Otto' as 'Otro'.
+tr-2-08-069,2,2-08,201,speech,Otto más,2,There's something more.,high,Scan error: read 'Otto' as 'Otro'.
 tr-2-08-076,2,2-08,203,word,acequia,1,irrigation ditch,high,
 tr-2-08-078,2,2-08,206,speech,Buenas noches,2,Good evening.,high,
 tr-2-08-079,2,2-08,206,speech,Buenas noches,2,Good evening.,high,
@@ -398,9 +398,9 @@ tr-4-02-003,4,4-02,354,speech,No gracias. Hay salsa?,4,No thank you. Is there sa
 tr-4-02-004,4,4-02,354,speech,Gracias.,1,Thank you.,high,
 tr-4-02-006,4,4-02,354,speech,No. El era amigo de…,7,No. He was a friend of my father's.,high,
 tr-4-02-007,4,4-02,354,speech,Siéntate…,5,Sit down. You can sit down.,high,Shifts from familiar to polite address.
-tr-4-02-010,4,4-02,354,speech,Sí.,1,Yes.,high,
+tr-4-02-010,4,4-02,354,speech,Sí.,1,Yes. Did you?,high,
 tr-4-03-006,4,4-03,356,speech,"Sí, caballero…",6,"Yes, sir. Why not?",high,
-tr-4-03-008,4,4-03,356,speech,No gracias.,2,"No, thanks.",high,
+tr-4-03-008,4,4-03,356,speech,No gracias.,2,No thanks. Have something yourself.,high,
 tr-4-03-009,4,4-03,357,speech,Salud,1,Cheers.,high,
 tr-4-03-010,4,4-03,357,speech,Salud,1,Cheers.,high,
 tr-4-03-012,4,4-03,357,speech,Bueno…,6,All right. Of course.,high,
@@ -409,10 +409,10 @@ tr-4-03-016,4,4-03,358,speech,Otra vez,2,Again.,high,
 tr-4-03-018,4,4-03,358,speech,"Quién es, joven?",3,"Who are you, young man?",medium,"Could also be read as 'Who is he, young man?'; Billy answers it as asked of him."
 tr-4-03-019,4,4-03,358,speech,Un hombre…,6,A man. Nothing more.,high,
 tr-4-03-020,4,4-03,358,speech,Americano.,1,American.,high,Speaker not marked.
-tr-4-03-022,4,4-03,358,speech,Americano.,1,American.,high,Speaker not marked.
+tr-4-03-022,4,4-03,358,speech,Americano.,1,Of course. American.,high,Speaker not marked.
 tr-4-03-023,4,4-03,358,speech,Es vaquero?,2,Are you a cowboy?,high,Speaker not marked.
-tr-4-03-024,4,4-03,358,speech,Sí.,1,Yes.,high,
-tr-4-03-026,4,4-03,359,speech,Soldado no.,2,Not a soldier.,medium,Speaker not clear.
+tr-4-03-024,4,4-03,358,speech,Sí.,1,Yes. A cowboy.,high,
+tr-4-03-026,4,4-03,359,speech,Soldado no.,2,Not a soldier.,medium,Unattributed. Most likely Billy answering Alfonso.
 tr-4-03-027,4,4-03,359,speech,Otra vez,2,Again.,high,
 tr-4-03-029,4,4-03,359,speech,Aquí?,1,Here?,high,
 tr-4-03-031,4,4-03,359,speech,En este país,3,To this country.,high,
@@ -467,7 +467,7 @@ tr-4-04-062,4,4-04,371,speech,Hola,1,Hello?,high,
 tr-4-05-015,4,4-05,376,word,lotería,1,Mexican picture-card game like bingo,high,
 tr-4-05-018,4,4-05,376,speech,Otra vez,2,Again!,high,
 tr-4-05-019,4,4-05,376,speech,Cuánto?,1,How much?,high,
-tr-4-05-020,4,4-05,376,speech,Está fibre.,2,It's free.,high,Read 'fibre' as 'libre' (scan error).
+tr-4-05-020,4,4-05,376,speech,Está fibre.,2,It's free. Take one.,high,Read 'fibre' as 'libre' (scan error).
 tr-4-05-024,4,4-05,376,word,calavera,1,the skull,high,
 tr-4-05-025,4,4-05,376,speech,Alguien?,1,Anyone?,high,
 tr-4-05-030,4,4-05,376,speech,Aquí…,7,Here! Here we have the skull.,high,

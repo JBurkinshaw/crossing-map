@@ -6966,7 +6966,7 @@
    "properties": {
     "id": "area-j2-hacienda",
     "stop": "j2-hacienda",
-    "draft_rule": "Flat ground beside the Batepito: within 2 km of the river (INEGI streams along Natural Earth's Río Batepito), no more than 30 m above it, with a slope under 5 degrees. The book has the road on the other bank, but not which bank that is.",
+    "draft_rule": "Flat ground beside the Batepito: within 2 km of the river (INEGI streams along Natural Earth's Río Batepito), no more than 30 m above it, with a slope under 5 degrees. The book has the hacienda between the river and the road, so the road is on the hacienda's bank, but not which bank that is.",
     "draft_confidence": "medium",
     "straight_road": false
    }

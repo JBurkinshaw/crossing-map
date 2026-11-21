@@ -70,7 +70,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0053 The reader's place in the address and on the device, and "Read on" | accepted |
 | 0054 The spoiler-leak test in two halves: the data at every position, the site in one walk through the book | accepted |
 | 0055 The vintage map's text a fifth larger, and the credits kept clear of the cartouche | accepted |
-| 0056 The head of a draw, and the gap through a range, for the she-wolf's journey | accepted |
+| 0056 The head of a draw, and the gap through a range, for the she-wolf's journey | accepted; amended by 0078 |
 | 0057 Stop rows checked against the book while writing the synopses | accepted |
 | 0058 Back and Next go on across journeys | accepted; the framing of the new journey superseded by 0074 |
 | 0059 Where a stop sits on its landform: named points first, a terrain check, and the owner's review | accepted |
@@ -83,7 +83,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0066 Vignettes along a leg | accepted |
 | 0067 Photos on the cards | accepted; photo stepper superseded by 0070 |
 | 0068 The owner's review of the landform positions | accepted |
-| 0069 J1's Animas Valley stop on her way across the valley | accepted |
+| 0069 J1's Animas Valley stop on her way across the valley | accepted; amended by 0078 |
 | 0070 Arrows on the photo, not a second stepper | accepted |
 | 0071 Local history notes on a card | accepted |
 | 0072 Land cover is the default ground, and Tilted terrain stands a quarter higher | accepted |
@@ -92,6 +92,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0075 Drawings moved apart, and a caption on each | accepted; the moves superseded by 0077 |
 | 0076 Large drawings in the empty quarters at low zoom | accepted |
 | 0077 Drawings wait rather than touch | accepted |
+| 0078 The head of Taylor Draw, and the end of the Cloverdale Creek road | accepted |
 
 ## Template
 

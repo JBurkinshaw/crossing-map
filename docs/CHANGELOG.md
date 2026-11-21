@@ -10,6 +10,9 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 #### Data
 
+- Text the site shows now follows the book where it did not: 85 corrections across stop synopses and placement notes, the drawings' notes and captions, an episode summary, open questions, and the notes and names of areas and legs. Each fixes a wrong person, place or order of events, a guess stated as fact, or a detail the book does not give. For example, the she-wolf's mate bites her to make her go and she will not leave him, and Keno is no longer called one-eyed.
+- `translations.json` corrects 90 of its 916 lines where they did not follow the book: 14 English glosses that misled ("Es minero" is a question to Billy, "Se quebró el espinazo" is the fallen man's back) and 65 speakers and listeners given to the wrong person or a generic one where the book names them.
+- The she-wolf's Animas Mountains stop (`j1-animas-mountains`) moves to the head of Taylor Draw on the range's western flank, the route Billy's father gives, and the Animas Valley stop moves 2.1 km north to where her way from there crosses the valley floor. The trap on Cloverdale Creek (`j1-cloverdale-creek`, `j2-cloverdale-creek`) moves 1.5 km up the creek to the end of the creek road, nearer the two hours' ride past the dance platform the book gives. The legs into and out of them are redrawn (decision 0078).
 - The drawings in `vignettes.geojson` go back to their own points, undoing the long moves of 2026-11-19. None touches another at any zoom where both show: a drawing that would waits for a closer zoom, all show by zoom 12, and 32 that share a point with another move 0.2 to 2 km (decision 0077).
 
 ### 2026-11-19

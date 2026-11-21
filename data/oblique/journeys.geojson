@@ -3184,118 +3184,138 @@
       31.45528
      ],
      [
-      -108.74131,
-      31.45728
+      -108.74668,
+      31.45505
      ],
      [
-      -108.73858,
-      31.45896
+      -108.74812,
+      31.4557
      ],
      [
-      -108.73812,
-      31.45946
+      -108.75291,
+      31.45852
      ],
      [
-      -108.73633,
-      31.46231
+      -108.75559,
+      31.461
      ],
      [
-      -108.73538,
-      31.46304
+      -108.75962,
+      31.46409
      ],
      [
-      -108.73485,
-      31.46548
+      -108.76051,
+      31.46495
      ],
      [
-      -108.73459,
-      31.48154
+      -108.765,
+      31.4698
      ],
      [
-      -108.73454,
-      31.51224
+      -108.76692,
+      31.47263
      ],
      [
-      -108.73518,
-      31.52397
+      -108.76742,
+      31.47286
      ],
      [
-      -108.73571,
-      31.53073
+      -108.76891,
+      31.47279
      ],
      [
-      -108.737,
-      31.53387
+      -108.77089,
+      31.47358
      ],
      [
-      -108.73813,
-      31.5376
+      -108.77425,
+      31.47616
      ],
      [
-      -108.74139,
-      31.54193
+      -108.77547,
+      31.47659
      ],
      [
-      -108.74515,
-      31.54561
+      -108.77641,
+      31.47752
      ],
      [
-      -108.75221,
-      31.55336
+      -108.77774,
+      31.47788
      ],
      [
-      -108.75273,
-      31.5537
+      -108.77817,
+      31.47819
      ],
      [
-      -108.75625,
-      31.55513
+      -108.78023,
+      31.4813
      ],
      [
-      -108.75746,
-      31.55596
+      -108.78123,
+      31.48119
      ],
      [
-      -108.75865,
-      31.55644
+      -108.78155,
+      31.48148
      ],
      [
-      -108.76001,
-      31.5584
+      -108.78477,
+      31.48566
      ],
      [
-      -108.76115,
-      31.55948
+      -108.78802,
+      31.49109
      ],
      [
-      -108.7642,
-      31.56082
+      -108.78882,
+      31.49254
      ],
      [
-      -108.76535,
-      31.56173
+      -108.79239,
+      31.5005
      ],
      [
-      -108.7675,
-      31.56307
+      -108.7958,
+      31.50561
      ],
      [
-      -108.76883,
-      31.56462
+      -108.79938,
+      31.50862
      ],
      [
-      -108.77057,
-      31.56799
+      -108.80158,
+      31.51254
      ],
      [
-      -108.77136,
-      31.56891
+      -108.80207,
+      31.51674
+     ],
+     [
+      -108.80394,
+      31.52161
+     ],
+     [
+      -108.80493,
+      31.52312
+     ],
+     [
+      -108.80731,
+      31.5261
+     ],
+     [
+      -108.80916,
+      31.54088
+     ],
+     [
+      -108.81005,
+      31.58161
      ]
     ]
    },
    "properties": {
     "id": "j1-seg-05",
-    "name": "San Luis Mountains, by San Luis Pass to Animas Mountains",
+    "name": "San Luis Mountains, by San Luis Pass to Animas Mountains, where Taylor's Draw heads",
     "kind": "route-segment",
     "characters": [
      "wolf"
@@ -3323,74 +3343,34 @@
     "type": "LineString",
     "coordinates": [
      [
-      -108.77136,
-      31.56891
+      -108.81005,
+      31.58161
      ],
      [
-      -108.77199,
-      31.56845
+      -108.81901,
+      31.57551
      ],
      [
-      -108.77326,
-      31.5671
+      -108.83078,
+      31.57251
      ],
      [
-      -108.77388,
-      31.56697
+      -108.84658,
+      31.5707
      ],
      [
-      -108.7751,
-      31.56751
+      -108.85851,
+      31.56871
      ],
      [
-      -108.77572,
-      31.56737
-     ],
-     [
-      -108.77825,
-      31.56475
-     ],
-     [
-      -108.7836,
-      31.56073
-     ],
-     [
-      -108.78658,
-      31.55695
-     ],
-     [
-      -108.78806,
-      31.55539
-     ],
-     [
-      -108.78859,
-      31.55503
-     ],
-     [
-      -108.79365,
-      31.55339
-     ],
-     [
-      -108.80876,
-      31.55049
-     ],
-     [
-      -108.81952,
-      31.54947
-     ],
-     [
-      -108.83977,
-      31.54832
-     ],
-     [
-      -108.86238,
-      31.54764
+      -108.8667,
+      31.56575
      ]
     ]
    },
    "properties": {
     "id": "j1-seg-06",
-    "name": "Animas Mountains to Animas Valley",
+    "name": "Animas Mountains, where Taylor's Draw heads to Animas Valley",
     "kind": "route-segment",
     "characters": [
      "wolf"
@@ -3418,188 +3398,176 @@
     "type": "LineString",
     "coordinates": [
      [
-      -108.86238,
-      31.54764
+      -108.8667,
+      31.56575
      ],
      [
-      -108.87831,
-      31.54449
+      -108.86842,
+      31.56516
      ],
      [
-      -108.89007,
-      31.54266
+      -108.86957,
+      31.56496
      ],
      [
-      -108.90376,
-      31.54096
+      -108.87476,
+      31.56306
      ],
      [
-      -108.91315,
-      31.5401
+      -108.89114,
+      31.55793
      ],
      [
-      -108.92006,
-      31.53966
+      -108.90847,
+      31.55297
      ],
      [
-      -108.9232,
-      31.53971
+      -108.9145,
+      31.55157
      ],
      [
-      -108.92571,
-      31.53994
+      -108.91875,
+      31.55097
      ],
      [
-      -108.92884,
-      31.54056
+      -108.92851,
+      31.54916
      ],
      [
-      -108.932,
-      31.54001
+      -108.92974,
+      31.54904
      ],
      [
-      -108.93388,
-      31.54014
+      -108.93218,
+      31.54922
      ],
      [
-      -108.94208,
-      31.54015
+      -108.93404,
+      31.54848
      ],
      [
-      -108.94398,
-      31.53999
+      -108.93712,
+      31.54774
      ],
      [
-      -108.9465,
-      31.54025
+      -108.94144,
+      31.54762
      ],
      [
-      -108.94904,
-      31.53968
+      -108.9433,
+      31.54689
      ],
      [
-      -108.95281,
-      31.54035
+      -108.94454,
+      31.54661
      ],
      [
-      -108.9547,
-      31.54096
+      -108.94578,
+      31.54652
      ],
      [
-      -108.9566,
-      31.54061
+      -108.94825,
+      31.54674
      ],
      [
-      -108.95723,
-      31.5407
+      -108.95071,
+      31.54774
      ],
      [
-      -108.9591,
-      31.54186
+      -108.95384,
+      31.54661
      ],
      [
-      -108.95973,
-      31.54207
+      -108.95508,
+      31.54657
      ],
      [
-      -108.96036,
-      31.54192
+      -108.95819,
+      31.54683
      ],
      [
-      -108.96164,
-      31.54126
+      -108.96009,
+      31.54554
      ],
      [
-      -108.96352,
-      31.54199
+      -108.96071,
+      31.54543
      ],
      [
-      -108.96415,
-      31.54201
+      -108.96256,
+      31.54629
      ],
      [
-      -108.96669,
-      31.54128
+      -108.96505,
+      31.54694
      ],
      [
-      -108.96733,
-      31.54129
+      -108.9663,
+      31.54688
      ],
      [
-      -108.96984,
-      31.54206
+      -108.96757,
+      31.5463
      ],
      [
-      -108.97171,
-      31.54298
+      -108.96819,
+      31.54643
      ],
      [
-      -108.97295,
-      31.54388
+      -108.96942,
+      31.54744
      ],
      [
-      -108.97419,
-      31.54516
+      -108.97004,
+      31.54751
      ],
      [
-      -108.97482,
-      31.54529
+      -108.97195,
+      31.54622
      ],
      [
-      -108.97738,
-      31.54336
+      -108.97258,
+      31.54602
      ],
      [
-      -108.97802,
-      31.54316
+      -108.97321,
+      31.54616
      ],
      [
-      -108.97865,
-      31.54318
+      -108.97444,
+      31.54689
      ],
      [
-      -108.9799,
-      31.54346
+      -108.97507,
+      31.54706
      ],
      [
-      -108.98117,
-      31.54308
+      -108.9757,
+      31.54697
      ],
      [
-      -108.9818,
-      31.54309
+      -108.97697,
+      31.54621
      ],
      [
-      -108.98429,
+      -108.98077,
       31.54479
      ],
      [
-      -108.98491,
-      31.545
+      -108.98452,
+      31.54599
      ],
      [
-      -108.98618,
-      31.54487
+      -108.98765,
+      31.54649
      ],
      [
-      -108.98743,
-      31.54501
+      -108.98891,
+      31.54648
      ],
      [
-      -108.98933,
-      31.54482
-     ],
-     [
-      -108.99058,
-      31.54495
-     ],
-     [
-      -108.99183,
-      31.54529
-     ],
-     [
-      -108.9937,
-      31.54635
+      -108.99145,
+      31.54572
      ],
      [
       -108.99502,
@@ -4503,40 +4471,72 @@
       31.55723
      ],
      [
-      -108.99872,
-      31.55454
+      -108.99964,
+      31.5545
      ],
      [
-      -108.99944,
-      31.54551
+      -109.00042,
+      31.55206
      ],
      [
-      -108.9996,
-      31.53963
+      -109.00139,
+      31.55059
      ],
      [
-      -108.99941,
-      31.53237
+      -109.00211,
+      31.54854
      ],
      [
-      -108.99864,
-      31.52485
+      -109.00254,
+      31.54833
      ],
      [
-      -108.99828,
-      31.52332
+      -109.00298,
+      31.54752
      ],
      [
-      -108.99785,
-      31.52247
+      -109.00426,
+      31.54389
      ],
      [
-      -108.99707,
-      31.5169
+      -109.00445,
+      31.5436
      ],
      [
-      -108.99567,
-      31.51118
+      -109.00482,
+      31.54354
+     ],
+     [
+      -109.00539,
+      31.54215
+     ],
+     [
+      -109.0068,
+      31.53613
+     ],
+     [
+      -109.00776,
+      31.53047
+     ],
+     [
+      -109.0079,
+      31.52994
+     ],
+     [
+      -109.00827,
+      31.52944
+     ],
+     [
+      -109.0093,
+      31.5251
+     ],
+     [
+      -109.01003,
+      31.52058
+     ],
+     [
+      -109.01087,
+      31.51129
      ]
     ]
    },
@@ -4704,8 +4704,48 @@
       31.51078
      ],
      [
-      -108.99567,
-      31.51118
+      -108.99601,
+      31.51123
+     ],
+     [
+      -108.99901,
+      31.51077
+     ],
+     [
+      -109.00143,
+      31.51147
+     ],
+     [
+      -109.00266,
+      31.51165
+     ],
+     [
+      -109.0038,
+      31.51226
+     ],
+     [
+      -109.00616,
+      31.51308
+     ],
+     [
+      -109.00675,
+      31.51303
+     ],
+     [
+      -109.00773,
+      31.51247
+     ],
+     [
+      -109.00942,
+      31.51204
+     ],
+     [
+      -109.01004,
+      31.51212
+     ],
+     [
+      -109.01087,
+      31.51129
      ]
     ]
    },
@@ -4739,76 +4779,128 @@
     "type": "LineString",
     "coordinates": [
      [
-      -108.99567,
-      31.51118
+      -109.01087,
+      31.51129
      ],
      [
-      -108.99393,
-      31.51083
+      -109.01025,
+      31.51211
      ],
      [
-      -108.99025,
-      31.51062
+      -109.00965,
+      31.51203
      ],
      [
-      -108.98968,
-      31.51044
+      -109.00792,
+      31.51241
      ],
      [
-      -108.98853,
-      31.50949
+      -109.00639,
+      31.51311
      ],
      [
-      -108.9859,
-      31.50664
+      -109.00523,
+      31.51262
      ],
      [
-      -108.98372,
-      31.50368
+      -109.00401,
+      31.51236
      ],
      [
-      -108.98124,
-      31.50199
+      -109.00229,
+      31.51153
      ],
      [
-      -108.98013,
-      31.50065
+      -109.00103,
+      31.51141
      ],
      [
-      -108.97839,
-      31.50004
+      -108.99924,
+      31.51082
      ],
      [
-      -108.97736,
-      31.49867
+      -108.99861,
+      31.51074
      ],
      [
-      -108.97473,
-      31.49712
+      -108.99623,
+      31.51122
      ],
      [
-      -108.97361,
-      31.49675
+      -108.99387,
+      31.51082
      ],
      [
-      -108.97066,
-      31.49461
+      -108.99019,
+      31.51061
      ],
      [
-      -108.96699,
-      31.49228
+      -108.98963,
+      31.51041
      ],
      [
-      -108.9656,
-      31.49116
+      -108.98847,
+      31.50945
+     ],
+     [
+      -108.98585,
+      31.50659
+     ],
+     [
+      -108.98368,
+      31.50364
+     ],
+     [
+      -108.9812,
+      31.50196
+     ],
+     [
+      -108.98007,
+      31.50063
+     ],
+     [
+      -108.97886,
+      31.5003
+     ],
+     [
+      -108.97836,
+      31.5
+     ],
+     [
+      -108.97732,
+      31.49863
+     ],
+     [
+      -108.97468,
+      31.49709
+     ],
+     [
+      -108.97357,
+      31.49672
+     ],
+     [
+      -108.97061,
+      31.49458
+     ],
+     [
+      -108.96694,
+      31.49225
+     ],
+     [
+      -108.96554,
+      31.49113
+     ],
+     [
+      -108.96496,
+      31.49094
      ],
      [
       -108.96452,
-      31.49064
+      31.49059
      ],
      [
       -108.9644,
-      31.4896
+      31.48956
      ],
      [
       -108.96398,
@@ -20928,7 +21020,7 @@
     "method": "narrated-path",
     "source": "natural-earth",
     "source_licence": "Public domain",
-    "reasoning": "A week of riding past one river town after another: from Colonia Morelos the route follows the Bavispe's main stem upriver to Bacerac, as Natural Earth draws it (the river line on the map).",
+    "reasoning": "Three more days past one river town after another, a week after entering Mexico: from Colonia Morelos the route follows the Bavispe's main stem upriver to Bacerac, as Natural Earth draws it (the river line on the map).",
     "drawn": "Traced along Bavispe in Natural Earth's 1:10m rivers. The line follows the river the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the river. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "Natural Earth's 1:10m rivers: Bavispe. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -27694,7 +27786,7 @@
     "method": "narrated-path",
     "source": "inegi",
     "source_licence": "INEGI free-use terms (Fuente: INEGI)",
-    "reasoning": "He leaves San Diego at dusk on the road south to Mata Ortiz (3-09): today's Casas Grandes to Mata Ortiz road, in INEGI's road network.",
+    "reasoning": "He leaves San Diego at dusk on the road south to Mata Ortiz (3-12): today's Casas Grandes to Mata Ortiz road, in INEGI's road network.",
     "drawn": "Traced along Casas Grandes - Juan Mata Ortiz in INEGI's Red Nacional de Caminos (today's roads and tracks). The line follows the road the shortest way from the point on it nearest one stop to the point nearest the next, and runs straight from each stop to the road. The book names the way, but not every bend: today's line may differ from the 1940s one (decision 0032).",
     "drawn_detail": "INEGI's Red Nacional de Caminos (today's roads and tracks): Casas Grandes - Juan Mata Ortiz. Shortest path along the lines between the points nearest each stop, simplified to 5 m (crossing.build_story, decision 0032)."
    }
@@ -40346,7 +40438,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book does not show this leg. It rests on what someone tells Billy, or on a guess from it (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -40412,7 +40504,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book does not show this leg. It rests on what someone tells Billy, or on a guess from it (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -42809,7 +42901,7 @@
    },
    "properties": {
     "id": "j6-seg-03",
-    "name": "San Diego, the Muñoz house to Namiquipa, the mother of “the girl”",
+    "name": "San Diego, the Muñoz house to Namiquipa, perhaps, where “the girl”’s mother lives",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -42826,7 +42918,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book does not show this leg. It rests on what someone tells Billy, or on a guess from it (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -42991,7 +43083,7 @@
    },
    "properties": {
     "id": "j6-seg-04",
-    "name": "Namiquipa, the mother of “the girl” to Bachíniva, in the corrido",
+    "name": "Namiquipa, perhaps, where “the girl”’s mother lives to Bachíniva, in the corrido",
     "kind": "route-segment",
     "characters": [
      "boyd",
@@ -43008,7 +43100,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book does not show this leg. It rests on what someone tells Billy, or on a guess from it (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -44258,7 +44350,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book does not show this leg. It rests on what someone tells Billy, or on a guess from it (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -44776,7 +44868,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book does not show this leg. It rests on what someone tells Billy, or on a guess from it (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },
@@ -45510,7 +45602,7 @@
     "method": "schematic",
     "source": "this-site",
     "source_licence": "CC BY 4.0",
-    "reasoning": "A gentle curve between consecutive stops. The book only reports this leg, through someone's account (see the stop).",
+    "reasoning": "A gentle curve between consecutive stops. The book does not show this leg. It rests on what someone tells Billy, or on a guess from it (see the stop).",
     "drawn": "A curve drawn between the two stops, bowed to one side by a tenth of its length (the side alternates from leg to leg so the journey does not read as one arc). It says only that the leg joins the stops: its shape is not evidence of the way."
    }
   },

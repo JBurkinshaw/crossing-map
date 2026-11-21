@@ -592,7 +592,8 @@ def build_routes(by_journey: dict[str, list[dict]]) -> list[dict]:
                 how = dict(certainty="reported" if reported else "inferred", method="schematic", source="this-site",
                            source_licence=LICENCE["this-site"],
                            reasoning="A gentle curve between consecutive stops. The book " +
-                           ("only reports this leg, through someone's account (see the stop)." if reported
+                           ("does not show this leg. It rests on what someone tells Billy, or on a guess from "
+                            "it (see the stop)." if reported
                             else "names no road or river for this stretch."),
                            drawn="A curve drawn between the two stops, bowed to one side by a tenth of its length "
                                  "(the side alternates from leg to leg so the journey does not read as one arc). It "

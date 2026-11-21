@@ -1,6 +1,6 @@
 # 0069. J1's Animas Valley stop on her way across the valley
 
-Status: accepted (2026-11-19)
+Status: accepted (2026-11-19); the stop re-measured from the head of Taylor Draw by 0078
 Phase: P1
 
 ## Context

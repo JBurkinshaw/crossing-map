@@ -1,8 +1,8 @@
 stop,journey,seq,name,position,lon,lat,check,flagged,candidates,note
 j1-bavispe-crossing,J1,2,Crossing of the Bavispe,floor,-109.28798,29.99924,ok,false,1,She crosses the Bavispe.
 j1-san-luis-mountains,J1,5,"San Luis Mountains, by San Luis Pass",pass,-108.74505,31.39455,ok,false,2,She crosses the range north through its gap.
-j1-animas-mountains,J1,6,Animas Mountains,pass,-108.77309,31.49629,ok,false,2,"She passes through the range on her way north. The owner reads the crossing as halfway to the Animas Valley (decision 0056), so the gazetteer tier has no gap to offer."
-j1-animas-valley,J1,7,Animas Valley,floor,-108.86368,31.49074,ok,false,1,She crosses the valley floor.
+j1-animas-mountains,J1,6,"Animas Mountains, where Taylor's Draw heads",head,-108.81146,31.52114,ok,false,2,She comes north up the range's western flank to where Taylor's Draw heads (decision 0078).
+j1-animas-valley,J1,7,Animas Valley,floor,-108.86798,31.50936,ok,false,1,She crosses the valley floor.
 j1-foster-draw,J1,8,Foster Draw (the calf),head,-108.99639,31.4825,ok,false,2,The calf is killed at the head of the draw.
 j1-starvation-canyon,J1,10,Starvation Canyon,head,-109.09573,31.52244,ok,false,2,She works west to the head of the canyon.
 j1-clanton-foster,J1,12,Between Clanton and Foster draws,between,-108.9997,31.49225,ok,false,3,The high country between the two draws.

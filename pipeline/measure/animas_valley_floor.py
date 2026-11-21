@@ -14,7 +14,7 @@ from pyproj import Geod
 
 GEOD = Geod(ellps="WGS84")
 DEM = "private/cache/least-cost/dem.vrt"
-STOP_6 = (-108.77309, 31.49629)  # the Animas Mountains crossing (lon, lat)
+STOP_6 = (-108.81146, 31.52114)  # the Animas Mountains stop, at the head of Taylor Draw (lon, lat)
 STOP_8 = (-108.99639, 31.4825)   # the head of Foster Draw
 STEP_M = 100
 

@@ -709,8 +709,8 @@ RULES.update(
         "j2-hacienda": Rule(
             "medium",
             "Flat ground beside the Batepito: within 2 km of the river (INEGI streams along Natural Earth's "
-            "Río Batepito), no more than 30 m above it, with a slope under 5 degrees. The book has the road on the "
-            "other bank, but not which bank that is.",
+            "Río Batepito), no more than 30 m above it, with a slope under 5 degrees. The book has the hacienda "
+            "between the river and the road, so the road is on the hacienda's bank, but not which bank that is.",
             lambda F: F.valley_floor(F.river("Rio Batepito"), 30, 2).intersection(F.flat(5)),
         ),
         "j3-bavispe-promontory": Rule(

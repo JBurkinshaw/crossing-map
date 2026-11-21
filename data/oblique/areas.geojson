@@ -2174,256 +2174,288 @@
     "coordinates": [
      [
       [
-       -108.99839,
-       31.53038
+       -109.01358,
+       31.53087
       ],
       [
-       -108.99964,
-       31.52954
+       -109.01421,
+       31.53056
       ],
       [
-       -109.00149,
-       31.52934
+       -109.01482,
+       31.53091
       ],
       [
-       -109.00387,
-       31.52852
+       -109.01661,
+       31.5332
       ],
       [
-       -109.00443,
-       31.5284
+       -109.01719,
+       31.53357
       ],
       [
-       -109.00612,
-       31.52855
+       -109.01779,
+       31.53349
       ],
       [
-       -109.0077,
-       31.52757
+       -109.01957,
+       31.53183
       ],
       [
-       -109.00918,
-       31.52705
+       -109.02184,
+       31.5289
       ],
       [
-       -109.00965,
-       31.52715
+       -109.02288,
+       31.5285
       ],
       [
-       -109.01096,
-       31.52826
+       -109.02391,
+       31.52768
       ],
       [
-       -109.01136,
-       31.52835
+       -109.02532,
+       31.52719
       ],
       [
-       -109.01178,
-       31.52817
+       -109.02618,
+       31.52711
       ],
       [
-       -109.0122,
-       31.52758
+       -109.02701,
+       31.52672
       ],
       [
-       -109.01398,
-       31.52246
+       -109.02777,
+       31.52664
       ],
       [
-       -109.01529,
-       31.52044
+       -109.02974,
+       31.52209
       ],
       [
-       -109.01617,
-       31.51776
+       -109.0303,
+       31.52043
       ],
       [
-       -109.01639,
-       31.51759
+       -109.03113,
+       31.51749
       ],
       [
-       -109.01667,
-       31.51374
+       -109.03166,
+       31.51463
       ],
       [
-       -109.01653,
-       31.51038
+       -109.0319,
+       31.51227
       ],
       [
-       -109.01572,
-       31.50648
+       -109.03138,
+       31.50905
       ],
       [
-       -109.01483,
-       31.50492
+       -109.0309,
+       31.50777
       ],
       [
-       -109.01368,
-       31.50235
+       -109.02978,
+       31.50315
       ],
       [
-       -109.01298,
-       31.50147
+       -109.0295,
+       31.50251
       ],
       [
-       -109.01063,
-       31.49764
+       -109.02854,
+       31.50138
       ],
       [
-       -109.00875,
-       31.49546
+       -109.02748,
+       31.49969
       ],
       [
-       -109.00824,
-       31.49542
+       -109.02664,
+       31.49911
       ],
       [
-       -109.00716,
-       31.49594
+       -109.02533,
+       31.49853
       ],
       [
-       -109.00663,
-       31.49589
+       -109.02343,
+       31.49575
       ],
       [
-       -109.00265,
-       31.49397
+       -109.02291,
+       31.4953
       ],
       [
-       -109.00087,
-       31.49259
-      ],
-      [
-       -108.99963,
-       31.4923
-      ],
-      [
-       -108.99774,
-       31.49289
-      ],
-      [
-       -108.99711,
-       31.49287
-      ],
-      [
-       -108.99521,
-       31.49327
-      ],
-      [
-       -108.99271,
-       31.49298
-      ],
-      [
-       -108.99209,
-       31.49306
-      ],
-      [
-       -108.98962,
+       -109.0202,
        31.49388
       ],
       [
-       -108.98669,
-       31.49443
+       -109.01905,
+       31.49401
       ],
       [
-       -108.98556,
-       31.49485
+       -109.01847,
+       31.49344
       ],
       [
-       -108.98343,
-       31.49635
+       -109.01674,
+       31.48958
       ],
       [
-       -108.98056,
-       31.49786
+       -109.01615,
+       31.48895
       ],
       [
-       -108.97892,
-       31.49944
+       -109.01552,
+       31.489
       ],
       [
-       -108.97786,
-       31.50083
+       -109.01426,
+       31.48995
       ],
       [
-       -108.97614,
-       31.50387
+       -109.01364,
+       31.49001
       ],
       [
-       -108.97533,
-       31.50607
+       -109.01301,
+       31.48989
       ],
       [
-       -108.97508,
-       31.50718
+       -109.01177,
+       31.48864
       ],
       [
-       -108.97483,
-       31.50846
+       -109.01115,
+       31.48852
       ],
       [
-       -108.97463,
-       31.51121
+       -109.0105,
+       31.48913
       ],
       [
-       -108.97479,
-       31.51423
+       -109.00855,
+       31.4922
       ],
       [
-       -108.97627,
-       31.51992
+       -109.00791,
+       31.49269
       ],
       [
-       -108.97842,
-       31.52381
+       -109.00729,
+       31.49285
       ],
       [
-       -108.97877,
-       31.52404
+       -109.00485,
+       31.49289
       ],
       [
-       -108.98002,
-       31.52431
+       -109.00306,
+       31.4931
       ],
       [
-       -108.98135,
-       31.52512
+       -109.0008,
+       31.4931
       ],
       [
-       -108.98277,
-       31.5264
+       -109.00025,
+       31.49338
       ],
       [
-       -108.98382,
-       31.5268
+       -108.99865,
+       31.49522
       ],
       [
-       -108.98486,
-       31.5276
+       -108.99716,
+       31.49653
       ],
       [
-       -108.98654,
-       31.5284
+       -108.99577,
+       31.49748
       ],
       [
-       -108.98888,
-       31.52922
+       -108.99413,
+       31.4991
       ],
       [
-       -108.99191,
-       31.53075
+       -108.99273,
+       31.50071
       ],
       [
-       -108.99378,
-       31.53092
+       -108.99135,
+       31.50321
       ],
       [
-       -108.99566,
-       31.53168
+       -108.99042,
+       31.5061
       ],
       [
-       -108.99839,
-       31.53038
+       -108.99004,
+       31.50805
+      ],
+      [
+       -108.98989,
+       31.51017
+      ],
+      [
+       -108.98985,
+       31.5105
+      ],
+      [
+       -108.99052,
+       31.51448
+      ],
+      [
+       -108.99154,
+       31.51693
+      ],
+      [
+       -108.99265,
+       31.51889
+      ],
+      [
+       -108.99405,
+       31.52082
+      ],
+      [
+       -108.99612,
+       31.52312
+      ],
+      [
+       -108.99801,
+       31.5247
+      ],
+      [
+       -109.00291,
+       31.52795
+      ],
+      [
+       -109.00654,
+       31.52872
+      ],
+      [
+       -109.00776,
+       31.5296
+      ],
+      [
+       -109.00964,
+       31.52999
+      ],
+      [
+       -109.01149,
+       31.53223
+      ],
+      [
+       -109.01211,
+       31.5324
+      ],
+      [
+       -109.01358,
+       31.53087
       ]
      ]
     ]
@@ -2449,7 +2481,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Where the trap was set: the vaqueros' noon fire, off the Cloverdale Creek road. In episode 1-08 Billy rides out of Cloverdale at dawn, turns west up the creek road and leaves it about two hours later to cross a pasture to the fire. At a horse's walk that is some 8 to 12 km. In Census TIGER 2023 the road follows the creek for 7 km from Cloverdale, to where Co Rd C106 branches west, and ends 9.6 km out. The point is on the road 8 km from Cloverdale and the area covers its upper reach and the pastures either side. The GNIS point for Cloverdale Creek (887693) lies downstream, east of Cloverdale, which the ride west rules out.",
+    "reasoning": "Where the trap was set: the vaqueros' noon fire, off the Cloverdale Creek road. In episode 1-08 Billy rides out of Cloverdale at dawn, turns west up the creek road and rides past an old dance platform, and two hours after that leaves the road to cross a pasture to the fire. The dance platform is taken as Cloverdale Park, a historic site that GNIS (933623) puts on Cloverdale's own point, so the two hours run from the town: at a horse's walk, about 6 km/h, some 12 km. In Census TIGER 2023 the road follows the creek for 7 km from Cloverdale, then runs on as Co Rd C106 and ends 9.6 km out. The point is at the road's end, the nearest it comes to two hours' ride, and the area covers the creek's upper reach and the pastures either side (pipeline/measure/cloverdale_creek_road.py). The GNIS point for Cloverdale Creek (887693) lies downstream, east of Cloverdale, which the ride west rules out.",
     "outline_rule": null,
     "straight_road": false
    }
@@ -2461,256 +2493,288 @@
     "coordinates": [
      [
       [
-       -108.99839,
-       31.53038
+       -109.01358,
+       31.53087
       ],
       [
-       -108.99964,
-       31.52954
+       -109.01421,
+       31.53056
       ],
       [
-       -109.00149,
-       31.52934
+       -109.01482,
+       31.53091
       ],
       [
-       -109.00387,
-       31.52852
+       -109.01661,
+       31.5332
       ],
       [
-       -109.00443,
-       31.5284
+       -109.01719,
+       31.53357
       ],
       [
-       -109.00612,
-       31.52855
+       -109.01779,
+       31.53349
       ],
       [
-       -109.0077,
-       31.52757
+       -109.01957,
+       31.53183
       ],
       [
-       -109.00918,
-       31.52705
+       -109.02184,
+       31.5289
       ],
       [
-       -109.00965,
-       31.52715
+       -109.02288,
+       31.5285
       ],
       [
-       -109.01096,
-       31.52826
+       -109.02391,
+       31.52768
       ],
       [
-       -109.01136,
-       31.52835
+       -109.02532,
+       31.52719
       ],
       [
-       -109.01178,
-       31.52817
+       -109.02618,
+       31.52711
       ],
       [
-       -109.0122,
-       31.52758
+       -109.02701,
+       31.52672
       ],
       [
-       -109.01398,
-       31.52246
+       -109.02777,
+       31.52664
       ],
       [
-       -109.01529,
-       31.52044
+       -109.02974,
+       31.52209
       ],
       [
-       -109.01617,
-       31.51776
+       -109.0303,
+       31.52043
       ],
       [
-       -109.01639,
-       31.51759
+       -109.03113,
+       31.51749
       ],
       [
-       -109.01667,
-       31.51374
+       -109.03166,
+       31.51463
       ],
       [
-       -109.01653,
-       31.51038
+       -109.0319,
+       31.51227
       ],
       [
-       -109.01572,
-       31.50648
+       -109.03138,
+       31.50905
       ],
       [
-       -109.01483,
-       31.50492
+       -109.0309,
+       31.50777
       ],
       [
-       -109.01368,
-       31.50235
+       -109.02978,
+       31.50315
       ],
       [
-       -109.01298,
-       31.50147
+       -109.0295,
+       31.50251
       ],
       [
-       -109.01063,
-       31.49764
+       -109.02854,
+       31.50138
       ],
       [
-       -109.00875,
-       31.49546
+       -109.02748,
+       31.49969
       ],
       [
-       -109.00824,
-       31.49542
+       -109.02664,
+       31.49911
       ],
       [
-       -109.00716,
-       31.49594
+       -109.02533,
+       31.49853
       ],
       [
-       -109.00663,
-       31.49589
+       -109.02343,
+       31.49575
       ],
       [
-       -109.00265,
-       31.49397
+       -109.02291,
+       31.4953
       ],
       [
-       -109.00087,
-       31.49259
-      ],
-      [
-       -108.99963,
-       31.4923
-      ],
-      [
-       -108.99774,
-       31.49289
-      ],
-      [
-       -108.99711,
-       31.49287
-      ],
-      [
-       -108.99521,
-       31.49327
-      ],
-      [
-       -108.99271,
-       31.49298
-      ],
-      [
-       -108.99209,
-       31.49306
-      ],
-      [
-       -108.98962,
+       -109.0202,
        31.49388
       ],
       [
-       -108.98669,
-       31.49443
+       -109.01905,
+       31.49401
       ],
       [
-       -108.98556,
-       31.49485
+       -109.01847,
+       31.49344
       ],
       [
-       -108.98343,
-       31.49635
+       -109.01674,
+       31.48958
       ],
       [
-       -108.98056,
-       31.49786
+       -109.01615,
+       31.48895
       ],
       [
-       -108.97892,
-       31.49944
+       -109.01552,
+       31.489
       ],
       [
-       -108.97786,
-       31.50083
+       -109.01426,
+       31.48995
       ],
       [
-       -108.97614,
-       31.50387
+       -109.01364,
+       31.49001
       ],
       [
-       -108.97533,
-       31.50607
+       -109.01301,
+       31.48989
       ],
       [
-       -108.97508,
-       31.50718
+       -109.01177,
+       31.48864
       ],
       [
-       -108.97483,
-       31.50846
+       -109.01115,
+       31.48852
       ],
       [
-       -108.97463,
-       31.51121
+       -109.0105,
+       31.48913
       ],
       [
-       -108.97479,
-       31.51423
+       -109.00855,
+       31.4922
       ],
       [
-       -108.97627,
-       31.51992
+       -109.00791,
+       31.49269
       ],
       [
-       -108.97842,
-       31.52381
+       -109.00729,
+       31.49285
       ],
       [
-       -108.97877,
-       31.52404
+       -109.00485,
+       31.49289
       ],
       [
-       -108.98002,
-       31.52431
+       -109.00306,
+       31.4931
       ],
       [
-       -108.98135,
-       31.52512
+       -109.0008,
+       31.4931
       ],
       [
-       -108.98277,
-       31.5264
+       -109.00025,
+       31.49338
       ],
       [
-       -108.98382,
-       31.5268
+       -108.99865,
+       31.49522
       ],
       [
-       -108.98486,
-       31.5276
+       -108.99716,
+       31.49653
       ],
       [
-       -108.98654,
-       31.5284
+       -108.99577,
+       31.49748
       ],
       [
-       -108.98888,
-       31.52922
+       -108.99413,
+       31.4991
       ],
       [
-       -108.99191,
-       31.53075
+       -108.99273,
+       31.50071
       ],
       [
-       -108.99378,
-       31.53092
+       -108.99135,
+       31.50321
       ],
       [
-       -108.99566,
-       31.53168
+       -108.99042,
+       31.5061
       ],
       [
-       -108.99839,
-       31.53038
+       -108.99004,
+       31.50805
+      ],
+      [
+       -108.98989,
+       31.51017
+      ],
+      [
+       -108.98985,
+       31.5105
+      ],
+      [
+       -108.99052,
+       31.51448
+      ],
+      [
+       -108.99154,
+       31.51693
+      ],
+      [
+       -108.99265,
+       31.51889
+      ],
+      [
+       -108.99405,
+       31.52082
+      ],
+      [
+       -108.99612,
+       31.52312
+      ],
+      [
+       -108.99801,
+       31.5247
+      ],
+      [
+       -109.00291,
+       31.52795
+      ],
+      [
+       -109.00654,
+       31.52872
+      ],
+      [
+       -109.00776,
+       31.5296
+      ],
+      [
+       -109.00964,
+       31.52999
+      ],
+      [
+       -109.01149,
+       31.53223
+      ],
+      [
+       -109.01211,
+       31.5324
+      ],
+      [
+       -109.01358,
+       31.53087
       ]
      ]
     ]
@@ -2737,7 +2801,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "The same trap site as the wolf's last stop (J1, stop 13, which gives the reasoning): about two hours' ride west up the creek road from Cloverdale.",
+    "reasoning": "The same trap site as the wolf's last stop (J1, stop 13, which gives the reasoning): west up the creek road from Cloverdale, two hours' ride past an old dance platform.",
     "outline_rule": null,
     "straight_road": false
    }
@@ -9064,7 +9128,7 @@
     "source_licence": "CC BY 4.0",
     "note_safe": "",
     "reasoning": "Unnamed in the book. The text sets it on flat ground beside the Batopito River, with the road on the other side (1-10): the Batepito stream near Colonia Morelos (GeoNames 4017287), 1.7 km from the estimate. The area is bounded by the reach within a day of Morelos and the Pilares Teras. Bell 2000 (p. 57) also puts the hacienda on this river.",
-    "outline_rule": "Flat ground beside the Batepito: within 2 km of the river (INEGI streams along Natural Earth's Río Batepito), no more than 30 m above it, with a slope under 5 degrees. The book has the road on the other bank, but not which bank that is.",
+    "outline_rule": "Flat ground beside the Batepito: within 2 km of the river (INEGI streams along Natural Earth's Río Batepito), no more than 30 m above it, with a slope under 5 degrees. The book has the hacienda between the river and the road, so the road is on the hacienda's bank, but not which bank that is.",
     "straight_road": false
    }
   },
@@ -22121,7 +22185,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He wanders the high country for weeks and Indians feed him. The book names no range or camp. The area covers the Sierra El Tigre country south of the mining town and west of the upper Bavispe, between his stop at El Tigre and his descent to the river.",
+    "reasoning": "After El Tigre he rides west into the mountains, and Indians there feed him. The book names no range or camp. The area covers the Sierra El Tigre country south of the mining town and west of the upper Bavispe, between his stop at El Tigre and his descent to the river.",
     "outline_rule": "The high country: ground above 1,500 m west of the upper Bavispe (west of the line Bacerac to Bavispe, extended). The book names no range, so this only drops the valleys.",
     "straight_road": false
    }
@@ -28968,7 +29032,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names carved in the rock, and looks down on the Animas Plain at dusk. The book does not name the pass. The old Douglas to Cloverdale road is today's Geronimo Trail (Census TIGER 2023), north of the low pass of J2. The pin is the trail's highest point over the range (pipeline/measure/road_points.py), and the area follows the road.",
+    "reasoning": "He rides the old road from Douglas to Cloverdale all day and crosses a cold pass in the Guadalupe Mountains, with old names written on the rock, and looks down on the Animas Plain at dusk. The book does not name the pass. The old Douglas to Cloverdale road is today's Geronimo Trail (Census TIGER 2023), north of the low pass of J2. The pin is the trail's highest point over the range (pipeline/measure/road_points.py), and the area follows the road.",
     "outline_rule": "On the road over the range: within 1.5 km of the Douglas to Cloverdale roads (Geronimo Trail and Cloverdale Road in Census TIGER).",
     "straight_road": false
    }
@@ -38018,7 +38082,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east towards Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, two days later. The area is wide for that reason. The point is the ground inside the area nearest the first estimate (pipeline/measure/points_in_areas.py).",
+    "reasoning": "After three days' riding they reach the crossing of the old wagon road that runs from La Norteña in the western sierras across the Babícora plains and the Santa María valley to Namiquipa. Next morning “the girl” rides away east towards Namiquipa, which is 57 km due east of the estimate (bearing 92 degrees). The book's compass does not close here: the brothers then ride south into pinewoods and reach Las Varas, which lies to the north, after some nights camped in the pinewoods. The area is wide for that reason. The point is the ground inside the area nearest the first estimate (pipeline/measure/points_in_areas.py).",
     "outline_rule": "On the wagon road: within 8 km of the line La Norteña, La Babícora, Namiquipa, the road's ends and middle as the book gives them. The book's compass does not close here, so the band is wide.",
     "straight_road": true
    }
@@ -38814,7 +38878,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Next morning two young vaqueros drive their own horses up from a high-country laguna south of the road, and the brothers rope Niño and Bailey. The laguna is the Babícora lake (GeoNames 4017246, 29.35 N, 107.83 W). The area is on the road north of it, and the pin is on the line of the road (a straight line from Las Varas to La Boquilla stands in for the old road).",
+    "reasoning": "Next morning two young vaqueros drive the brothers' three horses and some others up from a high-country laguna south of the road, and the brothers rope Niño and Bailey. The laguna is the Babícora lake (GeoNames 4017246, 29.35 N, 107.83 W). The area is on the road north of it, and the pin is on the line of the road (a straight line from Las Varas to La Boquilla stands in for the old road).",
     "outline_rule": "On the road, with the lake to the south: within 2.5 km of the line from Las Varas to La Boquilla, north of the lake and not in it.",
     "straight_road": true
    }
@@ -54944,7 +55008,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "Two days later he reaches the SK Bar gate, learns that Miller died on Kwajalein, and stays the night in the rain. The estimate is J3's (docs/open-questions.md).",
+    "reasoning": "Two days later he reaches the SK Bar gate, learns that Miller died on Kwajalein, and stays the night as rain comes on. The estimate is J3's (docs/open-questions.md).",
     "outline_rule": "The ranch house is on the road: within 2.5 km of the road north from Cloverdale (today's State Highway 338 and Cloverdale Road, Census TIGER). The book gives nine miles by road from the Parham house, so the area still fixes where along the road.",
     "straight_road": false
    }
@@ -63441,7 +63505,7 @@
     "source_id": null,
     "source_licence": "CC BY 4.0",
     "note_safe": "",
-    "reasoning": "One evening he follows a road west towards a gap in the mountains and after dark reaches a lone weatherboard cabin on the plain, where Quijada, still manager of the Nahuerichic division, tells him where Boyd fell and lies. Next day he rides north all day to San Buenaventura, so the area is about a day's ride (47 km) south-south-west of it. It is 57 km from Nahuerachi, the open-questions pick for the division's name.",
+    "reasoning": "One evening he follows a road west towards a gap in the mountains and after dark reaches a lone weatherboard cabin on the plain, where Quijada, still manager of the Nahuerichic division, tells him where Boyd fell and lies. When the book next shows him, he rides north all day to San Buenaventura, so the area is about a day's ride (47 km) south-south-west of it. It is 57 km from Nahuerachi, the open-questions pick for the division's name.",
     "outline_rule": "On the plain: ground with a slope under 3 degrees. The cabin is a lone house on the plain on a road towards a gap in the mountains.",
     "straight_road": false
    }

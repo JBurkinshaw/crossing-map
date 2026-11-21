@@ -1,6 +1,6 @@
 # 0056. The head of a draw, and the gap through a range, for the she-wolf's journey
 
-Status: accepted (2026-11-17, amended 2026-11-18)
+Status: accepted (2026-11-17, amended 2026-11-18); the Animas Mountains stop amended by 0078
 Phase: P1
 
 ## Context
