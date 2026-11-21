@@ -186,11 +186,22 @@ const DRAWN = [
   ['vignette', ['vignette', 'vignette-label'], vignettes, vignetteZoom, ''],
 ]
 
-// Until the map has drawn what it was asked for (at most 10 s: an idle event can be missed between checks).
+// Until the map has drawn what it was asked for (at most 10 s: an idle event can be missed between checks). Moving
+// the reading position back can reload the page while this waits, which destroys the page it was asking: then it
+// waits for the new page's map and asks again, three times at most.
 async function idle(page) {
-  await page.evaluate(
-    () => new Promise((done) => (window.__map.loaded() ? done() : (window.__map.once('idle', done), setTimeout(done, 10000)))),
-  )
+  for (let attempt = 1; ; attempt++) {
+    try {
+      await page.evaluate(
+        () => new Promise((done) => (window.__map.loaded() ? done() : (window.__map.once('idle', done), setTimeout(done, 10000)))),
+      )
+      return
+    } catch (error) {
+      if (attempt >= 3 || !/Execution context was destroyed/.test(String(error))) throw error
+      await page.waitForLoadState('load')
+      await page.waitForFunction(() => window.__map, null, { timeout: 30000 })
+    }
+  }
 }
 
 // Until the map's filters and story data match `reached` (at most 10 s). The map can report itself loaded before
