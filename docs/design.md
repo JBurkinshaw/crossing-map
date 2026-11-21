@@ -324,6 +324,8 @@ Avoid the kitchen sink (every layer on) and desert fog (an empty view with no cu
 
 **Spoiler mode.** On until the reader answers the first-visit question. A header badge always says what is hidden ("Showing everything", "Hiding what's after Part I, episode 5: In the woods", or "Not set") and opens "Where are you up to?". There, "Show everything" asks for confirmation; the first visit's "Yes" does not, as it answers a direct question. Setting progress to an episode brings the stop the reader reached most recently into focus. Progress is stored in `localStorage`. The stop in focus is the reader's place: it is kept in the address (`#stop=`) and in `localStorage`, and the site opens there if the reader has reached it, else at the stop reached most recently. On that stop, "Read on" sets progress to the next episode (decision 0053).
 
+**Map settings.** The Map menu's choices (map, compare map, view, ground and units) are stored in `localStorage` once the reader makes them, and the next visit opens with them. When MapTiler refuses its maps, the switch back to Vintage is stored too. A stored choice the site no longer offers falls back to the default. The address does not carry them, so a shared link brings only the camera and the stop (decision 0078).
+
 **Usability targets.** Keyboard-reachable controls, controls at least 44 px tall on touch screens, no text under about 14.5 px on phones, safe-area insets, reduced motion respected, one-handed use on a phone, and smooth panning with every Part I layer on.
 
 ## 10. Illustrations: vignettes

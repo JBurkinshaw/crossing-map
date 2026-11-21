@@ -1,6 +1,5 @@
-import { useCallback, useState } from 'react'
 import type { ExpressionSpecification } from 'maplibre-gl'
-import { readStored, store } from './storage'
+import { readChoice, store, useStoredState } from './storage'
 
 // Units for distances and heights: miles and feet, or kilometres and metres. The reader's choice is remembered;
 // until then, US English browsers get imperial and everyone else metric.
@@ -10,20 +9,10 @@ const KEY = 'crossing-map.units'
 const FEET = 3.28084
 const MILE = 1609.344
 
-function initialUnits(): Units {
-  const value = readStored(KEY)
-  if (value === 'imperial' || value === 'metric') return value
-  return /-US$/i.test(navigator.language) ? 'imperial' : 'metric'
-}
+const initialUnits = (): Units => readChoice(KEY, ['imperial', 'metric'], /-US$/i.test(navigator.language) ? 'imperial' : 'metric')
+const saveUnits = (units: Units) => store(KEY, units)
 
-export function useUnits(): [Units, (units: Units) => void] {
-  const [units, setState] = useState(initialUnits)
-  const setUnits = useCallback((next: Units) => {
-    store(KEY, next)
-    setState(next)
-  }, [])
-  return [units, setUnits]
-}
+export const useUnits = () => useStoredState(initialUnits, saveUnits)
 
 const trim = (n: number) => String(Math.round(n * 10) / 10)
 

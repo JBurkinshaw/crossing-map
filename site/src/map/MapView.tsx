@@ -12,7 +12,7 @@ import { HomeControl } from './HomeControl'
 import { LayerKey } from './LayerKey'
 import { MapFrame } from './MapFrame'
 import { MapControls } from './MapControls'
-import type { Basemap, CompareWith, Ground, View } from './mode'
+import { useGround, type Basemap, type CompareWith, type View } from './mode'
 import { OverviewInset } from './OverviewInset'
 import { StoryLayers, type Corridor } from './StoryLayers'
 import { WaterMarks } from './WaterMarks'
@@ -112,7 +112,7 @@ export function MapView(props: Props) {
   // or the satellite tint,
   // the satellite map faded under the literary map in the Flat and Tilted views. The Oblique view's line work is
   // shifted north, so imagery would not line up under it; its land cover is shifted with it.
-  const [ground, setGround] = useState<Ground>('landcover')
+  const [ground, setGround] = useGround()
   // The Map menu and the open layer key share the map's right-hand side, and on desktop the menu would cover the
   // top of the key: opening one closes the other.
   const [opened, setOpened] = useState<'menu' | 'key' | null>(null)

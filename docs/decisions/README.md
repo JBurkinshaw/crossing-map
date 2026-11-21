@@ -92,6 +92,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0075 Drawings moved apart, and a caption on each | accepted; the moves superseded by 0077 |
 | 0076 Large drawings in the empty quarters at low zoom | accepted |
 | 0077 Drawings wait rather than touch | accepted |
+| 0078 The Map menu remembers its choices | accepted |
 
 ## Template
 
