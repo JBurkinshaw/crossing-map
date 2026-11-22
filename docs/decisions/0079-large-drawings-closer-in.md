@@ -1,6 +1,6 @@
 # 0079. The large drawings closer in
 
-Status: accepted (2026-11-20). Amends 0076.
+Status: accepted (2026-11-20). Amends 0076. Amended by 0082.
 Phase: P1
 
 ## Context

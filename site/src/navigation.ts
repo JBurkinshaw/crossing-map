@@ -3,6 +3,7 @@ import type { MapRef } from '@vis.gl/react-maplibre'
 import type { Feature, Geometry } from 'geojson'
 import type { Story, StoryProps } from './data/story'
 import type { Translation } from './data/translations'
+import { OPENING_BOUNDS } from './map/largeArt'
 import { isPhone, motion } from './map/setup'
 import type { SearchHit } from './panel/SearchBox'
 import { hashParam } from './route'
@@ -46,9 +47,15 @@ type StoryFeature = Feature<Geometry, StoryProps>
 
 // The whole of a journey: its stops, clear of the map's switches (top right), the zoom buttons (left), and the
 // inset and cartouche (bottom right). Phones have no room to spare.
+const framePadding = () => (isPhone() ? 30 : { top: 70, right: 130, bottom: 100, left: 80 })
 function frameStops(map: MapRef | null, stops: StoryFeature[]) {
-  const padding = isPhone() ? 30 : { top: 70, right: 130, bottom: 100, left: 80 }
-  if (stops.length > 0) map?.fitBounds(bounds(stops), { padding, duration: motion(1200) })
+  if (stops.length > 0) map?.fitBounds(bounds(stops), { padding: framePadding(), duration: motion(1200) })
+}
+
+// The opening view: the title and every large drawing (decision 0082), clear of the same controls.
+function frameOpening(map: MapRef | null) {
+  const [w, s, e, n] = OPENING_BOUNDS
+  map?.fitBounds([[w, s], [e, n]], { padding: framePadding(), duration: 0 })
 }
 
 // To a point, closer in if the map is far out; to an area or line, framed.
@@ -122,9 +129,11 @@ export function useNavigation({ mapRef, story, flat, translations, progress, sho
       const index = list.findIndex((s) => s.properties.id === at?.id)
       if (at && index >= 0) {
         const fromLink = framed.current === 'from-link'
+        const opening = framed.current === null
         framed.current = at.journey
         dispatch({ type: 'goto', journey: at.journey, index, stepping: true })
-        if (!fromLink) flyToFeature(mapRef.current, list[index])
+        if (opening) frameOpening(mapRef.current)
+        else if (!fromLink) flyToFeature(mapRef.current, list[index])
         return
       }
     }
@@ -134,8 +143,10 @@ export function useNavigation({ mapRef, story, flat, translations, progress, sho
       return
     }
     if (framed.current === journey) return
+    const opening = framed.current === null
     framed.current = journey
-    frameStops(mapRef.current, stops)
+    if (opening) frameOpening(mapRef.current)
+    else frameStops(mapRef.current, stops)
   }, [stops, journey, mapRef, story, progress])
 
   const flyTo = (f: StoryFeature) => flyToFeature(mapRef.current, f)

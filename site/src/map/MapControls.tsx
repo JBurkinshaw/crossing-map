@@ -38,6 +38,8 @@ type Props = {
   ground: Ground
   tintAvailable: boolean
   landcoverAvailable: boolean
+  // The vintage map is in too far out for the land cover, which waits for the large drawings to fade (decision 0082).
+  landcoverZoomedOut: boolean
   onGround: (ground: Ground) => void
   units: Units
   onUnits: (units: Units) => void
@@ -49,9 +51,11 @@ type Props = {
 // The map's switches, folded into one Map button top right, so the open box never sits over a stop the reader
 // is looking at (the folded button is small enough for frameStops' padding to clear).
 export function MapControls(props: Props) {
-  const { basemap, onBasemap, unavailable, view, onView, compareWith, ground, tintAvailable, landcoverAvailable, onGround, units, onUnits, menuOpen, onMenuOpen: setMenuOpen } = props
-  // A choice the current view cannot draw shows as paper, and comes back when the view can draw it again.
-  const shown = (ground === 'tint' && !tintAvailable) || (ground === 'landcover' && !landcoverAvailable) ? 'paper' : ground
+  const { basemap, onBasemap, unavailable, view, onView, compareWith, ground, tintAvailable, landcoverAvailable, landcoverZoomedOut, onGround, units, onUnits, menuOpen, onMenuOpen: setMenuOpen } = props
+  // A choice the current view or zoom cannot draw shows as paper, and comes back when it can be drawn again: the
+  // reader's choice is kept, not changed (decision 0082).
+  const landcoverNow = landcoverAvailable && !landcoverZoomedOut
+  const shown = (ground === 'tint' && !tintAvailable) || (ground === 'landcover' && !landcoverNow) ? 'paper' : ground
   const menuBox = useRef<HTMLDivElement>(null)
   const menuButton = useRef<HTMLButtonElement>(null)
   useEffect(() => {
@@ -132,14 +136,16 @@ export function MapControls(props: Props) {
                   id: 'landcover',
                   label: 'Land cover',
                   description: 'Forest, woodland, grass, scrub, fields and towns along the journeys',
-                  disabled: !landcoverAvailable,
+                  disabled: !landcoverNow,
                 },
                 { id: 'paper', label: 'Paper', description: 'The paper colour of the map', disabled: !landcoverAvailable },
                 { id: 'tint', label: 'Satellite tint', description: 'Faint colour from satellite imagery under the map', disabled: !tintAvailable },
               ]}
               value={shown}
               onChange={onGround}
-              note={!landcoverAvailable ? 'For the vintage map only' : !tintAvailable && shown === 'paper' ? 'The paper colour of the map. Satellite tint is for Flat and Tilted only' : undefined}
+              note={!landcoverAvailable ? 'For the vintage map only'
+                : landcoverZoomedOut && shown === 'paper' ? 'The paper colour of the map. Land cover shows as you zoom in'
+                  : !tintAvailable && shown === 'paper' ? 'The paper colour of the map. Satellite tint is for Flat and Tilted only' : undefined}
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import type { ExpressionSpecification, LayerSpecification, SourceSpecification } from 'maplibre-gl'
 import { fonts, LAND_COVERS, textPx, typeScale, zoomedSize, type Palette } from './tokens'
 import { heightLabel, type Units } from '../units'
+import { DETAIL_FROM } from './largeArt'
 
 // Relief (docs/design.md, section 5.2; decision 0016, "S5"): an Imhof desert tint below zoom 10, then
 // near-white paper, a light grey hillshade, 50 m contours and hachures (HACHURE_SET), with mountain glyphs.
@@ -476,11 +477,14 @@ export const landcoverInk: ExpressionSpecification =
 
 // The land cover on the ground: its colour under the hillshade, so the hillshade still shades it, and its ink
 // above, so the hillshade does not grey the ink. MapView puts each below the layer named by `before`.
+// Below DETAIL_FROM the large drawings and title have the map (largeArt.ts): the land cover fades in over the next
+// 0.8 of a zoom step as they fade out, and the Ground switch offers it from there (decision 0082).
 export function landcoverLayers(p: Palette): { before: string; layer: LayerSpecification }[] {
   const source = { source: 'landcover', 'source-layer': 'landcover', layout: { visibility: 'none' } } as const
+  const fade = ['interpolate', ['linear'], ['zoom'], DETAIL_FROM, 0, DETAIL_FROM + 0.8, 1] as ExpressionSpecification
   return [
-    { before: 'hillshade', layer: { ...source, id: 'landcover', type: 'fill', paint: { 'fill-color': landcoverColour(p) } } },
-    { before: 'contour', layer: { ...source, id: 'landcover-ink', type: 'fill', paint: { 'fill-pattern': landcoverInk } } },
+    { before: 'hillshade', layer: { ...source, id: 'landcover', type: 'fill', paint: { 'fill-color': landcoverColour(p), 'fill-opacity': fade } } },
+    { before: 'contour', layer: { ...source, id: 'landcover-ink', type: 'fill', paint: { 'fill-pattern': landcoverInk, 'fill-opacity': fade } } },
   ]
 }
 

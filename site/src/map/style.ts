@@ -4,6 +4,7 @@ import { fonts, palette as tokens, SPRITE, textPx } from './tokens'
 import { contextPlaceLayer } from './contextPlaces'
 import { waterPlaceLayer } from './waterPlaces'
 import { largeArtLayers, largeArtSources, largeTitleLayer, largeTitleSource } from './largeArt'
+import { regionNameLayer, regionNameSource } from './regionNames'
 import type { Units } from '../units'
 
 // Every layer literaryStyle draws is part of the literary base, which satellite, topo and compare modes hide,
@@ -243,7 +244,8 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
   layers.splice(at('county-line'), 0, ...r.hillshade)
   layers.splice(at('county-line'), 0, ...r.hachures)
   // The large drawings of the opening view lie on the relief, under every line and name (largeArt.ts).
-  layers.splice(at('county-line'), 0, ...largeArtLayers(), largeTitleLayer(tokens.journeys.J3, tokens.ink))
+  layers.splice(at('county-line'), 0, ...largeArtLayers(), largeTitleLayer(tokens.ink, tokens.paper),
+    regionNameLayer(tokens.ink, tokens.paper))
   // Last of the base, so the story's labels (added above it) win any collision.
   layers.push(stateLabel('state-labels'))
   // The sprite and the large drawings sit beside the fonts in this build; the tiles may come from another (setup.ts).
@@ -257,6 +259,7 @@ export function literaryStyle(tilesBase: string, fontsBase: string, dataBase: st
       ...reliefSources(tilesBase, dataBase),
       ...largeArtSources(siteBase),
       'large-title': largeTitleSource(),
+      'region-names': regionNameSource(),
       'state-labels': { type: 'geojson', data: `${labels}states.geojson` },
       graticule: { type: 'geojson', data: `${labels}graticule.geojson` },
       passes: { type: 'geojson', data: `${labels}passes.geojson` },

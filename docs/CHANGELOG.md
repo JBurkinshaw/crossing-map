@@ -6,6 +6,12 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ## Unreleased
 
+### 2026-11-21
+
+#### Site
+
+- The map opens on the whole opening view: the title and every large drawing. The title is now "THE CROSSING" in the map's ink, set lower over the story. Six of the book's region names are lettered across the land, and the horned moon with Venus joins the large drawings, with Cassiopeia round the polestar above it as the map's north arrow. The lettering draws above the stops, which show as small numbered rings until zoom 7.5. Place pins and the land cover come in from zoom 7, and below that the Ground switch offers Paper and says the land cover shows as you zoom in (decision 0082).
+
 ### 2026-11-20
 
 #### Data

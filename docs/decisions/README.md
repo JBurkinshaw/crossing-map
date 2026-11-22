@@ -54,7 +54,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0037 One voice, one spelling, and plain words in the site's text | accepted |
 | 0038 Drawings' subjects that give nothing away, and the Parham house dated 2-05 | accepted |
 | 0039 Drawings in the Oblique view | accepted |
-| 0040 The Oblique view: oblique-map strokes, and land cover from the CEC read with Brown's bands | accepted; default ground amended by 0072 |
+| 0040 The Oblique view: oblique-map strokes, and land cover from the CEC read with Brown's bands | accepted; default ground amended by 0072; amended by 0082 |
 | 0041 The classic map is called the Vintage map | accepted |
 | 0042 Land cover drawn in ink over its colour | accepted |
 | 0043 MapTiler's logo and credits in the map's own controls | accepted |
@@ -90,12 +90,13 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0073 Vignettes to 150, by the book's big scenes | accepted; placement superseded by 0075; amended by 0080 |
 | 0074 On to and Back to fly to the stop | accepted |
 | 0075 Drawings moved apart, and a caption on each | accepted; the moves superseded by 0077 |
-| 0076 Large drawings in the empty quarters at low zoom | accepted; amended by 0079 |
+| 0076 Large drawings in the empty quarters at low zoom | accepted; amended by 0079; amended by 0082 |
 | 0077 Drawings wait rather than touch | accepted; amended by 0080 |
 | 0078 The head of Taylor Draw, and the end of the Cloverdale Creek road | accepted |
-| 0079 The large drawings closer in | accepted |
+| 0079 The large drawings closer in | accepted; amended by 0082 |
 | 0080 Drawings for the book's themes | accepted |
-| 0081 A large title at the scale of the drawings | accepted |
+| 0081 A large title at the scale of the drawings | accepted; the title restyled by 0082 |
+| 0082 Lettering at low zoom, and the land cover waits | accepted |
 
 ## Template
 

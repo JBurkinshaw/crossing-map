@@ -1,4 +1,4 @@
-"""Large vignettes for the low-zoom map: six uncaptioned drawings of the novel's broad themes that fill the empty
+"""Large vignettes for the low-zoom map: eight uncaptioned drawings of the novel's broad themes that fill the empty
 quarters of the map when it first loads and fade out as the reader zooms in.
 
 They are drawn on a 288 x 216 grid (in the 96 grid's units) with the same pen as the 96 x 96 sprite vignettes, so
@@ -13,7 +13,8 @@ The horses and riders are traced afresh, at the larger size, from the same Muybr
 horse with its rider, kept below as point rings. The she-wolf's outline was set by hand over the US Fish and Wildlife
 Service photograph the sprite's wolf comes from (Flickr 14883247361, public domain), with her head carried level
 and her legs a little longer. The ruined church is drawn after the Quarai mission photograph (suemruth, CC BY 2.0,
-drawn after, not traced). Everything else is drawn by hand. The paper knock-out is kept light, with open skies and
+drawn after, not traced). Cassiopeia and the polestar are set from their catalogue positions
+(see CASSIOPEIA). Everything else is drawn by hand. The paper knock-out is kept light, with open skies and
 edges that trail off into hatching, so each reads as drawn on the map. Light from the north-west: shade on each
 shape's south-east side.
 """
@@ -770,6 +771,147 @@ def ruined_church() -> Drawing:
     return d
 
 
+# Night skies -------------------------------------------------------------------------------------------
+def star(d: Drawing, x: float, y: float, r: float, rays: float = 0.0, n: int = 8, w: float = 0.55):
+    """A star as the engraved charts draw one: a dot on a small paper knock-out, and for a bright one `n` rays of
+    length `rays` (alternately long and short), so it reads over the relief at the opening zoom."""
+    d.line(f"M{x - .2:.1f},{y:.1f} L{x + .2:.1f},{y:.1f}", w=r * 2, color=PAPER)
+    if rays:
+        ends = []
+        for k in range(n):
+            a = 2 * math.pi * k / n - math.pi / 2
+            r0, r1 = r + 1.2, r + 1.2 + rays * (1 if k % 2 == 0 else .55)
+            ends.append(f"M{x + r0 * math.cos(a):.1f},{y + r0 * math.sin(a):.1f} "
+                        f"L{x + r1 * math.cos(a):.1f},{y + r1 * math.sin(a):.1f}")
+        d.line(" ".join(ends), w=w)
+    d.dots([(x, y)], r=r)
+
+
+def scatter(d: Drawing, n: int, box: tuple[float, float, float, float], seed: int,
+            avoid: list[tuple[float, float, float]], fade: float = 0.0):
+    """n stars strewn over the box (x0, y0, x1, y1), thinning out towards its sides and top so the sky trails off,
+    and kept clear of the circles (x, y, r) in `avoid`. `fade` thins them towards the bottom as well (dusk)."""
+    rnd = random.Random(seed)
+    x0, y0, x1, y1 = box
+    placed: list[Pt] = []
+    while len(placed) < n:
+        x, y = rnd.uniform(x0, x1), rnd.uniform(y0, y1)
+        v = (y - y0) / (y1 - y0)
+        keep = (1 - _edge(x, x0, x1) ** 2) * min(1.0, v * 4) * (1 - fade * v)
+        if rnd.random() > keep or any(math.dist((x, y), (ax, ay)) < ar for ax, ay, ar in avoid):
+            continue
+        if any(math.dist((x, y), p) < 14 for p in placed):
+            continue
+        placed.append((x, y))
+        m = rnd.random()
+        star(d, x, y, 0.9 if m < .6 else 1.15 if m < .88 else 1.4, rays=2.0 if m > .88 else 0.0, n=4, w=0.7)
+
+
+def dashed(pts: list[Pt], on: int = 2, off: int = 2) -> str:
+    """A polyline broken into dashes of `on` points with gaps of `off`."""
+    return " ".join(_pl(pts[i:i + on + 1]) for i in range(0, len(pts) - on, on + off))
+
+
+# Cassiopeia's W (beta, alpha, gamma, delta, epsilon Cas) and Polaris: J2000 right ascension (hours), declination
+# (degrees) and visual magnitude, from the Yale Bright Star Catalogue.
+CASSIOPEIA = [(0.153, 59.15, 2.27), (0.675, 56.54, 2.24), (0.945, 60.72, 2.15), (1.430, 60.24, 2.68),
+              (1.907, 63.67, 3.37)]
+POLARIS = (2.530, 89.26, 1.98)
+
+
+# 7. The map's north: the polestar, with Cassiopeia wheeling about it as Billy watched it on the plains (2-05) --
+def cassiopeia() -> Drawing:
+    """The map's north arrow drawn as the sky Billy steered by: the polestar, rayed, with a meridian rising from
+    it to a lettered N, and Cassiopeia's W at three of his wakings four hours apart, swinging round below it, the
+    earlier two lighter and dashed. An azimuthal equidistant projection about the pole, 3.2 units to the degree,
+    so the W keeps its true size and distance from the pole. Stars and lines are heavy, on paper knock-outs, so
+    the mark reads at the opening zoom over the relief."""
+    d = Drawing("large-cassiopeia", W, H)
+    s = 3.2
+    px, py = 144, 84
+
+    def at(ra: float, dec: float, lst: float) -> Pt:
+        a = math.radians((lst - ra) * 15)
+        r = (90 - dec) * s
+        return px - r * math.sin(a), py - r * math.cos(a)
+    # Local sidereal time at each waking, earliest first: the W lower left, below the pole, lower right, which
+    # keeps the top clear for the N.
+    wakings = [9.0, 13.0, 17.0]
+    # The swing: dashed arcs about the pole, through the first and last stars of the W.
+    arcs = []
+    for ra, dec, _ in (CASSIOPEIA[0], CASSIOPEIA[-1]):
+        arc = [at(ra, dec, wakings[0] - .6 + k * .05) for k in range(int((wakings[-1] - wakings[0] + 1.2) / .05) + 1)]
+        arcs.append(dashed(arc, 3, 3))
+    d.line(" ".join(arcs), w=2.4)
+    # Each waking: (line weight, dash on, dash off, star radius, ray length, ray weight), earliest first.
+    pens = [(2.4, 2, 2, 3.0, 3.6, 1.4), (3.2, 4, 2, 3.6, 4.6, 1.7), (4.2, 0, 0, 4.4, 6.0, 2.0)]
+    for lst, (lw, on, off, sr, ray, rw) in zip(wakings, pens, strict=True):
+        pts = [at(ra, dec, lst) for ra, dec, _ in CASSIOPEIA]
+        line = []
+        for a, b in pairwise(pts):
+            n = max(2, int(math.dist(a, b) / 1.6))
+            line += [(a[0] + (b[0] - a[0]) * j / n, a[1] + (b[1] - a[1]) * j / n) for j in range(n)]
+        line.append(pts[-1])
+        d.line(dashed(line, on, off) if on else _pl(line), w=lw)
+        for (x, y), (_, _, mag) in zip(pts, CASSIOPEIA, strict=True):
+            star(d, x, y, sr + (3.4 - mag) * .4, rays=ray, n=4, w=rw)
+    # The meridian from the pole to the N, with an engraver's arrowhead, half filled, and the N in thick and thin
+    # strokes.
+    d.line(f"M{px},{py - 24} L{px},46", w=3.2)
+    left = f"M{px},34 L{px - 7},50 L{px},46 Z"
+    d.shape(left, w=2.0)
+    d.hatch(left, angle=70, pitch=0.8, w=0.9)
+    d.shape(f"M{px},34 L{px + 7},50 L{px},46 Z", w=2.0)
+    d.line(f"M{px - 8},28 L{px - 8},8 M{px + 8},28 L{px + 8},8 M{px - 11},28 L{px - 5},28 M{px + 5},8 L{px + 11},8 "
+           f"M{px - 11},8 L{px - 7},8", w=2.6)
+    d.line(f"M{px - 8},8 L{px + 8},28", w=5.4)
+    star(d, px, py, 6.0, rays=20.0, w=3.0)
+    # The rest of the sky, a few stars strewn thin and kept off the W, the pole and the N.
+    avoid = [(px, py, 34), (px, 30, 28), (px, 60, 16)]
+    avoid += [(*at(ra, dec, lst), 9) for lst in wakings for ra, dec, _ in CASSIOPEIA]
+    scatter(d, 12, (10, 6, 278, 210), seed=71, avoid=avoid)
+    return d
+
+
+# 8. The horned moon on its back in the west with Venus above it, the brothers driving the horses north (3-08) ---
+def horned_moon() -> Drawing:
+    d = Drawing("large-horned-moon", W, H)
+    mx, my, mr = 146, 96, 36
+    # The thin moon lying on its back: the lit limb below, the horns turned up, hatched across its body so it
+    # holds at the opening zoom; Venus, large and rayed, straight above it.
+    ix, iy, ir = mx, my - 11, 34
+    outer = [(mx + mr * math.cos(a), my + mr * math.sin(a)) for a in (math.radians(t) for t in range(-10, 191, 3))]
+    outer = [p for p in outer if math.dist(p, (ix, iy)) >= ir]
+    inner = [(ix + ir * math.cos(a), iy + ir * math.sin(a)) for a in (math.radians(t) for t in range(180, -1, -3))]
+    inner = [p for p in inner if math.dist(p, (mx, my)) <= mr]
+    moon = poly(*outer, *inner)
+    d.shape(moon, w=2.0)
+    d.hatch(moon, angle=60, pitch=1.6, w=0.6)
+    star(d, mx, 26, 3.4, rays=13.0, w=1.5)
+    # The last of the light along the horizon, and the first stars.
+    d.line("M40,146 l56,0 M196,146 l58,0 M70,139 l34,0 M190,139 l30,0 M24,152 l40,0 M226,152 l44,0", w=0.9)
+    scatter(d, 16, (8, 6, 280, 128), seed=81, avoid=[(mx, 26, 24), (mx, my, 46)], fade=0.6)
+    # The western mountains low and dark against it, hatched all over, thinning out at both ends.
+    rnd = random.Random(82)
+    base, ridge = 160, []
+    for x in range(20, 270, 2):
+        e = _edge(x, 20, 270)
+        hgt = (1 - e ** 1.6) * (8 + 4 * math.sin(x / 13 + 2) + 3 * math.sin(x / 5.6 + 1) + 2 * math.sin(x / 31))
+        ridge.append((x, base - max(0.0, hgt + rnd.uniform(-.4, .4))))
+    d.line(_pl(ridge[8:-8]), w=0.9)
+    d.line(dashed(ridge[:9], 1, 1) + " " + dashed(ridge[-9:], 1, 1), w=0.5)
+    d.hatch(poly(*ridge, (270, base + 1), (20, base + 1)), angle=78, pitch=1.0, w=0.5)
+    plain(d, 10, 280, base + 1, seed=83, w=0.6, rows=0)
+    # The brothers behind, driving the loose horses north across the plain.
+    for x, y, k, coat, head in ((240, 194, 0.32, "dun", 4), (202, 197, 0.35, "bay", -6), (166, 193, 0.32, "paint", 8)):
+        mustang(d, x, y, k, flip=True, coat=coat, head=head)
+    vaquero(d, 122, 196, 0.38, flip=True, coat="bay")
+    vaquero(d, 80, 194, 0.35, flip=True, coat="dun")
+    plain(d, 8, 282, 198, seed=84, rows=2)
+    tufts(d, 40, 260, 199, 7, seed=85, h=3.5, spread=6)
+    return d
+
+
 LARGE = {
     "large-she-wolf": she_wolf,
     "large-riders-in-the-sierra": riders_in_the_sierra,
@@ -777,6 +919,8 @@ LARGE = {
     "large-horse-herd": horse_herd,
     "large-lone-rider": lone_rider,
     "large-ruined-church": ruined_church,
+    "large-cassiopeia": cassiopeia,
+    "large-horned-moon": horned_moon,
 }
 
 

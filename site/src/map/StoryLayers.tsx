@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Layer, Marker, Source, useMap } from '@vis.gl/react-maplibre'
 import type { CircleLayerSpecification, ExpressionSpecification } from 'maplibre-gl'
 import type { Feature, FeatureCollection, Geometry, Point } from 'geojson'
@@ -9,6 +9,32 @@ import { corridor, midpoint } from './corridor'
 import { areaOfStop, pinsApart } from '../story/select'
 import { prefersReducedMotion } from './setup'
 import { dashInWidths, fonts, journeyInks, OUT_OF_FOCUS_WIDTH, palette as tokens, QUIET_OPACITY, routeLines, textPx, typeScale } from './tokens'
+import { DETAIL_FROM } from './largeArt'
+
+// Below this zoom the journey's stops draw on the map itself, as numbered rings, instead of as the HTML badges
+// that sit above every map layer: the region names and the title (regionNames.ts, largeArt.ts) can then letter over
+// them while the opening view lasts. The badges take over as the names fade (decision 0082).
+const STOPS_ON_MAP_UNTIL = 7.5
+export const STOP_DOTS = 'stop-dots'
+
+function useZoomBelow(zoom: number): boolean {
+  const { current: mapRef } = useMap()
+  const [below, setBelow] = useState(() => {
+    const map = mapRef?.getMap()
+    return map ? map.getZoom() < zoom : false
+  })
+  useEffect(() => {
+    const map = mapRef?.getMap()
+    if (!map) return
+    const update = () => setBelow(map.getZoom() < zoom)
+    update()
+    map.on('zoom', update)
+    return () => {
+      map.off('zoom', update)
+    }
+  }, [mapRef, zoom])
+  return below
+}
 
 // Talk on the road: the route segment a picked line was spoken on, and its label ("on the road between X and Y").
 export type Corridor = { segment: Feature<Geometry, StoryProps>; label: string }
@@ -101,7 +127,11 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
     if (!map) return
     const lift = () => {
       const ids = (map.getStyle()?.layers ?? []).map((l) => l.id)
-      if (ids.includes('vignette-label') && ids.at(-1) !== 'vignette-label') map.moveLayer('vignette-label')
+      // At low zoom the larger lettering comes first: the region names and the title (largeArt.ts, regionNames.ts)
+      // draw over the stops, glyphs and captions, which they never push aside, and as they fade out on zooming in
+      // the stops take over (decision 0082).
+      const top = ['vignette-label', 'region-names', 'large-title'].filter((id) => ids.includes(id))
+      if (ids.slice(-top.length).join() !== top.join()) for (const id of top) map.moveLayer(id)
       const areas = ids.indexOf('areas-selected')
       const above = ids.slice(areas + 1).find((id) => id !== 'vignette')
       if (areas >= 0 && above && ids.includes('vignette') && ids[areas + 1] !== 'vignette') map.moveLayer('vignette', above)
@@ -124,6 +154,17 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
     return [...groups.values()]
   }, [stops])
   const clusters = useZoneClusters(zoneIds)
+  const zoomedOut = useZoomBelow(STOPS_ON_MAP_UNTIL)
+  // One ring per stop, numbered as the badges are; the current stop is filled and drawn last, the stops behind it
+  // are paler. Where rings crowd, only the numbers that fit show.
+  const stopDots = useMemo((): FeatureCollection<Point> => ({
+    type: 'FeatureCollection',
+    features: stops.map((f, i) => ({
+      type: 'Feature',
+      geometry: f.geometry,
+      properties: { id: f.properties.id, first_seen: f.properties.first_seen, index: i, n: String(i + 1), state: i === stopIndex ? 'current' : i < stopIndex ? 'visited' : 'ahead' },
+    })),
+  }), [stops, stopIndex])
   const corridorData = useMemo((): FeatureCollection | null => {
     if (!road) return null
     const area = corridor(road.segment.geometry)
@@ -165,7 +206,9 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
   const routeWidth = (width: number): ExpressionSpecification => ['case', inFocus, width, width * OUT_OF_FOCUS_WIDTH]
   const { traced, modeled, curve } = routeLines
 
-  // The place layers, drawn alike from the places source and from the loose points of the clustered one.
+  // The place layers, drawn alike from the places source and from the loose points of the clustered one. They show
+  // from DETAIL_FROM: further out the large drawings, title and region names have the map, and the journeys' own
+  // stops are the only points (decision 0082). A selected place's ring shows at any zoom.
   // An array, not a fragment: the Source gives its id to each of its direct children.
   const placeLayers = (prefix: string, only?: ExpressionSpecification) => {
     const and = (f: ExpressionSpecification): ExpressionSpecification => (only ? ['all', only, f] : f)
@@ -181,14 +224,15 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
       'circle-stroke-opacity': ['match', ['get', 'role'], 'tale', 0, 1],
     }
     return [
-      <Layer key="point" id={`${prefix}-point`} type="circle" filter={and(['!', apart])} paint={pointPaint} />,
+      <Layer key="point" id={`${prefix}-point`} type="circle" minzoom={DETAIL_FROM} filter={and(['!', apart])} paint={pointPaint} />,
       // Pins apart from their stops look the same, on a layer MapView does not make clickable.
-      <Layer key="apart" id={`${prefix}-apart`} type="circle" filter={and(apart)} paint={pointPaint} />,
+      <Layer key="apart" id={`${prefix}-apart`} type="circle" minzoom={DETAIL_FROM} filter={and(apart)} paint={pointPaint} />,
       // Places in the tales told to Billy: a hollow diamond (TALE_ICON), told rather than travelled.
       <Layer
         key="tale"
         id={`${prefix}-tale`}
         type="symbol"
+        minzoom={DETAIL_FROM}
         filter={and(['==', ['get', 'role'], 'tale'])}
         layout={{ 'icon-image': TALE_ICON, 'icon-allow-overlap': true, 'icon-ignore-placement': true }}
       />,
@@ -203,6 +247,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
         key="label"
         id={`${prefix}-label`}
         type="symbol"
+        minzoom={DETAIL_FROM}
         {...(only ? { filter: only } : {})}
         layout={{
           // Towns the book never names are labelled only from zoom 9.
@@ -402,6 +447,38 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           <Layer key="stops" id={ZONE_STOPS} type="circle" filter={['==', ['get', 'cat'], 'stop']} paint={{ 'circle-radius': 1, 'circle-opacity': 0 }} />,
         ]}
       </Source>
+      <Source id={STOP_DOTS} type="geojson" data={stopDots}>
+        <Layer
+          id={STOP_DOTS}
+          type="circle"
+          maxzoom={STOPS_ON_MAP_UNTIL}
+          layout={{ 'circle-sort-key': ['match', ['get', 'state'], 'current', 2, 'ahead', 1, 0] }}
+          paint={{
+            'circle-radius': ['match', ['get', 'state'], 'current', 10, 8],
+            'circle-color': ['match', ['get', 'state'], 'current', tokens.ink, tokens.paper],
+            'circle-stroke-color': journeyInk[journey] ?? tokens.ink,
+            'circle-stroke-width': 1.5,
+            'circle-opacity': ['match', ['get', 'state'], 'visited', 0.55, 1],
+            'circle-stroke-opacity': ['match', ['get', 'state'], 'visited', 0.55, 1],
+          }}
+        />
+        <Layer
+          id={`${STOP_DOTS}-number`}
+          type="symbol"
+          maxzoom={STOPS_ON_MAP_UNTIL}
+          layout={{
+            'text-field': ['get', 'n'],
+            'text-font': [fonts.roman],
+            'text-size': ['match', ['get', 'state'], 'current', 12, 10],
+            'symbol-sort-key': ['match', ['get', 'state'], 'current', 0, 'ahead', 1, 2],
+            'text-padding': 0,
+          }}
+          paint={{
+            'text-color': ['match', ['get', 'state'], 'current', tokens.paper, tokens.ink],
+            'text-opacity': ['match', ['get', 'state'], 'visited', 0.55, 1],
+          }}
+        />
+      </Source>
       {corridorData && (
         <Source id="corridor" type="geojson" data={corridorData}>
           <Layer id="corridor-fill" type="fill" filter={['==', ['get', 'part'], 'area']} paint={{ 'fill-color': tokens.ink, 'fill-opacity': 0.08 }} />
@@ -421,7 +498,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           />
         </Source>
       )}
-      {clusters?.clusters.map((c) => (
+      {!zoomedOut && clusters?.clusters.map((c) => (
         <Marker key={c.id} longitude={c.lon} latitude={c.lat}>
           {/* In the tab order, unlike the stop markers (the panel's stop list stands in for those): only a
               cluster's own button opens it from the keyboard. */}
@@ -441,7 +518,7 @@ export function StoryLayers({ story, stops, stopIndex, onSelectStop, halo, selec
           </button>
         </Marker>
       ))}
-      {stopGroups.map((group) => {
+      {!zoomedOut && stopGroups.map((group) => {
         const shown = group.filter((i) => !clusters?.clustered.has(stops[i].properties.id))
         if (shown.length === 0) return null
         const [lon, lat] = stops[shown[0]].geometry.coordinates

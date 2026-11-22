@@ -14,18 +14,19 @@ import { MapFrame } from './MapFrame'
 import { MapControls } from './MapControls'
 import type { Basemap, CompareWith, Ground, View } from './mode'
 import { OverviewInset } from './OverviewInset'
-import { StoryLayers, type Corridor } from './StoryLayers'
+import { STOP_DOTS, StoryLayers, type Corridor } from './StoryLayers'
 import { WaterMarks } from './WaterMarks'
 import { contourText, glyphText, LANDCOVER_ARCHIVE, landcoverLayers, OBLIQUE_BOUNDS, OBLIQUE_MIN_ZOOM, obliqueLayers } from './relief'
 import { closeAttribution, dataBase, exposeForScripts, fontsBase, isPhone, motion, TERRAIN_EXAGGERATION, tilesBase } from './setup'
 import { baseLayerIds, fewerLabels, literaryStyle, notObliqueIds } from './style'
 import { inkPatterns, RATIO as INK_RATIO } from './landcoverInk'
-import { palette, storyBounds } from './tokens'
+import { palette } from './tokens'
 import { layerFilterUpTo, PROGRESS_LAYERS, styleUpTo } from '../spoiler/filter'
 import type { MapPick } from '../story/select'
 import type { Units } from '../units'
 import { usePhone } from '../panel/usePhone'
 import { useOtherReading } from './otherReading'
+import { DETAIL_FROM, OPENING_BOUNDS } from './largeArt'
 
 // Loaded only when the reader first leaves the literary basemap.
 const SatelliteMap = lazy(() => import('./SatelliteMap'))
@@ -120,6 +121,10 @@ export function MapView(props: Props) {
   const onKeyOpen = useCallback((open: boolean) => setOpened((o) => (open ? 'key' : o === 'key' ? null : o)), [])
   const tintAvailable = basemap === 'literary' && view !== 'oblique' && !unavailable
   const landcoverAvailable = basemap === 'literary'
+  // Below DETAIL_FROM the large drawings and title have the map, and the land cover waits (decision 0082). The
+  // reader's choice is kept: the switch shows paper there, and land cover comes back on zooming in.
+  const [closeEnough, setCloseEnough] = useState(false)
+  const landcoverNow = landcoverAvailable && (closeEnough || view === 'oblique')
   const wash = ground === 'tint' && tintAvailable
   const landcover = ground === 'landcover' && landcoverAvailable
   const phone = usePhone()
@@ -134,6 +139,18 @@ export function MapView(props: Props) {
   // Set once the style first loads. map.isStyleLoaded() is not a substitute: it is false again whenever
   // tiles are loading, and 'load' fires only once.
   const [loaded, setLoaded] = useState(false)
+  // Whether the map is in close enough for the land cover. React skips the render when the answer is unchanged, so
+  // only crossing DETAIL_FROM costs one.
+  useEffect(() => {
+    const map = mapRef.current?.getMap()
+    if (!map || !loaded) return
+    const check = () => setCloseEnough(map.getZoom() >= DETAIL_FROM)
+    check()
+    map.on('zoom', check)
+    return () => {
+      map.off('zoom', check)
+    }
+  }, [mapRef, loaded])
   useOtherReading(mapRef, loaded, story)
   // A new attribution control (new credits) opens itself, as the first one does on load.
   const creditKey = credits.join('|')
@@ -308,7 +325,7 @@ export function MapView(props: Props) {
           ref={mapRef}
           mapLib={maplibregl}
           mapStyle={style}
-          initialViewState={{ bounds: storyBounds, fitBoundsOptions: { padding: 24 } }}
+          initialViewState={{ bounds: OPENING_BOUNDS, fitBoundsOptions: { padding: 24 } }}
           minZoom={MIN_ZOOM}
           maxZoom={13}
           dragRotate={false}
@@ -316,8 +333,11 @@ export function MapView(props: Props) {
           locale={{ 'Map.Title': 'Map. Arrow keys pan, plus and minus zoom', 'AttributionControl.ToggleAttribution': 'Show or hide the map credits' }}
           hash="map"
           attributionControl={false}
-          interactiveLayerIds={Object.keys(CLICKABLE)}
+          interactiveLayerIds={[STOP_DOTS, ...Object.keys(CLICKABLE)]}
           onClick={(e) => {
+            // Below zoom 7.5 the stops are rings on the map (StoryLayers): a click on one steps to it.
+            const dot = e.features?.find((f) => f.layer.id === STOP_DOTS)
+            if (dot) return onSelectStop(Number(dot.properties.index))
             const picks = (e.features ?? []).map((f) => {
               const p = f.properties as StoryProps
               return { layer: CLICKABLE[f.layer.id], id: p.id, journey: p.journey ?? null, sequence: p.sequence ?? null, edge: EDGES.has(f.layer.id) }
@@ -373,6 +393,7 @@ export function MapView(props: Props) {
         ground={ground}
         tintAvailable={tintAvailable}
         landcoverAvailable={landcoverAvailable}
+        landcoverZoomedOut={landcoverAvailable && !landcoverNow}
         onGround={setGround}
         units={units}
         onUnits={onUnits}
@@ -403,7 +424,7 @@ export function MapView(props: Props) {
           </div>
         </div>
         {(basemap === 'literary' || basemap === 'compare') && (
-          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} units={units} phone={phone} open={opened === 'key'} onOpen={onKeyOpen} landcover={landcover} allJourneys={allJourneys} onAllJourneys={setAllJourneys} />
+          <LayerKey story={story} journey={stops[0]?.properties.journey ?? ''} reached={reached} units={units} phone={phone} open={opened === 'key'} onOpen={onKeyOpen} landcover={landcover && landcoverNow} allJourneys={allJourneys} onAllJourneys={setAllJourneys} />
         )}
       </div>
     </div>
