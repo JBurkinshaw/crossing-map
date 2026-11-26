@@ -7,7 +7,7 @@ export const repoUrl = (path: string) => `${REPO_URL}/tree/${facts.commit}/${pat
 
 // The Tally form readers send corrections and better translations through (decision 0044): the id in its share
 // link, tally.so/r/<id>. While it is empty, every link to the form hides.
-export const FEEDBACK_FORM = ''
+export const FEEDBACK_FORM = '8Nxqrx'
 
 // What a link fills into the form's hidden fields, so a suggestion arrives naming what it is about.
 type Feedback =
