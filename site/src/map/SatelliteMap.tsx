@@ -55,6 +55,8 @@ export default function SatelliteMap({ literary, hidden, topo, terrain, onUnavai
       return
     }
     maptilersdk.config.apiKey = key
+    // The SDK's own usage reports to MapTiler (its version, the key, which features are on) are not needed here.
+    maptilersdk.config.telemetry = false
     const sat = new maptilersdk.Map({
       container: container.current,
       style: styleOf(shownTopo.current),

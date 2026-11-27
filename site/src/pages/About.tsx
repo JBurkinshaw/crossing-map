@@ -1,3 +1,4 @@
+import { COUNTING } from '../analytics'
 import { showIntroduction } from '../welcome/showIntroduction'
 import { CERTAINTY_LABEL } from '../panel/certainty'
 import { FEEDBACK_FORM, feedbackUrl, REPO_URL } from './format'
@@ -122,6 +123,13 @@ export function About() {
         <strong>Your place in the book</strong> is saved in your own browser, so the map opens where you left off. It
         never leaves your device.
       </p>
+      {COUNTING && (
+        <p>
+          <strong>Visits are counted</strong> with <a href="https://www.goatcounter.com/">GoatCounter</a>, a
+          privacy-friendly service. It counts which pages and map views are used, but it doesn’t keep your IP address
+          and can’t tell who you are.
+        </p>
+      )}
       {form && (
         <p>
           <strong>Suggestions</strong> sent through{' '}
@@ -137,10 +145,17 @@ export function About() {
         <strong>The details.</strong> Like any website, the services that deliver it see your IP address:{' '}
         <a href="https://pages.github.com/">GitHub Pages</a> for every page{form ? ', ' : ', and '}
         <a href="https://www.maptiler.com/">MapTiler</a> only if you switch to Satellite or Topo
-        {form && ', and Tally only if you open the form'}. <a href="#/about/how-its-built">How it’s built</a> records
-        each of these choices. Privacy policies:{' '}
+        {form && ', and Tally only if you open the form'}.{' '}
+        {COUNTING &&
+          'GoatCounter also records the page you came from, your screen width, browser and country, and keeps its data in Finland and Germany. '}
+        <a href="#/about/how-its-built">How it’s built</a> records each of these choices. Privacy policies:{' '}
         <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub</a>,{' '}
         <a href="https://www.maptiler.com/privacy-policy/">MapTiler</a>
+        {COUNTING && (
+          <>
+            , <a href="https://www.goatcounter.com/help/privacy">GoatCounter</a>
+          </>
+        )}
         {form && (
           <>
             , <a href="https://tally.so/help/privacy-policy">Tally</a>

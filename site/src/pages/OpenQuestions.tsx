@@ -1,3 +1,4 @@
+import { countEvent } from '../analytics'
 import type { OpenQuestion } from '../data/openQuestions'
 import { OpenQuestionNote } from '../panel/OpenQuestions'
 import { feedbackUrl } from './format'
@@ -28,7 +29,7 @@ export function OpenQuestions({ questions }: { questions: OpenQuestion[] }) {
         {general && (
           <>
             {' '}
-            <a href={general} target="_blank" rel="noreferrer">
+            <a href={general} target="_blank" rel="noreferrer" onClick={() => countEvent('feedback-general')}>
               Suggest a correction or a new reading
             </a>
             .

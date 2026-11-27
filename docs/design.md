@@ -124,7 +124,7 @@ Every feature has a `source`. Prefer Wikidata, GNIS, GeoNames, and INEGI.
 
 ### 4.1 The shape of the system
 
-A static site, a folder of small GeoJSON files, a few PMTiles archives, and one third-party tile service for satellite. No server, no database, and no API key except MapTiler's public, origin-restricted one.
+A static site, a folder of small GeoJSON files, a few PMTiles archives, and one third-party tile service for satellite. No server, no database, and no API key except MapTiler's public, origin-restricted one. The released site counts visits with GoatCounter, which sets no cookies and is sent pages and view names only, never the reader's place in the book (decision 0083).
 
 ```text
  The owner's machine (private)               GitHub repo                       Browser

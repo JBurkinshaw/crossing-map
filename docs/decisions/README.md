@@ -97,6 +97,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0080 Drawings for the book's themes | accepted |
 | 0081 A large title at the scale of the drawings | accepted; the title restyled by 0082 |
 | 0082 Lettering at low zoom, and the land cover waits | accepted |
+| 0083 Visits counted with GoatCounter, and a Privacy section | accepted |
 
 ## Template
 

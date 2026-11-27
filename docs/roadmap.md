@@ -15,9 +15,8 @@ Tags say who moves each item:
 2. **[owner]** Check the preview, which localhost cannot test: the MapTiler logo, Satellite, Topo, Compare (including in Tilted), and Satellite tint against the key's allowed origins; and a one-handed phone test.
 3. **[owner]** Sign off the stage 4 place checklists (`review/stage-4/batch-a/checklist.md`, `review/stage-4/batch-b/checklist.md`) and tick the acceptance criteria (section 9 below).
 4. **[owner]** A courtesy note to James Bell is optional. (Joe Hazelton gave permission on 2026-11-16, asking only for credit.)
-5. **[owner]** Make the Tally feedback form and put its id in `FEEDBACK_FORM` (`site/src/pages/format.ts`). Until then the suggestion links stay hidden. The fields are in decision 0044: hidden `kind`, `feature`, `name`, `line`, `episode`; then "What should change, and why?", a source, a name for credit, and an email, the last two optional.
-6. **[owner]** Soft launch to a few readers, testing spoiler mode and the inferred places. Send the McCarthy Society a link as a courtesy and offer the data back. Then post on r/cormacmccarthy (draft in `private/launch/reddit-post.md`; it needs the link and two screenshots, vintage and Compare) after reading the self-promotion rules, and reply in the 2024 Gaia-map thread. Log every correction in the changelog with credit.
-7. **[build]** Once the Reddit post is up, link it from the About page as the place to discuss the map, with a note that it may hold spoilers (decision 0044).
+5. **[owner]** Soft launch to a few readers, testing spoiler mode and the inferred places. Send the McCarthy Society a link as a courtesy and offer the data back. Then post on r/cormacmccarthy (draft in `private/launch/reddit-post.md`; it needs the link and two screenshots, vintage and Compare) after reading the self-promotion rules, and reply in the 2024 Gaia-map thread. Log every correction in the changelog with credit.
+6. **[build]** Once the Reddit post is up, link it from the About page as the place to discuss the map, with a note that it may hold spoilers (decision 0044).
 
 ## 2. Decisions pending
 
@@ -28,7 +27,6 @@ These were "open questions" in the build plan; they are project decisions, not q
 - **[decide] Portfolio framing.** Should How it's built carry the owner's name and links, or stay anonymous with a link in the footer?
 - **[decide] Vignette drawing.** Draw or trace them, or commission an illustrator for a consistent set of about 30.
 - **[decide] Relief tool (P2).** Is about $100 for Eduard acceptable if a test on the Peloncillos looks much better?
-- **[decide] Analytics.** Cookie-free (GoatCounter or Cloudflare Web Analytics, no consent banner) or Google Analytics (acceptable, not preferred).
 - **[decide] Spoiler mode.**
   - Almost every mountain glyph is dated 1-01. Is that fine?
   - 21 reasoning texts cite later episodes. Rewrite them, or keep the notice?
@@ -121,7 +119,7 @@ Decisions 0060 to 0062 record what was built. Still open:
   - The 155 vignettes are research-based drawings in the glyphs' pen (section 2, Vignettes).
   - Accessibility leftovers: the drawer handle at full height is out of thumb reach, and there is no keyboard equivalent for hover names. The screen-reader test is in section 2.
 - **Stage 7.** The open items in section 2, then `maxZoom` 15 for street-level places.
-- **Stage 8.** Section 1, the stage 7 calls, street-level places, the declutter, and analytics, each as demand shows.
+- **Stage 8.** Section 1, the stage 7 calls, street-level places, and the declutter, each as demand shows.
 
 ## 4. Modelled routes (built 2026-11-14, decision 0021)
 
@@ -192,7 +190,6 @@ Pick by demand, not in order.
 - **Story mode:** a pinned map with scrolling episodes.
 - **Illustrator vignettes** for the remaining candidates.
 - **Speaker-reviewed translations.**
-- **Analytics** (section 2).
 - **Alternative readings on the map:** where readers disagree, such as the two Sierras de la Madera, draw the other reading faintly and let readers discuss or vote. A first step is built (2026-11-18): an open question can carry a ring for its other reading, shown on request from the card, and a folded "More about this". Only `q-eastern-escarpment` uses it so far. The J1 questions (`q-san-luis-gap`, `q-animas-crossing`, `q-clanton-foster`) are the next candidates.
 - **Clue tests as data, run by one command.** Turn each one-off placement experiment (the escarpment viewshed, the landform position checks) into a small spec in `pipeline/seeds/clue-tests/`: the stop, the clue paraphrased, the episode, a test kind (view, position, distance or time, direction, order) and its parameters. One runner, `crossing.clues`, would run every spec and write the same outputs each time (results, a figure, a one-line verdict), with an input hash so `crossing.validate` can say when a result is stale. The experiment READMEs would follow one template (Question, Clue, Test, Result, Limits, Options, Decision). Worth doing only if outside interest in contributing tests is high. Shelved by the owner on 18 November 2026.
 - **Outside contributions to placement.** Builds on the clue tests: a script that fetches only the open data a spec needs (Copernicus DEM tiles, GNIS, GeoNames, INEGI, Natural Earth) so contributors need neither the book nor `private/`, a pull-request template asking for the spec, its results and the proposed open-question wording, a CI job that reruns a changed spec and attaches its figure, and a short placement playbook for AI agents (the spec format, the rules on the novel's text and open data, never moving a stop). Needs a decision record, since the project merges stage branches without pull requests today. Shelved by the owner on 18 November 2026.

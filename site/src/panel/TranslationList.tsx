@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
+import { countEvent } from '../analytics'
 import { CAMPBELL_CREDIT, CAMPBELL_GUIDE, type Translation } from '../data/translations'
 import { feedbackUrl } from '../pages/format'
 import { episodeLabel } from '../spoiler/progress'
@@ -64,7 +65,12 @@ function Lines({ items, current, marked }: Props & { marked: RefObject<HTMLLIEle
             <div className="en">{t.en ?? 'Translation still to come.'}</div>
             {suggestion(t) && (
               <div className="meta">
-                <a href={suggestion(t) ?? undefined} target="_blank" rel="noreferrer">
+                <a
+                  href={suggestion(t) ?? undefined}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => countEvent('feedback-translation')}
+                >
                   Suggest a better translation
                 </a>
               </div>

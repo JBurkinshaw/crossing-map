@@ -1,5 +1,8 @@
 import facts from 'virtual:site-facts'
+import { countEvent } from '../analytics'
 import { bytes, DATA_URL, layerLabel, REPO_URL } from './format'
+
+const downloaded = () => countEvent('data-download')
 
 const LAYERS: Record<string, string> = {
   places: 'Named places with a known location: stops, places passed, places in tales, and context towns.',
@@ -84,13 +87,13 @@ export function Data() {
                 <td className="num">{l.features.toLocaleString('en')}</td>
                 <td>{l.geometry.join(', ')}</td>
                 <td>
-                  <a href={`${DATA_URL}${l.name}.geojson`} download>
+                  <a href={`${DATA_URL}${l.name}.geojson`} download onClick={downloaded}>
                     {l.name}.geojson
                   </a>{' '}
                   <span className="meta">{bytes(l.geojsonBytes)}</span>
                 </td>
                 <td>
-                  <a href={`${DATA_URL}parquet/${l.name}.parquet`} download>
+                  <a href={`${DATA_URL}parquet/${l.name}.parquet`} download onClick={downloaded}>
                     {l.name}.parquet
                   </a>{' '}
                   <span className="meta">{bytes(l.parquetBytes)}</span>
@@ -104,7 +107,7 @@ export function Data() {
       <ul>
         {facts.files.map((f) => (
           <li key={f.file}>
-            <a href={`${DATA_URL}${f.file}`} download>
+            <a href={`${DATA_URL}${f.file}`} download onClick={downloaded}>
               {f.file}
             </a>{' '}
             <span className="meta">{bytes(f.bytes)}</span>: {FILES[f.file]}

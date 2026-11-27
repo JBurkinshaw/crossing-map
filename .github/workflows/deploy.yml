@@ -147,6 +147,8 @@ jobs:
       - name: Build main at the root
         env:
           TAG: ${{ steps.tiles.outputs.main }}
+          # Only the release counts visits (decision 0083). The site code is public: it is in every count request.
+          VITE_GOATCOUNTER: crossing-map
         run: |
           if [ -f ../main/site/package.json ]; then
             tools/build-site.sh ../main /crossing-map/ _site "$RUNNER_TEMP/tiles/$TAG"

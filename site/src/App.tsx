@@ -1,4 +1,4 @@
-import { lazy, Suspense, useMemo, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { ChunkBoundary } from './ChunkBoundary'
 import type { MapRef } from '@vis.gl/react-maplibre'
 import type { Feature, Geometry } from 'geojson'
@@ -8,6 +8,7 @@ import { useElsewhere, useStory, type StoryProps } from './data/story'
 import { useTranslations, type Translation } from './data/translations'
 import { CORRIDOR_M } from './map/corridor'
 import { MapView } from './map/MapView'
+import { countEvent, countPage } from './analytics'
 import { useMapMode } from './map/mode'
 import type { Corridor } from './map/StoryLayers'
 import { useNavigation } from './navigation'
@@ -38,6 +39,7 @@ const NO_LIST: never[] = []
 
 export default function App() {
   const route = useRoute()
+  useEffect(() => countPage(route), [route])
   const loadedAll = useStory()
   const elsewhereAll = useElsewhere()
   const translationsAll = useTranslations(loadedAll !== null)
@@ -222,7 +224,10 @@ export default function App() {
           units={units}
           questions={questions}
           header={<ProgressBadge progress={progress} isSet={isSet} episodes={episodes} onOpen={() => progressDialog.open('where')} />}
-          search={<SearchBox places={flat?.places.features ?? []} stops={flat?.stops.features ?? []} translations={translations} onPick={nav.onPick} />}
+          search={<SearchBox places={flat?.places.features ?? []} stops={flat?.stops.features ?? []} translations={translations} onPick={(hit) => {
+            countEvent('search-used')
+            nav.onPick(hit)
+          }} />}
           card={card}
           failed={loaded === 'failed'}
           failures={failures}
@@ -247,7 +252,11 @@ export default function App() {
           stopHasArea={!!stopArea}
           onShowArea={() => stopArea && nav.showArea(stopArea.properties.id)}
           readOn={next && progressLabel(next, episodes)}
-          onReadOn={() => next && setProgress(next)}
+          onReadOn={() => {
+            if (!next) return
+            countEvent('read-on')
+            setProgress(next)
+          }}
           currentTranslation={translationId}
           onJourney={nav.onJourney}
           onStop={nav.goToStop}

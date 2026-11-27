@@ -6,6 +6,15 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ## Unreleased
 
+### 2026-11-26
+
+#### Site
+
+- The links to suggest a correction or a better translation are live. They open a short form that needs no account (decision 0044).
+- The About page has a Privacy section: what stays in your browser, what happens to a suggestion, and which services see a request.
+- The released site counts visits with GoatCounter, without cookies or IP addresses. It counts pages and which map views are used, never how far a reader has read (decision 0083).
+- The Satellite and Topo maps no longer send MapTiler the SDK's usage reports.
+
 ### 2026-11-21
 
 #### Site

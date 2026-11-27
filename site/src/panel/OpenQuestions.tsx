@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { requestOtherReading, type OpenQuestion } from '../data/openQuestions'
+import { countEvent } from '../analytics'
 import { feedbackUrl, repoUrl } from '../pages/format'
 
 // One judgement call: what the map shows, the other reading, and why. `feature` is set on cards, where the map
@@ -95,7 +96,7 @@ export function FeatureQuestions({ id, name, questions }: { id: string; name: st
           {mine.length > 0 && <a href="#/open-questions">All open questions</a>}
           {mine.length > 0 && form && ' · '}
           {form && (
-            <a href={form} target="_blank" rel="noreferrer">
+            <a href={form} target="_blank" rel="noreferrer" onClick={() => countEvent('feedback-correction')}>
               Suggest a correction
             </a>
           )}
