@@ -6,6 +6,12 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 ## Unreleased
 
+### 2026-11-27
+
+#### Site
+
+- The site has its own address, <https://thecrossingmap.com/>, with the preview at `/preview/`. Links to the old address on `jburkinshaw.github.io` redirect to it (decision 0003).
+
 ### 2026-11-26
 
 #### Site

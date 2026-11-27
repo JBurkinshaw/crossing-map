@@ -55,7 +55,7 @@ for (const preset of values.presets.split(',')) {
 
 if (values.topo) {
   // One page load, then hash changes: MapTiler counts a session per map, not per view.
-  await page.goto('https://jburkinshaw.github.io/crossing-map/preview/#map=10/31.6/-109.01')
+  await page.goto('https://thecrossingmap.com/preview/#map=10/31.6/-109.01')
   await page.getByRole('button', { name: 'Map options' }).click({ timeout: 30000 })
   await page.getByRole('radio', { name: 'Topo' }).click()
   await page.keyboard.press('Escape')

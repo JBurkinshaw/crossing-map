@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # Build one checkout of the site into an output folder.
 # Usage: tools/build-site.sh <checkout-dir> <base-path> <out-dir> [tiles-dir]
-# Example: tools/build-site.sh . /crossing-map/ _site
+# Example: tools/build-site.sh . / _site
 #
 # Tiles are not in git (decision 0004). With a tiles-dir, its archives are linked into site/public/tiles, so CI
 # downloads each release once for every build that uses it. Without one, the release named in
 # tiles/release.txt is downloaded with `gh` (GH_TOKEN set in CI, or `gh auth login` locally).
 #
-# With VITE_TILES_BASE set (an absolute path such as /crossing-map/tiles/), the site reads its tiles from there
+# With VITE_TILES_BASE set (an absolute path such as /tiles/), the site reads its tiles from there
 # and this build ships none of its own. If the built bundle does not contain that path, the site ignored the
 # variable, so the tiles are copied in after all and a warning is printed.
 set -euo pipefail

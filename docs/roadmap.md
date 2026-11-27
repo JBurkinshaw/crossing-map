@@ -23,7 +23,7 @@ Tags say who moves each item:
 These were "open questions" in the build plan; they are project decisions, not questions about places. Questions about places are in `data/open-questions.json` and [`open-questions.md`](open-questions.md).
 
 - **[owner] Licences.** CC BY 4.0 for the data and notes (decision 0045) and MIT for the code (except the GPL-3.0 hachure folder) are settled; the owner confirmed MIT on 2026-11-18. Left: tick the checklist in `review/licences/README.md`, and decide whether a portfolio link on How it's built keeps the site within MapTiler's non-commercial free plan. [`licensing.md`](licensing.md) explains both licences.
-- **[decide] Name and domain.** "Map Enough" (from the trilogy's last line) or "The Crossing: A Reading Map"; a custom domain or `jburkinshaw.github.io/crossing-map`.
+- **[decide] Name.** "Map Enough" (from the trilogy's last line) or "The Crossing: A Reading Map". The domain is settled: `thecrossingmap.com` (decision 0003).
 - **[decide] Portfolio framing.** Should How it's built carry the owner's name and links, or stay anonymous with a link in the footer?
 - **[decide] Vignette drawing.** Draw or trace them, or commission an illustrator for a consistent set of about 30.
 - **[decide] Relief tool (P2).** Is about $100 for Eduard acceptable if a test on the Peloncillos looks much better?
@@ -175,7 +175,7 @@ Work does not wait for these. Where one is missing, the work builds up to that p
 | Inkscape, `potrace` or `vtracer` | Real vignettes | Missing |
 | QGIS 4 in a micromamba environment, found through `QGIS_ENV` | Hachures (decision 0015) | Installed |
 | DRM-free EPUB in `private/book/` | Episodes, mentions, translations | Present |
-| MapTiler key, as the repository variable `VITE_MAPTILER_KEY` and in `site/.env.local` | Satellite and Topo | Present; restricted to the Pages origin |
+| MapTiler key, as the repository variable `VITE_MAPTILER_KEY` and in `site/.env.local` | Satellite and Topo | Present; restricted to `thecrossingmap.com` and the old `jburkinshaw.github.io` origin |
 
 ## 8. Phase 2 backlog
 

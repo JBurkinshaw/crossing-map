@@ -144,14 +144,27 @@ jobs:
           done
           echo "main=$main_tag" >> "$GITHUB_OUTPUT"
           echo "preview=$preview_tag" >> "$GITHUB_OUTPUT"
+      - name: Work out the base path
+        id: site
+        # The repository variable SITE_URL is the site's public address (decision 0003). Without it, the site is
+        # the project site on github.io, served under /crossing-map/.
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          url=${SITE_URL:-https://jburkinshaw.github.io/crossing-map/}
+          url=${url%/}/
+          base=/${url#*://*/}
+          echo "base=$base" >> "$GITHUB_OUTPUT"
+          echo "Site URL: $url (base path $base)"
       - name: Build main at the root
         env:
           TAG: ${{ steps.tiles.outputs.main }}
+          BASE: ${{ steps.site.outputs.base }}
           # Only the release counts visits (decision 0083). The site code is public: it is in every count request.
           VITE_GOATCOUNTER: crossing-map
         run: |
           if [ -f ../main/site/package.json ]; then
-            tools/build-site.sh ../main /crossing-map/ _site "$RUNNER_TEMP/tiles/$TAG"
+            tools/build-site.sh ../main "$BASE" _site "$RUNNER_TEMP/tiles/$TAG"
           else
             # Before the first stage merges, main has no app to build.
             mkdir -p _site
@@ -161,11 +174,12 @@ jobs:
         if: steps.preview.outputs.branch != ''
         env:
           TAG: ${{ steps.tiles.outputs.preview }}
+          BASE: ${{ steps.site.outputs.base }}
           SAME_TILES: ${{ steps.tiles.outputs.main == steps.tiles.outputs.preview }}
         run: |
           # With the same release as main, the preview reads the root's tiles instead of shipping a second copy.
-          if [ "$SAME_TILES" = true ] && [ -f ../main/site/package.json ]; then export VITE_TILES_BASE=/crossing-map/tiles/; fi
-          tools/build-site.sh ../preview /crossing-map/preview/ _site/preview "$RUNNER_TEMP/tiles/$TAG"
+          if [ "$SAME_TILES" = true ] && [ -f ../main/site/package.json ]; then export VITE_TILES_BASE="${BASE}tiles/"; fi
+          tools/build-site.sh ../preview "${BASE}preview/" _site/preview "$RUNNER_TEMP/tiles/$TAG"
       - name: Keep the site under the Pages size budget
         # Pages publishes at most 1 GB. The budget leaves 10% of that free (decision 0064).
         env:

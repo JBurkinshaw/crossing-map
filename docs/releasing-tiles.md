@@ -69,7 +69,7 @@ Warning: a release is public as soon as it is created.
 
 `.github/workflows/deploy.yml` reads `tiles/release.txt` on `main` and on the preview branch, and downloads each distinct tag once into the runner's temp folder. It passes that folder to `tools/build-site.sh` as its fourth argument, so the build links the archives in instead of downloading them again.
 
-When the preview pins the same tag as `main`, the preview build sets `VITE_TILES_BASE=/crossing-map/tiles/`. The preview then reads the root site's archives and ships none of its own, which halves the tile weight of the Pages artifact.
+When the preview pins the same tag as `main`, the preview build sets `VITE_TILES_BASE` to the root site's `tiles/` folder (`/tiles/` on `thecrossingmap.com`). The preview then reads the root site's archives and ships none of its own, which halves the tile weight of the Pages artifact.
 
 Run locally, `tools/build-site.sh <checkout> <base> <out>` with no fourth argument downloads the pinned release itself with `gh`.
 

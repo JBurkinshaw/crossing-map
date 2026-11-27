@@ -2,7 +2,7 @@
 
 A free, self-hosted reading guide to Cormac McCarthy's *The Crossing*. The site maps every journey in the book on real geodata and marks honestly where the book leaves us guessing.
 
-The preview at <https://jburkinshaw.github.io/crossing-map/preview/> maps the whole book: all four Parts, seven journeys, the Spanish lines and their translations, and the open questions where placing something is a judgement call. The public root, <https://jburkinshaw.github.io/crossing-map/>, still serves an early build of Part I until the work is merged to `main`. Corrections are welcome as [issues](https://github.com/JBurkinshaw/crossing-map/issues); see [`CONTRIBUTING.md`](CONTRIBUTING.md).
+The preview at <https://thecrossingmap.com/preview/> maps the whole book: all four Parts, seven journeys, the Spanish lines and their translations, and the open questions where placing something is a judgement call. The public root, <https://thecrossingmap.com/>, still serves an early build of Part I until the work is merged to `main`. Corrections are welcome as [issues](https://github.com/JBurkinshaw/crossing-map/issues); see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## Documentation
 
