@@ -12,6 +12,9 @@ import type { Translation } from '../data/translations'
 import type { OpenQuestion } from '../data/openQuestions'
 import { OpenQuestions } from './OpenQuestions'
 
+// The title index.html gives the map, read before any page replaces it.
+const MAP_TITLE = document.title
+
 const PAGES: { route: Exclude<Route, '/'>; label: string; title: string }[] = [
   { route: '/about', label: 'About', title: 'About this map' },
   { route: '/about/how-its-built', label: "How it's built", title: "How it's built" },
@@ -46,7 +49,7 @@ export default function Pages({ route, questions, reached, spoilers, stops, spok
     scroller.current?.scrollTo(0, 0)
     heading.current?.focus()
     return () => {
-      document.title = 'The Crossing: a reading map'
+      document.title = MAP_TITLE
     }
   }, [page])
 

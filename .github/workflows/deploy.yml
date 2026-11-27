@@ -157,12 +157,15 @@ jobs:
           url=${SITE_URL:-https://jburkinshaw.github.io/crossing-map/}
           url=${url%/}/
           base=/${url#*://*/}
+          echo "url=$url" >> "$GITHUB_OUTPUT"
           echo "base=$base" >> "$GITHUB_OUTPUT"
           echo "Site URL: $url (base path $base)"
       - name: Build main at the root
         env:
           TAG: ${{ steps.tiles.outputs.main }}
           BASE: ${{ steps.site.outputs.base }}
+          # For the canonical link, the preview image, robots.txt and the sitemap (decision 0084).
+          SITE_URL: ${{ steps.site.outputs.url }}
           # Only the release counts visits (decision 0083). The site code is public: it is in every count request.
           VITE_GOATCOUNTER: crossing-map
         run: |
@@ -178,6 +181,7 @@ jobs:
         env:
           TAG: ${{ steps.tiles.outputs.preview }}
           BASE: ${{ steps.site.outputs.base }}
+          SITE_URL: ${{ steps.site.outputs.url }}
           SAME_TILES: ${{ steps.tiles.outputs.main == steps.tiles.outputs.preview }}
         run: |
           # With the same release as main, the preview reads the root's tiles instead of shipping a second copy.

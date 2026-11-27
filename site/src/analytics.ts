@@ -22,14 +22,23 @@ export type CountedEvent =
   | 'feedback-general'
   | 'data-download'
 
-// The request GoatCounter's own count.js makes, with fewer fields: no page title and no query string. `path` is
-// a route or an event name, never the address bar's hash, which holds the reader's stop and the map's camera.
+// A link the owner shares carries a tag naming where it was posted, such as `?ref=reddit-cm`, and GoatCounter
+// lists the tag as the referrer, as its own count.js does. Only a short word is sent, so a query string cannot carry
+// anything else to GoatCounter.
+function referrer(): string {
+  const ref = new URLSearchParams(window.location.search).get('ref')
+  return ref && /^[\w.-]{1,40}$/.test(ref) ? ref : document.referrer
+}
+
+// The request GoatCounter's own count.js makes, with fewer fields: no page title, and of the query string only the
+// `ref` tag. `path` is a route or an event name, never the address bar's hash, which holds the reader's stop and
+// the map's camera.
 function send(path: Route | CountedEvent, event: boolean) {
   // Automated browsers, such as this project's own tests, are not readers.
   if (!SITE || navigator.webdriver) return
   const fields = new URLSearchParams({ p: path, s: String(window.screen.width) })
   if (event) fields.set('e', 'true')
-  else if (document.referrer) fields.set('r', document.referrer)
+  else if (referrer()) fields.set('r', referrer())
   // Browsers may answer a repeated address from cache.
   fields.set('rnd', Math.random().toString(36).slice(2, 7))
   // Counting must never break the site: some browsers have no sendBeacon, and a blocker may make it throw.

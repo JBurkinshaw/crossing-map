@@ -1,11 +1,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 // A browser at a reader's stop, arriving from a search engine.
-function browser() {
+function browser(search = '') {
   const sendBeacon = vi.fn((_url: string) => true)
   vi.stubGlobal('navigator', { sendBeacon, webdriver: false })
   vi.stubGlobal('document', { referrer: 'https://search.example/' })
-  vi.stubGlobal('window', { screen: { width: 1280 }, location: { hash: '#stop=j1-cloverdale-creek&map=9/31.4/-108.9' } })
+  vi.stubGlobal('window', { screen: { width: 1280 }, location: { search, hash: '#stop=j1-cloverdale-creek&map=9/31.4/-108.9' } })
   return sendBeacon
 }
 
@@ -39,6 +39,24 @@ describe('counting visits', () => {
     expect(Object.fromEntries(page.searchParams)).toMatchObject({ p: '/', s: '1280', r: 'https://search.example/' })
     expect(Object.fromEntries(event.searchParams)).toMatchObject({ p: 'view-oblique', e: 'true' })
     for (const url of [page, event]) expect(url.href).not.toMatch(/stop|map=|cloverdale|%23/)
+  })
+
+  it('sends a shared link\'s ref tag as the referrer, and nothing else from the query string', async () => {
+    vi.stubEnv('VITE_GOATCOUNTER', 'example')
+    const tagged = browser('?ref=reddit-cm&secret=1')
+    const { countPage } = await import('./analytics')
+    countPage('/')
+    const [page] = sent(tagged)
+    expect(page.searchParams.get('r')).toBe('reddit-cm')
+    expect(page.href).not.toContain('secret')
+  })
+
+  it('ignores a ref that is not a short tag', async () => {
+    vi.stubEnv('VITE_GOATCOUNTER', 'example')
+    const sendBeacon = browser('?ref=' + encodeURIComponent('https://evil.example/?x=<script>'))
+    const { countPage } = await import('./analytics')
+    countPage('/')
+    expect(sent(sendBeacon)[0].searchParams.get('r')).toBe('https://search.example/')
   })
 
   it('does not fail in a browser with no sendBeacon, or one that throws', async () => {

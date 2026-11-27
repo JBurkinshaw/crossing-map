@@ -1,6 +1,6 @@
 # 0083. Visits counted with GoatCounter, and a Privacy section
 
-Status: accepted (2026-11-26). Adds to 0005 (the MapTiler SDK's telemetry is turned off).
+Status: accepted (2026-11-26). Adds to 0005 (the MapTiler SDK's telemetry is turned off). Amended by 0084, which sends a shared link's `ref` tag as the referrer.
 Phase: P1 (brought forward from the Phase 2 backlog by the owner)
 
 ## Context
