@@ -124,7 +124,7 @@ Every feature has a `source`. Prefer Wikidata, GNIS, GeoNames, and INEGI.
 
 ### 4.1 The shape of the system
 
-A static site, a folder of small GeoJSON files, a few PMTiles archives, and one third-party tile service for satellite. No server, no database, and no API key except MapTiler's public, origin-restricted one. The released site counts visits with GoatCounter, which sets no cookies and is sent pages and view names only, never the reader's place in the book (decision 0083).
+A static site, a folder of small GeoJSON files, a few PMTiles archives, and one third-party tile service for satellite. No server, no database, and no API key except MapTiler's public, origin-restricted one. Beside the app, the build writes plain HTML pages of the translations for search engines (section 8, decision 0085). The released site counts visits with GoatCounter, which sets no cookies and is sent pages and view names only, never the reader's place in the book (decision 0083).
 
 ```text
  The owner's machine (private)               GitHub repo                       Browser
@@ -296,6 +296,8 @@ The base is Lt. Jim Campbell's [A Translation of Spanish Passages in The Crossin
 
 **Where it was spoken.** Each line points to a stop, place, or area where the text allows. Talk on the road points to a route segment, and the map outlines a corridor 2 km either side of it, labelled "on the road between X and Y". A selected place or stop shows "Spanish here", and a road "Spanish on this road"; a selected line flies to its place. Very common lines ("Sí", "No", "Gracias", "Bueno", "Adiós", "Buenas noches", "Señor", alone) are marked `common` by the pipeline and left out of these lists and the road's count, unless picked in search; "Vámonos" and "Está bien" are kept (decision 0035).
 
+**Static pages.** The build also writes the lines as plain HTML, at `/translations/` and one page per Part, for search engines and for readers without the app (decision 0085). Each line shows its incipit and page, our English, and its guide page. These pages are the one exception to the spoiler rule of section 11: a notice above the first line says they hold spoilers, every episode is folded shut, and the lines are kept out of search-result snippets.
+
 **Search** covers Spanish, English, and place names, accent-insensitive. Any word of a line's Spanish finds it, through the incipit or the line's sorted word list (decision 0047). Search obeys the reading progress ("Se murió" is itself a spoiler). It finds the common lines too. A visible "Search in:" select narrows it to one Part.
 
 ## 9. Interface
@@ -376,7 +378,7 @@ On old maps the empty quarters hold drawings that are not to scale and not quite
 The site is ready to launch when all of these hold. [`roadmap.md`](roadmap.md#9-acceptance-criteria) tracks their status.
 
 - Every feature has `certainty`, `source`, `source_licence`, and `first_seen`.
-- With progress set to any episode, nothing later shows anywhere: map, panel, search, translations, vignettes, pages. An automated test checks it.
+- With progress set to any episode, nothing later shows anywhere: map, panel, search, translations, vignettes, pages. An automated test checks it. The static translation pages are the one exception, behind a spoiler notice and folded episodes (section 8).
 - Every photo, tile set, and dataset has visible attribution where shown and on the Credits page, and the MapTiler logo shows on satellite.
 - No passage of the novel is in the repository or the built site, and Spanish appears only as incipits and sorted word lists.
 - The GeoJSON downloads validate against the schemas and open in QGIS.

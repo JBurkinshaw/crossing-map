@@ -12,6 +12,7 @@ A change is **released** when it is merged to `main`, which the public site serv
 
 - The site has its own address, <https://thecrossingmap.com/>, with the preview at `/preview/`. Links to the old address on `jburkinshaw.github.io` redirect to it (decision 0003).
 - A link to the site shows a picture of the map, with the title and description, on Reddit, in chats and elsewhere. The page's title now names the book, its author and the Spanish translations, and the released site gives search engines a sitemap and a description of the downloadable data (decision 0084).
+- Every Spanish line is listed with its English on plain pages, one per Part, at `/translations/`. Each page opens with a spoiler notice, and every episode is folded shut (decision 0085).
 
 ### 2026-11-26
 

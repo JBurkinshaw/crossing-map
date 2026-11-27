@@ -28,9 +28,7 @@ export type Translation = {
   common: boolean
 }
 
-export const CAMPBELL_GUIDE =
-  'https://d41cfaf2-ac52-4400-a6e1-aaf2dee170dc.filesusr.com/ugd/842cf5_fac7639eeb8e4ed0812f996b15164ccd.pdf'
-export const CAMPBELL_CREDIT = 'Campbell’s guide: Lt. Jim Campbell, cormacmccarthy.com'
+export { CAMPBELL_CREDIT, CAMPBELL_GUIDE } from './campbell'
 
 // Fetched once `enabled` is first true: App holds it back until the story layers have arrived, so the map's own
 // data is not kept waiting behind it.

@@ -99,6 +99,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0082 Lettering at low zoom, and the land cover waits | accepted |
 | 0083 Visits counted with GoatCounter, and a Privacy section | accepted; the `ref` tag added by 0084 |
 | 0084 Search engines and link previews | accepted |
+| 0085 Static pages of the translations, for search engines | accepted |
 
 ## Template
 

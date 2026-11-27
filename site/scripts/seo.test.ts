@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { crawlerFiles, headTags } from './seo.ts'
+import { crawlerFiles, headTags, pageTags } from './seo.ts'
 
 const SITE = 'https://thecrossingmap.com/'
 
@@ -15,6 +15,12 @@ describe('search engine and link preview tags', () => {
     expect(dataset.distribution).toContainEqual(expect.objectContaining({ contentUrl: `${SITE}data/places.geojson` }))
     // The translations' English is not licensed (decision 0047), so the dataset never offers it.
     expect(JSON.stringify(dataset)).not.toContain('translations')
+  })
+
+  it('gives a static page its own canonical address', () => {
+    const html = pageTags('/', SITE, 'translations/part-2/').join('\n')
+    expect(html).toContain('<link rel="canonical" href="https://thecrossingmap.com/translations/part-2/" />')
+    expect(html).not.toContain('ld+json')
   })
 
   it('keeps the preview out of search but gives its links a picture', () => {
@@ -39,6 +45,7 @@ describe('search engine and link preview tags', () => {
     expect(files['robots.txt']).toContain('Sitemap: https://thecrossingmap.com/sitemap.xml')
     expect(files['robots.txt']).not.toMatch(/Disallow/)
     expect(files['sitemap.xml']).toContain('<loc>https://thecrossingmap.com/</loc>')
+    expect(files['sitemap.xml']).toContain('<loc>https://thecrossingmap.com/translations/part-1/</loc>')
     expect(crawlerFiles('/preview/', SITE)).toEqual({})
     expect(crawlerFiles('/', undefined)).toEqual({})
   })

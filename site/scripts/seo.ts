@@ -1,5 +1,6 @@
 import type { Plugin } from 'vite'
 import { LAYERS } from './site-facts.ts'
+import { PATHS, translationPages } from './translation-pages.ts'
 
 // What search engines and link previews read (decision 0084). The deploy workflow passes the site's public address
 // as SITE_URL, and VITE_BASE says which build this is: the release at the root, or the preview under /preview/.
@@ -7,7 +8,8 @@ import { LAYERS } from './site-facts.ts'
 // The release gets a canonical link, og:url, og:image, JSON-LD, robots.txt and sitemap.xml. The preview gets
 // og:url and og:image, so a shared link still shows the picture, and a noindex tag in place of the rest, so search
 // engines list only the release. A build without SITE_URL (the dev server, local and test builds) gets only the
-// preview's noindex where it applies.
+// preview's noindex where it applies. The static translation pages (decision 0085) get the same tags as the app's
+// page, except the JSON-LD, and are written into every build.
 
 const IMAGE = { file: 'og-image.jpg', width: 1200, height: 630, alt: "The Crossing's vintage map of the borderlands" }
 const CC_BY = 'https://creativecommons.org/licenses/by/4.0/'
@@ -50,23 +52,29 @@ function structuredData(site: string) {
 
 const attr = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
 
-export function headTags(base: string, siteUrl: string | undefined): string[] {
+// The tags for the page at `path` under the build's base: '' for the app, or a static page such as 'translations/'.
+export function pageTags(base: string, siteUrl: string | undefined, path: string): string[] {
   const preview = base.endsWith('/preview/')
   const tags = preview ? ['<meta name="robots" content="noindex" />'] : []
   if (!siteUrl) return tags
-  const url = new URL(base, siteUrl).href
-  const image = `${url}${IMAGE.file}`
+  const root = new URL(base, siteUrl).href
+  const url = `${root}${path}`
   tags.push(
     `<meta property="og:url" content="${attr(url)}" />`,
-    `<meta property="og:image" content="${attr(image)}" />`,
+    `<meta property="og:image" content="${attr(`${root}${IMAGE.file}`)}" />`,
     `<meta property="og:image:width" content="${IMAGE.width}" />`,
     `<meta property="og:image:height" content="${IMAGE.height}" />`,
     `<meta property="og:image:alt" content="${attr(IMAGE.alt)}" />`,
   )
-  if (preview) return tags
+  return preview ? tags : [`<link rel="canonical" href="${attr(url)}" />`, ...tags]
+}
+
+export function headTags(base: string, siteUrl: string | undefined): string[] {
+  const tags = pageTags(base, siteUrl, '')
+  if (!siteUrl || base.endsWith('/preview/')) return tags
   // `<` is escaped so no string in the data can close the script element.
-  const json = JSON.stringify(structuredData(url)).replace(/</g, '\\u003c')
-  return [`<link rel="canonical" href="${attr(url)}" />`, ...tags, `<script type="application/ld+json">${json}</script>`]
+  const json = JSON.stringify(structuredData(new URL(base, siteUrl).href)).replace(/</g, '\\u003c')
+  return [...tags, `<script type="application/ld+json">${json}</script>`]
 }
 
 // Only the release's robots.txt counts: crawlers read it at the root of the host. It allows everything, the preview
@@ -79,12 +87,12 @@ export function crawlerFiles(base: string, siteUrl: string | undefined): Record<
     'sitemap.xml':
       '<?xml version="1.0" encoding="UTF-8"?>\n' +
       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-      `  <url><loc>${url}</loc></url>\n` +
+      ['', ...PATHS].map((path) => `  <url><loc>${url}${path}</loc></url>\n`).join('') +
       '</urlset>\n',
   }
 }
 
-export function seo(base: string, siteUrl = process.env.SITE_URL || undefined): Plugin {
+export function seo(base: string, siteUrl = process.env.SITE_URL || undefined, counter = process.env.VITE_GOATCOUNTER || undefined): Plugin {
   return {
     name: 'seo',
     transformIndexHtml: (html) => {
@@ -92,7 +100,8 @@ export function seo(base: string, siteUrl = process.env.SITE_URL || undefined): 
       return tags.length ? html.replace(/\n\s*<\/head>/, `\n${tags.map((t) => `    ${t}\n`).join('')}  </head>`) : html
     },
     generateBundle() {
-      for (const [fileName, source] of Object.entries(crawlerFiles(base, siteUrl))) {
+      const pages = translationPages({ base, head: (path) => pageTags(base, siteUrl, path), counter })
+      for (const [fileName, source] of Object.entries({ ...crawlerFiles(base, siteUrl), ...pages })) {
         this.emitFile({ type: 'asset', fileName, source })
       }
     },

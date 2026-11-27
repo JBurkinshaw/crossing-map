@@ -19,5 +19,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.ts", "scripts/site-facts.ts", "scripts/review-data.ts", "scripts/seo.ts", "scripts/seo.test.ts"]
+  "include": ["vite.config.ts", "scripts/site-facts.ts", "scripts/review-data.ts", "scripts/seo.ts", "scripts/seo.test.ts", "scripts/translation-pages.ts", "scripts/translation-pages.test.ts", "src/data/campbell.ts"]
 }
