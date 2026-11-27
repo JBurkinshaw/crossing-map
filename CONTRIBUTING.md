@@ -39,7 +39,7 @@ uv run --project pipeline python -m crossing.echo_check   # needs the private te
 
 `crossing.echo_check` reports any run of eight words shared with the novel. A match is a prompt to reword, not proof of copying: place names and stock phrases are shared by nature.
 
-The spoiler-leak test has two halves (decision 0054). `npm test` runs the spoiler filters on the data at every reading position. `spoiler-leak.mjs` walks the site through the book once, episode by episode. New screenshots under `review/` are ignored by git: put them in `private/review/` or attach them to a release.
+The spoiler-leak test has two halves (decision 0054). `npm test` runs the spoiler filters on the data at every reading position. `spoiler-leak.mjs` walks the site through the book once, episode by episode. CI runs only `npm test`, so run the walk before a release. New screenshots under `review/` are ignored by git: put them in `private/review/` or attach them to a release.
 
 ## Decisions and documentation
 

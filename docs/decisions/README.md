@@ -68,7 +68,7 @@ Each record has four parts: **Context** (the problem), **Decision** (what we do)
 | 0051 A synopsis for each stop, folded while its episode is read | accepted |
 | 0052 Episodes named by their quoted opening words, and the stop card's two blocks | accepted |
 | 0053 The reader's place in the address and on the device, and "Read on" | accepted |
-| 0054 The spoiler-leak test in two halves: the data at every position, the site in one walk through the book | accepted |
+| 0054 The spoiler-leak test in two halves: the data at every position, the site in one walk through the book | accepted; the CI job paused 2026-11-27 |
 | 0055 The vintage map's text a fifth larger, and the credits kept clear of the cartouche | accepted |
 | 0056 The head of a draw, and the gap through a range, for the she-wolf's journey | accepted; amended by 0078 |
 | 0057 Stop rows checked against the book while writing the synopses | accepted |

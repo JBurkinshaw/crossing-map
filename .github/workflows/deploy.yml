@@ -50,6 +50,9 @@ jobs:
   # The pushed commit, built with the map handle (VITE_DEBUG=1) and served locally, must show nothing past each
   # reading position (tools/spoiler-leak.mjs).
   spoiler-leak:
+    # Paused (decision 0054): run tools/spoiler-leak.mjs locally before a release. Remove this line to run it again,
+    # and add it back to the needs of `build`.
+    if: false
     runs-on: ubuntu-latest
     # The walk took 20 to 26 minutes on the runner by November 2026, and grows with the map.
     timeout-minutes: 45
@@ -101,7 +104,7 @@ jobs:
           cd tools && node spoiler-leak.mjs http://localhost:5185/
 
   build:
-    needs: [check, spoiler-leak]
+    needs: check
     runs-on: ubuntu-latest
     env:
       # Public by design: the key ships in the browser bundle and MapTiler restricts it by origin.

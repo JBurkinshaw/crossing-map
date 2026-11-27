@@ -1,6 +1,6 @@
 # 0054. The spoiler-leak test in two halves: the data at every position, the site in one walk through the book
 
-Status: accepted (2026-11-17)
+Status: accepted (2026-11-17). The CI job paused again on 2026-11-27 (amendment below).
 Phase: P1
 
 ## Context
@@ -48,3 +48,7 @@ Every base-map layer is hidden by one filter, `layerFilterUpTo` in `site/src/spo
 
   The walk takes about 40% less time than the four positions did in CI, not the eight-fold cut measured on the owner's machine: CI's runners draw the map more slowly. The job runs beside `check`, so it adds about 7 to 11 minutes to a deploy.
 - `@maplibre/maplibre-gl-style-spec`, which `maplibre-gl` already installs, is now a direct development dependency of the site, pinned to the same version.
+
+## Amendment, 2026-11-27: the CI job paused
+
+The owner paused the CI job again, because the walk took about 25 minutes of every deploy. The job stays in `.github/workflows/deploy.yml` with `if: false`, and `build` no longer waits for it. The data half still runs in CI with `npm test`. The walk runs locally before a release (`CONTRIBUTING.md`).
