@@ -1,8 +1,9 @@
 import { showIntroduction } from '../welcome/showIntroduction'
 import { CERTAINTY_LABEL } from '../panel/certainty'
-import { FEEDBACK_FORM, REPO_URL } from './format'
+import { FEEDBACK_FORM, feedbackUrl, REPO_URL } from './format'
 
 export function About() {
+  const form = feedbackUrl({ kind: 'general' })
   return (
     <>
       {/* The working blurb from docs/design.md (section 1). */}
@@ -114,6 +115,39 @@ export function About() {
           on Gaia GPS, a reader’s own pins for the book’s places.
         </li>
       </ul>
+
+      <h2>Privacy</h2>
+      <p>This site doesn’t track you. It has no accounts and no cookies, and it doesn’t record how far you’ve read.</p>
+      <p>
+        <strong>Your place in the book</strong> is saved in your own browser, so the map opens where you left off. It
+        never leaves your device.
+      </p>
+      {form && (
+        <p>
+          <strong>Suggestions</strong> sent through{' '}
+          <a href={form} target="_blank" rel="noreferrer">
+            the form
+          </a>{' '}
+          go to <a href="https://tally.so/">Tally</a>, which runs it, and on to the site’s author. Your name and email
+          are optional, and are used only to credit you in the{' '}
+          <a href={`${REPO_URL}/blob/main/docs/CHANGELOG.md`}>changelog</a> and to reply. To have a suggestion deleted, ask through the same form.
+        </p>
+      )}
+      <p>
+        <strong>The details.</strong> Like any website, the services that deliver it see your IP address:{' '}
+        <a href="https://pages.github.com/">GitHub Pages</a> for every page{form ? ', ' : ', and '}
+        <a href="https://www.maptiler.com/">MapTiler</a> only if you switch to Satellite or Topo
+        {form && ', and Tally only if you open the form'}. <a href="#/about/how-its-built">How it’s built</a> records
+        each of these choices. Privacy policies:{' '}
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub</a>,{' '}
+        <a href="https://www.maptiler.com/privacy-policy/">MapTiler</a>
+        {form && (
+          <>
+            , <a href="https://tally.so/help/privacy-policy">Tally</a>
+          </>
+        )}
+        .
+      </p>
 
       <h2>More</h2>
       <ul>
